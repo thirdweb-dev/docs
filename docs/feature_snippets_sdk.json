@@ -1,49 +1,49 @@
 {
   "AppURI": [
     {
-      "name": "get",
-      "summary": "Get App URI\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const appURI = await contract.appURI.get(appURI);\nconsole.log(appURI) // \"ipfs://some_ipfs_hash\";"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.contractappuri.get"
-      }
-    },
-    {
       "name": "set",
       "summary": "Set App URI\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const appURI = \"ipfs://some_ipfs_hash\";\nawait contract.appURI.set(appURI);"
+        "javascript": "const appURI = \"ipfs://some_ipfs_hash\";\nawait contract.app.set(appURI);"
       },
       "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.contractappuri.set"
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.promise"
+      }
+    },
+    {
+      "name": "get",
+      "summary": "Get App URI\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const appURI = await contract.app.get();\nconsole.log(appURI) // \"ipfs://some_ipfs_hash\";"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.contractappuri.get"
       }
     }
   ],
   "ContractMetadata": [
     {
-      "name": "get",
-      "summary": "Get App URI\n\n",
-      "remarks": null,
+      "name": "set",
+      "summary": "Set the metadata of this contract\n\n",
+      "remarks": "\n\nOVERWRITE the metadata of a contract\n\n",
       "examples": {
-        "javascript": "const appURI = await contract.appURI.get(appURI);\nconsole.log(appURI) // \"ipfs://some_ipfs_hash\";"
+        "javascript": "await contract.metadata.set({\n  name: \"My Contract\",\n  description: \"My contract description\"\n})"
       },
       "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.contractappuri.get"
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.z.input"
       }
     },
     {
-      "name": "set",
-      "summary": "Set App URI\n\n",
-      "remarks": null,
+      "name": "update",
+      "summary": "Update the metadata of a contract\n\n",
+      "remarks": "\n\nUpdate the metadata of a contract\n\n",
       "examples": {
-        "javascript": "const appURI = \"ipfs://some_ipfs_hash\";\nawait contract.appURI.set(appURI);"
+        "javascript": "await contract.metadata.update({\n  description: \"My new contract description\"\n})"
       },
       "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.contractappuri.set"
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.partial"
       }
     },
     {
@@ -56,31 +56,20 @@
       "reference": {
         "javascript": "https://docs.thirdweb.com/typescript/sdk.contractmetadata.get"
       }
-    },
-    {
-      "name": "set",
-      "summary": "Set the metadata of this contract\n\n",
-      "remarks": "\n\nOVERWRITE the metadata of a contract\n\n",
-      "examples": {
-        "javascript": "await contract.metadata.set({\n  name: \"My Contract\",\n  description: \"My contract description\"\n})"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.contractmetadata.set"
-      }
-    },
-    {
-      "name": "update",
-      "summary": "Update the metadata of a contract\n\n",
-      "remarks": "\n\nUpdate the metadata of a contract\n\n",
-      "examples": {
-        "javascript": "await contract.metadata.update({\n  description: \"My new contract description\"\n})"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.contractmetadata.update"
-      }
     }
   ],
   "Ownable": [
+    {
+      "name": "set",
+      "summary": "Set the new owner of the contract\n\n",
+      "remarks": "\n\nCan only be called by the current owner.\n\n",
+      "examples": {
+        "javascript": "const newOwnerAddress = \"{{wallet_address}}\";\nawait contract.owner.set(newOwnerAddress);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.promise"
+      }
+    },
     {
       "name": "get",
       "summary": "Get the current owner of the contract\n\n",
@@ -91,20 +80,20 @@
       "reference": {
         "javascript": "https://docs.thirdweb.com/typescript/sdk.contractowner.get"
       }
-    },
-    {
-      "name": "set",
-      "summary": "Set the new owner of the contract\n\n",
-      "remarks": "\n\nCan only be called by the current owner.\n\n",
-      "examples": {
-        "javascript": "const newOwnerAddress = \"{{wallet_address}}\";\nawait contract.owner.set(newOwnerAddress);"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.contractowner.set"
-      }
     }
   ],
   "PlatformFee": [
+    {
+      "name": "set",
+      "summary": "Set the platform fee recipient and basis points\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "await contract.platformFee.set({\n  platform_fee_basis_points: 100, // 1% fee\n  platform_fee_recipient: \"0x...\" // the fee recipient\n})"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.promise"
+      }
+    },
     {
       "name": "get",
       "summary": "Get the platform fee recipient and basis points\n\n",
@@ -115,20 +104,20 @@
       "reference": {
         "javascript": "https://docs.thirdweb.com/typescript/sdk.contractplatformfee.get"
       }
-    },
-    {
-      "name": "set",
-      "summary": "Set the platform fee recipient and basis points\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "await contract.platformFee.set({\n  platform_fee_basis_points: 100, // 1% fee\n  platform_fee_recipient: \"0x...\" // the fee recipient\n})"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.contractplatformfee.set"
-      }
     }
   ],
   "PrimarySale": [
+    {
+      "name": "setRecipient",
+      "summary": "Set the primary sale recipient\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "await contract.sales.setRecipient(recipientWalletAddress);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.promise"
+      }
+    },
     {
       "name": "getRecipient",
       "summary": "Get the primary sale recipient\n\n",
@@ -139,31 +128,9 @@
       "reference": {
         "javascript": "https://docs.thirdweb.com/typescript/sdk.contractprimarysale.getrecipient"
       }
-    },
-    {
-      "name": "setRecipient",
-      "summary": "Set the primary sale recipient\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "await contract.sales.setRecipient(recipientWalletAddress);"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.contractprimarysale.setrecipient"
-      }
     }
   ],
   "Permissions": [
-    {
-      "name": "get",
-      "summary": "Get all members of a specific role\n\n",
-      "remarks": "\n\nSee {@link ContractRoles.getAll} to get get a list of addresses for all supported roles on the contract.\n\n",
-      "examples": {
-        "javascript": "const minterAddresses = await contract.roles.get(\"minter\");"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.contractroles.get"
-      }
-    },
     {
       "name": "grant",
       "summary": "Grant a role to a specific address\n\n",
@@ -172,7 +139,7 @@
         "javascript": "await contract.roles.grant(\"minter\", \"{{wallet_address}}\");"
       },
       "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.contractroles.grant"
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.promise"
       }
     },
     {
@@ -183,7 +150,7 @@
         "javascript": "await contract.roles.revoke(\"minter\", \"{{wallet_address}}\");"
       },
       "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.contractroles.revoke"
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.promise"
       }
     },
     {
@@ -194,7 +161,18 @@
         "javascript": "const minterAddresses = await contract.roles.get(\"minter\");\nawait contract.roles.setAll({\n minter: []\n});\nconsole.log(await contract.roles.get(\"minter\")); // No matter what members had the role before, the new list will be set to []"
       },
       "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.contractroles.setall"
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.promise"
+      }
+    },
+    {
+      "name": "get",
+      "summary": "Get all members of a specific role\n\n",
+      "remarks": "\n\nSee {@link ContractRoles.getAll} to get get a list of addresses for all supported roles on the contract.\n\n",
+      "examples": {
+        "javascript": "const minterAddresses = await contract.roles.get(\"minter\");"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.contractroles.get"
       }
     }
   ],
@@ -212,6 +190,28 @@
     }
   ],
   "Royalty": [
+    {
+      "name": "setDefaultRoyaltyInfo",
+      "summary": "Set the royalty recipient and fee\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "await contract.roles.setDefaultRoyaltyInfo({\n  seller_fee_basis_points: 100, // 1% royalty fee\n  fee_recipient: \"0x...\", // the fee recipient\n});"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.promise"
+      }
+    },
+    {
+      "name": "setTokenRoyaltyInfo",
+      "summary": "Set the royalty recipient and fee for a particular token\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const tokenId = 0;\nawait contract.roles.setTokenRoyaltyInfo(tokenId, {\n  seller_fee_basis_points: 100, // 1% royalty fee\n  fee_recipient: \"0x...\", // the fee recipient\n});"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.bignumberish"
+      }
+    },
     {
       "name": "getDefaultRoyaltyInfo",
       "summary": "Get the royalty recipient and fee\n\n",
@@ -232,28 +232,6 @@
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/typescript/sdk.contractroyalty.gettokenroyaltyinfo"
-      }
-    },
-    {
-      "name": "setDefaultRoyaltyInfo",
-      "summary": "Set the royalty recipient and fee\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "await contract.roles.setDefaultRoyaltyInfo({\n  seller_fee_basis_points: 100, // 1% royalty fee\n  fee_recipient: \"0x...\", // the fee recipient\n});"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.contractroyalty.setdefaultroyaltyinfo"
-      }
-    },
-    {
-      "name": "setTokenRoyaltyInfo",
-      "summary": "Set the royalty recipient and fee for a particular token\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const tokenId = 0;\nawait contract.roles.setTokenRoyaltyInfo(tokenId, {\n  seller_fee_basis_points: 100, // 1% royalty fee\n  fee_recipient: \"0x...\", // the fee recipient\n});"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.contractroyalty.settokenroyaltyinfo"
       }
     }
   ],
@@ -489,7 +467,7 @@
         "javascript": "// Custom metadata of the NFTs to create\nconst metadatas = [{\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"), // This can be an image url or file\n}, {\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"),\n}];\n\nconst results = await contract.erc1155.lazyMint(metadatas); // uploads and creates the NFTs on chain\nconst firstTokenId = results[0].id; // token id of the first created NFT\nconst firstNFT = await results[0].data(); // (optional) fetch details of the first created NFT"
       },
       "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.uploadprogressevent"
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.objectinputtype"
       }
     }
   ],
@@ -502,7 +480,7 @@
         "javascript": "// Custom metadata of the NFTs to create\nconst metadatas = [{\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"), // This can be an image url or file\n}, {\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"),\n}];\n\nconst results = await contract.erc1155.lazyMint(metadatas); // uploads and creates the NFTs on chain\nconst firstTokenId = results[0].id; // token id of the first created NFT\nconst firstNFT = await results[0].data(); // (optional) fetch details of the first created NFT"
       },
       "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.uploadprogressevent"
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.objectinputtype"
       }
     }
   ],
@@ -835,7 +813,7 @@
         "javascript": "// Custom metadata of the NFTs to create\nconst metadatas = [{\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"), // This can be an image url or file\n}, {\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"),\n}];\n\nconst results = await contract.erc1155.lazyMint(metadatas); // uploads and creates the NFTs on chain\nconst firstTokenId = results[0].id; // token id of the first created NFT\nconst firstNFT = await results[0].data(); // (optional) fetch details of the first created NFT"
       },
       "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.uploadprogressevent"
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.objectinputtype"
       }
     },
     {
@@ -945,7 +923,7 @@
         "javascript": "// Address of the wallet you want to mint the NFT to\nconst walletAddress = \"{{wallet_address}}\";\n\n// Custom metadata of the NFTs you want to mint.\nconst metadatas = [{\n  name: \"Cool NFT #1\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"), // This can be an image url or file\n}, {\n  name: \"Cool NFT #2\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/other/image.png\"),\n}];\n\nconst tx = await contract.mint.batch.to(walletAddress, metadatas);\nconst receipt = tx[0].receipt; // same transaction receipt for all minted NFTs\nconst firstTokenId = tx[0].id; // token id of the first minted NFT\nconst firstNFT = await tx[0].data(); // (optional) fetch details of the first minted NFT"
       },
       "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.promise"
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.objectinputtype"
       }
     },
     {
@@ -1011,7 +989,7 @@
         "javascript": "// Custom metadata of the NFTs to create\nconst metadatas = [{\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"), // This can be an image url or file\n}, {\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"),\n}];\n\nconst results = await contract.erc721.lazyMint(metadatas); // uploads and creates the NFTs on chain\nconst firstTokenId = results[0].id; // token id of the first created NFT\nconst firstNFT = await results[0].data(); // (optional) fetch details of the first created NFT"
       },
       "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.uploadprogressevent"
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.objectinputtype"
       }
     },
     {
@@ -1033,7 +1011,7 @@
         "javascript": "// Address of the wallet you want to mint the NFT to\nconst walletAddress = \"{{wallet_address}}\";\n\n// Custom metadata of the NFT, note that you can fully customize this metadata with other properties.\nconst metadata = {\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"), // This can be an image url or file\n};\n\nconst tx = await contract.nft.mint.to(walletAddress, metadata);\nconst receipt = tx.receipt; // the transaction receipt\nconst tokenId = tx.id; // the id of the NFT minted\nconst nft = await tx.data(); // (optional) fetch details of minted NFT"
       },
       "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.promise"
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.objectinputtype"
       }
     },
     {
@@ -1052,10 +1030,10 @@
       "summary": "Revoke approval of a buyer for a reserved direct listing\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "// The listing ID of the direct listing you want approve buyer for\nconst listingId = \"0\";\n\nawait contract.directListings.revokeBuyerApprovalForReservedListing(listingId, \"{{wallet_address}}\");"
+        "javascript": "// The listing ID of the direct listing you want to approve buyer for\nconst listingId = \"0\";\n\nawait contract.directListings.revokeBuyerApprovalForReservedListing(listingId, \"{{wallet_address}}\");"
       },
       "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3directlistings.revokebuyerapprovalforreservedlisting"
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.bignumberish"
       }
     }
   ],
@@ -1692,7 +1670,7 @@
         "javascript": "// Custom metadata of the NFTs to create\nconst metadatas = [{\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"), // This can be an image url or file\n}, {\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"),\n}];\n\nconst results = await contract.erc721.lazyMint(metadatas); // uploads and creates the NFTs on chain\nconst firstTokenId = results[0].id; // token id of the first created NFT\nconst firstNFT = await results[0].data(); // (optional) fetch details of the first created NFT"
       },
       "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.uploadprogressevent"
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.objectinputtype"
       }
     }
   ],
@@ -1705,7 +1683,7 @@
         "javascript": "// Custom metadata of the NFT, note that you can fully customize this metadata with other properties.\nconst metadata = {\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"), // This can be an image url or file\n};\n\nconst tx = await contract.erc721.mint(metadata);\nconst receipt = tx.receipt; // the transaction receipt\nconst tokenId = tx.id; // the id of the NFT minted\nconst nft = await tx.data(); // (optional) fetch details of minted NFT"
       },
       "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.promise"
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.objectinputtype"
       }
     },
     {
@@ -1716,7 +1694,7 @@
         "javascript": "// Address of the wallet you want to mint the NFT to\nconst walletAddress = \"{{wallet_address}}\";\n\n// Custom metadata of the NFT, note that you can fully customize this metadata with other properties.\nconst metadata = {\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"), // This can be an image url or file\n};\n\nconst tx = await contract.erc721.mintTo(walletAddress, metadata);\nconst receipt = tx.receipt; // the transaction receipt\nconst tokenId = tx.id; // the id of the NFT minted\nconst nft = await tx.data(); // (optional) fetch details of minted NFT"
       },
       "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.promise"
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.objectinputtype"
       }
     }
   ],
@@ -1729,7 +1707,7 @@
         "javascript": "// Address of the wallet you want to mint the NFT to\nconst walletAddress = \"{{wallet_address}}\";\n\n// Custom metadata of the NFTs you want to mint.\nconst metadatas = [{\n  name: \"Cool NFT #1\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"), // This can be an image url or file\n}, {\n  name: \"Cool NFT #2\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/other/image.png\"),\n}];\n\nconst tx = await contract.erc721.mintBatchTo(walletAddress, metadatas);\nconst receipt = tx[0].receipt; // same transaction receipt for all minted NFTs\nconst firstTokenId = tx[0].id; // token id of the first minted NFT\nconst firstNFT = await tx[0].data(); // (optional) fetch details of the first minted NFT"
       },
       "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.promise"
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.objectinputtype"
       }
     }
   ],
@@ -1929,10 +1907,10 @@
       "summary": "Approve buyer for a reserved direct listing\n\n",
       "remarks": "\n\nApprove a buyer to buy from a reserved listing.\n\n",
       "examples": {
-        "javascript": "// The listing ID of the direct listing you want approve buyer for\nconst listingId = \"0\";\n\nawait contract.directListings.approveBuyerForReservedListing(listingId, \"{{wallet_address}}\");"
+        "javascript": "// The listing ID of the direct listing you want to approve buyer for\nconst listingId = \"0\";\n\nawait contract.directListings.approveBuyerForReservedListing(listingId, \"{{wallet_address}}\");"
       },
       "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3directlistings.approvebuyerforreservedlisting"
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.bignumberish"
       }
     },
     {
@@ -1940,10 +1918,10 @@
       "summary": "Approve a currency for a direct listing\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "// The listing ID of the direct listing you want approve currency for\nconst listingId = \"0\";\n\nawait contract.directListings.approveCurrencyForListing(listingId, currencyContractAddress, pricePerTokenInCurrency);"
+        "javascript": "// The listing ID of the direct listing you want to approve currency for\nconst listingId = \"0\";\n\nawait contract.directListings.approveCurrencyForListing(listingId, currencyContractAddress, pricePerTokenInCurrency);"
       },
       "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3directlistings.approvecurrencyforlisting"
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.bignumberish"
       }
     },
     {
@@ -1954,7 +1932,7 @@
         "javascript": "// The ID of the listing you want to buy from\nconst listingId = 0;\n// Quantity of the asset you want to buy\nconst quantityDesired = 1;\n\nawait contract.directListings.buyFromListing(listingId, quantityDesired, \"{{wallet_address}}\");"
       },
       "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3directlistings.buyfromlisting"
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.bignumberish"
       }
     },
     {
@@ -1965,7 +1943,7 @@
         "javascript": "// The listing ID of the direct listing you want to cancel\nconst listingId = 0;\n\nawait contract.directListings.cancelListing(listingId);"
       },
       "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3directlistings.cancellisting"
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.bignumberish"
       }
     },
     {
@@ -1976,7 +1954,29 @@
         "javascript": "// Data of the listing you want to create\nconst listing = {\n  // address of the contract the asset you want to list is on\n  assetContractAddress: \"0x...\",\n  // token ID of the asset you want to list\n  tokenId: \"0\",\n  // how many of the asset you want to list\n  quantity: 1,\n  // address of the currency contract that will be used to pay for the listing\n  currencyContractAddress: NATIVE_TOKEN_ADDRESS,\n  // The price to pay per unit of NFTs listed.\n  pricePerToken: 1.5,\n  // when should the listing open up for offers\n  startTimestamp: new Date(Date.now()),\n  // how long the listing will be open for\n  endTimestamp: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000),\n  // Whether the listing is reserved for a specific set of buyers.\n  isReservedListing: false\n}\n\nconst tx = await contract.directListings.createListing(listing);\nconst receipt = tx.receipt; // the transaction receipt\nconst id = tx.id; // the id of the newly created listing"
       },
       "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3directlistings.createlisting"
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.bignumber"
+      }
+    },
+    {
+      "name": "revokeCurrencyApprovalForListing",
+      "summary": "Revoke approval of a currency for a direct listing\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "// The listing ID of the direct listing you want to revoke currency for\nconst listingId = \"0\";\n\nawait contract.directListings.revokeCurrencyApprovalForListing(listingId, currencyContractAddress);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.bignumberish"
+      }
+    },
+    {
+      "name": "updateListing",
+      "summary": "Update a direct listing\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "// Data of the listing you want to update\n\nconst listingId = 0; // ID of the listing you want to update\n\nconst listing = {\n  // address of the contract the asset you want to list is on\n  assetContractAddress: \"0x...\", // should be same as original listing\n  // token ID of the asset you want to list\n  tokenId: \"0\", // should be same as original listing\n  // how many of the asset you want to list\n  quantity: 1,\n  // address of the currency contract that will be used to pay for the listing\n  currencyContractAddress: NATIVE_TOKEN_ADDRESS,\n  // The price to pay per unit of NFTs listed.\n  pricePerToken: 1.5,\n  // when should the listing open up for offers\n  startTimestamp: new Date(Date.now()), // can't change this if listing already active\n  // how long the listing will be open for\n  endTimestamp: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000),\n  // Whether the listing is reserved for a specific set of buyers.\n  isReservedListing: false\n}\n\nconst tx = await contract.directListings.updateListing(listingId, listing);\nconst receipt = tx.receipt; // the transaction receipt\nconst id = tx.id; // the id of the newly created listing"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.bignumberish"
       }
     },
     {
@@ -2003,8 +2003,8 @@
     },
     {
       "name": "getAllValid",
-      "summary": "Get all valid direct listings\n\n@remark A valid listing is where the listing is active, and the creator still owns & has approved Marketplace to transfer the listed NFTs.\n\n",
-      "remarks": null,
+      "summary": "Get all valid direct listings\n\n",
+      "remarks": "\n\nA valid listing is where the listing is active, and the creator still owns & has approved Marketplace to transfer the listed NFTs.\n\n",
       "examples": {
         "javascript": "const listings = await contract.directListings.getAllValid();"
       },
@@ -2044,28 +2044,6 @@
       "reference": {
         "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3directlistings.iscurrencyapprovedforlisting"
       }
-    },
-    {
-      "name": "revokeCurrencyApprovalForListing",
-      "summary": "Revoke approval of a currency for a direct listing\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "// The listing ID of the direct listing you want to revoke currency for\nconst listingId = \"0\";\n\nawait contract.directListings.revokeCurrencyApprovalForListing(listingId, currencyContractAddress);"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3directlistings.revokecurrencyapprovalforlisting"
-      }
-    },
-    {
-      "name": "updateListing",
-      "summary": "Update a direct listing\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "// Data of the listing you want to update\n\nconst listingId = 0; // ID of the listing you want to update\n\nconst listing = {\n  // address of the contract the asset you want to list is on\n  assetContractAddress: \"0x...\", // should be same as original listing\n  // token ID of the asset you want to list\n  tokenId: \"0\", // should be same as original listing\n  // how many of the asset you want to list\n  quantity: 1,\n  // address of the currency contract that will be used to pay for the listing\n  currencyContractAddress: NATIVE_TOKEN_ADDRESS,\n  // The price to pay per unit of NFTs listed.\n  pricePerToken: 1.5,\n  // when should the listing open up for offers\n  startTimestamp: new Date(Date.now()), // can't change this if listing already active\n  // how long the listing will be open for\n  endTimestamp: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000),\n  // Whether the listing is reserved for a specific set of buyers.\n  isReservedListing: false\n}\n\nconst tx = await contract.directListings.updateListing(listingId, listing);\nconst receipt = tx.receipt; // the transaction receipt\nconst id = tx.id; // the id of the newly created listing"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3directlistings.updatelisting"
-      }
     }
   ],
   "EnglishAuctions": [
@@ -2077,7 +2055,7 @@
         "javascript": "// The auction ID you want to buy\nconst auctionId = 0;\n\nawait contract.englishAuctions.buyoutAuction(auctionId);"
       },
       "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3englishauctions.buyoutauction"
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.bignumberish"
       }
     },
     {
@@ -2088,7 +2066,7 @@
         "javascript": "// The ID of the auction you want to cancel\nconst auctionId = \"0\";\n\nawait contract.englishAuctions.cancelAuction(auctionId);"
       },
       "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3englishauctions.cancelauction"
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.bignumberish"
       }
     },
     {
@@ -2099,7 +2077,7 @@
         "javascript": "// The ID of the auction you want to close\nconst auction = \"0\";\nawait contract.englishAuctions.closeAuctionForBidder(auctionId);"
       },
       "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3englishauctions.closeauctionforbidder"
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.bignumberish"
       }
     },
     {
@@ -2110,7 +2088,7 @@
         "javascript": "// The ID of the auction you want to close\nconst auctionId = \"0\";\nawait contract.englishAuctions.closeAuctionForSeller(auctionId);"
       },
       "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3englishauctions.closeauctionforseller"
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.bignumberish"
       }
     },
     {
@@ -2121,7 +2099,7 @@
         "javascript": "// Data of the auction you want to create\nconst auction = {\n  // address of the contract of the asset you want to auction\n  assetContractAddress: \"0x...\",\n  // token ID of the asset you want to auction\n  tokenId: \"0\",\n  // how many of the asset you want to auction\n  quantity: 1,\n  // address of the currency contract that will be used to pay for the auctioned tokens\n  currencyContractAddress: NATIVE_TOKEN_ADDRESS,\n  // the minimum bid that will be accepted for the token\n  minimumBidAmount: \"1.5\",\n  // how much people would have to bid to instantly buy the asset\n  buyoutBidAmount: \"10\",\n  // If a bid is made less than these many seconds before expiration, the expiration time is increased by this.\n  timeBufferInSeconds: \"900\", // 15 minutes by default\n  // A bid must be at least this much bps greater than the current winning bid\n  bidBufferBps: \"500\", // 5% by default\n  // when should the auction open up for bidding\n  startTimestamp: new Date(Date.now()),\n  // end time of auction\n  endTimestamp: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000),\n}\n\nconst tx = await contract.englishAuctions.createAuction(auction);\nconst receipt = tx.receipt; // the transaction receipt\nconst id = tx.id; // the id of the newly created auction"
       },
       "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3englishauctions.createauction"
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.bignumber"
       }
     },
     {
@@ -2132,7 +2110,18 @@
         "javascript": "// The ID of the auction you want to close\nconst auction = \"0\";\nawait contract.englishAuctions.executeSale(auctionId);"
       },
       "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3englishauctions.executesale"
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.bignumberish"
+      }
+    },
+    {
+      "name": "makeBid",
+      "summary": "Bid on an english auction\n\n",
+      "remarks": "\n\nMake a bid on an auction\n\n",
+      "examples": {
+        "javascript": "// The auction ID of the asset you want to bid on\nconst auctionId = 0;\n// The total amount you are willing to bid for auctioned tokens\nconst bidAmount = 1;\n\nawait contract.englishAuctions.makeBid(auctionId, bidAmount);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.bignumberish"
       }
     },
     {
@@ -2233,17 +2222,6 @@
       "reference": {
         "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3englishauctions.iswinningbid"
       }
-    },
-    {
-      "name": "makeBid",
-      "summary": "Bid on an english auction\n\n",
-      "remarks": "\n\nMake a bid on an auction\n\n",
-      "examples": {
-        "javascript": "// The auction ID of the asset you want to bid on\nconst auctionId = 0;\n// The total amount you are willing to bid for auctioned tokens\nconst bidAmount = 1;\n\nawait contract.englishAuctions.makeBid(auctionId, bidAmount);"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3englishauctions.makebid"
-      }
     }
   ],
   "Offers": [
@@ -2255,7 +2233,7 @@
         "javascript": "// The ID of the offer you want to accept\nconst offerId = 0;\n\nawait contract.offers.acceptOffer(offerId);"
       },
       "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3offers.acceptoffer"
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.bignumberish"
       }
     },
     {
@@ -2266,7 +2244,18 @@
         "javascript": "// The ID of the offer you want to cancel\nconst offerId = \"0\";\n\nawait contract.offers.cancelOffer(offerId);"
       },
       "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3offers.canceloffer"
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.bignumberish"
+      }
+    },
+    {
+      "name": "makeOffer",
+      "summary": "Make an offer\n\n",
+      "remarks": "\n\nMake an offer on the marketplace for an asset.\n\n",
+      "examples": {
+        "javascript": "// Data of the offer you want to make\nconst offer = {\n  // address of the contract the asset you want to make an offer for\n  assetContractAddress: \"0x...\",\n  // token ID of the asset you want to buy\n  tokenId: \"0\",\n  // how many of the asset you want to buy\n  quantity: 1,\n  // address of the currency contract that you offer to pay in\n  currencyContractAddress: NATIVE_TOKEN_ADDRESS,\n  // Total price you offer to pay for the mentioned token(s)\n  totalPrice: \"1.5\",\n  // Offer valid until\n  endTimestamp: new Date(),\n}\n\nconst tx = await contract.offers.makeOffer(offer);\nconst receipt = tx.receipt; // the transaction receipt\nconst id = tx.id; // the id of the newly created offer"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.bignumber"
       }
     },
     {
@@ -2311,17 +2300,6 @@
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3offers.gettotalcount"
-      }
-    },
-    {
-      "name": "makeOffer",
-      "summary": "Make an offer\n\n",
-      "remarks": "\n\nMake an offer on the marketplace for an asset.\n\n",
-      "examples": {
-        "javascript": "// Data of the offer you want to make\nconst offer = {\n  // address of the contract the asset you want to make an offer for\n  assetContractAddress: \"0x...\",\n  // token ID of the asset you want to buy\n  tokenId: \"0\",\n  // how many of the asset you want to buy\n  quantity: 1,\n  // address of the currency contract that you offer to pay in\n  currencyContractAddress: NATIVE_TOKEN_ADDRESS,\n  // Total price you offer to pay for the mentioned token(s)\n  totalPrice: \"1.5\",\n  // Offer valid until\n  endTimestamp: new Date(),\n}\n\nconst tx = await contract.offers.makeOffer(offer);\nconst receipt = tx.receipt; // the transaction receipt\nconst id = tx.id; // the id of the newly created offer"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3offers.makeoffer"
       }
     }
   ]

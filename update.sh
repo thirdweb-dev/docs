@@ -2,10 +2,39 @@ git submodule init
 git submodule update --remote
 git submodule foreach git checkout main
 git submodule foreach git pull origin main
+yarn install
+# go into js package and build
+cd ./submodules/js
 pnpm install
+pnpm build
+# generate sdk docs
+cd ./packages/sdk
+# if etc dir does not exist, create it
+if [ ! -d "./etc" ]; then
+  mkdir ./etc
+fi
+pnpm generate-docs
+# generate react docs
+cd ../react
+if [ ! -d "./etc" ]; then
+  mkdir ./etc
+fi
+pnpm generate-docs
+# # generate react-core docs
+cd ../react-core
+if [ ! -d "./etc" ]; then
+  mkdir ./etc
+fi
+pnpm generate-docs
+# # generate storage docs
+cd ../storage
+if [ ! -d "./etc" ]; then
+  mkdir ./etc
+fi
+pnpm generate-docs
 # done with doc creation, back to root
 cd ../../../..
-# yarn make-docs
-# yarn generate-snippets
+yarn make-docs
+yarn generate-snippets
 yarn generate-github-examples
 yarn prettier
