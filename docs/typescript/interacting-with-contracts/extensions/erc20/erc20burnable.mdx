@@ -1,0 +1,93 @@
+---
+title: Burn
+slug: /sdk.erc20burnable
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+# ERC20Burnable
+
+Functionality available for contracts that implement the
+[`IERC20`](/contracts/IERC20) and
+[`IBurnableERC20`](/contracts/IBurnableERC20) interfaces.
+
+Allows you to burn tokens (take them out of circulation).
+
+## burn
+
+Burn tokens held by the **connected wallet**.
+
+```javascript
+// The amount of this token you want to burn
+const amount = 1.2;
+
+const txResult = await contract.erc20.burn(amount);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### amount
+
+The amount of this token you want to burn.
+
+Must be a `string` or a `number`.
+
+```javascript
+const txResult = await contract.erc20.burn(
+  // highlight-next-line
+  1.2, // The amount of tokens to burn (e.g. 1.2)
+);
+```
+
+</div>
+</details>
+
+## burnFrom
+
+Burn tokens held by a specified wallet (requires [`allowance`](/typescript/sdk.erc20#allowanceof)).
+
+```javascript
+// Address of the wallet sending the tokens
+const holderAddress = "{{wallet_address}}";
+
+// The amount of this token you want to burn
+const amount = 1.2;
+
+const txResult = await contract.erc20.burnFrom(holderAddress, amount);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### holder
+
+The address of the wallet holding to burn tokens from.
+
+Must be a `string`.
+
+```javascript
+const txResult = await contract.erc20.burnFrom(
+  // highlight-next-line
+  "{{wallet_address}}", // The address of the wallet holding the tokens to burn
+  1.2, // The amount of tokens to burn (e.g. 1.2)
+);
+```
+
+#### amount
+
+The amount of this token you want to burn.
+
+Must be a `string` or a `number`.
+
+```javascript
+const txResult = await contract.erc20.burnFrom(
+  "{{wallet_address}}", // The address of the wallet holding the tokens to burn
+  // highlight-next-line
+  1.2, // The amount of tokens to burn (e.g. 1.2)
+);
+```
+
+</div>
+</details>
