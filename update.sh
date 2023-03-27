@@ -4,29 +4,12 @@ git submodule foreach git checkout main
 git submodule foreach git pull origin main
 pnpm install
 # go into js package and build
-cd ./submodules/js
-pnpm install
-yarn build
-# generate sdk docs
-cd ./packages/sdk
-mkdir ./etc
-yarn generate-docs
-# generate react docs
-cd ../react
-mkdir ./etc
-yarn generate-docs
-# generate react-core docs
-cd ../react-core
-mkdir ./etc
-yarn generate-docs
-# generate storage docs
-cd ../storage
-mkdir ./etc
-yarn build
-yarn generate-docs
+# cd ./submodules/js
+# pnpm install
+# pnpm build
 # done with doc creation, back to root
-cd ../../../..
+# cd ../../../..
 yarn make-docs
-yarn generate-snippets
+# yarn generate-snippets
 yarn generate-github-examples
 yarn prettier

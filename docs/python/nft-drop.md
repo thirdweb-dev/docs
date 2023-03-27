@@ -14,7 +14,7 @@ displayed_sidebar: python
 ## NFTDrop Objects
 
 ```python
-class NFTDrop(ERC721[DropERC721])
+class NFTDrop(ERC721Standard[DropERC721])
 ```
 
 Setup a collection of one-of-one NFTs that are minted as users claim them.
@@ -206,11 +206,8 @@ List of tx results with ids for created NFTs.
 #### claim_to
 
 ```python
-def claim_to(
-    destination_address: str,
-    quantity: int,
-    proofs: List[str] = [DEFAULT_MERKLE_ROOT]
-) -> List[TxResultWithId[NFTMetadata]]
+def claim_to(destination_address: str,
+             quantity: int) -> List[TxResultWithId[NFTMetadata]]
 ```
 
 Claim NFTs to a destination address.
@@ -240,10 +237,7 @@ List of tx results with ids for claimed NFTs.
 #### claim
 
 ```python
-def claim(
-    quantity: int,
-    proofs: List[str] = [DEFAULT_MERKLE_ROOT]
-) -> List[TxResultWithId[NFTMetadata]]
+def claim(quantity: int) -> List[TxResultWithId[NFTMetadata]]
 ```
 
 Claim NFTs.

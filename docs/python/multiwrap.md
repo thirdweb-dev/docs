@@ -14,7 +14,7 @@ displayed_sidebar: python
 ## Multiwrap Objects
 
 ```python
-class Multiwrap(ERC721[MultiwrapABI])
+class Multiwrap(ERC721Standard[MultiwrapABI])
 ```
 
 Multiwrap lets you wrap any number of ERC20, ERC721, or ERC1155 tokens into

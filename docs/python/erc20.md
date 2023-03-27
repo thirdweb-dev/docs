@@ -25,10 +25,10 @@ class ERC20(BaseContract[TokenERC20])
 def get() -> Currency
 ```
 
-Get the token metadata including name, symbol, decimals, etc.
+Get token metadata
 
 ```python
-token = contract.get()
+token = contract.erc20.get()
 print(token)
 ```
 
@@ -44,10 +44,10 @@ token metadata
 def balance() -> CurrencyValue
 ```
 
-Get the token balance of the connected wallet.
+Get token balance
 
 ```python
-balance = contract.balance()
+balance = contract.erc20.balance()
 print(balance)
 ```
 
@@ -63,11 +63,11 @@ balance of the connected wallet
 def balance_of(address: str) -> CurrencyValue
 ```
 
-Get the balance of the specified wallet
+Get token balance of a specific wallet
 
 ```python
 address = "{{wallet_address}}"
-balance = contract.balance_of(address)
+balance = contract.erc20.balance_of(address)
 print(balance)
 ```
 
@@ -87,7 +87,12 @@ balance of the specified wallet
 def total_supply() -> CurrencyValue
 ```
 
-Get the total minted supply of the token.
+Get the total minted supply
+
+```python
+supply = contract.erc20.total_supply()
+print(supply)
+```
 
 **Returns**:
 
@@ -101,11 +106,12 @@ total minted supply of the token
 def allowance(spender: str) -> CurrencyValue
 ```
 
-Get a specific spenders allowance of this token for the connected wallet.
+Get the allowance of a specific spender
 
 ```python
 spender = "{{wallet_address}}"
-allowance = contract.allowance(spender)
+allowance = contract.erc20.allowance(spender)
+print(allowance)
 ```
 
 **Arguments**:
@@ -124,7 +130,7 @@ allowance of the connected wallet
 def allowance_of(owner: str, spender: str) -> CurrencyValue
 ```
 
-Get the allowance of the specified spender for a specified owner.
+Get the allowance of a spender for a specific owner
 
 ```python
 # Address of the wallet who owns the funds
@@ -133,7 +139,7 @@ address = "{{wallet_address}}"
 # Address of the wallet to check the token allowance
 spender = "0x..."
 
-allowance = contract.allowance_of(address, spender)
+allowance = contract.erc20.allowance_of(address, spender)
 print(allowance)
 ```
 
@@ -154,11 +160,93 @@ allowance of the specified spender for the specified owner
 def is_transfer_restricted() -> bool
 ```
 
-Check whether transfer is restricted for tokens in this module.
+Check whether transfer is restricted for tokens in this module
+
+```python
+is_restricted = contract.erc20.is_transfer_restricted()
+print(is_restricted)
+```
 
 **Returns**:
 
 True if transfer is restricted, False otherwise
+
+<a id="core.classes.erc_20.ERC20.mint"></a>
+
+#### mint
+
+```python
+def mint(amount: Price) -> TxReceipt
+```
+
+Mint tokens
+
+```python
+address = "{{wallet_address}}"
+amount = 100
+
+receipt = contract.erc20.mint(amount)
+```
+
+**Arguments**:
+
+- `amount`: amount of tokens to mint
+
+**Returns**:
+
+transaction receipt of the mint
+
+<a id="core.classes.erc_20.ERC20.mint_to"></a>
+
+#### mint_to
+
+```python
+def mint_to(to: str, amount: Price) -> TxReceipt
+```
+
+Mint tokens to a specific wallet
+
+```python
+address = "{{wallet_address}}"
+amount = 100
+
+receipt = contract.erc20.mint_to(address, amount)
+```
+
+**Arguments**:
+
+- `to`: wallet address to mint tokens to
+- `amount`: amount of tokens to mint
+
+**Returns**:
+
+transaction receipt of the mint
+
+<a id="core.classes.erc_20.ERC20.mint_batch_to"></a>
+
+#### mint_batch_to
+
+```python
+def mint_batch_to(args: List[TokenAmount]) -> TxReceipt
+```
+
+Mint tokens to many wallets
+
+````python
+from thirdweb.types.currency import TokenAmount
+
+args = [
+    TokenAmount("{{wallet_address}}", 1),
+    TokenAmount("{{wallet_address}}", 2),
+]
+
+**Arguments**:
+
+- `args`: list of wallet addresses and amounts to mint
+
+**Returns**:
+
+transaction receipt of the mint
 
 <a id="core.classes.erc_20.ERC20.transfer"></a>
 
@@ -166,9 +254,9 @@ True if transfer is restricted, False otherwise
 
 ```python
 def transfer(to: str, amount: Price) -> TxReceipt
-```
+````
 
-Transfer a specified amount of tokens from the connected wallet to a specified address.
+Transfer tokens
 
 ```python
 # Address to send tokens to
@@ -177,7 +265,7 @@ to = "0x...
 # Amount of tokens to transfer
 amount = 0.1
 
-contract.transfer(to, amount)
+contract.erc20.transfer(to, amount)
 ```
 
 **Arguments**:
@@ -197,7 +285,7 @@ transaction receipt of the transfer
 def transfer_from(fr: str, to: str, amount: Price) -> TxReceipt
 ```
 
-Transfer a specified amount of tokens from one specified address to another.
+Transfer tokens from a specific wallet
 
 ```python
 # Address to send tokens from
@@ -209,7 +297,7 @@ to = "0x..."
 # Amount of tokens to transfer
 amount = 0.1
 
-contract.transfer_from(fr, to, amount)
+contract.erc20.transfer_from(fr, to, amount)
 ```
 
 **Arguments**:
@@ -230,14 +318,12 @@ transaction receipt of the transfer
 def set_allowance(spender: str, amount: Price) -> TxReceipt
 ```
 
-Sets the allowance of the specified wallet over the connected wallets funds to
-
-a specified amount.
+Approve a specific wallet to spend tokens
 
 ```python
 spender = "0x..."
 amount = 100
-contract.set_allowance(spender, amount)
+contract.erc20.set_allowance(spender, amount)
 ```
 
 **Arguments**:
@@ -257,7 +343,7 @@ transaction receipt of the allowance set
 def transfer_batch(args: List[TokenAmount])
 ```
 
-Transfer tokens from the connected wallet to many wallets.
+Transfer tokens to many wallets
 
 ```python
 from thirdweb.types.currency import TokenAmount
@@ -267,7 +353,7 @@ data = [
     TokenAmount("0x...", 0.2),
 ]
 
-contract.transfer_batch(data)
+contract.erc20.transfer_batch(data)
 ```
 
 **Arguments**:
@@ -286,11 +372,11 @@ transaction receipt of the transfers
 def burn(amount: Price) -> TxReceipt
 ```
 
-Burn a specified amount of tokens from the connected wallet.
+Burn tokens
 
 ```python
 amount = 0.1
-contract.burn(amount)
+contract.erc20.burn(amount)
 ```
 
 **Arguments**:
@@ -309,12 +395,12 @@ transaction receipt of the burn
 def burn_from(holder: str, amount: Price) -> TxReceipt
 ```
 
-Burn a specified amount of tokens from a specified wallet.
+Burn tokens from a specific wallet
 
 ```python
 holder = "{{wallet_address}}"
 amount = 0.1
-contract.burn_from(holder, amount)
+contract.erc20.burn_from(holder, amount)
 ```
 
 **Arguments**:
