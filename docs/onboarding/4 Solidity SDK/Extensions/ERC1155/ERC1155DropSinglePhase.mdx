@@ -166,7 +166,9 @@ By combining this extension with [`LazyMint`](/solidity/extensions/lazymint) and
 
 ## Full API reference
 
-### claim
+<details>
+<summary>claim</summary>
+<div>
 
 ```solidity
 function claim(
@@ -189,7 +191,12 @@ function claim(
 - Parameter `allowlistProof`: The proof of the claimer's inclusion in the merkle root allowlist.
 - Parameter `data`: Arbitrary bytes data that can be leveraged in the implementation of this interface.
 
-### setClaimConditions
+</div>
+</details>
+
+<details>
+<summary>setClaimConditions</summary>
+<div>
 
 ```solidity
 struct ClaimCondition {
@@ -223,7 +230,12 @@ function setClaimConditions(
 - Parameter `resetClaimEligibility`: Whether to carry over the restrictions active for wallets that claimed tokens in the incumbent claim condition (e.g. next valid claim timestamp for a given wallet).
 - The `_canSetClaimConditions` function is run on every call to this function. If the return value of `_canSetClaimConditions` is `false`, the `setClaimConditions` call will revert.
 
-### verifyClaim
+</div>
+</details>
+
+<details>
+<summary>verifyClaim</summary>
+<div>
 
 ```solidity
 struct AllowlistProof {
@@ -255,7 +267,12 @@ function verifyClaim(
   - `pricePerToken`: The price per token the allowlisted wallet must pay to claim tokens.
   - `currency`: The currency in which the allowlisted wallet must pay the price for claiming tokens.
 
-### getSupplyClaimedByWallet
+</div>
+</details>
+
+<details>
+<summary>getSupplyClaimedByWallet</summary>
+<div>
 
 ```solidity
 function getSupplyClaimedByWallet(uint256 tokenId, address claimer)
@@ -268,7 +285,12 @@ function getSupplyClaimedByWallet(uint256 tokenId, address claimer)
 - Parameter `tokenId`: The tokenId of the NFTs to claim.
 - Parameter `claimer`: The wallet claiming tokens.
 
-### \_dropMsgSender
+</div>
+</details>
+
+<details>
+<summary>_dropMsgSender</summary>
+<div>
 
 ```solidity
 function _dropMsgSender() internal virtual returns (address);
@@ -276,7 +298,12 @@ function _dropMsgSender() internal virtual returns (address);
 
 - Exposes the ability to override the msg sender.
 
-### \_beforeClaim
+</div>
+</details>
+
+<details>
+<summary>_beforeClaim</summary>
+<div>
 
 ```solidity
 function _beforeClaim(
@@ -299,7 +326,12 @@ function _beforeClaim(
 - Parameter `allowlistProof`: The proof of the claimer's inclusion in the merkle root allowlist.
 - Parameter `data`: Arbitrary bytes data that can be leveraged in the implementation of this interface.
 
-### \_afterClaim
+</div>
+</details>
+
+<details>
+<summary>_afterClaim</summary>
+<div>
 
 ```solidity
 function _afterClaim(
@@ -322,7 +354,12 @@ function _afterClaim(
 - Parameter `allowlistProof`: The proof of the claimer's inclusion in the merkle root allowlist.
 - Parameter `data`: Arbitrary bytes data that can be leveraged in the implementation of this interface.
 
-### \_collectPriceOnClaim
+</div>
+</details>
+
+<details>
+<summary>_collectPriceOnClaim</summary>
+<div>
 
 ```solidity
 function _collectPriceOnClaim(
@@ -339,7 +376,12 @@ function _collectPriceOnClaim(
 - Parameter `currency`: The currency used to pay for the claim.
 - Parameter `pricePerToken`: The price per token to pay for the claim.
 
-### \_transferTokensOnClaim
+</div>
+</details>
+
+<details>
+<summary>_transferTokensOnClaim</summary>
+<div>
 
 ```solidity
 function _transferTokensOnClaim(address to, uint256 tokenId, uint256 quantityBeingClaimed)
@@ -353,7 +395,12 @@ function _transferTokensOnClaim(address to, uint256 tokenId, uint256 quantityBei
 - Parameter `tokenId`: The tokenId of the NFTs being claimed.
 - Parameter `quantityBeingClaimed`: The quantity of NFTs being claimed.
 
-### \_canSetClaimConditions
+</div>
+</details>
+
+<details>
+<summary>_canSetClaimConditions</summary>
+<div>
 
 ```solidity
 function _canSetClaimConditions() internal view virtual returns (bool);
@@ -362,3 +409,6 @@ function _canSetClaimConditions() internal view virtual returns (bool);
 - Runs on every `setClaimConditions` function call.
 - Returns whether the claim condition can be set in the given execution context.
 - For example, this function can check whether the wallet calling `setClaimConditions` is the contract owner, and enforce that only the owner should be able to successfully call `setClaimConditions`.
+
+</div>
+</details>
