@@ -27,6 +27,7 @@ export const iconMapping = {
   "EVM SDK": "/assets/product/sdk.png",
   "Solana SDK": "/assets/product/sdk.png",
   Solana: "/assets/product/sdk.png",
+  "Wallet SDK": "/assets/product/sdk.png",
   GamingKit: "/assets/product/sdk.png",
   CommerceKit: "/assets/product/sdk.png",
   Storage: "/assets/product/storage.png",

@@ -43,6 +43,7 @@ function DocSidebarItems({ items, ...props }) {
           "Explore",
           "EVM SDK",
           "Solana SDK",
+          "Wallet SDK",
           "UI Components",
           "Deploy",
           "Publish",
