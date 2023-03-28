@@ -1,0 +1,44 @@
+---
+slug: /deploy
+title: Deploy
+---
+
+import QuickstartCard from "@components/QuickstartCard";
+
+# Deploy
+Use the [CLI](/cli) to deploy your contracts directly to **Any EVM compatible chain** using the [dashboard](/dashboard).
+
+```bash
+npx thirdweb deploy
+```
+
+Running this command will:
+
+- **Compile** all the contracts in the current directory.
+- Allow you to select which contract(s) you want to deploy.
+- Upload your contract source code (ABI) to IPFS.
+- Open the deploy flow in the [dashboard](https://thirdweb.com/dashboard) for you to select one of
+  our [supported networks](https://blog.thirdweb.com/guides/which-network-should-you-use) to deploy to.
+
+## Published Contracts
+
+Deploy a contract that has been [published](/publish) by passing the author and name of the contract in the form:
+
+[`<author-address>/<contract-name>`](https://thirdweb.com/doubledev.eth/ERC4907)
+
+```bash
+npx thirdweb deploy --name doubledev.eth/ERC4907
+```
+
+## Prebuilt Contracts
+
+Deploy one of our [prebuilt contracts](/pre-built-contracts) by providing the `--name` option.
+
+```bash
+npx thirdweb deploy --name signature-drop
+```
+
+## Upgradeable Contracts
+
+We support deploying upgradeable contracts and the use of [proxy contracts](/glossary/proxy-contracts).
+

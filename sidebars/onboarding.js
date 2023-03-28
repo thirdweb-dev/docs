@@ -46,7 +46,7 @@ const sidebars = {
     {
       type: "doc",
       label: "Deploy",
-      id: "6 3 Deploying your contract",
+      id: "Deploy",
     },
     {
       type: "link",
