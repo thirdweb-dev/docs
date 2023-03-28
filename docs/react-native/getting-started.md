@@ -61,8 +61,7 @@ const AppInner = () => {
 
 ## Interact With Contracts
 
-Connect to your smart contract using the [`useContract`](https://portal.thirdweb.com/sdk/interacting-with-contracts/custom-contracts/getting-a-contract#connect-to-a-contract)
-hook like so:
+Connect to your smart contract using the [`useContract`](/react/react.usecontract) hook like so:
 
 ```jsx title="pages/index.jsx"
 import { useContract } from "@thirdweb-dev/react-native";
@@ -74,7 +73,7 @@ export default function Home() {
 }
 ```
 
-You can then use [`useContractRead`](https://portal.thirdweb.com/sdk/interacting-with-contracts/custom-contracts/using-contracts) and [`useContractWrite`](https://portal.thirdweb.com/sdk/interacting-with-contracts/custom-contracts/using-contracts) to read data and write transactions to the contract.
+You can then use [`useContractRead`](/react/react.usecontractread) and [`useContractWrite`](/react/react.usecontractwrite) to read data and write transactions to the contract.
 
 You pass the `contract` object returned from `useContract` to these hooks as the first parameter and the name of the function (or view/mapping, etc.) on your smart contract as the second parameter. If your function requires parameters, you can pass them as additional arguments.
 
@@ -106,7 +105,7 @@ Each [extension](https://portal.thirdweb.com/extensions) you implement in your s
 
 These hooks make it easy to interact with your smart contracts by implementing the complex logic for you under the hood.
 
-For example, if your smart contract implements [ERC721Supply](https://portal.thirdweb.com/contractkit/interfaces/erc721supply#unlocked-features), you unlock the ability to [view all NFTs](https://portal.thirdweb.com/sdk/interacting-with-contracts/erc721supply#get-all-minted-nfts) on that contract using the SDK; which fetches all of your NFT metadata and the current owner of each NFT in parallel. In the React SDK, that is available using `useNFTs`:
+For example, if your smart contract implements [ERC721Supply](/solidity/extensions/erc721supply#sdk-usage), you unlock the ability to [view all NFTs](https://portal.thirdweb.com/typescript/sdk.erc721supply) on that contract using the SDK; which fetches all of your NFT metadata and the current owner of each NFT in parallel. In the React SDK, that is available using `useNFTs`:
 
 ```jsx
 import { useContract, useNFTs } from "@thirdweb-dev/react-native";
@@ -117,7 +116,7 @@ export default function Home() {
 }
 ```
 
-If we want to mint an NFT and our contract implements [ERC721Mintable](https://portal.thirdweb.com/contractkit/interfaces/erc721mintable#unlocked-features), we can use the [`useMintNFT`](https://portal.thirdweb.com/sdk/interacting-with-contracts/erc721mintable) hook to mint an NFT from the connected wallet; handling all of the logic of uploading and pinning the metadata to IPFS for us behind the scenes.
+If we want to mint an NFT and our contract implements [ERC721Mintable](/solidity/extensions/erc721mintable), we can use the [`useMintNFT`](/react/react.usemintnft) hook to mint an NFT from the connected wallet; handling all of the logic of uploading and pinning the metadata to IPFS for us behind the scenes.
 
 ```jsx
 import { useContract, useNFTs, useMintNFT } from "@thirdweb-dev/react-native";

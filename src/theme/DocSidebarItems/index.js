@@ -39,7 +39,7 @@ function DocSidebarItems({ items, ...props }) {
       items:
         // Tools
         [
-          "ContractKit",
+          "Solidity SDK",
           "Explore",
           "EVM SDK",
           "Solana SDK",
@@ -75,6 +75,7 @@ function DocSidebarItems({ items, ...props }) {
         "Templates",
         "Guides",
         "CLI", // Should we have this here?
+        "Glossary",
       ],
     },
   ];
@@ -91,8 +92,8 @@ function DocSidebarItems({ items, ...props }) {
       return "UI Components";
     }
 
-    if (formatted === "Contractkit") {
-      return "ContractKit";
+    if (formatted === "Solidity SDK") {
+      return "Solidity SDK";
     }
 
     if (formatted === "Gamingkit") {

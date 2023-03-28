@@ -1,0 +1,122 @@
+---
+slug: /solidity/extensions/erc20
+title: ERC20
+---
+
+import ViewContractCodeButton from "@components/ViewContractCodeButton";
+import QuickstartCard from "@components/QuickstartCard";
+
+# ERC20
+
+ERC20 is the standard for representing fungible tokens; where each token is of equal valuable and interchangeable.
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/eip/interface/IERC20.sol"
+  name="IERC20"
+/>
+
+<br/>
+
+:::info
+
+This extension is an interface and requires all of the functions to be implemented
+
+:::
+
+## Usage
+
+This is an example smart contract demonstrating how to inherit from this extension
+ and override the functions to add (optional) custom functionality. 
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@thirdweb-dev/contracts/eip/interface/IERC20.sol";
+
+contract Contract is IERC20 {
+    constructor(
+        string memory _name,
+        string memory _symbol
+    ) {}
+    
+    function totalSupply() external view returns (uint256) {
+      // Your custom implementation here
+    }
+
+    function balanceOf(address who) external view returns (uint256) {
+      // Your custom implementation here
+    }
+
+    function allowance(address owner, address spender) external view returns (uint256) {
+      // Your custom implementation here
+    }
+
+    function transfer(address to, uint256 value) external returns (bool) {
+      // Your custom implementation here
+    }
+
+    function approve(address spender, uint256 value) external returns (bool) {
+      // Your custom implementation here
+    }
+
+    function transferFrom(
+        address from,
+        address to,
+        uint256 value
+    ) external returns (bool); {
+      // Your custom implementation here
+    }
+}
+```
+
+Click here to view an example implementation:
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/openzeppelin-presets/token/ERC20/ERC20.sol"
+  name="ERC20"
+/>
+
+## SDK Usage
+
+By adding this extension to a smart contract, the following features, hooks and functions are unlocked in the SDK:
+
+<div className="row" style={{ marginBottom: 12 }}>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="React"
+      link="/react/react.usebalance"
+      image="/assets/languages/react.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="TypeScript"
+      link="/typescript/sdk.erc20"
+      image="/assets/languages/typescript.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Python"
+      link="/python/erc20"
+      image="/assets/languages/python.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Unity"
+      link="/unity/erc20"
+      image="/assets/languages/unity.webp"
+    />
+  </div>
+</div>
+
+## Base Contracts Implementing This Extension
+
+- [ERC20Base](/solidity/base-contracts/erc20base)
+- [ERC20Drop](/solidity/base-contracts/erc20drop)
+- [ERC20DropVote](/solidity/base-contracts/erc20dropvote)
+- [ERC20SignatureMint](/solidity/base-contracts/erc20signaturemint)
+- [ERC20SignatureMintVote](/solidity/base-contracts/erc20signaturemintvote)
+- [ERC20Vote](/solidity/base-contracts/erc20vote)

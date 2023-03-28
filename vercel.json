@@ -201,7 +201,7 @@
     },
     {
       "source": "/thirdweb-deploy/contract-features/:match*",
-      "destination": "/contractkit/extensions/:match*"
+      "destination": "/solidity/extensions/:match*"
     },
     {
       "source": "/advanced-features/signature-based-minting",
@@ -303,12 +303,12 @@
     },
     {
       "source": "/thirdweb-deploy/features",
-      "destination": "/contractkit",
+      "destination": "/solidity",
       "permanent": true
     },
     {
       "source": "/thirdweb-deploy/contract-extensions/quickstart",
-      "destination": "/contractkit"
+      "destination": "/solidity"
     },
     {
       "source": "/pre-built-contracts/nfts",
@@ -353,7 +353,7 @@
     },
     {
       "source": "/contracts-sdk/contract-extensions/signatureminting",
-      "destination": "/contractkit/extensions/signatureminterc721"
+      "destination": "/solidity/extensions/signatureminterc721"
     },
     {
       "source": "/guides/sign-in-with-ethereum-using-thirdweb-connectwallet",
@@ -369,19 +369,19 @@
     },
     {
       "source": "/contracts-sdk",
-      "destination": "/contractkit"
+      "destination": "/solidity"
     },
     {
       "source": "/contracts-sdk/contract-extensions",
-      "destination": "/contractkit/extensions"
+      "destination": "/solidity/extensions"
     },
     {
       "source": "/contracts-sdk/contract-extensions/:match*",
-      "destination": "/contractkit/extensions/:match*"
+      "destination": "/solidity/extensions/:match*"
     },
     {
       "source": "/contracts-sdk/:match*",
-      "destination": "/contractkit/:match*"
+      "destination": "/solidity/:match*"
     },
     {
       "source": "/guides",
@@ -423,36 +423,36 @@
       "destination": "/getting-started/contracts"
     },
     {
-      "source": "/contractkit/extensions/contractmetadata",
-      "destination": "/contractkit/contractmetadata"
+      "source": "/solidity/extensions/contractmetadata",
+      "destination": "/solidity/contractmetadata"
     },
     {
-      "source": "/contractkit/extensions/ownable",
-      "destination": "/contractkit/ownable"
+      "source": "/solidity/extensions/ownable",
+      "destination": "/solidity/ownable"
     },
     {
-      "source": "/contractkit/extensions/permissions",
-      "destination": "/contractkit/permissions"
+      "source": "/solidity/extensions/permissions",
+      "destination": "/solidity/permissions"
     },
     {
-      "source": "/contractkit/extensions/platformfee",
-      "destination": "/contractkit/platformfee"
+      "source": "/solidity/extensions/platformfee",
+      "destination": "/solidity/platformfee"
     },
     {
-      "source": "/contractkit/extensions/primarysale",
-      "destination": "/contractkit/primarysale"
+      "source": "/solidity/extensions/primarysale",
+      "destination": "/solidity/primarysale"
     },
     {
-      "source": "/contractkit/extensions/primarysale",
-      "destination": "/contractkit/primarysale"
+      "source": "/solidity/extensions/primarysale",
+      "destination": "/solidity/primarysale"
     },
     {
-      "source": "/contractkit/features",
-      "destination": "/contractkit/extensions"
+      "source": "/solidity/features",
+      "destination": "/solidity/extensions"
     },
     {
-      "source": "/contractkit/features/:match*",
-      "destination": "/contractkit/extensions/:match*"
+      "source": "/solidity/features/:match*",
+      "destination": "/solidity/extensions/:match*"
     },
     {
       "source": "/create",
@@ -460,11 +460,11 @@
     },
     {
       "source": "/extensions",
-      "destination": "/contractkit"
+      "destination": "/solidity"
     },
     {
       "source": "/extensions/:match*",
-      "destination": "/contractkit/:match*"
+      "destination": "/solidity/:match*"
     },
     {
       "source": "/sdk/ui-components",
@@ -565,6 +565,101 @@
     {
       "source": "/ui-components/ipfs-media-renderer",
       "destination": "/react/react.mediarenderer"
-    }
+    },
+    {
+      "source": "/sdk/set-up-the-sdk/frontend",
+      "destination": "/sdk"
+    },
+    {
+      "source": "/sdk/set-up-the-sdk/backend",
+      "destination": "/sdk"
+    },
+    {
+      "source": "/sdk/set-up-the-sdk/securing-your-private-key",
+      "destination": "/typescript/sdk.thirdwebsdk.fromwallet"
+    },
+    {
+      "source": "/sdk/wallet-actions",
+      "destination": "/typescript/sdk.userwallet.balance"
+    },
+    {
+      "source": "/sdk/advanced-features/on-demand-minting",
+      "destination": "/glossary/signature-based-minting"
+    },
+    {
+      "source": "/typescript/sdk.contractmetadata",
+      "destination": "/typescript/sdk.contractmetadata"
+    },
+    {
+      "source": "/sdk/advanced-features/gasless-transactions",
+      "destination": "/glossary/gasless-transactions"
+    },
+    {
+      "source": "/sdk/advanced-features/delayed-reveal",
+      "destination": "/glossary/delayed-reveal"
+    },
+    {
+      "source": "/sdk/advanced-features/permission-controls",
+      "destination": "/typescript/sdk.permissions"
+    },
+    {
+      "source": "/sdk/advanced-features/non-transferable-tokens",
+      "destination": "/glossary/soulbound"
+    },
+    {
+      "source": "/sdk/advanced-features/gas-estimation-and-overrides",
+      "destination": "/typescript/sdk.smartcontract.prepare"
+    },
+    {
+      "source": "/sdk/advanced-features/contract-events",
+      "destination": "/typescript/sdk.contractevents.getallevents"
+    },
+    {
+      "source": "/sdk/interacting-with-contracts",
+      "destination": "/sdk/how-it-works"
+    },
+    { "source": "/sdk/interacting-with-contracts/pack", "destination": "/sdk" },
+    {
+      "source": "/sdk/interacting-with-contracts/nft-drop",
+      "destination": "/sdk"
+    },
+    {
+      "source": "/sdk/interacting-with-contracts/signature-drop",
+      "destination": "/sdk"
+    },
+    {
+      "source": "/sdk/interacting-with-contracts/edition-drop",
+      "destination": "/sdk"
+    },
+    {
+      "source": "/sdk/interacting-with-contracts/nft-collection",
+      "destination": "/sdk"
+    },
+    {
+      "source": "/sdk/interacting-with-contracts/edition",
+      "destination": "/sdk"
+    },
+    { "source": "/sdk/interacting-with-contracts/pack", "destination": "/sdk" },
+    {
+      "source": "/sdk/interacting-with-contracts/multiwrap",
+      "destination": "/sdk"
+    },
+    {
+      "source": "/sdk/interacting-with-contracts/token",
+      "destination": "/sdk"
+    },
+    {
+      "source": "/sdk/interacting-with-contracts/token-drop",
+      "destination": "/sdk"
+    },
+    {
+      "source": "/sdk/interacting-with-contracts/marketplace",
+      "destination": "/sdk"
+    },
+    {
+      "source": "/sdk/interacting-with-contracts/split",
+      "destination": "/sdk"
+    },
+    { "source": "/sdk/interacting-with-contracts/vote", "destination": "/sdk" }
   ]
 }
