@@ -1,0 +1,96 @@
+---
+slug: /solidity/extensions/erc721burnable
+title: ERC721Burnable
+---
+
+import ViewContractCodeButton from "@components/ViewContractCodeButton";
+import QuickstartCard from "@components/QuickstartCard";
+
+# ERC721Burnable
+
+ERC721Burnable allows the NFTs in the contract to be burned (transferred to a non-recoverable address). 
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/interface/IBurnableERC721.sol"
+  name="IBurnableERC721"
+  isInterface={true}
+/>
+
+<br/>
+
+:::info
+
+This extension is an interface and requires all of the functions to be implemented
+
+:::
+
+## Usage
+
+This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality. 
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@thirdweb-dev/contracts/eip/ERC721A.sol";
+import "@thirdweb-dev/contracts/extension/interface/IBurnableERC721.sol";
+
+contract Contract is ERC721A, IBurnableERC721 {
+    constructor(
+        string memory _name,
+        string memory _symbol
+    )
+        ERC721A(
+            _name,
+            _symbol
+        )
+    {}
+
+    function burn(uint256 tokenId) external {
+        // Your custom implementation here
+    }
+}
+```
+
+## SDK Usage
+
+By adding this extension to a smart contract, the following features, hooks and functions are unlocked in the SDK:
+
+<div className="row" style={{ marginBottom: 12 }}>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="React"
+      link="/react/react.useburnnft"
+      image="/assets/languages/react.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="TypeScript"
+      link="/typescript/sdk.erc721burnable"
+      image="/assets/languages/typescript.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Python"
+      link="/python/erc721#burn"
+      image="/assets/languages/python.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Unity"
+      link="/unity/erc721burnable"
+      image="/assets/languages/unity.webp"
+    />
+  </div>
+</div>
+
+## Base Contracts Implementing This Extension
+
+- [ERC721Base](/solidity/base-contracts/erc721base)
+- [ERC721DelayedReveal](/solidity/base-contracts/erc721delayedreveal)
+- [ERC721Drop](/solidity/base-contracts/erc721drop)
+- [ERC721LazyMint](/solidity/base-contracts/erc721lazymint)
+- [ERC721SignatureMint](/solidity/base-contracts/erc721signaturemint)
