@@ -70,11 +70,6 @@ const sidebars = {
     },
     {
       type: "link",
-      label: "Wallet SDK",
-      href: "/wallet-sdk",
-    },
-    {
-      type: "link",
       label: "GamingKit",
       href: "/gamingkit",
     },
@@ -92,6 +87,11 @@ const sidebars = {
       type: "link",
       label: "Storage",
       href: "/storage",
+    },
+    {
+      type: "link",
+      label: "Wallet SDK",
+      href: "/wallet-sdk",
     },
     {
       type: "link",

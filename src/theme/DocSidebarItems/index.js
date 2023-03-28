@@ -43,7 +43,6 @@ function DocSidebarItems({ items, ...props }) {
           "Explore",
           "EVM SDK",
           "Solana SDK",
-          "Wallet SDK",
           "UI Components",
           "Deploy",
           "Publish",
@@ -52,7 +51,7 @@ function DocSidebarItems({ items, ...props }) {
     },
     {
       title: "Infrastructure",
-      items: ["Auth", "Storage"],
+      items: ["Auth", "Storage", "Wallet SDK"],
     },
     {
       title: "Solutions",
