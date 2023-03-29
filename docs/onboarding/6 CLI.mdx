@@ -18,9 +18,6 @@ npx thirdweb
 
 ## Create
 
-<div className="heroGrid">
-
-  <div>
 Create a new project with thirdweb installed and configured.
 
 Select the frameworks you know and love to get started quickly, by providing:
@@ -29,30 +26,63 @@ Select the frameworks you know and love to get started quickly, by providing:
 - A framework to build with
 - A language to write in
 
-</div>
-
-<div className="heroGridImageContainer">
-  <ThemedImage
-    sources={{
-      light: "/assets/create.png",
-      dark: "/assets/create.png",
-    }}
-    className="heroGridImage"
-    alt="thirdweb dashboard"
-  />
-</div>
-
-</div>
+#### Command
 
 ```bash
 npx thirdweb create
 ```
 
+#### Options
+- --app: (`boolean`) Create a web3 app.
+- --contract (`boolean`): Create a web3 contract project
+- --ts, --typescript (`boolean`): Initialize as a TypeScript project.
+- --js, --javascript (`boolean`): Initialize as a JavaScript project.
+- --forge (`boolean`): Initialize as a Forge project.
+- --hardhat (`boolean`): Initialize as a Hardhat project.
+- --extension (`boolean`): Create a smart contract extension.
+- --cra (`boolean`): Initialize as a Create React App project.
+- --next (`boolean`): Initialize as a Next.js project.
+- --vite (`boolean`): Initialize as a Vite project.
+- --reactNative (`boolean`): Initialize as a React Native project.
+- --express (`boolean`): Initialize as a Express project.
+- --node (`boolean`): Initialize as a Node project.
+- --use-npm (`boolean`): Explicitly tell the CLI to bootstrap the app using npm.
+- --use-pnpm (`boolean`): Explicitly tell the CLI to bootstrap the app using pnpm.
+- --framework (`string`): The preferred framework.
+- --solana (`boolean`): Initialize as a Solana project.
+- --evm (`boolean`): Initialize as an Ethereum project.
+- --template (`string`): A template to start your project from. You can use an template repository name from the official thirdweb-example org.
+- --contract-name (`string`): Name of the new smart contract to create
+
+## Install
+Install thirdweb into your project. If no path is specified, the current directory will be used.
+
+#### Command
+```bash
+npx thirdweb install [path to project]
+```
+
+#### Options
+- --nightly (`boolean`): Install the nightly version of packages.
+- --dev (`boolean`): Install the dev version of packages
+
+## Build
+Compile your smart contracts and detect any [extensions](/solidity/extensions) you have implemented. This command:
+- Detects the framework you're using
+- Compiles all of your smart contracts
+- Prints out the [extensions](/solidity/extensions) you have implemented for each contract
+
+#### Command
+```bash
+npx thirdweb build
+```
+
+#### Options
+- -p, --path (`string`): Path to project
+- -d, --debug (`boolean`): Show debug logs
+- -a, --all (`boolean`): Run detection on all contracts
+
 ## Deploy
-
-<div className="heroGrid">
-
-  <div>
 
 [Deploy](/deploy) your smart contracts to one of our [supported networks](https://blog.thirdweb.com/guides/which-network-should-you-use/) using the dashboard:
 
@@ -60,30 +90,26 @@ npx thirdweb create
 - Uploads the contract [ABI](https://docs.soliditylang.org/en/v0.8.17/abi-spec.html)s to IPFS
 - Allows you to [deploy](/deploy) them through the dashboard
 
-</div>
-
-<div className="heroGridImageContainer">
-  <ThemedImage
-    sources={{
-      light: "/assets/deploy.png",
-      dark: "/assets/deploy.png",
-    }}
-    className="heroGridImage"
-    alt="thirdweb dashboard"
-  />
-</div>
-
-</div>
-
+#### Command
 ```bash
 npx thirdweb deploy
 ```
 
+#### Options
+- -p, --path (`string`): Path to project
+- --dry-run (`boolean`): Dry run (skip actually publishing)
+- -d, --debug (`boolean`): Show debug logs
+- --ci (`boolean`): Continuous Integration mode
+- --dist-path (`string`): Path to the dist folder where the HTML based App is
+- -n, --name (`string`): Name of the pre-built or published contract (such as nft-drop)
+- -f, --file (`string`): Filter for contract files that contain this file name
+- -cn, --contract-name (`string`): Filter for contracts that contain this contract name
+- -cv, --contract-version (`string`): Version of the published contract
+- --app (`boolean`): Deploy a web app to decentralized storage
+- --contract (`boolean`): Deploy a smart contract to blockchains
+- --dynamic (`boolean`): Deploy a dynamic smart contract made up of extensions to blockchains
+
 ## Publish
-
-<div className="heroGrid">
-
-  <div>
 
 [Publishes](/publish) a versioned release of your contract onto our registry:
 
@@ -91,60 +117,70 @@ npx thirdweb deploy
 - Uploads the contract [ABI](https://docs.soliditylang.org/en/v0.8.17/abi-spec.html)s to IPFS
 - Allows you to [publish](/publish) them through the dashboard
 
-</div>
-
-<div className="heroGridImageContainer">
-  <ThemedImage
-    sources={{
-      light: "/assets/publish.svg",
-      dark: "/assets/publish.svg",
-    }}
-    className="heroGridImage"
-    alt="thirdweb dashboard"
-  />
-</div>
-
-</div>
-
+#### Command
 ```bash
 npx thirdweb publish
 ```
 
+#### Options
+- -p, --path (`string`): Path to project
+- -f, --file (`string`): Filter for contract files that contain this file name
+- -cn, --contract-name (`string`): Filter for contracts that contain this contract name
+- --dry-run (`boolean`): Dry run (skip actually publishing)
+- -d, --debug (`boolean`): Show debug logs
+- --ci (`boolean`): Continuous Integration mode
+
 ## Additional commands
+
+program
+.command("upload")
+.description("Upload any file or directory to decentralized storage (IPFS)")
+.argument("[upload]", "path to file or directory to upload")
+.action(async (path) => {
+const storage = new ThirdwebStorage();
+try {
+const uri = await upload(storage, path);
+info(
+`Files stored at the following IPFS URI: ${chalk.blueBright(
+uri.toString(),
+)}`,
+);
+### Upload
+Upload any file or directory to decentralized storage (IPFS)
+
+#### Command
+```bash
+npx thirdweb upload [path to file or directory]
+```
+
 
 ### Detect
 
-<div className="heroGrid">
-
-  <div>
-
-<p>
-  Compile your smart contracts and detect any{" "}
-  <a href="/solidity/extensions">extensions</a> you have implemented. This
-  command:
-</p>
-
+Compile your smart contracts and detect any [extensions](/solidity/extensions) you have implemented. This command:
 - Detects the framework you're using
 - Compiles all of your smart contracts
 - Prints out the [extensions](/solidity/extensions) you have implemented for each contract
 
-</div>
-
-<div className="heroGridImageContainer">
-  <ThemedImage
-    sources={{
-      light: "/assets/detect.png",
-      dark: "/assets/detect.png",
-    }}
-    className="heroGridImage"
-    alt="thirdweb dashboard"
-  />
-</div>
-
-</div>
-
+#### Command
 ```bash
 npx thirdweb detect
 ```
+
+#### Options
+- -p, --path (`string`): Path to project
+- -d, --debug (`boolean`): Show debug logs
+- -a, --all (`boolean`): Run detection on all contracts
+
+### Generate
+Preload ABIs and generate types for your smart contract to strongly type the thirdweb SDK
+
+#### Command
+```bash
+npx thirdweb generate
+```
+
+#### Options
+- -p, --path (`string`): Path to project
+- -d, --deployer (`string`): Address of the contract deployer
 
 <!-- ### Install CI -->
