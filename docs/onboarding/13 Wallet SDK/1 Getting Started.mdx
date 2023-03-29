@@ -10,13 +10,15 @@ import GettingStartedLiveEditor from "@components/live-code/snippets/GettingStar
 
 ## React Projects 
 
+In React, the wallets work out of the box - no set is up needed.
+
 To get started, install the required dependencies into your React project.
 
 <Tabs>
 <TabItem value="existing" label="Existing Projects">
 
 <CodeBlock language="bash">
-  npm install @thirdweb-dev/react @thirdweb-dev/sdk ethers@^5
+  npm install @thirdweb-dev/react @thirdweb-dev/sdk
 </CodeBlock>
 
 </TabItem>
@@ -40,7 +42,9 @@ The default wallet connectors are [Metamask](/wallet-sdk/metamask), [Coisbase Wa
 <br/>
 
 Wrap your application in the [`ThirdwebProvider`](/react/react.thirdwebprovider) component to start using the SDK.
-Import the wallets to include as part of your [`ConnectWallet`](/react/react.connectwallet) button and add them to the `supportedWallets` prop.
+Without providing any wallets to the [`ThirdwebProvider`](/react/react.thirdwebprovider), the default wallets will be used. 
+
+To optionally add support for other wallets, such as [Gnosis Safe](/react/react.usegnosis), import the wallets to be included and add them to the `supportedWallets` prop.
 
 ```jsx
 import {
