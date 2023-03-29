@@ -1,0 +1,97 @@
+---
+slug: /solidity/extensions/erc20burnable
+title: ERC20Burnable
+---
+
+import ViewContractCodeButton from "@components/ViewContractCodeButton";
+import QuickstartCard from "@components/QuickstartCard";
+
+# ERC20Burnable
+
+Support burning tokens by implementing the `IBurnableERC20` interface.
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/interface/IBurnableERC20.sol"
+  name="ERC20"
+  isInterface={true}
+/>
+
+<br/>
+
+:::info
+
+This extension is an interface and requires all of the functions to be implemented
+
+:::
+
+## Usage
+
+This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality. 
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@thirdweb-dev/contracts/openzeppelin-presets/token/ERC20/ERC20.sol";
+import "@thirdweb-dev/contracts/extension/interface/IBurnableERC20.sol";
+
+contract Contract is ERC20, IBurnableERC20 {
+    constructor(
+        string memory _name,
+        string memory _symbol
+    )
+        ERC20(
+            _name,
+            _symbol
+        )
+    {}
+
+    function burn(uint256 amount) external override {
+        // Your custom implementation here
+    }
+
+    function burnFrom(address account, uint256 amount) external override {
+        // Your custom implementation here
+    }
+
+}
+```
+
+## SDK Usage
+
+By adding this extension to a smart contract, the following features, hooks and functions are unlocked in the SDK:
+
+<div className="row" style={{ marginBottom: 12 }}>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="React"
+      link="/react/react.useburntoken"
+      image="/assets/languages/react.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="TypeScript"
+      link="/typescript/sdk.erc20burnable"
+      image="/assets/languages/typescript.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Python"
+      link="/python/erc20#burn"
+      image="/assets/languages/python.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Unity"
+      link="/unity/erc20burnable"
+      image="/assets/languages/unity.webp"
+    />
+  </div>
+</div>
+
+## Base Contracts Implementing This Extension
+
+No base contracts implement this functionality by default.

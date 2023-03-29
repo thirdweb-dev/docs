@@ -14,11 +14,11 @@ If uploading an array of JSON objects, the method will automatically upload any 
 ```jsx
 // Example, use Node.js readFileSync to upload files from disk
 const files = [readFileSync("../file1.jpg"), readFileSync("../file2.jpg")];
-const fileUris = await storage.uploadBatch(files);
+const fileUris = await sdk.storage.uploadBatch(files);
 
 // OR, upload JSON objects
 const objects = [{ name: "JSON 1" }, { name: "JSON 2" }];
-const jsonUris = await storage.uploadBatch(objects);
+const jsonUris = await sdk.storage.uploadBatch(objects);
 ```
 
 ## Configuration
