@@ -17,18 +17,18 @@ The [`DelayedReveal`](/glossary/delayed-reveal) smart contract is an extension f
 In order for `ERC721Revealable` or `ERC1155Revealable` extensions to be detected in the dashboard on your contract, the respective EIP 
 ([`ERC721`](/solidity/extensions/erc721) or [`ERC1155`](/solidity/extensions/erc1155) needs to be inherited alongside the [`LazyMint`](/solidity/extensions/lazymint) extension.
 
+:::info
+
+It is recommended to use this extension alongside the [`LazyMint`](/solidity/extension-contracts/lazymint) extension.
+
+:::
+
+<br/>
+
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/DelayedReveal.sol"
   name="DelayedReveal"
 />
-
-<br/>
-
-:::info
-
-It is recommended to use this extension alongside the [`LazyMint`](/solidity/extension-contracts/lazymint) extension. When first lazy minting tokens, you can encrypt the metadata of NFTs and can reveal this metadata once your lazy minted NFTs have been distributed. You can learn more about how delayed reveal NFTs work, in this [blogpost](https://blog.thirdweb.com/delayed-reveal-nfts).
-
-:::
 
 ## Usage
 

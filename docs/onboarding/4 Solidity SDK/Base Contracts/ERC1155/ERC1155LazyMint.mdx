@@ -7,6 +7,10 @@ import ViewContractCodeButton from "@components/ViewContractCodeButton";
 
 # ERC1155 Lazy Mint
 
+```solidity
+import "@thirdweb-dev/contracts/base/ERC1155LazyMint.sol";
+```
+
 `ERC1155LazyMint` allows you to [Lazy Mint](/sdk/interacting-with-contracts/erc1155lazymintable) NFTs on your contract.
 It exposes a `verifyClaim` function that you can override to add your claim-restriction logic.
 

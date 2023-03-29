@@ -8,6 +8,12 @@ import QuickstartCard from "@components/QuickstartCard";
 
 # ERC721Revealable
 
+```solidity
+import "@thirdweb-dev/contracts/eip/ERC721.sol";
+import "@thirdweb-dev/contracts/extension/LazyMint.sol";
+import "@thirdweb-dev/contracts/extension/DelayedReveal.sol";
+```
+
 Create batches of ['delayed-reveal'](/glossary/delayed-reveal) NFTs that can be revealed at a later date after they have been minted and claimed.
 
 This is an extension which is detectable in the dashboard if the smart contract implements the 
@@ -20,6 +26,7 @@ This is an extension which is detectable in the dashboard if the smart contract 
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/eip/ERC721.sol"
   name="ERC721"
+  text="ERC721"
 />
 
 </div>
@@ -29,6 +36,7 @@ This is an extension which is detectable in the dashboard if the smart contract 
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/LazyMint.sol"
   name="LazyMint"
+  text="LazyMint"
 />
 
 </div>
@@ -36,21 +44,14 @@ This is an extension which is detectable in the dashboard if the smart contract 
 <div style={{ marginLeft: 24 }}>
 
 <ViewContractCodeButton
-  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/DropSinglePhase.sol"
-  name="DropSinglePhase"
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/DelayedReveal.sol"
+  name="DelayedReveal"
+  text="DelayedReveal"
 />
 
 </div>
 
 </div>
-
-<br/>
-
-:::info
-
-This extension requires other extensions to be inherited to be detectable on the Dashboard
-
-:::
 
 ## Usage
 
@@ -62,9 +63,9 @@ pragma solidity ^0.8.0;
 
 import "@thirdweb-dev/contracts/eip/ERC721A.sol";
 import "@thirdweb-dev/contracts/extension/LazyMint.sol";
-import "@thirdweb-dev/contracts/extension/DropSinglePhase.sol";
+import "@thirdweb-dev/contracts/extension/DelayedReveal.sol";
 
-contract Contract is ERC721A, LazyMint, DropSinglePhase {
+contract Contract is ERC721A, LazyMint, DelayedReveal {
     constructor(
         string memory _name,
         string memory _symbol
@@ -74,30 +75,15 @@ contract Contract is ERC721A, LazyMint, DropSinglePhase {
             _symbol
         )
     {}
+  function reveal(uint256 _index, bytes calldata _key)
+        external
+        override
+        returns (string memory revealedURI)
+    {
+      // Your custom implementation here
+    }
 
     function _canLazyMint() internal view override returns (bool) {
-        // Your custom implementation here
-    }
-
-    function _canSetClaimConditions() internal view override returns (bool) {
-        // Your custom implementation here
-    }
-
-    function _collectPriceOnClaim(
-        address _primarySaleRecipient,
-        uint256 _quantityToClaim,
-        address _currency,
-        uint256 _pricePerToken
-    ) internal virtual override {
-        // Your custom implementation here
-    }
-
-    function _transferTokensOnClaim(address _to, uint256 _quantityBeingClaimed)
-        internal
-        virtual
-        override
-        returns (uint256 startTokenId)
-    {
         // Your custom implementation here
     }
 }

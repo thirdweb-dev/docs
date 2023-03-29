@@ -7,6 +7,10 @@ import ViewContractCodeButton from "@components/ViewContractCodeButton";
 
 # ERC721 Lazy Mint
 
+```solidity
+import "@thirdweb-dev/contracts/base/ERC721LazyMint.sol";
+```
+
 `ERC721LazyMint` allows you to lazy-mint ERC-721 tokens, which allows any wallet to claim a lazy-minted NFT.
 It exposes a `verifyClaim` function that you can override to add your claim-restriction logic.
 

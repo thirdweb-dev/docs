@@ -7,12 +7,14 @@ type Props = {
   link: string;
   name: string;
   isInterface: boolean;
+  text?: string;
 };
 
 export default function ViewContractCodeButton({
   link,
   name,
   isInterface = false,
+  text,
 }: Props) {
   return (
     <div style={{ width: "fit-content" }}>
@@ -62,7 +64,11 @@ export default function ViewContractCodeButton({
           }}
         >
           <div style={{ marginRight: 14, fontWeight: 600 }}>
-            {isInterface ? "View Interface" : "View Smart Contract"}
+            {text
+              ? text
+              : isInterface
+              ? "View Interface"
+              : "View Smart Contract"}
           </div>
         </div>
       </a>
