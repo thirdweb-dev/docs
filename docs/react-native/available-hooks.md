@@ -15,7 +15,7 @@ displayed_sidebar: react-native
 | [`useContractWrite`](https://portal.thirdweb.com/react/react.usecontractwrite)       | Use this to get data from a contract read-function call.                   |
 | [`useContractRead`](https://portal.thirdweb.com/react/react.usecontractread)         | Use this to get a function to make a write call to your contract.          |
 | [`useContractEvents`](https://portal.thirdweb.com/react/react.usecontractevents)     | Use this to get the contract metadata for a (built-in or custom) contract. |
-| [`useContractMetadata`](https://portal.thirdweb.com/react/react.usecontractmetadata) | Use this to get the contract metadata for a (built-in or custom) contract. |
+| [`useContractMetadata`](https://portal.thirdweb.com/solidity/extensions/contractmetadata) | Use this to get the contract metadata for a (built-in or custom) contract. |
 
 ## Wallet connection
 

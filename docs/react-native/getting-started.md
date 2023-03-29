@@ -42,7 +42,7 @@ yarn android
 yarn ios
 ```
 
-## Connect to a wallet using WalletConnect V2
+## Connect to a wallet using our Connect Wallet button
 
 ```javascript
 import React from "react";
@@ -136,39 +136,47 @@ These are all the configuration options of the `<ThirdwebProvider />`.
 We provide defaults for all of these, but you customize them to suit your needs.
 
 ```jsx title="App.jsx"
-import { IpfsStorage, ThirdwebProvider } from "@thirdweb-dev/react-native";
+import React from 'react';
+import {
+  coinbaseWallet,
+  metamaskWallet,
+  rainbowWallet,
+  trustWallet,
+  ThirdwebProvider,
+} from '@thirdweb-dev/react-native';
+import {Ethereum} from '@thirdweb-dev/chains';
 
 const KitchenSinkExample = () => {
   return (
     <ThirdwebProvider
-      activeChain={"mainnet"}
-      chainRpc={{ ["mainnet"]: "https://mainnet.localhost.io/v3" }}
+      activeChain={Ethereum}
       dAppMeta={{
-        name: "Example App",
-        description: "This is an example app",
+        name: 'Example App',
+        description: 'This is an example app',
         isDarkMode: false,
-        logoUrl: "https://example.com/logo.png",
-        url: "https://example.com",
+        logoUrl: 'https://example.com/logo.png',
+        url: 'https://example.com',
       }}
-      supportedChains={["mainnet"]}
-      walletConnectors={[
-        "walletConnect",
-        { projectId: "wallet-connect-cloud-project-id" },
+      supportedChains={[Ethereum]}
+      supportedWallets-={[
+        metamaskWallet(),
+        rainbowWallet(),
+        coinbaseWallet(),
+        trustWallet(),
       ]}
       sdkOptions={{
-        gasSettings: { maxPriceInGwei: 500, speed: "fast" },
+        gasSettings: {maxPriceInGwei: 500, speed: 'fast'},
         readonlySettings: {
-          chainId: "mainnet",
-          rpcUrl: "https://mainnet.localhost.io/v3",
+          chainId: 'mainnet',
+          rpcUrl: 'https://mainnet.localhost.io/v3',
         },
         gasless: {
           openzeppelin: {
-            relayerUrl: "your-relayer-url",
+            relayerUrl: 'your-relayer-url',
           },
         },
-      }}
-    >
-      <YourApp />
+      }}>
+      <AppInner />
     </ThirdwebProvider>
   );
 };
