@@ -1,0 +1,108 @@
+---
+slug: /solidity/extensions/erc721supply
+title: ERC721Supply
+---
+
+import ViewContractCodeButton from "@components/ViewContractCodeButton";
+import QuickstartCard from "@components/QuickstartCard";
+
+# ERC721Supply
+
+```solidity
+import "@thirdweb-dev/contracts/eip/interface/IERC721Supply.sol"
+```
+
+View all of the NFTs from the collection by implementing the `totalSupply` function on your ERC721(A) contract.
+
+:::info
+
+This extension is an interface and requires all of the functions to be implemented
+
+:::
+
+<br/>
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/eip/interface/IERC721Supply.sol"
+  name="IERC721Supply"
+  isInterface={true}
+/>
+
+## Usage
+
+This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality. 
+
+The [ERC721A](/solidity/extensions/erc721) contract comes with a `totalSupply`
+function that returns the total number of NFTs that have been minted in the collection (including tokens that have been burned).
+
+This means you can already view the total supply of NFTs in the collection by implementing the `ERC721A` contract.
+
+You can optionally override the functionality of this function as outlined below:
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@thirdweb-dev/contracts/eip/ERC721A.sol";
+
+contract Contract is ERC721A {
+    constructor(
+        string memory _name,
+        string memory _symbol
+    )
+        ERC721A(
+            _name,
+            _symbol
+        )
+    {}
+
+    function totalSupply() public view override returns (uint256) {
+        // Your custom implementation here (overriding this function is optional)
+    }
+
+}
+```
+
+## SDK Usage
+
+By adding this extension to a smart contract, the following features, hooks and functions are unlocked in the SDK:
+
+<div className="row" style={{ marginBottom: 12 }}>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="React"
+      link="/react/react.usetotalcirculatingsupply"
+      image="/assets/languages/react.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="TypeScript"
+      link="/typescript/sdk.erc721supply"
+      image="/assets/languages/typescript.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Python"
+      link="/python/erc721#total_supply"
+      image="/assets/languages/python.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Unity"
+      link="/unity/erc721supply"
+      image="/assets/languages/unity.webp"
+    />
+  </div>
+</div>
+
+## Base Contracts Implementing This Extension
+
+- [ERC721Base](/solidity/base-contracts/erc721base)
+- [ERC721DelayedReveal](/solidity/base-contracts/erc721delayedreveal)
+- [ERC721Drop](/solidity/base-contracts/erc721drop)
+- [ERC721LazyMint](/solidity/base-contracts/erc721lazymint)
+- [ERC721SignatureMint](/solidity/base-contracts/erc721signaturemint)
+

@@ -1,0 +1,259 @@
+---
+title: useDelayedRevealLazyMint
+slug: /react.usedelayedreveallazymint
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook to lazy-mint a batch of NFTs with [delayed reveal](https://portal.thirdweb.com/glossary/delayed-reveal);
+allowing the owner to set placeholder metadata and reveal the metadata of the NFTs at a later time.
+
+Available to use on contracts that implement the
+[ERC721Revealable](https://portal.thirdweb.com/solidity/extensions/erc721revealable)
+or [ERC1155Revealable](https://portal.thirdweb.com/solidity/extensions/erc1155revealable)
+interfaces.
+
+```jsx
+import { useDelayedRevealLazyMint } from "@thirdweb-dev/react";
+
+const { mutateAsync, isLoading, error } = useDelayedRevealLazyMint(contract);
+```
+
+## Usage
+
+Provide your contract instance from the [`useContract`](/react/react.usecontract) hook as the argument.
+
+```jsx
+import {
+  useDelayedRevealLazyMint,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const {
+    mutateAsync: mintNft,
+    isLoading,
+    error,
+  } = useDelayedRevealLazyMint(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        mintNft({
+          placeholder: {
+            name: "My NFT",
+            description: "This is my NFT",
+            image: "ipfs://example.com/my-nft.png", // Accepts any URL or File type
+          },
+          metadatas: [
+            {
+              name: "My NFT",
+              description: "This is my NFT",
+              image: "ipfs://example.com/my-nft.png", // Accepts any URL or File type
+            },
+          ],
+          password: "{{password}}", // Password to be used for encryption
+        })
+      }
+    >
+      Mint NFTs
+    </Web3Button>
+  );
+}
+```
+
+## Configuration
+
+<details>
+  <summary>placeholder</summary>
+    <div>
+
+### placeholder (required)
+
+The placeholder object represents the metadata the NFTs will have until the owner reveals the metadata.
+
+```jsx
+import {
+  useDelayedRevealLazyMint,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const {
+    mutateAsync: mintNft,
+    isLoading,
+    error,
+  } = useDelayedRevealLazyMint(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        mintNft({
+          // highlight-start
+          placeholder: {
+            name: "My NFT",
+            description: "This is my NFT",
+            image: "ipfs://example.com/my-nft.png", // Accepts any URL or File type
+          },
+          // highlight-end
+          metadatas: [
+            // You can provide up to 1000 metadata objects
+            {
+              name: "My NFT",
+              description: "This is my NFT",
+              image: "ipfs://example.com/my-nft.png", // Accepts any URL or File type
+            },
+          ],
+          password: "{{password}}", // Password to be used for encryption
+        })
+      }
+    >
+      Lazy Mint NFTs
+    </Web3Button>
+  );
+}
+```
+
+</div>
+</details>
+
+<details>
+  <summary>metadatas</summary>
+    <div>
+
+### metadatas (required)
+
+An array of metadata objects, representing the metadata of the NFTs to be lazy-minted.
+
+Each metadata object must conform to the [standard metadata properties](https://docs.opensea.io/docs/metadata-standards).
+
+```jsx
+import {
+  useDelayedRevealLazyMint,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const {
+    mutateAsync: mintNft,
+    isLoading,
+    error,
+  } = useDelayedRevealLazyMint(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        mintNft({
+          placeholder: {
+            name: "My NFT",
+            description: "This is my NFT",
+            image: "ipfs://example.com/my-nft.png", // Accepts any URL or File type
+          },
+          // highlight-start
+          metadatas: [
+            // You can provide up to 1000 metadata objects
+            {
+              name: "My NFT",
+              description: "This is my NFT",
+              image: "ipfs://example.com/my-nft.png", // Accepts any URL or File type
+            },
+          ],
+          // highlight-end
+          password: "{{password}}", // Password to be used for encryption
+        })
+      }
+    >
+      Lazy Mint NFTs
+    </Web3Button>
+  );
+}
+```
+
+</div>
+</details>
+
+<details>
+  <summary>password</summary>
+    <div>
+
+### password (required)
+
+The password used to encrypt the metadatas.
+
+:::warning
+The password **CANNOT** be recovered once it is set.
+
+If you lose the password, you will not be able to reveal the metadata.
+:::
+
+```jsx
+import {
+  useDelayedRevealLazyMint,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const {
+    mutateAsync: mintNft,
+    isLoading,
+    error,
+  } = useDelayedRevealLazyMint(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        mintNft({
+          placeholder: {
+            name: "My NFT",
+            description: "This is my NFT",
+            image: "ipfs://example.com/my-nft.png", // Accepts any URL or File type
+          },
+          metadatas: [
+            // You can provide up to 1000 metadata objects
+            {
+              name: "My NFT",
+              description: "This is my NFT",
+              image: "ipfs://example.com/my-nft.png", // Accepts any URL or File type
+            },
+          ],
+          // highlight-start
+          password: "{{password}}", // Password to be used for encryption
+          // highlight-end
+        })
+      }
+    >
+      Mint NFTs
+    </Web3Button>
+  );
+}
+```
+
+</div>
+</details>

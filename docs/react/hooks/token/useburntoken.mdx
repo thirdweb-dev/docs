@@ -1,0 +1,85 @@
+---
+title: useBurnToken
+slug: /react.useburntoken
+displayed_sidebar: react
+---
+
+Hook for burning ERC20 tokens on a smart contract.
+
+Available to use on smart contracts that implement the [ERC20](/solidity/extensions/erc20) standard.
+
+```jsx
+import { useBurnToken } from "@thirdweb-dev/react";
+
+const { mutateAsync, isLoading, error } = useBurnToken(contract);
+```
+
+## Usage
+
+Provide your token contract as the argument.
+
+```jsx
+import { useBurnToken, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: burnToken, isLoading, error } = useBurnToken(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        burnToken({
+          amount: "10", // Amount of tokens to burn
+        })
+      }
+    >
+      Burn Token
+    </Web3Button>
+  );
+}
+```
+
+## Configuration
+
+<details>
+  <summary>amount (required)</summary>
+  <div>
+
+### amount (required)
+
+The amount of tokens to burn.
+
+The wallet initiating this transaction must have at least this amount of tokens.
+
+```jsx
+import { useBurnToken, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: burnToken, isLoading, error } = useBurnToken(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        burnToken({
+          // highlight-next-line
+          amount: "10", // Amount of tokens to burn
+        })
+      }
+    >
+      Burn Token
+    </Web3Button>
+  );
+}
+```
+
+</div>
+</details>

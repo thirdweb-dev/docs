@@ -1,0 +1,49 @@
+---
+title: useSigner
+slug: /react.usesigner
+displayed_sidebar: react
+---
+
+Hook for getting the current signer of the connected wallet, if one is available.
+
+Useful if you want to instantiate an instance of the [ThirdwebSDK](https://portal.thirdweb.com/typescript/sdk.thirdwebsdk.fromsigner)
+with the signer of the connected wallet
+in the TypeScript SDK, or using other web3 libraries that require a signer such as [Ethers](https://docs.ethers.org/v5/api/signer/) with the React SDK.
+
+```jsx
+import { useSigner } from "@thirdweb-dev/react";
+
+const signer = useSigner();
+```
+
+## Usage
+
+Returns the `Signer` of the connected wallet, if one is available.
+
+If no wallet is connected, returns `undefined`.
+
+```jsx
+import { useSigner, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const signer = useSigner();
+}
+```
+
+## Return Value
+
+<details>
+  <summary>Return Value</summary>
+  <div>
+
+The hook's return type is `Signer | undefined` where `Signer` is the [EthersJS](https://docs.ethers.org/v5/api/signer/) signer instance.
+
+```ts
+Signer | undefined;
+```
+
+</div>
+</details>

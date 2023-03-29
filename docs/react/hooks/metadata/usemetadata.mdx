@@ -1,0 +1,64 @@
+---
+title: useMetadata
+slug: /react.usemetadata
+displayed_sidebar: react
+---
+
+Hook for getting the metadata associated with a smart contract.
+
+Available to use on contracts that implement the [Contract Metadata](/solidity/extension-contracts/contractmetadata) interface.
+
+```jsx
+import { useMetadata } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useMetadata(contract);
+```
+
+## Usage
+
+Provide your contract instance as the argument.
+
+```jsx
+import { useContract, useMetadata } from "@thirdweb-dev/react";
+
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data, isLoading, error } = useMetadata(contract);
+}
+```
+
+## Return Value
+
+<details>
+  <summary>Return Value</summary>
+  <div>
+
+The hook's `data` property, once loaded, is an object containing the contract's metadata.
+
+```ts
+CustomContractMetadata | undefined;
+
+interface CustomContractMetadata {
+  /**
+   * The name of the contract.
+   */
+  name: string;
+  /**
+   * A description of the contract.
+   */
+  description?: string;
+  /**
+   * The image associated with the contract.
+   */
+  image?: any;
+  /**
+   * An external link associated with the contract.
+   */
+  external_link?: string;
+}
+```
+
+</div>
+</details>

@@ -1,0 +1,82 @@
+---
+title: useCompilerMetadata
+slug: /react.usecompilermetadata
+displayed_sidebar: react
+---
+
+Hook for retrieving information such as the ABI, license, and metadata of a smart contract using it's contract address.
+
+```jsx
+import { useCompilerMetadata } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useCompilerMetadata("{{contract_address}}");
+```
+
+## Usage
+
+Provide your contract address as the argument.
+
+```jsx
+import { useCompilerMetadata } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { data, isLoading, error } = useCompilerMetadata(contractAddress);
+}
+
+export default App;
+```
+
+## Return Value
+
+The hook's `data` property, once loaded, contains the following properties:
+
+<details>
+  <summary>Return Value</summary>
+  <div>
+
+```ts
+{
+    name: string;
+    metadata: Record<string, any>;
+    abi: {
+        [x: string]: any;
+        type: string;
+        name: string;
+        inputs: {
+            [x: string]: any;
+            stateMutability?: string | undefined;
+            components?: {
+                [x: string]: any;
+                type: string;
+                name: string;
+            }[] | undefined;
+            type: string;
+            name: string;
+        }[];
+        outputs: {
+            [x: string]: any;
+            stateMutability?: string | undefined;
+            components?: {
+                [x: string]: any;
+                type: string;
+                name: string;
+            }[] | undefined;
+            type: string;
+            name: string;
+        }[];
+    }[];
+    info: {
+        title?: string | undefined;
+        author?: string | undefined;
+        details?: string | undefined;
+        notice?: string | undefined;
+    };
+    licenses: string[];
+}
+```
+
+</div>
+</details>

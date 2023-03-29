@@ -1,0 +1,65 @@
+---
+title: Get
+slug: /events/get
+---
+
+Get a list of a specific event&rsquo;s occurrences emitted from the contract during a specified time period.
+
+## Usage
+
+Provide the name of the event, and an optional filter to define the time period to get events for.
+
+```csharp
+// Define the shape of the event data
+public struct MyEvent
+{
+    public string from;
+    public string to;
+    public string tokenId;
+}
+
+// Get all emitted events
+var data = await contract.events.Get<MyEvent>("eventName");
+```
+
+## Configuration
+
+### structure (generic type)
+
+The event data structure to deserialize into, i.e. what shape the event data should be in.
+
+### eventName
+
+The name of the event to get logs for.
+
+In Solidity, an event is triggered by the `emit` keyword.
+
+```solidity title="Example.sol"
+// An example Solidity contract
+emit Transfer(); // Triggering event
+```
+
+To listen to this event, use the name of the event as it appears in the contract.
+
+```csharp
+var data = await contract.events.Get<MyEvent>("Transfer");
+```
+
+### filters (optional)
+
+An optinal object containing the `fromBlock` and `toBlock` numbers for the time period to get events for.
+
+The `order` field indicates the ordering of the events; `desc` (descending) or `asc` (ascending).
+
+The `filters` field allows you to filter on [indexed event parameters](https://docs.soliditylang.org/en/v0.8.19/contracts.html#index-14).
+
+The default `fromBlock` is `0` and the default `toBlock` is `latest`.
+
+```csharp
+var data = await contract.events.Get<MyEvent>("eventName", new EventQueryOptions()
+{
+  fromBlock = 0,
+  toBlock = 1000000,
+  order = "desc",
+})
+```

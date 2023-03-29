@@ -13,7 +13,11 @@ const inDir = packageRoot + "/docs/evm";
 const readmePath = packageRoot + "/README.md";
 const migrationGuidePath = packageRoot + "/MIGRATION_GUIDE.md";
 
-pkg.rmdirSync(outDir, { recursive: true, force: true });
+try {
+  pkg.rmdirSync(outDir, { recursive: true, force: true });
+} catch {
+  // no-op
+}
 pkg.ensureDirSync(outDir);
 
 async function main() {
@@ -133,4 +137,5 @@ async function copyReadMe() {
   );
 }
 
-main();
+// Don't autogenerate Typescript docs anymore
+// main();

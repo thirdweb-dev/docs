@@ -1,0 +1,87 @@
+---
+title: useMinimumNextBid
+slug: /react.useminimumnextbid
+displayed_sidebar: react
+---
+
+Hook for getting the minimum value a bid must be to be valid
+in an auction listing on a [Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace) or
+[MarketplaceV3](https://thirdweb.com/thirdweb.eth/MarketplaceV3) contract.
+
+Takes into account the current highest bid, or the reserve price if there is no bid,
+and increments it by the bid buffer to calculate the minimum next bid.
+
+```jsx
+import { useMinimumNextBid } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useMinimumNextBid(contract, listingId);
+```
+
+## Usage
+
+Provide your marketplace contract and the listing ID you wish to check as the arguments.
+
+```jsx
+import { useContract, useMinimumNextBid } from "@thirdweb-dev/react";
+
+const contractAddress = "{{contract_address}}";
+const listingId = "{{listing_id}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace");
+  const { data, isLoading, error } = useMinimumNextBid(contract, listingId);
+}
+```
+
+## Configuration
+
+<details>
+  <summary>listingId (required)</summary>
+  <div>
+
+### listingId (required)
+
+The ID of the listing to get the minimum next bid for.
+
+If the listing cannot be found, is not an auction listing, or is not active, the `error` property will be set.
+
+```jsx
+import { useContract, useMinimumNextBid } from "@thirdweb-dev/react";
+
+const contractAddress = "{{contract_address}}";
+// highlight-next-line
+const listingId = "{{listing_id}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace");
+  const { data, isLoading, error } = useMinimumNextBid(
+    contract,
+    // highlight-next-line
+    listingId,
+  );
+}
+```
+
+</div>
+</details>
+
+## Return Value
+
+<details>
+  <summary>Return Value</summary>
+  <div>
+
+The hook's `data` property, once loaded, is an object containing the minimum next bid for the listing.
+
+```ts
+{
+  symbol: string;
+  value: BigNumber;
+  name: string;
+  decimals: number;
+  displayValue: string;
+} | undefined
+```
+
+</div>
+</details>

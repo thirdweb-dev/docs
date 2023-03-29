@@ -1,0 +1,40 @@
+---
+title: useChainId
+slug: /react.usechainid
+displayed_sidebar: react
+---
+
+Hook for retrieving the chain ID of the network the user is connected to.
+
+```jsx
+import { useChainId } from "@thirdweb-dev/react";
+
+const chainId = useChainId();
+```
+
+## Usage
+
+```jsx
+import { useChainId } from "@thirdweb-dev/react";
+
+function App() {
+  const chainId = useChainId();
+
+  return <div>{chainId}</div>;
+}
+```
+
+## Return value
+
+<details>
+  <summary>Return Value</summary>
+  <div>
+
+A `number` representing the current chain id, or `undefined` if the chain id could not be found.
+
+```ts
+number | undefined;
+```
+
+</div>
+</details>

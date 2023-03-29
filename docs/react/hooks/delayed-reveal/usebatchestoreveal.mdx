@@ -1,0 +1,61 @@
+---
+title: useBatchesToReveal
+slug: /react.usebatchestoreveal
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for fetching batches of lazy-minted NFTs that were set to be revealed at a later date, but have not yet been revealed.
+
+Available to use on contracts that implement the
+[ERC721Revealable](https://portal.thirdweb.com/solidity/extensions/erc721revealable)
+or [ERC1155Revealable](https://portal.thirdweb.com/solidity/extensions/erc1155revealable)
+interfaces, such as the [NFT Drop](https://thirdweb.com/thirdweb.eth/DropERC721) and
+[Edition Drop](https://thirdweb.com/thirdweb.eth/DropERC1155) smart contracts.
+
+```jsx
+import { useBatchesToReveal } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useBatchesToReveal(contract);
+```
+
+## Usage
+
+Provide your NFT collection smart contract from the [`useContract`](/react/react.usecontract) hook as the argument.
+
+```jsx
+import { useBatchesToReveal, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  // Contract must implement the Delayed reveal interface.
+  const { contract } = useContract(contractAddress);
+  const { data: batches, isLoading, error } = useBatchesToReveal(contract);
+}
+```
+
+## Return Value
+
+<details>
+  <summary>Return Value</summary>
+  <div>
+
+The hook's `data` property, once loaded, contains an array of batches that need to be revealed.
+
+Each batch is an object with the following properties:
+
+```ts
+{
+  batchId: BigNumber;
+  batchUri: string;
+  placeholderMetadata: NFTMetadata;
+}
+```
+
+</div>
+</details>

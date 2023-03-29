@@ -1,0 +1,112 @@
+---
+slug: /solidity/extensions/erc721claimable
+title: ERC721Claimable
+---
+
+import ViewContractCodeButton from "@components/ViewContractCodeButton";
+import QuickstartCard from "@components/QuickstartCard";
+
+# ERC721Claimable
+
+```solidity
+import "@thirdweb-dev/contracts/extension/interface/IMintableERC721.sol";
+```
+
+Allow other wallets to **claim** NFTs that you have lazy-minted.
+
+This is not an extension which is detectable on the dashboard without also inheriting from other extensions.
+
+It is recommended to use this extension alongside the [`LazyMint`](/solidity/extensions/lazymint) extension.
+
+:::info
+
+This extension is an interface and requires all of the functions to be implemented
+
+:::
+
+<br/>
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/interface/IClaimableERC721.sol"
+  name="IClaimableERC721"
+  isInterface={true}
+/>
+
+## Usage
+
+This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality. 
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@thirdweb-dev/contracts/eip/ERC721A.sol";
+import "@thirdweb-dev/contracts/extension/interface/IClaimableERC721.sol";
+
+contract Contract is ERC721A, IClaimableERC721 {
+    constructor(
+        string memory _name,
+        string memory _symbol
+    )
+        ERC721A(
+            _name,
+            _symbol
+        )
+    {}
+
+    function _canLazyMint() internal view override returns (bool) {
+        // Your custom implementation here
+    }
+
+    function verifyClaim(address _claimer, uint256 _quantity) public view virtual {
+        // Your custom implementation here
+    }
+
+    function claim(address _receiver, uint256 _quantity) public payable virtual {
+        // Your custom implementation here
+    }
+}
+```
+
+## SDK Usage
+
+By adding this extension to a smart contract, the following features, hooks and functions are unlocked in the SDK:
+
+<div className="row" style={{ marginBottom: 12 }}>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="React"
+      link="/react/react.usenfts"
+      image="/assets/languages/react.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="TypeScript"
+      link="/typescript/sdk.erc721"
+      image="/assets/languages/typescript.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Python"
+      link="/python/erc721"
+      image="/assets/languages/python.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Unity"
+      link="/unity/erc721"
+      image="/assets/languages/unity.webp"
+    />
+  </div>
+</div>
+
+## Base Contracts Implementing This Extension
+
+This extension is used as part of the [ERC721ClaimCustom](/solidity/extensions/erc721claimcustom) extension.
+The base contracts which have ERC721ClaimCustom detected on them will also implement ERC721Claimable.
+
+- [ERC721DelayedReveal](/solidity/base-contract/erc721delayedreveal)
+- [ERC721LazyMint](/solidity/base-contracts/erc721lazymint)

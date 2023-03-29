@@ -1,0 +1,51 @@
+---
+title: useUnclaimedNFTSupply
+slug: /react.useunclaimednftsupply
+displayed_sidebar: react
+---
+
+Hook for fetching the number of unclaimed NFTs from an NFT/Edition Drop contract.
+
+Unclaimed NFTs are tokens that were lazy-minted but have not yet been claimed by a user.
+
+Available to use on contracts that implement the [LazyMint](/solidity/extensions/lazymint) extension;
+such as the [NFT Drop](https://thirdweb.com/thirdweb.eth/DropERC721) contract.
+
+```jsx
+import { useUnclaimedNFTSupply } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useUnclaimedNFTSupply(contract);
+```
+
+## Usage
+
+Provide your drop contract from the [`useContract`](react/hooks/usecontract) hook as the argument.
+
+Returns the number of NFTs that are still unclaimed.
+
+```jsx
+import { useUnclaimedNFTSupply, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "nftDrop");
+  const { data, isLoading, error } = useUnclaimedNFTSupply(contract);
+}
+```
+
+## Return Value
+
+<details>
+  <summary>Return Value</summary>
+  <div>
+
+The hook's `data` property, once loaded, contains a `BigNumber` representing the number of unclaimed NFTs.
+
+```ts
+BigNumber;
+```
+
+</div>
+</details>

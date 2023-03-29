@@ -1,0 +1,54 @@
+---
+title: useConnect
+slug: /react.useconnect
+displayed_sidebar: react
+---
+
+Hook for viewing the connection status and what connectors are available to be used
+as defined in the [`ThirdwebProvider`&rsquo;s `walletConnectors` prop](/react/react.thirdwebprovider#walletconnectors).
+
+```jsx
+import { useConnect } from "@thirdweb-dev/react";
+
+const [{ data }, connect] = useConnect();
+```
+
+## Usage
+
+```jsx
+import { useConnect } from "@thirdweb-dev/react";
+
+function App() {
+  const [{ data }, connect] = useConnect();
+}
+```
+
+## Return Value
+
+<details>
+  <summary>Return Value</summary>
+  <div>
+
+The data property contains an object with the following properties:
+
+```ts
+{
+  connected: boolean; // Whether the user is connected to this site with their wallet
+  connector: Connector<any, any> | undefined; // The connector that the user is connected with (or undefined)
+  connectors: Connector<any, any>[]; // All the connectors that are available to be used
+}
+```
+
+The `connect` property is a function that takes a connector as an argument
+and connects the user to your dapp using that connector.
+
+```ts
+(connector: Connector<any, any>) =>
+  Promise<{
+    data?: ConnectorData<any> | undefined;
+    error?: Error | undefined;
+  }>;
+```
+
+</div>
+</details>

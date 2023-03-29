@@ -15,7 +15,7 @@ displayed_sidebar: storage
 export type ThirdwebStorageOptions<T extends UploadOptions> = {
   uploader?: IStorageUploader<T>;
   downloader?: IStorageDownloader;
-  gatewayUrls?: GatewayUrls;
+  gatewayUrls?: GatewayUrls | string[];
 };
 ```
 

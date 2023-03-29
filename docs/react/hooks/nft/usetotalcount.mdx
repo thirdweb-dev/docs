@@ -1,0 +1,38 @@
+---
+title: useTotalCount
+slug: /react.usetotalcount
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook to get the total count of **unique** NFTs minted on a smart contract.
+
+Available to use on smart contracts that implement the [ERC721](/solidity/extensions/erc721)
+or [ERC1155](/solidity/extensions/erc1155) standard.
+
+When used for ERC1155 contracts, the total count is the number of unique token IDs minted, _not_ the total supply of all tokens in circulation.
+
+```jsx
+import { useTotalCount } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useTotalCount(contract);
+```
+
+## Usage
+
+Provide your NFT contract from the [`useContract`](/react/react.usecontract) hook as the first argument.
+
+```jsx
+import { useTotalCount, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data: totalCount, isLoading, error } = useTotalCount(contract);
+}
+```

@@ -1,0 +1,151 @@
+---
+title: useClaimIneligibilityReasons
+slug: /react.useclaimineligibilityreasons
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for fetching the reasons a wallet is not eligible to claim tokens from a drop, if any.
+
+Available for contracts that implement the [claim conditions](/solidity/extensions/erc721claimablewithconditions)
+interface; such as [NFT Drop](https://thirdweb.com/thirdweb.eth/DropERC721), [Edition Drop](https://thirdweb.com/thirdweb.eth/DropERC1155),
+and [Token Drop](https://thirdweb.com/thirdweb.eth/DropERC20).
+
+```jsx
+import { useClaimIneligibilityReasons } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useClaimIneligibilityReasons(contract, {
+  walletAddress: "{{wallet_address}}",
+  quantity: 1,
+});
+```
+
+## Usage
+
+Provide your Drop contract as the argument.
+
+```jsx
+import { useClaimIneligibilityReasons, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data, isLoading, error } = useClaimIneligibilityReasons(contract, {
+    walletAddress: "{{wallet_address}}", // Use useAddress hook to get the user's wallet address
+    quantity: 1, // Quantity to check eligibility for
+  });
+}
+```
+
+## Configuration
+
+<details>
+  <summary>eligibilityParams (required)</summary>
+  <div>
+
+The conditions to check eligibility for. The `walletAddress` and `quantity` properties are required.
+
+Use the [`useaddress`](/react/react.useAddress) hook to get the connected wallet address.
+
+```jsx
+import { useClaimIneligibilityReasons, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  // highlight-next-line
+  const address = useAddress();
+
+  const { data, isLoading, error } = useClaimIneligibilityReasons(
+    contract,
+    // highlight-start
+    {
+      walletAddress: address || "",
+      quantity: 1,
+    },
+    // highlight-end
+  );
+}
+```
+
+</div>
+</details>
+
+<details>
+  <summary>tokenId (ERC1155)</summary>
+  <div>
+
+When using ERC1155 contracts, provide a third argument to specify the token ID.
+
+```jsx
+import { useClaimIneligibilityReasons, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+// highlight-next-line
+const tokenId = 1;
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data, isLoading, error } = useClaimIneligibilityReasons(
+    contract,
+    {
+      walletAddress: "{{wallet_address}}",
+      quantity: 1,
+    },
+    // highlight-next-line
+    tokenId,
+  );
+}
+```
+
+</div>
+</details>
+
+## Return Value
+
+<details>
+  <summary>Return Value</summary>
+  <div>
+
+The hook's `data` property, once loaded, contains an array of `ClaimEligibility` strings, which may be empty.
+
+For example, if the user is not in the allowlist, this hook will return `["This address is not on the allowlist."]`.
+
+If the user _is_ eligible to claim tokens, the hook will return an empty array.
+
+```ts
+ClaimEligibility[]
+
+// ClaimEligibility Enum
+export enum ClaimEligibility {
+  NotEnoughSupply = "There is not enough supply to claim.",
+
+  AddressNotAllowed = "This address is not on the allowlist.",
+
+  WaitBeforeNextClaimTransaction = "Not enough time since last claim transaction. Please wait.",
+
+  AlreadyClaimed = "You have already claimed the token.",
+
+  NotEnoughTokens = "There are not enough tokens in the wallet to pay for the claim.",
+
+  NoActiveClaimPhase = "There is no active claim phase at the moment. Please check back in later.",
+
+  NoClaimConditionSet = "There is no claim condition set.",
+
+  NoWallet = "No wallet connected.",
+
+  Unknown = "No claim conditions found.",
+}
+```
+
+</div>
+</details>

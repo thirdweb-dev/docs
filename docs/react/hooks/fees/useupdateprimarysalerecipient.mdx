@@ -1,0 +1,53 @@
+---
+title: useUpdatePrimarySaleRecipient
+slug: /react.useupdateprimarysalerecipient
+displayed_sidebar: react
+---
+
+Hook for updating the primary sale recipient on a smart contract.
+
+Available to use on smart contracts that implement the [PrimarySale](/solidity/extension-contracts/primarysale) interface.
+
+The wallet that initiates this transaction must have the required permissions to change the primary sale recipient (defaults to `admin` level).
+
+```jsx
+import { useUpdatePrimarySaleRecipient } from "@thirdweb-dev/react";
+
+const { mutateAsync, isLoading, error } =
+  useUpdatePrimarySaleRecipient(contract);
+```
+
+## Usage
+
+Provide your contract instance from the [`useContract`](react/hooks/usecontract) hook as the argument.
+
+The wallet address you provide will be set as the primary sale recipient.
+
+```jsx
+import {
+  useUpdatePrimarySaleRecipient,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const {
+    mutateAsync: updatePrimarySaleRecipient,
+    isLoading,
+    error,
+  } = useUpdatePrimarySaleRecipient(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() => updatePrimarySaleRecipient("{{wallet_address}}")}
+    >
+      Update Primary Sale Recipient
+    </Web3Button>
+  );
+}
+```

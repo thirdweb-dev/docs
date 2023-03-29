@@ -1,0 +1,39 @@
+---
+title: getNativeTokenByChainId
+slug: /sdk.nativetoken.getnativetokenbychainid
+---
+
+Returns the native token for a given chain.
+
+## Usage
+
+Use this method to get the native token of a given chain.
+
+```javascript
+const nativeToken = sdk.nativeToken.getNativeTokenByChainId("{{chainId}}");
+```
+
+## Configuration
+
+### chainId
+
+The ID of the chain to get the native token for.
+
+Must be a valid chain ID, in the form of a `number`.
+
+## Return Value
+
+Returns a `NativeToken` object containing the following properties:
+
+```typescript
+{
+  name: string;
+  symbol: string;
+  decimals: number;
+  wrapped: {
+    address: string;
+    name: string;
+    symbol: string;
+  }
+}
+```

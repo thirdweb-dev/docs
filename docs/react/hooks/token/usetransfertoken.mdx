@@ -1,0 +1,148 @@
+---
+title: useTransferToken
+slug: /react.usetransfertoken
+displayed_sidebar: react
+---
+
+Hook for transferring tokens on an ERC20 contract.
+
+Available to use on contracts that implement the
+[ERC20](https://portal.thirdweb.com/solidity/extensions/erc20)
+interface, such as the [Token](https://thirdweb.com/thirdweb.eth/TokenERC20) contract.
+
+The wallet address that initiates this transaction must have a balance of tokens
+greater than or equal to the amount being transferred.
+
+```jsx
+import { useTransferToken } from "@thirdweb-dev/react";
+
+const { mutate, isLoading, error } = useTransferToken(contract);
+```
+
+## Usage
+
+Provide your ERC20 contract as an argument to the hook.
+
+```jsx
+import { useContract, useTransferToken, Web3Button } from "@thirdweb-dev/react";
+
+const contractAddress = "{{contract_address}}";
+const toAddress = "{{to_address}}";
+const amount = "{{amount}}";
+
+function App() {
+  // Contract must be an ERC-20 contract
+  const { contract } = useContract(contractAddress);
+  const {
+    mutate: transferTokens,
+    isLoading,
+    error,
+  } = useTransferToken(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        transferTokens({
+          to: toAddress, // Address to transfer to
+          amount: amount, // Amount to transfer
+        })
+      }
+    >
+      Transfer
+    </Web3Button>
+  );
+}
+```
+
+## Configuration
+
+<details>
+  <summary>to (required)</summary>
+  <div>
+
+### to (required)
+
+The wallet address to transfer tokens to.
+
+```jsx
+import { useContract, useTransferToken, Web3Button } from "@thirdweb-dev/react";
+
+const contractAddress = "{{contract_address}}";
+// highlight-next-line
+const toAddress = "{{to_address}}";
+const amount = "{{amount}}";
+
+function App() {
+  // Contract must be an ERC-20 contract
+  const { contract } = useContract(contractAddress);
+  const {
+    mutate: transferTokens,
+    isLoading,
+    error,
+  } = useTransferToken(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        transferTokens({
+          // highlight-next-line
+          to: toAddress, // Address to transfer to
+          amount: amount, // Amount to transfer
+        })
+      }
+    >
+      Transfer
+    </Web3Button>
+  );
+}
+```
+
+</div>
+</details>
+
+<details>
+  <summary>amount (required)</summary>
+  <div>
+
+### amount (required)
+
+The quantity of tokens to transfer. Can be a `string` or `number`.
+
+```jsx
+import { useContract, useTransferToken, Web3Button } from "@thirdweb-dev/react";
+
+const contractAddress = "{{contract_address}}";
+const toAddress = "{{to_address}}";
+// highlight-next-line
+const amount = "{{amount}}";
+
+function App() {
+  // Contract must be an ERC-20 contract
+  const { contract } = useContract(contractAddress);
+  const {
+    mutate: transferTokens,
+    isLoading,
+    error,
+  } = useTransferToken(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        transferTokens({
+          to: toAddress, // Address to transfer to
+          // highlight-next-line
+          amount: amount, // Amount to transfer
+        })
+      }
+    >
+      Transfer
+    </Web3Button>
+  );
+}
+```
+
+</div>
+</details>

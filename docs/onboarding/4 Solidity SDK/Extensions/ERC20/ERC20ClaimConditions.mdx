@@ -1,0 +1,131 @@
+---
+slug: /solidity/extensions/erc20claimconditions
+title: ERC20ClaimConditions
+---
+
+import ViewContractCodeButton from "@components/ViewContractCodeButton";
+import QuickstartCard from "@components/QuickstartCard";
+
+# ERC20ClaimConditions
+
+```solidity
+import "@thirdweb-dev/contracts/eip/interface/IERC20.sol";
+import "@thirdweb-dev/contracts/extension/DropSinglePhase.sol";
+```
+
+Allow other wallets to claim/mint tokens from the contract under the criteria of claim conditions by
+implementing [`ERC20`](/solidity/extensions/erc20) and [`DropSinglePhase`](/solidity/extensions/dropsinglephase) extensions.
+
+This is an extension which is detectable in the dashboard if the smart contract implements the 
+[`ERC20`](/solidity/extensions/erc20) and [`DropSinglePhase`](/solidity/extensions/dropsinglephase) extensions.
+
+
+<div className="row">
+
+<div style={{ marginLeft: 24 }}>
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/eip/interface/IERC20.sol"
+  name="ERC20"
+  text="IERC20"
+  isInterface={true}
+/>
+
+</div>
+
+<div style={{ marginLeft: 24 }}>
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/DropSinglePhase.sol"
+  name="DropSinglePhase"
+  text="DropSinglePhase"
+/>
+
+</div>
+
+</div>
+
+## Usage
+
+This is an example smart contract demonstrating how to inherit from the extensions which make up the `ERC20ClaimConditions` detectable extension. 
+The functions which are available to be (optionally) overridden are detailed.
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@thirdweb-dev/contracts/openzeppelin-presets/token/ERC20/ERC20.sol";
+import "@thirdweb-dev/contracts/extension/DropSinglePhase.sol";
+
+contract Contract is ERC20, DropSinglePhase {
+    constructor(
+        string memory _name,
+        string memory _symbol
+    )
+        ERC20(
+            _name,
+            _symbol
+        )
+    {}
+
+    function _canSetClaimConditions() internal view override returns (bool) {
+        // Your custom implementation here
+    }
+
+    function _collectPriceOnClaim(
+        address _primarySaleRecipient,
+        uint256 _quantityToClaim,
+        address _currency,
+        uint256 _pricePerToken
+    ) internal virtual override {
+        // Your custom implementation here
+    }
+
+    function _transferTokensOnClaim(address _to, uint256 _quantityBeingClaimed)
+        internal
+        virtual
+        override
+        returns (uint256 startTokenId)
+    {
+        // Your custom implementation here
+    }
+}
+```
+
+## SDK Usage
+
+By adding this extension to a smart contract, the following features, hooks and functions are unlocked in the SDK:
+
+<div className="row" style={{ marginBottom: 12 }}>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="React"
+      link="/react/react.useactiveclaimcondition"
+      image="/assets/languages/react.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="TypeScript"
+      link="/typescript/sdk.erc20claimconditions"
+      image="/assets/languages/typescript.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Unity"
+      link="/unity/erc20claimconditions"
+      image="/assets/languages/unity.webp"
+    />
+  </div>
+</div>
+
+## Dashboard Usage
+
+By adding this extension to a smart contract, the following features are unlocked on the contract [Dashboard](/dashboard)
+
+## Base Contracts Implementing This Extension
+
+- [ERC20Drop](/solidity/base-contracts/erc20drop)
+- [ERC20DropVote](/solidity/base-contracts/erc20dropvote)
+

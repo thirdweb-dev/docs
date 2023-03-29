@@ -21,10 +21,10 @@ updateRoyalty(sellerFeeBasisPoints: number, updateAll?: boolean): Promise<Transa
 
 ## Parameters
 
-| Parameter            | Type    | Description                                                                                        |
-| -------------------- | ------- | -------------------------------------------------------------------------------------------------- |
-| sellerFeeBasisPoints | number  | the royalty basis points of the collection                                                         |
-| updateAll            | boolean | <i>(Optional)</i> whether or not to retroactively update the royalty basis points of all past NFTs |
+| Parameter            | Type    | Description                                                                                   |
+| -------------------- | ------- | --------------------------------------------------------------------------------------------- |
+| sellerFeeBasisPoints | number  | the royalty basis points of the collection                                                    |
+| updateAll            | boolean | _(Optional)_ whether or not to retroactively update the royalty basis points of all past NFTs |
 
 **Returns:**
 

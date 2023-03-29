@@ -1,0 +1,53 @@
+---
+title: useRoyaltySettings
+slug: /react.useroyaltysettings
+displayed_sidebar: react
+---
+
+Hook for retrieving royalty settings of a smart contract.
+
+Available to use on contracts that implement the [Royalty](/solidity/extension-contracts/royalty) interface.
+
+```jsx
+import { useRoyaltySettings } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useRoyaltySettings(contract);
+```
+
+## Usage
+
+Provide your contract instance from the [`useContract`](react/hooks/usecontract) as the argument.
+
+```jsx
+import { useContract, useRoyaltySettings } from "@thirdweb-dev/react";
+
+// Your smart contract address (must implement Royalty interface)
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data, isLoading, error } = useRoyaltySettings(contract);
+}
+```
+
+## Return Value
+
+<details>
+  <summary>Return Value</summary>
+  <div>
+
+The hook's `data` property, once loaded, is an object with two properties:
+
+```ts
+{
+  seller_fee_basis_points: number;
+  fee_recipient: string;
+}
+```
+
+- The `seller_fee_basis_points` is the royalty amount (in basis points) that the seller
+  will receive for each token sale on secondary markets.
+- The `fee_recipient` is the wallet address that will receive the royalty payments.
+
+</div>
+</details>

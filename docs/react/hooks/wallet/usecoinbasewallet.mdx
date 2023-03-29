@@ -1,0 +1,29 @@
+---
+title: useCoinbaseWallet
+slug: /react.usecoinbasewallet
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook that requests users to connect their Coinbase Wallet to your dApp.
+
+```jsx
+import { useCoinbaseWallet } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+```jsx
+import { useCoinbaseWallet } from "@thirdweb-dev/react";
+
+function App() {
+  const connectCoinbase = useCoinbaseWallet();
+
+  return <button onClick={() => connectCoinbase()}>Connect to Coinbase</button>;
+}
+```
+
+Once connected, use the [`useAddress`](/react/react.useaddress) hook to get the address of the connected wallet.

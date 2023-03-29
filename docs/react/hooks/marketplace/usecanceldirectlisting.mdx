@@ -1,0 +1,117 @@
+---
+title: useCancelDirectListing
+slug: /react.usecanceldirectlisting
+displayed_sidebar: react
+---
+
+Hook for canceling a direct listing on a [MarketplaceV3](https://thirdweb.com/thirdweb.eth/MarketplaceV3) contract.
+
+Direct listings can be canceled at any time, (unless the listing has already been sold).
+Only the creator of the listing can cancel it.
+
+:::info Marketplace V3
+
+**Note: This hook is only for [Marketplace V3](https://thirdweb.com/thirdweb.eth/MarketplaceV3) contracts.**
+
+For [Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace)
+contracts, use [useCancelListing](/react/react.usecancellisting) instead.
+
+:::
+
+```jsx
+import { useCancelDirectListing } from "@thirdweb-dev/react";
+
+const { mutateAsync, isLoading, error } = useCancelDirectListing(contract);
+```
+
+## Usage
+
+Provide your marketplace contract as an argument to the hook.
+
+Then, provide the ID of the listing you want to cancel to the mutation.
+
+```jsx
+import {
+  useCancelDirectListing,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
+import { ListingType } from "@thirdweb-dev/sdk";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+// The ID of the listing you want to cancel
+const listingId = "{{listing_id}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace-v3");
+  const {
+    mutateAsync: cancelDirectListing,
+    isLoading,
+    error,
+  } = useCancelDirectListing(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() => cancelDirectListing(listingId)}
+    >
+      Cancel Direct Listing
+    </Web3Button>
+  );
+}
+```
+
+## Configuration
+
+<details>
+  <summary>listingId (required)</summary>
+  <div>
+
+### listingId (required)
+
+The ID of the listing you want to cancel.
+
+Will populate the `error` property if the listing is not active, or was not created by the wallet.
+
+```jsx
+import {
+  useCancelDirectListing,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
+import { ListingType } from "@thirdweb-dev/sdk";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+// highlight-next-line
+const listingId = "{{listing_id}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace-v3");
+  const {
+    mutateAsync: cancelDirectListing,
+    isLoading,
+    error,
+  } = useCancelDirectListing(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        cancelDirectListing(
+          // highlight-next-line
+          listingId,
+        )
+      }
+    >
+      Cancel Direct Listing
+    </Web3Button>
+  );
+}
+```
+
+</div>
+</details>

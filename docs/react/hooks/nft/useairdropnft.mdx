@@ -1,0 +1,156 @@
+---
+title: useAirdropNFT
+slug: /react.useairdropnft
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for airdropping ERC1155 NFT tokens to multiple wallet addresses at once.
+
+Available to use on smart contracts that implement the [ERC1155](/solidity/extensions/erc1155) standard.
+
+Performs a batch transfer from the connected wallet to the specified addresses.
+This means you need to have the total number of tokens you wish to airdrop available in the wallet that performs this transaction.
+
+```jsx
+import { useAirdropNFT } from "@thirdweb-dev/react";
+
+const { mutateAsync, isLoading, error } = useAirdropNFT(contract);
+```
+
+## Usage
+
+Provide your ERC1155 NFT collection contract as the argument.
+
+```jsx
+import { useAirdropNFT, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+// Token ID of the NFT you wish to airdrop
+const tokenId = "{{token_id}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: airdropNft, isLoading, error } = useAirdropNFT(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        airdropNft({
+          addresses: [
+            {
+              address: "0x123",
+              quantity: 1,
+            },
+          ],
+          tokenId: tokenId,
+        })
+      }
+    >
+      Airdrop NFT
+    </Web3Button>
+  );
+}
+```
+
+## Configuration
+
+<details>
+  <summary>tokenId (required)</summary>
+  <div>
+
+### tokenId (required)
+
+The token ID of the NFT to airdrop.
+
+```jsx
+import { useAirdropNFT, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+const tokenId = "{{token_id}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: airdropNft, isLoading, error } = useAirdropNFT(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        airdropNft({
+          addresses: [],
+          // highlight-next-line
+          tokenId: tokenId,
+        })
+      }
+    >
+      Airdrop NFT
+    </Web3Button>
+  );
+}
+```
+
+</div>
+</details>
+
+<details>
+  <summary>addresses (required)</summary>
+  <div>
+
+### addresses (required)
+
+An array of objects containing an `address` and `quantity` of NFTs to airdrop to each address.
+
+```jsx
+import { useAirdropNFT, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+const tokenId = "{{token_id}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: airdropNft, isLoading, error } = useAirdropNFT(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        airdropNft({
+          // highlight-start
+          addresses: [
+            {
+              address: "0x124",
+              quantity: 8,
+            },
+            {
+              address: "0x120",
+              quantity: 2,
+            },
+            {
+              address: "0x127",
+              quantity: 5,
+            },
+          ],
+          // highlight-end
+          tokenId: tokenId,
+        })
+      }
+    >
+      Airdrop NFT
+    </Web3Button>
+  );
+}
+```
+
+</div>
+</details>

@@ -1,0 +1,202 @@
+---
+title: useListing
+slug: /react.uselisting
+displayed_sidebar: react
+---
+
+Hook for getting a specific listing on a [Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace) contract.
+
+:::info Marketplace V3
+Note: this hook is only available for [Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace) contracts.
+
+If you are using [Marketplace V3](https://thirdweb.com/thirdweb.eth/MarketplaceV3),
+use [useDirectListing](/react/react.useDirectListing) or [useEnglishAuction](/react/react.useEnglishAuction) instead.
+
+:::
+
+```jsx
+import { useListing } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useListing(contract, "{{listing_id}}");
+```
+
+## Usage
+
+Provide your marketplace contract and the listing ID you wish to check as the arguments.
+
+```jsx
+import { useContract, useListing } from "@thirdweb-dev/react";
+
+const contractAddress = "{{contract_address}}";
+const listingId = 0;
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace");
+  const { data, isLoading, error } = useListing(contract, listingId);
+}
+```
+
+## Configuration
+
+<details>
+  <summary>listingId</summary>
+  <div>
+
+### listingId
+
+The ID of the listing to get.
+
+```jsx
+import { useContract, useListing } from "@thirdweb-dev/react";
+
+const contractAddress = "{{contract_address}}";
+// highlight-next-line
+const listingId = "{{listing_id}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace");
+  const { data, isLoading, error } = useListing(
+    contract,
+    // highlight-next-line
+    listingId,
+  );
+}
+```
+
+</div>
+</details>
+
+## Return Value
+
+<details>
+  <summary>Return Value</summary>
+  <div>
+
+The hook's `data` property, once loaded, is an object containing the desired listing data.
+
+The exact shape of the object depends on the type of listing.
+
+For auctions, it will be a
+`AuctionListing` object.
+For direct listings, it will be a `DirectListing` object.
+
+```jsx
+AuctionListing | DirectListing | undefined;
+```
+
+You can use the shared `type` property to determine which type of listing is being returned.
+
+```ts
+interface AuctionListing {
+  /**
+   * The id of the listing
+   */
+  id: string;
+  /**
+   * The address of the asset being listed.
+   */
+  assetContractAddress: string;
+  /**
+   * The ID of the token to list.
+   */
+  tokenId: BigNumberish;
+  /**
+   * The asset being listed.
+   */
+  asset: NFTMetadata;
+  /**
+   * The start time of the listing.
+   */
+  startTimeInEpochSeconds: BigNumberish;
+  /**
+   * Number of seconds until the auction expires.
+   */
+  endTimeInEpochSeconds: BigNumberish;
+  /**
+   * The quantity of tokens to include in the listing.
+   *
+   * For ERC721s, this value should always be 1 (and will be forced internally regardless of what is passed here).
+   */
+  quantity: BigNumberish;
+  /**
+   * The address of the currency to accept for the listing.
+   */
+  currencyContractAddress: string;
+  /**
+   * The reserve price is the minimum price that a bid must be in order to be accepted.
+   */
+  reservePrice: BigNumber;
+  /**
+   * The buyout price of the listing.
+   */
+  buyoutPrice: BigNumber;
+  /**
+   * The `CurrencyValue` of the buyout price listing.
+   * Useful for displaying the price information.
+   */
+  buyoutCurrencyValuePerToken: CurrencyValue;
+  /**
+   * The `CurrencyValue` of the reserve price.
+   * Useful for displaying the price information.
+   */
+  reservePriceCurrencyValuePerToken: CurrencyValue;
+  /**
+   * The address of the seller.
+   */
+  sellerAddress: string;
+  type: ListingType.Auction;
+}
+
+interface DirectListing {
+  /**
+   * The id of the listing.
+   */
+  id: string;
+  /**
+   * The address of the asset being listed.
+   */
+  assetContractAddress: string;
+  /**
+   * The ID of the token to list.
+   */
+  tokenId: BigNumberish;
+  /**
+   * The asset being listed.
+   */
+  asset: NFTMetadata;
+  /**
+   * The start time of the listing.
+   */
+  startTimeInSeconds: BigNumberish;
+  /**
+   * Number of seconds until the listing expires.
+   */
+  secondsUntilEnd: BigNumberish;
+  /**
+   * The quantity of tokens to include in the listing.
+   *
+   * For ERC721s, this value should always be 1 (and will be forced internally regardless of what is passed here).
+   */
+  quantity: BigNumberish;
+  /**
+   * The address of the currency to accept for the listing.
+   */
+  currencyContractAddress: string;
+  /**
+   * The `CurrencyValue` of the listing. Useful for displaying the price information.
+   */
+  buyoutCurrencyValuePerToken: CurrencyValue;
+  /**
+   * The buyout price of the listing.
+   */
+  buyoutPrice: BigNumber;
+  /**
+   * The address of the seller.
+   */
+  sellerAddress: string;
+  type: ListingType.Direct;
+}
+```
+
+</div>
+</details>

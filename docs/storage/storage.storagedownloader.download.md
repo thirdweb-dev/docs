@@ -17,11 +17,11 @@ download(uri: string, gatewayUrls: GatewayUrls, attempts?: number): Promise<Resp
 
 ## Parameters
 
-| Parameter   | Type                                    | Description       |
-| ----------- | --------------------------------------- | ----------------- |
-| uri         | string                                  |                   |
-| gatewayUrls | [GatewayUrls](./storage.gatewayurls.md) |                   |
-| attempts    | number                                  | <i>(Optional)</i> |
+| Parameter   | Type                                    | Description  |
+| ----------- | --------------------------------------- | ------------ |
+| uri         | string                                  |              |
+| gatewayUrls | [GatewayUrls](./storage.gatewayurls.md) |              |
+| attempts    | number                                  | _(Optional)_ |
 
 **Returns:**
 

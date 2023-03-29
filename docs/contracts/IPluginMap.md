@@ -7,6 +7,8 @@ displayed_sidebar: contracts
 
 # IPluginMap
 
+_thirdweb_
+
 ## Methods
 
 ### getAllFunctionsOfPlugin

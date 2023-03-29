@@ -19,6 +19,6 @@ constructor(options?: IpfsUploaderOptions);
 
 ## Parameters
 
-| Parameter | Type                                                    | Description       |
-| --------- | ------------------------------------------------------- | ----------------- |
-| options   | [IpfsUploaderOptions](./storage.ipfsuploaderoptions.md) | <i>(Optional)</i> |
+| Parameter | Type                                                    | Description  |
+| --------- | ------------------------------------------------------- | ------------ |
+| options   | [IpfsUploaderOptions](./storage.ipfsuploaderoptions.md) | _(Optional)_ |

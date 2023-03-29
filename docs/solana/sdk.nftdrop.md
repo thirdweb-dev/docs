@@ -46,26 +46,26 @@ const program = await sdk.getProgram("{{program_address}}", "nft-drop");
 
 ## Methods
 
-| Method                                                                           | Modifiers | Description                                                 |
-| -------------------------------------------------------------------------------- | --------- | ----------------------------------------------------------- |
-| [balance(nftAddress)](./sdk.nftdrop.balance.md)                                  |           | Get the NFT balance of the connected wallet                 |
-| [balanceOf(walletAddress, nftAddress)](./sdk.nftdrop.balanceof.md)               |           | Get the NFT balance of the specified wallet                 |
-| [burn(nftAddress)](./sdk.nftdrop.burn.md)                                        |           | Burn an NFT                                                 |
-| [burnBatch(nftAddresses)](./sdk.nftdrop.burnbatch.md)                            |           | Burn multiple NFTs                                          |
-| [claim(amount)](./sdk.nftdrop.claim.md)                                          |           | Claim an NFT from the drop with connected wallet            |
-| [claimTo(receiverAddress, amount)](./sdk.nftdrop.claimto.md)                     |           | Claim an NFT from the drop for the specified wallet         |
-| [get(nftAddress)](./sdk.nftdrop.get.md)                                          |           | Get the metadata for a specific NFT                         |
-| [getAll(queryParams)](./sdk.nftdrop.getall.md)                                   |           | Get the metadata for all NFTs on this drop                  |
-| [getAllClaimed(queryParams)](./sdk.nftdrop.getallclaimed.md)                     |           | Get the metadata for all the claimed NFTs on this drop      |
-| [getCreators()](./sdk.nftdrop.getcreators.md)                                    |           | Get the creators of this program.                           |
-| [getMetadata()](./sdk.nftdrop.getmetadata.md)                                    |           | Get the metadata for this program.                          |
-| [getRoyalty()](./sdk.nftdrop.getroyalty.md)                                      |           | Get the royalty basis points for this collection            |
-| [getTransactions(options)](./sdk.nftdrop.gettransactions.md)                     |           | **<i>(BETA)</i>** Get the all transactions for this program |
-| [lazyMint(metadatas, options)](./sdk.nftdrop.lazymint.md)                        |           | Lazy mint NFTs to be claimed later                          |
-| [ownerOf(nftAddress)](./sdk.nftdrop.ownerof.md)                                  |           | Get the current owner of the given NFT                      |
-| [totalClaimedSupply()](./sdk.nftdrop.totalclaimedsupply.md)                      |           | Get the total claimed supply of this drop                   |
-| [totalSupply()](./sdk.nftdrop.totalsupply.md)                                    |           | Get the total minted supply of this drop                    |
-| [totalUnclaimedSupply()](./sdk.nftdrop.totalunclaimedsupply.md)                  |           | Get the total unclaimed supply of this drop                 |
-| [transfer(receiverAddress, nftAddress)](./sdk.nftdrop.transfer.md)               |           | Transfer the specified NFTs to another wallet               |
-| [updateCreators(creators, updateAll)](./sdk.nftdrop.updatecreators.md)           |           | Update the creators of the collection                       |
-| [updateRoyalty(sellerFeeBasisPoints, updateAll)](./sdk.nftdrop.updateroyalty.md) |           | Update the royalty basis points of the collection           |
+| Method                                                                           | Modifiers | Description                                            |
+| -------------------------------------------------------------------------------- | --------- | ------------------------------------------------------ |
+| [balance(nftAddress)](./sdk.nftdrop.balance.md)                                  |           | Get the NFT balance of the connected wallet            |
+| [balanceOf(walletAddress, nftAddress)](./sdk.nftdrop.balanceof.md)               |           | Get the NFT balance of the specified wallet            |
+| [burn(nftAddress)](./sdk.nftdrop.burn.md)                                        |           | Burn an NFT                                            |
+| [burnBatch(nftAddresses)](./sdk.nftdrop.burnbatch.md)                            |           | Burn multiple NFTs                                     |
+| [claim(amount)](./sdk.nftdrop.claim.md)                                          |           | Claim an NFT from the drop with connected wallet       |
+| [claimTo(receiverAddress, amount)](./sdk.nftdrop.claimto.md)                     |           | Claim an NFT from the drop for the specified wallet    |
+| [get(nftAddress)](./sdk.nftdrop.get.md)                                          |           | Get the metadata for a specific NFT                    |
+| [getAll(queryParams)](./sdk.nftdrop.getall.md)                                   |           | Get the metadata for all NFTs on this drop             |
+| [getAllClaimed(queryParams)](./sdk.nftdrop.getallclaimed.md)                     |           | Get the metadata for all the claimed NFTs on this drop |
+| [getCreators()](./sdk.nftdrop.getcreators.md)                                    |           | Get the creators of this program.                      |
+| [getMetadata()](./sdk.nftdrop.getmetadata.md)                                    |           | Get the metadata for this program.                     |
+| [getRoyalty()](./sdk.nftdrop.getroyalty.md)                                      |           | Get the royalty basis points for this collection       |
+| [getTransactions(options)](./sdk.nftdrop.gettransactions.md)                     |           | **_(BETA)_** Get the all transactions for this program |
+| [lazyMint(metadatas, options)](./sdk.nftdrop.lazymint.md)                        |           | Lazy mint NFTs to be claimed later                     |
+| [ownerOf(nftAddress)](./sdk.nftdrop.ownerof.md)                                  |           | Get the current owner of the given NFT                 |
+| [totalClaimedSupply()](./sdk.nftdrop.totalclaimedsupply.md)                      |           | Get the total claimed supply of this drop              |
+| [totalSupply()](./sdk.nftdrop.totalsupply.md)                                    |           | Get the total minted supply of this drop               |
+| [totalUnclaimedSupply()](./sdk.nftdrop.totalunclaimedsupply.md)                  |           | Get the total unclaimed supply of this drop            |
+| [transfer(receiverAddress, nftAddress)](./sdk.nftdrop.transfer.md)               |           | Transfer the specified NFTs to another wallet          |
+| [updateCreators(creators, updateAll)](./sdk.nftdrop.updatecreators.md)           |           | Update the creators of the collection                  |
+| [updateRoyalty(sellerFeeBasisPoints, updateAll)](./sdk.nftdrop.updateroyalty.md) |           | Update the royalty basis points of the collection      |

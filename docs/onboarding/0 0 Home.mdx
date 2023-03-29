@@ -7,43 +7,73 @@ hide_table_of_contents: true
 
 import Hero from "../../src/components/landing-page/Hero";
 import GettingStartedCard from "../../src/components/landing-page/GettingStartedCard";
-import ExploreProductsSection from "../../src/components/landing-page/ExploreProductsSection";
+import LanguageCard from "../../src/components/landing-page/LanguageCard";
+import ToolCardsSection from "../../src/components/landing-page/ToolCardsSection";
+import InfrastructureCardsSection from "../../src/components/landing-page/InfrastructureCardsSection";
+import SolutionsCardsSection from "../../src/components/landing-page/SolutionsCardsSection";
 import LearnSection from "../../src/components/landing-page/LearnSection";
+import ResourcesSection from "../../src/components/landing-page/ResourcesSection";
 
 <div style={{display: 'flex', alignItems:'flex-start', flexDirection:'column', justifyContent:'flex-start',
   maxWidth:851
 }}>
-<Hero />
 
+<Hero />
+<h2>Getting Started</h2>
+<p>
+  Discover how to build and launch a web3 application in your preferred
+  language.
+</p>
 <div className="row" style={{ marginBottom: 64 }}>
-  <div className="col col--4" style={{ padding: 8 }}>
-    <GettingStartedCard
-      name="Getting Started"
-      description="A series of quick starts to get you off localhost"
-      link="/getting-started"
-      image="/assets/flag.svg"
+  <div className="col col--3" style={{ padding: 8 }}>
+    <LanguageCard
+      name="React"
+      link="/react"
+      image="/assets/languages/react.png"
     />
   </div>
-  <div className="col col--4" style={{ padding: 8 }}>
-    <GettingStartedCard
-      name="SDK Reference"
-      description="References for our Solidity, React, Python and Go SDKs"
-      link="/sdk"
-      image="/assets/sdk-reference.svg"
+  <div className="col col--3" style={{ padding: 8 }}>
+    <LanguageCard
+      name="React Native"
+      link="/react-native"
+      image="/assets/languages/react-native.png"
     />
   </div>
-  <div className="col col--4" style={{ padding: 8 }}>
-    <GettingStartedCard
-      name="Support"
-      description="Get in touch with our team"
-      link="https://support.thirdweb.com/"
-      image="/assets/support.svg"
+  <div className="col col--3" style={{ padding: 8 }}>
+    <LanguageCard
+      name="TypeScript"
+      link="/typescript"
+      image="/assets/languages/typescript.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <LanguageCard
+      name="Python"
+      link="/python"
+      image="/assets/languages/python.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <LanguageCard name="Go" link="/go" image="/assets/languages/go.png" />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <LanguageCard
+      name="Unity"
+      link="/unity"
+      image="/assets/languages/unity.webp"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <LanguageCard
+      name="Solidity"
+      link="/solidity"
+      image="/assets/languages/solidity.png"
     />
   </div>
 </div>
+<ToolCardsSection />
+<InfrastructureCardsSection />
 
-<ExploreProductsSection />
-
-<LearnSection />
-
+<SolutionsCardsSection />
+<ResourcesSection />
 </div>

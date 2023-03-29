@@ -1,0 +1,26 @@
+---
+title: Factory Contracts
+slug: /publish/factory-contracts
+---
+
+Another way to let users deploy your contracts is by using a factory contract. This allows you to not only provide cheap deployments, but also to add extra logic that will be executed when others deploy your contracts.
+
+### Publishing factory contracts
+
+To enable factory deploys, you will need to deploy a factory contract that implements the [IContractFactory interface](https://portal.thirdweb.com/contracts/IContractFactory). This is a simple interface with one function that you can implement to add deploy contracts any way you like, and add your custom logic on top. This is extremely useful when deploying a contract requires multiple steps, having the factory take care of the heavy lifting.
+
+Fill in the addresses of your factory contracts on each chain. This means you need to deploy your implementations like for proxy, but also add your factory addresses.
+
+![Factory Contract Address Form](/assets/publish/factory-deploy-settings.png)
+
+Click the "Next" button and fill out the details of the parameters on your contract.
+
+Help users trying to deploy your smart contract by providing a display name, default value, and description of each contract parameter.
+
+![Describe Constructor Parameters](/assets/publish/contract-parameters.png)
+
+Finally to publish your contract, click the "Publish Contract" button.
+
+![Publish Contract](/assets/publish/publish-contract.png)
+
+That's it, now when people click deploy from your published contract page, your factory function will be invoked.

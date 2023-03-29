@@ -1,0 +1,189 @@
+---
+title: useClaimToken
+slug: /react.useclaimtoken
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for claiming a ERC20 tokens from a smart contract.
+
+Available to use on smart contracts that implement both the [ERC20](/solidity/extensions/erc20) interface
+and the [`claim`](https://docs-k9c04zej3.thirdweb-preview.com/solidity/extensions/erc721claimable) function,
+such as the [Token Drop](https://thirdweb.com/thirdweb.eth/DropERC20/2.0.0).
+
+```jsx
+import { useClaimToken } from "@thirdweb-dev/react";
+
+const { mutateAsync, isLoading, error } = useClaimToken(contract);
+```
+
+## Usage
+
+Provide your token contract as the argument to the hook.
+
+```jsx
+import { useClaimToken, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: claimToken, isLoading, error } = useClaimToken(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        claimToken({
+          to: "{{wallet_address}}", // Use useAddress hook to get current wallet address
+          amount: 100, // Amount of token to claim
+        })
+      }
+    >
+      Claim Token
+    </Web3Button>
+  );
+}
+```
+
+## Parameters
+
+<details>
+  <summary>to (required)</summary>
+  <div>
+
+### to (required)
+
+Likely, you will want to claim the token to the currently connected wallet address.
+
+You can use the [`useAddress`](/react/react.useAddress) hook to get this value.
+
+```jsx
+import {
+  useClaimToken,
+  useContract,
+  Web3Button,
+  useAddress,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  // highlight-start
+  const address = useAddress();
+  // highlight-end
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: claimToken, isLoading, error } = useClaimToken(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        claimToken({
+          // highlight-start
+          to: address, // Use useAddress hook to get current wallet address
+          // highlight-end
+          amount: 100, // Amount of token to claim
+        })
+      }
+    >
+      Claim Token
+    </Web3Button>
+  );
+}
+```
+
+</div>
+</details>
+
+<details>
+  <summary>amount (required)</summary>
+  <div>
+
+### amount (required)
+
+The amount of tokens to be claimed.
+
+```jsx
+import { useClaimToken, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: claimToken, isLoading, error } = useClaimToken(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        claimToken({
+          to: "{{wallet_address}}", // Use useAddress hook to get current wallet address
+          // highlight-start
+          amount: 100, // Amount of token to claim
+          // highlight-end
+        })
+      }
+    >
+      Claim Token
+    </Web3Button>
+  );
+}
+```
+
+</div>
+</details>
+
+<details>
+  <summary>checkERC20Allowance (optional)</summary>
+  <div>
+
+### checkERC20Allowance (optional)
+
+Boolean value to check whether the current wallet has enough allowance to pay for claiming the tokens before
+attempting to claim the tokens.
+
+Defaults to `true`.
+
+```jsx
+import {
+  useClaimToken,
+  useContract,
+  Web3Button,
+  useAddress,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: claimToken, isLoading, error } = useClaimToken(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        claimToken({
+          to: "{{wallet_address}}", // Use useAddress hook to get current wallet address
+          amount: 100, // Amount of token to claim
+          // highlight-start
+          checkERC20Allowance: false, // Set to true if you want to check ERC20 allowance
+          // highlight-end
+        })
+      }
+    >
+      Claim Token
+    </Web3Button>
+  );
+}
+```
+
+</div>
+</details>

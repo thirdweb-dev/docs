@@ -1,0 +1,111 @@
+---
+title: Overview
+slug: /extensions/
+hide_title: true
+---
+
+import CodeBlock from "@theme/CodeBlock";
+
+# Interacting with Contracts
+
+The Unity SDK provides different ways for you to interact with smart contract functionality:
+
+1. Generic reading data _from_ and writing transactions _to_ smart contracts using the [`Read`](/unity/contract.read) and [`Write`](/unity/contract.write) methods.
+2. Using special features that are available for each [extension](/solidity/interfaces) that your smart contract implements.
+
+## Extensions
+
+Each [extension](/solidity/interfaces) _(i.e. Solidity interface)_ that your smart contract implements unlocks new functionality for you to use in the SDK.
+For example, NFT collection smart contracts implements the [ERC721](/solidity/interfaces/erc721) extension,
+allowing you can to use the [ERC721](/unity/erc721) extension in the SDK when interacting with that contract.
+
+These extension interfaces are available for the most common EIP standards, including support for ERC20, ERC721, ERC1155, permissions, metadata,
+and more. They handle the pre-processing of calling the smart contract functions for you, such as checking for token approval, uploading metadata to IPFS, formatting inputs, etc.
+Making your code safer and easier to write.
+
+<div
+  style={{
+    width: "100%",
+    display: "flex",
+    alignItems: "center",
+    gap: "2%",
+  }}
+>
+  <div
+    style={{
+      width: "48%",
+      display: "flex",
+      flexDirection: "column",
+    }}
+  >
+    <CodeBlock
+      title="MyContract.sol"
+      language={"solidity"}
+    >{`contract MyContract is 
+  ERC721, 
+  IERC721Mintable {
+    // ...
+  }`}</CodeBlock>
+
+  </div>
+    <div
+    style={{
+      width: "48%",
+      display: "flex",
+      flexDirection: "column",
+    }}
+  >
+    <CodeBlock
+      title="MyScript.cs"
+      language={"csharp"}
+    >{`public async void MintERC721() {
+  // ERC721 -> ".ERC721"
+  // IERC721Mintable -> ".Mint"
+  await contract.ERC721.Mint({...})
+}`}</CodeBlock>
+  </div>
+</div>
+<p style={{opacity:0.9}}>Example: the "mint" function above uploads and pins your NFT metadata to IPFS for you before minting.</p>
+
+### Supported Extensions
+
+#### ERC721
+
+| Name                  | Description                                                                           | Documentation                                         |
+| --------------------- | ------------------------------------------------------------------------------------- | ----------------------------------------------------- |
+| ERC721                | Basic functionality of ERC721 "non-fungible" NFTs                                     | [ERC721](/unity/erc721)                               |
+| ERC721BatchMintable   | Batch minting of new NFTs                                                             | [ERC721BatchMintable](/unity/erc721batchmintable)     |
+| ERC721Burnable        | Burn (take out of circulation) NFTs                                                   | [ERC721Burnable](/unity/erc721burnable)               |
+| ERC721ClaimConditions | Allow users to claim NFTs from your drop under specific conditions                    | [ERC721ClaimConditions](/unity/erc721claimconditions) |
+| ERC721LazyMintable    | Batch lazy-mint new NFTs for others to claim them                                     | [ERC721LazyMintable](/unity/erc721lazymintable)       |
+| ERC721Enumerable      | Enumerate through NFTs in a contract to get all or get owned NFTs                     | [ERC721Enumerable](/unity/erc721enumerable)           |
+| ERC721Mintable        | Mint new NFTs into the contract                                                       | [ERC721Mintable](/unity/erc721mintable)               |
+| ERC721Revealable      | Use delayed reveal on NFTs you lazy mint                                              | [ERC721Revealable](/unity/delayedreveal721)           |
+| ERC721Supply          | View information about the supply of the NFT collection                               | [ERC721Supply](/unity/erc721supply)                   |
+| ERC721TieredDrop      | Use special [tiered drop](https://thirdweb.com/thirdweb.eth/TieredDrop) functionality | [ERC721TieredDrop](/unity/erc721tiereddrop)           |
+| ERC721SignatureMint   | Use signature-based minting functionality to mint new NFTs into the contract          | [ERC721SignatureMint](/unity/erc721signaturemint)     |
+
+#### ERC1155
+
+| Name                     | Description                                                                  | Documentation                                               |
+| ------------------------ | ---------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| ERC1155                  | Basic functionality of ERC1155 "semi-fungible" NFTs                          | [ERC1155](/unity/erc1155)                                   |
+| ERC1155BatchMintable     | Batch minting of new NFTs                                                    | [ERC1155BatchMintable](/unity/erc1155batchmintable)         |
+| ERC1155Burnable          | Burn (take out of circulation) NFTs                                          | [ERC1155Burnable](/unity/erc1155burnable)                   |
+| ERC1155ClaimConditions   | Allow users to claim NFTs from your drop under specific conditions           | [ERC1155ClaimConditions](/unity/erc1155claimconditions)     |
+| ERC1155Enumerable        | Enumerate through NFTs in a contract to get all or get owned NFTs            | [ERC1155Enumerable](/unity/erc1155enumerable)               |
+| ERC1155LazyMintable      | Batch lazy-mint new NFTs for others to claim them                            | [ERC1155LazyMintable](/unity/erc1155lazymintable)           |
+| ERC1155Mintable          | Mint new NFTs into the contract                                              | [ERC1155Mintable](/unity/erc1155mintable)                   |
+| ERC1155Revealable        | Use delayed reveal on NFTs you lazy mint                                     | [ERC1155Revealable](/unity/delayedreveal1155)               |
+| ERC1155SignatureMintable | Use signature-based minting functionality to mint new NFTs into the contract | [ERC1155SignatureMintable](/unity/erc1155signaturemintable) |
+
+#### ERC20
+
+| Name                   | Description                                                                    | Documentation                                           |
+| ---------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------- |
+| ERC20                  | Basic functionality of ERC20 "fungible" tokens                                 | [ERC20](/unity/erc20)                                   |
+| ERC20BatchMintable     | Batch minting of new tokens                                                    | [ERC20BatchMintable](/unity/erc20batchmintable)         |
+| ERC20Burnable          | Burn (take out of circulation) tokens                                          | [ERC20Burnable](/unity/erc20burnable)                   |
+| ERC20Mintable          | Mint new tokens into the contract                                              | [ERC20Mintable](/unity/erc20mintable)                   |
+| ERC20SignatureMintable | Use signature-based minting functionality to mint new tokens into the contract | [ERC20SignatureMintable](/unity/erc20signaturemintable) |
+| ERC20ClaimConditions   | Allow users to claim tokens from your drop under specific conditions           | [ERC20ClaimConditions](/unity/erc20claimconditions)     |

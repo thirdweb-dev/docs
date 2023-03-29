@@ -1,0 +1,225 @@
+---
+title: useClaimNFT
+slug: /react.useclaimnft
+displayed_sidebar: react
+---
+
+Hook for claiming an NFT from a smart contract.
+
+Available to use on smart contracts that implement a
+[Claimable](/solidity/extensions/erc721claimable) interface, and
+follow either the [ERC721](/solidity/extensions/erc721)
+or [ERC1155](/solidity/extensions/erc1155) standard.
+
+```jsx
+import { useClaimNFT } from "@thirdweb-dev/react";
+
+const { mutateAsync, isLoading, error } = useClaimNFT(contract);
+```
+
+## Usage
+
+Provide your drop contract (ERC721 or ERC1155) as the argument.
+
+```jsx
+import { useContract, useClaimNFT, Web3Button } from "@thirdweb-dev/react";
+
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { mutate: claimNft, isLoading, error } = useClaimNFT(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        claimNft({
+          to: "{{wallet_address}}", // Use useAddress hook to get current wallet address
+          quantity: 1,
+        })
+      }
+    >
+      Claim NFT
+    </Web3Button>
+  );
+}
+```
+
+## Configuration
+
+### to (required)
+
+<details>
+  <summary>to</summary>
+  <div>
+
+The wallet address to mint the NFT(s) to.
+
+Use the [`useAddress`](/react/react.useAddress) hook to get the currently connected wallet address.
+
+```jsx
+import {
+  useContract,
+  useClaimNFT,
+  Web3Button,
+  useAddress,
+} from "@thirdweb-dev/react";
+
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { mutate: claimNft, isLoading, error } = useClaimNFT(contract);
+  // highlight-next-line
+  const address = useAddress();
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        claimNft({
+          // highlight-next-line
+          to: address,
+          quantity: 1,
+        })
+      }
+    >
+      Claim NFT
+    </Web3Button>
+  );
+}
+```
+
+</div>
+</details>
+
+<details>
+  <summary>quantity</summary>
+  <div>
+
+### quantity (required)
+
+The number of NFTs you wish to claim.
+
+- With ERC721 contracts, this represents the number of unique tokens you wish to claim.
+- With ERC1155 contracts, this represents the quantity of the specific `tokenId` you wish to claim.
+
+```jsx
+import { useContract, useClaimNFT, Web3Button } from "@thirdweb-dev/react";
+
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { mutate: claimNft, isLoading, error } = useClaimNFT(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        claimNft({
+          to: "{{wallet_address}}", // Use useAddress hook to get current wallet address
+          // highlight-next-line
+          quantity: 1,
+        })
+      }
+    >
+      Claim NFT
+    </Web3Button>
+  );
+}
+```
+
+</div>
+</details>
+
+<details>
+  <summary>tokenId</summary>
+  <div>
+
+### tokenId (required)
+
+For ERC1155 contracts, you must specify a specific `tokenId` to claim.
+
+```jsx
+import { useContract, useClaimNFT, Web3Button } from "@thirdweb-dev/react";
+
+const contractAddress = "{{contract_address}}";
+
+// highlight-next-line
+const tokenId = 0;
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { mutate: claimNft, isLoading, error } = useClaimNFT(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        claimNft({
+          to: "{{wallet_address}}", // Use useAddress hook to get current wallet address
+          quantity: 1,
+          // highlight-next-line
+          tokenId,
+        })
+      }
+    >
+      Claim NFT
+    </Web3Button>
+  );
+}
+```
+
+</div>
+</details>
+
+<details>
+  <summary>options</summary>
+  <div>
+
+### options (optional)
+
+Customizable `ClaimOptions` object that can be used to override the default behaviour of the hook.
+
+There are three options available:
+
+- `checkERC20Allowance` - Whether to check the ERC20 allowance of the sender, defaults to true.
+- `currencyAddress` - The currency to pay for each token claimed, defaults to `NATIVE_TOKEN_ADDRESS` for native currency.
+- `pricePerToken` - The price to pay for each token claimed. Not relevant when using claim conditions.
+
+```jsx
+import { useContract, useClaimNFT, Web3Button } from "@thirdweb-dev/react";
+
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { mutate: claimNft, isLoading, error } = useClaimNFT(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        claimNft({
+          to: "{{wallet_address}}",
+          quantity: 1,
+          // highlight-start
+          options: {
+            checkERC20Allowance: true,
+            currencyAddress: "{{erc20_address}}",
+            pricePerToken: 0,
+          },
+          // highlight-end
+        })
+      }
+    >
+      Claim NFT
+    </Web3Button>
+  );
+}
+```
+
+</div>
+</details>

@@ -19,7 +19,7 @@ constructor(connection: Connection, storage?: ThirdwebStorage);
 
 ## Parameters
 
-| Parameter  | Type            | Description       |
-| ---------- | --------------- | ----------------- |
-| connection | Connection      |                   |
-| storage    | ThirdwebStorage | <i>(Optional)</i> |
+| Parameter  | Type            | Description  |
+| ---------- | --------------- | ------------ |
+| connection | Connection      |              |
+| storage    | ThirdwebStorage | _(Optional)_ |

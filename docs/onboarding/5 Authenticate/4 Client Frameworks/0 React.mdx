@@ -96,7 +96,7 @@ For a full list of wallet connection hooks, check out our [React SDK documentati
 On the frontend, you may want to check whether or not the user is logged in to conditionally render certain parts of your app. You can do this with the `isLoggedIn` value from the `useUser` hook:
 
 ```tsx
-import { isLoggedIn } from "@thirdweb-dev/react";
+import { useUser } from "@thirdweb-dev/react";
 
 export default function Home() {
   const { isLoggedIn } = useUser();

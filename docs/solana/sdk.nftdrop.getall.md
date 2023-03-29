@@ -19,9 +19,9 @@ getAll(queryParams?: QueryAllParams): Promise<NFT[]>;
 
 ## Parameters
 
-| Parameter   | Type           | Description       |
-| ----------- | -------------- | ----------------- |
-| queryParams | QueryAllParams | <i>(Optional)</i> |
+| Parameter   | Type           | Description  |
+| ----------- | -------------- | ------------ |
+| queryParams | QueryAllParams | _(Optional)_ |
 
 **Returns:**
 

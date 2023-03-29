@@ -1,0 +1,153 @@
+---
+title: useUpdateRoyaltySettings
+slug: /react.useupdateroyaltysettings
+displayed_sidebar: react
+---
+
+Hook for updating royalty settings on a smart contract.
+
+Available to use on smart contracts that implement the [Royalty](/solidity/extension-contracts/royalty) interface.
+
+```jsx
+import { useUpdateRoyaltySettings } from "@thirdweb-dev/react";
+
+const {
+  mutateAsync: updateRoyaltySettings,
+  isLoading,
+  error,
+} = useUpdateRoyaltySettings(contract);
+```
+
+## Usage
+
+Provide your contract instance from the [`useContract`](react/hooks/usecontract) hook as the argument.
+
+```jsx
+import {
+  useUpdateRoyaltySettings,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const {
+    mutateAsync: updateRoyaltySettings,
+    isLoading,
+    error,
+  } = useUpdateRoyaltySettings(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        updateRoyaltySettings({
+          seller_fee_basis_points: 0,
+          fee_recipient: "{{wallet_address}}",
+        })
+      }
+    >
+      Update Royalty Settings
+    </Web3Button>
+  );
+}
+```
+
+## Configuration
+
+<details>
+  <summary>seller_fee_basis_points (required)</summary>
+  <div>
+
+### seller_fee_basis_points (required)
+
+The `seller_fee_basis_points` property is a `number` between `0` - `10000` that defines the fee rate.
+
+This number is in percentage points. i.e. `100` is a 1% fee and `10000` is a 100% fee.
+
+```jsx
+import {
+  useUpdateRoyaltySettings,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const {
+    mutateAsync: updateRoyaltySettings,
+    isLoading,
+    error,
+  } = useUpdateRoyaltySettings(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        updateRoyaltySettings({
+          // highlight-next-line
+          seller_fee_basis_points: 1000, // 10% royalty fee
+          fee_recipient: "{{wallet_address}}",
+        })
+      }
+    >
+      Update Royalty Settings
+    </Web3Button>
+  );
+}
+```
+
+</div>
+</details>
+
+<details>
+  <summary>fee_recipient (required)</summary>
+  <div>
+
+### fee_recipient (required)
+
+The `fee_recipient` property is the address of the wallet that will receive the fees.
+
+```jsx
+import {
+  useUpdateRoyaltySettings,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const {
+    mutateAsync: updateRoyaltySettings,
+    isLoading,
+    error,
+  } = useUpdateRoyaltySettings(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        updateRoyaltySettings({
+          seller_fee_basis_points: 1000,
+          // highlight-next-line
+          fee_recipient: "{{wallet_address}}",
+        })
+      }
+    >
+      Update Royalty Settings
+    </Web3Button>
+  );
+}
+```
+
+</div>
+</details>

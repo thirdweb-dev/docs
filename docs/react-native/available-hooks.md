@@ -19,11 +19,11 @@ displayed_sidebar: react-native
 
 ## Wallet connection
 
-| Hook                                                                             | Description                                                 |
-| -------------------------------------------------------------------------------- | ----------------------------------------------------------- |
-| [`useAddress`](https://portal.thirdweb.com/react/react.useaddress)               | Hook for accessing the address of the connected wallet.     |
-| [`useWalletConnect`](https://portal.thirdweb.com/react/react.usewalletconnect)   | Hook for connecting to a mobile wallet with Wallet Connect. |
-| [`useDisconnect`](https://portal.thirdweb.com/react/react.usedisconnect)         | Hook for disconnecting the currently connected wallet.      |
+| Hook                                                                           | Description                                                 |
+| ------------------------------------------------------------------------------ | ----------------------------------------------------------- |
+| [`useAddress`](https://portal.thirdweb.com/react/react.useaddress)             | Hook for accessing the address of the connected wallet.     |
+| [`useWalletConnect`](https://portal.thirdweb.com/react/react.usewalletconnect) | Hook for connecting to a mobile wallet with Wallet Connect. |
+| [`useDisconnect`](https://portal.thirdweb.com/react/react.usedisconnect)       | Hook for disconnecting the currently connected wallet.      |
 
 ## Network connection
 
@@ -112,4 +112,4 @@ displayed_sidebar: react-native
 | [`useClaimConditions`](https://portal.thirdweb.com/react/react.useclaimconditions)                     | Use this to get all claim conditions for ERC20, ERC721 or ERC1155 based contracts.                       |
 | [`useClaimIneligibilityReasons`](https://portal.thirdweb.com/react/react.useclaimineligibilityreasons) | Use this to check for reasons that prevent claiming for either ERC20, ERC721 or ERC1155 based contracts. |
 | [`useSetClaimConditions`](https://portal.thirdweb.com/react/react.usesetclaimconditions)               | Use this to set claim conditions on your DropContract.                                                   |
-| [`useResetClaimConditions`](https://portal.thirdweb.com/react/react.useresetclaimconditions)           | Use this to reset claim conditions on your DropContract.     
+| [`useResetClaimConditions`](https://portal.thirdweb.com/react/react.useresetclaimconditions)           | Use this to reset claim conditions on your DropContract.                                                 |

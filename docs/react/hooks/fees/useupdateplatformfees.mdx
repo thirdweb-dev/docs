@@ -1,0 +1,151 @@
+---
+title: useUpdatePlatformFees
+slug: /react.useupdateplatformfees
+displayed_sidebar: react
+---
+
+Hook for updating platform fees on a smart contract.
+
+Available to use on smart contracts that implement the [PlatformFee](/solidity/extension-contracts/platformfee) interface.
+
+```jsx
+import { useUpdatePlatformFees } from "@thirdweb-dev/react";
+
+const { mutateAsync, isLoading, error } = useUpdatePlatformFees(contract);
+```
+
+## Usage
+
+Provide your contract instance from the [`useContract`](react/hooks/usecontract) hook as the argument.
+
+```jsx
+import {
+  useUpdatePlatformFees,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const {
+    mutateAsync: updatePlatformFees,
+    isLoading,
+    error,
+  } = useUpdatePlatformFees(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        updatePlatformFees({
+          platform_fee_basis_points: 0,
+          fee_recipient: "{{wallet_address}}",
+        })
+      }
+    >
+      Update Platform Fees
+    </Web3Button>
+  );
+}
+```
+
+## Configuration
+
+<details>
+  <summary>platform_fee_basis_points</summary>
+  <div>
+
+### platform_fee_basis_points (required)
+
+The `platform_fee_basis_points` property is a `number` between `0` - `10000` that defines the fee rate.
+
+This number is in percentage points. i.e. `100` is a 1% fee and `10000` is a 100% fee.
+
+```jsx
+import {
+  useUpdatePlatformFees,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const {
+    mutateAsync: updatePlatformFees,
+    isLoading,
+    error,
+  } = useUpdatePlatformFees(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        updatePlatformFees({
+          // highlight-next-line
+          platform_fee_basis_points: 1000, // 10% platform fee
+          fee_recipient: "{{wallet_address}}",
+        })
+      }
+    >
+      Update Platform Fees
+    </Web3Button>
+  );
+}
+```
+
+</div>
+</details>
+
+<details>
+  <summary>fee_recipient</summary>
+  <div>
+
+### fee_recipient (required)
+
+The `fee_recipient` property is the address of the wallet that will receive the fees.
+
+Use the [`useAddress`](/react/react.useaddress) hook to get the current wallet address.
+
+```jsx
+import {
+  useUpdatePlatformFees,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const {
+    mutateAsync: updatePlatformFees,
+    isLoading,
+    error,
+  } = useUpdatePlatformFees(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        updatePlatformFees({
+          platform_fee_basis_points: 1000,
+          // highlight-next-line
+          fee_recipient: "{{wallet_address}}",
+        })
+      }
+    >
+      Update Platform Fees
+    </Web3Button>
+  );
+}
+```
+
+</div>
+</details>

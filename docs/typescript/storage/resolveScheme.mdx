@@ -1,0 +1,34 @@
+---
+title: resolveScheme
+slug: /sdk.storage.resolvescheme
+---
+
+Resolve any scheme on a URL to get a retrievable URL for the data.
+
+i.e. Provide an IPFS URI and get back a URL that can be used to retrieve the data via a gateway.
+
+## Usage
+
+Pass a URL with its scheme to this method in order to get a retrievable URL.
+
+If the URL you provide is already a retrievable URL, it will be returned as-is.
+
+```javascript
+const url = sdk.storage.resolveScheme("ipfs://example");
+```
+
+## Configuration
+
+### url
+
+Provide any URL or IPFS URI and get back a retrievable URL to get/view the data.
+
+Must be a string.
+
+## Return Value
+
+Returns the URL with its scheme resolved.
+
+```typescript
+string;
+```

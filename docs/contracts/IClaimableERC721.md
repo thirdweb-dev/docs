@@ -7,6 +7,8 @@ displayed_sidebar: contracts
 
 # IClaimableERC721
 
+_thirdweb_
+
 ## Methods
 
 ### claim

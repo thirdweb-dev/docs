@@ -1,0 +1,87 @@
+---
+title: useAuctionWinner
+slug: /react.useauctionwinner
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for getting the winner of an auction (or english auction) on a [Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace)
+or [MarketplaceV3](https://thirdweb.com/thirdweb.eth/MarketplaceV3) contract.
+
+```jsx
+import { useAuctionWinner } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useAuctionWinner(contract, listingId);
+```
+
+## Usage
+
+Provide your Marketplace contract and the listing ID as the arguments.
+
+```jsx
+import { useAuctionWinner, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+const listingId = "{{listing_id}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace");
+  const { data, isLoading, error } = useAuctionWinner(
+    contract,
+    listingId, // The listing id of the item that you want to get the auction winner for
+  );
+}
+```
+
+## Configuration
+
+<details>
+  <summary>listingId</summary>
+  <div>
+
+### listingId (required)
+
+The listing ID of the item that you want to get the auction winner for.
+
+The listing must be an auction (or english auction) listing, the hook will populate the `error` property if it is not.
+
+```ts
+import { useAuctionWinner, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+// highlight-next-line
+const listingId = "{{listing_id}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace");
+  const { data, isLoading, error } = useAuctionWinner(
+    contract,
+    // highlight-next-line
+    listingId, // The listing id of the item that you want to get the auction winner for
+  );
+}
+```
+
+</div>
+</details>
+
+## Return Value
+
+<details>
+  <summary>Return Value</summary>
+  <div>
+
+The hook's `data` property, once loaded, contains a string
+representing the address of the auction winner, or undefined if there is no winner.
+
+```ts
+string | undefined;
+```
+
+</div>
+</details>

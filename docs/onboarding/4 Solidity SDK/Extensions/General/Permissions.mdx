@@ -1,0 +1,180 @@
+---
+slug: /solidity/extensions/permissions
+title: Permissions
+---
+
+import ViewContractCodeButton from "@components/ViewContractCodeButton";
+import QuickstartCard from "@components/QuickstartCard";
+
+# Permissions
+
+```solidity
+import "@thirdweb-dev/contracts/extension/Permissions.sol";
+```
+
+The `Permissions` extension provides role-based access control: you can create roles and write custom logic in your smart contract that depends on whether a given wallet holds a given role.
+
+There are two different contracts you can implement to add permissions:
+
+- `Permissions`: Create roles and restrict access to functions based on those roles.
+- [`PermissionsEnumerable`](/solidity/extensions/permissionsenumerable): `Permissions` plus the capability to view all the addresses holding a specific role (or all roles).
+
+You only need to implement **one** of the two.
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/Permissions.sol"
+  name="Permissions"
+/>
+
+## Usage
+
+This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality. 
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@thirdweb-dev/contracts/extension/Permissions.sol";
+
+contract MyContract is Permissions {
+    // Any `bytes32` value is a valid role. You can create roles by defining them like this.
+    bytes32 public constant NUMBER_ROLE = keccak256("NUMBER_ROLE");
+
+    // See comments for `setNumber`, below.
+    uint256 public number;
+
+    /**
+     *  The `Permissions` contract makes an already defined role available: the `DEFAULT_ADMIN_ROLE`.
+     *
+     *  As an EXAMPLE, we grant the deployer of the contract this admin role.
+     */
+    constructor() {
+        _setupRole(DEFAULT_ADMIN_ROLE, msg.sender);
+    }
+
+    /**
+     *  EXAMPLE: here we have a function that we want to restrict only to holders of `NUMBER_ROLE`.
+     *
+     *  To accomplish this, we use the `onlyRole` modifier made available by `Permissions`, and
+     *  pass it `NUMBER_ROLE` as an argument.
+     */
+    function setNumber(uint256 _newNumber) public onlyRole(NUMBER_ROLE) {
+        number = _newNumber;
+    }
+}
+```
+
+## SDK Usage
+
+By adding this extension to a smart contract, the following features, hooks and functions are unlocked in the SDK:
+
+<div className="row" style={{ marginBottom: 12 }}>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="React"
+      link="/react/react.userolemembers"
+      image="/assets/languages/react.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="TypeScript"
+      link="/typescript/sdk.permissions"
+      image="/assets/languages/typescript.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Python"
+      link="/python/contract-roles"
+      image="/assets/languages/python.png"
+    />
+  </div>
+</div>
+
+## Base Contracts Implementing This Extension
+
+None of the base contracts implement this extension.
+
+## Full API Reference
+
+<details>
+<summary>hasRole</summary>
+<div>
+
+```solidity
+function hasRole(bytes32 role, address account) external view returns (bool);
+```
+
+- Returns `true` if `account` has been granted `role`.
+
+</div>
+</details>
+
+<details>
+<summary>getRoleAdmin</summary>
+<div>
+
+```solidity
+function getRoleAdmin(bytes32 role) external view returns (bytes32);
+```
+
+- Returns the admin role that controls `role` i.e. the holders of the admin role (the return value) can grant or revoke `role` from wallets.
+
+</div>
+</details>
+
+<details>
+<summary>grantRole</summary>
+<div>
+
+```solidity
+function grantRole(bytes32 role, address account) external;
+```
+
+- Grants `role` to `account`. Can only be called by a holder of the admin role of the role being granted.
+
+</div>
+</details>
+
+<details>
+<summary>revokeRole</summary>
+<div>
+
+```solidity
+function revokeRole(bytes32 role, address account) external;
+```
+
+- Revokes `role` from `account`. Can only be called by a holder of the admin role of the role being granted.
+
+</div>
+</details>
+
+<details>
+<summary>renounceRole</summary>
+<div>
+
+```solidity
+function renounceRole(bytes32 role, address account) external;
+```
+
+- Revokes `role` from the calling account.
+
+</div>
+</details>
+
+<details>
+<summary>hasRoleWithSwitch</summary>
+<div>
+
+```solidity
+function hasRoleWithSwitch(bytes32 role, address account) public view returns (bool);
+```
+
+- Returns `true` if `account` has been granted `role`.
+- Role restrictions can be swtiched on and off:
+  - If `address(0)` has `role`, then the role restrictions don't apply i.e. this function will always return `true`.
+  - If `address(0)` does not have `role`, then the role restrictions will apply i.e. this function will behave like `hasRole`.
+  
+</div>
+</details>

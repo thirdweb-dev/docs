@@ -1,0 +1,94 @@
+---
+title: Batch Mint
+slug: /sdk.erc721batchmintable
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+# ERC721BatchMintable
+
+Functionality available for contracts that implement the
+[`IERC721`](/contracts/IERC721),
+[`IMintableERC721`](/contracts/IMintableERC721), and
+[`IMulticall`](/contracts/IMulticall)
+interfaces.
+
+Allows you to mint multiple NFTs at once to a wallet.
+
+By default, the NFT metadata is uploaded and pinned to IPFS before minting. You can override this default behavior by providing an array of URLs as `string`s
+that point to valid metadata objects.
+
+## mintBatchTo
+
+Mint multiple NFTs to a specified wallet address.
+
+```javascript
+// Address of the wallet you want to mint the NFT to
+const walletAddress = "{{wallet_address}}";
+
+// Custom metadata of the NFTs you want to mint.
+const metadatas = [
+  {
+    name: "Cool NFT #1",
+    description: "This is a cool NFT",
+    image: "https://example.com/image.png", // URL, IPFS URI, or File object
+    // ... Any other metadata you want to include
+  },
+  {
+    name: "Cool NFT #2",
+    description: "This is a cool NFT",
+    image: "https://example.com/image.png", // URL, IPFS URI, or File object
+    // ... Any other metadata you want to include
+  },
+];
+
+const tx = await contract.erc721.mintBatchTo(walletAddress, metadatas);
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### receiver
+
+The wallet address to mint the NFTs to.
+
+Must be a `string`.
+
+```javascript
+const metadatas = [
+  // ...
+];
+
+const tx = await contract.erc721.mintBatchTo(
+  // highlight-next-line
+  "{{wallet_address}}",
+  metadatas,
+);
+```
+
+#### metadatas
+
+An array of metadata objects for the NFTs you want to mint.
+
+Must be an `array` of `object`s that conform to the [metadata standards](https://docs.opensea.io/docs/metadata-standards#metadata-structure).
+Alternatively, you can provide an array of `string`s that point to valid metadata objects,
+to override the default behavior of uploading and pinning the metadata to IPFS (shown below).
+
+```javascript
+// highlight-start
+const metadatas = [
+  "https://example.com/metadata1.json",
+  "ipfs://my-ipfs-hash",
+  "https://some-other-url.com/metadata2.json",
+];
+// highlight-end
+
+const tx = await contract.erc721.mintBatchTo(
+  "{{wallet_address}}",
+  // highlight-next-line
+  metadatas,
+);
+```
+
+</div>
+</details>

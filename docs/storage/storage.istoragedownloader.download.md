@@ -19,10 +19,10 @@ download(url: string, gatewayUrls?: GatewayUrls): Promise<Response>;
 
 ## Parameters
 
-| Parameter   | Type                                    | Description                                                 |
-| ----------- | --------------------------------------- | ----------------------------------------------------------- |
-| url         | string                                  | The URL to download data from                               |
-| gatewayUrls | [GatewayUrls](./storage.gatewayurls.md) | <i>(Optional)</i> The gateway URLs to use for this download |
+| Parameter   | Type                                    | Description                                            |
+| ----------- | --------------------------------------- | ------------------------------------------------------ |
+| url         | string                                  | The URL to download data from                          |
+| gatewayUrls | [GatewayUrls](./storage.gatewayurls.md) | _(Optional)_ The gateway URLs to use for this download |
 
 **Returns:**
 

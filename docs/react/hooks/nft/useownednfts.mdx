@@ -1,0 +1,102 @@
+---
+title: useOwnedNFTs
+slug: /react.useownednfts
+displayed_sidebar: react
+---
+
+Hook for accessing a list of NFTs owned by a single wallet address.
+
+Available to use on smart contracts that implement the [ERC721](/solidity/extensions/erc721)
+or [ERC1155](/solidity/extensions/erc1155) standard.
+
+```jsx
+import { useOwnedNFTs } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useOwnedNFTs(contract, "{{wallet_address}}");
+```
+
+## Usage
+
+Provide your NFT collection contract and a wallet address as the arguments.
+
+```jsx
+import { useOwnedNFTs, useContract, useAddress } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const address = useAddress();
+  const { contract } = useContract(contractAddress);
+  const { data, isLoading, error } = useOwnedNFTs(contract, address);
+}
+```
+
+## Configuration
+
+<details>
+  <summary>ownerWalletAddress</summary>
+  <div>
+
+### ownerWalletAddress (required)
+
+The wallet address you want to query for.
+
+Likely, you will want to view the connected wallet&rsquo;s NFTs.
+se the [`useAddress`](/react/react.useaddress) hook to get this value.
+
+```jsx
+import { useOwnedNFTs, useContract, useAddress } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  // highlight-next-line
+  const address = useAddress();
+  const { contract } = useContract(contractAddress);
+  const { data, isLoading, error } = useOwnedNFTs(
+    contract,
+    // highlight-next-line
+    address,
+  );
+}
+```
+
+</div>
+</details>
+
+## Return Value
+
+<details>
+  <summary>Return Value</summary>
+  <div>
+
+The hook's `data` property, once loaded, contains an array of `NFT` objects, each containing the following properties:
+
+```ts
+{
+    metadata: {
+      id: string;
+      uri: string;
+      name?: string | number | undefined;
+      description?: string | null | undefined;
+      image?: string | null | undefined;
+      external_url?: string | null | undefined;
+      animation_url?: string | null | undefined;
+      background_color?: string | undefined;
+      properties?: {
+          [x: string]: unknown;
+      } | {
+          [x: string]: unknown;
+      }[] | undefined;
+  };
+    owner: string;
+    type: "ERC1155" | "ERC721";
+    supply: number;
+    quantityOwned?: number; // Only available for ERC1155
+}[];
+```
+
+</div>
+</details>

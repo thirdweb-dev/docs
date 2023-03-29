@@ -7,6 +7,8 @@ displayed_sidebar: contracts
 
 # IMintableERC721
 
+_thirdweb_
+
 ## Methods
 
 ### mintTo

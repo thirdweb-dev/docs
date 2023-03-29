@@ -67,6 +67,7 @@ const config = {
   ],
   plugins: [
     disableCachePlugin,
+    "docusaurus-node-polyfills",
     [
       "ideal-image",
       /** @type {import('@docusaurus/plugin-ideal-image').PluginOptions} */
@@ -87,6 +88,7 @@ const config = {
         routeBasePath: "typescript",
         sidebarPath: require.resolve("./sidebars/typescript.js"),
         remarkPlugins: [[npm2yarn, { sync: true }]],
+        editUrl: "https://github.com/thirdweb-dev/docs/edit/main",
       },
     ],
     [
@@ -97,6 +99,7 @@ const config = {
         routeBasePath: "react",
         sidebarPath: require.resolve("./sidebars/react.js"),
         remarkPlugins: [[npm2yarn, { sync: true }]],
+        editUrl: "https://github.com/thirdweb-dev/docs/edit/main",
         // ... other options
       },
     ],
@@ -108,6 +111,7 @@ const config = {
         routeBasePath: "react-native",
         sidebarPath: require.resolve("./sidebars/react-native.js"),
         remarkPlugins: [[npm2yarn, { sync: true }]],
+        editUrl: "https://github.com/thirdweb-dev/docs/edit/main",
         // ... other options
       },
     ],
@@ -119,6 +123,7 @@ const config = {
         routeBasePath: "storage-sdk",
         sidebarPath: require.resolve("./sidebars/storage.js"),
         remarkPlugins: [[npm2yarn, { sync: true }]],
+        editUrl: "https://github.com/thirdweb-dev/docs/edit/main",
         // ... other options
       },
     ],
@@ -130,6 +135,7 @@ const config = {
         routeBasePath: "solana-sdk",
         sidebarPath: require.resolve("./sidebars/solana.js"),
         remarkPlugins: [[npm2yarn, { sync: true }]],
+        editUrl: "https://github.com/thirdweb-dev/docs/edit/main",
         // ... other options
       },
     ],
@@ -141,6 +147,7 @@ const config = {
         routeBasePath: "contracts",
         sidebarPath: require.resolve("./sidebars/contracts.js"),
         remarkPlugins: [[npm2yarn, { sync: true }]],
+        editUrl: "https://github.com/thirdweb-dev/docs/edit/main",
         // ... other options
       },
     ],

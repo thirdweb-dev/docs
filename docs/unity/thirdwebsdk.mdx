@@ -1,0 +1,145 @@
+---
+title: ThirdwebSDK
+slug: /thirdwebSDK
+displayed_sidebar: unity
+---
+
+The `ThirdwebSDK` is the entry point to all functionality of the Unity SDK.
+
+You initialize the SDK on your desired chain and use the instance to access the different methods and properties of the SDK.
+
+## Usage
+
+Provide the name of a default chain, or your own custom RPC URL of any EVM-compatible blockchain to instantiate the SDK.
+
+<details>
+  <summary>View default chains</summary>
+  <div>
+    <ul>
+      <li>
+        <b>Ethereum</b>: <code>"ethereum"</code>
+      </li>
+      <li>
+        <b>Goerli</b>: <code>"goerli"</code>
+      </li>
+      <li>
+        <b>Polygon</b>: <code>"polygon"</code>
+      </li>
+      <li>
+        <b>Mumbai</b>: <code>"mumbai"</code>
+      </li>
+      <li>
+        <b>Arbitrum One</b>: <code>"arbitrum"</code>
+      </li>
+      <li>
+        <b>Arbitrum Goerli</b>: <code>"arbitrum-goerli"</code>
+      </li>
+      <li>
+        <b>Optimism</b>: <code>"optimism"</code>
+      </li>
+      <li>
+        <b>Optimism Goerli Testnet</b>: <code>"optimism-goerli"</code>
+      </li>
+      <li>
+        <b>Binance SmartChain</b>: <code>"binance"</code>
+      </li>
+      <li>
+        <b>Binance SmartChain Testnet</b>: <code>"binance-testnet"</code>
+      </li>
+      <li>
+        <b>Fantom Opera</b>: <code>"fantom"</code>
+      </li>
+      <li>
+        <b>Fantom Testnet</b>: <code>"fantom-testnet"</code>
+      </li>
+      <li>
+        <b>Avalanche C Chain</b>: <code>"avalanche-fuji"</code>
+      </li>
+      <li>
+        <b>Avalanche Fuji Testnet</b>: <code>"avalanche-fuji-testnet"</code>
+      </li>
+      <li>
+        <b>Localhost</b>: <code>"localhost"</code>
+      </li>
+    </ul>
+  </div>
+</details>
+
+```csharp
+ThirdwebSDK sdk = new ThirdwebSDK("ethereum");
+```
+
+## Configuration
+
+### chainOrRPC
+
+The blockchain/network you want to instantiate the SDK on.
+
+Provide the name of a default chain (see above), or your own custom RPC URL of any EVM-compatible blockchain.
+
+```csharp
+ThirdwebSDK sdk = new ThirdwebSDK("my-rpc-url");
+```
+
+### gaslessOptions
+
+Use [gasless transactions](/glossary/gasless-transactions) to forward all transactions to a relayer.
+
+Currently supports either [OpenZeppelin Defender](https://blog.thirdweb.com/guides/setup-gasless-transactions/)
+or [Biconomy](https://blog.thirdweb.com/guides/biconomy-gasless-guide/) relayers.
+
+```csharp
+ThirdwebSDK sdk = new ThirdwebSDK("goerli", -1, new ThirdwebSDK.Options()
+{
+    // highlight-start
+    gasless = new ThirdwebSDK.GaslessOptions()
+    {
+        biconomy = new ThirdwebSDK.BiconomyOptions() {
+            apiId = "biconomy-api-id",  // your Biconomy API Id
+            apiKey = "biconomy-api-key" // your Biconomy API Key
+        },
+        openzeppelin = new ThirdwebSDK.OZDefenderOptions()
+        {
+            relayerForwarderAddress = "0x...", // the OZ defender relayer address (defaults to the standard one)
+            relayerUrl ="open-zeppelin-forwarder-address" // your OZ Defender relayer URL
+        },
+    }
+    // highlight-end
+});
+```
+
+### storageOptions
+
+Override the default IPFS gateway URL to use your own.
+
+```csharp
+ThirdwebSDK sdk = new ThirdwebSDK("goerli", -1, new ThirdwebSDK.Options()
+{
+    // highlight-start
+    storage = new ThirdwebSDK.StorageOptions()
+    {
+        ipfsGatewayUrl= "https://my-ipfs-gateway.com/ipfs/"
+    }
+    // highlight-end
+});
+```
+
+### walletOptions
+
+Add extra data to pass to the wallet provider.
+
+```csharp
+ThirdwebSDK sdk = new ThirdwebSDK("goerli", -1, new ThirdwebSDK.Options()
+{
+    // highlight-start
+    wallet = new ThirdwebSDK.WalletOptions()
+    {
+        appName= "My App", // the app name that will show in different wallet providers
+        extras= new Dictionary<string, object>() // extra data to pass to the wallet provider
+        {
+            { "foo", "bar" }
+        }
+    }
+    // highlight-end
+});
+```

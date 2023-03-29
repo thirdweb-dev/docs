@@ -1,0 +1,117 @@
+---
+title: useCancelEnglishAuction
+slug: /react.usecancelenglishauction
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for canceling an english auction on a [MarketplaceV3](https://thirdweb.com/thirdweb.eth/MarketplaceV3) contract.
+
+**Note**: English auctions cannot be canceled if a bid has been placed.
+
+:::info Marketplace V3
+**Note: This hook is only for [Marketplace V3](https://thirdweb.com/thirdweb.eth/MarketplaceV3) contracts.**
+
+For [Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace)
+contracts, use [useCancelListing](/react/react.usecancellisting) instead.
+:::
+
+```jsx
+import { useCancelEnglishAuction } from "@thirdweb-dev/react";
+
+const { mutateAsync, isLoading, error } = useCancelEnglishAuction(contract);
+```
+
+## Usage
+
+Provide your marketplace v3 contract as the argument.
+
+Then, provide the ID of the listing you want to cancel to the mutation.
+
+```jsx
+import {
+  useCancelEnglishAuction,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+// The ID of the listing you want to cancel
+const listingId = "{{listing_id}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace-v3");
+  const {
+    mutateAsync: cancelEnglishAuction,
+    isLoading,
+    error,
+  } = useCancelEnglishAuction(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() => cancelEnglishAuction(listingId)}
+    >
+      Cancel English Auction
+    </Web3Button>
+  );
+}
+```
+
+## Configuration
+
+<details>
+  <summary>listingId (required)</summary>
+  <div>
+
+### listingId (required)
+
+The ID of the listing you want to cancel.
+
+Will populate the `error` property if the listing is not active, cannot be canceled, or was not created by the wallet.
+
+```jsx
+import {
+  useCancelEnglishAuction,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+// The ID of the listing you want to cancel
+// highlight-next-line
+const listingId = "{{listing_id}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace-v3");
+  const {
+    mutateAsync: cancelEnglishAuction,
+    isLoading,
+    error,
+  } = useCancelEnglishAuction(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        cancelEnglishAuction(
+          // highlight-next-line
+          listingId,
+        )
+      }
+    >
+      Cancel English Auction
+    </Web3Button>
+  );
+}
+```
+
+</div>
+</details>

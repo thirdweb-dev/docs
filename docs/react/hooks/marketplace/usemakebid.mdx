@@ -1,0 +1,150 @@
+---
+title: useMakeBid
+slug: /react.usemakebid
+displayed_sidebar: react
+---
+
+Hook for placing a bid on a [Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace) auction listing.
+
+Bids have several important properties:
+
+- Cannot be canceled once placed.
+- Are automatically refunded if they are outbid.
+- Must be higher than the current highest bid by the percentage defined in the bid buffer.
+- Must be higher than the reserve price (if there is no bid yet).
+
+```jsx
+import { useMakeBid } from "@thirdweb-dev/react";
+
+const { mutateAsync: makeBid, isLoading, error } = useMakeBid(contract);
+```
+
+## Usage
+
+Provide your Marketplace contract instance from the [`useContract`](/react/react.usecontract) hook as the argument.
+
+Then, provide the `listingId` and `bid` value to the mutation.
+
+```jsx
+import { useMakeBid, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace");
+  const { mutateAsync: makeBid, isLoading, error } = useMakeBid(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        makeBid({
+          listingId: "1", // ID of the listing to bid on. Must be an auction.
+          bid: "1", // Uses the currencyContractAddress of the listing.
+        })
+      }
+    >
+      Make Bid
+    </Web3Button>
+  );
+}
+```
+
+## Configuration
+
+<details>
+  <summary>listingId (required)</summary>
+  <div>
+
+### listingId (required)
+
+The ID of the listing to bid on. Must be an auction type listing.
+(Use [`useMakeOffer`](/react/react.usemakeoffer) for direct listings).
+
+If the listing cannot be found, is not an auction, or is not active, the `error` property will be set.
+
+```jsx
+import { useMakeBid, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+// highlight-next-line
+const listingId = "{{listing_id}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace");
+  const { mutateAsync: makeBid, isLoading, error } = useMakeBid(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        makeBid({
+          // highlight-next-line
+          listingId: listingId, // ID of the listing to bid on. Must be an auction.
+          bid: "1", // Uses the currencyContractAddress of the listing.
+        })
+      }
+    >
+      Make Bid
+    </Web3Button>
+  );
+}
+```
+
+</div>
+</details>
+
+<details>
+  <summary>bid (required)</summary>
+  <div>
+
+### bid (required)
+
+The amount to bid on the listing. Uses the `currencyContractAddress` of the listing.
+
+For example, if the listing uses the `NATIVE_TOKEN_ADDRESS` on Ethereum, the bid amount is the amount of ETH to bid. Can be
+in the form of a number, string, or BigNumber.
+
+The bid value **must** be either:
+
+- Greater than or equal to the reserve price if there is no current bid.
+- Greater than the current highest bid by the percentage defined in the bid buffer.
+
+Use the [`useNextMinimumBid`](/react/react.usenextminimumbid) hook to get the next minimum bid amount required.
+
+```jsx
+import { useMakeBid, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+// What value to place in the bid
+// highlight-next-line
+const amountToBid = "{{amount_to_bid}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace");
+  const { mutateAsync: makeBid, isLoading, error } = useMakeBid(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        makeBid({
+          listingId: 0, // ID of the listing to bid on. Must be an auction.
+          // highlight-next-line
+          bid: amountToBid, // Uses the currencyContractAddress of the listing
+        })
+      }
+    >
+      Make Bid
+    </Web3Button>
+  );
+}
+```
+
+</div>
+</details>

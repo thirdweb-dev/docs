@@ -7,6 +7,8 @@ displayed_sidebar: contracts
 
 # IContractFactory
 
+_thirdweb_
+
 ## Methods
 
 ### deployProxyByImplementation

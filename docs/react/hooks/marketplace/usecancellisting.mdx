@@ -1,0 +1,147 @@
+---
+title: useCancelListing
+slug: /react.usecancellisting
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for canceling an existing auction or listing on a
+[Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace) contract.
+
+**Note**: Auction listings cannot be canceled if a bid has been placed.
+
+```jsx
+import { useCancelListing } from "@thirdweb-dev/react";
+
+const { mutateAsync, isLoading, error } = useCancelListing(contract);
+```
+
+## Usage
+
+Provide your marketplace contract as the argument.
+
+Then, provide the listing ID and the type of listing in an object to the mutation.
+
+```jsx
+import { useCancelListing, useContract, Web3Button } from "@thirdweb-dev/react";
+import { ListingType } from "@thirdweb-dev/sdk";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace");
+  const {
+    mutateAsync: cancelListing,
+    isLoading,
+    error,
+  } = useCancelListing(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        cancelListing({
+          id: "{{listing_id}}",
+          type: ListingType.Direct, // Direct (0) or Auction (1)
+        })
+      }
+    >
+      Cancel Listing
+    </Web3Button>
+  );
+}
+```
+
+## Configuration
+
+<details>
+  <summary>listingId (required)</summary>
+  <div>
+
+### listingId (required)
+
+The ID of the listing you want to cancel.
+
+Will populate the `error` property if the listing is not active, or was not created by the wallet.
+
+```jsx
+import { useCancelListing, useContract, Web3Button } from "@thirdweb-dev/react";
+import { ListingType } from "@thirdweb-dev/sdk";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace");
+  const {
+    mutateAsync: cancelListing,
+    isLoading,
+    error,
+  } = useCancelListing(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        cancelListing({
+          // highlight-next-line
+          id: "{{listing_id}}",
+          type: ListingType.Direct, // Direct (0) or Auction (1)
+        })
+      }
+    >
+      Cancel Listing
+    </Web3Button>
+  );
+}
+```
+
+</div>
+</details>
+
+<details>
+  <summary>listingType (required)</summary>
+  <div>
+
+### listingType (required)
+
+The type of listing you are canceling. Either `ListingType.Direct` (0) or `ListingType.Auction` (1).
+
+```jsx
+import { useCancelListing, useContract, Web3Button } from "@thirdweb-dev/react";
+import { ListingType } from "@thirdweb-dev/sdk";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace");
+  const {
+    mutateAsync: cancelListing,
+    isLoading,
+    error,
+  } = useCancelListing(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        cancelListing({
+          id: "{{listing_id}}",
+          // highlight-next-line
+          type: ListingType.Direct, // Direct (0) or Auction (1)
+        })
+      }
+    >
+      Cancel Listing
+    </Web3Button>
+  );
+}
+```
+
+</div>
+</details>

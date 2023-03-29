@@ -1,0 +1,20 @@
+---
+title: ThirdwebManager
+slug: /thirdwebmanager
+---
+
+The `ThirdwebManager` prefab is an empty game object containing a `ThirdwebManager` script, which
+instantiates the [ThirdwebSDK](/unity/thirdwebsdk) for you to access anywhere in your game.
+
+Using this prefab allows you to instantiate the SDK once, and use this instance anywhere in your
+other scripts, rather than having to instantiate the SDK in each script.
+
+The prefab is located at: `Assets/Thirdweb/Examples/Prefabs/ThirdwebManager.prefab`.
+
+## Configuration
+
+From the `Inspector`, you can customize the following settings:
+
+- `Chain`: The blockchain you want to instantiate the SDK on at this point in time.
+- `Chain Data`: An array of the chains you want to support in your game.
+- `Storage IPFS Gateway Url`: Override this value to use a custom IPFS gateway for the SDK.
