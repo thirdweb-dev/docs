@@ -104,4 +104,5 @@ async function copyReadMe() {
   );
 }
 
-main();
+// Don't autogenerate Storage docs anymore
+// main();
