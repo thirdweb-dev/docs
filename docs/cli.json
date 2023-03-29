@@ -33,6 +33,7 @@
   ],
   "deploy": [
     { "flags": ["-p" ,"--path <string>"], "description": "Path to project" },
+    { "flags": ["-c" ,"--clean"], "description": "Clear the cache before building" },
     { "flags": ["--dry-run"], "description": "Dry run (skip actually publishing)" },
     { "flags": ["-d", "--debug"], "description": "Show debug logs" },
     { "flags": ["--ci"], "description": "Continuous Integration mode" },
@@ -49,6 +50,7 @@
     { "flags": ["-p" ,"--path <string>"], "description": "Path to project" },
     { "flags": ["-f", "--file <string>"], "description": "Filter for contract files that contain this file name" },
     { "flags": ["-cn", "--contract-name <string>"], "description": "Filter for contracts that contain this contract name" },
+    { "flags": ["-c" ,"--clean"], "description": "Clear the cache before building" },
     { "flags": ["--dry-run"], "description": "Dry run (skip actually publishing)" },
     { "flags": ["-d", "--debug"], "description": "Show debug logs" },
     { "flags": ["--ci"], "description": "Continuous Integration mode" }
