@@ -8,6 +8,10 @@ import QuickstartCard from "@components/QuickstartCard";
 
 # ERC721Permit
 
+```solidity
+import "@thirdweb-dev/contracts/eip/interface/IERC20Permit.sol";
+```
+
 Implementing the `ERC20Permit` extensions allows approvals to be made via signatures, as defined in
 [EIP-2612](https://eips.ethereum.org/EIPS/eip-2612[EIP-2612]).
 
@@ -21,6 +25,8 @@ need to send a transaction and thus is not required to hold Ether at all.
 This extension is an interface and requires all of the functions to be implemented
 
 :::
+
+<br/>
 
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/eip/interface/IERC20Permit.sol"

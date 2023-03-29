@@ -8,6 +8,12 @@ import QuickstartCard from "@components/QuickstartCard";
 
 # ERC721BatchMintable
 
+```solidity
+import "@thirdweb-dev/eip/ERC721.sol"
+import "@thirdweb-dev/contracts/extension/multicall.sol";
+import "@thirdweb-dev/contracts/extension/interface/IMintableERC721.sol";
+```
+
 Enable minting multiple NFTs at once in a single transaction by Implementing [`ERC721`](/solidity/extensions/erc721), [`IMintableERC721`](/solidity/extensions/erc721mintable), and [`Multicall`](/solidity/extensions/multicall) extensions.
 
 This is an extension which is detectable in the dashboard if the smart contract implements the 
@@ -18,8 +24,19 @@ This is an extension which is detectable in the dashboard if the smart contract 
 <div style={{ marginLeft: 24 }}>
 
 <ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/eip/ERC721.sol"
+  name="ERC721"
+  text="ERC721"
+/>
+
+</div>
+
+<div style={{ marginLeft: 24 }}>
+
+<ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/Multicall.sol"
   name="Multicall"
+  text="Multicall"
 />
 
 </div>
@@ -29,19 +46,13 @@ This is an extension which is detectable in the dashboard if the smart contract 
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/interface/IMintableERC721.sol"
   name="ERC721Mintable"
+  text="IMintableERC721"
+  isInterface={true}
 />
 
 </div>
 
 </div>
-
-<br/>
-
-:::info
-
-This extension requires other extensions to be inherited to be detectable on the Dashboard
-
-:::
 
 ## Usage
 

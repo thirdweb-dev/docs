@@ -12,26 +12,12 @@ import QuickstartCard from "@components/QuickstartCard";
 import "@thirdweb-dev/contracts/extension/Staking721.sol";
 ```
 
-<div className="heroGrid">
-<div>
-
-<p>Setup staking feature for your NFT Collection.</p>
-
 The `Staking721` smart contract extension implements NFT staking mechanism. With this extension you can setup a staking contract for NFT holders of your ERC721 Collection. Users can stake their NFTs and earn ERC20 tokens as rewards.
-
-</div>
-</div>
 
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/Staking721.sol"
   name="Staking721"
 />
-
-## Availability in base contracts
-
-The `Staking721` is _already_ available in the following [base contracts](/solidity/base-contracts).
-
-- **ERC721**: [`Staking721Base`](/solidity/base-contracts/staking/staking721base)
 
 ## Usage
 
@@ -85,6 +71,10 @@ contract MyContract is Staking721 {
     }
 }
 ```
+
+## Base Contracts Implementing This Extension
+
+- [Staking721Base](/solidity/base-contracts/staking/staking721base)
 
 ## Full API Reference
 
