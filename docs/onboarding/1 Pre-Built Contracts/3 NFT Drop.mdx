@@ -4,27 +4,27 @@ slug: /pre-built-contracts/nft-drop
 ---
 
 import DeployThisContractButton from "@components/DeployThisContractButton";
+import ResourcesSection from "../../../src/components/landing-page/ResourcesSection";
 
 <div className="deployContractBtnContainer" style={{ marginTop: -70 }}>
-  <DeployThisContractButton
-    link={"https://thirdweb.com/thirdweb.eth/DropERC721via=portal"}
-    contractType="marketplace"
-  />
+  <DeployThisContractButton contractType="nft-drop" />
 </div>
 
-The NFT Drop contract is ideal when you want to release a collection of unique NFTs using the ERC721A standard.
+An NFT Drop contract is a type of smart contract that is designed to allow creators to release a collection of unique NFTs using the ERC721A standard.
 
-It allows you to define a set of conditions called claim phases in a sequence that defines when and how your users can claim an NFT from your drop; including allowlists, release dates, claim limits, and delayed reveals.
+The NFT Drop contract enables creators to define a set of conditions called claim phases in a sequence that specifies when and how users can claim an NFT from the drop. These conditions can include allowlists, release dates, and claim limits, among others.
 
-### NFT Drop Use Cases
+### Use Cases & Examples
 
-Common use cases for the NFT Drop contract include:
+The NFT Drop contract has a variety of practical use cases, including:
 
-- Release a PFP Collection where each NFT has a different combination of traits
+- Releasing a PFP (profile picture) collection where each NFT has a unique combination of traits
+- Creating a series of NFTs featuring your artwork, and allowing your community to mint them for a price
+- Hosting a restricted-access NFT drop, where only a specific list of wallets can claim NFTs
 
-- Release NFTs of your artwork, and have your community mint them for a price
+### Understanding NFT Drop vs Collection
 
-- Create a restricted-access NFT drop, where only a specified list of wallets can claim NFTs
+Compared to an NFT collection, which requires end-users to mint the NFTs themselves, the NFT Drop contract allows creators to "pre-populate" the NFTs metadata to enable [lazy-minting](/glossary/lazy-minting).
 
 ### NFT Drop Extensions
 
@@ -35,15 +35,15 @@ Common use cases for the NFT Drop contract include:
   </tr>
   <tr>
     <td>ERC721</td>
-    <td>placeholder</td>
+    <td>Basic functionality of ERC721 "non-fungible" NFTs</td>
   </tr>
   <tr>
     <td>ERC721Burnable</td>
-    <td>placeholder</td>
+    <td>Burn (take out of circulation) NFTs</td>
   </tr>
   <tr>
     <td>ERC721Supply</td>
-    <td>placeholder</td>
+    <td>View information about the supply of the NFT collection</td>
   </tr>
   <tr>
     <td>ERC721LazyMintable</td>
@@ -59,36 +59,40 @@ Common use cases for the NFT Drop contract include:
   </tr>
   <tr>
     <td>Royalty</td>
-    <td>placeholder</td>
+    <td>
+      Take a percentage fee of secondary sales of your NFTs by giving royalty
+      support on NFT marketplaces
+    </td>
   </tr>
   <tr>
     <td>PlatformFee</td>
-    <td>placeholder</td>
+    <td>Charge a percentage fee wherever there is a transfer of currency</td>
   </tr>
   <tr>
     <td>PrimarySale</td>
-    <td>placeholder</td>
+    <td>Set a recipient for any sale value you intend to collect</td>
   </tr>
   <tr>
     <td>Permissions</td>
-    <td>placeholder</td>
+    <td>Provide role-based access control</td>
   </tr>
   <tr>
     <td>PermissionsEnumberable</td>
-    <td>placeholder</td>
+    <td>
+      Provide role-based access control, plus the capability to view all the
+      addresses holding a specific role
+    </td>
   </tr>
   <tr>
     <td>ContractMetadata</td>
-    <td>placeholder</td>
+    <td>Define metadata for your smart contract</td>
   </tr>
   <tr>
     <td>Ownable</td>
-    <td>placeholder</td>
+    <td> Set an owner for your smart contract</td>
   </tr>
   <tr>
     <td>Gasless</td>
     <td>placeholder</td>
   </tr>
 </table>
-
-### Additional Resources
