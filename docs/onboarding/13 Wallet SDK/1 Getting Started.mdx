@@ -8,84 +8,6 @@ import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 import GettingStartedLiveEditor from "@components/live-code/snippets/GettingStartedLiveEditor";
 
-## React Projects 
-
-In React, the wallets work out of the box - no set is up needed.
-
-To get started, install the required dependencies into your React project.
-
-<Tabs>
-<TabItem value="existing" label="Existing Projects">
-
-<CodeBlock language="bash">
-  npm install @thirdweb-dev/react @thirdweb-dev/sdk
-</CodeBlock>
-
-</TabItem>
-<TabItem value="new" label="New Projects">
-
-<CodeBlock language="bash">
-
-npx thirdweb create app
-
-</CodeBlock>
-
-</TabItem>
-</Tabs>
-
-<br />
-
-:::note 
-The default wallet connectors are [Metamask](/wallet-sdk/metamask), [Coisbase Wallet](/wallet-sdk/coinbase-wallet) and [WalletConnect](/wallet-sdk/walletconnect)
-:::
-
-<br/>
-
-Wrap your application in the [`ThirdwebProvider`](/react/react.thirdwebprovider) component to start using the SDK.
-Without providing any wallets to the [`ThirdwebProvider`](/react/react.thirdwebprovider), the default wallets will be used. 
-
-To optionally add support for other wallets, such as [Gnosis Safe](/react/react.usegnosis), import the wallets to be included and add them to the `supportedWallets` prop.
-
-```jsx
-import {
-  ThirdwebProvider,
-  coinbaseWallet,
-  metamaskWallet,
-  safeWallet,
-  walletConnectV1,
-} from "@thirdweb-dev/react";
-
-const App = () => {
-  return (
-    <ThirdwebProvider 
-    // highlight-start
-      supportedWallets={[
-        metamaskWallet(),
-        coinbaseWallet(),
-        walletConnectV1(),
-        safeWallet(),
-      ]}
-      // highlight-end
-    activeChain="ethereum"
-    >
-      <YourApp />
-    </ThirdwebProvider>
-  );
-};
-```
-
-With the provider set up, all of the Wallet providers work out of the box! 
-
-```jsx
-import { ConnectWallet } from "@thirdweb-dev/react";
-```
-
-Wallets you provide to the [`ThirdwebProvider`'s `supportedWallets`](/react/react.thirdwebprovider#walletconnectors)
-prop are shown as options
-in the [`ConnectWallet`](/react/react.connectwallet) button&rsquo;s dropdown menu (if not configured, the default three options are shown).
-
-## Other Projects
-
 To get started, install the required dependencies into your project.
 
 <Tabs>
@@ -119,3 +41,24 @@ pnpm i @thirdweb-dev/wallets
 </Tabs>
 
 <br />
+
+## Setting up a Wallet
+
+To connect to a wallet, firstly create an instance of the wallet:
+
+```typescript
+const metamaskWallet = new MetaMaskWallet({
+```
+
+Secondly, connect to the wallet:
+
+```typescript
+try {
+  const accountAddress = await metamaskWallet.connect();
+  console.log("connected to account", accountAddress);
+} catch (error) {
+  console.log("Error connecting to wallet", error);
+}
+```
+
+This will return a promise which will fulfill if the connection was successful and reject if the wallet was not connected.
