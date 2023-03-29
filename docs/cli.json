@@ -26,6 +26,7 @@
     { "flags":  ["--dev"], "description": "Install the dev version of packages." }
   ],
   "build": [
+    { "flags": ["-c" ,"--clean"], "description": "Clear the cache before building" },
     { "flags": ["-p" ,"--path <string>"], "description": "Path to project" },
     { "flags": ["-d", "--debug"], "description": "Show debug logs" },
     { "flags": ["-a", "--all"], "description": "Run detection on all contracts" }
