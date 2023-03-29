@@ -660,6 +660,13 @@
       "source": "/sdk/interacting-with-contracts/split",
       "destination": "/sdk"
     },
-    { "source": "/sdk/interacting-with-contracts/vote", "destination": "/sdk" }
+    { 
+      "source": "/sdk/interacting-with-contracts/vote", 
+      "destination": "/sdk" 
+    },
+    { 
+      "source": "/contractkit/:match*", 
+      "destination": "/solidity" 
+    }
   ]
 }
