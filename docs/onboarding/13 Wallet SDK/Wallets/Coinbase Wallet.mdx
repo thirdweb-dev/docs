@@ -2,3 +2,40 @@
 slug: /wallet-sdk/coinbase-wallet
 title: Coinbase Wallet
 ---
+
+The CoinbaseWallet allows you to connect to the Coinbase Wallet app in a simple and intuitive way.
+
+As simple as:
+
+```typescript
+import {CoinbaseWallet} from '@thirdweb-dev/wallets'
+
+const coinbaseWallet = new CoinbaseWallet()
+coinbaseWallet.connect()
+```
+Calling `coinbaseWallet.connect()` will open a QR Code modal and ask the user to scan it with their Coinbase Wallet.
+
+We have set some sensible defaults for you, but you can also configure the wallet to your liking, read along!
+
+## Configuration
+
+The CoinbaseWallet constructor accepts a configuration object with the following properties:
+
+```typescript
+import {CoinbaseWallet} from '@thirdweb-dev/wallets'
+import {Ethereum} from '@thirdweb-dev/chains'
+
+const coinbaseWallet = new CoinbaseWallet({
+    // The dappMetadata is what the wallet will display when your DApp tries to connect to it
+    dappMetadata: {
+        name: "thirdweb powered dApp",
+        url: "https://thirdweb.com",
+        description: "thirdweb powered dApp",
+        logoUrl: "https://thirdweb.com/favicon.ico",
+    },
+    chains: [Ethereum],
+    headlessMode: false, // If true, the wallet will not open a QR Code modal, but instead return a QR Code string
+})
+
+coinbaseWallet.connect()
+``` 
