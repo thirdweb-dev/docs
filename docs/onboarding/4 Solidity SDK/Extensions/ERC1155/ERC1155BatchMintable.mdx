@@ -8,6 +8,12 @@ import QuickstartCard from "@components/QuickstartCard";
 
 # ERC1155BatchMintable
 
+```solidity
+import "@thirdweb-dev/eip/ERC1155.sol"
+import "@thirdweb-dev/contracts/extension/multicall.sol";
+import "@thirdweb-dev/contracts/extension/interface/IMintableERC1155.sol";
+```
+
 Enable minting multiple NFTs at once in a single transaction by Implementing [`ERC1155`](/solidity/extensions/erc1155), [`IMintableERC1155`](/solidity/extensions/erc1155mintable), and [`Multicall`](/solidity/extensions/multicall) extensions.
 
 This is an extension which is detectable in the dashboard if the smart contract implements the 
@@ -20,6 +26,7 @@ This is an extension which is detectable in the dashboard if the smart contract 
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/Multicall.sol"
   name="Multicall"
+  text="Multicall"
 />
 
 </div>
@@ -29,19 +36,12 @@ This is an extension which is detectable in the dashboard if the smart contract 
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/interface/IMintableERC1155.sol"
   name="ERC1155Mintable"
+  text="IMintableERC1155"
 />
 
 </div>
 
 </div>
-
-<br/>
-
-:::info
-
-This extension requires other extensions to be inherited to be detectable on the Dashboard
-
-:::
 
 ## Usage
 

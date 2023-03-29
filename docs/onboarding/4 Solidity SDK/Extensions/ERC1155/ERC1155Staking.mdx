@@ -12,26 +12,12 @@ import QuickstartCard from "@components/QuickstartCard";
 import "@thirdweb-dev/contracts/extension/Staking1155.sol";
 ```
 
-<div className="heroGrid">
-<div>
-
-<p>Setup staking feature for your ERC1155 Collection.</p>
-
 The `Staking1155` smart contract extension implements NFT staking mechanism for ERC1155. With this extension you can setup a staking contract for NFT holders of your ERC1155 Collection. Users can stake their NFTs and earn ERC20 tokens as rewards.
-
-</div>
-</div>
 
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/Staking1155.sol"
   name="Staking1155"
 />
-
-## Availability in base contracts
-
-The `Staking1155` is _already_ available in the following [base contracts](/solidity/base-contracts).
-
-- **ERC1155**: [`Staking1155Base`](/solidity/base-contracts/staking/staking1155base)
 
 ## Usage
 
@@ -85,6 +71,10 @@ contract MyContract is Staking1155 {
     }
 }
 ```
+
+## Base Contracts Implementing This Extension
+
+- [Staking1155Base](/solidity/base-contracts/staking/staking1155base)
 
 ## Full API Reference
 

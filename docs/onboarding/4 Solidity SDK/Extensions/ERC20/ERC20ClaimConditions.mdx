@@ -8,6 +8,11 @@ import QuickstartCard from "@components/QuickstartCard";
 
 # ERC20ClaimConditions
 
+```solidity
+import "@thirdweb-dev/contracts/eip/interface/IERC20.sol";
+import "@thirdweb-dev/contracts/extension/DropSinglePhase.sol";
+```
+
 Allow other wallets to claim/mint tokens from the contract under the criteria of claim conditions by
 implementing [`ERC20`](/solidity/extensions/erc20) and [`DropSinglePhase`](/solidity/extensions/dropsinglephase) extensions.
 
@@ -22,6 +27,8 @@ This is an extension which is detectable in the dashboard if the smart contract 
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/eip/interface/IERC20.sol"
   name="ERC20"
+  text="IERC20"
+  isInterface={true}
 />
 
 </div>
@@ -31,19 +38,12 @@ This is an extension which is detectable in the dashboard if the smart contract 
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/DropSinglePhase.sol"
   name="DropSinglePhase"
+  text="DropSinglePhase"
 />
 
 </div>
 
 </div>
-
-<br/>
-
-:::info
-
-This extension requires other extensions to be inherited to be detectable on the Dashboard
-
-:::
 
 ## Usage
 
