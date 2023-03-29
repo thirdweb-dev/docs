@@ -3,39 +3,56 @@ slug: /wallet-sdk/coinbase-wallet
 title: Coinbase Wallet
 ---
 
-The CoinbaseWallet allows you to connect to the Coinbase Wallet app in a simple and intuitive way.
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
 
-As simple as:
+The CoinbaseWallet allows you to connect to the Coinbase Wallet app or extension in a simple and intuitive way.
 
-```typescript
-import {CoinbaseWallet} from '@thirdweb-dev/wallets'
+## Usage
 
-const coinbaseWallet = new CoinbaseWallet()
-coinbaseWallet.connect()
-```
-Calling `coinbaseWallet.connect()` will open a QR Code modal and ask the user to scan it with their Coinbase Wallet.
+<Tabs>
+<TabItem value="react" label="React" default>
+<CodeBlock
+language={"javascript"}
+>{`import { CoinbaseWallet } from "@thirdweb-dev/wallets";
+const coinbaseWallet = new CoinbaseWallet();
+coinbaseWallet.connect();`}
+</CodeBlock>
+
+Calling `coinbaseWallet.connect()` will check if the Coinbase Wallet extension is installed and try to connect to it or open a QrCode modal otherwise and ask the user to scan it with their Coinbase Wallet.
+
+</TabItem>
+<TabItem value="rn" label="React Native">
+<CodeBlock
+language={"javascript"}
+>{`import { CoinbaseWallet } from "@thirdweb-dev/react-native";
+const coinbaseWallet = new CoinbaseWallet();
+coinbaseWallet.connect();`}
+</CodeBlock>
+
+Calling `coinbaseWallet.connect()` will try to open the Coinbase Wallet app on your mobile device where you can connect your DApp.
+</TabItem>
+
+</Tabs>
 
 We have set some sensible defaults for you, but you can also configure the wallet to your liking, read along!
 
 ## Configuration
 
-The CoinbaseWallet constructor accepts a configuration object with the following properties:
+For base configuration params please check the [Abstract Wallet](/wallet-sdk/abstract-wallet) configurarion parameters
 
 ```typescript
-import {CoinbaseWallet} from '@thirdweb-dev/wallets'
-import {Ethereum} from '@thirdweb-dev/chains'
+import { CoinbaseWallet } from "@thirdweb-dev/wallets";
+import { Ethereum } from "@thirdweb-dev/chains";
 
 const coinbaseWallet = new CoinbaseWallet({
-    // The dappMetadata is what the wallet will display when your DApp tries to connect to it
-    dappMetadata: {
-        name: "thirdweb powered dApp",
-        url: "https://thirdweb.com",
-        description: "thirdweb powered dApp",
-        logoUrl: "https://thirdweb.com/favicon.ico",
-    },
-    chains: [Ethereum],
-    headlessMode: false, // If true, the wallet will not open a QR Code modal, but instead return a QR Code string
+    headlessMode: false
 })
 
 coinbaseWallet.connect()
 ``` 
+
+### headlessMode
+
+If true, the wallet will not open a QR Code modal, but instead return a QR Code string

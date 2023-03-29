@@ -1,0 +1,55 @@
+---
+slug: /wallet-sdk/abstract-wallet
+title: Abstract Wallet
+---
+
+We have created an AbstractWallet that you can extend with your own wallet implementation. This is a useful blueprint if you want to 
+implement your own wallets.
+
+## Usage
+
+```javascript
+export class CoinbaseWallet extends AbstractWallet<WalletOptions<CoinbaseWalletConnectorOptions>>
+...
+```
+
+### WalletOptions
+
+The AbstractWallet exposes some options needed for the correct functioning of new wallets within our SDK. These options are:
+
+```javascript
+export type WalletOptions<TOpts extends Record<string, any> = {}> = {
+  chains?: Chain[];
+  walletId?: string;
+  walletStorage?: AsyncStorage;
+  dappMetadata?: DAppMetaData;
+} & TOpts;
+```
+
+Notice we leave extra options for the wallet implementation to use. This is useful if you want to add extra options to your wallet.
+
+### chains
+
+The chains the wallet is going to support
+
+### walletId
+
+An id for the wallet. This is used to store the wallet in the wallet storage.
+
+### walletStorage
+
+Some wallets need to store data in persistent storage. This is the storage that will be used for that.
+
+### dappMetadata
+
+The dappMetadata is what the wallet will display when your DApp tries to connect to it. It is an object with the following 
+properties and default values:
+
+```typescript
+dappMetadata: {
+    name: "thirdweb powered dApp",
+    url: "https://thirdweb.com",
+    description: "thirdweb powered dApp",
+    logoUrl: "https://thirdweb.com/favicon.ico",
+},
+```
