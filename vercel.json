@@ -667,7 +667,7 @@
     { 
       "source": "/contractkit", 
       "destination": "/solidity" 
-    }
+    },
     { 
       "source": "/contractkit/:match*", 
       "destination": "/solidity" 
