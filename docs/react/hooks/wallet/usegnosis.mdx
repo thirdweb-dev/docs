@@ -1,6 +1,6 @@
 ---
-title: useGnosis
-slug: /react.usegnosis
+title: useSafe
+slug: /react.useSafe
 displayed_sidebar: react
 ---
 
@@ -9,26 +9,23 @@ import QuickstartCard from "@components/QuickstartCard";
 Hook that allows users to connect their [Gnosis Safe](https://gnosis-safe.io/) wallet to your dApp.
 
 ```jsx
-import { useGnosis } from "@thirdweb-dev/react/evm/connectors/gnosis-safe";
+import { useSafe } from "@thirdweb-dev/react";
 ```
 
 ## Usage
 
-First, configure your [`ThirdwebProvider`](/react/react.thirdwebprovider#walletconnectors)'s
-`walletConnectors` prop to include the Gnosis Safe connector:
+First, configure your [`ThirdwebProvider`](/react/react.thirdwebprovider#supportedWallets)'s
+`supportedWallets` prop to include the safeWallet:
 
 ```jsx
 import { ThirdwebProvider } from "@thirdweb-dev/react";
-import { GnosisSafeConnector } from "@thirdweb-dev/react/evm/connectors/gnosis-safe";
+import { safeWallet } from "@thirdweb-dev/react";
 
 function MyApp() {
-  const gnosisSafeConnector = new GnosisSafeConnector({});
-
   return (
     <ThirdwebProvider
       activeChain={"ethereum"}
-      // Configure the connectors you want to use, including your gnosisSafeConnector
-      walletConnectors={[gnosisSafeConnector]}
+      supportedWallets={[safeWallet()]}
     >
       {/* Rest of your app here */}
       <YourApp />
@@ -40,24 +37,24 @@ function MyApp() {
 Before connecting their Gnosis Safe wallet, user&rsquo;s must first:
 
 1. Connect a personal wallet to your dApp (use [Connect Wallet Button](/react/react.connectwallet)).
-2. Switch to the network the Gnosis Safe wallet is deployed to (use [`useNetwork`](/react/react.usenetwork)).
+2. Switch to the network the Gnosis Safe wallet is deployed to (use [`useSwitchChain`](/react/react.useSwitchChain)).
 
 From this state, you are ready
-to use the `useGnosis` hook in your app:
+to use the `useSafe` hook in your app:
 
 ```jsx
-import { ChainId } from "@thirdweb-dev/react";
-import { useGnosis } from "@thirdweb-dev/react/evm/connectors/gnosis-safe";
+import { Goerli } from "@thirdweb-dev/chains";
+import { useSafe } from "@thirdweb-dev/react";
 
 const Home = () => {
-  const connectWithGnosis = useGnosis();
+  const connectWithGnosis = useSafe();
 
   return (
     <button
       onClick={() =>
         connectWithGnosis({
           safeAddress: "0x...", // Smart contract address of the Gnosis Safe wallet
-          safeChainId: ChainId.Mainnet, // Chain ID the Gnosis Safe wallet is deployed to
+          safeChainId: Goerli.chainId, // Chain ID the Gnosis Safe wallet is deployed to
         })
       }
     >
@@ -67,20 +64,14 @@ const Home = () => {
 };
 ```
 
-Then use the [`useConnect`](/react/react.useconnect) hook to determine if the Gnosis wallet is connected:
+Then use the [`useWallet`](/react/react.useWallet) hook to determine if the Gnosis wallet is connected:
 
 ```jsx
-import { useConnect } from "@thirdweb-dev/react";
+import { useWallet } from "@thirdweb-dev/react";
 
 const Home = () => {
-  // Detect if the Gnosis connector is connected
-  const [connector] = useConnect();
-  const activeConnector = connector.data.connector;
-  const gnosisConnector = connector.data.connectors.find(
-    (c) => c.id === "gnosis",
-  );
-  const isGnosisConnectorConnected =
-    activeConnector?.id === gnosisConnector?.id;
+  const wallet = useWallet();
+  const isSafeConnected = wallet && wallet.walletId === "Safe";
 };
 ```
 

@@ -4,11 +4,7 @@ slug: /react.usecoinbasewallet
 displayed_sidebar: react
 ---
 
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
-import CodeBlock from "@theme/CodeBlock";
-
-Hook that requests users to connect their Coinbase Wallet to your dApp.
+Hook that prompts users to connect their Coinbase Wallet to your dApp.
 
 ```jsx
 import { useCoinbaseWallet } from "@thirdweb-dev/react";
@@ -16,14 +12,67 @@ import { useCoinbaseWallet } from "@thirdweb-dev/react";
 
 ## Usage
 
+Call the function returned by the `useCoinbaseWallet` hook to prompt the user to connect their Coinbase wallet to your dApp.
+
+You can then use the [`useAddress`](/react/react.useAddress) hook to get the user's address.
+
 ```jsx
 import { useCoinbaseWallet } from "@thirdweb-dev/react";
 
 function App() {
-  const connectCoinbase = useCoinbaseWallet();
+  const connectWithCoinbase = useCoinbaseWallet();
 
-  return <button onClick={() => connectCoinbase()}>Connect to Coinbase</button>;
+  return (
+    <button onClick={() => connectWithCoinbase()}>Connect Coinbase</button>
+  );
 }
 ```
 
-Once connected, use the [`useAddress`](/react/react.useaddress) hook to get the address of the connected wallet.
+### Connect to a specific network
+
+If you want the user to connect to a specific network directly when connecting the wallet, you can pass the chain ID as an argument to the `connectWithCoinbase` function as shown below.
+
+The user will be prompted to switch to the given network after they are connected to coinbase wallet if they are not already connected to it.
+
+```jsx
+import { useCoinbaseWallet } from "@thirdweb-dev/react";
+// Example Network
+import { DogechainTestnet } from "@thirdweb-dev/chains";
+
+function App() {
+  const connectWithCoinbase = useCoinbaseWallet();
+
+  return (
+    <button
+      onClick={() =>
+        connectWithCoinbase({
+          chainId: DogechainTestnet.chainId, // (568)
+        })
+      }
+    >
+      Connect Coinbase
+    </button>
+  );
+}
+```
+
+If the given Network is not configured in the user's Coinbase wallet, the user will be prompted to Add that network in their wallet. To do this, you must add this network in ThirdwebProvider's [supportedChains](/react/react.thirdwebprovider#supportedChains) prop as shown below.
+
+```jsx
+import { DogechainTestnet } from "@thirdweb-dev/chains";
+
+export function YourApp() {
+  return (
+    <ThirdwebProvider supportedChains={[DogechainTestnet]}>
+      <App />
+    </ThirdwebProvider>
+  );
+}
+```
+
+:::info
+It's not necessary to get the chain object from `@thirdweb-dev/chains` package.
+
+You can also create a custom chain object as mentioned [here](/react/react.thirdwebprovider#custom-chains)
+
+:::

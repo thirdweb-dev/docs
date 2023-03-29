@@ -4,7 +4,7 @@ slug: /react.usemetamask
 displayed_sidebar: react
 ---
 
-Hook that requests users to connect their [MetaMask](https://metamask.io/) Wallet to your dApp.
+Hook that prompts users to connect their [MetaMask](https://metamask.io/) Wallet to your dApp.
 
 ```jsx
 import { useMetamask } from "@thirdweb-dev/react";
@@ -12,7 +12,7 @@ import { useMetamask } from "@thirdweb-dev/react";
 
 ## Usage
 
-Call the function returned by the hook to prompt the user to connect their MetaMask wallet to your dApp.
+Call the function returned by the `useMetamask` hook to prompt the user to connect their MetaMask wallet to your dApp.
 
 You can then use the [`useAddress`](/react/react.useAddress) hook to get the user's address.
 
@@ -22,8 +22,56 @@ import { useMetamask } from "@thirdweb-dev/react";
 function App() {
   const connectWithMetamask = useMetamask();
 
-  return <button onClick={connectWithMetamask}>Connect Metamask</button>;
+  return (
+    <button onClick={() => connectWithMetamask()}>Connect Metamask</button>
+  );
 }
 ```
 
-Once connected, use the [`useAddress`](/react/react.useaddress) hook to get the address of the connected wallet.
+### Connect to a specific network
+
+If you want the user to connect to a specific network directly when connecting the wallet, you can pass the chain ID as an argument to the `connectWithMetamask` function as shown below.
+
+The user will be prompted to switch to the given network if they are not already connected to it.
+
+```jsx
+import { useMetamask } from "@thirdweb-dev/react";
+import { DogechainTestnet } from "@thirdweb-dev/chains";
+
+function App() {
+  const connectWithMetamask = useMetamask();
+
+  return (
+    <button
+      onClick={() =>
+        connectWithMetamask({
+          chainId: DogechainTestnet.chainId, // (568)
+        })
+      }
+    >
+      Connect Metamask
+    </button>
+  );
+}
+```
+
+If the given Network is not configured in the user's MetaMask wallet, the user will be prompted to "Allow this site to add a network?" screen. To do this, you must add this network in ThirdwebProvider's [supportedChains](/react/react.thirdwebprovider#supportedChains) prop as shwon below.
+
+```jsx
+import { DogechainTestnet } from "@thirdweb-dev/chains";
+
+export function YourApp() {
+  return (
+    <ThirdwebProvider supportedChains={[DogechainTestnet]}>
+      <App />
+    </ThirdwebProvider>
+  );
+}
+```
+
+:::info
+It's not necessary to get the chain object from `@thirdweb-dev/chains` package.
+
+You can also create a custom chain object as mentioned [here](/react/react.thirdwebprovider#custom-chains)
+
+:::
