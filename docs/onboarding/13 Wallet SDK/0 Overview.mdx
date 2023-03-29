@@ -17,16 +17,43 @@ hide_title: true
 </p>
 <h1 align="center">thirdweb Solidity SDK</h1>
 
-Integrate any wallet provider (e.g. non-custodial wallets, custodial wallet, smart contract wallet, and email wallets) into an app or game. 
+Unified web3 Wallet library to integrate any wallet into your applications.
 
-## Wallets 
+Build your own Connect Wallet button using our wallet components to create a custom wallet experience for your apps or games.
 
-| Name                  | Description                                                                           |
-| --------------------- | ------------------------------------------------------------------------------------- |
-| [Coinbase Wallet](/wallet-sdk/coinbase-wallet)      |                                                                                       |
-| [MetaMask](/wallet-sdk/metamask)              |           |
-| [Device Wallet](/wallet-sdk/device-wallet)              |           |
-| [WalletConnect V1](/wallet-sdk/walletconnect-1)              |           |
-| [WalletConnect](/wallet-sdk/walletconnect)              |           |
+```ts
+const wallet = new Metamask();
+await wallet.connect();
+```
+
+:::note
+Currently, Wallet SDK is only available for EVM environments
+:::
+
+## Supported Languages
+
+- [React](/react)
+- [React Native](/react-native)
+- [Unity](/unity)
+
+## Supported Wallets 
+
+### Browser Wallets
+
+- [Coinbase Wallet](/wallet-sdk/coinbase-wallet)                                                                               |
+- [Device Wallet](/wallet-sdk/device-wallet)
+- [Ethers](/wallet-sdk/ethers)
+- [Injected](/wallet-sdk/injected)
+- [Magic.link](/wallet-sdk/magic-link)
+- [MetaMask](/wallet-sdk/metamask)
+- [Paper Wallet](/wallet-sdk/paper-wallet)
+- [WalletConnect V1](/wallet-sdk/walletconnect-1)
+- [WalletConnect](/wallet-sdk/walletconnect)
+
+### Backend Wallets
+
+- [Privatekey](/wallet-sdk/privatekey)
+- [AWS KMs](/wallet-sdk/aws-kms)
+- [AWS Secret Manager](/wallet-sdk/aws-secret-manager)
 
 ## How it Works
