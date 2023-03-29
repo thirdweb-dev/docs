@@ -86,7 +86,6 @@ displayed_sidebar: react-native
 | [`useAllRoleMembers`](https://portal.thirdweb.com/react/react.useallrolemembers)       | Use this to get the roles of all members.                                       |
 | [`useRoleMembers`](https://portal.thirdweb.com/react/react.userolemembers)             | Use this to get the members of a role.                                          |
 | [`useIsAddressRole`](https://portal.thirdweb.com/react/react.useisaddressrole)         | Use this to check if a WalletAddress is a member of a role.                     |
-| [`useSetAllRoleMembers`](https://portal.thirdweb.com/react/react.usesetallrolemembers) | Use this to OVERWRITE the list of addresses that are members of specific roles. |
 | [`useGrantRole`](https://portal.thirdweb.com/react/react.usegrantrole)                 | Use this to grant a WalletAddress a specific role.                              |
 | [`useRevokeRole`](https://portal.thirdweb.com/react/react.userevokerole)               | Use this to revoke a WalletAddress a specific role.                             |
 
