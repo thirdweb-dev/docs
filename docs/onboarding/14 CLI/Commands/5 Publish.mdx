@@ -1,0 +1,29 @@
+---
+title: Publish Contracts
+slug: /cli/publish
+---
+
+import CLI from "./cli.json";
+import CLIOptions from "@components/CLIOptions";
+
+# Publish
+
+[Publishes](/publish) a versioned release of your contract onto our registry:
+
+- Compiles your smart contracts
+- Uploads the contract [ABI](https://docs.soliditylang.org/en/v0.8.17/abi-spec.html)s to IPFS
+- Allows you to [publish](/publish) them through the dashboard
+
+## Command
+
+```bash
+thirdweb publish [options]
+```
+
+## Options
+
+<div>
+  {CLI.publish.map(({ flags, description }) => (
+    <CLIOptions flags={flags} description={description} />
+  ))}
+</div>

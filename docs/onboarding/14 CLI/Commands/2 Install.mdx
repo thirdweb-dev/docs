@@ -1,0 +1,25 @@
+---
+title: Install
+slug: /cli/install
+---
+
+import CLI from "./cli.json";
+import CLIOptions from "@components/CLIOptions";
+
+# Install
+
+Install thirdweb into your project. If no path is specified, the current directory will be used.
+
+## Command
+
+```bash
+thirdweb install <projectpath> [options]
+```
+
+## Options
+
+<div>
+  {CLI.install.map(({ flags, description }) => (
+    <CLIOptions flags={flags} description={description} />
+  ))}
+</div>

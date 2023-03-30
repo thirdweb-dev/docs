@@ -1,0 +1,63 @@
+{
+    "create": [
+      { "flags": ["--app"], "description": "Create a web3 app." },
+      { "flags": ["--contract"], "description": "Create a web3 contract project" },
+      { "flags": ["--ts", "--typescript"], "description": "Initialize as a TypeScript project." },
+      { "flags": ["--js", "--javascript"], "description": "Initialize as a JavaScript project." },
+      { "flags": ["--forge"], "description": "Initialize as a Forge project." },
+      { "flags": ["--hardhat"], "description": "Initialize as a Hardhat project." },
+      { "flags": ["--extension"], "description": "Create a smart contract extension." },
+      { "flags": ["--cra"], "description": "Initialize as a Create React App project." },
+      { "flags": ["--next"], "description": "Initialize as a Next.js project." },
+      { "flags": ["--vite"], "description": "Initialize as a Vite project." },
+      { "flags": ["--reactNative"], "description": "Initialize as a React Native project." },
+      { "flags": ["--express"], "description": "Initialize as a Express project." },
+      { "flags": ["--node"], "description": "Initialize as a Node project." },
+      { "flags": ["--use-npm"], "description": "Explicitly tell the CLI to bootstrap the app using npm." },
+      { "flags": ["--use-pnpm"], "description": "Explicitly tell the CLI to bootstrap the app using pnpm." },
+      { "flags": ["--framework"], "description": "The preferred framework." },
+      { "flags": ["--solana"], "description": "Initialize as a Solana project." },
+      { "flags": ["--evm"], "description": "Initialize as an Ethereum project." },
+      { "flags": ["--template"], "description": "A template to start your project from. You can use an template repository name from the official thirdweb-example org." },
+      { "flags": ["--contract-name"], "description": "Name of the new smart contract to create" }
+    ],
+    "install": [
+      { "flags":  ["--nightly"], "description": "Install the nightly version of packages." },
+      { "flags":  ["--dev"], "description": "Install the dev version of packages." }
+    ],
+    "build": [
+      { "flags": ["-c" ,"--clean"], "description": "Clear the cache before building" },
+      { "flags": ["-p" ,"--path <string>"], "description": "Path to project" },
+      { "flags": ["-d", "--debug"], "description": "Show debug logs" },
+      { "flags": ["-a", "--all"], "description": "Run detection on all contracts" }
+    ],
+    "deploy": [
+      { "flags": ["-p" ,"--path <string>"], "description": "Path to project" },
+      { "flags": ["-c" ,"--clean"], "description": "Clear the cache before building" },
+      { "flags": ["--dry-run"], "description": "Dry run (skip actually publishing)" },
+      { "flags": ["-d", "--debug"], "description": "Show debug logs" },
+      { "flags": ["--ci"], "description": "Continuous Integration mode" },
+      { "flags": ["--dist-path <string>"], "description": "Path to the dist folder where the HTML based App is" },
+      { "flags": ["-n", "--name <string>"], "description": "Name of the pre-built or published contract (such as nft-drop)" },
+      { "flags": ["-f", "--file <string>"], "description": "Filter for contract files that contain this file name" },
+      { "flags": ["-cn", "--contract-name <string>"], "description": "Filter for contracts that contain this contract name" },
+      { "flags": ["-cv", "--contract-version <string>"], "description": "Version of the published contract" },
+      { "flags": ["--app"], "description": "Deploy a web app to decentralized storage" },
+      { "flags": ["--contract"], "description": "Deploy a smart contract to blockchains" },
+      { "flags": ["--dynamic"], "description": "Deploy a dynamic smart contract made up of extensions to blockchains" }
+    ],
+    "publish": [
+      { "flags": ["-p" ,"--path <string>"], "description": "Path to project" },
+      { "flags": ["-f", "--file <string>"], "description": "Filter for contract files that contain this file name" },
+      { "flags": ["-cn", "--contract-name <string>"], "description": "Filter for contracts that contain this contract name" },
+      { "flags": ["-c" ,"--clean"], "description": "Clear the cache before building" },
+      { "flags": ["--dry-run"], "description": "Dry run (skip actually publishing)" },
+      { "flags": ["-d", "--debug"], "description": "Show debug logs" },
+      { "flags": ["--ci"], "description": "Continuous Integration mode" }
+    ],
+    "upload": [],
+    "generate": [
+      { "flags": ["-p" ,"--path <string>"], "description": "Path to project" },
+      { "flags": ["-d", "--deployer <string>"], "description": "Address of the contract deployer" }
+    ]
+  }

@@ -14,7 +14,6 @@ function DocSidebarItems({ items, ...props }) {
     "/platform-overview",
     "/deploy",
     "/templates",
-    "/cli",
   ];
   const checkIfShowCategoryPages = (item) => {
     // check if starts with
@@ -47,6 +46,7 @@ function DocSidebarItems({ items, ...props }) {
           "Deploy",
           "Publish",
           "Dashboard",
+          "CLI",
         ],
     },
     {
@@ -74,7 +74,6 @@ function DocSidebarItems({ items, ...props }) {
       items: [
         "Templates",
         "Guides",
-        "CLI", // Should we have this here?
         "Glossary",
       ],
     },

@@ -1,0 +1,25 @@
+---
+title: Generate
+slug: /cli/generate
+---
+
+import CLI from "./cli.json";
+import CLIOptions from "@components/CLIOptions";
+
+# Generate
+
+Preload ABIs and generate types for your smart contract to strongly type the thirdweb SDK
+
+## Command
+
+```bash
+npx thirdweb generate
+```
+
+## Options
+
+<div>
+  {CLI.generate.map(({ flags, description }) => (
+    <CLIOptions flags={flags} description={description} />
+  ))}
+</div>

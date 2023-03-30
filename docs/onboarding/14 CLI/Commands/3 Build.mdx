@@ -1,0 +1,29 @@
+---
+title: Build
+slug: /cli/build
+---
+
+import CLI from "./cli.json";
+import CLIOptions from "@components/CLIOptions";
+
+# Build
+
+Compile your smart contracts and detect any [extensions](/solidity/extensions) you have implemented. This command:
+
+- Detects the framework you're using
+- Compiles all of your smart contracts
+- Prints out the [extensions](/solidity/extensions) you have implemented for each contract
+
+## Command
+
+```bash
+thirdweb build [options]
+```
+
+## Options
+
+<div>
+  {CLI.build.map(({ flags, description }) => (
+    <CLIOptions flags={flags} description={description} />
+  ))}
+</div>
