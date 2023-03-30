@@ -8,19 +8,33 @@ import CLIOptions from "@components/CLIOptions";
 
 # Create
 
-Create a new project with thirdweb installed and configured.
+Create a new project with the thirdweb packages installed and configured.
 
-Select the frameworks you know and love to get started quickly, by providing:
-
-- A name for your project
-- A framework to build with
-- A language to write in
+Create apps, [smart contracts](/solidity/base-contracts) and [smart contract extensions](/solidity/extensions) for your [dynamic contracts](https://github.com/thirdweb-dev/dynamic-contracts) easily 
+with everything set up for you to get started quickly.
 
 ## Command
 
 ```bash
-thirdweb create <options>
+npx thirdweb create [options]
 ```
+
+After running the command, you will be prompted to provide the following:
+
+1. The type of Project (App, [Smart Contract](/solidity/base-contracts) or [Dynamic Contract Extension](/solidity/extensions))
+2. A name for your project
+
+If you choose **App** you will be prompted to choose: 
+
+3. The blockchain evironment (EVM or Solana)
+4. A framework to build with (Next.js, Create React App, Vite, React Native, Node.js or Express)
+5. A language (JavaScript or TypeScript)
+
+If you choose **Smart Contract** or **Dynamic Contract Extension** you will be prompted to choose:
+
+3. A framework to build with (Forge or HardHat)
+4. (Smart Contracts only) The Base Contract (Empty, [ERC721](/solidity/extensions/base-contracts#erc721), [ERC1155](/solidity/extensions/base-contracts#erc1155) or [ERC20](/solidity/extensions/base-contracts#erc20))
+5. Smart Contract name
 
 ## Options
 

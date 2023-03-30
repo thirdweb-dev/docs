@@ -10,10 +10,14 @@ import CLIOptions from "@components/CLIOptions";
 
 Install thirdweb into your project. If no path is specified, the current directory will be used.
 
+By running this command, the type of project is detected and the relevant packages will be installed. 
+If the packages already exist within the project, they will be updated.
+For example, for a Next.js project, the React SDK and Typescript SDK will both be installed.
+
 ## Command
 
 ```bash
-thirdweb install <projectpath> [options]
+npx thirdweb install <projectpath> [options]
 ```
 
 ## Options
