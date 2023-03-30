@@ -1,0 +1,692 @@
+---
+slug: /wallet/metamask
+title: MetaMask
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Prompt users to connect to your app with their [MetaMask](https://metamask.io/) wallet.
+
+## Usage
+
+```javascript
+import { MetaMaskWallet } from "@thirdweb-dev/wallets";
+
+const wallet = new MetaMaskWallet();
+
+wallet.connect();
+```
+
+## Configuration
+
+Optionally, provide a configuration object when instantiating the `MetaMaskWallet` class.
+
+<details>
+  <summary>chains</summary>
+  <div>
+
+Provide an array of chains you want to support.
+
+Must be an array of `Chain` objects, from the [`@thirdweb-dev/chains`](https://www.npmjs.com/package/@thirdweb-dev/chains) package.
+
+Defaults to our [default chains](/react/react.thirdwebprovider#default-chains).
+
+```javascript
+import { MetaMaskWallet } from "@thirdweb-dev/wallets";
+import { Ethereum, Polygon } from "@thirdweb-dev/chains";
+
+const walletWithOptions = new MetaMaskWallet(
+  // highlight-start
+  {
+    chains: [Ethereum, Polygon],
+  },
+  // highlight-end
+);
+```
+
+</div>
+</details>
+
+<details>
+  <summary>dappMetadata</summary>
+  <div>
+
+Information about your app that the wallet will display when your app tries to connect to it.
+
+Must be an object containing `name`, `url`, and optionally `description` and `logoUrl` properties.
+
+```javascript
+import { MetaMaskWallet } from "@thirdweb-dev/wallets";
+
+const walletWithOptions = new MetaMaskWallet({
+  // highlight-start
+  dappMetadata: {
+    name: "thirdweb powered dApp",
+    url: "https://thirdweb.com",
+    description: "thirdweb powered dApp",
+    logoUrl: "https://thirdweb.com/favicon.ico",
+  },
+  // highlight-end
+});
+```
+
+</div>
+</details>
+
+<details>
+  <summary>qrcode</summary>
+  <div>
+
+Whether to display the Wallet Connect QR code Modal for connecting to MetaMask on mobile if MetaMask is not injected.
+
+Must be a `boolean`. Defaults to `true`.
+
+```javascript
+import { MetaMaskWallet } from "@thirdweb-dev/wallets";
+
+const walletWithOptions = new MetaMaskWallet(
+  // highlight-start
+  {
+    qrcode: false,
+  },
+  // highlight-end
+);
+```
+
+</div>
+</details>
+
+<details>
+  <summary>walletStorage</summary>
+  <div>
+
+Some wallets need to store data in persistent storage. This is the storage that will be used for that.
+
+Must be an object conforming to the `AsyncStorage` interface:
+
+```typescript
+export interface AsyncStorage {
+  getItem(key: string): Promise<string | null>;
+  setItem(key: string, value: string): Promise<void>;
+  removeItem(key: string): Promise<void>;
+}
+```
+
+Example:
+
+```javascript
+import { MetaMaskWallet } from "@thirdweb-dev/wallets";
+
+const walletWithOptions = new MetaMaskWallet(
+  // highlight-start
+  {
+    walletStorage: {
+      getItem: (key) => {
+        // Implement your own storage logic here
+      },
+      removeItem: (key) => {
+        // Implement your own storage logic here
+      },
+      setItem: (key, value) => {
+        // Implement your own storage logic here
+      },
+    },
+  },
+  // highlight-end
+);
+```
+
+</div>
+</details>
+
+## Methods
+
+Once instantiated, utilize the following methods to interact with the MetaMask Wallet.
+
+### addListener
+
+Add a listener for a specific event, and run a callback whenever that event is emitted.
+
+```javascript
+wallet.addListener("connect", (data) => console.log(data));
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### eventName
+
+The name of the event to listen for.
+Each event returns a different `data` object, or no `data` object at all.
+
+Possible options:
+
+- [`change`](#change)
+- [`connect`](#connect)
+- [`disconnect`](#disconnect)
+- [`error`](#error)
+- [`message`](#message)
+- [`open_wallet`](#open_wallet)
+- [`request`](#request)
+
+##### change
+
+User changes the wallet they are connected with, or the chain they are connected to.
+
+Data available:
+
+```typescript
+{
+  address?: string; // available if the address is changed
+  chainId?: number; // available if the network is changed
+}
+```
+
+##### connect
+
+User connects their wallet to your app.
+
+Data available:
+
+```typescript
+{
+  address: string;
+  chainId: number;
+}
+```
+
+##### disconnect
+
+User disconnects their wallet from your app.
+
+No `data` is available.
+
+##### error
+
+An error occurs in the wallet.
+
+Data available:
+
+```typescript
+{
+  cause: unknown;
+  message: string;
+  name: string;
+  stack: string | undefined;
+}
+```
+
+##### message
+
+Wallet receives some message that the consumer should be notified of. The kind of message is identified by the `type` field.
+
+Data available:
+
+```typescript
+{
+  type: string;
+  data: unknown;
+}
+```
+
+##### open_wallet
+
+User opens the wallet app.
+
+`data` is a `string | undefined`.
+
+##### request
+
+Wallet receives some request that the consumer should be notified of. The kind of request is identified by the `type` field.
+
+No `data` is available.
+
+#### callback
+
+The function to run when the event is emitted.
+
+</div>
+</details>
+
+### autoConnect
+
+Attempts to connect to the wallet without asking the user&rsquo; explicitly;
+possible if the user has already connected to the wallet to your app before.
+
+```javascript
+const address = await wallet.autoConnect();
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### Return Value
+
+Returns a `string` containing the wallet address, or `undefined` if the connection failed.
+
+```typescript
+string | undefined;
+```
+
+</div>
+</details>
+
+### connect
+
+Prompt the user to connect their wallet to your app.
+
+```javascript
+const address = await wallet.connect();
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### Return Value
+
+Returns a `string` containing the wallet address, or throws an error if the connection failed.
+
+```typescript
+string;
+```
+
+</div>
+</details>
+
+### connectWithQrCode
+
+Connect to the wallet using a QR code if the user does not have the Metamask extension installed.
+
+```javascript
+await wallet.connectWithQrCode({
+  onQrCodeUri(qrCodeUri) {
+    // render the QR code with `qrCodeUri`
+  },
+  onConnected(accountAddress) {
+    // update UI to show connected state
+  },
+  chainId: 1, // optional
+});
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### onQrCodeUri
+
+A callback to show the QR code to the user.
+
+#### onConnected
+
+A callback to run when the user has connected their wallet to your app.
+
+#### chainId
+
+The chain ID to switch to after connecting. Optional.
+
+```typescript
+string | undefined;
+```
+
+</div>
+</details>
+
+### disconnect
+
+Disconnect the currently connected wallet from your app.
+
+```javascript
+await wallet.disconnect();
+```
+
+### emit
+
+Emit an event, with some optional data.
+
+```javascript
+wallet.emit("EVENT_NAME", data);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### eventName
+
+The name of the event to emit.
+
+Must be one of: `change`, `connect`, `disconnect`, `error`, `message`, `open_wallet`, `request`.
+
+#### data
+
+Optional data to send with the event. Must be an object with information relevant to the event.
+
+See [addListener](#addlistener) configuration for more information on the different events.
+
+</div>
+</details>
+
+### eventNames
+
+Get an array of the events for which the emitter has registered listeners.
+
+```javascript
+const eventNames = wallet.eventNames();
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### Return Value
+
+Returns an array of `string`s containing the event names.
+
+```typescript
+(`change` | `connect` | `disconnect` | `error` | `message` | `open_wallet` | `request`)[];
+```
+
+</div>
+</details>
+
+### getAddress
+
+Get the address of the currently connected wallet.
+
+```javascript
+const address = await wallet.getAddress();
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### Return Value
+
+Returns a `string` containing the wallet address or throws an error if not connected to a wallet.
+
+```typescript
+string;
+```
+
+</div>
+</details>
+
+### getChainId
+
+Get the chain ID of the network the wallet is currently connected to.
+
+```javascript
+const chainId = await wallet.getChainId();
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### Return Value
+
+Returns a `number` containing the chain ID, or throws an error if not connected to a wallet.
+
+```typescript
+number;
+```
+
+</div>
+</details>
+
+### getMeta
+
+Get metadata about the wallet, such as the `name` and `iconURL`.
+
+```javascript
+const metadata = wallet.getMeta();
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### Return Value
+
+```typescript
+{
+  name: string;
+  iconURL: string;
+}
+```
+
+</div>
+</details>
+
+### getSigner
+
+Get the [`signer`](https://docs.ethers.org/v5/api/signer/) for the currently connected wallet.
+
+```javascript
+const signer = await wallet.getSigner();
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### Return Value
+
+Returns a [`Signer`](https://docs.ethers.org/v5/api/signer/).
+
+```typescript
+Signer;
+```
+
+</div>
+</details>
+
+### listenerCount
+
+Get the number of listeners for a given event.
+
+```javascript
+const listenerCount = wallet.listenerCount("connect");
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### eventName
+
+The name of the event to get the listener count for.
+
+Must be one of: `change`, `connect`, `disconnect`, `error`, `message`, `open_wallet`, `request`.
+
+#### Return Value
+
+Returns a `number` containing the number of listeners for the event.
+
+```typescript
+number;
+```
+
+</div>
+</details>
+
+### listeners
+
+Get an array of the listeners for a given event.
+
+```javascript
+const listeners = wallet.listeners("connect");
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### eventName
+
+The name of the event to get the listeners for.
+
+Must be one of: `change`, `connect`, `disconnect`, `error`, `message`, `open_wallet`, `request`.
+
+#### Return Value
+
+Returns an array of `function`s containing the listeners for the event.
+
+```typescript
+((data: WalletData) => void)[]
+```
+
+</div>
+</details>
+
+### removeAllListeners
+
+Remove all event listeners for either all events, or a specific event.
+
+```javascript
+wallet.removeAllListeners();
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### eventName
+
+Optionally, provide the name of the event to remove all listeners for.
+
+Must be one of: `change`, `connect`, `disconnect`, `error`, `message`, `open_wallet`, `request`.
+
+```typescript
+wallet.removeAllListeners("connect");
+```
+
+</div>
+</details>
+
+### removeListener
+
+Remove a specific event listener for a given event.
+
+Provide the event name and the listener function to remove.
+
+```javascript
+wallet.removeListener("connect", (data) => console.log(data));
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### eventName
+
+The name of the event to remove the listener for.
+
+Must be one of: `change`, `connect`, `disconnect`, `error`, `message`, `open_wallet`, `request`.
+
+#### listener
+
+The listener function to remove. i.e. provide the same function that was used to add the listener.
+
+</div>
+</details>
+
+### signMessage
+
+Sign a message with the currently connected wallet.
+
+```javascript
+const signature = await wallet.signMessage("Hello world!");
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### message
+
+The message to sign.
+
+Must be a `string`.
+
+#### Return Value
+
+Returns a `string` containing the signature.
+
+```typescript
+string;
+```
+
+</div>
+</details>
+
+### switchChain
+
+Switch the currently connected wallet to a different chain.
+
+```javascript
+await wallet.switchChain(1);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### chainId
+
+The chain ID to switch to.
+
+Must be a `number`.
+
+</div>
+</details>
+
+### verifySignature
+
+Verify a signature is valid.
+
+```javascript
+const isValid = await wallet.verifySignature(
+  "Message",
+  "Signature",
+  "wallet_address",
+);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### message
+
+The message that was signed.
+
+Must be a `string`.
+
+#### signature
+
+The signature to verify.
+
+Must be a `string`.
+
+#### address
+
+The address of the wallet that signed the message.
+
+Must be a `string`.
+
+#### chainId
+
+The chain ID to check the signature on.
+
+Optional, must be a `number`.
+
+</div>
+</details>

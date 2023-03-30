@@ -4,50 +4,75 @@ slug: /react.useconnect
 displayed_sidebar: react
 ---
 
-Hook for viewing the connection status and what connectors are available to be used
-as defined in the [`ThirdwebProvider`&rsquo;s `walletConnectors` prop](/react/react.thirdwebprovider#walletconnectors).
+Hook for connecting any supported [wallet](/wallet) to your app.
 
 ```jsx
 import { useConnect } from "@thirdweb-dev/react";
 
-const [{ data }, connect] = useConnect();
+const connect = useConnect();
 ```
 
 ## Usage
 
 ```jsx
-import { useConnect } from "@thirdweb-dev/react";
+import { useConnect, metamaskWallet } from "@thirdweb-dev/react";
+
+const metamask = metamaskWallet();
 
 function App() {
-  const [{ data }, connect] = useConnect();
+  const connect = useConnect();
+
+  return <button onClick={() => connect(metamask)}>Connect to MetaMask</button>;
 }
 ```
 
-## Return Value
+## Configuration
 
 <details>
-  <summary>Return Value</summary>
+  <summary>wallet (required)</summary>
   <div>
 
-The data property contains an object with the following properties:
+The wallet to connect to your app with.
 
-```ts
-{
-  connected: boolean; // Whether the user is connected to this site with their wallet
-  connector: Connector<any, any> | undefined; // The connector that the user is connected with (or undefined)
-  connectors: Connector<any, any>[]; // All the connectors that are available to be used
+Must be of type `AbstractBrowserWallet`.
+
+[Learn more about the available wallet options](/react/connecting-wallets).
+
+</div>
+</details>
+
+<details>
+  <summary>chainId (optional)</summary>
+  <div>
+
+To connect to a specific chain when connecting the wallet,
+pass the `chainId` in a configuration object as shown below.
+
+This will prompt the user to switch to the given network after they connect.
+
+```jsx
+import { useConnect, metamaskWallet } from "@thirdweb-dev/react";
+
+const metamask = metamaskWallet();
+
+function App() {
+  const connect = useConnect();
+
+  return (
+    <button
+      onClick={() =>
+        connect(
+          metamask,
+          // highlight-start
+          { chainId: 1 },
+          // highlight-end
+        )
+      }
+    >
+      Connect to MetaMask
+    </button>
+  );
 }
-```
-
-The `connect` property is a function that takes a connector as an argument
-and connects the user to your dapp using that connector.
-
-```ts
-(connector: Connector<any, any>) =>
-  Promise<{
-    data?: ConnectorData<any> | undefined;
-    error?: Error | undefined;
-  }>;
 ```
 
 </div>
