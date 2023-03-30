@@ -16,11 +16,16 @@ Wrap your app in the `ThirdwebProvider` to access the SDK&rsquo;s functionality 
 
 ## Usage
 
-If you are using one of our <code>default chains</code>, provide the name of the chain as a `string` to the `activeChain` prop.
+If you are using one of our <a href="#default-chains">default chains</a>, provide the name of the chain as a `string` to the `activeChain` prop.
 
 For non-default chains, see [configuring active chains](#active-chain) or [custom chains](#custom-chains).
 
-<details>
+<details
+  id="default-chains"
+  style={{
+    scrollMarginTop: "100px",
+  }}
+>
   <summary>View default chains</summary>
   <div>
     <ul>
@@ -95,7 +100,7 @@ There are 700+ chains available in the [`@thirdweb-dev/chains`](https://github.c
 Import the chain you want to use from the package and pass it to the `activeChain` prop.
 If your chain is not included, see [configuring custom chains](#custom-chains).
 
-:::tip Install Package
+:::info Install Package
 
 Install the `@thirdweb-dev/chains` package to use non-default chains.
 
@@ -161,45 +166,6 @@ const App = () => {
 };
 ```
 
-### Multiple Chains
-
-The SDK also supports using multiple chains, by using the `chains` prop to define which networks your app supports.
-
-Provide multiple networks to the `chains` prop to allow users to switch between them.
-
-```jsx
-import { ThirdwebProvider } from "@thirdweb-dev/react";
-// highlight-start
-import { Mumbai, Polygon } from "@thirdweb-dev/chains";
-// highlight-end
-
-function MyApp() {
-  return (
-    <ThirdwebProvider
-      // highlight-start
-      activeChain={Mumbai} // The chains that the SDK will use at this point in time.
-      chains={[Polygon, Mumbai]} // Allow users to switch between Polygon and Mumbai chains.
-      // highlight-end
-    >
-      <YourApp />
-    </ThirdwebProvider>
-  );
-}
-```
-
-:::tip Helper Values
-
-The `@thirdweb-dev/chains` package also exposes:
-
-- `defaultChains`: An array that contains all of the most common networks.
-- `allChains`: An array that contains all of the networks the SDK is aware of by default.
-
-```jsx
-import { defaultChains, allChains } from "@thirdweb-dev/chains";
-```
-
-:::
-
 ### Local Nodes
 
 If you are running a local node using a tool such as [Hardhat](https://hardhat.org/hardhat-network/docs/overview) or
@@ -208,6 +174,8 @@ provide `"localhost"` as the `activeChain` prop, (or `Localhost` imported from `
 [Deploy](/deploy) or [import](https://thirdweb.com/dashboard/contracts) your contracts to the dashboard to interact with them.
 
 ```jsx
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+
 function MyApp() {
   return (
     <ThirdwebProvider
@@ -225,7 +193,7 @@ function MyApp() {
 Override the default values (such as an RPC URL) for any given chain.
 
 :::info Optional
-By default, the SDK provides free-to-use RPCs. No configuration required!
+By default, the `@thirdweb-dev/chains` provides free-to-use RPCs. No configuration required!
 
 [View the default RPC URLs for each network](https://github.com/thirdweb-dev/js/tree/main/packages/chains/chains).
 :::
@@ -282,6 +250,57 @@ function MyApp() {
 }
 ```
 
+### supportedWallets (optional)
+
+An array of wallets that your app supports.
+
+Wallets provided here appear in the [Connect Wallet Button](/react/react.connectwallet) and allow you to use
+the wallet connection hooks.
+
+[Learn more about connecting wallets](/react/connecting-wallets) and the options available.
+
+```jsx
+import {
+  ThirdwebProvider,
+  metamaskWallet,
+  coinbaseWallet,
+  walletConnect,
+} from "@thirdweb-dev/react";
+
+function MyApp() {
+  return (
+    <ThirdwebProvider
+      supportedWallets={[metamaskWallet(), coinbaseWallet(), walletConnect()]}
+      activeChain="ethereum"
+    >
+      <App />
+    </ThirdwebProvider>
+  );
+}
+```
+
+### supportedChains (optional)
+
+An array of chains supported by your app.
+
+If not provided, defaults to <a href='#default-chains' > defaultChains </a>
+
+```jsx
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+import { Ethereum, Polygon } from "@thirdweb-dev/chains";
+
+function MyApp() {
+  return (
+    <ThirdwebProvider
+      activeChain={Ethereum}
+      supportedChains={[Ethereum, Polygon]}
+    >
+      <App />
+    </ThirdwebProvider>
+  );
+}
+```
+
 ### autoconnect (optional)
 
 When the user has connected their wallet to your site before, this flag determines
@@ -308,17 +327,17 @@ function MyApp() {
 
 ### dAppMeta (optional)
 
-Metadata to pass to [WalletConnect](https://walletconnect.com/), shown in mobile wallets that support it.
+This Metadata is passed to the wallet. Some wallets you this information to display the metadata of the app to the user when a user is connecting the wallet to your app.
 
-Defaults to `thirdweb powered dApp`.
+Defaults to `{ name: "thirdweb powered dApp", url: "https://thirdweb.com" }`.
 
-| Property      | Type    | Description                                                      |
-| ------------- | ------- | ---------------------------------------------------------------- |
-| `name`        | string  | the name of your app                                             |
-| `description` | string  | optional - a description of your app                             |
-| `logoUrl`     | string  | optional - a url that points to a logo (or favicon) of your app  |
-| `url`         | string  | optional - the url where your app is hosted                      |
-| `isDarkMode`  | boolean | optional - whether to show the connect dialog in darkmode or not |
+| Property      | Type    | Description                                                       |
+| ------------- | ------- | ----------------------------------------------------------------- |
+| `name`        | string  | the name of your app                                              |
+| `description` | string  | optional - a description of your app                              |
+| `logoUrl`     | string  | optional - a URL that points to a logo (or favicon) of your app   |
+| `url`         | string  | optional - the URL where your app is hosted                       |
+| `isDarkMode`  | boolean | optional - whether to show the connect dialog in dark mode or not |
 
 ```jsx
 import { ThirdwebProvider } from "@thirdweb-dev/react";
@@ -388,51 +407,13 @@ function MyApp() {
 }
 ```
 
-### walletConnectors (optional)
-
-An array of connector types (strings) or wallet connector objects that your app supports.
-
-If not provided, defaults to MetaMask (injected), WalletConnect and Coinbase Wallet.
-
-Useful if you want to add support for [Gnosis Safe](/react/react.usegnosis) or [Magic Link](/react/react.usemagic).
-
-```jsx title="Magic Link example"
-import { ThirdwebProvider } from "@thirdweb-dev/react";
-import { MagicConnector } from "@thirdweb-dev/react/evm/connectors/magic";
-import { Mumbai } from "@thirdweb-dev/chains";
-
-const magicLinkConnector = new MagicConnector({
-  options: {
-    apiKey: "<your-magic-link-public-key>" as string,
-    rpcUrls: {
-      [Mumbai.chainId]: "https://mumbai.magic.io/rpc",
-    },
-  },
-});
-
-function MyApp() {
-  return (
-    <ThirdwebProvider
-      // highlight-start
-      walletConnectors={[magicLinkConnector, "metamask", "walletConnect", "coinbaseWallet"]}
-      // highlight-end
-      activeChain={"mumbai"}
-    >
-      <YourApp />
-    </ThirdwebProvider>
-  );
-}
-
-export default MyApp;
-```
-
 ### storageInterface (optional)
 
 Override the default [Storage](/storage) interface used by the SDK.
 
 Allows you to create an instance of `ThirdwebStorage` with your own customized config, and pass it to the SDK.
 
-:::tip Storage
+:::info Storage
 
 This requires the `@thirdweb-dev/storage` package to be installed.
 

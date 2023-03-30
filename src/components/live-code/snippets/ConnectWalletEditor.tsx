@@ -4,9 +4,8 @@ import { ConnectWallet } from "@thirdweb-dev/react";
 
 const scope = { ConnectWallet };
 
-const code = `<ConnectWallet 
-  accentColor="#fff"
-  colorMode="dark"
+const code = `<ConnectWallet
+  theme="dark"
   btnTitle="Connect Wallet"
 />`;
 

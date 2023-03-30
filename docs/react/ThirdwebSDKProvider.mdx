@@ -16,13 +16,18 @@ prop to inform the SDK of the wallet you want to use, among other configuration 
 
 ## Usage
 
-If you are using one of our <code>default chains</code>, provide the name of the chain as a `string` to the `activeChain` prop.
+If you are using one of our <a href='#default-chains'> default chains </a>, provide the name of the chain as a `string` to the `activeChain` prop.
 
 For non-default chains, see [configuring active chains](#active-chain) or [custom chains](#custom-chains).
 
 You&rsquo;ll likely want to provide a `signer` to enable the initiation of transactions.
 
-<details>
+<details
+  id="default-chains"
+  style={{
+    scrollMarginTop: "100px",
+  }}
+>
   <summary>View default chains</summary>
   <div>
     <ul>
@@ -86,7 +91,7 @@ function MyApp() {
       // Example: Use ethers to get the signer from the window.ethereum object
       signer={new ethers.providers.Web3Provider(window.ethereum).getSigner()}
     >
-      <Component {...pageProps} />
+      <App />
     </ThirdwebSDKProvider>
   );
 }
@@ -122,7 +127,7 @@ function MyApp() {
       signer={new ethers.providers.Web3Provider(window.ethereum).getSigner()}
       // highlight-end
     >
-      <Component {...pageProps} />
+      <App />
     </ThirdwebSDKProvider>
   );
 }
@@ -136,7 +141,7 @@ There are 700+ chains available in the [`@thirdweb-dev/chains`](https://github.c
 Import the chain you want to use from the package and pass it to the `activeChain` prop.
 If your chain is not included, see [configuring custom chains](#custom-chains).
 
-:::tip Install Package
+:::info Install Package
 
 Install the `@thirdweb-dev/chains` package to use non-default chains.
 
@@ -358,7 +363,7 @@ Override the default [Storage](/storage) interface used by the SDK.
 
 Allows you to create an instance of `ThirdwebStorage` with your own customized config, and pass it to the SDK.
 
-:::tip Storage
+:::info Storage
 
 This requires the `@thirdweb-dev/storage` package to be installed.
 
