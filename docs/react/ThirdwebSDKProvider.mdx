@@ -91,7 +91,7 @@ function MyApp() {
       // Example: Use ethers to get the signer from the window.ethereum object
       signer={new ethers.providers.Web3Provider(window.ethereum).getSigner()}
     >
-      <Component {...pageProps} />
+      <App />
     </ThirdwebSDKProvider>
   );
 }
@@ -127,13 +127,13 @@ function MyApp() {
       signer={new ethers.providers.Web3Provider(window.ethereum).getSigner()}
       // highlight-end
     >
-      <Component {...pageProps} />
+      <App />
     </ThirdwebSDKProvider>
   );
 }
 ```
 
-<h3 id="active-chain"> activeChain (recommended) </h3>
+### activeChain (recommended)
 
 The `activeChain` prop determines which chain you want your app to be operating on.
 
@@ -170,7 +170,7 @@ function MyApp() {
 }
 ```
 
-<h3 id="custom-chains"> Custom EVM Chains </h3>
+### Custom EVM Chains
 
 If your chain is not included in the `@thirdweb-dev/chains` package,
 you can provide the chain information yourself to the `activeChain` prop.

@@ -174,6 +174,8 @@ provide `"localhost"` as the `activeChain` prop, (or `Localhost` imported from `
 [Deploy](/deploy) or [import](https://thirdweb.com/dashboard/contracts) your contracts to the dashboard to interact with them.
 
 ```jsx
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+
 function MyApp() {
   return (
     <ThirdwebProvider
@@ -250,13 +252,14 @@ function MyApp() {
 
 ### supportedWallets (optional)
 
-An array of Wallets that your app supports.
+An array of wallets that your app supports.
 
-If not provided, defaults to `metamaskWallet`, `coinbaseWallet` and `WalletConnectV1`.
+Wallets provided here appear in the [Connect Wallet Button](/react/react.connectwallet) and allow you to use
+the wallet connection hooks.
 
-( other supported wallets are `paperWallet`, `safeWallet`, `walletConnect` ( v2 ) )
+[Learn more about connecting wallets](/react/connecting-wallets) and the options available.
 
-```jsx title="Configuring Metamask, Coinbase and Wallet Connect (v2) "
+```jsx
 import {
   ThirdwebProvider,
   metamaskWallet,
@@ -267,8 +270,8 @@ import {
 function MyApp() {
   return (
     <ThirdwebProvider
-      walletConnectors={[metamaskWallet(), coinbaseWallet(), WalletConnectV1()]}
-      activeChain="mumbai"
+      supportedWallets={[metamaskWallet(), coinbaseWallet(), walletConnect()]}
+      activeChain="ethereum"
     >
       <App />
     </ThirdwebProvider>
@@ -282,7 +285,7 @@ An array of chains supported by your app.
 
 If not provided, defaults to <a href='#default-chains' > defaultChains </a>
 
-```jsx title="Configuring supported chains"
+```jsx
 import { ThirdwebProvider } from "@thirdweb-dev/react";
 import { Ethereum, Polygon } from "@thirdweb-dev/chains";
 

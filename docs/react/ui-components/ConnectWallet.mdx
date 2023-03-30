@@ -12,7 +12,8 @@ import ConnectWalletEditor from "@components/live-code/snippets/ConnectWalletEdi
 Button to connect a user&rsquo;s wallet to your app, with support for Metamask, Coinbase, WalletConnect v1, WalletConnect v2, and Device Wallet.
 
 Wallets you provide to the [`ThirdwebProvider`'s supportedWallets](/react/react.thirdwebprovider#supportedWallets)
-prop are shown as options in the ConnectWallet button&rsquo;s Modal (if not configured, the default options - Metamask, Coinbase & Device Wallet are shown).
+prop are shown as options in the ConnectWallet button&rsquo;s Modal.
+If this prop is not provided, the default values are shown (MetaMask, Coinbase Wallet, Device Wallet).
 
 ```jsx
 import { ConnectWallet } from "@thirdweb-dev/react";
@@ -36,7 +37,6 @@ function App() {
 
 ## Configuration
 
-<!--
 ### accentColor (optional)
 
 The background color of the button.
@@ -57,6 +57,7 @@ function App() {
   );
 }
 ```
+
 -->
 
 ### theme (optional)
@@ -97,11 +98,11 @@ function App() {
 }
 ```
 
-### auth
+### auth (optional)
 
 :::info Coming Soon
 
-`auth` is not yet implemented in Connect Wallet v2 `@nightly` release
+The `auth` prop is not yet available on the latest version of the SDK.
 
 :::
 
@@ -149,7 +150,7 @@ function App() {
 }
 ```
 
-### dropDownPosition
+### dropDownPosition (optional)
 
 Specify where should the dropdown menu open relative to the Connect Wallet Button.
 
@@ -157,17 +158,8 @@ Specify where should the dropdown menu open relative to the Connect Wallet Butto
 <ConnectWallet
   // default
   dropDownPosition={{
-    side: "bottom",
-    align: "end",
+    side: "bottom", // "top" | "bottom" | "left" | "right";
+    align: "end", // "start" | "center" | "end";
   }}
 />
-```
-
-#### Type
-
-```ts
-type DropDownPosition = {
-  side: "top" | "bottom" | "left" | "right";
-  align: "start" | "center" | "end";
-};
 ```

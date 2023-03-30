@@ -1,10 +1,10 @@
 ---
-title: useWalletConnect
+title: useWalletConnect (v2)
 slug: /react.usewalletconnect
 displayed_sidebar: react
 ---
 
-Hook for initiating a [Wallet Connect](https://walletconnect.org/) connection prompt for the user.
+Hook for initiating a [Wallet Connect](/wallet/wallet-connect) connection prompt for the user.
 
 ```jsx
 import { useWalletConnect } from "@thirdweb-dev/react";
@@ -14,7 +14,7 @@ import { useWalletConnect } from "@thirdweb-dev/react";
 
 Call the function returned by the `useWalletConnect` hook to prompt the user to connect their mobile wallet to your dApp via Wallet Connect.
 
-You can then use the [`useAddress`](/react/react.useAddress) hook to get the user's address.
+You can then use the [`useAddress`](/react/react.useaddress) hook to get the user's address.
 
 ```jsx
 import { useWalletConnect } from "@thirdweb-dev/react";
@@ -28,15 +28,20 @@ function App() {
 }
 ```
 
-### Connect to a specific network
+## Configuration
 
-If you want the user to connect to a specific network directly when connecting the wallet, you can pass the chain ID as an argument to the `connectWithWalletConnect` function as shown below.
+<details>
+  <summary>chainId</summary>
+  <div>
 
-The user will be prompted to switch to the given network if they are not already connected to it.
+To connect to a specific chain when connecting the wallet,
+pass the `chainId` in a configuration object as shown below.
+
+This will prompt the user to switch to the given network after they connect.
 
 ```jsx
 import { useWalletConnect } from "@thirdweb-dev/react";
-import { DogechainTestnet } from "@thirdweb-dev/chains";
+import { Dogechain } from "@thirdweb-dev/chains";
 
 function App() {
   const connectWithWalletConnect = useWalletConnect();
@@ -45,33 +50,31 @@ function App() {
     <button
       onClick={() =>
         connectWithWalletConnect({
-          chainId: DogechainTestnet.chainId, // (568)
+          chainId: Dogechain.chainId,
         })
       }
     >
-      Connect wallet
+      Connect Wallet
     </button>
   );
 }
 ```
 
-If the given Network is not configured in the user's wallet, the user will be prompted to Add that network to the wallet. To do this, you must add this network in ThirdwebProvider's [supportedChains](/react/react.thirdwebprovider#supportedChains) prop as shown below.
+If the chain is not configured in the user&rsquo;s wallet,
+you must add this chain in `ThirdwebProvider`&rsquo;s [supportedChains](/react/react.thirdwebprovider#supportedChains) prop:
 
 ```jsx
-import { DogechainTestnet } from "@thirdweb-dev/chains";
+import { Dogechain } from "@thirdweb-dev/chains";
+import { ThirdwebProvider } from "@thirdweb-dev/react";
 
 export function YourApp() {
   return (
-    <ThirdwebProvider supportedChains={[DogechainTestnet]}>
+    <ThirdwebProvider supportedChains={[Dogechain]}>
       <App />
     </ThirdwebProvider>
   );
 }
 ```
 
-:::info
-It's not necessary to get the chain object from `@thirdweb-dev/chains` package.
-
-You can also create a custom chain object as mentioned [here](/react/react.thirdwebprovider#custom-chains)
-
-:::
+</div>
+</details>

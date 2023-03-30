@@ -1,10 +1,16 @@
 ---
 title: useConnectionStatus
-slug: /react.useConnectionStatus
+slug: /react.useconnectionstatus
 displayed_sidebar: react
 ---
 
-Hook for checking whether your app is connected to a wallet or not
+Hook for checking whether your app is connected to a wallet.
+
+```jsx
+import { useConnectionStatus } from "@thirdweb-dev/react";
+```
+
+## Usage
 
 ```jsx
 import { useConnectionStatus } from "@thirdweb-dev/react";
@@ -12,21 +18,26 @@ import { useConnectionStatus } from "@thirdweb-dev/react";
 function App() {
   const connectionStatus = useConnectionStatus();
 
-  console.log(connectionStatus); //  "unknown" | "connecting" | "connected" | "disconnected"
-
   if (connectionStatus === "unknown") return <p> Loading... </p>;
   if (connectionStatus === "connecting") return <p> Connecting... </p>;
-
   return <p> Your Wallet is {status} </p>;
 }
 ```
 
-## Value
+## Return Value
 
-- connectionStatus value will always start with `"unknown"` when the application has just loaded - because SDK has not yet determined whether your app is connected to a wallet or not.
+<details>
+  <summary>Return Value</summary>
+  <div>
 
-- If Application is trying to connect to a wallet, the status will be `"connecting"`. Connection to a wallet can either be because of a user action or automatically when the app is loaded with [autoconnect](/react/react.thirdwebprovider#autoconnect-optional) set to `true` in the `<ThirdwebProvider />`
+- `unknown`: Application has not yet determined connection status.
+- `connecting`: Application is trying to connect to a wallet. Either because of a user action, or when [autoconnect](/react/react.thirdwebprovider#autoconnect-optional) set to `true`.
+- `connected`: Application is connected to a wallet.
+- `disconnected`: Application is not connected to any wallet.
 
-- If Application is connected to a wallet, the status will be `"connected"`.
+```typescript
+"unknown" | "connecting" | "connected" | "disconnected";
+```
 
-- If Application is not connected to any wallet, the status will be `"disconnected"`.
+</div>
+</details>
