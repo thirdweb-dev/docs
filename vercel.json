@@ -636,13 +636,37 @@
       "source": "/sdk/interacting-with-contracts/split",
       "destination": "/sdk"
     },
-    { 
-      "source": "/sdk/interacting-with-contracts/vote", 
-      "destination": "/sdk" 
+    {
+      "source": "/sdk/interacting-with-contracts/vote",
+      "destination": "/sdk"
     },
-    { 
-      "source": "/contractkit", 
-      "destination": "/solidity" 
+    {
+      "source": "/contractkit",
+      "destination": "/solidity"
+    },
+    {
+      "source": "/contractkit/:match*",
+      "destination": "/solidity"
+    },
+    {
+      "source": "/storage-sdk",
+      "destination": "/storage"
+    },
+    {
+      "source": "/storage-sdk/:match*",
+      "destination": "/storage"
+    },
+    {
+      "source": "/storage/quickstart",
+      "destination": "/storage"
+    },
+    {
+      "source": "/storage/download",
+      "destination": "/storage"
+    },
+    {
+      "source": "/storage/upload/ipfs",
+      "destination": "/storage"
     },
     { 
       "source": "/contractkit/:match*", 
@@ -718,7 +742,7 @@
     },
     { 
       "source": "/contractkit/interfaces/erc20claimablewithconditions", 
-      "destination": "/solidity/extensions/erc20claimconditions" 
+      "destination": "/solidity/extensions/erc20claimconditions"
     }
   ]
 }
