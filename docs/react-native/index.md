@@ -63,7 +63,7 @@ cd ios/ && pod install
 
 <TabItem value="existing-rn-expo" label="React Native Expo Project">
 
-Our wallets package depends on the new Coinbase Wallet Mobile SDK which [contains custom native code](https://github.com/coinbase/wallet-mobile-sdk/issues/206), which breaks support for Expo Go. We are working on turning this into an optional dependency but for now you need to prebuild the Expo project:
+We have a dependency on the [Coinbase Wallet Mobile SDK](https://github.com/coinbase/wallet-mobile-sdk) to support connecting with Coinbase, this dependency contains custom native code, **which breaks support for Expo Go** ([see issue here](https://github.com/coinbase/wallet-mobile-sdk/issues/206)). We are working on turning this into an optional dependency but for now you need to prebuild the Expo project:
 
 <CodeBlock language={"bash"}>{`npx expo prebuild`}</CodeBlock>
 
