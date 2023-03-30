@@ -17,7 +17,7 @@ and then prompt the user to connect, either with the UI component or a hook.
 Using the [`supportedWallets`](/react/react.thirdwebprovider#supportedwallets-optional) prop of the [`ThirdwebProvider`](/react/react.thirdwebprovider) component,
 you can declare which wallets you want to support.
 
-If no `supportedWallets` prop is passed, the default is to support `MetaMask`, `Coinbase Wallet`, and `Wallet Connect v2`.
+If no `supportedWallets` prop is passed, the default is to support `MetaMask`, `Coinbase Wallet`, and `Wallet Connect v1`.
 
 ```jsx
 import {
@@ -33,7 +33,18 @@ import {
 function MyApp() {
   return (
     <ThirdwebProvider
-      supportedWallets={[metamaskWallet(), coinbaseWallet(), walletConnect()]}
+      supportedWallets={[
+        metamaskWallet(),
+        coinbaseWallet(),
+        walletConnect({
+          projectId: "YOUR_PROJECT_ID", // optional
+        }),
+        walletConnectV1(),
+        safeWallet(),
+        paperWallet({
+          clientId: "YOUR_CLIENT_ID", // required
+        }),
+      ]}
       activeChain="mumbai"
     >
       <App />

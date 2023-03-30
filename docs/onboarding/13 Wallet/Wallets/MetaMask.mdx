@@ -14,7 +14,7 @@ Prompt users to connect to your app with their [MetaMask](https://metamask.io/) 
 ```javascript
 import { MetaMaskWallet } from "@thirdweb-dev/wallets";
 
-const wallet = new MetaMaskWallet({});
+const wallet = new MetaMaskWallet();
 
 wallet.connect();
 ```
@@ -35,12 +35,12 @@ Defaults to our [default chains](/react/react.thirdwebprovider#default-chains).
 
 ```javascript
 import { MetaMaskWallet } from "@thirdweb-dev/wallets";
-import { Ethereum } from "@thirdweb-dev/chains";
+import { Ethereum, Polygon } from "@thirdweb-dev/chains";
 
 const walletWithOptions = new MetaMaskWallet(
   // highlight-start
   {
-    chains: [Ethereum],
+    chains: [Ethereum, Polygon],
   },
   // highlight-end
 );
@@ -55,7 +55,7 @@ const walletWithOptions = new MetaMaskWallet(
 
 Information about your app that the wallet will display when your app tries to connect to it.
 
-Must be an object containing `name`, `url`, `description` and `logoUrl` properties.
+Must be an object containing `name`, `url`, and optionally `description` and `logoUrl` properties.
 
 ```javascript
 import { MetaMaskWallet } from "@thirdweb-dev/wallets";
@@ -141,27 +141,6 @@ const walletWithOptions = new MetaMaskWallet(
 </div>
 </details>
 
-<details>
-  <summary>walletId</summary>
-  <div>
-
-An ID for the wallet used to store the wallet in the `walletStorage`.
-
-```javascript
-import { MetaMaskWallet } from "@thirdweb-dev/wallets";
-
-const walletWithOptions = new MetaMaskWallet(
-  // highlight-start
-  {
-    walletId: "wallet-id",
-  },
-  // highlight-end
-);
-```
-
-</div>
-</details>
-
 ## Methods
 
 Once instantiated, utilize the following methods to interact with the MetaMask Wallet.
@@ -201,8 +180,8 @@ Data available:
 
 ```typescript
 {
-  address: string;
-  chainId: number;
+  address?: string; // available if the address is changed
+  chainId?: number; // available if the network is changed
 }
 ```
 
@@ -310,10 +289,10 @@ const address = await wallet.connect();
 
 #### Return Value
 
-Returns a `string` containing the wallet address, or `undefined` if the connection failed.
+Returns a `string` containing the wallet address, or throws an error if the connection failed.
 
 ```typescript
-string | undefined;
+string;
 ```
 
 </div>
@@ -321,10 +300,10 @@ string | undefined;
 
 ### connectWithQrCode
 
-Connect to the wallet using a QR code.
+Connect to the wallet using a QR code if the user does not have the Metamask extension installed.
 
 ```javascript
-wallet.connectWithQrCode({
+await wallet.connectWithQrCode({
   onQrCodeUri(qrCodeUri) {
     // render the QR code with `qrCodeUri`
   },
@@ -351,10 +330,6 @@ A callback to run when the user has connected their wallet to your app.
 
 The chain ID to switch to after connecting. Optional.
 
-#### Return Value
-
-Returns a `string` containing the wallet address, or `undefined` if the connection failed.
-
 ```typescript
 string | undefined;
 ```
@@ -375,7 +350,7 @@ await wallet.disconnect();
 Emit an event, with some optional data.
 
 ```javascript
-wallet.emit("connect", {});
+wallet.emit("EVENT_NAME", data);
 ```
 
 <details>
@@ -434,10 +409,10 @@ const address = await wallet.getAddress();
 
 #### Return Value
 
-Returns a `string` containing the wallet address, or `undefined` if the connection failed.
+Returns a `string` containing the wallet address or throws an error if not connected to a wallet.
 
 ```typescript
-string | undefined;
+string;
 ```
 
 </div>
@@ -457,10 +432,10 @@ const chainId = await wallet.getChainId();
 
 #### Return Value
 
-Returns a `number` containing the chain ID, or `undefined` if there is no connected wallet.
+Returns a `number` containing the chain ID, or throws an error if not connected to a wallet.
 
 ```typescript
-number | undefined;
+number;
 ```
 
 </div>
