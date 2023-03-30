@@ -38,12 +38,12 @@ Requirements:
   <TabItem value="yarn" label="yarn" default>
     <CodeBlock
       language={"bash"}
-    >{`yarn add 'ethers@^5' @thirdweb-dev/react-native@nightly @thirdweb-dev/react-native-compat@nightly node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg react-native-mmkv @react-native-async-storage/async-storage`}</CodeBlock>
+    >{`yarn add 'ethers@^5' @thirdweb-dev/react-native @thirdweb-dev/react-native-compat node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg react-native-mmkv @react-native-async-storage/async-storage`}</CodeBlock>
   </TabItem>
   <TabItem value="npm" label="npm">
     <CodeBlock
       language={"bash"}
-    >{`npm i 'ethers@^5' @thirdweb-dev/react-native@nightly @thirdweb-dev/react-native-compat@nightly node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg react-native-mmkv @react-native-async-storage/async-storage`}</CodeBlock>
+    >{`npm i 'ethers@^5' @thirdweb-dev/react-native @thirdweb-dev/react-native-compat node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg react-native-mmkv @react-native-async-storage/async-storage`}</CodeBlock>
   </TabItem>
 </Tabs>
 
@@ -63,7 +63,7 @@ cd ios/ && pod install
 
 <TabItem value="existing-rn-expo" label="React Native Expo Project">
 
-Our wallets package depends on the new Coinbase Wallet Mobile SDK which [contains custom native code](https://github.com/coinbase/wallet-mobile-sdk/issues/206), which breaks support for Expo Go. We are working on turning this into an optional dependency but for now you need to prebuild the Expo project:
+We have a dependency on the [Coinbase Wallet Mobile SDK](https://github.com/coinbase/wallet-mobile-sdk) to support connecting with Coinbase, this dependency contains custom native code, **which breaks support for Expo Go** ([see issue here](https://github.com/coinbase/wallet-mobile-sdk/issues/206)). We are working on turning this into an optional dependency but for now you need to prebuild the Expo project:
 
 <CodeBlock language={"bash"}>{`npx expo prebuild`}</CodeBlock>
 
@@ -73,12 +73,12 @@ Now, we can add the dependencies:
   <TabItem value="yarn" label="yarn" default>
     <CodeBlock
       language={"bash"}
-    >{`yarn add 'ethers@^5' @thirdweb-dev/react-native@nightly @thirdweb-dev/react-native-compat@nightly node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg @react-native-async-storage/async-storage`}</CodeBlock>
+    >{`yarn add 'ethers@^5' @thirdweb-dev/react-native @thirdweb-dev/react-native-compat node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg @react-native-async-storage/async-storage`}</CodeBlock>
   </TabItem>
   <TabItem value="npm" label="npm">
     <CodeBlock
       language={"bash"}
-    >{`npm i 'ethers@^5' @thirdweb-dev/react-native@nightly @thirdweb-dev/react-native-compat@nightly node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg @react-native-async-storage/async-storage`}</CodeBlock>
+    >{`npm i 'ethers@^5' @thirdweb-dev/react-native @thirdweb-dev/react-native-compat node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg @react-native-async-storage/async-storage`}</CodeBlock>
   </TabItem>
 </Tabs>
 
@@ -180,12 +180,12 @@ Make sure to have your React Native environment setup before using the template.
   <TabItem value="thirdweb-cli" label="Thirdweb CLI" default>
     <CodeBlock
       language={"bash"}
-    >{`npx thirdweb@nightly create --template react-native-typescript-starter`}</CodeBlock>
+    >{`npx thirdweb create --template react-native-typescript-starter`}</CodeBlock>
   </TabItem>
   <TabItem value="thirdweb-cli-expo" label="Thidweb CLI Expo">
     <CodeBlock
       language={"bash"}
-    >{`npx thirdweb@nightly create --template react-native-expo-starter`}</CodeBlock>
+    >{`npx thirdweb create --template react-native-expo-starter`}</CodeBlock>
   </TabItem>
   <TabItem value="react-native-cli" label="React Native CLI">
     Alternatively you can use the React Native CLI. Note that you need to follow

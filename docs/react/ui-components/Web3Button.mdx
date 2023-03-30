@@ -14,10 +14,10 @@ Button that executes a function on a smart contract from the connected wallet wh
 It ensures the following criteria before attempting to call the contract function:
 
 1. There is a **connected wallet**
-   (if there is not, renders a [Connect Wallet Button](/react/react.connectwallet) instead).
+   (if there is not, it renders a [Connect Wallet Button](/react/react.connectwallet) instead).
 2. The connected wallet is on the **correct network**
    as specified in the [ThirdwebProvider](/react/react.thirdwebprovider#active-chain)'s
-   `activeChain` prop (if it is not, renders switch network button instead).
+   `activeChain` prop (if it is not, it renders a switch network button instead).
 
 ```jsx
 import { Web3Button } from "@thirdweb-dev/react";
@@ -30,6 +30,12 @@ Render the `Web3Button` component with two required props to display the button:
 1. `contractAddress`: The address of the smart contract to interact with.
 2. `action`: The logic to execute when the button is clicked.
 
+:::info
+If the action you are performing is async, Make sure to return a `Promise` from the `action` function so that SDK knows when the action is complete
+
+This can be done by either using `async/await` or by directly returning a `Promise`.
+:::
+
 ```jsx
 import { Web3Button } from "@thirdweb-dev/react";
 
@@ -37,7 +43,9 @@ function App() {
   return (
     <Web3Button
       contractAddress="0x..." // Your smart contract address
-      action={(contract) => console.log(contract)} // Logic to execute when clicked
+      action={async (contract) => {
+        await someAction(contract);
+      }}
     >
       Execute Action
     </Web3Button>
@@ -55,7 +63,7 @@ function App() {
 
 The address of the smart contract to interact with.
 
-If you have _not_ imported your contract to the [dashboard](/dashboard), you must additionally specify the [`contractAbi`](#contractabi-optional) prop.
+If you have _not_ imported your contract to [thirdweb's dashboard](/dashboard), you must additionally specify the [`contractAbi`](#contractabi-optional) prop.
 
 ```jsx
 import { Web3Button } from "@thirdweb-dev/react";
@@ -65,7 +73,10 @@ function App() {
     <Web3Button
       // highlight-next-line
       contractAddress="0x..."
-      action={(contract) => console.log(contract)} // Logic to execute when clicked
+      action={(contract) => {
+        // Logic to execute when clicked
+        await someAction(contract);
+      }}
     >
       Execute Action
     </Web3Button>
@@ -79,6 +90,8 @@ The logic to execute when the button is clicked.
 
 The contract instance is available as the first argument of the function
 for you to interact with.
+
+If the action you are performing is async, Make sure to return a `Promise` from the `action` function so that SDK knows when the action is complete
 
 ```jsx
 import { Web3Button } from "@thirdweb-dev/react";
@@ -98,6 +111,7 @@ function App() {
 }
 ```
 
+<!--
 ### accentColor (optional)
 
 The background color of the button.
@@ -122,10 +136,11 @@ function App() {
   );
 }
 ```
+-->
 
-### colorMode (optional)
+### theme (optional)
 
-Change the color scheme of the button to `light` or `dark` mode, to match the color scheme of your app.
+Change the theme of the button to `light` or `dark` mode, to match the theme of your app.
 
 The default value is `dark`.
 
@@ -138,7 +153,7 @@ function App() {
       contractAddress="0x..."
       action={(contract) => console.log(contract)} // Logic to execute when clicked
       // highlight-next-line
-      colorMode="light"
+      theme="dark"
     >
       Execute Action
     </Web3Button>>
@@ -302,7 +317,7 @@ Apply custom CSS styles to the button.
 
 :::info
 
-For some specific CSS attributes such as `width` you may need to apply the
+For some specific CSS properties you may need to apply the
 [`!important`](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity#the_!important_exception)
 CSS rule to override the default styles of the button.
 :::

@@ -39,6 +39,11 @@ const sidebars = {
       id: "ThirdwebSDKProvider",
     },
     {
+      type: "doc",
+      label: "Connecting Wallets",
+      id: "Connecting Wallets",
+    },
+    {
       type: "category",
       label: "UI Components",
       collapsed: false,
