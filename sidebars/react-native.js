@@ -29,6 +29,11 @@ const sidebars = {
       id: "getting-started",
     },
     {
+      type: "doc",
+      label: "Wallets",
+      id: "wallets",
+    },
+    {
       type: "category",
       label: "UI Components",
       collapsed: false,

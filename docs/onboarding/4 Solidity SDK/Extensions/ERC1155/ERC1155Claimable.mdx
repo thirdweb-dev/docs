@@ -8,22 +8,26 @@ import QuickstartCard from "@components/QuickstartCard";
 
 # ERC1155Claimable
 
+```solidity
+import "@thirdweb-dev/contracts/extension/interface/IMintableERC721.sol";
+```
+
 Allow other wallets to **claim** NFTs that you have lazy-minted. 
 
 It is recommended to use this extension alongside the [`LazyMint`](/solidity/extensions/lazymint) extension.
-
-<ViewContractCodeButton
-  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/interface/IClaimableERC1155.sol"
-  name="IClaimableERC1155"
-/>
-
-<br/>
 
 :::info
 
 This extension is an interface and requires all of the functions to be implemented
 
 :::
+
+<br/>
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/interface/IClaimableERC1155.sol"
+  name="IClaimableERC1155"
+/>
 
 ## Usage
 
