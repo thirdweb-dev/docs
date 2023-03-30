@@ -20,7 +20,9 @@ function App() {
 
   if (connectionStatus === "unknown") return <p> Loading... </p>;
   if (connectionStatus === "connecting") return <p> Connecting... </p>;
-  return <p> Your Wallet is {status} </p>;
+  if (connectionStatus === "connected") return <p> You are connected </p>;
+  if (connectionStatus === "disconnected")
+    return <p> You are not connected to a wallet </p>;
 }
 ```
 
