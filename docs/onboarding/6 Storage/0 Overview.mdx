@@ -1,0 +1,88 @@
+---
+slug: /storage
+title: Overview
+---
+
+import QuickstartCard from "@components/QuickstartCard";
+
+# Storage
+
+Storage is a decentralized file management solution to store and retrieve information "off-chain" using [IPFS](/glossary/ipfs). It enables you to
+upload and [pin](https://docs.ipfs.tech/concepts/persistence/) files to IPFS, and retrieve them at any time via our [IPFS gateway](#ipfs-gateway).
+
+Using either the [dashboard](https://thirdweb.com/dashboard/storage), [CLI](/cli), or [SDK](/sdk), you can easily upload and pin individual files, or entire directories to IPFS;
+ideal for storing files in a permanent, decentralized, censorship-resistant manner.
+
+Storage powers functionality in a number of our other products, such as uploading smart contract ABIs in [deploy](/deploy),
+our [IPFS Renderer](/react/react.mediarenderer) UI component & [NFT metadata fetching](/react/react.usenft) capabilities in the SDK, and uploading of NFT metadata in the dashboard.
+
+## IPFS Gateway
+
+To read data from IPFS, an [IPFS Gateway](https://docs.ipfs.tech/concepts/ipfs-gateway/) is required; which
+allows you to access data from the IPFS protocol on browsers and other HTTP clients, such as when building an application using our [SDK](/sdk).
+
+Out of the box, we provide you with a public, unrestricted IPFS gateway at `https://ipfs.thirdwebcdn.com/ipfs/[cid]`,
+which you can use to access any file available on IPFS for free; with no rate limits or restrictions.
+
+## Get Started
+
+Learn how to use storage to upload files via the UI or command line, or how to use the SDK to upload files programmatically.
+
+Upload files directly to IPFS using the dashboard or CLI:
+
+<div className="row" style={{ marginBottom: 12 }}>
+  <div className="col col--6" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Dashboard"
+      link="https://thirdweb.com/dashboard/storage"
+      image="/assets/product/dashboard.png"
+    />
+  </div>
+  <div className="col col--6" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="CLI"
+      link="https://thirdweb.com/dashboard/storage#cli"
+      image="/assets/product/deploy.png"
+    />
+  </div>
+</div>
+
+Or integrate decentralized storage into your application with our SDKs:
+
+<div className="row" style={{ marginBottom: 12 }}>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="React"
+      link="/react/react.usestorage"
+      image="/assets/languages/react.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="TypeScript"
+      link="/typescript/storage"
+      image="/assets/languages/typescript.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Python"
+      link="/python/ipfs-storage"
+      image="/assets/languages/python.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Go"
+      link="/go/storage"
+      image="/assets/languages/go.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Unity"
+      link="/unity/storage"
+      image="/assets/languages/unity.webp"
+    />
+  </div>
+</div>
