@@ -1,0 +1,152 @@
+---
+title: useNetwork
+slug: /react.useNetwork
+displayed_sidebar: react
+---
+
+Hook for getting information about the current network and switching to a different network.
+
+Returns an array value containing two elements.
+
+1. An object containing
+
+   - `data` object contains information about the wallet's current and known networks.
+   - `loading` flag to indicate if the switch network request is in progress.
+   - `error` holds the `Error` object if there was an error when attempting to switch network.
+
+2. A function that can be used to switch to a different network.
+
+```jsx
+import { useNetwork } from "@thirdweb-dev/react";
+
+const [{ data, error, loading }, switchNetwork] = useNetwork();
+
+// `loading` is true if the switch network request is in progress
+
+// `switchNetwork` is a function that can be used to switch to a different network
+// if wallet does not allow programmatic switching, switchNetwork is undefined
+```
+
+<details>
+  <summary> <code> data </code> </summary>
+  <div>
+
+If wallet is connected to a network that is one of [supportedChains](/react/react.thirdwebprovider#supportedchains-optional) ) or one of the [defaultChains](/react/react.thirdwebprovider#default-chains), `data` object will contain the following:
+
+```ts
+{
+  chain: Chain; // The connected network
+  chains: Chain[]; // All supported networks
+}
+```
+
+Otherwise, `data` object will contain the following:
+
+```ts
+{
+  // chainId of current connected network + unsupported flag
+  chain: { chainId: number, unsupported: true };
+  // All supported networks
+  chains: Chain[];
+}
+```
+
+If wallet is not connected, `data` object will contain the following:
+
+```ts
+{
+  chain: undefined;
+  chains: []; // Empty array
+}
+```
+
+  </div>
+</details>
+
+<details>
+  <summary> <code>error </code> </summary>
+  <div>
+
+`error` contains an `Error` object if there was an error when attempting to switch network using the `switchNetwork` function returned by the hook.
+
+`undefined` if there is no switch network error
+
+```ts
+Error | undefined;
+```
+
+  </div>
+</details>
+
+<details>
+  <summary> <code>loading </code> </summary>
+  <div>
+
+`Loading` is `true` when switching network using the `switchNetwork` function returned by the hook, and `false` otherwise.
+
+```ts
+boolean;
+```
+
+  </div>
+</details>
+
+<details>
+  <summary> <code>switchNetwork </code> </summary>
+  <div>
+
+`switchNetwork` is a function that can be used to switch to a different network.
+
+It takes a `chainId` as an argument and returns a promise that resolves to an object containing `data` and `error` properties.
+
+If switching network was successful, `data` will contain the new network information. and `error` will be `undefined`.
+
+If switching network failed, `data` will be `undefined` and `error` will contain an `Error` object.
+
+```ts
+type SwitchNetwork = undefined | (chainId: number) => Promise<
+  | {
+      data: Chain | undefined;
+      error: undefined;
+    }
+  | {
+      data: undefined;
+      error: Error;
+    }>
+```
+
+  </div>
+</details>
+
+## Usage
+
+```jsx
+import { useNetwork } from "@thirdweb-dev/react";
+
+function App() {
+  const [{ data, error, loading }, switchNetwork] = useNetwork();
+
+  if (loading) {
+    return <div> switching network... </div>;
+  }
+
+  if (!switchNetwork) {
+    return <div> Wallet does not allow programmatic switching </div>;
+  }
+
+  return (
+    <button
+      onClick={() => {
+        const result = await switchNetwork(80001);
+        if (result.data) {
+          console.log("Switched to Mumbai testnet successfully");
+        } else {
+          console.log("Error switching to Mumbai testnet", result.error);
+        }
+      }}
+    >
+      Switch to Goerli
+    </button>
+  );
+}
+```
