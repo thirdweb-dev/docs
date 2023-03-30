@@ -1,0 +1,98 @@
+---
+slug: /solidity/extensions/erc1155mintable
+title: ERC1155Mintable
+---
+
+import ViewContractCodeButton from "@components/ViewContractCodeButton";
+import QuickstartCard from "@components/QuickstartCard";
+
+# ERC1155Mintable
+
+```solidity
+import "@thirdweb-dev/contracts/extension/interface/IMintableERC721.sol";
+```
+
+`ERC1155Mintable` allows you to mint new NFTs into your ERC1155 NFT collection contract.
+
+:::info
+
+This extension is an interface and requires all of the functions to be implemented
+
+:::
+
+<br/>
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/interface/IMintableERC1155.sol"
+  name="IMintableERC1155"
+  isInterface={true}
+/>
+
+## Usage
+
+This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality. 
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@thirdweb-dev/contracts/eip/ERC1155.sol";
+import "@thirdweb-dev/contracts/extension/interface/IMintableERC1155.sol";
+
+contract Contract is ERC1155, IMintableERC1155 {
+    constructor(
+        string memory _name,
+        string memory _symbol
+    )
+        ERC1155(
+            _name,
+            _symbol
+        )
+    {}
+
+    function mintTo(
+        address to,
+        uint256 tokenId,
+        string calldata uri,
+        uint256 amount
+    ) external override {
+        // Your custom implementation here
+    }
+}
+```
+
+## SDK Usage
+
+By adding this extension to a smart contract, the following features, hooks and functions are unlocked in the SDK:
+
+<div className="row" style={{ marginBottom: 12 }}>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="React"
+      link="/react/react.usemintnft"
+      image="/assets/languages/react.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="TypeScript"
+      link="/typescript/sdk.erc1155mintable"
+      image="/assets/languages/typescript.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Unity"
+      link="/unity/erc1155mintable"
+      image="/assets/languages/unity.webp"
+    />
+  </div>
+</div>
+
+## Base Contracts Implementing This Extension
+
+- [ERC1155Base](/solidity/base-contracts/erc1155base)
+- [ERC1155DelayedReveal](/solidity/base-contracts/erc1155delayedreveal)
+- [ERC1155Drop](/solidity/base-contracts/erc1155drop)
+- [ERC1155LazyMint](/solidity/base-contracts/erc1155lazymint)
+- [ERC1155SignatureMint](/solidity/base-contracts/erc1155signaturemint)

@@ -12,7 +12,7 @@ const items = [
     id: "custom-contract-section",
     title: "Build your own",
     description:
-      "Create custom contracts that are specific to your use case using ContractKit and Solidity.",
+      "Create custom contracts that are specific to your use case using the Solidity SDK.",
     icon: "/product/extensions.png",
   },
   {

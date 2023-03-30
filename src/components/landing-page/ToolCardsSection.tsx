@@ -11,10 +11,10 @@ type Product = {
 const products: Product[] = [
   {
     image: "/assets/product/extensions.png",
-    name: "ContractKit",
+    name: "Solidity SDK",
     description:
       "Base contracts that can be configured with extensions to meet your specific use case",
-    link: "/contractkit",
+    link: "/solidity",
   },
   {
     image: "/assets/product/contracts.png",

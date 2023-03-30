@@ -201,7 +201,7 @@
     },
     {
       "source": "/thirdweb-deploy/contract-features/:match*",
-      "destination": "/contractkit/extensions/:match*"
+      "destination": "/solidity/extensions/:match*"
     },
     {
       "source": "/advanced-features/signature-based-minting",
@@ -303,12 +303,12 @@
     },
     {
       "source": "/thirdweb-deploy/features",
-      "destination": "/contractkit",
+      "destination": "/solidity",
       "permanent": true
     },
     {
       "source": "/thirdweb-deploy/contract-extensions/quickstart",
-      "destination": "/contractkit"
+      "destination": "/solidity"
     },
     {
       "source": "/pre-built-contracts/nfts",
@@ -353,7 +353,7 @@
     },
     {
       "source": "/contracts-sdk/contract-extensions/signatureminting",
-      "destination": "/contractkit/extensions/signatureminterc721"
+      "destination": "/solidity/extensions/signatureminterc721"
     },
     {
       "source": "/guides/sign-in-with-ethereum-using-thirdweb-connectwallet",
@@ -369,19 +369,19 @@
     },
     {
       "source": "/contracts-sdk",
-      "destination": "/contractkit"
+      "destination": "/solidity"
     },
     {
       "source": "/contracts-sdk/contract-extensions",
-      "destination": "/contractkit/extensions"
+      "destination": "/solidity/extensions"
     },
     {
       "source": "/contracts-sdk/contract-extensions/:match*",
-      "destination": "/contractkit/extensions/:match*"
+      "destination": "/solidity/extensions/:match*"
     },
     {
       "source": "/contracts-sdk/:match*",
-      "destination": "/contractkit/:match*"
+      "destination": "/solidity/:match*"
     },
     {
       "source": "/guides",
@@ -423,36 +423,12 @@
       "destination": "/getting-started/contracts"
     },
     {
-      "source": "/contractkit/extensions/contractmetadata",
-      "destination": "/contractkit/contractmetadata"
-    },
-    {
-      "source": "/contractkit/extensions/ownable",
-      "destination": "/contractkit/ownable"
-    },
-    {
-      "source": "/contractkit/extensions/permissions",
-      "destination": "/contractkit/permissions"
-    },
-    {
-      "source": "/contractkit/extensions/platformfee",
-      "destination": "/contractkit/platformfee"
-    },
-    {
-      "source": "/contractkit/extensions/primarysale",
-      "destination": "/contractkit/primarysale"
-    },
-    {
-      "source": "/contractkit/extensions/primarysale",
-      "destination": "/contractkit/primarysale"
-    },
-    {
       "source": "/contractkit/features",
-      "destination": "/contractkit/extensions"
+      "destination": "/solidity/extensions"
     },
     {
       "source": "/contractkit/features/:match*",
-      "destination": "/contractkit/extensions/:match*"
+      "destination": "/solidity/extensions"
     },
     {
       "source": "/create",
@@ -460,11 +436,11 @@
     },
     {
       "source": "/extensions",
-      "destination": "/contractkit"
+      "destination": "/solidity"
     },
     {
       "source": "/extensions/:match*",
-      "destination": "/contractkit/:match*"
+      "destination": "/solidity"
     },
     {
       "source": "/sdk/ui-components",
@@ -660,6 +636,113 @@
       "source": "/sdk/interacting-with-contracts/split",
       "destination": "/sdk"
     },
-    { "source": "/sdk/interacting-with-contracts/vote", "destination": "/sdk" }
+    {
+      "source": "/sdk/interacting-with-contracts/vote",
+      "destination": "/sdk"
+    },
+    {
+      "source": "/contractkit",
+      "destination": "/solidity"
+    },
+    {
+      "source": "/contractkit/:match*",
+      "destination": "/solidity"
+    },
+    {
+      "source": "/storage-sdk",
+      "destination": "/storage"
+    },
+    {
+      "source": "/storage-sdk/:match*",
+      "destination": "/storage"
+    },
+    {
+      "source": "/storage/quickstart",
+      "destination": "/storage"
+    },
+    {
+      "source": "/storage/download",
+      "destination": "/storage"
+    },
+    {
+      "source": "/storage/upload/ipfs",
+      "destination": "/storage"
+    },
+    { 
+      "source": "/contractkit/:match*", 
+      "destination": "/solidity" 
+    },
+    { 
+      "source": "/contractkit/extensions-contracts", 
+      "destination": "/solidity/extensions" 
+    },
+    { 
+      "source": "/contractkit/interfaces", 
+      "destination": "/solidity/extensions" 
+    },
+    { 
+      "source": "/contractkit/interfaces/erc721signaturemintable", 
+      "destination": "/solidity/extensions/erc721singaturemint" 
+    },
+    { 
+      "source": "/contractkit/interfaces/erc20signaturemintable", 
+      "destination": "/solidity/extensions/erc20singaturemint" 
+    },
+    { 
+      "source": "/contractkit/interfaces/erc1155signaturemintable", 
+      "destination": "/solidity/extensions/erc1155singaturemint" 
+    },
+    { 
+      "source": "/contractkit/interfaces/erc721lazymintable", 
+      "destination": "/solidity/extensions/lazymint" 
+    },
+    { 
+      "source": "/contractkit/interfaces/erc1155lazymintable", 
+      "destination": "/solidity/extensions/lazymint" 
+    },
+    { 
+      "source": "/contractkit/interfaces/erc20", 
+      "destination": "/solidity/extensions/erc20" 
+    },
+    { 
+      "source": "/contractkit/interfaces/erc1155", 
+      "destination": "/solidity/extensions/erc1155" 
+    },
+    { 
+      "source": "/contractkit/interfaces/erc721", 
+      "destination": "/solidity/extensions/erc721" 
+    },
+    { 
+      "source": "/contractkit/extension-contracts/dropmultiphase", 
+      "destination": "/solidity/extensions/drop" 
+    },
+    { 
+      "source": "/contractkit/extension-contracts/dropmultiphase1155", 
+      "destination": "/solidity/extensions/erc1155drop" 
+    },
+    { 
+      "source": "/contractkit/extension-contracts/sigminterc721", 
+      "destination": "/solidity/extensions/erc721singaturemint" 
+    },
+    { 
+      "source": "/contractkit/extension-contracts/sigminterc20", 
+      "destination": "/solidity/extensions/erc20singaturemint" 
+    },
+    { 
+      "source": "/contractkit/extension-contracts/sigminterc1155", 
+      "destination": "/solidity/extensions/erc1155singaturemint" 
+    },
+    { 
+      "source": "/contractkit/interfaces/erc721claimablewithconditions", 
+      "destination": "/solidity/extensions/erc721claimconditions" 
+    },
+    { 
+      "source": "/contractkit/interfaces/erc1155claimablewithconditions", 
+      "destination": "/solidity/extensions/erc1155claimconditions" 
+    },
+    { 
+      "source": "/contractkit/interfaces/erc20claimablewithconditions", 
+      "destination": "/solidity/extensions/erc20claimconditions"
+    }
   ]
 }

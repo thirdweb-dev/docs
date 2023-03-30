@@ -13,7 +13,7 @@ If uploading a JSON object, the method will automatically upload any file data w
 
 ```jsx
 const data = { name: "Hello world" };
-const uri = await storage.upload(data);
+const uri = await sdk.storage.upload(data);
 ```
 
 ## Configuration
@@ -31,7 +31,7 @@ By default, the data is uploaded and **pinned** to IPFS for you.
 Customize the upload behaviour by passing in an options object as the second parameter.
 
 ```javascript
-const uri = await sdk?.storage.upload(
+const uri = await sdk.storage.upload(
   { name: "Hello world" },
   {
     alwaysUpload: false, // Optionally, always reupload even if the file already exists
