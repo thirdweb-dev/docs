@@ -107,6 +107,10 @@ function DocSidebarItems({ items, ...props }) {
       return "Solidity";
     }
 
+    if (formatted === "Cli") {
+      return "CLI";
+    }
+
     // If not the word pre-built, split by dash and capitalize each word
     if (formatted !== "Pre-built-contracts") {
       return formatted
