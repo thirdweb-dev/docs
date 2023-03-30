@@ -51,7 +51,7 @@ function DocSidebarItems({ items, ...props }) {
     },
     {
       title: "Infrastructure",
-      items: ["Auth", "Storage", "Wallet SDK"],
+      items: ["Auth", "Storage", "Wallet"],
     },
     {
       title: "Solutions",
@@ -92,12 +92,16 @@ function DocSidebarItems({ items, ...props }) {
       return "UI Components";
     }
 
-    if (formatted === "Solidity SDK") {
-      return "Solidity SDK";
-    }
-
     if (formatted === "Gamingkit") {
       return "GamingKit";
+    }
+
+    if (formatted === "Commercekit") {
+      return "CommerceKit";
+    }
+
+    if (formatted === "Wallet" || formatted === "Wallets") {
+      return "Wallet";
     }
 
     if (formatted === "Typescript") {
