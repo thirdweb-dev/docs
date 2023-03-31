@@ -10,31 +10,36 @@ import CLIOptions from "@components/CLIOptions";
 
 Create a new project with the thirdweb packages installed and configured.
 
-Create apps, [smart contracts](/solidity/base-contracts) and [smart contract extensions](/solidity/extensions) for your [dynamic contracts](https://github.com/thirdweb-dev/dynamic-contracts) easily 
-with everything set up for you to get started quickly.
-
-## Command
+Choose between creating apps with one of our [SDKs](/sdk),
+[smart contracts](/solidity/base-contracts) or
+[dynamic smart contract extensions](/solidity/extensions).
 
 ```bash
-npx thirdweb create [options]
+npx thirdweb create
 ```
 
-After running the command, you will be prompted to provide the following:
+## Usage
 
-1. The type of Project (App, [Smart Contract](/solidity/base-contracts) or [Dynamic Contract Extension](/solidity/extensions))
-2. A name for your project
+After running the command, you will be prompted to provide the:
 
-If you choose **App** you will be prompted to choose: 
+1. Type of project to create (app, smart contract, or dynamic contract extension)
+2. Name of your project
 
-3. The blockchain evironment (EVM or Solana)
-4. A framework to build with (Next.js, Create React App, Vite, React Native, Node.js or Express)
-5. A language (JavaScript or TypeScript)
+If you choose **App**, you will be prompted to provide the:
 
-If you choose **Smart Contract** or **Dynamic Contract Extension** you will be prompted to choose:
+3. Blockchain evironment to use (EVM or Solana)
+4. Framework to build with (Next.js, Create React App, Vite, React Native, Node.js or Express)
+5. Language (JavaScript or TypeScript)
 
-3. A framework to build with (Forge or HardHat)
-4. (Smart Contracts only) The Base Contract (Empty, [ERC721](/solidity/extensions/base-contracts#erc721), [ERC1155](/solidity/extensions/base-contracts#erc1155) or [ERC20](/solidity/extensions/base-contracts#erc20))
+If you choose **Smart Contract** or **Dynamic Contract Extension** you will be prompted to provide the:
+
+3. Framework to build with (Forge or HardHat)
+4. Base Contract (choose from [ERC721](/solidity/extensions/base-contracts#erc721), [ERC1155](/solidity/extensions/base-contracts#erc1155) or [ERC20](/solidity/extensions/base-contracts#erc20), or empty)
 5. Smart Contract name
+
+```bash
+npx thirdweb create [options] [projectPath]
+```
 
 ## Options
 

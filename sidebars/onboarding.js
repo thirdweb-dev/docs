@@ -255,7 +255,7 @@ const sidebars = {
         },
         {
           type: "link",
-          href: "/cli/upload", // TODO: link to CLI upload docs when available (and do same on Overview page)
+          href: "/cli/upload",
           label: "CLI",
         },
         {
@@ -332,11 +332,6 @@ const sidebars = {
     {
       type: "doc",
       id: "9 CLI/0 Overview",
-    },
-    {
-      type: "doc",
-      label: "Getting Started",
-      id: "9 CLI/1 Getting Started",
     },
     {
       type: "category",
