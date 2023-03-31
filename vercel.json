@@ -668,81 +668,121 @@
       "source": "/storage/upload/ipfs",
       "destination": "/storage"
     },
-    { 
-      "source": "/contractkit/:match*", 
-      "destination": "/solidity" 
+    {
+      "source": "/contractkit/:match*",
+      "destination": "/solidity"
     },
-    { 
-      "source": "/contractkit/extensions-contracts", 
-      "destination": "/solidity/extensions" 
+    {
+      "source": "/contractkit/extensions-contracts",
+      "destination": "/solidity/extensions"
     },
-    { 
-      "source": "/contractkit/interfaces", 
-      "destination": "/solidity/extensions" 
+    {
+      "source": "/contractkit/interfaces",
+      "destination": "/solidity/extensions"
     },
-    { 
-      "source": "/contractkit/interfaces/erc721signaturemintable", 
-      "destination": "/solidity/extensions/erc721singaturemint" 
+    {
+      "source": "/contractkit/interfaces/erc721signaturemintable",
+      "destination": "/solidity/extensions/erc721singaturemint"
     },
-    { 
-      "source": "/contractkit/interfaces/erc20signaturemintable", 
-      "destination": "/solidity/extensions/erc20singaturemint" 
+    {
+      "source": "/contractkit/interfaces/erc20signaturemintable",
+      "destination": "/solidity/extensions/erc20singaturemint"
     },
-    { 
-      "source": "/contractkit/interfaces/erc1155signaturemintable", 
-      "destination": "/solidity/extensions/erc1155singaturemint" 
+    {
+      "source": "/contractkit/interfaces/erc1155signaturemintable",
+      "destination": "/solidity/extensions/erc1155singaturemint"
     },
-    { 
-      "source": "/contractkit/interfaces/erc721lazymintable", 
-      "destination": "/solidity/extensions/lazymint" 
+    {
+      "source": "/contractkit/interfaces/erc721lazymintable",
+      "destination": "/solidity/extensions/lazymint"
     },
-    { 
-      "source": "/contractkit/interfaces/erc1155lazymintable", 
-      "destination": "/solidity/extensions/lazymint" 
+    {
+      "source": "/contractkit/interfaces/erc1155lazymintable",
+      "destination": "/solidity/extensions/lazymint"
     },
-    { 
-      "source": "/contractkit/interfaces/erc20", 
-      "destination": "/solidity/extensions/erc20" 
+    {
+      "source": "/contractkit/interfaces/erc20",
+      "destination": "/solidity/extensions/erc20"
     },
-    { 
-      "source": "/contractkit/interfaces/erc1155", 
-      "destination": "/solidity/extensions/erc1155" 
+    {
+      "source": "/contractkit/interfaces/erc1155",
+      "destination": "/solidity/extensions/erc1155"
     },
-    { 
-      "source": "/contractkit/interfaces/erc721", 
-      "destination": "/solidity/extensions/erc721" 
+    {
+      "source": "/contractkit/interfaces/erc721",
+      "destination": "/solidity/extensions/erc721"
     },
-    { 
-      "source": "/contractkit/extension-contracts/dropmultiphase", 
-      "destination": "/solidity/extensions/drop" 
+    {
+      "source": "/contractkit/extension-contracts/dropmultiphase",
+      "destination": "/solidity/extensions/drop"
     },
-    { 
-      "source": "/contractkit/extension-contracts/dropmultiphase1155", 
-      "destination": "/solidity/extensions/erc1155drop" 
+    {
+      "source": "/contractkit/extension-contracts/dropmultiphase1155",
+      "destination": "/solidity/extensions/erc1155drop"
     },
-    { 
-      "source": "/contractkit/extension-contracts/sigminterc721", 
-      "destination": "/solidity/extensions/erc721singaturemint" 
+    {
+      "source": "/contractkit/extension-contracts/sigminterc721",
+      "destination": "/solidity/extensions/erc721singaturemint"
     },
-    { 
-      "source": "/contractkit/extension-contracts/sigminterc20", 
-      "destination": "/solidity/extensions/erc20singaturemint" 
+    {
+      "source": "/contractkit/extension-contracts/sigminterc20",
+      "destination": "/solidity/extensions/erc20singaturemint"
     },
-    { 
-      "source": "/contractkit/extension-contracts/sigminterc1155", 
-      "destination": "/solidity/extensions/erc1155singaturemint" 
+    {
+      "source": "/contractkit/extension-contracts/sigminterc1155",
+      "destination": "/solidity/extensions/erc1155singaturemint"
     },
-    { 
-      "source": "/contractkit/interfaces/erc721claimablewithconditions", 
-      "destination": "/solidity/extensions/erc721claimconditions" 
+    {
+      "source": "/contractkit/interfaces/erc721claimablewithconditions",
+      "destination": "/solidity/extensions/erc721claimconditions"
     },
-    { 
-      "source": "/contractkit/interfaces/erc1155claimablewithconditions", 
-      "destination": "/solidity/extensions/erc1155claimconditions" 
+    {
+      "source": "/contractkit/interfaces/erc1155claimablewithconditions",
+      "destination": "/solidity/extensions/erc1155claimconditions"
     },
-    { 
-      "source": "/contractkit/interfaces/erc20claimablewithconditions", 
+    {
+      "source": "/contractkit/interfaces/erc20claimablewithconditions",
       "destination": "/solidity/extensions/erc20claimconditions"
+    },
+    {
+      "source": "/gamingkit/learning-path",
+      "destination": "/gamingkit"
+    },
+    {
+      "source": "/gamingkit/setting-up/installation",
+      "destination": "/unity/getting-started"
+    },
+    {
+      "source": "/gamingkit/setting-up/instantiating-the-sdk",
+      "destination": "/unity/thirdwebsdk"
+    },
+    {
+      "source": "/gamingkit/setting-up/connect-wallets",
+      "destination": "/unity/wallet/connect"
+    },
+    {
+      "source": "/gamingkit/interact-with-contracts/connect-to-a-contract",
+      "destination": "/unity/contract"
+    },
+    {
+      "source": "/gamingkit/interact-with-contracts/read-data",
+      "destination": "/unity/smartcontract.read"
+    },
+    {
+      "source": "/gamingkit/interact-with-contracts/write-transactions",
+      "destination": "/unity/contract.write"
+    },
+    {
+      "source": "/gamingkit/interact-with-contracts/deploy-contracts",
+      "destination": "/unity/contractdeployer"
+    },
+    {
+      "source": "/gamingkit/wallet-actions/wallet-state",
+      "destination": "/unity/wallet/authenticate"
+    },
+    {
+      "source": "/gamingkit/wallet-actions/fund-wallets",
+      "destination": "/unity/wallet/fundwallet"
     }
   ]
 }
