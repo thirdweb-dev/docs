@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 // @ts-ignore import the json github examples
 import exampleRepos from "../../docs/example-repos.json";
 import FeaturedExample from "../templates/components/FeaturedExample";
 import TemplateCard from "../templates/components/TemplateCard";
-import ExampleRepo from "../templates/types/ExampleRepo";
 import AllTemplatesContainer from "./AllTemplatesContainer";
 
 const solanaHub = exampleRepos.filter((t) => t.name === "solana-hub")[0];
