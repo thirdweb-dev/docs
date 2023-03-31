@@ -37,9 +37,11 @@ npx thirdweb [options]
   ))}
 </div>
 
-## Published Contracts
+## Examples
 
-Deploy a contract that has been [published](/publish) by passing the author and name of the contract in the form:
+### 1 . Published Contracts
+
+To deploy a contract that has been [published](/publish), pass the author and name of the contract using the `--name` option:
 
 [`<author-address>/<contract-name>`](https://thirdweb.com/doubledev.eth/ERC4907)
 
@@ -47,15 +49,10 @@ Deploy a contract that has been [published](/publish) by passing the author and 
 npx thirdweb deploy --name doubledev.eth/ERC4907
 ```
 
-## Prebuilt Contracts
+### 2 . Prebuilt Contracts
 
-Deploy one of our [prebuilt contracts](/pre-built-contracts) by providing the `--name` option.
+To deploy one of our [prebuilt contracts](/pre-built-contracts) use the `--name` option:
 
 ```bash
 npx thirdweb deploy --name signature-drop
 ```
-
-## Upgradeable Contracts
-
-We support deploying upgradeable contracts and [proxy contracts](/glossary/proxy-contracts).
-
