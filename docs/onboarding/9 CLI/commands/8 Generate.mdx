@@ -1,0 +1,35 @@
+---
+title: Generate
+slug: /cli/generate
+---
+
+import CLI from "/docs/cli.json";
+import CLIOptions from "@components/CLIOptions";
+
+# Generate
+
+Preload contract ABIs and generate types for your smart contract to strongly type the thirdweb SDK.
+
+```bash
+npx thirdweb generate
+```
+
+## Usage
+
+This command fetches the ABIs for all the smart contracts a given wallet address has deployed, and stores them locally
+in the projects `node_modules/@thirdweb-dev/generated-abis` directory.
+
+By storing the ABIs locally, both the [SDK](/sdk) and [CLI](/cli) can use them as a cache to improve the performance of your application; since
+the ABIs no longer need to be fetched when using functions such as [`getContract`](/typescript/sdk.thirdwebsdk.smartcontract).
+
+```bash
+npx thirdweb generate [options]
+```
+
+## Options
+
+<div>
+  {CLI.generate.map(({ flags, description }) => (
+    <CLIOptions flags={flags} description={description} />
+  ))}
+</div>

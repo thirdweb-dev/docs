@@ -8,17 +8,27 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 import QuickstartCard from "@components/QuickstartCard";
+import OpenSourceInfo from "@components/OpenSourceInfo";
 
 <p align="center">
-<br />
-<a href="https://thirdweb.com"><img src="/assets/icons/thirdweb.svg" width="200" alt="thirdweb logo"/></a>
-<br />
+  <br />
+  <a href="https://thirdweb.com">
+    <img src="/assets/icons/thirdweb.svg" width="200" alt="thirdweb logo" />
+  </a>
+  <br />
 </p>
 <h1 align="center">thirdweb React Native SDK</h1>
 
 A collection of 100+ React hooks and React Native UI components for your web3 mobile apps, for any EVM-compatible blockchain.
 
-Connect to user’s wallets, interact with smart contracts, sign messages, and utilize common standards such as tokens, NFTs, marketplaces; all with built-in caching, RPC URLs, IPFS gateways, and more. See more on the React section: [How It Works](https://portal.thirdweb.com/react#how-it-works)
+Connect to user’s wallets, interact with smart contracts, sign messages, and utilize common standards such as tokens, NFTs,
+marketplaces; all with built-in caching, RPC URLs, IPFS gateways, and more.
+
+<OpenSourceInfo
+  repoName="React Native SDK"
+  repoUrl="https://github.com/thirdweb-dev/js/tree/main/packages/react-native"
+  isLibrary={false}
+/>
 
 ## Installation
 
@@ -196,9 +206,9 @@ Make sure to have your React Native environment setup before using the template.
     >{`npx react-native init MyRNApp --template react-native-template-typescript`}</CodeBlock>
   </TabItem>
   <TabItem value="react-native-expo" label="Expo CLI">
-    Alternatively you can use the Expo CLI. Note that you need to
-    follow the "Existing Projects -> React Native Expo Project" steps in this
-    guide after executing the following command:
+    Alternatively you can use the Expo CLI. Note that you need to follow the
+    "Existing Projects -> React Native Expo Project" steps in this guide after
+    executing the following command:
     <CodeBlock
       language={"bash"}
     >{`yarn create expo-app AwesomeProject`}</CodeBlock>
