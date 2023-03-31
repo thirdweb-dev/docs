@@ -10,11 +10,7 @@ import styles from "../DocSidebarItem/Link/styles.module.css";
 // TODO this triggers whole sidebar re-renders on navigation
 function DocSidebarItems({ items, ...props }) {
   // Category logic (i.e. "Build contracts", etc.)
-  const showCategoryPages = [
-    "/platform-overview",
-    "/deploy",
-    "/templates",
-  ];
+  const showCategoryPages = ["/platform-overview", "/deploy", "/templates"];
   const checkIfShowCategoryPages = (item) => {
     // check if starts with
     return (
@@ -71,11 +67,7 @@ function DocSidebarItems({ items, ...props }) {
     },
     {
       title: "Resources",
-      items: [
-        "Templates",
-        "Guides",
-        "Glossary",
-      ],
+      items: ["Templates", "Guides", "Glossary"],
     },
   ];
 
@@ -85,6 +77,10 @@ function DocSidebarItems({ items, ...props }) {
 
     if (formatted === "Sdk") {
       return "SDK";
+    }
+
+    if (formatted === "Pre-built-contracts") {
+      return "Explore";
     }
 
     if (formatted === "Ui-components") {
@@ -116,16 +112,12 @@ function DocSidebarItems({ items, ...props }) {
     }
 
     // If not the word pre-built, split by dash and capitalize each word
-    if (formatted !== "Pre-built-contracts") {
-      return formatted
-        .split("-")
-        .map((word) => {
-          return word.charAt(0).toUpperCase() + word.slice(1);
-        })
-        .join(" ");
-    } else {
-      return "Prebuilt Contracts";
-    }
+    return formatted
+      .split("-")
+      .map((word) => {
+        return word.charAt(0).toUpperCase() + word.slice(1);
+      })
+      .join(" ");
   };
 
   if (showCategories) {
