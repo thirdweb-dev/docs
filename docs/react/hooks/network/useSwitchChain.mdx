@@ -1,0 +1,33 @@
+---
+title: useSwitchChain
+slug: /react.useSwitchChain
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for switching to a different network.
+
+```jsx
+import { useSwitchChain } from "@thirdweb-dev/react";
+
+const switchChain = useSwitchChain();
+```
+
+## Usage
+
+```jsx
+import { useNetwork } from "@thirdweb-dev/react";
+import { Goerli } from "@thirdweb-dev/chains";
+
+function App() {
+  const switchChain = useSwitchChain();
+  return (
+    <button onClick={() => switchChain(Goerli.chainId)}>
+      Switch to Goerli
+    </button>
+  );
+}
+```

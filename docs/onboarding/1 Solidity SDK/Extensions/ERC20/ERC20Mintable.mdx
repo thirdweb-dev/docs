@@ -1,0 +1,92 @@
+---
+slug: /solidity/extensions/erc20mintable
+title: ERC20Mintable
+---
+
+import ViewContractCodeButton from "@components/ViewContractCodeButton";
+import QuickstartCard from "@components/QuickstartCard";
+
+# ERC20Mintable
+
+```solidity
+import "@thirdweb-dev/contracts/extension/interface/IMintableERC20.sol";
+```
+
+Enable the minting of new tokens by implementing the `IMintableERC20` interface.
+
+:::info
+
+This extension is an interface and requires all of the functions to be implemented
+
+:::
+
+<br/>
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/interface/IMintableERC20.sol"
+  name="ERC20Mintable"
+  isInterface={true}
+/>
+
+## Usage
+
+This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality. 
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@thirdweb-dev/contracts/openzeppelin-presets/token/ERC20/ERC20.sol";
+import "@thirdweb-dev/contracts/extension/interface/IMintableERC20.sol";
+
+contract Contract is ERC20, IMintableERC20 {
+    constructor(
+        string memory _name,
+        string memory _symbol
+    )
+        ERC20(
+            _name,
+            _symbol
+        )
+    {}
+
+    function mintTo(address to, uint256 amount) external override {
+        // Your custom implementation here
+    }
+}
+```
+
+## SDK Usage
+
+By adding this extension to a smart contract, the following features, hooks and functions are unlocked in the SDK:
+
+<div className="row" style={{ marginBottom: 12 }}>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="React"
+      link="/react/react.useminttoken"
+      image="/assets/languages/react.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="TypeScript"
+      link="/typescript/sdk.erc20mintable"
+      image="/assets/languages/typescript.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Unity"
+      link="/unity/erc20mintable"
+      image="/assets/languages/unity.webp"
+    />
+  </div>
+</div>
+
+## Base Contracts Implementing This Extension
+
+- [ERC20Base](/solidity/base-contracts/erc20base)
+- [ERC20SignatureMint](/solidity/base-contracts/erc20signaturemint)
+- [ERC20SignatureMintVote](/solidity/base-contracts/erc20signaturemintvote)
+- [ERC20Vote](/solidity/base-contracts/erc20vote)

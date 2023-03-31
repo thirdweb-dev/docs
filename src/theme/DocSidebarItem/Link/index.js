@@ -27,6 +27,7 @@ export const iconMapping = {
   "EVM SDK": "/assets/product/sdk.png",
   "Solana SDK": "/assets/product/sdk.png",
   Solana: "/assets/product/sdk.png",
+  Wallet: "/assets/product/wallet.png",
   GamingKit: "/assets/product/sdk.png",
   CommerceKit: "/assets/product/sdk.png",
   Storage: "/assets/product/storage.png",
@@ -36,7 +37,7 @@ export const iconMapping = {
   "Getting Started": "/assets/icons/rocket.png",
   Templates: "/assets/resources/sdk-reference.svg",
   Guides: "/assets/resources/guides.svg",
-  CLI: "/assets/icons/terminal.svg",
+  CLI: "/assets/product/CLI.png",
   Glossary: "/assets/icons/journal-album.svg",
 };
 
@@ -52,6 +53,7 @@ export default function DocSidebarItemLink({
   const { href, label, className } = item;
   const isActive = isActiveSidebarItem(item, activePath);
   const isInternalLink = isInternalUrl(href);
+
   return (
     <li
       className={clsx(

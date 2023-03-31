@@ -10,12 +10,7 @@ import styles from "../DocSidebarItem/Link/styles.module.css";
 // TODO this triggers whole sidebar re-renders on navigation
 function DocSidebarItems({ items, ...props }) {
   // Category logic (i.e. "Build contracts", etc.)
-  const showCategoryPages = [
-    "/platform-overview",
-    "/deploy",
-    "/templates",
-    "/cli",
-  ];
+  const showCategoryPages = ["/platform-overview", "/deploy", "/templates"];
   const checkIfShowCategoryPages = (item) => {
     // check if starts with
     return (
@@ -47,11 +42,12 @@ function DocSidebarItems({ items, ...props }) {
           "Deploy",
           "Publish",
           "Dashboard",
+          "CLI",
         ],
     },
     {
       title: "Infrastructure",
-      items: ["Auth", "Storage"],
+      items: ["Auth", "Storage", "Wallet"],
     },
     {
       title: "Solutions",
@@ -71,12 +67,7 @@ function DocSidebarItems({ items, ...props }) {
     },
     {
       title: "Resources",
-      items: [
-        "Templates",
-        "Guides",
-        "CLI", // Should we have this here?
-        "Glossary",
-      ],
+      items: ["Templates", "Guides", "Glossary"],
     },
   ];
 
@@ -88,16 +79,24 @@ function DocSidebarItems({ items, ...props }) {
       return "SDK";
     }
 
+    if (formatted === "Pre-built-contracts") {
+      return "Explore";
+    }
+
     if (formatted === "Ui-components") {
       return "UI Components";
     }
 
-    if (formatted === "Solidity SDK") {
-      return "Solidity SDK";
-    }
-
     if (formatted === "Gamingkit") {
       return "GamingKit";
+    }
+
+    if (formatted === "Commercekit") {
+      return "CommerceKit";
+    }
+
+    if (formatted === "Wallet" || formatted === "Wallets") {
+      return "Wallet";
     }
 
     if (formatted === "Typescript") {
@@ -108,17 +107,17 @@ function DocSidebarItems({ items, ...props }) {
       return "Solidity";
     }
 
-    // If not the word pre-built, split by dash and capitalize each word
-    if (formatted !== "Pre-built-contracts") {
-      return formatted
-        .split("-")
-        .map((word) => {
-          return word.charAt(0).toUpperCase() + word.slice(1);
-        })
-        .join(" ");
-    } else {
-      return "Prebuilt Contracts";
+    if (formatted === "Cli") {
+      return "CLI";
     }
+
+    // If not the word pre-built, split by dash and capitalize each word
+    return formatted
+      .split("-")
+      .map((word) => {
+        return word.charAt(0).toUpperCase() + word.slice(1);
+      })
+      .join(" ");
   };
 
   if (showCategories) {
