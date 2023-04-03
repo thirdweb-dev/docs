@@ -38,6 +38,8 @@ Requirements:
 - iOS platform >= 13
 - XCode > 14
 
+It is recommended that you use a physical device while testing your app, as the emulator/simulator might not support the desired wallets or may not function properly.
+
 <Tabs>
 <TabItem value="existing" label="Existing Projects">
 
@@ -187,12 +189,15 @@ As explained in the intro of this doc, we need to shim some of the packages avai
 Make sure to have your React Native environment setup before using the template. Please follow React Native's [Setting up the development environment](https://reactnative.dev/docs/environment-setup)
 
 <Tabs>
-  <TabItem value="thirdweb-cli" label="Thirdweb CLI" default>
+  <TabItem value="thirdweb-cli" label="thirdweb CLI" default>
     <CodeBlock
       language={"bash"}
     >{`npx thirdweb create --template react-native-typescript-starter`}</CodeBlock>
   </TabItem>
-  <TabItem value="thirdweb-cli-expo" label="Thidweb CLI Expo">
+  <TabItem value="thirdweb-cli-expo" label="thidweb CLI Expo">
+    Note that running through <b>Expo Go</b> app currently isn't supported. You
+    need to connect your device and build manually. Use the following command to
+    create an Expo React Native app using thirdweb CLI:
     <CodeBlock
       language={"bash"}
     >{`npx thirdweb create --template react-native-expo-starter`}</CodeBlock>
@@ -211,7 +216,7 @@ Make sure to have your React Native environment setup before using the template.
     executing the following command:
     <CodeBlock
       language={"bash"}
-    >{`yarn create expo-app AwesomeProject`}</CodeBlock>
+    >{`npx create-expo-app AwesomeProject`}</CodeBlock>
   </TabItem>
 </Tabs>
 
