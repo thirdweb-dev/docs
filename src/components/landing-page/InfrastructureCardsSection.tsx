@@ -23,6 +23,13 @@ const products: Product[] = [
       "Get fast access to data stored on blockchain with a unified API that works with a storage provider of your choice",
     link: "/storage",
   },
+  {
+    image: "/assets/product/wallet.png",
+    name: "Wallet",
+    description:
+      "Integrate wallet connection capabilities into web3 applications",
+    link: "/wallet",
+  },
 ];
 
 export default function InfrastructureCards() {

@@ -58,6 +58,13 @@ const products: Product[] = [
       "Manage, analyze, and interact with all your deployed contracts conveniently from a single place",
     link: "/dashboard",
   },
+  {
+    image: "/assets/product/CLI.png",
+    name: "CLI",
+    description:
+      "A suite of commands that let you interface with thirdweb tools through your termina",
+    link: "/cli",
+  },
 ];
 
 export default function ExploreProductsSection() {
