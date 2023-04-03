@@ -37,7 +37,7 @@ export const iconMapping = {
   "Getting Started": "/assets/icons/rocket.png",
   Templates: "/assets/resources/sdk-reference.svg",
   Guides: "/assets/resources/guides.svg",
-  CLI: "/assets/product/cli.png",
+  CLI: "/assets/product/CLI.png",
   Glossary: "/assets/icons/journal-album.svg",
 };
 

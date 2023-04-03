@@ -59,7 +59,7 @@ const products: Product[] = [
     link: "/dashboard",
   },
   {
-    image: "/assets/product/cli.png",
+    image: "/assets/product/CLI.png",
     name: "CLI",
     description:
       "A suite of commands that let you interface with thirdweb tools through your termina",
