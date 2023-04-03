@@ -62,7 +62,7 @@ const products: Product[] = [
     image: "/assets/product/CLI.png",
     name: "CLI",
     description:
-      "A suite of commands that let you interface with thirdweb tools through your termina",
+      "A suite of commands that let you interface with thirdweb tools through your terminal",
     link: "/cli",
   },
 ];
