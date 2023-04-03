@@ -9,11 +9,11 @@ import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 import ConnectWalletEditor from "@components/live-code/snippets/ConnectWalletEditor";
 
-Button to connect a user&rsquo;s wallet to your app, with support for Metamask, Coinbase, WalletConnect v1, WalletConnect v2, and Device Wallet.
+Button to connect a user&rsquo;s wallet to your app, with support for Metamask, Coinbase, WalletConnect v1, WalletConnect v2, Safe Wallet and Paper Wallet.
 
 Wallets you provide to the [`ThirdwebProvider`'s supportedWallets](/react/react.thirdwebprovider#supportedWallets)
 prop are shown as options in the ConnectWallet button&rsquo;s Modal.
-If this prop is not provided, the default values are shown (MetaMask, Coinbase Wallet, Device Wallet).
+If this prop is not provided, the default values are shown (MetaMask, Coinbase Wallet, WalletConnect v1).
 
 ```jsx
 import { ConnectWallet } from "@thirdweb-dev/react";
