@@ -41,7 +41,7 @@ function App() {
     <Web3Button
       contractAddress={contractAddress}
       // Calls the "setName" function on your smart contract with "My Name" as the first argument
-      action={() => mutateAsync(["My Name"])}
+      action={() => mutateAsync({ args: ["My Name"] })}
     >
       Send Transaction
     </Web3Button>
