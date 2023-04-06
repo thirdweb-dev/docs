@@ -14,16 +14,16 @@ import "@thirdweb-dev/contracts/extension/DelayedReveal.sol";
 
 The [`DelayedReveal`](/glossary/delayed-reveal) smart contract is an extension for any NFT contract. It lets you create batches of 'delayed-reveal' NFTs.
 
-In order for `ERC721Revealable` or `ERC1155Revealable` extensions to be detected in the dashboard on your contract, the respective EIP 
+In order for `ERC721Revealable` or `ERC1155Revealable` extensions to be detected in the dashboard on your contract, the respective EIP
 ([`ERC721`](/solidity/extensions/erc721) or [`ERC1155`](/solidity/extensions/erc1155) needs to be inherited alongside the [`LazyMint`](/solidity/extensions/lazymint) extension.
 
 :::info
 
-It is recommended to use this extension alongside the [`LazyMint`](/solidity/extension-contracts/lazymint) extension.
+It is recommended to use this extension alongside the [`LazyMint`](/solidity/extensions/lazymint) extension.
 
 :::
 
-<br/>
+<br />
 
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/DelayedReveal.sol"
@@ -34,11 +34,11 @@ It is recommended to use this extension alongside the [`LazyMint`](/solidity/ext
 
 The `DelayedReveal` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
 
-| Name                                                              | Type     | Returns         | Description                             |
-| ----------------------------------------------------------------- | -------- | --------------- | --------------------------------------- |
+| Name                                                  | Type     | Returns         | Description                             |
+| ----------------------------------------------------- | -------- | --------------- | --------------------------------------- |
 | [`reveal`](/solidity/extensions/delayedreveal#reveal) | external | `string memory` | Reveals a batch of delayed reveal NFTs. |
 
-This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality. 
+This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality.
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -122,7 +122,7 @@ contract MyContract is ERC721LazyMint, DelayedReveal {
 
 ## SDK Usage
 
-This extension alone does not unlock anything in the SDK. 
+This extension alone does not unlock anything in the SDK.
 By combining this extension with either of the [`ERC1155`](/solidity/extensions/erc1155) or [`ERC721`](/solidity/extensions/erc721) extensions you will have the [`ERC1155Revealable`](/solidity/extensions/erc1155revealable) or [`ERC721Revealable`](/solidity/extensions/erc721revealable) extension detected on your contract.
 For example, for ERC721 contracts the following features are unlocked in the SDK:
 
