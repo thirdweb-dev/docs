@@ -83,7 +83,7 @@ _Release owed amount of the `token` to all of the payees._
 function distribute() external nonpayable
 ```
 
-_Release the owed amount of token to all of the payees._
+_Release the owed amount of ether to all of the payees._
 
 ### getRoleAdmin
 
