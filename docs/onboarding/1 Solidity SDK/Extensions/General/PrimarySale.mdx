@@ -23,11 +23,11 @@ import "@thirdweb-dev/contracts/extension/PrimarySale.sol";
 
 The `PrimarySale` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
 
-| Name                                                                                                      | Type                    | Returns | Description                                                                                                                     |
-| --------------------------------------------------------------------------------------------------------- | ----------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| [`_canSetPrimarySaleRecipient`](/solidity/extension-contracts/primarysale#_cansetprimarysalerecipient) | internal view _virtual_ | `bool`  | Runs on every attempt to set a new primary sale recipient. Returns whether this info can be set in the given execution context. |
+| Name                                                                                          | Type                    | Returns | Description                                                                                                                     |
+| --------------------------------------------------------------------------------------------- | ----------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| [`_canSetPrimarySaleRecipient`](/solidity/extensions/primarysale#_cansetprimarysalerecipient) | internal view _virtual_ | `bool`  | Runs on every attempt to set a new primary sale recipient. Returns whether this info can be set in the given execution context. |
 
-This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality. 
+This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality.
 
 ```solidity
 // SPDX-License-Identifier: MIT
