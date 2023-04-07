@@ -42,7 +42,8 @@ Subsequent attempts to connect with this wallet will use the same wallet, and wi
 
 Connect to a wallet using the [WalletConnect](https://walletconnect.org/) protocol.
 
-This shows the user a QR code that they can scan with their mobile device to connect their wallet to your game.
+On Standlone platforms, this shows the user a QR code that they can scan with their mobile device to connect their wallet to your game.
+On Mobile, this opens a deep link to request a connection from their wallet app.
 
 ### Custom Callbacks
 
@@ -52,3 +53,10 @@ Custom logic to run whenever an event occurs on the button, including:
 - `OnDisconnected`: Triggered when the user disconnects their wallet successfully.
 - `OnFailedConnect`: Triggered when the user fails to connect their wallet.
 - `OnFailedDisconnect`: Triggered when an error occurs after attempting to disconnect a wallet.
+
+### About Device Wallet
+- Use one wallet option for native to keep things simple unless you know what you're doing
+- Device Wallets are not meant to be exported (bad UX, allow crypto native users to transfer assets out instead)
+- Device Wallets with the No Password option will use the [device unique identifier](https://docs.unity3d.com/ScriptReference/SystemInfo-deviceUniqueIdentifier.html) to auto-create it 
+- Device Wallets are non-custodial - password is non-recoverable (unless you implement your own recovery system)
+- If you must export a device wallet, you can find account.json under [Application.persistentDataPath](https://docs.unity3d.com/ScriptReference/Application-persistentDataPath.html) and use that to import into Metamask with your password, or delete it to create a new one.
