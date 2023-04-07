@@ -4,7 +4,7 @@ slug: /react-native.uselogin
 displayed_sidebar: react-native
 ---
 
-Hook to prompt the user to sign in with their wallet using [auth](/auth).
+Hook to prompt the user to sign in with their wallet using [Auth](/auth).
 
 Requires the [`authConfig`](/react/react.thirdwebprovider#authconfig-optional) prop to be configured
 on the [`ThirdwebProvider`](/react/react.thirdwebprovider).
@@ -26,11 +26,11 @@ function App() {
   const { isLoading, login } = useLogin();
 
   return (
-    <button onClick={() => {
+    <Button 
+      title={isLoading ? "Loading..." : "Sign in with Ethereum"} 
+      onPress={() => {
         const token = login();
-      }}>
-      {isLoading ? "Loading..." : "Sign in with Ethereum"}
-    </button>
+      }} />
   );
 }
 ```
