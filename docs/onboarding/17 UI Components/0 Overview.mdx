@@ -1,0 +1,131 @@
+---
+slug: /ui-components
+title: Overview
+hide_title: true
+---
+
+import ThemedImage from "@theme/ThemedImage";
+import QuickstartCard from "@components/QuickstartCard";
+
+<div className="hero-container">
+  <div className="hero-left">
+    <h1 className="hero-left-title">
+      UI Components
+    </h1>
+    <p className="hero-left-description">
+      thirdweb provides you with components that help you develop seamless web3 experiences for your users in a seamless way.
+    </p>
+  </div>
+
+<div className="hero-right">
+  <div className="hero-right-image-container">
+    <img
+      src="/assets/product/ui.svg"
+      className="hero-right-image"
+      style={{ border: 'none' }}
+      alt="thirdweb documentation hero image"
+    />
+  </div>
+</div>
+</div>
+
+## What are UI Components?
+
+We support various UI components across different platforms for you to use in your apps. These components are built on top of our core SDKs and are designed to be as easy to use as possible. These components are made so you can implement basic Web3 actions, such as connecting wallets and calling contracts, without writing much code and worrying about the underlying details.
+
+## Why use UI Components?
+
+Our UI components handle many complications under the hood instead of putting the hard work on the developer. We also provide customization options, so you have complete flexibility over the UI components and their behaviour in your app.
+
+The best example of this is the Web3 Button. It is a button to perform a certain action on your smart contract, such as buying a drop or minting an NFT. Many complications might appear while implementing this logic from scratch. You need to check if the user's wallet is connected, the contract is loaded correctly, and the user is connected to the correct network. We handle all of this for you. Web3 Button gives you a simple button that checks if everything is in place and then performs the specified action.
+
+<br />
+
+# Get started
+
+Learn how to use our UI components on the following platforms.
+
+## React
+
+<div className="row" style={{ marginBottom: 12 }}>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Connect Wallet"
+      link="/react/react.connectwallet"
+      image="/assets/languages/react.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Web3 Button"
+      link="/react/react.web3button"
+      image="/assets/languages/react.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="NFT Renderer"
+      link="/react/react.thirdwebnftmedia"
+      image="/assets/languages/react.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="IPFS Renderer"
+      link="/react/react.mediarenderer"
+      image="/assets/languages/react.png"
+    />
+  </div>
+</div>
+
+## React Native
+
+<div className="row" style={{ marginBottom: 12 }}>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Connect Wallet"
+      link="/react-native/react-native.connectwallet"
+      image="/assets/languages/react-native.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Web3 Button"
+      link="/react-native/react-native.web3button"
+      image="/assets/languages/react-native.png"
+    />
+  </div>
+</div>
+
+## Unity
+
+<div className="row" style={{ marginBottom: 12 }}>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="ThirdwebManager"
+      link="/unity/thirdwebmanager"
+      image="/assets/languages/unity.webp"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Web3 Button"
+      link="/unity/connectwallet"
+      image="/assets/languages/unity.webp"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Web3 Button (Native)"
+      link="/unity/connectwalletnative"
+      image="/assets/languages/unity.webp"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="NFT Renderer"
+      link="/unity/nftloader"
+      image="/assets/languages/unity.webp"
+    />
+  </div>
+</div>
