@@ -31,7 +31,7 @@ In your `Project` window now, you'll be able to see all of the resources that we
 ![Project Window](./assets/project.png)
 
 Now you&rsquo;re ready to use the SDK. Use any of the prefabs, scenes, or scripts that come within the `Examples` folder,
-or create your own script and instantiate the SDK to get started.
+or create your own script and instantiate the SDK to get started. We recommend at least using the `ThirdwebManager` prefab.
 
 ```csharp
 using UnityEngine;
@@ -52,3 +52,25 @@ public class ThirdwebSDKDemos : MonoBehaviour
     }
 }
 ```
+
+## Building Tips
+
+### WebGL
+- Open your `Build Settings`, select `WebGL` as the target platform.
+- Open `Player Settings` > `Resolution and Presentation` and under WebGLTemplate choose `Thirdweb`.
+- In Player Settings > Other Settings disable Auto Graphics API.
+- Set `Compression Format` to `Disabled` in `Player Settings` > `Publishing Settings`.
+- `Smaller (faster) Builds` in the B`uild Settings` is preferred.
+- `Build and Run` to test out your game in a browser locally.
+
+### Native platforms:
+- Make sure there is a `ThirdwebManager` prefab in your scene.
+- If using prefabs, use `Prefab_ConnectWalletNative` instead of `Prefab_ConnectWallet`.
+- If using `WalletConnect`, make sure the `WalletConnect` prefab is also in your scene.
+- Using the SDK in the editor (pressing `Play`) is an accurate reflection of what you can expect to see on native platforms.
+- Use `IL2CPP` over `Mono` as your scripting backend in `Player Settings` > `Other Settings` when possible. Currently, this is not a requirement for Standalone platforms.
+
+### Mobile
+- Use `Smaller (faster) Builds` in the `Build Settings`.
+- If building to mobile and running into RPC issues, it is best to run `Force Resolve` from the `Assets` menu > `External Dependency Manager` > `Android Resolver` > `Force Resolve` for example, and build again. The external dependency manager is included as part of our package.
+- For more advanced users wanting to leverage more of Android's capabilities for one reason or another, feel free to edit the Resolver's settings and under `Player Settings` > `Publishing Settings` play around with custom gradle templates.
