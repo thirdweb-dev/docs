@@ -3,15 +3,11 @@ slug: /auth/client-frameworks/react-native
 title: React Native
 ---
 
-Once you've setup an Auth API for your application, you can use the `@thirdweb-dev/react-native` and `@thirdweb-dev/auth` packages to add Auth support to your React Native apps.
+Once you've setup an Auth API for your application, you can add Auth support to your React Native apps.
 
 ## Getting Started
 
-To add support for Auth to your React Native apps, you'll first need to setup your [React Native app](/react-native) and install the following package:
-
-```bash npm2yarn
-npm install @thirdweb-dev/auth
-```
+To add support for Auth to your React Native apps, you'll first need to setup your [React Native app](/react-native).
 
 Now we'll need to wrap our app with the `ThirdwebProvider` which stores the necessary context for Auth, and we'll provide some configuration with the `authConfig` option so that our app knows how to communicate with our Auth API.
 
@@ -32,7 +28,7 @@ export default function MyApp({ Component }) {
         secureStorage: new SecureStorage()
       }}
     >
-      <Component />
+      <AppInner />
     </ThirdwebProvider>
   );
 }
@@ -48,10 +44,10 @@ Once connected to a wallet you can call `login` to authenticate.
 
 The `login` function returns the JWT token which you can use in subsequent requests to your backend.
 
-```tsx title="pages/index.tsx"
+```tsx title="AppInner.tsx"
 import { ConnectWallet, useLogin } from "@thirdweb-dev/react-native";
 
-export default function Home() {
+export default function AppInner() {
   const { login } = useLogin();
 
   return (
@@ -67,65 +63,65 @@ export default function Home() {
 
 ### Connect wallet & auth hooks
 
-For a more customized setup with custom UI or logic, we can instead use the wallet connection and Auth hooks provided by the `@thirdweb-dev/react` package.
+For a more customized setup with custom UI or logic, we can instead use the wallet connection and Auth hooks provided by the `@thirdweb-dev/react-native` package.
 
-```tsx title="pages/index.tsx"
+```tsx title="AppInner.tsx"
 import {
   useAddress,
   useMetamask,
   useLogin,
   useLogout,
   useUser,
-} from "@thirdweb-dev/react";
+} from "@thirdweb-dev/react-native";
 
-export default function Home() {
+export default function AppInner() {
   const address = useAddress();
-  const connect = useMetamask();
+  const connect = useMetaMaskWallet();
   const { login } = useLogin();
   const { logout } = useLogout();
   const { user, isLoggedIn } = useUser();
 
   return (
-    <div>
+    <>
       {isLoggedIn ? (
-        <button onClick={() => logout()}>Logout</button>
+        <Button title="Logout" onPress={() => logout()} />
       ) : address ? (
-        <button onClick={() => login()}>Login</button>
+        <Button title="Login" onPress={() => login()} />
       ) : (
-        <button onClick={() => connect()}>Connect</button>
+        <Button title="Connect" onPress={() => connect()} />
       )}
 
-      <pre>Connected Wallet: {address}</pre>
-      <pre>User: {user?.address || "N/A"}</pre>
-    </div>
+      <Text>Connected Wallet: {address}</Text>
+      <Text>User: {user?.address || "N/A"}</Text>
+    </>
   );
 }
 ```
 
-Here, we use the `useMetaMask` hook to prompt our users to connect their metamask wallets, and then we use the `useLogin` hook to login to our app with Auth. Then, we can access and display the logged in user with the `useUser` hook, and we can logout the user with the `useLogout` hook.
+Here, we use the `useMetaMaskWallet` hook to prompt our users to connect their metamask wallets, and then we use the `useLogin` hook to login to our app with Auth. Then, we can access and display the logged in user with the `useUser` hook, and we can logout the user with the `useLogout` hook.
 
-For a full list of wallet connection hooks, check out our [React SDK documentation](/react).
+For a full list of wallet connection hooks, check out our [React Native SDK documentation](/react-native/available-hooks#wallet-connection).
 
 ## Usage
 
 ### Check if a user is logged in
 
-On the frontend, you may want to check whether or not the user is logged in to conditionally render certain parts of your app. You can do this with the `isLoggedIn` value from the `useUser` hook:
+On your app, you may want to check whether or not the user is logged in to conditionally render certain parts of your app. You can do this with the `isLoggedIn` value from the `useUser` hook:
 
 ```tsx
-import { useUser } from "@thirdweb-dev/react";
+import { useUser } from "@thirdweb-dev/react-native";
 
-export default function Home() {
+export default function AppInner() {
   const { isLoggedIn } = useUser();
 
   return (
-    <div>
+    <>
       {isLoggedIn ? (
-        <p>Here's some content only visible to logged in users.</p>
+        <Text>Here's some content only visible to logged in users.</Text>
       ) : (
-        <p>Here's some content only visible to logged out users.</p>
+        <Text>Here's some content only visible to logged out users.</Text>
       )}
-    </div>
+    </>
   );
 }
 ```
@@ -135,17 +131,17 @@ export default function Home() {
 Once a user is logged in, you can access their user data and session data with the `useUser` hook. The `user` value will be `null` if the user is not logged in, but once they're logged in, it will contain the `address` of the logged in user, the session `context` set by the backend on login, and any extra user-associated `data` sent by the backend.
 
 ```tsx
-import { useUser } from "@thirdweb-dev/react";
+import { useUser } from "@thirdweb-dev/react-native";
 
-export default function Home() {
+export default function AppInner() {
   const { user } = useUser();
 
   return (
-    <div>
-      <p>Logged in user: {user?.address}</p>
-      <p>Session context: {user?.context}</p>
-      <p>Extra user data: {user?.data}</p>
-    </div>
+    <>
+      <Text>Logged in user: {user?.address}</Text>
+      <Text>Session context: {user?.context}</Text>
+      <Text>Extra user data: {user?.data}</Text>
+    </>
   );
 }
 ```
@@ -159,15 +155,15 @@ Meanwhile, `user.data` is a way for the backend to send the client any data asso
 When using the `useUser` hook, you may want to show a loading state while the user's session is being fetched from the backend. You can do this by checking the `isLoading` value from the hook:
 
 ```tsx
-import { useUser } from "@thirdweb-dev/react";
+import { useUser } from "@thirdweb-dev/react-native";
 
-export default function Home() {
+export default function AppInner() {
   const { user, isLoading } = useUser();
 
   return (
-    <div>
-      {isLoading ? <p>Loading...</p> : <p>Logged in user: {user?.address}</p>}
-    </div>
+    <>
+      {isLoading ? <Text>Loading...</Text> : <Text>Logged in user: {user?.address}</Text>}
+    </>
   );
 }
 ```
@@ -175,25 +171,25 @@ export default function Home() {
 Similarly, the `useLogin` and `useLogout` hooks also have loading states to indicate when a request to the backend is being made.
 
 ```tsx
-import { useLogin, useLogout } from "@thirdweb-dev/react";
+import { useLogin, useLogout } from "@thirdweb-dev/react-native";
 
-export default function Home() {
+export default function AppInner() {
   const { login, isLoading: isLoggingIn } = useLogin();
   const { logout, isLoading: isLoggingOut } = useLogout();
 
   return (
-    <div>
+    <>
       {isLoggingIn ? (
-        <p>Logging in...</p>
+        <Text>Logging in...</Text>
       ) : (
-        <button onClick={() => login()}>Login</button>
+        <Button title="Login" onPress={() => login()} />
       )}
       {isLoggingOut ? (
-        <p>Logging out...</p>
+        <Text>Logging out...</Text>
       ) : (
-        <button onClick={() => logout()}>Logout</button>
+        <Button title="Logout" onPress={() => logout()} />
       )}
-    </div>
+    </>
   );
 }
 ```
@@ -205,9 +201,9 @@ The `login` function automatically uses some default values for the necessary fi
 However, if you want full access to customize these field values, you can overwrite them by passing an object to the `login` function:
 
 ```tsx
-import { useLogin } from "@thirdweb-dev/react";
+import { useLogin } from "@thirdweb-dev/react-native";
 
-export default function Home() {
+export default function AppInner() {
   const { login } = useLogin();
 
   async function handleLogin() {
@@ -223,9 +219,9 @@ export default function Home() {
   }
 
   return (
-    <div>
-      <button onClick={handleLogin}>Login</button>
-    </div>
+    <>
+      <Button title="Login" onPress={() => handleLogin()} />
+    </>
   );
 }
 ```
@@ -235,9 +231,9 @@ export default function Home() {
 Since logging in requires the user to sign a message, the `login` fuction is asynchronous and may throw an error if the user rejects the message. You can handle this error case by using a `try/catch` block:
 
 ```tsx
-import { useLogin } from "@thirdweb-dev/react";
+import { useLogin } from "@thirdweb-dev/react-native";
 
-export default function Home() {
+export default function AppInner() {
   const { login } = useLogin();
 
   async function handleLogin() {
@@ -249,27 +245,51 @@ export default function Home() {
   }
 
   return (
-    <div>
-      <button onClick={handleLogin}>Login</button>
-    </div>
+    <>
+      <Button title="Login" onPress={() => handleLogin()} />
+    </>
   );
 }
 ```
 
 ### Cross-origin requests & cookies
 
-Auth uses cookies to securely store JWTs in the browser context. This means that if our Auth backend and frontend aren't on the same domain, we may run into [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) issues.
+Auth in React Native uses secure storage to store the JWT token. This means that you need to pass this token in other calls to your backend.
 
-Specifically, on the frontend you don't have access to cookies but they need to get sent to the backend in order for your users to authenticate to your API. This is solved because the browser automatically sends cookies on requests to your backend if your frontend and backend are on the same URL.
-
-When your frontend and backend are on different domains, you may need to manually specify that your request should include cookies by setting the `credentials` option in your request to `include`:
+You should get the token after logging in and pass it down as a header in subsequent network calls.
 
 ```ts
-async function getData() {
-  const res = await fetch("/api/data", {
-    // Include all cookies in this request
-    credentials: "include",
-  });
-  const data = await res.json();
+export default function AppInner() {
+  const { login } = useLogin();
+  const [authToken, setAuthToken] = useState<string | null>(null);
+
+  const getSecret = useCallback(async () => {
+      let res;
+      try {
+        res = await fetch(`${your-domain}/api/data`, {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        });
+      } catch (error) {
+        console.log('error', error);
+        return;
+      }
+
+      const data = await res.json();
+    }, [authToken]);
+
+  return (
+    <>
+      <Button
+        title="Login"
+        onPress={async () => {
+          const token = await login();
+          setAuthToken(token);
+        }}
+      />
+      <Button title="Get Secret" onPress={getSecret} />
+    </>
+  )
 }
 ```
