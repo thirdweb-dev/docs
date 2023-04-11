@@ -22,7 +22,7 @@ displayed_sidebar: react-native
 | Hook                                                                           | Description                                                 |
 | ------------------------------------------------------------------------------ | ----------------------------------------------------------- |
 | [`useAddress`](https://portal.thirdweb.com/react/react.useaddress)             | Hook for accessing the address of the connected wallet.     |
-| [`useWalletConnect`](https://portal.thirdweb.com/react/react.usewalletconnect) | Hook for connecting to a mobile wallet with Wallet Connect. |
+| [`useConnect`](https://portal.thirdweb.com/react/react.useconnect) | Hook for connecting to a mobile wallet with Wallet Connect. |
 | [`useDisconnect`](https://portal.thirdweb.com/react/react.usedisconnect)       | Hook for disconnecting the currently connected wallet.      |
 
 ## Network connection
