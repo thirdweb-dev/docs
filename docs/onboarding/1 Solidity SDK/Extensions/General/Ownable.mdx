@@ -23,11 +23,11 @@ The `Ownable` smart contract extension is usable with any base smart contract. I
 
 The `Ownable` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
 
-| Name                                                                    | Type                    | Returns | Description                                                                                                                  |
-| ----------------------------------------------------------------------- | ----------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| [`_canSetOwner`](/solidity/extension-contracts/ownable#_cansetowner) | internal view _virtual_ | `bool`  | Runs on every attempt to set the owner of the contract. Returns whether the owner can be set in the given execution context. |
+| Name                                                        | Type                    | Returns | Description                                                                                                                  |
+| ----------------------------------------------------------- | ----------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| [`_canSetOwner`](/solidity/extensions/ownable#_cansetowner) | internal view _virtual_ | `bool`  | Runs on every attempt to set the owner of the contract. Returns whether the owner can be set in the given execution context. |
 
-This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality. 
+This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality.
 
 ```solidity
 // SPDX-License-Identifier: MIT

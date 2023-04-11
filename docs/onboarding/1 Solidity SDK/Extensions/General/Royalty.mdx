@@ -24,11 +24,11 @@ support on NFT marketplaces, allowing you to take a percentage fee of secondary 
 
 The `Royalty` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
 
-| Name                                                                                | Type                    | Returns | Description                                                                                                                       |
-| ----------------------------------------------------------------------------------- | ----------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| [`_canSetRoyaltyInfo`](/solidity/extension-contracts/royalty#_cansetroyaltyinfo) | internal view _virtual_ | `bool`  | Runs on every attempt to set a new royalty recipient or BPS. Returns whether this info can be set in the given execution context. |
+| Name                                                                    | Type                    | Returns | Description                                                                                                                       |
+| ----------------------------------------------------------------------- | ----------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| [`_canSetRoyaltyInfo`](/solidity/extensions/royalty#_cansetroyaltyinfo) | internal view _virtual_ | `bool`  | Runs on every attempt to set a new royalty recipient or BPS. Returns whether this info can be set in the given execution context. |
 
-This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality. 
+This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality.
 
 ```solidity
 // SPDX-License-Identifier: MIT

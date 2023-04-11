@@ -19,12 +19,12 @@ Here, ['lazy mint'](/glossary/lazy-minting) means defining the metadata for part
 :::info
 
 In order for the `ERC721LazyMintable`, `ERC1155LazyMintable` or `ERC20LazyMintable` extension to be detected
-in the Dashboard, the corresponding [`ERC721`](/solidity/extensions/erc721), [`ERC1155`](/solidity/extensions/erc1155) or [`ERC20`](/solidity/extensions/erc20) extensions need to be added alongside 
+in the Dashboard, the corresponding [`ERC721`](/solidity/extensions/erc721), [`ERC1155`](/solidity/extensions/erc1155) or [`ERC20`](/solidity/extensions/erc20) extensions need to be added alongside
 the `LazyMint` extension
 
 :::
 
-<br/>
+<br />
 
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/LazyMint.sol"
@@ -35,11 +35,11 @@ the `LazyMint` extension
 
 The `LazyMint` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
 
-| Name                                                                     | Type                    | Returns | Description                                                                                                                      |
-| ------------------------------------------------------------------------ | ----------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| [`_canLazyMint`](/solidity/extension-contracts/lazymint#_canlazymint) | internal view _virtual_ | `bool`  | Runs on every attempt to lazy mint NFTs on the contract. Returns whether NFTs can be lazy minted in the given execution context. |
+| Name                                                         | Type                    | Returns | Description                                                                                                                      |
+| ------------------------------------------------------------ | ----------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| [`_canLazyMint`](/solidity/extensions/lazymint#_canlazymint) | internal view _virtual_ | `bool`  | Runs on every attempt to lazy mint NFTs on the contract. Returns whether NFTs can be lazy minted in the given execution context. |
 
-This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality. 
+This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality.
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -102,6 +102,7 @@ By adding this extension to a smart contract, the following features, hooks and 
 </div>
 
 ## Base Contracts Implementing This Extension
+
 (if combined with either [`ERC721`](/solidity/extensions/erc721) or [`ERC1155`](/solidity/extensions/erc155))
 
 - [`ERC721LazyMint`](/solidity/base-contracts/erc721lazymint)
@@ -110,7 +111,6 @@ By adding this extension to a smart contract, the following features, hooks and 
 - [`ERC1155LazyMint`](/solidity/base-contracts/erc1155lazymint)
 - [`ERC1155DelayedReveal`](/solidity/base-contracts/erc1155delayedreveal)
 - [`ERC1155Drop`](/solidity/base-contracts/erc1155drop)
-
 
 ## Full API Reference
 
