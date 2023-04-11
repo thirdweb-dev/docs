@@ -747,6 +747,14 @@
     {
       "source": "/typescript/sdk.thirdwebsdk.detectfeatures",
       "destination": "/typescript/sdk.thirdwebsdk.detectextensions"
+    },
+    {
+      "source": "/pre-built-contracts/solana/nft-drop",
+      "destination": "/solana/pre-built-programs/nft-drop"
+    },
+    {
+      "source": "/pre-built-contracts/solana/token",
+      "destination": "/solana/pre-built-programs/token"
     }
   ]
 }
