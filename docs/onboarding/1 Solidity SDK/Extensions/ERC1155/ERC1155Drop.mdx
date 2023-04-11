@@ -27,15 +27,15 @@ It is recommended to use this extension alongside the [`LazyMint`](/solidity/ext
 
 The `Drop1155` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
 
-| Name                                                                                                    | Type                    | Description                                                                                                                                      |
-| ------------------------------------------------------------------------------------------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `_afterClaim`        | internal _virtual_   | Runs after every `claim` function call. |
-| `_beforeClaim`        | internal _virtual_    | Runs before every `claim` function call. |
-| `_collectPriceOnClaim`    | internal _virtual_      | Collects and distributes the primary sale value of NFTs being claimed.                                                                           |
+| Name                     | Type                    | Description                                                                                                                                      |
+| ------------------------ | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `_afterClaim`            | internal _virtual_      | Runs after every `claim` function call.                                                                                                          |
+| `_beforeClaim`           | internal _virtual_      | Runs before every `claim` function call.                                                                                                         |
+| `_collectPriceOnClaim`   | internal _virtual_      | Collects and distributes the primary sale value of NFTs being claimed.                                                                           |
 | `_transferTokensOnClaim` | internal _virtual_      | Transfers the NFTs being claimed.                                                                                                                |
 | `_canSetClaimConditions` | internal view _virtual_ | Runs on every attempt to set the claim condition on the contract. Returns whether the claim condition can be set in the given execution context. |
 
-This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality. 
+This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality.
 
 ```solidity
 // SPDX-License-Identifier: Apache-2.0
@@ -111,7 +111,7 @@ contract MyContract is ERC1155Base, Drop1155 {
 
 ## SDK Usage
 
-This extension alone does not unlock anything in the SDK. 
+This extension alone does not unlock anything in the SDK.
 By combining this extension with [`LazyMint`](/solidity/extensions/lazymint) and [`ERC1155`](/solidity/extensions/erc1155) extensions you will have the `ERC1155ClaimPhases` extension detected on your contract which unlocks these features in the SDK:
 
 <div className="row" style={{ marginBottom: 12 }}>

@@ -15,13 +15,12 @@ import "@thirdweb-dev/contracts/extension/Drop.sol";
 ```
 
 Allow other wallets to claim/mint tokens from the contract under the criteria of claim conditions by
-implementing [`ERC721`](/solidity/extensions/erc721), [`LazyMint`](/solidity/extensions/lazymint) and [`Drop`](/solidity/extensions/drop) extensions. 
+implementing [`ERC721`](/solidity/extensions/erc721), [`LazyMint`](/solidity/extensions/lazymint) and [`Drop`](/solidity/extensions/drop) extensions.
 
-Unlike [`ERC721ClaimCondition`](/solidity/extensions/erc721claimconditions), this extension allows you to set *multiple* [claim phases](/glossary/claim-phases).
+Unlike [`ERC721ClaimCondition`](/solidity/extensions/erc721claimconditions), this extension allows you to set _multiple_ [claim phases](/glossary/claim-phases).
 
-This is an extension which is detectable in the dashboard if the smart contract implements the 
+This is an extension which is detectable in the dashboard if the smart contract implements the
 [`ERC721`](/solidity/extensions/erc721), [`LazyMint`](/solidity/extensions/lazymint) and [`Drop`](/solidity/extensions/drop) extensions.
-
 
 <div className="row">
 
@@ -59,7 +58,7 @@ This is an extension which is detectable in the dashboard if the smart contract 
 
 ## Usage
 
-This is an example smart contract demonstrating how to inherit from the extensions which make up the `ERC721ClaimPhases` detectable extension. 
+This is an example smart contract demonstrating how to inherit from the extensions which make up the `ERC721ClaimPhases` detectable extension.
 The functions which are available to be (optionally) overridden are also detailed.
 
 ```solidity

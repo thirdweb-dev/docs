@@ -14,12 +14,11 @@ import "@thirdweb-dev/contracts/extension/LazyMint.sol";
 import "@thirdweb-dev/contracts/extension/interface/IClaimableERC1155.sol";
 ```
 
-Allow other wallets to claim/mint tokens that you have Lazy Minted by 
+Allow other wallets to claim/mint tokens that you have Lazy Minted by
 implementing [`ERC1155`](/solidity/extensions/erc1155), [`LazyMint`](/solidity/extensions/lazymint) and [`ERC1155Claimable`](/solidity/extensions/erc1155claimable) extensions.
 
-This is an extension which is detectable in the dashboard if the smart contract implements the 
+This is an extension which is detectable in the dashboard if the smart contract implements the
 [`ERC1155`](/solidity/extensions/erc1155), [`LazyMint`](/solidity/extensions/lazymint) and [`ERC1155Claimable`](/solidity/extensions/erc1155claimable) extensions.
-
 
 <div className="row">
 
@@ -57,7 +56,7 @@ This is an extension which is detectable in the dashboard if the smart contract 
 
 ## Usage
 
-This is an example smart contract demonstrating how to inherit from the extensions which make up the `ERC1155ClaimCustom` detectable extension. 
+This is an example smart contract demonstrating how to inherit from the extensions which make up the `ERC1155ClaimCustom` detectable extension.
 The functions which are available to be (optionally) overridden are also detailed.
 
 ```solidity
@@ -104,7 +103,7 @@ contract Contract is ERC1155, LazyMint, IClaimableERC1155 {
     {
         // Your custom implementation here
     }
-    
+
     function claim(address _receiver, uint256 _quantity) external payable override {
         // Your custom implementation here
     }
@@ -147,4 +146,3 @@ By adding this extension to a smart contract, the following features, hooks and 
 
 - [ERC1155DelayedReveal](/solidity/base-contract/erc1155delayedreveal)
 - [ERC1155LazyMint](/solidity/base-contracts/erc1155lazymint)
-

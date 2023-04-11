@@ -16,9 +16,8 @@ import "@thirdweb-dev/contracts/extension/DropSinglePhase.sol";
 Allow other wallets to claim/mint tokens from the contract under the criteria of claim conditions by
 implementing [`ERC20`](/solidity/extensions/erc20) and [`DropSinglePhase`](/solidity/extensions/dropsinglephase) extensions.
 
-This is an extension which is detectable in the dashboard if the smart contract implements the 
+This is an extension which is detectable in the dashboard if the smart contract implements the
 [`ERC20`](/solidity/extensions/erc20) and [`DropSinglePhase`](/solidity/extensions/dropsinglephase) extensions.
-
 
 <div className="row">
 
@@ -47,7 +46,7 @@ This is an extension which is detectable in the dashboard if the smart contract 
 
 ## Usage
 
-This is an example smart contract demonstrating how to inherit from the extensions which make up the `ERC20ClaimConditions` detectable extension. 
+This is an example smart contract demonstrating how to inherit from the extensions which make up the `ERC20ClaimConditions` detectable extension.
 The functions which are available to be (optionally) overridden are detailed.
 
 ```solidity
@@ -128,4 +127,3 @@ By adding this extension to a smart contract, the following features are unlocke
 
 - [ERC20Drop](/solidity/base-contracts/erc20drop)
 - [ERC20DropVote](/solidity/base-contracts/erc20dropvote)
-

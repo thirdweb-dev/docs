@@ -22,14 +22,15 @@ import { metamaskWallet, trustWallet } from "@thirdweb-dev/react-native";
 
 const App = () => {
   return (
-    <ThirdwebProvider 
+    <ThirdwebProvider
       dAppMeta={{
         name: "Example App",
         description: "This is an example app",
         logoUrl: "https://example.com/logo.png",
         url: "https://example.com",
       }}
-      supportedWallets={[metamaskWallet(), trustWallet()]}>
+      supportedWallets={[metamaskWallet(), trustWallet()]}
+    >
       <AppInner />
     </ThirdwebProvider>
   );
@@ -42,7 +43,7 @@ By default, `supportedWallets` will have `rainbowWallet` and `metamaskWallet` si
 
 ### MetaMask, Rainbow and Trust wallets
 
-These wallets are implementations of Wallet Connect V1 and V2. The `dAppMeta` prop passed in the `ThirdwebProvider` above will be used when connecting to the wallets to show your app's information. 
+These wallets are implementations of Wallet Connect V1 and V2. The `dAppMeta` prop passed in the `ThirdwebProvider` above will be used when connecting to the wallets to show your app's information.
 
 No other configuration is needed for these.
 
@@ -58,16 +59,15 @@ import { coinbaseWallet } from "@thirdweb-dev/react-native";
 
 const App = () => {
   return (
-    <ThirdwebProvider 
+    <ThirdwebProvider
       supportedWallets={[
         coinbaseWallet({
-          callbackURL: new URL('https://youruniversal.link'),
+          callbackURL: new URL("https://youruniversal.link"),
         }),
-      ]}>
+      ]}
+    >
       <AppInner />
     </ThirdwebProvider>
   );
 };
 ```
-
-
