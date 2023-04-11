@@ -87,7 +87,7 @@ import { ethers } from "ethers";
 function MyApp() {
   return (
     <ThirdwebSDKProvider
-      activeChain={"ethereum"}
+      activeChain="ethereum"
       // Example: Use ethers to get the signer from the window.ethereum object
       signer={new ethers.providers.Web3Provider(window.ethereum).getSigner()}
     >
@@ -121,7 +121,7 @@ import { ethers } from "ethers";
 function MyApp() {
   return (
     <ThirdwebSDKProvider
-      activeChain={"ethereum"}
+      activeChain="ethereum"
       // highlight-start
       // Example: Use ethers to get the signer from the window.ethereum object
       signer={new ethers.providers.Web3Provider(window.ethereum).getSigner()}

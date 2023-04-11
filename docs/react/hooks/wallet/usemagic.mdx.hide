@@ -41,7 +41,7 @@ function MyApp() {
   return (
     <ThirdwebProvider
       // Configure the chain you want to use
-      activeChain={"mumbai"}
+      activeChain="mumbai"
       // Configure the connectors you want to use, including your gnosisSafeConnector
       walletConnectors={[magicLinkConnector]}
     >

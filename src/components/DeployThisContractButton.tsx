@@ -63,7 +63,7 @@ export default function DeployThisContractButton({
       }}
     >
       <img
-        src={"/assets/icons/thirdweb-icon.png"}
+        src="/assets/icons/thirdweb-icon.png"
         style={{
           // Make it completely white
           filter: "brightness(0) invert(1)",

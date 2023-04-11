@@ -20,14 +20,10 @@ Or, install the `contracts` package into your existing Solidity project:
 
 <Tabs>
   <TabItem value="Hardhat" label="Hardhat" default>
-    <CodeBlock
-      language={"bash"}
-    >{`npm install @thirdweb-dev/contracts`}</CodeBlock>
+    <CodeBlock language="bash">npm install @thirdweb-dev/contracts</CodeBlock>
   </TabItem>
   <TabItem value="Forge" label="Forge">
-    <CodeBlock
-      language={"bash"}
-    >{`forge install thirdweb-dev/contracts`}</CodeBlock>
+    <CodeBlock language="bash">forge install thirdweb-dev/contracts</CodeBlock>
   </TabItem>
 </Tabs>
 
@@ -89,11 +85,12 @@ contract MyNFT is ERC721Base, Permissions {
 }
 ```
 
-**Note:** 
-- Some Extensions are __Abstract__ and so require certain functions to be implemented*.
-- Some Extensions are __Interfaces__ and so require **all** the functions to be implemented*.
+**Note:**
 
-*implement = write the logic for the function with a matching function signature (matching name, parameters, visibility and return type)
+- Some Extensions are **Abstract** and so require certain functions to be implemented\*.
+- Some Extensions are **Interfaces** and so require **all** the functions to be implemented\*.
+
+\*implement = write the logic for the function with a matching function signature (matching name, parameters, visibility and return type)
 
 **2.** Use the functions provided by the Extension to change the behavior of your smart contract.
 
@@ -145,7 +142,7 @@ Child contract: The inheriting contract.
 To override a function, to add your own custom logic, simply use the keyword `override` when declaring the function, making sure that the function signature matches.
 To add the original logic from the parent contract, use the keyword `super`.
 
-For example, the [`ERC721Base`](/solidity/base-contracts/erc721base) contract has an implementation of the function `mintTo`, I could instead override this function to add custom logic 
+For example, the [`ERC721Base`](/solidity/base-contracts/erc721base) contract has an implementation of the function `mintTo`, I could instead override this function to add custom logic
 and restrict this function in the `myNFT` contract to only allow 1 NFT per wallet:
 
 ```solidity
@@ -166,6 +163,6 @@ contract MyNFT is ERC721Base, Permissions {
     function mintTo(address _to, string memory _tokenURI) public override {
         require(balanceOf(_to) < 1, "only 1 NFT per wallet!");
         super.mintTo(_to, _tokenURI);
-    } 
+    }
 }
 ```

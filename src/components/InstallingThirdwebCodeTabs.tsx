@@ -14,7 +14,7 @@ export default function ThirdwebCodeSnippet() {
   };
 
   return (
-    <Tabs groupId="thirdweb-code-snippet" defaultValue={"javascript"}>
+    <Tabs groupId="thirdweb-code-snippet" defaultValue="javascript">
       {Object.keys(installationSnippets).map((language) => (
         <TabItem
           key={language}

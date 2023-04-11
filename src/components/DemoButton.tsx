@@ -21,7 +21,7 @@ export default function DemoButton({ link, name }: Props) {
       }}
     >
       <img
-        src={"/assets/icons/thirdweb-icon.png"}
+        src="/assets/icons/thirdweb-icon.png"
         className="viewCodeBtn__icon"
         style={{
           height: 24,

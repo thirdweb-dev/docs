@@ -197,7 +197,7 @@ export default function TemplateCard({ t }: Props) {
         </div>
 
         <CodeBlock
-          language={"console"}
+          language="console"
           className="template-code"
         >{`npx thirdweb create -t ${t.name}`}</CodeBlock>
 
@@ -221,9 +221,9 @@ export default function TemplateCard({ t }: Props) {
               href={t.html_url}
               target="_blank"
               rel="noopener noreferrer"
-              data-example={"example"} // Generic flag to capture all events
+              data-example="example" // Generic flag to capture all events
               data-example-name={t.name}
-              data-example-category={"feature-example"}
+              data-example-category="feature-example"
               data-example-url={t.html_url}
               onClick={() => sendPosthogEvent(t.name)}
             >

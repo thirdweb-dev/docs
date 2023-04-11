@@ -129,8 +129,8 @@ export default function ThirdwebCodeSnippet({
                     for more information.
                   </p>
                   Reach out on{" "}
-                  <a href={"https://discord.com/invite/thirdweb"}>Discord</a>{" "}
-                  for further assistance!
+                  <a href="https://discord.com/invite/thirdweb">Discord</a> for
+                  further assistance!
                 </CodeBlock>
               </TabItem>
             );

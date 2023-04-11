@@ -21,7 +21,7 @@ export default function ViewCodeButton({ link, name }: Props) {
       }}
     >
       <img
-        src={"/assets/github-icon.webp"}
+        src="/assets/github-icon.webp"
         className="viewCodeBtn__icon"
         style={{
           height: 24,

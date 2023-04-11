@@ -80,7 +80,7 @@ public class DemoClass : MonoBehaviour
   };
 
   return (
-    <Tabs groupId="thirdweb-code-snippet" defaultValue={"javascript"}>
+    <Tabs groupId="thirdweb-code-snippet" defaultValue="javascript">
       {Object.keys(installationSnippets)
         .filter((language) => language !== "solidity")
         .map((language) => (

@@ -25,7 +25,7 @@ export default function ExamplesContainer() {
           github: contractHub.html_url,
           demo: contractHub.homepage,
         }}
-        whichFirst={"image"}
+        whichFirst="image"
       />
       {/* Featured Example (Solana TODO) */}
       <FeaturedExample
@@ -40,7 +40,7 @@ export default function ExamplesContainer() {
           github: solanaHub.html_url,
           demo: solanaHub.homepage,
         }}
-        whichFirst={"text"}
+        whichFirst="text"
       />
 
       <h2>Featured Templates</h2>

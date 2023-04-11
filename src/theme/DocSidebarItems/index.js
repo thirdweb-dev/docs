@@ -159,7 +159,7 @@ function DocSidebarItems({ items, ...props }) {
                 marginRight: "0.5rem",
               }}
             />
-            {"All Docs"}
+            All Docs
           </Link>
 
           {iconMapping[formatCategoryName(props?.activePath)] && (

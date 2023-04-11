@@ -38,7 +38,7 @@ export default function ViewRepoButton({ link, name, text }: Props) {
         onClick={sendPosthogEvent}
       >
         <img
-          src={"/assets/github-icon.webp"}
+          src="/assets/github-icon.webp"
           className="viewContractCodeBtn__icon"
           style={{
             height: 24,

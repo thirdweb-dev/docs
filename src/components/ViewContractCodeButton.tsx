@@ -32,7 +32,7 @@ export default function ViewContractCodeButton({
         }}
       >
         <img
-          src={"/assets/github-icon.webp"}
+          src="/assets/github-icon.webp"
           className="viewContractCodeBtn__icon"
           style={{
             height: 24,

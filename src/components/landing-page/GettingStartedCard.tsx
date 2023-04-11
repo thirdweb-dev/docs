@@ -40,7 +40,7 @@ export default function GettingStartedCard({
           ? "noopener noreferrer"
           : undefined
       }
-      data-quickstart={"quickstart"} // Generic flag to capture all events
+      data-quickstart="quickstart" // Generic flag to capture all events
       data-card-name={name}
       data-card-description={description}
       data-card-link={link}

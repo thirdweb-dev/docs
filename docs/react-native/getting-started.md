@@ -19,7 +19,7 @@ import { ThirdwebProvider } from "@thirdweb-dev/react-native";
 
 const App = () => {
   return (
-    <ThirdwebProvider activeChain={"mainnet"}>
+    <ThirdwebProvider activeChain="mainnet">
       <AppInner />
     </ThirdwebProvider>
   );

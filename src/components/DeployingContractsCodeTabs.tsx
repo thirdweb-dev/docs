@@ -34,7 +34,7 @@ nft_drop = sdk.get_nft_drop(
   };
 
   return (
-    <Tabs groupId="thirdweb-code-snippet" defaultValue={"javascript"}>
+    <Tabs groupId="thirdweb-code-snippet" defaultValue="javascript">
       {Object.keys(installationSnippets).map((language) => (
         <TabItem
           key={language}

@@ -25,8 +25,8 @@ export default function TwitterCard({ text, title, link }: Props) {
         padding: 0,
       }}
       href={link || twitterIntentUrl}
-      target={"_blank"}
-      rel={"noopener noreferrer"}
+      target="_blank"
+      rel="noopener noreferrer"
     >
       <div
         className="card__header"
@@ -50,7 +50,7 @@ export default function TwitterCard({ text, title, link }: Props) {
             }}
           >
             <img
-              src={"/assets/twitter.png"}
+              src="/assets/twitter.png"
               style={{
                 maxHeight: "36px",
                 marginRight: 12,

@@ -118,7 +118,7 @@ import { Web3Button } from "@thirdweb-dev/react";
 
 // Place this beneath your existing NFT display logic:
 <Web3Button
-  contractAddress={"<CONTRACT_ADDRESS>"}
+  contractAddress="<CONTRACT_ADDRESS>"
   action={(contract) =>
     contract.erc721.mint({
       name: "Hello world!",
@@ -147,7 +147,7 @@ That's it! 🥳 This command uses [Storage](/storage) to:
 - Generate a URL where your app is permanently hosted.
 
 <TwitterCard
-  title={"Share your app with us on Twitter!"}
+  title="Share your app with us on Twitter!"
   text={`Probably nothing 👀 @thirdweb
   
 <your-deployment-url-here>`}

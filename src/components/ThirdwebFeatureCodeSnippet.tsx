@@ -84,7 +84,7 @@ export default function ThirdwebFeatureCodeSnippet({
 
   return (
     <>
-      <Tabs groupId={"thirdweb-code-snippet"} defaultValue={"react"}>
+      <Tabs groupId="thirdweb-code-snippet" defaultValue="react">
         {Object.entries(languagesToShow).map(([language, languageInfo]) => {
           if (!snippetsObject?.[language]) {
             return (
@@ -93,7 +93,7 @@ export default function ThirdwebFeatureCodeSnippet({
                 value={language}
                 label={languageInfo.label}
               >
-                <CodeBlock language={"text"}>
+                <CodeBlock language="text">
                   <p>
                     This feature is missing a code snippet or might not be
                     supported yet.
@@ -106,8 +106,8 @@ export default function ThirdwebFeatureCodeSnippet({
                     for more information.
                   </p>
                   Reach out on{" "}
-                  <a href={"https://discord.com/invite/thirdweb"}>Discord</a>{" "}
-                  for further assistance!
+                  <a href="https://discord.com/invite/thirdweb">Discord</a> for
+                  further assistance!
                 </CodeBlock>
 
                 <a
