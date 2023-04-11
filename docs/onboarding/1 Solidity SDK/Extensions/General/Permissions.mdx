@@ -28,7 +28,7 @@ You only need to implement **one** of the two.
 
 ## Usage
 
-This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality. 
+This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality.
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -172,9 +172,9 @@ function hasRoleWithSwitch(bytes32 role, address account) public view returns (b
 ```
 
 - Returns `true` if `account` has been granted `role`.
-- Role restrictions can be swtiched on and off:
+- Role restrictions can be switched on and off:
   - If `address(0)` has `role`, then the role restrictions don't apply i.e. this function will always return `true`.
   - If `address(0)` does not have `role`, then the role restrictions will apply i.e. this function will behave like `hasRole`.
-  
+
 </div>
 </details>

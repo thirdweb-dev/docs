@@ -353,9 +353,9 @@ _Returns `true` if `account` has been granted `role`._
 function hasRoleWithSwitch(bytes32 role, address account) external view returns (bool)
 ```
 
-Checks whether an account has a particular role; role restrictions can be swtiched on and off.
+Checks whether an account has a particular role; role restrictions can be switched on and off.
 
-_Returns `true` if `account` has been granted `role`. Role restrictions can be swtiched on and off: - If address(0) has ROLE, then the ROLE restrictions don&#39;t apply. - If address(0) does not have ROLE, then the ROLE restrictions will apply._
+_Returns `true` if `account` has been granted `role`. Role restrictions can be switched on and off: - If address(0) has ROLE, then the ROLE restrictions don&#39;t apply. - If address(0) does not have ROLE, then the ROLE restrictions will apply._
 
 #### Parameters
 
@@ -376,7 +376,7 @@ _Returns `true` if `account` has been granted `role`. Role restrictions can be s
 function initialize(address _defaultAdmin, string _name, string _symbol, string _contractURI, address[] _trustedForwarders, address _royaltyRecipient, uint256 _royaltyBps) external nonpayable
 ```
 
-_Initiliazes the contract, like a constructor._
+_Initializes the contract, like a constructor._
 
 #### Parameters
 

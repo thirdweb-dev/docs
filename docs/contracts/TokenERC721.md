@@ -286,7 +286,7 @@ _Returns `true` if `account` has been granted `role`._
 function initialize(address _defaultAdmin, string _name, string _symbol, string _contractURI, address[] _trustedForwarders, address _saleRecipient, address _royaltyRecipient, uint128 _royaltyBps, uint128 _platformFeeBps, address _platformFeeRecipient) external nonpayable
 ```
 
-_Initiliazes the contract, like a constructor._
+_Initializes the contract, like a constructor._
 
 #### Parameters
 

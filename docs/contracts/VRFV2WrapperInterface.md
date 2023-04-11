@@ -17,7 +17,7 @@ function calculateRequestPrice(uint32 _callbackGasLimit) external view returns (
 
 Calculates the price of a VRF request with the given callbackGasLimit at the currentblock.
 
-_This function relies on the transaction gas price which is not automatically set duringsimulation. To estimate the price at a specific gas price, use the estimatePrice function._
+_This function relies on the transaction gas price which is not automatically set during simulation. To estimate the price at a specific gas price, use the estimatePrice function._
 
 #### Parameters
 
@@ -39,7 +39,7 @@ function estimateRequestPrice(uint32 _callbackGasLimit, uint256 _requestGasPrice
 
 Estimates the price of a VRF request with a specific gas limit and gas price.
 
-_This is a convenience function that can be called in simulation to better understandpricing._
+_This is a convenience function that can be called in simulation to better understand pricing._
 
 #### Parameters
 

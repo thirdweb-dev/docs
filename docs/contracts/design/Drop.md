@@ -164,7 +164,7 @@ For example, the restriction `quantityLimitPerWallet` expresses the max quantity
 
 ### Allowlist behavior
 
-When specifiying allowlist of addresses, and quantities, price, etc. for those addresses, contract admins must ensure that they don't list an address more than once in the same merkle tree.
+When specifying allowlist of addresses, and quantities, price, etc. for those addresses, contract admins must ensure that they don't list an address more than once in the same merkle tree.
 
 For e.g. admin wishes to grant user X permission to mint 2 tokens at 0.25 ETH, and 4 tokens at 0.5 ETH. In this case, the contract design will not permit the user X to claim 6 tokens with different prices as desired. Instead, the user may be limited to claiming just 2 tokens or 4 tokens based on their order of claiming.
 
