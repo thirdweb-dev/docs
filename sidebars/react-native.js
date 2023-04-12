@@ -55,6 +55,29 @@ const sidebars = {
       label: "Available Hooks",
       id: "available-hooks",
     },
+    // === Auth === \\
+    {
+      type: "category",
+      label: "Auth",
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          label: "useLogin",
+          id: "auth/uselogin",
+        },
+        {
+          type: "doc",
+          label: "useLogout",
+          id: "auth/uselogout",
+        },
+        {
+          type: "doc",
+          label: "useUser",
+          id: "auth/useuser",
+        },
+      ],
+    },
   ],
 };
 
