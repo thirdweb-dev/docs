@@ -622,3 +622,52 @@ html[data-theme="light"] {
 .card {
   border: 1px solid var(--thirdweb-border-color);
 }
+
+.divider {
+  opacity: 0.25;
+  margin-top: 64px;
+}
+
+.section-title {
+  opacity: 0.75;
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+  margin-left: 22px;
+}
+
+// Open source section
+.open-source-info-container {
+  --chakra-space-8: 2rem;
+  --chakra-shadows-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --chakra-colors-borderColor: #272B30;
+  border: 1px solid var(--thirdweb-border-color);
+  transition: all 0.2s ease 0s;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  box-shadow: var(--chakra-shadows-sm);
+  border-radius: var(--chakra-radii-xl);
+  border-color: var(--chakra-colors-borderColor);
+  padding-inline-start: var(--chakra-space-8);
+  padding-inline-end: var(--chakra-space-8);
+  padding-top: var(--chakra-space-8);
+  padding-bottom: var(--chakra-space-8);
+  border-radius: 8px;
+  margin-bottom: 16px;
+  margin-top: 16px;
+
+
+  h2 {
+    font-family: var(--chakra-fonts-heading);
+    font-size: 1rem !important;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: initial;
+  }
+
+  p {
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: initial;
+  }
+}

@@ -1,0 +1,39 @@
+---
+title: Call Functions
+slug: /smartcontract.read
+hide_title: true
+---
+
+# Call Functions
+
+If the functionality of your smart contract does not come under one of the [extension interfaces](/typescript/extensions#extensions),
+use the generic `Read` method to retrieve the data, and store the value by awaiting the function call.
+
+## Usage
+
+```csharp
+var data = await contract.Read<int>("functionName");
+```
+
+## Configuration
+
+### type (generic type)
+
+The type of data returned by the function call. This is used to convert the data returned by the function call into the correct type.
+For example, if your function returns a `string`, you would use `string` as the [generic type](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/generics/generic-type-parameters).
+
+### functionName
+
+The name of the function, view, mapping, variable, etc. on your smart contract.
+
+Must be a `string`.
+
+### args
+
+The arguments to the function/variable, in the same order they are on your smart contract.
+
+If you provide too few or too many arguments, the function will throw an error.
+
+```csharp
+var data = await contract.Read<int>("functionName", new object[] { "arg1", "arg2" });
+```

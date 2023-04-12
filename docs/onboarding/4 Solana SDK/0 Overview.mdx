@@ -1,0 +1,129 @@
+---
+slug: /solana
+title: Overview
+---
+
+import QuickstartCard from "@components/QuickstartCard";
+import OpenSourceInfo from "@components/OpenSourceInfo";
+
+<div className="heroGrid" style={{ alignItems: "flex-start" }}>
+  <div>
+    <p style={{ marginTop: "8px" }}>
+      The Solana SDK lets you build web and backend applications on Solana using JavaScript, TypeScript, and React.
+    </p>
+    <p>
+      These tools enable you to easily build apps and scripts to:
+    </p>
+    <ul>
+      <li>Create your own tokens, NFTs, and drops</li>
+      <li>Interact with any Solana program</li>
+      <li>Perform wallet actions like transfer, sign, and verify</li>
+    </ul>
+
+  </div>
+  <p style={{ marginTop: "-16px" }}>
+    <div className="col col--12">
+      <img
+        src="/assets/solana-hero.webp"
+        alt="Solana SDK"
+        style={{ width: "400px" }}
+      />
+    </div>
+  </p>
+</div>
+
+<OpenSourceInfo
+  repoName="Solana SDK"
+  repoUrl="https://github.com/thirdweb-dev/solana"
+  isLibrary={false}
+/>
+
+## Get Started
+
+Set up a new web application with the [React](/react) and [TypeScript](/typescript) SDKs set up using the CLI:
+
+```bash
+npx thirdweb create app --solana --ts
+```
+
+If this is your first time building on Solana, use our getting started guide to help you get up and running:
+
+<div className="row" style={{ marginBottom: 12 }}>
+  <div className="col col--12" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Create A Solana Wallet & Get Test Funds"
+      link="https://blog.thirdweb.com/guides/getting-started-with-solana"
+      image="/assets/icons/education.png"
+    />
+  </div>
+</div>
+
+### Manually Setup the SDK
+
+Alternatively, follow one of our guides to configure the SDK:
+
+<div className="row">
+  <div className="col col--6" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Frontend Setup"
+      link="/solana/setup/frontend"
+      image="/assets/languages/react.png"
+    />
+  </div>
+  <div className="col col--6" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Backend & Scripting Setup"
+      link="/solana/setup/backend"
+      image="/assets/languages/javascript.png"
+    />
+  </div>
+</div>
+
+## Learn More
+
+Discover what&apos;s possible with the Solana SDK:
+
+<div className="row" style={{ marginTop: 24 }}>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Create An NFT Drop Minting App"
+      link="https://blog.thirdweb.com/guides/how-to-build-an-nft-drop-on-solana/"
+      image="/assets/icons/drop.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Create An NFT Gated Website"
+      link="https://blog.thirdweb.com/guides/create-an-nft-gated-site-on-solana/"
+      image="/assets/icons/nft.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Create An NFT Collection Gallery"
+      link="https://blog.thirdweb.com/guides/deploy-an-nft-collection-gallery-with-thirdweb/"
+      image="/assets/icons/nft.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Deploy a Token Program using the SDK"
+      link="https://blog.thirdweb.com/guides/create-your-own-token-on-solana-in-less-than-2-minutes/"
+      image="/assets/icons/sdks.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Create a Sign In With Solana Button in React"
+      link="https://blog.thirdweb.com/guides/sign-in-with-solana-authenticate-users-with-their-phantom-wallet/"
+      image="/assets/icons/vote.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Deploy an NFT Collection Program"
+      link="https://blog.thirdweb.com/guides/mint-a-solana-nft-collection-with-typescript/"
+      image="/assets/icons/sdks.png"
+    />
+  </div>
+</div>

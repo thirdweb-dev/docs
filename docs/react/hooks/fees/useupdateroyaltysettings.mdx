@@ -6,10 +6,16 @@ displayed_sidebar: react
 
 Hook for updating royalty settings on a smart contract.
 
-Available to use on smart contracts that implement the [Royalty](/contractkit/extension-contracts/royalty) interface.
+Available to use on smart contracts that implement the [Royalty](/solidity/extensions/royalty) interface.
 
 ```jsx
 import { useUpdateRoyaltySettings } from "@thirdweb-dev/react";
+
+const {
+  mutateAsync: updateRoyaltySettings,
+  isLoading,
+  error,
+} = useUpdateRoyaltySettings(contract);
 ```
 
 ## Usage
@@ -52,6 +58,10 @@ function App() {
 
 ## Configuration
 
+<details>
+  <summary>seller_fee_basis_points (required)</summary>
+  <div>
+
 ### seller_fee_basis_points (required)
 
 The `seller_fee_basis_points` property is a `number` between `0` - `10000` that defines the fee rate.
@@ -93,6 +103,13 @@ function App() {
 }
 ```
 
+</div>
+</details>
+
+<details>
+  <summary>fee_recipient (required)</summary>
+  <div>
+
 ### fee_recipient (required)
 
 The `fee_recipient` property is the address of the wallet that will receive the fees.
@@ -131,3 +148,6 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>

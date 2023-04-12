@@ -8,15 +8,12 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 import QuickstartCard from "@components/QuickstartCard";
+import OpenSourceInfo from "@components/OpenSourceInfo";
 
 <p align="center">
   <br />
   <a href="https://thirdweb.com">
-    <img
-      src="https://github.com/thirdweb-dev/js/blob/main/packages/sdk/logo.svg?raw=true"
-      width="200"
-      alt=""
-    />
+    <img src="/assets/icons/thirdweb.svg" width="200" alt="thirdweb logo" />
   </a>
   <br />
 </p>
@@ -27,23 +24,23 @@ A collection of 100+ React hooks and UI components for your web3 apps, for <i>an
 Connect to user&rsquo;s wallets, interact with smart contracts, sign
 messages, and utilize common standards such as tokens, NFTs, marketplaces; all with built-in caching, RPC URLs, IPFS gateways, and more.
 
+<OpenSourceInfo
+  repoName="React SDK"
+  repoUrl="https://github.com/thirdweb-dev/js/tree/main/packages/react"
+  isLibrary={false}
+/>
+
 ## Installation
 
 <Tabs>
   <TabItem value="npm" label="npm" default>
-    <CodeBlock
-      language={"bash"}
-    >{`npm i @thirdweb-dev/react @thirdweb-dev/sdk ethers^5`}</CodeBlock>
+    <CodeBlock language="bash">{`npm i @thirdweb-dev/react @thirdweb-dev/sdk ethers@^5`}</CodeBlock>
   </TabItem>
   <TabItem value="yarn" label="yarn">
-    <CodeBlock
-      language={"bash"}
-    >{`yarn add @thirdweb-dev/react @thirdweb-dev/sdk ethers^5`}</CodeBlock>
+    <CodeBlock language="bash">{`yarn add @thirdweb-dev/react @thirdweb-dev/sdk ethers@^5`}</CodeBlock>
   </TabItem>
   <TabItem value="pnpm" label="pnpm">
-    <CodeBlock
-      language={"bash"}
-    >{`pnpm i @thirdweb-dev/react @thirdweb-dev/sdk ethers^5`}</CodeBlock>
+    <CodeBlock language="bash">{`pnpm i @thirdweb-dev/react @thirdweb-dev/sdk ethers@^5`}</CodeBlock>
   </TabItem>
 </Tabs>
 

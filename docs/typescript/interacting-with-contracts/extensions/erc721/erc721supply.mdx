@@ -1,0 +1,146 @@
+---
+title: Get All
+slug: /sdk.erc721supply
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+# ERC721Supply
+
+Functionality available for contracts that implement the
+[`IERC721`](/contracts/IERC721) and
+[`IERC721Supply](/contracts/IERC721Supply)
+interfaces.
+
+## getAll
+
+Get the metadata and current owner of all NFTs in the contract.
+
+By default, returns the first `100` NFTs (in order of token ID). Use [`queryParams`](#queryParams-optional) to paginate the results.
+
+```javascript
+const nfts = await contract.erc721.getAll();
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### queryParams (optional)
+
+Provide an optional object to configure the query. Useful for paginating the results.
+
+```javascript
+const queryParams = {
+  // The number of NFTs to return
+  count: 100, // Default is 100
+  // The index to start from
+  start: 0, // Default is 0
+};
+
+const nfts = await contract.erc721.getAll(queryParams);
+```
+
+### Return Value
+
+Returns an array of `NFT` objects.
+
+```typescript
+{
+  metadata: {
+    id: string;
+    uri: string; // The raw URI of the metadata
+    owner: string;
+    name?: string | number | undefined;
+    description?: string | null | undefined;
+    image?: string | null | undefined; // If the image is hosted on IPFS, the URL is https://gateway.ipfscdn.io/ipfs/<hash>
+    external_url?: string | null | undefined;
+    animation_url?: string | null | undefined;
+    background_color?: string | undefined;
+    properties?: {
+        [x: string]: unknown;
+    } | {
+        [x: string]: unknown;
+    }[] | undefined;
+  };
+  type: "ERC1155" | "ERC721";
+}[]
+```
+
+</div>
+</details>
+
+## getAllOwners
+
+Get all wallet addresses that own an NFT in this contract.
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+Returns an array of objects containing a `tokenId` and `owner` address.
+
+- `tokenId` is the ID of the NFT.
+- `owner` is the wallet address of the owner that owns the NFT.
+
+```typescript
+{
+  tokenId: number;
+  owner: string;
+}
+[];
+```
+
+</div>
+</details>
+
+## totalCount
+
+Get the total number of NFTs minted in this contract.
+
+Unlike [`totalCirculatingSupply`](#totalCirculatingSupply), this includes NFTs that have been burned.
+
+```javascript
+const totalSupply = await contract.erc721.totalCount();
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+Returns a `BigNumber`.
+
+```typescript
+BigNumber;
+```
+
+</div>
+</details>
+
+## totalCirculatingSupply
+
+Get the total number of NFTs that are currently in circulation.
+
+i.e. the number of NFTs that have been minted and not burned.
+
+```javascript
+const totalSupply = await contract.erc721.totalCirculatingSupply();
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+Returns a `BigNumber`.
+
+```typescript
+BigNumber;
+```
+
+</div>
+</details>

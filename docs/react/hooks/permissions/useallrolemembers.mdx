@@ -6,10 +6,12 @@ displayed_sidebar: react
 
 Hook for getting all wallet addresses that have a role in a smart contract.
 
-Available to use on contracts that implement [Permission Controls](/contractkit/extension-contracts/permissions).
+Available to use on contracts that implement [Permission Controls](/solidity/extensions/permissions).
 
 ```jsx
 import { useAllRoleMembers } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useAllRoleMembers(contract);
 ```
 
 ## Usage
@@ -30,6 +32,10 @@ function App() {
 
 ## Return Value
 
+<details>
+  <summary>Return Value</summary>
+  <div>
+
 The hook's `data` property, once loaded, is an object, where the keys are the role names and the values are arrays of wallet addresses that have that role.
 
 ```ts
@@ -44,3 +50,6 @@ For example, if the contract has two roles, `admin` and `transfer`, and the `adm
   transfer: [],
 }
 ```
+
+</div>
+</details>

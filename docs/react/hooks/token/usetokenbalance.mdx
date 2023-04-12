@@ -12,10 +12,15 @@ Hook for fetching the balance a wallet has for a specific ERC20 token.
 
 _Note: This hook is for **custom** ERC20 tokens. For native tokens such as Ether, use [useBalance](/react/react.usebalance) instead._
 
-Available to use on contracts that implement the [ERC20](/contractkit/interfaces/erc20) interface.
+Available to use on contracts that implement the [ERC20](/solidity/extensions/erc20) interface.
 
 ```jsx
 import { useTokenBalance } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useTokenBalance(
+  contract,
+  "{{wallet_address}}",
+);
 ```
 
 ## Usage
@@ -43,6 +48,10 @@ function App() {
 
 The hook returns an object containing the following properties:
 
+<details>
+  <summary>Return Value</summary>
+  <div>
+
 ```ts
 {
   // The symbol of the token
@@ -61,3 +70,6 @@ The hook returns an object containing the following properties:
   displayValue: string;
 }
 ```
+
+</div>
+</details>

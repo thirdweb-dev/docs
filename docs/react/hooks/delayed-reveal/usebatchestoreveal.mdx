@@ -1,6 +1,6 @@
 ---
 title: useBatchesToReveal
-slug: /react.useBatchesToReveal
+slug: /react.usebatchestoreveal
 displayed_sidebar: react
 ---
 
@@ -11,13 +11,15 @@ import CodeBlock from "@theme/CodeBlock";
 Hook for fetching batches of lazy-minted NFTs that were set to be revealed at a later date, but have not yet been revealed.
 
 Available to use on contracts that implement the
-[ERC721Revealable](https://portal.thirdweb.com/contractkit/interfaces/erc721revealable)
-or [ERC1155Revealable](https://portal.thirdweb.com/contractkit/interfaces/erc1155revealable)
+[ERC721Revealable](https://portal.thirdweb.com/solidity/extensions/erc721revealable)
+or [ERC1155Revealable](https://portal.thirdweb.com/solidity/extensions/erc1155revealable)
 interfaces, such as the [NFT Drop](https://thirdweb.com/thirdweb.eth/DropERC721) and
 [Edition Drop](https://thirdweb.com/thirdweb.eth/DropERC1155) smart contracts.
 
 ```jsx
 import { useBatchesToReveal } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useBatchesToReveal(contract);
 ```
 
 ## Usage
@@ -39,6 +41,10 @@ function App() {
 
 ## Return Value
 
+<details>
+  <summary>Return Value</summary>
+  <div>
+
 The hook's `data` property, once loaded, contains an array of batches that need to be revealed.
 
 Each batch is an object with the following properties:
@@ -50,3 +56,6 @@ Each batch is an object with the following properties:
   placeholderMetadata: NFTMetadata;
 }
 ```
+
+</div>
+</details>

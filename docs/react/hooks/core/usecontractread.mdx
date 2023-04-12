@@ -12,6 +12,8 @@ Generic hook for reading any data from a smart contract via it&rsquo;s function/
 
 ```jsx
 import { useContractRead } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useContractRead(contract, "getName");
 ```
 
 ## Usage
@@ -33,6 +35,10 @@ function App() {
 ```
 
 ## Configuration
+
+<details>
+  <summary>Function Name</summary>
+  <div>
 
 ### Function Name
 
@@ -56,6 +62,13 @@ function App() {
 }
 ```
 
+</div>
+</details>
+
+<details>
+  <summary>Arguments</summary>
+  <div>
+
 ### Arguments
 
 If your function requires arguments, pass them as additional arguments to the hook.
@@ -74,8 +87,7 @@ function App() {
     contract,
     "getName",
     // highlight-start
-    "arg1",
-    "arg2",
+    ["arg1", "arg2"],
     // highlight-end
   );
 
@@ -88,6 +100,13 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>
+
+<details>
+  <summary>Call Overrides</summary>
+  <div>
 
 ### Call Overrides (optional)
 
@@ -107,8 +126,7 @@ function App() {
     contract,
     "getName",
     // function arguments
-    "arg1",
-    "arg2",
+    ["arg1", "arg2"],
     // highlight-start
     // Final argument is the call overrides
     {
@@ -127,3 +145,6 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>

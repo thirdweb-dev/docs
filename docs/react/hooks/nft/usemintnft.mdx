@@ -10,13 +10,15 @@ import CodeBlock from "@theme/CodeBlock";
 
 Hook for minting a new NFT on a smart contract.
 
-Available to use on smart contracts that implement the [ERC721](/contractkit/interfaces/erc721)
-or [ERC1155](/contractkit/interfaces/erc1155) standard.
+Available to use on smart contracts that implement the [ERC721](/solidity/extensions/erc721)
+or [ERC1155](/solidity/extensions/erc1155) standard.
 
 By default, the process uploads and pins the NFT metadata to IPFS before minting.
 
 ```jsx
 import { useMintNFT } from "@thirdweb-dev/react";
+
+const { mutateAsync, isLoading, error } = useMintNFT(contract);
 ```
 
 ## Usage
@@ -54,6 +56,10 @@ function App() {
 ```
 
 ## Configuration
+
+<details>
+  <summary>metadata</summary>
+  <div>
 
 ### metadata (required)
 
@@ -127,6 +133,13 @@ function App() {
 }
 ```
 
+</div>
+</details>
+
+<details>
+  <summary>to</summary>
+  <div>
+
 ### to (required)
 
 The wallet address to mint the NFT to.
@@ -173,3 +186,6 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>

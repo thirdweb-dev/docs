@@ -7,12 +7,14 @@ displayed_sidebar: react
 Hook for resetting the claim conditions on a drop contract.
 
 Available to use on contracts that implement
-[ERC721ClaimableWithConditions](/contractkit/extension-contracts/claimable-conditions),
-[ERC1155ClaimableWithConditions](/contractkit/extension-contracts/claimable-conditions),
-or [ERC20ClaimableWithConditions](/contractkit/extension-contracts/claimable-conditions).
+[ERC721ClaimableWithConditions](/solidity/extensions/erc721claimconditions),
+[ERC1155ClaimableWithConditions](/solidity/extensions/erc1155claimconditions),
+or [ERC20ClaimableWithConditions](/solidity/extensions/erc20claimconditions).
 
 ```jsx
 import { useResetClaimConditions } from "@thirdweb-dev/react";
+
+const { mutateAsync, isLoading, error } = useResetClaimConditions(contract);
 ```
 
 ## Usage
@@ -50,7 +52,9 @@ function App() {
 
 ## Configuration
 
-### tokenId (ERC1155 only)
+<details>
+  <summary>tokenId (ERC1155 only)</summary>
+  <div>
 
 For ERC1155 NFTs, provide the token ID of the NFT as the second argument to the hook.
 
@@ -88,3 +92,6 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>

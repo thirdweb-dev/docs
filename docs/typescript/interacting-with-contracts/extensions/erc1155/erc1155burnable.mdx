@@ -1,0 +1,204 @@
+---
+title: Burn
+slug: /sdk.erc1155burnable
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+# ERC1155Burnable
+
+Functionality available for contracts that implement the
+[`IERC1155Enumerable`](/contracts/IERC1155Enumerable) and
+[`IBurnableERC1155`](/contracts/IBurnableERC1155)
+interfaces.
+
+Allows you to burn NFTs (transfer them to a null address) to take them out of circulation.
+
+## burn
+
+Burn the specified NFTs from the **connected wallet**.
+
+```javascript
+// The token ID to burn NFTs of
+const tokenId = 0;
+// The amount of the NFT you want to burn
+const amount = 2;
+
+const txResult = await contract.erc1155.burn(tokenId, amount);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### tokenId
+
+The token ID of the NFT(s) you want to burn.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const txResult = await contract.erc1155.burn(
+  // highlight-next-line
+  "{{token_id}}",
+  "{{amount}}",
+);
+```
+
+#### amount
+
+The amount of the NFT you want to burn of the specified token ID.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const txResult = await contract.erc1155.burn(
+  "{{token_id}}",
+  // highlight-next-line
+  "{{amount}}",
+);
+```
+
+</div>
+</details>
+
+## burnFrom
+
+The same as [`burn`](#burn), but allows you to specify the wallet to burn NFTs from.
+
+```javascript
+// The address of the wallet to burn NFTS from
+const account = "0x...";
+// The token ID to burn NFTs of
+const tokenId = 0;
+// The amount of this NFT you want to burn
+const amount = 2;
+
+const txResult = await contract.erc1155.burnFrom(account, tokenId, amount);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### account
+
+The address of the wallet to burn NFTs from.
+
+Must be a `string`.
+
+```javascript
+const txResult = await contract.erc1155.burnFrom(
+  // highlight-next-line
+  "{{wallet_address}}", // Address to burn from
+  "{{token_id}}",
+  "{{amount}}",
+);
+```
+
+#### tokenId
+
+Same as [`tokenId` in `burn`](#tokenid).
+
+#### amount
+
+Same as [`amount` in `burn`](#amount).
+
+</div>
+</details>
+
+## burnBatch
+
+Burn multiple different NFTs in the same transaction from the **connected wallet**.
+
+```javascript
+// The token IDs to burn NFTs of
+const tokenIds = [0, 1];
+// The amounts of each NFT you want to burn
+const amounts = [2, 2];
+
+const result = await contract.erc1155.burnBatch(tokenIds, amounts);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### tokenIds
+
+An array of token IDs of the NFTs you want to burn.
+
+Must be an array of `string`, `number`, or `BigNumber`.
+
+```javascript
+const result = await contract.erc1155.burnBatch(
+  // highlight-next-line
+  [0, 1], // Burn token ID 0 and token ID 1
+  [2, 2],
+);
+```
+
+#### amounts
+
+An array of the amounts of each NFT you want to burn.
+
+The index of each amount corresponds to the index of the token ID in the `tokenIds` array.
+
+For example, the first item in the `tokenIds` array will have the first item in the `amounts` array burned.
+
+Must be an array of `string`, `number`, or `BigNumber`.
+
+```javascript
+const result = await contract.erc1155.burnBatch(
+  [0, 1],
+  // highlight-next-line
+  [2, 2], // In this case, 2 of token ID 0 and 2 of token ID 1 will be burned
+);
+```
+
+</div>
+</details>
+
+## burnBatchFrom
+
+Burn the batch NFTs from the specified wallet
+
+```javascript
+// The address of the wallet to burn NFTS from
+const address = "0x...";
+// The token IDs to burn NFTs of
+const tokenIds = [0, 1];
+// The amounts of each NFT you want to burn
+const amounts = [2, 2];
+
+const result = await contract.erc1155.burnBatchFrom(address, tokenIds, amounts);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### address
+
+The address of the wallet to burn NFTs from.
+
+Must be a `string`.
+
+```javascript
+const result = await contract.erc1155.burnBatchFrom(
+  // highlight-next-line
+  "{{address}}",
+  [0, 1],
+  [2, 2],
+);
+```
+
+#### tokenIds
+
+Same as [`tokenIds` in `burnBatch`](#tokenids).
+
+#### amounts
+
+Same as [`amounts` in `burnBatch`](#amounts).
+
+</div>
+</details>

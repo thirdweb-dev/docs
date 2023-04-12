@@ -12,6 +12,8 @@ Generic hook for calling any smart contract function that requires a **transacti
 
 ```jsx
 import { useContractWrite } from "@thirdweb-dev/react";
+
+const { mutateAsync, isLoading, error } = useContractWrite(contract, "setName");
 ```
 
 ## Usage
@@ -39,7 +41,7 @@ function App() {
     <Web3Button
       contractAddress={contractAddress}
       // Calls the "setName" function on your smart contract with "My Name" as the first argument
-      action={() => mutateAsync(["My Name"])}
+      action={() => mutateAsync({ args: ["My Name"] })}
     >
       Send Transaction
     </Web3Button>
@@ -48,6 +50,10 @@ function App() {
 ```
 
 ## Configuration
+
+<details>
+  <summary>Function Name</summary>
+  <div>
 
 ### Function Name
 
@@ -81,6 +87,13 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>
+
+<details>
+  <summary>Arguments</summary>
+  <div>
 
 ### Arguments
 
@@ -125,6 +138,13 @@ function App() {
 }
 ```
 
+</div>
+</details>
+
+<details>
+  <summary>Call Overrides</summary>
+  <div>
+
 ### Call Overrides (optional)
 
 Override the default transaction options by providing an `overrides` object as the final argument in your
@@ -166,3 +186,6 @@ function App() {
 
 export default App;
 ```
+
+</div>
+</details>

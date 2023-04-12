@@ -16,6 +16,8 @@ This is because the marketplace needs permission to execute sales and transfer t
 
 ```jsx
 import { useCreateDirectListing } from "@thirdweb-dev/react";
+
+const { mutateAsync, isLoading, error } = useCreateDirectListing(contract);
 ```
 
 ## Usage
@@ -68,13 +70,31 @@ function App() {
 
 ## Configuration
 
+<details>
+  <summary>assetContractAddress</summary>
+  <div>
+
 ### assetContractAddress (required)
 
 The address of the NFT smart contract that you want to list.
 
+</div>
+</details>
+
+<details>
+  <summary>tokenId</summary>
+  <div>
+
 ### tokenId (required)
 
 The token ID of the NFT that you want to list.
+
+</div>
+</details>
+
+<details>
+  <summary>pricePerToken</summary>
+  <div>
 
 ### pricePerToken (required)
 
@@ -82,6 +102,13 @@ The price to **buy** each token in the listing.
 
 - For ERC721 NFTs, this is the price to buy the NFT outright.
 - For ERC1155 NFTs, this is the price to `1` quantity of the NFT.
+
+</div>
+</details>
+
+<details>
+  <summary>currencyContractAddress</summary>
+  <div>
 
 ### currencyContractAddress (optional)
 
@@ -142,9 +169,23 @@ function App() {
 }
 ```
 
+</div>
+</details>
+
+<details>
+  <summary>isReservedListing</summary>
+  <div>
+
 ### isReservedListing (optional)
 
 When set to true, the seller must explicitly approve which wallet addresses can buy the NFT.
+
+</div>
+</details>
+
+<details>
+  <summary>quantity</summary>
+  <div>
 
 ### quantity (optional)
 
@@ -153,12 +194,29 @@ How many tokens to include in the listing.
 - For ERC721 NFTs, this is always `1`.
 - For ERC1155 NFTs, this is the quantity of tokens to include in the listing.
 
+</div>
+</details>
+
+<details>
+  <summary>startTimestamp</summary>
+  <div>
+
 ### startTimestamp (optional)
 
 A `Date` object for the start time of the listing.
 
 The default value is `new Date()`, which is the current time.
 
+</div>
+</details>
+
+<details>
+  <summary>endTimestamp</summary>
+  <div>
+
 ### endTimestamp (optional)
 
 A `Date` object for the end time of the listing (when the listing will expire).
+
+</div>
+</details>

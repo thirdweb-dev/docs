@@ -12,6 +12,8 @@ Hook to get an english auction listing from a [Marketplace V3](https://thirdweb.
 
 ```jsx
 import { useEnglishAuction } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useEnglishAuction(contract, listingId);
 ```
 
 ## Usage
@@ -40,6 +42,10 @@ function App() {
 
 ## Configuration
 
+<details>
+  <summary>listingId (required)</summary>
+  <div>
+
 ### listingId (required)
 
 The ID of the listing to get.
@@ -66,7 +72,14 @@ function App() {
 }
 ```
 
+</div>
+</details>
+
 ## Return Value
+
+<details>
+  <summary>Return Value</summary>
+  <div>
 
 The hook's `data` property, once loaded, will be an `EnglishAuction` object, containing the following properties:
 
@@ -148,3 +161,6 @@ The hook's `data` property, once loaded, will be an `EnglishAuction` object, con
   status: Status;
 }
 ````
+
+</div>
+</details>

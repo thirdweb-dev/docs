@@ -7,12 +7,14 @@ displayed_sidebar: react
 Hook for claiming an NFT from a smart contract.
 
 Available to use on smart contracts that implement a
-[Claimable](/contractkit/interfaces/erc721claimable) interface, and
-follow either the [ERC721](/contractkit/interfaces/erc721)
-or [ERC1155](/contractkit/interfaces/erc1155) standard.
+[Claimable](/solidity/extensions/erc721claimable) interface, and
+follow either the [ERC721](/solidity/extensions/erc721)
+or [ERC1155](/solidity/extensions/erc1155) standard.
 
 ```jsx
 import { useClaimNFT } from "@thirdweb-dev/react";
+
+const { mutateAsync, isLoading, error } = useClaimNFT(contract);
 ```
 
 ## Usage
@@ -48,9 +50,13 @@ function App() {
 
 ### to (required)
 
+<details>
+  <summary>to</summary>
+  <div>
+
 The wallet address to mint the NFT(s) to.
 
-Use the [`useAddress`](/react/react.useAddress) hook to get the currently connected wallet address.
+Use the [`useAddress`](/react/react.useaddress) hook to get the currently connected wallet address.
 
 ```jsx
 import {
@@ -85,6 +91,13 @@ function App() {
 }
 ```
 
+</div>
+</details>
+
+<details>
+  <summary>quantity</summary>
+  <div>
+
 ### quantity (required)
 
 The number of NFTs you wish to claim.
@@ -117,6 +130,13 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>
+
+<details>
+  <summary>tokenId</summary>
+  <div>
 
 ### tokenId (required)
 
@@ -152,6 +172,13 @@ function App() {
 }
 ```
 
+</div>
+</details>
+
+<details>
+  <summary>options</summary>
+  <div>
+
 ### options (optional)
 
 Customizable `ClaimOptions` object that can be used to override the default behaviour of the hook.
@@ -160,7 +187,7 @@ There are three options available:
 
 - `checkERC20Allowance` - Whether to check the ERC20 allowance of the sender, defaults to true.
 - `currencyAddress` - The currency to pay for each token claimed, defaults to `NATIVE_TOKEN_ADDRESS` for native currency.
-- `pricePerToken`: The price to pay for each token claimed. Not relevant when using claim conditions.
+- `pricePerToken` - The price to pay for each token claimed. Not relevant when using claim conditions.
 
 ```jsx
 import { useContract, useClaimNFT, Web3Button } from "@thirdweb-dev/react";
@@ -193,3 +220,6 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>

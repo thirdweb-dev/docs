@@ -6,10 +6,12 @@ displayed_sidebar: react
 
 Hook for burning ERC20 tokens on a smart contract.
 
-Available to use on smart contracts that implement the [ERC20](/contractkit/interfaces/erc20) standard.
+Available to use on smart contracts that implement the [ERC20](/solidity/extensions/erc20) standard.
 
 ```jsx
 import { useBurnToken } from "@thirdweb-dev/react";
+
+const { mutateAsync, isLoading, error } = useBurnToken(contract);
 ```
 
 ## Usage
@@ -43,6 +45,10 @@ function App() {
 
 ## Configuration
 
+<details>
+  <summary>amount (required)</summary>
+  <div>
+
 ### amount (required)
 
 The amount of tokens to burn.
@@ -74,3 +80,6 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>

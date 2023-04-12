@@ -1,0 +1,49 @@
+---
+title: Connect Wallet Button
+slug: /react-native.connectwallet
+displayed_sidebar: react-native
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Button to connect a user&rsquo;s wallet to your app, with support for
+MetaMask,
+Coinbase,
+Rainbow,
+TrustWallet and will add all other WalletConnect wallets.
+
+Wallets you provide to the `ThirdwebProvider`'s `supportedWallets` prop are shown as options
+to connect to (if not configured, the default options are shown: MetaMask and CoinbaseWallet).
+
+```jsx
+import { ConnectWallet } from "@thirdweb-dev/react-native";
+```
+
+## Usage
+
+Render the `ConnectWallet` component to display the button.
+
+```jsx
+import { ConnectWallet } from "@thirdweb-dev/react-native";
+
+function App() {
+  return <ConnectWallet />;
+}
+```
+
+## Configuration
+
+### theme
+
+You can pass a custom `theme` object that will control the colors of the button
+or pass one of our default themes: `light` or `dark`.
+
+```jsx
+import { ConnectWallet } from "@thirdweb-dev/react-native";
+
+function App() {
+  return <ConnectWallet theme="light" />;
+}
+```

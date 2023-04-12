@@ -1,0 +1,37 @@
+---
+title: Call Functions
+slug: /contract.write
+hide_title: true
+---
+
+# Call Functions
+
+If the functionality of your smart contract does not come under one of the [extension interfaces](/typescript/extensions#extensions),
+use the generic `Write` method to call any function on the smart contract.
+
+The result of the transaction can be read by awaiting the result of the `Write`.
+The call will be awaited until the transaction is mined and the transaction receipt is available.
+
+## Usage
+
+```csharp
+var data = await contract.Write("functionName");
+```
+
+## Configuration
+
+### functionName
+
+The name of the function, view, mapping, variable, etc. on your smart contract.
+
+Must be a `string`.
+
+### args
+
+The arguments to the function/variable, in the same order they are on your smart contract.
+
+If you provide too few or too many arguments, the function will throw an error.
+
+```csharp
+var data = await contract.Read<int>("functionName", new object[] { "arg1", "arg2" });
+```

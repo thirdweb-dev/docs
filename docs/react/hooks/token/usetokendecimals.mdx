@@ -5,13 +5,15 @@ displayed_sidebar: react
 ---
 
 Hook for fetching the [decimals](https://docs.openzeppelin.com/contracts/3.x/erc20#a-note-on-decimals)
-of an [ERC20](/contractkit/interfaces/erc20) token.
+of an [ERC20](/solidity/extensions/erc20) token.
 
 Tokens usually opt for a value of 18, imitating the relationship between Ether and Wei.
 Therefore, `18` is the default value returned by this function, unless your ERC20 contract explicitly overrides it.
 
 ```jsx
 import { useTokenDecimals } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useTokenDecimals(contract);
 ```
 
 ## Usage
@@ -32,8 +34,15 @@ function App() {
 
 ## Return Value
 
+<details>
+  <summary>Return Value</summary>
+  <div>
+
 The hook's `data` property, once loaded, contains the decimals of the ERC20 token.
 
 ```ts
 number;
 ```
+
+</div>
+</details>

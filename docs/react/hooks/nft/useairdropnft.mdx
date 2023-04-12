@@ -10,13 +10,15 @@ import CodeBlock from "@theme/CodeBlock";
 
 Hook for airdropping ERC1155 NFT tokens to multiple wallet addresses at once.
 
-Available to use on smart contracts that implement the [ERC1155](/contractkit/interfaces/erc1155) standard.
+Available to use on smart contracts that implement the [ERC1155](/solidity/extensions/erc1155) standard.
 
 Performs a batch transfer from the connected wallet to the specified addresses.
 This means you need to have the total number of tokens you wish to airdrop available in the wallet that performs this transaction.
 
 ```jsx
 import { useAirdropNFT } from "@thirdweb-dev/react";
+
+const { mutateAsync, isLoading, error } = useAirdropNFT(contract);
 ```
 
 ## Usage
@@ -59,6 +61,10 @@ function App() {
 
 ## Configuration
 
+<details>
+  <summary>tokenId (required)</summary>
+  <div>
+
 ### tokenId (required)
 
 The token ID of the NFT to airdrop.
@@ -91,6 +97,13 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>
+
+<details>
+  <summary>addresses (required)</summary>
+  <div>
 
 ### addresses (required)
 
@@ -138,3 +151,6 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>

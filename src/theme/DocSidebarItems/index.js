@@ -10,12 +10,7 @@ import styles from "../DocSidebarItem/Link/styles.module.css";
 // TODO this triggers whole sidebar re-renders on navigation
 function DocSidebarItems({ items, ...props }) {
   // Category logic (i.e. "Build contracts", etc.)
-  const showCategoryPages = [
-    "/platform-overview",
-    "/deploy",
-    "/templates",
-    "/cli",
-  ];
+  const showCategoryPages = ["/platform-overview", "/templates"];
   const checkIfShowCategoryPages = (item) => {
     // check if starts with
     return (
@@ -30,43 +25,50 @@ function DocSidebarItems({ items, ...props }) {
     props?.level === 1 && !checkIfShowCategoryPages(props?.activePath);
 
   const sidebarItems = [
-    // Overview pages
-    ["Home", "Platform Overview", "Getting Started"],
-
-    // Tools
-    [
-      "ContractKit",
-      "Prebuilt Contracts",
-      "EVM SDK",
-      "Solana SDK",
-      "UI Components",
-      "Deploy",
-      "Publish",
-      "Dashboard",
-    ],
-
-    // Infrastructure
-    ["Auth", "Storage"],
-    // //Solutions
-    ["CommerceKit", "GamingKit"],
-
-    // SDK References
-    [
-      "React",
-      "React Native",
-      "TypeScript",
-      "Python",
-      "Go",
-      "Unity",
-      "Solidity",
-    ],
-
-    // Resources
-    [
-      "Templates",
-      "Guides",
-      // "CLI" // Should we have this here?
-    ],
+    {
+      title: null, // No title for the first section
+      items: ["Home", "Overview ", "Getting Started"],
+    },
+    {
+      title: "Tools",
+      items:
+        // Tools
+        [
+          "Solidity SDK",
+          "Explore",
+          "EVM SDK",
+          "Solana SDK",
+          "UI Components",
+          "Deploy",
+          "Publish",
+          "Dashboard",
+          "CLI",
+        ],
+    },
+    {
+      title: "Infrastructure",
+      items: ["Auth", "Storage", "Wallet"],
+    },
+    {
+      title: "Solutions",
+      items: ["CommerceKit", "GamingKit"],
+    },
+    {
+      title: "SDK References",
+      items: [
+        "React",
+        "React Native",
+        "TypeScript",
+        "Python",
+        "Go",
+        "Unity",
+        "Solidity",
+      ],
+    },
+    {
+      title: "Resources",
+      items: ["Templates", "Guides", "Glossary"],
+    },
   ];
 
   const formatCategoryName = (name) => {
@@ -77,16 +79,24 @@ function DocSidebarItems({ items, ...props }) {
       return "SDK";
     }
 
+    if (formatted === "Pre-built-contracts") {
+      return "Explore";
+    }
+
     if (formatted === "Ui-components") {
       return "UI Components";
     }
 
-    if (formatted === "Contractkit") {
-      return "ContractKit";
-    }
-
     if (formatted === "Gamingkit") {
       return "GamingKit";
+    }
+
+    if (formatted === "Commercekit") {
+      return "CommerceKit";
+    }
+
+    if (formatted === "Wallet" || formatted === "Wallets") {
+      return "Wallet";
     }
 
     if (formatted === "Typescript") {
@@ -97,17 +107,17 @@ function DocSidebarItems({ items, ...props }) {
       return "Solidity";
     }
 
-    // If not the word pre-built, split by dash and capitalize each word
-    if (formatted !== "Pre-built-contracts") {
-      return formatted
-        .split("-")
-        .map((word) => {
-          return word.charAt(0).toUpperCase() + word.slice(1);
-        })
-        .join(" ");
-    } else {
-      return "Prebuilt Contracts";
+    if (formatted === "Cli") {
+      return "CLI";
     }
+
+    // If not the word pre-built, split by dash and capitalize each word
+    return formatted
+      .split("-")
+      .map((word) => {
+        return word.charAt(0).toUpperCase() + word.slice(1);
+      })
+      .join(" ");
   };
 
   if (showCategories) {
@@ -115,10 +125,13 @@ function DocSidebarItems({ items, ...props }) {
       <DocSidebarItemsExpandedStateProvider>
         {sidebarItems.map((section, index) => (
           <div key={index} className="sidebar-section-container">
+            {section.title && <p className="section-title">{section.title}</p>}
             {items
-              .filter((item) => section.includes(item.label))
+              .filter((item) => section.items.includes(item.label))
               .sort(
-                (a, b) => section.indexOf(a.label) - section.indexOf(b.label),
+                (a, b) =>
+                  section.items.indexOf(a.label) -
+                  section.items.indexOf(b.label),
               )
               .map((item, index) => (
                 <DocSidebarItem

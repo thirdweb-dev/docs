@@ -8,6 +8,8 @@ Hook to get a list of all English auctions from a [Marketplace V3](https://third
 
 ```jsx
 import { useEnglishAuctions } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useEnglishAuctions(contract);
 ```
 
 ## Usage
@@ -32,7 +34,9 @@ function App() {
 
 ## Configuration
 
-### filter (optional)
+<details>
+  <summary>filter (optional)</summary>
+  <div>
 
 The `filter` object allows you to filter the auctions returned by the hook.
 
@@ -64,7 +68,14 @@ function App() {
 }
 ```
 
+</div>
+</details>
+
 ## Return Value
+
+<details>
+  <summary>Return Value</summary>
+  <div>
 
 The hook's `data` property, once loaded, is an
 array of `EnglishAuction` objects, each containing the following properties:
@@ -148,3 +159,6 @@ array of `EnglishAuction` objects, each containing the following properties:
 }
 [];
 ```
+
+</div>
+</details>

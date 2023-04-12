@@ -13,12 +13,17 @@ Hook for getting the active claim condition on a drop contract for a specific wa
 As part of our [improved claim conditions](https://blog.thirdweb.com/announcing-improved-claim-conditions/) update, each wallet address can
 have unique claim conditions at any given time. This hook allows you to get the active claim condition for a specific wallet address at this time.
 
-Available for contracts that implement the [claim conditions](/contractkit/interfaces/erc721claimablewithconditions)
+Available for contracts that implement the [claim conditions](/solidity/extensions/erc721claimablewithconditions)
 interface; such as [NFT Drop](https://thirdweb.com/thirdweb.eth/DropERC721), [Edition Drop](https://thirdweb.com/thirdweb.eth/DropERC1155),
 and [Token Drop](https://thirdweb.com/thirdweb.eth/DropERC20).
 
 ```jsx
 import { useActiveClaimConditionForWallet } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useActiveClaimConditionForWallet(
+  contract,
+  "{{wallet_address}}",
+);
 ```
 
 ## Usage
@@ -53,6 +58,10 @@ function App() {
 
 ## Configuration
 
+<details>
+  <summary>address (required)</summary>
+  <div>
+
 ### address (required)
 
 The second parameter is the `address` of the wallet you want to get the active claim condition for.
@@ -82,6 +91,13 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>
+
+<details>
+  <summary>tokenId (ERC1155 only)</summary>
+  <div>
 
 ### tokenId (ERC1155 only)
 
@@ -113,7 +129,14 @@ function App() {
 }
 ```
 
+</div>
+</details>
+
 ## Return Value
+
+<details>
+  <summary>Return Value</summary>
+  <div>
 
 The hook's `data` property, once loaded, contains the following properties:
 
@@ -137,3 +160,6 @@ The hook's `data` property, once loaded, contains the following properties:
   };
 }
 ```
+
+</div>
+</details>

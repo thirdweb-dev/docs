@@ -10,6 +10,8 @@ This takes into account the increase and decrease in supply when tokens are mint
 
 ```jsx
 import { useTokenSupply } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useTokenSupply(contractAddress);
 ```
 
 ## Usage
@@ -23,11 +25,15 @@ import { useTokenSupply } from "@thirdweb-dev/react";
 const contractAddress = "{{contract_address}}";
 
 function App() {
-  const { data, isLoading, error } = useTokenSupply(contractAddress, "token");
+  const { data, isLoading, error } = useTokenSupply(contractAddress);
 }
 ```
 
 ## Return Value
+
+<details>
+  <summary>Return Value</summary>
+  <div>
 
 The hook returns an object containing the following data:
 
@@ -40,3 +46,6 @@ The hook returns an object containing the following data:
   displayValue: string;
 }
 ```
+
+</div>
+</details>

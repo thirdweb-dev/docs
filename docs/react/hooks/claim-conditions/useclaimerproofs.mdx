@@ -9,16 +9,21 @@ import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 import UseClaimerProofs from "@components/live-code/snippets/UseClaimerProofs";
 
-Hook to get the claimer proofs for an address for [ERC20](https://portal.thirdweb.com/contractkit/base-contracts/erc-20/erc20drop), [ERC721](https://portal.thirdweb.com/contractkit/base-contracts/erc-721/erc721drop), and [ERC1155](https://portal.thirdweb.com/contractkit/base-contracts/erc-1155/erc1155drop) drop contracts.
+Hook to get the claimer proofs for an address for [ERC20](https://portal.thirdweb.com/solidity/base-contracts/erc20drop), [ERC721](https://portal.thirdweb.com/solidity/base-contracts/erc721drop), and [ERC1155](https://portal.thirdweb.com/solidity/base-contracts/erc1155drop) drop contracts.
 
 A claimer proof is a set of data about a claimer's claim condition, including the claimer's address, the claimer's proof, and the claimer's max claimable amount, price, and currency address.
 
-Available for contracts that implement the [claim conditions](/contractkit/interfaces/erc721claimablewithconditions)
+Available for contracts that implement the [claim conditions](/solidity/extensions/erc721claimablewithconditions)
 interface; such as [NFT Drop](https://thirdweb.com/thirdweb.eth/DropERC721), [Edition Drop](https://thirdweb.com/thirdweb.eth/DropERC1155),
 and [Token Drop](https://thirdweb.com/thirdweb.eth/DropERC20).
 
 ```jsx
 import { useClaimerProofs } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useClaimerProofs(
+  contract,
+  "{{claimer_address}}",
+);
 ```
 
 ## Usage
@@ -43,6 +48,10 @@ function App() {
 ```
 
 ## Configuration
+
+<details>
+  <summary>claimerAddress (required)</summary>
+  <div>
 
 ### claimerAddress (required)
 
@@ -77,6 +86,13 @@ function App() {
 }
 ```
 
+</div>
+</details>
+
+<details>
+  <summary>tokenId (ERC1155 only)</summary>
+  <div>
+
 ### tokenId (ERC1155 only)
 
 When using the hook with ERC1155 contracts, pass the `tokenId` as the third parameter; as each token can have unique claim conditions.
@@ -105,6 +121,13 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>
+
+<details>
+  <summary>claimConditionID (optional)</summary>
+  <div>
 
 ### claimConditionID (optional)
 
@@ -135,8 +158,15 @@ function App() {
 }
 ```
 
+</div>
+</details>
+
 ## Return Value
 
+<details>
+  <summary>Return Value</summary>
+  <div>
+    
 The hook's `data` property, once loaded, contains the following properties:
 
 ```ts
@@ -148,3 +178,6 @@ The hook's `data` property, once loaded, contains the following properties:
     maxClaimable: string;
 }
 ```
+
+</div>
+</details>

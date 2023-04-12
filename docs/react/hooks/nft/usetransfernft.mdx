@@ -7,8 +7,8 @@ displayed_sidebar: react
 Hook for transferring ERC721 or ERC1155 NFTs to another wallet address.
 
 Available to use on contracts that implement either the
-[ERC721](https://portal.thirdweb.com/contractkit/interfaces/erc721)
-and [ERC1155](https://portal.thirdweb.com/contractkit/interfaces/erc1155)
+[ERC721](https://portal.thirdweb.com/solidity/extensions/erc721)
+and [ERC1155](https://portal.thirdweb.com/solidity/extensions/erc1155)
 interfaces, such as the [Edition](https://thirdweb.com/thirdweb.eth/TokenERC1155)
 or [NFT Collection](https://thirdweb.com/thirdweb.eth/TokenERC721).
 
@@ -17,6 +17,8 @@ It also must have the required amount of token(s) available to transfer.
 
 ```jsx
 import { useTransferNFT } from "@thirdweb-dev/react";
+
+const { mutateAsync, isLoading, error } = useTransferNFT(contract);
 ```
 
 ## Usage
@@ -57,6 +59,10 @@ function App() {
 ```
 
 ## Configuration
+
+<details>
+  <summary>to</summary>
+  <div>
 
 ### to (required)
 
@@ -103,6 +109,13 @@ function App() {
 }
 ```
 
+</div>
+</details>
+
+<details>
+  <summary>tokenId</summary>
+  <div>
+
 ### tokenId (required)
 
 The token ID of the NFT to transfer.
@@ -143,6 +156,13 @@ function App() {
 }
 ```
 
+</div>
+</details>
+
+<details>
+  <summary>amount</summary>
+  <div>
+
 ### amount (ERC1155 only)
 
 If you are using an ERC1155 contract, specify the amount of tokens to transfer.
@@ -182,3 +202,6 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>

@@ -18,8 +18,8 @@ export const iconMapping = {
   Unity: "/assets/languages/unity.webp",
   Solidity: "/assets/languages/solidity.png",
   Auth: "/assets/product/auth.png",
-  ContractKit: "/assets/product/extensions.png",
-  "Prebuilt Contracts": "/assets/product/contracts.png",
+  "Solidity SDK": "/assets/product/extensions.png",
+  Explore: "/assets/product/contracts.png",
   Dashboard: "/assets/product/dashboard.png",
   Deploy: "/assets/product/deploy.png",
   Publish: "/assets/product/publish.png",
@@ -27,15 +27,18 @@ export const iconMapping = {
   "EVM SDK": "/assets/product/sdk.png",
   "Solana SDK": "/assets/product/sdk.png",
   Solana: "/assets/product/sdk.png",
+  Wallet: "/assets/product/wallet.png",
   GamingKit: "/assets/product/sdk.png",
   CommerceKit: "/assets/product/sdk.png",
   Storage: "/assets/product/storage.png",
   "UI Components": "/assets/product/ui.png",
   Home: "/assets/icons/home.png",
-  "Platform Overview": "/assets/icons/wrench.png",
+  "Overview ": "/assets/icons/wrench.png",
   "Getting Started": "/assets/icons/rocket.png",
-  Templates: "/assets/sdk-reference.svg",
-  Guides: "/assets/guides.svg",
+  Templates: "/assets/resources/sdk-reference.svg",
+  Guides: "/assets/resources/guides.svg",
+  CLI: "/assets/product/CLI.png",
+  Glossary: "/assets/icons/journal-album.svg",
 };
 
 export default function DocSidebarItemLink({
@@ -50,6 +53,7 @@ export default function DocSidebarItemLink({
   const { href, label, className } = item;
   const isActive = isActiveSidebarItem(item, activePath);
   const isInternalLink = isInternalUrl(href);
+
   return (
     <li
       className={clsx(
@@ -101,7 +105,7 @@ export default function DocSidebarItemLink({
 
             ${
               (label === "Home" ||
-                label === "Platform Overview" ||
+                label === "Overview " ||
                 label === "Getting Started") &&
               styles.invertLightIcon
             }

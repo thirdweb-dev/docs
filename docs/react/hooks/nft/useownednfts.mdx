@@ -6,11 +6,13 @@ displayed_sidebar: react
 
 Hook for accessing a list of NFTs owned by a single wallet address.
 
-Available to use on smart contracts that implement the [ERC721](/contractkit/interfaces/erc721)
-or [ERC1155](/contractkit/interfaces/erc1155) standard.
+Available to use on smart contracts that implement the [ERC721](/solidity/extensions/erc721)
+or [ERC1155](/solidity/extensions/erc1155) standard.
 
 ```jsx
 import { useOwnedNFTs } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useOwnedNFTs(contract, "{{wallet_address}}");
 ```
 
 ## Usage
@@ -18,21 +20,23 @@ import { useOwnedNFTs } from "@thirdweb-dev/react";
 Provide your NFT collection contract and a wallet address as the arguments.
 
 ```jsx
-import { useOwnedNFTs, useContract } from "@thirdweb-dev/react";
+import { useOwnedNFTs, useContract, useAddress } from "@thirdweb-dev/react";
 
 // Your smart contract address
 const contractAddress = "{{contract_address}}";
 
 function App() {
+  const address = useAddress();
   const { contract } = useContract(contractAddress);
-  const { data, isLoading, error } = useOwnedNFTs(
-    contract,
-    "{{wallet_address}}",
-  );
+  const { data, isLoading, error } = useOwnedNFTs(contract, address);
 }
 ```
 
 ## Configuration
+
+<details>
+  <summary>ownerWalletAddress</summary>
+  <div>
 
 ### ownerWalletAddress (required)
 
@@ -59,7 +63,14 @@ function App() {
 }
 ```
 
+</div>
+</details>
+
 ## Return Value
+
+<details>
+  <summary>Return Value</summary>
+  <div>
 
 The hook's `data` property, once loaded, contains an array of `NFT` objects, each containing the following properties:
 
@@ -86,3 +97,6 @@ The hook's `data` property, once loaded, contains an array of `NFT` objects, eac
     quantityOwned?: number; // Only available for ERC1155
 }[];
 ```
+
+</div>
+</details>

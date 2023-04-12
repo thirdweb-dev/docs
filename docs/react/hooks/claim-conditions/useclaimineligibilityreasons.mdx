@@ -10,12 +10,17 @@ import CodeBlock from "@theme/CodeBlock";
 
 Hook for fetching the reasons a wallet is not eligible to claim tokens from a drop, if any.
 
-Available for contracts that implement the [claim conditions](/contractkit/interfaces/erc721claimablewithconditions)
+Available for contracts that implement the [claim conditions](/solidity/extensions/erc721claimablewithconditions)
 interface; such as [NFT Drop](https://thirdweb.com/thirdweb.eth/DropERC721), [Edition Drop](https://thirdweb.com/thirdweb.eth/DropERC1155),
 and [Token Drop](https://thirdweb.com/thirdweb.eth/DropERC20).
 
 ```jsx
 import { useClaimIneligibilityReasons } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useClaimIneligibilityReasons(contract, {
+  walletAddress: "{{wallet_address}}",
+  quantity: 1,
+});
 ```
 
 ## Usage
@@ -39,11 +44,13 @@ function App() {
 
 ## Configuration
 
-### eligibilityParams (required)
+<details>
+  <summary>eligibilityParams (required)</summary>
+  <div>
 
 The conditions to check eligibility for. The `walletAddress` and `quantity` properties are required.
 
-Use the [`useaddress`](/react/react.useAddress) hook to get the connected wallet address.
+Use the [`useaddress`](/react/react.useaddress) hook to get the connected wallet address.
 
 ```jsx
 import { useClaimIneligibilityReasons, useContract } from "@thirdweb-dev/react";
@@ -68,7 +75,12 @@ function App() {
 }
 ```
 
-### tokenId (ERC1155)
+</div>
+</details>
+
+<details>
+  <summary>tokenId (ERC1155)</summary>
+  <div>
 
 When using ERC1155 contracts, provide a third argument to specify the token ID.
 
@@ -95,7 +107,14 @@ function App() {
 }
 ```
 
+</div>
+</details>
+
 ## Return Value
+
+<details>
+  <summary>Return Value</summary>
+  <div>
 
 The hook's `data` property, once loaded, contains an array of `ClaimEligibility` strings, which may be empty.
 
@@ -127,3 +146,6 @@ export enum ClaimEligibility {
   Unknown = "No claim conditions found.",
 }
 ```
+
+</div>
+</details>

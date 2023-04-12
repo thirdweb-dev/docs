@@ -1,0 +1,48 @@
+---
+title: removeTransactionListener
+slug: /sdk.contractevents.removetransactionlistener
+---
+
+Remove a transaction listener from a contract, such as one created with [`addTransactionListener`](/typescript/sdk.contractevents.addtransactionlistener).
+
+## Usage
+
+Provide the listener function to unregister it.
+
+This must be the same function that was passed to `addTransactionListener`.
+
+```javascript
+// For example, if you registered a listener like this:
+contract.events.addTransactionListener((event) => {
+  console.log("Hello World!");
+});
+
+// You must unregister it like this, by providing the same function.
+contract.events.removeTransactionListener((event) => {
+  console.log("Hello World!");
+});
+```
+
+## Configuration
+
+### listener
+
+The listener to unregister.
+
+Provide the same function that was passed to `addTransactionListener`.
+
+```javascript
+// For example, if you registered a listener like this:
+contract.events.addTransactionListener((event) => {
+  console.log("Hello World!");
+});
+
+// You must unregister it like this, by providing the same function.
+contract.events.removeTransactionListener(
+  // highlight-start
+  (event) => {
+    console.log("Hello World!");
+  },
+  // highlight-end
+);
+```

@@ -1,0 +1,845 @@
+---
+title: English Auctions
+slug: /sdk.englishauctions
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+# EnglishAuctions
+
+Functionality available for contracts that implement the [`IEnglishAuctions`](/contracts/IEnglishAuctions) interface.
+
+## buyoutAuction
+
+Pay the full price per token to buy an NFT from an auction listing.
+
+```javascript
+const txResult = await contract.englishAuctions.buyoutAuction("{{listing_id}}");
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### listingId
+
+The ID of the listing to buy NFT(s) from.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const txResult = await contract.englishAuctions.buyoutAuction(
+  // highlight-next-line
+  "{{listing_id}}",
+);
+```
+
+</div>
+</details>
+
+## cancelAuction
+
+Cancel an auction listing you previously created.
+
+Only the creator of the listing can cancel it. Auctions cannot be canceled once a bid has been made.
+
+```javascript
+const txResult = await contract.englishAuctions.cancelAuction("{{listing_id}}");
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### listingId
+
+The ID of the listing to buy NFT(s) from.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const txResult = await contract.englishAuctions.cancelAuction(
+  // highlight-next-line
+  "{{listing_id}}",
+);
+```
+
+</div>
+</details>
+
+## closeAuctionForBidder
+
+After an auction has concluded _(and a [`buyout`](#buyoutauction) did not occur)_, execute the sale for the **buyer**,
+meaning the buyer receives the NFT(s).
+
+You must also call [`closeAuctionForSeller`](#closeauctionforseller) to execute the sale for the **seller**,
+meaning the seller receives the payment from the highest bid.
+
+```javascript
+const txResult = await contract.englishAuctions.closeAuctionForBidder(
+  "{{listing_id}}",
+);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### listingId
+
+The ID of the listing to execute the sale for.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const txResult = await contract.englishAuctions.closeAuctionForBidder(
+  // highlight-next-line
+  "{{listing_id}}",
+);
+```
+
+</div>
+</details>
+
+## closeAuctionForSeller
+
+After an auction has concluded _(and a [`buyout`](#buyoutauction) did not occur)_, execute the sale for the **seller**,
+meaning the seller receives the payment from the highest bid.
+
+You must also call [`closeAuctionForBidder`](#closeauctionforbidder) to execute the sale for the **buyer**, meaning the buyer receives the NFT(s).
+
+```javascript
+const txResult = await contract.englishAuctions.closeAuctionForSeller(
+  "{{listing_id}}",
+);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### listingId
+
+The ID of the listing to execute the sale for.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const txResult = await contract.englishAuctions.closeAuctionForSeller(
+  // highlight-next-line
+  "{{listing_id}}",
+);
+```
+
+</div>
+</details>
+
+## createAuction
+
+Create a new auction listing on the marketplace.
+
+```javascript
+const txResult = await contract.englishAuctions.createAuction({
+  assetContractAddress: "{{asset_contract_address}}", // Required - smart contract address of NFT to sell
+  tokenId: "{{token_id}}", // Required - token ID of the NFT to sell
+  buyoutBidAmount: "{{price_to_buy_nft}}", // Required - amount to buy the NFT and close the listing
+  minimumBidAmount: "{{reserve_price_for_bids}}", // Required - Minimum amount that bids must be to placed
+  currencyContractAddress: "{{currency_contract_address}}", // Optional - smart contract address of the currency to use for the listing
+  quantity: "{{quantity}}", // Optional - number of tokens to sell (1 for ERC721 NFTs)
+  startTimestamp: new Date(), // Optional - when the listing should start (default is now)
+  endTimestamp: new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000), // Optional - when the listing should end (default is 7 days from now)
+  bidBufferBps: 100, // Optional - percentage the next bid must be higher than the current highest bid (default is contract-level bid buffer bps)
+  timeBufferInSeconds: 60 * 10, // Optional - time in seconds that are added to the end time when a bid is placed (default is contract-level time buffer in seconds)
+});
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### assetContractAddress (required)
+
+The smart contract address of the NFT you want to list for sale.
+
+Must be a `string`.
+
+```javascript
+const txResult = await contract.englishAuctions.createAuction({
+  // highlight-next-line
+  assetContractAddress: "{{asset_contract_address}}", // Required - smart contract address of NFT to sell
+  tokenId: "{{token_id}}", // Required - token ID of the NFT to sell
+  buyoutBidAmount: "{{price_to_buy_nft}}", // Required - amount to buy the NFT and close the listing
+  minimumBidAmount: "{{reserve_price_for_bids}}", // Minimum amount that bids must be to
+});
+```
+
+#### tokenId (required)
+
+The token ID of the NFT you want to list for sale.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const txResult = await contract.englishAuctions.createAuction({
+  assetContractAddress: "{{asset_contract_address}}", // Required - smart contract address of NFT to sell
+  // highlight-next-line
+  tokenId: "{{token_id}}", // Required - token ID of the NFT to sell
+  buyoutBidAmount: "{{price_to_buy_nft}}", // Required - amount to buy the NFT and close the listing
+  minimumBidAmount: "{{reserve_price_for_bids}}", // Minimum amount that bids must be to
+});
+```
+
+#### buyoutBidAmount (required)
+
+The price to buy the NFT and close the listing immediately, executing a sale event for both buyer and seller.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const txResult = await contract.englishAuctions.createAuction({
+  assetContractAddress: "{{asset_contract_address}}", // Required - smart contract address of NFT to sell
+  tokenId: "{{token_id}}", // Required - token ID of the NFT to sell
+  // highlight-next-line
+  buyoutBidAmount: "{{price_to_buy_nft}}", // Required - amount to buy the NFT and close the listing
+  minimumBidAmount: "{{reserve_price_for_bids}}", // Minimum amount that bids must be to
+});
+```
+
+#### minimumBidAmount (required)
+
+The minimum "reserve price" for bids.
+
+The first bid must be at least this amount, and all subsequent bids must be higher than the previous highest bid by the
+percentage set in [`bidBufferBps`](#bidbufferbps).
+
+```javascript
+const txResult = await contract.englishAuctions.createAuction({
+  assetContractAddress: "{{asset_contract_address}}", // Required - smart contract address of NFT to sell
+  tokenId: "{{token_id}}", // Required - token ID of the NFT to sell
+  buyoutBidAmount: "{{price_to_buy_nft}}", // Required - amount to buy the NFT and close the listing
+  // highlight-next-line
+  minimumBidAmount: "{{reserve_price_for_bids}}", // Minimum amount that bids must be to
+});
+```
+
+#### currencyContractAddress (optional)
+
+The address of the ERC20 token smart contract you want buyers to pay with.
+
+Defaults to `NATIVE_TOKEN_ADDRESS` if not provided. e.g. Ether for Ethereum.
+
+Must be a `string`.
+
+```javascript
+const txResult = await contract.englishAuctions.createAuction({
+  assetContractAddress: "{{asset_contract_address}}", // Required - smart contract address of NFT to sell
+  tokenId: "{{token_id}}", // Required - token ID of the NFT to sell
+  buyoutBidAmount: "{{price_to_buy_nft}}", // Required - amount to buy the NFT and close the listing
+  minimumBidAmount: "{{reserve_price_for_bids}}", // Minimum amount that bids must be to
+  // highlight-next-line
+  currencyContractAddress: "{{currency_contract_address}}", // Optional - smart contract address of the currency to use for the listing
+});
+```
+
+#### quantity (optional)
+
+For ERC1155 NFTs, the number of tokens to sell in the listing.
+
+For ERC721 NFTs, this is always `1`.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const txResult = await contract.englishAuctions.createAuction({
+  assetContractAddress: "{{asset_contract_address}}", // Required - smart contract address of NFT to sell
+  tokenId: "{{token_id}}", // Required - token ID of the NFT to sell
+  buyoutBidAmount: "{{price_to_buy_nft}}", // Required - amount to buy the NFT and close the listing
+  minimumBidAmount: "{{reserve_price_for_bids}}", // Minimum amount that bids must be to
+  // highlight-next-line
+  quantity: "{{quantity}}", // Optional - number of tokens to sell (1 for ERC721 NFTs)
+});
+```
+
+#### startTimestamp (optional)
+
+The start timestamp of the listing.
+
+Must be a `Date`. The default is `new Date()` (now).
+
+```javascript
+const txResult = await contract.englishAuctions.createAuction({
+  assetContractAddress: "{{asset_contract_address}}", // Required - smart contract address of NFT to sell
+  tokenId: "{{token_id}}", // Required - token ID of the NFT to sell
+  buyoutBidAmount: "{{price_to_buy_nft}}", // Required - amount to buy the NFT and close the listing
+  minimumBidAmount: "{{reserve_price_for_bids}}", // Minimum amount that bids must be to
+  // highlight-next-line
+  startTimestamp: new Date(), // Optional - when the listing should start (default is now)
+});
+```
+
+#### endTimestamp (optional)
+
+The end timestamp of the listing.
+
+Must be a `Date`. The default is 7 days from now.
+
+```javascript
+const txResult = await contract.englishAuctions.createAuction({
+  assetContractAddress: "{{asset_contract_address}}", // Required - smart contract address of NFT to sell
+  tokenId: "{{token_id}}", // Required - token ID of the NFT to sell
+  buyoutBidAmount: "{{price_to_buy_nft}}", // Required - amount to buy the NFT and close the listing
+  minimumBidAmount: "{{reserve_price_for_bids}}", // Minimum amount that bids must be to
+  // highlight-next-line
+  endTimestamp: new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000), // Optional - when the listing should end (default is 7 days from now)
+});
+```
+
+#### bidBufferBps (optional)
+
+The percentage the next bid must be higher than the current highest bid.
+
+This is used to avoid users placing bids minuscule amounts higher than the current highest bid.
+
+Must be a `string`, `number`, `bigint`, or `BigNumber`.
+
+The default value is the bid buffer BPS set on the marketplace contract.
+
+```javascript
+const txResult = await contract.englishAuctions.createAuction({
+  assetContractAddress: "{{asset_contract_address}}", // Required - smart contract address of NFT to sell
+  tokenId: "{{token_id}}", // Required - token ID of the NFT to sell
+  buyoutBidAmount: "{{price_to_buy_nft}}", // Required - amount to buy the NFT and close the listing
+  minimumBidAmount: "{{reserve_price_for_bids}}", // Minimum amount that bids must be to
+  // highlight-next-line
+  bidBufferBps: 100, // Optional - percentage the next bid must be higher than the current highest bid (default is contract-level bid buffer bps)
+});
+```
+
+#### timeBufferInSeconds (optional)
+
+The time in seconds that is added to the end time of the auction when a bid is placed.
+
+This is used to avoid users placing a bid at the last moment and winning the auction.
+
+Must be a `string`, `number`, `bigint`, or `BigNumber`.
+
+The default value is the time buffer in seconds set on the marketplace contract.
+
+```javascript
+const txResult = await contract.englishAuctions.createAuction({
+  assetContractAddress: "{{asset_contract_address}}", // Required - smart contract address of NFT to sell
+  tokenId: "{{token_id}}", // Required - token ID of the NFT to sell
+  buyoutBidAmount: "{{price_to_buy_nft}}", // Required - amount to buy the NFT and close the listing
+  minimumBidAmount: "{{reserve_price_for_bids}}", // Minimum amount that bids must be to
+  // highlight-next-line
+  timeBufferInSeconds: 60 * 10, // Optional - time in seconds that are added to the end time when a bid is placed (default is contract-level time buffer in seconds)
+});
+```
+
+</div>
+</details>
+
+## executeSale
+
+Close the auction for **both** buyer and seller.
+
+This means the NFT(s) will be transferred to the buyer and the seller will receive the funds.
+
+This function can only be called **after** the auction has ended.
+
+```javascript
+const txResult = await contract.englishAuctions.executeSale("{{listing_id}}");
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### listingId
+
+The ID of the listing to execute the sale for.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const txResult = await contract.englishAuctions.executeSale("{{listing_id}}");
+```
+
+</div>
+</details>
+
+## getAll
+
+Retrieve data for all auction listings on the marketplace.
+
+```javascript
+const txResult = await contract.englishAuctions.getAll();
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### filter (optional)
+
+Optionally, provide a filter object to narrow the returned results.
+
+```javascript
+const allListings = await contract.englishAuctions.getAll(
+  // highlight-start
+  {
+    count: 100, // Number of listings to fetch
+    offeror: "{{offeror_address}}", // Has offers from this address
+    seller: "{{seller_address}}", // Being sold by this address
+    start: 0, // Start from this index (pagination)
+    tokenContract: "{{token_contract_address}}", // Only show NFTs from this collection
+    tokenId: "{{token_id}}", // Only show NFTs with this ID
+  },
+  // highlight-end
+);
+```
+
+### Return Value
+
+Returns an array of `EnglishAuction` objects containing the following properties:
+
+```typescript
+{
+  id: string; // The id of the auction listing
+  creatorAddress: string; // The wallet address of the creator of auction.
+  assetContractAddress: string; // The address of the asset being auctioned.
+  tokenId: string; // The ID of the token being auctioned.
+  quantity: string; // The quantity of tokens included in the auction.
+  currencyContractAddress: string; // The address of the currency to accept for the auction.
+  minimumBidAmount: string; // The minimum price that a bid must be in order to be accepted.
+  minimumBidCurrencyValue: CurrencyValue; // The `CurrencyValue` of the minimum bid amount. Useful for displaying the price information.
+  buyoutBidAmount: string; // The buyout price of the auction.
+  buyoutCurrencyValue: CurrencyValue; //  The `CurrencyValue` of the buyout price. Useful for displaying the price information.
+  timeBufferInSeconds: number; // This is a buffer e.g. x seconds.
+  bidBufferBps: number; // To be considered as a new winning bid, a bid must be at least x% greater than the previous bid.
+  startTimeInSeconds: number; // The start time of the auction.
+  endTimeInSeconds: number; // The end time of the auction.
+  asset: NFTMetadata; // The asset being auctioned.
+  status: Status; // Whether the listing is CREATED, COMPLETED, or CANCELLED.
+}
+[];
+```
+
+</div>
+</details>
+
+## getAllValid
+
+Get all the valid auction listings on the marketplace.
+
+A listing is considered valid if the:
+
+- Auction has not expired (i.e. current time is before the end time of the auction)
+- Auction has not been canceled
+- Auction has not been bought out (all quantity has been sold)
+
+```javascript
+const validListings = await contract.englishAuctions.getAllValid();
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### filter (optional)
+
+```javascript
+const validListings = await contract.englishAuctions.getAllValid(
+  // highlight-start
+  {
+    count: 100, // Number of listings to fetch
+    offeror: "{{offeror_address}}", // Has offers from this address
+    seller: "{{seller_address}}", // Being sold by this address
+    start: 0, // Start from this index (pagination)
+    tokenContract: "{{token_contract_address}}", // Only show NFTs from this collection
+    tokenId: "{{token_id}}", // Only show NFTs with this ID
+  },
+  // highlight-end
+);
+```
+
+### Return Value
+
+```typescript
+{
+  id: string; // The id of the auction listing
+  creatorAddress: string; // The wallet address of the creator of auction.
+  assetContractAddress: string; // The address of the asset being auctioned.
+  tokenId: string; // The ID of the token being auctioned.
+  quantity: string; // The quantity of tokens included in the auction.
+  currencyContractAddress: string; // The address of the currency to accept for the auction.
+  minimumBidAmount: string; // The minimum price that a bid must be in order to be accepted.
+  minimumBidCurrencyValue: CurrencyValue; // The `CurrencyValue` of the minimum bid amount. Useful for displaying the price information.
+  buyoutBidAmount: string; // The buyout price of the auction.
+  buyoutCurrencyValue: CurrencyValue; //  The `CurrencyValue` of the buyout price. Useful for displaying the price information.
+  timeBufferInSeconds: number; // This is a buffer e.g. x seconds.
+  bidBufferBps: number; // To be considered as a new winning bid, a bid must be at least x% greater than the previous bid.
+  startTimeInSeconds: number; // The start time of the auction.
+  endTimeInSeconds: number; // The end time of the auction.
+  asset: NFTMetadata; // The asset being auctioned.
+  status: Status; // Whether the listing is CREATED, COMPLETED, or CANCELLED.
+}
+[];
+```
+
+</div>
+</details>
+
+## getAuction
+
+Retrieve data for a specific auction listing on the marketplace using the listing ID.
+
+```javascript
+const listing = await contract.englishAuctions.getAuction("{{listing_id}}");
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### listingId
+
+The ID of the listing to retrieve.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const listing = await contract.englishAuctions.getAuction(
+  // highlight-next-line
+  "{{listing_id}}",
+);
+```
+
+### Return Value
+
+```typescript
+{
+  id: string; // The id of the auction listing
+  creatorAddress: string; // The wallet address of the creator of auction.
+  assetContractAddress: string; // The address of the asset being auctioned.
+  tokenId: string; // The ID of the token being auctioned.
+  quantity: string; // The quantity of tokens included in the auction.
+  currencyContractAddress: string; // The address of the currency to accept for the auction.
+  minimumBidAmount: string; // The minimum price that a bid must be in order to be accepted.
+  minimumBidCurrencyValue: CurrencyValue; // The `CurrencyValue` of the minimum bid amount. Useful for displaying the price information.
+  buyoutBidAmount: string; // The buyout price of the auction.
+  buyoutCurrencyValue: CurrencyValue; //  The `CurrencyValue` of the buyout price. Useful for displaying the price information.
+  timeBufferInSeconds: number; // This is a buffer e.g. x seconds.
+  bidBufferBps: number; // To be considered as a new winning bid, a bid must be at least x% greater than the previous bid.
+  startTimeInSeconds: number; // The start time of the auction.
+  endTimeInSeconds: number; // The end time of the auction.
+  asset: NFTMetadata; // The asset being auctioned.
+  status: Status; // Whether the listing is CREATED, COMPLETED, or CANCELLED.
+}
+```
+
+</div>
+</details>
+
+## getBidBufferBps
+
+Get the basis points of the bid buffer.
+
+This is the percentage higher that a new bid must be than the current highest bid in order to be placed.
+
+If there is no current bid, the bid must be at least the minimum bid amount.
+
+Returns the value in percentage format, e.g. 100 = 1%.
+
+```javascript
+const bidBufferBps = await contract.englishAuctions.getBidBufferBps(
+  "{{listing_id}}",
+);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### listingId
+
+The ID of the listing to retrieve.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const bidBufferBps = await contract.englishAuctions.getBidBufferBps(
+  // highlight-next-line
+  "{{listing_id}}",
+);
+```
+
+### Return Value
+
+Returns a `number` representing the basis points of the bid buffer.
+
+```typescript
+number;
+```
+
+</div>
+</details>
+
+## getMinimumNextBid
+
+Helper function to calculate the value that the next bid must be in order to be accepted.
+
+- If there is no current bid, the bid must be at least the minimum bid amount.
+- If there is a current bid, the bid must be at least the current bid amount + the bid buffer.
+
+```javascript
+const minimumNextBid = await contract.englishAuctions.getMinimumNextBid(
+  "{{listing_id}}",
+);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### listingId
+
+The ID of the listing to retrieve the minimum next bid for.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const minimumNextBid = await contract.englishAuctions.getMinimumNextBid(
+  // highlight-next-line
+  "{{listing_id}}",
+);
+```
+
+### Return Value
+
+Returns a `CurrencyValue` object containing the following properties:
+
+```typescript
+{
+  symbol: string;
+  value: BigNumber;
+  name: string;
+  decimals: number;
+  displayValue: string;
+}
+```
+
+</div>
+</details>
+
+## getTotalCount
+
+Get the total number of auction listings on the marketplace.
+
+```javascript
+const numListings = await contract.englishAuctions.getTotalCount();
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+### Return Value
+
+Returns a `BigNumber` representing the total number of auction listings on the marketplace.
+
+```typescript
+BigNumber;
+```
+
+</div>
+</details>
+
+## getWinner
+
+Get the wallet address that won an auction.
+
+Can only be called _after_ the auction has ended.
+
+```javascript
+const winner = await contract.englishAuctions.getWinner("{{listing_id}}");
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### listingId
+
+The ID of the listing to retrieve the winner for.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const winner = await contract.englishAuctions.getWinner(
+  // highlight-next-line
+  "{{listing_id}}",
+);
+```
+
+### Return Value
+
+Returns a `string` representing the wallet address of the winner.
+
+```typescript
+string;
+```
+
+</div>
+</details>
+
+## getWinningBid
+
+Get the current highest bid of an **active** auction.
+
+```javascript
+const winningBid = await contract.englishAuctions.getWinningBid(
+  "{{listing_id}}",
+);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### listingId
+
+The ID of the listing to retrieve the winning bid for.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const winningBid = await contract.englishAuctions.getWinningBid(
+  // highlight-next-line
+  "{{listing_id}}",
+);
+```
+
+### Return Value
+
+Returns a `Bid` object containing the following properties:
+
+```typescript
+{
+  auctionId: string; // The id of the auction.
+  bidderAddress: string; // The address of the buyer who made the offer.
+  currencyContractAddress: string; // The currency contract address of the offer token.
+  bidAmount: string; // The amount of coins offered per token.
+  bidAmountCurrencyValue: {
+    symbol: string;
+    value: BigNumber;
+    name: string;
+    decimals: number;
+    displayValue: string;
+  }
+}
+```
+
+</div>
+</details>
+
+## isWinningBid
+
+Check if a value is/would be the current winning bid of an auction.
+
+```javascript
+const isWinningBid = await contract.englishAuctions.isWinningBid(
+  "{{listing_id}}",
+  "{{bid_amount}}",
+);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### listingId
+
+The ID of the listing to check if a value is the winning bid for.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const isWinningBid = await contract.englishAuctions.isWinningBid(
+  // highlight-next-line
+  "{{listing_id}}",
+  "{{bid_amount}}",
+);
+```
+
+#### bidAmount
+
+The amount of the bid to check if it is the winning bid.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const isWinningBid = await contract.englishAuctions.isWinningBid(
+  "{{listing_id}}",
+  // highlight-next-line
+  "{{bid_amount}}",
+);
+```
+
+### Return Value
+
+Returns a `boolean` representing whether the value is the winning bid.
+
+```typescript
+boolean;
+```
+
+</div>
+</details>
+
+## makeBid
+
+Place a new bid on an auction listing.
+
+```javascript
+const txResult = await contract.englishAuctions.makeBid(
+  "{{listing_id}}",
+  "{{bid_amount}}",
+);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### listingId
+
+The ID of the listing to place a bid on.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const txResult = await contract.englishAuctions.makeBid(
+  // highlight-next-line
+  "{{listing_id}}",
+  "{{bid_amount}}",
+);
+```
+
+#### bidAmount
+
+The amount of the bid to place in the currency of the listing.
+
+Use [`getNextBidAmount`](#getnextbidamount) to get the minimum amount for the next bid.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const txResult = await contract.englishAuctions.makeBid(
+  "{{listing_id}}",
+  // highlight-next-line
+  "{{bid_amount}}",
+);
+```
+
+</div>
+</details>

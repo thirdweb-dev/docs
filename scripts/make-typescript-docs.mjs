@@ -137,4 +137,5 @@ async function copyReadMe() {
   );
 }
 
-main();
+// Don't autogenerate Typescript docs anymore
+// main();

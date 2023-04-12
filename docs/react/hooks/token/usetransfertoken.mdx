@@ -7,7 +7,7 @@ displayed_sidebar: react
 Hook for transferring tokens on an ERC20 contract.
 
 Available to use on contracts that implement the
-[ERC20](https://portal.thirdweb.com/contractkit/interfaces/erc20)
+[ERC20](https://portal.thirdweb.com/solidity/extensions/erc20)
 interface, such as the [Token](https://thirdweb.com/thirdweb.eth/TokenERC20) contract.
 
 The wallet address that initiates this transaction must have a balance of tokens
@@ -15,6 +15,8 @@ greater than or equal to the amount being transferred.
 
 ```jsx
 import { useTransferToken } from "@thirdweb-dev/react";
+
+const { mutate, isLoading, error } = useTransferToken(contract);
 ```
 
 ## Usage
@@ -55,6 +57,10 @@ function App() {
 
 ## Configuration
 
+<details>
+  <summary>to (required)</summary>
+  <div>
+
 ### to (required)
 
 The wallet address to transfer tokens to.
@@ -93,6 +99,13 @@ function App() {
 }
 ```
 
+</div>
+</details>
+
+<details>
+  <summary>amount (required)</summary>
+  <div>
+
 ### amount (required)
 
 The quantity of tokens to transfer. Can be a `string` or `number`.
@@ -130,3 +143,6 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>

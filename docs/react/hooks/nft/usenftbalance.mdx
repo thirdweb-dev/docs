@@ -10,10 +10,16 @@ import CodeBlock from "@theme/CodeBlock";
 
 Hook to get the quantity a user owns of a specific ERC1155 NFT.
 
-Available to use on smart contracts that implement the [ERC1155](/contractkit/interfaces/erc1155) standard.
+Available to use on smart contracts that implement the [ERC1155](/solidity/extensions/erc1155) standard.
 
 ```jsx
 import { useNFTBalance } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useNFTBalance(
+  contract,
+  "{{wallet_address}}",
+  "{{token_id}}",
+);
 ```
 
 ## Usage
@@ -37,6 +43,10 @@ function App() {
 ```
 
 ## Configuration
+
+<details>
+  <summary>walletAddress (required)</summary>
+  <div>
 
 ### walletAddress (required)
 
@@ -63,6 +73,13 @@ function App() {
 }
 ```
 
+</div>
+</details>
+
+<details>
+  <summary>tokenId (required)</summary>
+  <div>
+
 ### tokenId (required)
 
 The token ID of the NFT to check.
@@ -84,10 +101,20 @@ function App() {
 }
 ```
 
+</div>
+</details>
+
 ## Return Value
+
+<details>
+  <summary>Return Value</summary>
+  <div>
 
 The hook's `data` property, once loaded, returns a `BigNumber` representing the quantity of the NFT owned by the wallet.
 
 ```ts
 BigNumber;
 ```
+
+</div>
+</details>
