@@ -1,57 +1,33 @@
 ---
-slug: /multiwrap
-title: Multiwrap Objects
-hide_title: true
-displayed_sidebar: python
+title: Multiwrap
+slug: /python.multiwrap
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
 ---
 
-<a id="contracts.multiwrap"></a>
+When using the [Multiwrap](https://thirdweb.com/thirdweb.eth/Multiwrap) smart contract, additional top-level functionality is available to use.
 
-# contracts.multiwrap
-
-<a id="contracts.multiwrap.Multiwrap"></a>
-
-## Multiwrap Objects
+To access the top-level functionality, use the `get_multiwrap` method when creating the contract instance:
 
 ```python
-class Multiwrap(ERC721[MultiwrapABI])
+contract = python.get_multiwrap(
+  "{{contract_address}}",
+)
 ```
 
-Multiwrap lets you wrap any number of ERC20, ERC721, or ERC1155 tokens into
-a single wrapped token bundle.
+As each multiwrap NFT is a newly created NFT, in addition to functionalities listed, the multiwrap contract also implements the following extensions for you to use:
 
-```python
-from thirdweb import ThirdwebSDK
+- [ERC721](/python/python.erc721)
+- [ERC721Supply](/python/python.erc721supply)
+- [ERC721Enumerable](/python/python.erc721enumerable)
+- [Royalty](/python/python.contractroyalty)
+- [Permissions](/python/python.permissions)
+- [ContractMetadata](/python/python.contractmetadata)
+- [Ownable](/python/python.ownable)
+- [Gasless](/python/python.gasless)
 
-# You can customize this to a supported network or your own RPC URL
-network = "mumbai"
+## get_wrapped_contents
 
-# Now we can create a new instance of the SDK
-sdk = ThirdwebSDK(network)
-
-# If you want to send transactions, you can instantiate the SDK with a private key instead:
-#   sdk = ThirdwebSDK.from_private_key(PRIVATE_KEY, network)
-
-contract = sdk.get_multiwrap("{{contract_address}}")
-```
-
-<a id="contracts.multiwrap.Multiwrap.get_wrapped_contents"></a>
-
-#### get_wrapped_contents
-
-```python
-def get_wrapped_contents(wrapped_token_id: int) -> WrappedTokens
-```
-
-Get the contents of a wrapped token bundle
-
-**Arguments**:
-
-- `wrapped_token_id`: The ID of the wrapped token to get the contents of
-
-**Returns**:
-
-The contents of the wrapped token bundle
+Get the contents of a wrapped token bundle.
 
 ```python
 token_id = 0
@@ -61,29 +37,50 @@ print(contents.erc721_tokens)
 print(contents.erc1155_tokens)
 ```
 
-<a id="contracts.multiwrap.Multiwrap.wrap"></a>
+<details>
+<summary>Configuration</summary>
+<div>
 
-#### wrap
+#### token_id
+
+The ID of the wrapped token to get the contents of. Must be of type `int`.
 
 ```python
-def wrap(
-    contents: TokensToWrap,
-    wrapped_token_metadata: Union[str, NFTMetadataInput],
-    recipient_address: Optional[str] = None
-) -> TxResultWithId[NFTMetadataOwner]
+# highlight-next-line
+token_id = 0
+contents = contract.get_wrapped_contents(token_id)
 ```
 
-Wrap any number of ERC20, ERC721, or ERC1155 tokens into a single wrapped token
+### Return Value
 
-**Arguments**:
+The contents of the wrapped token bundle, of type `WrappedTokens`
 
-- `contents`: The tokens to wrap into a single wrapped token
-- `wrapped_token_metadata`: The metadata to use for the wrapped token
-- `recipient_address`: The optional address to send the wrapped token to
+```python
+class WrappedTokens:
+    erc20_tokens: List[ERC20Wrappable] = dataclasses.field(default_factory=list)
+    erc721_tokens: List[ERC721Wrappable] = dataclasses.field(default_factory=list)
+    erc1155_tokens: List[ERC1155Wrappable] = dataclasses.field(default_factory=list)
 
-**Returns**:
+class ERC20Wrappable:
+    contract_address: str
+    quantity: Price
 
-The transaction receipt of the token wrapping
+class ERC721Wrappable:
+    contract_address: str
+    token_id: int
+
+class ERC1155Wrappable:
+    contract_address: str
+    token_id: int
+    quantity: int
+```
+
+</div>
+</details>
+
+## wrap
+
+Wrap any number of ERC20, ERC721, or ERC1155 tokens into a single wrapped token.
 
 ```python
 from thirdweb.types import (
@@ -118,26 +115,178 @@ tx = contract.wrap(
 print(tx.receipt, tx.id)
 ```
 
-<a id="contracts.multiwrap.Multiwrap.unwrap"></a>
+<details>
+<summary>Configuration</summary>
+<div>
 
-#### unwrap
+#### contents
+
+The tokens to wrap into a single wrapped token. Must be a `TokensToWrap` object.
 
 ```python
-def unwrap(wrapped_token_id: int,
-           recipient_address: Optional[str] = None) -> TxReceipt
+class TokensToWrap:
+    erc20_tokens: List[ERC20Wrappable] = dataclasses.field(default_factory=list)
+    erc721_tokens: List[ERC721Wrappable] = dataclasses.field(default_factory=list)
+    erc1155_tokens: List[ERC1155Wrappable] = dataclasses.field(default_factory=list)
 ```
+
+```python
+from thirdweb.types import (
+    TokensToWrap,
+    ERC20Wrappable,
+    ERC721Wrappable,
+    ERC1155Wrappable,
+    NFTMetadataInput,
+)
+
+tx = contract.wrap(
+  # highlight-start
+    TokensToWrap(
+        erc20_tokens=[
+            ERC20Wrappable(contract_address="0x...", quantity=0.8),
+        ],
+        erc721_tokens=[
+            ERC721Wrappable(contract_address="0x...", token_id=0),
+        ],
+        erc1155_tokens=[
+            ERC1155Wrappable(contract_address="0x...", token_id=0, quantity=1),
+        ]
+    ),
+    # highligh-end
+    NFTMetadataInput(
+        name="Wrapped NFT",
+        description="This is a wrapped bundle of tokens and NFTs",
+        image="ipfs://...",
+    )
+)
+
+print(tx.receipt, tx.id)
+```
+
+#### wrapped_token_metadata
+
+The metadata to use for the wrapped token. Must a `NFTMetadataInput` object.
+
+```python
+class NFTMetadataInput:
+    name: str
+    description: Optional[str] = None
+    image: Optional[str] = None
+    external_url: Optional[str] = None
+    animation_url: Optional[str] = None
+    background_color: Optional[str] = None
+    properties: Optional[Dict[str, Any]] = None
+    attributes: Optional[Dict[str, Any]] = None
+```
+
+```python
+from thirdweb.types import (
+    TokensToWrap,
+    ERC20Wrappable,
+    ERC721Wrappable,
+    ERC1155Wrappable,
+    NFTMetadataInput,
+)
+
+tx = contract.wrap(
+    TokensToWrap(
+        erc20_tokens=[
+            ERC20Wrappable(contract_address="0x...", quantity=0.8),
+        ],
+        erc721_tokens=[
+            ERC721Wrappable(contract_address="0x...", token_id=0),
+        ],
+        erc1155_tokens=[
+            ERC1155Wrappable(contract_address="0x...", token_id=0, quantity=1),
+        ]
+    ),
+    # highlight-start
+    NFTMetadataInput(
+        name="Wrapped NFT",
+        description="This is a wrapped bundle of tokens and NFTs",
+        image="ipfs://...",
+    )
+    # highligh-end
+)
+
+print(tx.receipt, tx.id)
+```
+
+#### recipient_address (optional)
+
+The optional address to send the wrapped token to. Must be of type `str`.
+
+```python
+from thirdweb.types import (
+    TokensToWrap,
+    ERC20Wrappable,
+    ERC721Wrappable,
+    ERC1155Wrappable,
+    NFTMetadataInput,
+)
+tx = contract.wrap(
+    TokensToWrap(
+        erc20_tokens=[
+            ERC20Wrappable(contract_address="0x...", quantity=0.8),
+        ],
+        erc721_tokens=[
+            ERC721Wrappable(contract_address="0x...", token_id=0),
+        ],
+        erc1155_tokens=[
+            ERC1155Wrappable(contract_address="0x...", token_id=0, quantity=1),
+        ]
+    ),
+    NFTMetadataInput(
+        name="Wrapped NFT",
+        description="This is a wrapped bundle of tokens and NFTs",
+        image="ipfs://...",
+    ),
+    # highlight-next-line
+    recipient_address="0x..."
+)
+
+print(tx.receipt, tx.id)
+```
+
+</div>
+</details>
+
+## unwrap
 
 Unwrap a wrapped token bundle
 
-**Arguments**:
+```python
+wrapped_token_id = 0
+recipient_address = "0x..."
+tx = contract.unwrap(wrapped_token_id, receipient_address)
+```
 
-- `wrapped_token_id`: The ID of the wrapped token to unwrap
-- `recipient_address`: The optional address to send the unwrapped tokens to
+<details>
+<summary>Configuration</summary>
+<div>
 
-**Returns**:
+#### wrapped_token_id
 
-The transaction receipt of the token unwrapping
+The ID of the wrapped token to unwrap. Must be of type `int`.
 
 ```python
-tx = contract.unwrap(wrapped_token_id, receipientAddress)
+# highlight-next-line
+wrapped_token_id = 0
+recipient_address = "0x..."
+tx = contract.unwrap(wrapped_token_id, receipient_address)
 ```
+
+#### recipient_address (optional)
+
+The optional address to send the unwrapped tokens to. Must be of type `str`.
+
+```python
+wrapped_token_id = 0
+# highlight-next-line
+recipient_address = "0x..."
+tx = contract.unwrap(wrapped_token_id, receipient_address)
+```
+
+</div>
+</details>
+

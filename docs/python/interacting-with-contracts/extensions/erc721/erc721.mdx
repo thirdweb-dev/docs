@@ -1,261 +1,299 @@
 ---
-slug: /erc721
-title: ERC721 Objects
-hide_title: true
-displayed_sidebar: python
+title: Standard
+slug: /python.erc721
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
 ---
 
-<a id="core.classes.erc_721"></a>
+# ERC721
 
-# core.classes.erc_721
+Functionality available for contracts that implement the [`ERC721`](/solidity/extensions/erc721) extension.
 
-<a id="core.classes.erc_721.ERC721"></a>
+## balance
 
-## ERC721 Objects
-
-```python
-class ERC721(Generic[TERC721], BaseContract[TERC721])
-```
-
-<a id="core.classes.erc_721.ERC721.get"></a>
-
-#### get
+Get the NFT balance of the **connected wallet** (number of NFTs in this contract owned by the connected wallet).
 
 ```python
-def get(token_id: int) -> NFTMetadataOwner
+ balance = contract.erc721.balance()
 ```
 
-Get metadata for a token
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+### Return Value
+
+Returns an `int` representing the number of NFTs owned by the connected wallet.
+
+</div>
+</details>
+
+## balance_of
+
+Get a wallet&rsquos NFT balance (number of NFTs in this contract owned by the wallet).
 
 ```python
-nft = contract.get(0)
-print(nft)
+ wallet_address = "{{wallet_address}}"
+ balance = contract.erc721.balance_of(wallet_address)
 ```
 
-**Arguments**:
+<details>
+  <summary>Configuration</summary>
+  <div>
 
-- `token_id`: token ID of the token to get the metadata for
+#### wallet_address
 
-**Returns**:
+The wallet address to check the balance for.
 
-the metadata for the token and its owner
-
-<a id="core.classes.erc_721.ERC721.get_all"></a>
-
-#### get_all
+Must be a `string`.
 
 ```python
-def get_all(query_params: QueryAllParams = QueryAllParams()
-            ) -> List[NFTMetadataOwner]
+ balance = contract.erc721.balance_of(
+  # highlight-next-line
+  "{{wallet_address}}",
+)
 ```
 
-Get the metadata of all tokens in the contract
+### Return Value
+
+Returns an `int` representing the number of NFTs owned by the wallet.
+
+</div>
+</details>
+
+## get
+
+Get the metadata for an NFT in this contract using it&rsquos token ID.
+
+Metadata is fetched from the `uri` property of the NFT.
+
+If the metadata is hosted on IPFS, the metadata is fetched and made available as an object.
+The object&rsquos `image` property will be a URL that is available through the thirdweb IPFS gateway.
 
 ```python
-nfts = contract.get_all()
-print(nfts)
+ token_id = 0
+ nft = contract.erc721.get(token_id)
 ```
 
-**Arguments**:
+<details>
+  <summary>Configuration</summary>
+  <div>
 
-- `query_params`: optionally define a QueryAllParams instance to narrow the metadata query to specific tokens
+#### token_id
 
-**Returns**:
+The token ID of the NFT to get the metadata for.
 
-the metadata of all tokens in the contract
-
-<a id="core.classes.erc_721.ERC721.get_total_count"></a>
-
-#### get_total_count
+Must be an `int`.
 
 ```python
-def get_total_count() -> int
+ nft = contract.erc721.get(
+  # highlight-next-line
+  "{{token_id}}",
+)
 ```
 
-Get the total number of NFTs minted by this contract
+### Return Value
 
-**Returns**:
-
-the total number of NFTs minted by this contract
-
-<a id="core.classes.erc_721.ERC721.owner_of"></a>
-
-#### owner_of
+Returns an `NFT` object containing the NFT metadata.
 
 ```python
-def owner_of(token_id: int) -> str
+class NFTMetadataOwner:
+    metadata: NFTMetadata
+    owner: str
 ```
 
-Get the owner of a token
+</div>
+</details>
 
-**Arguments**:
+## is_approved
 
-- `token_id`: the token ID of the token to get the owner of
+Get whether this wallet has approved transfers from the given operator.
 
-**Returns**:
-
-the owner of the token
-
-<a id="core.classes.erc_721.ERC721.total_supply"></a>
-
-#### total_supply
+This means that the operator can transfer NFTs on behalf of this wallet.
 
 ```python
-def total_supply() -> int
+ is_approved = contract.erc721.is_approved(
+  # Address of the wallet to check
+  "{{wallet_address}}",
+  # Address of the operator to check
+  "{{wallet_address}}",
+)
 ```
 
-Get the total number of tokens in the contract
 
-**Returns**:
+<details>
+<summary>Configuration</summary>
+<div>
 
-the total number of tokens in the contract
+#### owner
 
-<a id="core.classes.erc_721.ERC721.balance"></a>
+The wallet address that owns the NFT.
 
-#### balance
+Must be a `string`.
 
 ```python
-def balance() -> int
+ is_approved = contract.erc721.is_approved(
+  # highlight-next-line
+  "{{wallet_address}}",
+  "{{wallet_address}}",
+)
 ```
 
-Get the token balance of the connected wallet
+#### operator
 
-**Returns**:
+The wallet address of the operator to check (i.e. the wallet that does/does not have approval).
 
-the token balance of the connected wallet
-
-<a id="core.classes.erc_721.ERC721.balance_of"></a>
-
-#### balance_of
+Must be a `string`.
 
 ```python
-def balance_of(address: str) -> int
+ is_approved = contract.erc721.is_approved(
+  "{{wallet_address}}",
+  # highlight-next-line
+  "{{wallet_address}}",
+)
 ```
 
-Get the token balance of a specific address
+</div>
+</details>
+
+## owner_of
+
+Get the wallet address of the owner of an NFT.
 
 ```python
-balance = contract.balance_of("{{wallet_address}}")
-print(balance)
+ owner = contract.erc721.owner_of("{{token_id}}")
 ```
 
-**Arguments**:
+<details>
+  <summary>Configuration</summary>
+  <div>
 
-- `address`: the address to get the token balance of
+#### token_id
 
-<a id="core.classes.erc_721.ERC721.is_transfer_restricted"></a>
+The token ID of the NFT to get the owner of.
 
-#### is_transfer_restricted
+Must be an `int`.
+
+### Return Value
+
+Returns a `string` representing the wallet address of the owner of the NFT.
+
+</div>
+</details>
+
+## set_approval_for_token
+
+Give another address approval (or remove approval) to transfer a specific one of your NFTs from this collection.
+
+:::warning Warning
+
+Proceed with caution. Only approve addresses you trust.
+
+:::
 
 ```python
-def is_transfer_restricted() -> bool
+# Approve the wallet address
+ contract.erc721.set_approval_for_token(
+  "{{wallet_address}}", # The wallet address to approve
+  "{{token_id}}", # The token ID of the NFT to allow them to transfer
+)
 ```
 
-Check if the contract is restricted to transfers only by admins
+<details>
+  <summary>Configuration</summary>
+  <div>
 
-**Returns**:
+#### operator
 
-True if the contract is restricted to transfers only by admins, False otherwise
+The wallet address to approve.
 
-<a id="core.classes.erc_721.ERC721.is_approved"></a>
+Must be a `string`.
 
-#### is_approved
+#### token_id
+
+The token ID of the NFT to allow the operator to transfer.
+
+Must be an `int`.
+
+</div>
+</details>
+
+## set_approval_for_all
+
+Give another address approval (or remove approval) to transfer any of your NFTs from this collection.
+
+:::warning Warning
+
+Proceed with caution. Only approve addresses you trust.
+
+:::
 
 ```python
-def is_approved(address: str, operator: str) -> bool
+ contract.erc721.set_approval_for_all(
+  "{{wallet_address}}", # The wallet address to approve
+  true, # Whether to approve (true) or remove approval (false)
+)
 ```
 
-Check whether an operator address is approved for all operations of a specific addresses assets
+<details>
+  <summary>Configuration</summary>
+  <div>
 
-**Arguments**:
+#### operator
 
-- `address`: the address whose assets are to be checked
-- `operator`: the address of the operator to check
+The wallet address to approve.
 
-**Returns**:
+Must be a `string`.
 
-True if the operator is approved for all operations of the assets, False otherwise
+#### approved
 
-<a id="core.classes.erc_721.ERC721.transfer"></a>
+Whether to approve (true) or remove approval (false).
 
-#### transfer
+Must be a `bool`.
+
+</div>
+</details>
+
+## transfer
+
+Transfer an NFT from the **connected wallet** to another wallet.
 
 ```python
-def transfer(to: str, token_id: int) -> TxReceipt
+ wallet_address = "{{wallet_address}}"
+ token_id = 0
+ contract.erc721.transfer(wallet_address, token_id)
 ```
 
-Transfer a specified token from the connected wallet to a specified address.
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### wallet_address
+
+The wallet address to transfer the NFT to.
+
+Must be a `string`.
 
 ```python
-to = "{{wallet_address}}"
-token_id = 0
-
-receipt = contract.transfer(to, token_id)
+ contract.erc721.transfer(
+  # highlight-next-line
+  "{{wallet_address}}",
+  "{{token_id}}",
+)
 ```
 
-**Arguments**:
+#### token_id
 
-- `to`: wallet address to transfer the tokens to
-- `token_id`: the specific token ID to transfer
+The token ID of the NFT to transfer.
 
-**Returns**:
-
-transaction receipt of the transfer
-
-<a id="core.classes.erc_721.ERC721.burn"></a>
-
-#### burn
+Must be an `int`.
 
 ```python
-def burn(token_id: int) -> TxReceipt
+ contract.erc721.transfer(
+  "{{wallet_address}}",
+  # highlight-next-line
+  "{{token_id}}",
+)
 ```
 
-Burn a specified token from the connected wallet.
-
-**Arguments**:
-
-- `token_id`: token ID of the token to burn
-
-**Returns**:
-
-transaction receipt of the burn
-
-<a id="core.classes.erc_721.ERC721.set_approval_for_all"></a>
-
-#### set_approval_for_all
-
-```python
-def set_approval_for_all(operator: str, approved: bool) -> TxReceipt
-```
-
-Set the approval of an operator for all operations of a specific address's assets
-
-**Arguments**:
-
-- `operator`: the address of the operator to set the approval for
-- `approved`: the address whos assets the operator is approved to manage
-
-**Returns**:
-
-transaction receipt of the approval
-
-<a id="core.classes.erc_721.ERC721.set_approval_for_token"></a>
-
-#### set_approval_for_token
-
-```python
-def set_approval_for_token(operator: str, token_id: int) -> TxReceipt
-```
-
-Approve an operator for the NFT owner, which allows the operator to call transferFrom
-
-or safeTransferFrom for the specified token.
-
-**Arguments**:
-
-- `operator`: the address of the operator to set the approval for
-- `token_id`: the specific token ID to set the approval for
-
-**Returns**:
-
-transaction receipt of the approval
+</div>
+</details>

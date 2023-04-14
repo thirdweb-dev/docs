@@ -1,0 +1,42 @@
+---
+title: Burn
+slug: /python.erc721burnable
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+# ERC721Burnable
+
+Functionality available for contracts that implement the
+[`ERC721`](/solidity/extensions/erc721) and
+[`ERC721Burnable`](/solidity/extensions/erc721burnable)
+extensions.
+
+Allows you to burn an NFT (transfer it to a **null address** that is unrecoverable).
+
+## burn
+
+Burn an NFT from the **connected wallet**.
+
+```python
+ tx_result =  contract.erc721.burn("{{token_id}}")
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### token_id
+
+The token ID of the NFT to burn.
+
+Must be an `int`.
+
+```python
+ tx_result =  contract.erc721.burn(
+  // highlight-next-line
+  "{{token_id}}",
+)
+```
+
+</div>
+</details>

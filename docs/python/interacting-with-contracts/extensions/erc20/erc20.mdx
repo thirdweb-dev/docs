@@ -1,174 +1,284 @@
 ---
-slug: /erc20
-title: ERC20 Objects
-hide_title: true
-displayed_sidebar: python
+title: Standard
+slug: /python.erc20
+toc_max_heading_level: 2 # Show up to h4 in table of contents (default is up to h3)
 ---
 
-<a id="core.classes.erc_20"></a>
+# ERC20
 
-# core.classes.erc_20
+Functionality available for contracts that implement the [`IERC20`](/contracts/IERC20) interface.
 
-<a id="core.classes.erc_20.ERC20"></a>
+## allowance
 
-## ERC20 Objects
+Get the allowance of another wallet address over the **connected wallet's** funds.
 
-```python
-class ERC20(BaseContract[TokenERC20])
-```
-
-<a id="core.classes.erc_20.ERC20.get"></a>
-
-#### get
+"Allowance" refers to the number of tokens that another wallet is allowed to spend on behalf of the connected wallet.
 
 ```python
-def get() -> Currency
+# Address of the wallet to check token allowance
+spender = "0x7fDae677aA6f94Edff9872C4b91D26407709c790"
+allowance = contract.erc20.allowance(spender)
+print(allowance)
 ```
 
-Get the token metadata including name, symbol, decimals, etc.
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### spender
+
+The address of the wallet to check the allowance of.
+
+Must be a `string`.
 
 ```python
-token = contract.get()
-print(token)
+allowance = contract.erc20.allowance(
+  # highlight-next-line
+  "{{wallet_address}}"
+)
 ```
 
-**Returns**:
+### Return Value
 
-token metadata
-
-<a id="core.classes.erc_20.ERC20.balance"></a>
-
-#### balance
+A `CurrencyValue` object is returned with the allowance available in the `value` property.
 
 ```python
-def balance() -> CurrencyValue
+class CurrencyValue(Currency):
+    value: PriceWei
+    display_value: Price
 ```
 
-Get the token balance of the connected wallet.
+</div>
+</details>
 
-```python
-balance = contract.balance()
-print(balance)
-```
+## allowance_of
 
-**Returns**:
-
-balance of the connected wallet
-
-<a id="core.classes.erc_20.ERC20.balance_of"></a>
-
-#### balance_of
-
-```python
-def balance_of(address: str) -> CurrencyValue
-```
-
-Get the balance of the specified wallet
-
-```python
-address = "{{wallet_address}}"
-balance = contract.balance_of(address)
-print(balance)
-```
-
-**Arguments**:
-
-- `address`: wallet address to check the balance of
-
-**Returns**:
-
-balance of the specified wallet
-
-<a id="core.classes.erc_20.ERC20.total_supply"></a>
-
-#### total_supply
-
-```python
-def total_supply() -> CurrencyValue
-```
-
-Get the total minted supply of the token.
-
-**Returns**:
-
-total minted supply of the token
-
-<a id="core.classes.erc_20.ERC20.allowance"></a>
-
-#### allowance
-
-```python
-def allowance(spender: str) -> CurrencyValue
-```
-
-Get a specific spenders allowance of this token for the connected wallet.
-
-```python
-spender = "{{wallet_address}}"
-allowance = contract.allowance(spender)
-```
-
-**Arguments**:
-
-- `spender`: wallet address to check the allowance of
-
-**Returns**:
-
-allowance of the connected wallet
-
-<a id="core.classes.erc_20.ERC20.allowance_of"></a>
-
-#### allowance_of
-
-```python
-def allowance_of(owner: str, spender: str) -> CurrencyValue
-```
-
-Get the allowance of the specified spender for a specified owner.
+The same as [`allowance`](#allowance), but allows you to specify the owner wallet to check, instead of using the connected wallet.
 
 ```python
 # Address of the wallet who owns the funds
-address = "{{wallet_address}}"
+address = "0x7fDae677aA6f94Edff9872C4b91D26407709c790"
 
 # Address of the wallet to check the token allowance
 spender = "0x..."
 
-allowance = contract.allowance_of(address, spender)
+allowance = contract.erc20.allowance_of(address, spender)
 print(allowance)
 ```
 
-**Arguments**:
+<details>
+  <summary>Configuration</summary>
+  <div>
 
-- `owner`: wallet address whose assets will be spent
-- `spender`: wallet address to check the allowance of
+#### owner
 
-**Returns**:
+The address of the wallet that owns the funds.
 
-allowance of the specified spender for the specified owner
-
-<a id="core.classes.erc_20.ERC20.is_transfer_restricted"></a>
-
-#### is_transfer_restricted
+Must be a `string`.
 
 ```python
-def is_transfer_restricted() -> bool
+allowance = contract.erc20.allowance_of(
+  # highlight-next-line
+  "{{wallet_address}}", # owner
+  "{{wallet_address}}"  # spender
+)
 ```
 
-Check whether transfer is restricted for tokens in this module.
+#### spender
 
-**Returns**:
+The address of the wallet to check the allowance of.
 
-True if transfer is restricted, False otherwise
-
-<a id="core.classes.erc_20.ERC20.transfer"></a>
-
-#### transfer
+Must be a `string`.
 
 ```python
-def transfer(to: str, amount: Price) -> TxReceipt
+allowance = contract.erc20.allowance_of(
+  "{{wallet_address}}", # owner
+  # highlight-next-line
+  "{{wallet_address}}"  # spender
+)
 ```
 
-Transfer a specified amount of tokens from the connected wallet to a specified address.
+### Return Value
+
+A `CurrencyValue` object is returned with the allowance available in the `value` property.
+
+```python
+class CurrencyValue(Currency):
+    value: PriceWei
+    display_value: Price
+```
+
+</div>
+</details>
+
+## balance
+
+View the balance (i.e. number of tokens) the **connected wallet** has in their wallet from this contract.
+
+```python
+balance = contract.erc20.balance()
+print(balance)
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+### Return Value
+
+A `CurrencyValue` object is returned with the allowance available in the `value` property.
+
+```python
+class CurrencyValue(Currency):
+    value: PriceWei
+    display_value: Price
+```
+
+</div>
+</details>
+
+## balance_of
+
+The same as [`balance`](#balance), but allows you to specify the wallet address to check, instead of using the connected wallet.
+
+```python
+# Address of the wallet to check token balance
+address = "0x7fDae677aA6f94Edff9872C4b91D26407709c790"
+balance = contract.erc20.balance_of(address)
+print(balance)
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### address
+
+The address of the wallet to check the balance of.
+
+Must be a `string`.
+
+```python
+balance = contract.erc20.balance_of(
+  # highlight-next-line
+  "{{wallet_address}}"
+)
+```
+
+### Return Value
+
+A `CurrencyValue` object is returned with the allowance available in the `value` property.
+
+```python
+class CurrencyValue(Currency):
+    value: PriceWei
+    display_value: Price
+```
+
+</div>
+</details>
+
+## get
+
+Get the metadata of the token smart contract, such as the name, symbol, and decimals.
+
+```python
+token = contract.erc20.get()
+print(token)
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+### Return Value
+
+```python
+class Currency:
+    name: str
+    symbol: str
+    decimals: int
+```
+
+</div>
+</details>
+
+## set_allowance
+
+Grant allowance to another wallet address to spend the **connected wallet's** funds (of this token).
+
+```python
+# Address of the wallet to allow transfers from
+spender = "0x...
+# The number of tokens to give as allowance
+amount = 100
+contract.erc20.set_allowance(spender, amount)
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### spender
+
+The address of the wallet to grant allowance to.
+
+Must be a `string`.
+
+```python
+contract.erc20.set_allowance(
+  # highlight-next-line
+  "{{wallet_address}}",
+  100
+)
+```
+
+#### amount
+
+The number of tokens to give as allowance.
+
+Must be of type `float`.
+
+```python
+contract.erc20.set_allowance(
+  "{{wallet_address}}",
+  # highlight-next-line
+  100
+)
+```
+
+</div>
+</details>
+
+## total_supply
+
+Get the number of tokens in circulation for this contract.
+
+```python
+supply = contract.erc20.total_supply()
+print(supply)
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+### Return Value
+
+A `CurrencyValue` object is returned with the allowance available in the `value` property.
+
+```python
+class CurrencyValue(Currency):
+    value: PriceWei
+    display_value: Price
+```
+
+</div>
+</details>
+
+## transfer
+
+Transfer tokens from the **connected wallet** to another wallet.
 
 ```python
 # Address to send tokens to
@@ -177,31 +287,54 @@ to = "0x...
 # Amount of tokens to transfer
 amount = 0.1
 
-contract.transfer(to, amount)
+contract.erc20.transfer(to, amount)
 ```
 
-**Arguments**:
+<details>
+  <summary>Configuration</summary>
+  <div>
 
-- `to`: wallet address to transfer the tokens to
-- `amount`: amount of tokens to transfer
+#### to
 
-**Returns**:
+The address of the wallet to send the tokens to.
 
-transaction receipt of the transfer
-
-<a id="core.classes.erc_20.ERC20.transfer_from"></a>
-
-#### transfer_from
+Must be a `string`.
 
 ```python
-def transfer_from(fr: str, to: str, amount: Price) -> TxReceipt
+contract.erc20.transfer(
+  # highlight-next-line
+  "{{wallet_address}}",
+  0.1
+)
 ```
 
-Transfer a specified amount of tokens from one specified address to another.
+#### amount
+
+The amount of tokens to send.
+
+Must be a `float`.
+
+```python
+contract.erc20.transfer(
+  "{{wallet_address}}",
+  # highlight-next-line
+  0.1
+)
+```
+
+</div>
+</details>
+
+## transfer_from
+
+The same as [`transfer`](#transfer), but allows you to specify the wallet address to send the tokens from,
+instead of using the connected wallet.
+
+This is only possible if the wallet initiating this transaction has been given allowance to transfer the tokens of the `fromAddress`.
 
 ```python
 # Address to send tokens from
-fr = "{{wallet_address}}"
+fr = "0x7fDae677aA6f94Edff9872C4b91D26407709c790"
 
 # Address to send tokens to
 to = "0x..."
@@ -209,55 +342,64 @@ to = "0x..."
 # Amount of tokens to transfer
 amount = 0.1
 
-contract.transfer_from(fr, to, amount)
+contract.erc20.transfer_from(fr, to, amount)
 ```
 
-**Arguments**:
+<details>
+  <summary>Configuration</summary>
+  <div>
 
-- `fr`: wallet address to transfer the tokens from
-- `to`: wallet address to transfer the tokens to
-- `amount`: amount of tokens to transfer
+#### from
 
-**Returns**:
+The address of the wallet to send the tokens from.
 
-transaction receipt of the transfer
-
-<a id="core.classes.erc_20.ERC20.set_allowance"></a>
-
-#### set_allowance
+Must be a `string`.
 
 ```python
-def set_allowance(spender: str, amount: Price) -> TxReceipt
+contract.erc20.transfer_from(
+  # highlight-next-line
+  "{{wallet_address}}",
+  "{{wallet_address}}",
+  1.2
+)
 ```
 
-Sets the allowance of the specified wallet over the connected wallets funds to
+#### to
 
-a specified amount.
+The address of the wallet to send the tokens to.
+
+Must be a `string`.
 
 ```python
-spender = "0x..."
-amount = 100
-contract.set_allowance(spender, amount)
+contract.erc20.transfer_from(
+  "{{wallet_address}}",
+  # highlight-next-line
+  "{{wallet_address}}",
+  1.2
+)
 ```
 
-**Arguments**:
+#### amount
 
-- `spender`: wallet address to set the allowance of
-- `amount`: amount to set the allowance to
+The amount of tokens to send.
 
-**Returns**:
-
-transaction receipt of the allowance set
-
-<a id="core.classes.erc_20.ERC20.transfer_batch"></a>
-
-#### transfer_batch
+Can be a `float`.
 
 ```python
-def transfer_batch(args: List[TokenAmount])
+contract.erc20.transfer_from(
+  "{{wallet_address}}",
+  "{{wallet_address}}",
+  # highlight-next-line
+  1.2
+)
 ```
 
-Transfer tokens from the connected wallet to many wallets.
+</div>
+</details>
+
+## transfer_batch
+
+Transfer multiple tokens from the **connected wallet** to multiple wallets.
 
 ```python
 from thirdweb.types.currency import TokenAmount
@@ -267,61 +409,19 @@ data = [
     TokenAmount("0x...", 0.2),
 ]
 
-contract.transfer_batch(data)
+tx_result = contract.erc20.transfer_batch(data)
 ```
 
-**Arguments**:
+<details>
+  <summary>Configuration</summary>
+  <div>
 
-- `args`: list of token amounts and addressed to transfer to
+    #### args
 
-**Returns**:
+    An array of objects, each containing a `toAddress` and an `amount` property.
 
-transaction receipt of the transfers
+    - The `toAddress` property must be a `string`, and is the wallet address you want to send the tokens to.
+    - The `amount` property must be a `float`, and is the amount of tokens you want to send to the `toAddress`
 
-<a id="core.classes.erc_20.ERC20.burn"></a>
-
-#### burn
-
-```python
-def burn(amount: Price) -> TxReceipt
-```
-
-Burn a specified amount of tokens from the connected wallet.
-
-```python
-amount = 0.1
-contract.burn(amount)
-```
-
-**Arguments**:
-
-- `amount`: amount of tokens to burn
-
-**Returns**:
-
-transaction receipt of the burn
-
-<a id="core.classes.erc_20.ERC20.burn_from"></a>
-
-#### burn_from
-
-```python
-def burn_from(holder: str, amount: Price) -> TxReceipt
-```
-
-Burn a specified amount of tokens from a specified wallet.
-
-```python
-holder = "{{wallet_address}}"
-amount = 0.1
-contract.burn_from(holder, amount)
-```
-
-**Arguments**:
-
-- `holder`: wallet address to burn the tokens from
-- `amount`: amount of tokens to burn
-
-**Returns**:
-
-transaction receipt of the burn
+</div>
+</details>

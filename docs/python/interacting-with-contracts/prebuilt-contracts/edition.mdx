@@ -1,72 +1,38 @@
 ---
-slug: /edition
-title: Edition Objects
-hide_title: true
-displayed_sidebar: python
+title: Edition
+slug: /python.edition
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
 ---
 
-<a id="contracts.edition"></a>
+When using the [Edition](https://thirdweb.com/thirdweb.eth/TokenERC1155) smart contract, additional top-level functionality is available to use.
 
-# contracts.edition
-
-Interface for interacting with an edition contract
-
-<a id="contracts.edition.Edition"></a>
-
-## Edition Objects
+To access the top-level functionality, use the `get_edition` method when creating the contract instance:
 
 ```python
-class Edition(ERC1155[TokenERC1155])
+contract = sdk.get_edition(
+  "{{contract_address}}",
+)
 ```
 
-Create a collection of NFTs that lets you mint multiple copies of each NFT.
+The extensions that the edition contract supports are listed below.
 
-```python
-from thirdweb import ThirdwebSDK
+- [ERC1155](/python/python.erc1155)
+- [ERC1155Burnable](/python/python.erc1155burnable)
+- [ERC1155Enumerable](/python/python.erc1155enumerable)
+- [ERC1155Mintable](/python/python.erc1155mintable)
+- [ERC1155BatchMintable](/python/python.erc1155batchmintable)
+- [ERC1155SignatureMintable](/python/python.erc1155signaturemintable)
+- [Royalty](/python/python.contractroyalty)
+- [PlatformFee](/python/python.platformfee)
+- [PrimarySale](/python/python.contractprimarysale)
+- [Permissions](/python/python.permissions)
+- [ContractMetadata](/python/python.contractmetadata)
+- [Ownable](/python/python.ownable)
+- [Gasless](/python/python.gasless)
 
-# You can customize this to a supported network or your own RPC URL
-network = "mumbai"
+## mint
 
-# Now we can create a new instance of the SDK
-sdk = ThirdwebSDK(network)
-
-# If you want to send transactions, you can instantiate the SDK with a private key instead:
-#   sdk = ThirdwebSDK.from_private_key(PRIVATE_KEY, network)
-
-contract = sdk.get_edition("{{contract_address}}")
-```
-
-<a id="contracts.edition.Edition.mint"></a>
-
-#### mint
-
-```python
-def mint(
-    metadata_with_supply: EditionMetadataInput
-) -> TxResultWithId[EditionMetadata]
-```
-
-Mint a new NFT to the connected wallet
-
-**Arguments**:
-
-- `metadata_with_supply`: EditionMetadataInput for the NFT to mint
-
-**Returns**:
-
-receipt, id, and metadata of the mint
-
-<a id="contracts.edition.Edition.mint_to"></a>
-
-#### mint_to
-
-```python
-def mint_to(
-    to: str, metadata_with_supply: EditionMetadataInput
-) -> TxResultWithId[EditionMetadata]
-```
-
-Mint a new NFT to the specified wallet
+Mint a new NFT to the **connected wallet**.
 
 ```python
 from thirdweb.types.nft import NFTMetadataInput, EditionMetadataInput
@@ -82,95 +48,172 @@ metadata_with_supply = EditionMetadataInput(
 )
 
 # You can pass in any address here to mint the NFT to
-tx = contract.mint_to("{{wallet_address}}", metadata_with_supply)
+tx = contract.mint(metadata_with_supply)
 receipt = tx.receipt
 token_id = tx.id
 nft = tx.data()
 ```
 
-**Arguments**:
+<details>
+  <summary>Configuration</summary>
+  <div>
 
-- `to`: wallet address to mint the NFT to
-- `metadata_with_supply`: EditionMetadataInput for the NFT to mint
+#### metadata_with_supply
 
-**Returns**:
-
-receipt, id, and metadata of the mint
-
-<a id="contracts.edition.Edition.mint_additional_supply"></a>
-
-#### mint_additional_supply
+A `EditionMetadataInput` object containing a `NFTMetadataInput` object and a `supply` property.
 
 ```python
-def mint_additional_supply(
-        token_id: int,
-        additional_supply: int) -> TxResultWithId[EditionMetadata]
+class NFTMetadataInput:
+    name: str
+    description: Optional[str] = None
+    image: Optional[str] = None
+    external_url: Optional[str] = None
+    animation_url: Optional[str] = None
+    background_color: Optional[str] = None
+    properties: Optional[Dict[str, Any]] = None
 ```
 
-Mint additional supply of a token to the connected wallet
+The metadata object can either be a string that points to valid metadata that
+conforms to the [metadata standards](https://docs.opensea.io/docs/metadata-standards#metadata-structure),
+or an object that conforms to the same standards.
 
-**Arguments**:
-
-- `token_id`: token ID to mint additional supply of
-- `additional_supply`: additional supply to mint
-
-**Returns**:
-
-receipt, id, and metadata of the mint
-
-<a id="contracts.edition.Edition.mint_additional_supply_to"></a>
-
-#### mint_additional_supply_to
+If you provide an object, the metadata is uploaded and pinned to IPFS before
+the NFT(s) are minted.
 
 ```python
-def mint_additional_supply_to(
-        to: str, token_id: int,
-        additional_supply: int) -> TxResultWithId[EditionMetadata]
+# Below is an example of using a string rather than an object for metadata
+metadata = "https://example.com/metadata.json" # Any URL or IPFS URI that points to metadata
+
+
+tx = contract.mint(EditionMetadataInput(
+  metadata = metadata,
+  supply = 1000, # The number of this NFT you want to mint
+))
 ```
 
-Mint additional supply of a token to the specified wallet
+</div>
+</details>
 
-**Arguments**:
+## mint_additional_supply
 
-- `to`: wallet address to mint additional supply to
-- `token_id`: token ID to mint additional supply of
-- `additional_supply`: additional supply to mint
-
-**Returns**:
-
-receipt, id, and metadata of the mint
-
-<a id="contracts.edition.Edition.mint_batch"></a>
-
-#### mint_batch
+Mint additional quantity of an NFT that already exists on the contract.
 
 ```python
-def mint_batch(
-    metadatas_with_supply: List[EditionMetadataInput]
-) -> List[TxResultWithId[EditionMetadata]]
+token_id = 0
+additional_supply = 1
+
+tx = contract.mint_additional_supply(token_id, additional_supply)
+receipt = tx.receipt
+token_id = tx.id
+nft = tx.data()
 ```
 
-Mint a batch of NFTs to the connected wallet
+<details>
+  <summary>Configuration</summary>
+  <div>
 
-**Arguments**:
+#### token_id
 
-- `metadatas_with_supply`: list of EditionMetadataInput for the NFTs to mint
+The ID of the NFT you want to mint additional supply for.
 
-**Returns**:
-
-receipts, ids, and metadatas of the mint
-
-<a id="contracts.edition.Edition.mint_batch_to"></a>
-
-#### mint_batch_to
+Must be an `int`.
 
 ```python
-def mint_batch_to(
-    to: str, metadatas_with_supply: List[EditionMetadataInput]
-) -> List[TxResultWithId[EditionMetadata]]
+tx = contract.mint_additional_supply(
+  # highlight-next-line
+  "{{token_id}}",
+  "{{additional_supply}}",
+)
 ```
 
-Mint a batch of NFTs to the specified wallet
+#### additional_supply
+
+How much additional supply you want to mint.
+
+Must be an `int`.
+
+```python
+tx = contract.mint_additional_supply(
+  "{{token_id}}",
+  # highlight-next-line
+  "{{additional_supply}}",
+)
+```
+
+</div>
+</details>
+
+
+## mint_additional_supply_to
+
+The same as [`mint_additional_supply`](#mint_additional_supply), but allows you to specify the address of the wallet rather than using the connected wallet.
+
+```python
+to = "0x7fDae677aA6f94Edff9872C4b91D26407709c790"
+token_id = 0
+additional_supply = 1
+
+tx = contract.mint_additional_supply_to(to, token_id, additional_supply)
+receipt = tx.receipt
+token_id = tx.id
+nft = tx.data()
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### to
+
+The address of the wallet you want to mint the NFT to.
+
+Must be a `string`.
+
+```python
+tx = contract.mint_additional_supply_to(
+  # highlight-next-line
+  "{{wallet_address}}",
+  "{{token_id}}",
+  "{{additoinal_supply}}",
+)
+```
+
+#### token_id
+
+The ID of the NFT you want to mint additional supply for.
+
+Must be an `int`.
+
+```python
+tx = contract.mint_additional_supply_to(
+  "{{wallet_address}}",
+  # highlight-next-line
+  "{{token_id}}",
+  "{{additoinal_supply}}",
+)
+```
+
+#### additional_supply
+
+How much additional supply you want to mint.
+
+Must be an `int`.
+
+```python
+tx = contract.mint_additional_supply_to(
+  "{{wallet_address}}",
+  "{{token_id}}",
+  # highlight-next-line
+  "{{additoinal_supply}}",
+)
+```
+
+</div>
+</details>
+
+## mint_batch
+
+Mint many different NFTs with limited supplies to the **connected wallet**.
 
 ```python
 from thirdweb.types.nft import NFTMetadataInput, EditionMetadataInput
@@ -196,17 +239,117 @@ metadatas_with_supply = [
 ]
 
 # You can pass in any address here to mint the NFT to
-txs = contract.mint_batch_to("{{wallet_address}}", metadatas_with_supply)
+txs = contract.mint_batch(metadatas_with_supply)
 receipt = txs[0].receipt
 token_id = txs[0].id
 nft = txs[0].data()
 ```
 
-**Arguments**:
+<details>
+  <summary>Configuration</summary>
+  <div>
 
-- `to`: wallet address to mint the NFTs to
-- `metadatas_with_supply`: list of EditionMetadataInput for the NFTs to mint
+#### metadata_with_supply
 
-**Returns**:
+A list of `EditionMetadataInput` objects that contain the metadata and supply of each NFT you want to mint.
 
-receipts, ids, and metadatas of the mint
+The `supply` property is the number of this NFT you want to mint.
+Must be an `int`.
+
+The `metadata` object must be an `NFTMetadataInput` object and follow the [metadata standards](https://docs.opensea.io/docs/metadata-standards#metadata-structure).
+Alternatively, you can provide a `string`s that points to a valid metadata object
+to override the default behavior of uploading and pinning the metadata to IPFS (shown below).
+
+```python
+from thirdweb.types.nft import EditionMetadataInput
+
+# highlight-start
+metadatas = [
+  EditionMetadataInput(
+    metadata: "https://example.com/metadata1.json", // Any URI/URL that points to metadata
+    supply: 50,
+  ),
+  EditionMetadataInput(
+    metadata: "ipfs://my-ipfs-hash", // Any URI/URL that points to metadata
+    supply: 100,
+  ),
+]
+# highlight-end
+
+tx_result = contract.mint_batch(metadatas)
+```
+
+</div>
+</details>
+
+
+## mint_batch_to
+
+The same as [`mint_batch`](#mint_batch), but allows you to specify the wallet, rather than using the connected one.
+
+```python
+from thirdweb.types.nft import NFTMetadataInput, EditionMetadataInput
+
+# Note that you can customize this metadata however you like
+metadatas_with_supply = [
+    EditionMetadataInput(
+        NFTMetadataInput.from_json({
+            "name": "Cool NFT",
+            "description": "This is a cool NFT",
+            "image": open("path/to/file.jpg", "rb"),
+        }),
+        100
+    ),
+    EditionMetadataInput(
+        NFTMetadataInput.from_json({
+            "name": "Cooler NFT",
+            "description": "This is a cooler NFT",
+            "image": open("path/to/file.jpg", "rb"),
+        }),
+        100
+    )
+]
+
+# You can pass in any address here to mint the NFT to
+txs = contract.mint_batch_to("0x7fDae677aA6f94Edff9872C4b91D26407709c790", metadatas_with_supply)
+receipt = txs[0].receipt
+token_id = txs[0].id
+nft = txs[0].data()
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### to_address
+
+The address of the wallet you want to mint the NFT to.
+
+Must be a `string`.
+
+```python
+from thirdweb.types.nft import EditionMetadataInput, NFTMetadataInput
+# Custom metadata and supplies of your NFTs
+const metadata_with_supply = [
+  EditionMetadata(
+    metadata = NFTMetadataInput.from_json(
+      # ...
+    ),
+    supply = 100
+  )
+  # ...
+]
+
+tx_result = contract.mint_batch_to(
+  # highlight-next-line
+  "{{wallet_address}}",
+  metadata_with_supply,
+)
+```
+
+#### metadata_with_supply
+
+See [`mint_batch`](#mint_batch) for more details.
+
+</div>
+</details>

@@ -1,97 +1,23 @@
 ---
-title: NFT Collection
-slug: /python.nftcollection
+title: Mint
+slug: /python.erc721mintable
 toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
 ---
 
-When using the [NFT Collection](https://thirdweb.com/thirdweb.eth/TokenERC721) smart contract, additional top-level functionality is available to use.
+# ERC721Mintable
 
-To access the top-level functionality, use the `get_nft_collection` method when creating the contract instance:
+Functionality available for contracts that implement the
+[`ERC721`](/solidity/extensions/erc721) and
+[`ERC721Mintable`](/solidity/extensions/erc721burnable) interfaces.
 
-```python
-contract = python.get_nft_collection(
-  "{{contract_address}}",
-)
-```
+Allows you to mint new NFTs on the contract.
 
-The extensions that the NFT collection contract supports are listed below.
-
-- [ERC721](/python/python.erc721)
-- [ERC721Burnable](/python/python.erc721burnable)
-- [ERC721Supply](/python/python.erc721supply)
-- [ERC721Enumerable](/python/python.erc721enumerable)
-- [ERC721Mintable](/python/python.erc721mintable)
-- [ERC721BatchMintable](/python/python.erc721batchmintable)
-- [ERC721SignatureMint](/python/python.erc721signaturemint)
-- [Royalty](/python/python.contractroyalty)
-- [PlatformFee](/python/python.platformfee)
-- [PrimarySale](/python/python.contractprimarysale)
-- [Permissions](/python/python.permissions)
-- [ContractMetadata](/python/python.contractmetadata)
-- [Ownable](/python/python.ownable)
-- [Gasless](/python/python.gasless)
-
-## get_owned
-
-Get the token IDs owned by a specific address.
-
-```python
-address = "0x..."
-owned_nfts = contract.get_owned(address)
-```
-
-<details>
-<summary>Configuration</summary>
-<div>
-
-#### address
-
-the address to get the metadata for. Must be of type `str`.
-
-### Return Value
-
-Returns a list of the `NFTMetadataOwner` metadata objects of all tokens owned by the address
-
-```python
-class NFTMetadataOwner:
-    metadata: NFTMetadata
-    owner: str
-```
-
-</div>
-</details>
-
-## get_owned_token_ids
-
-Get the token IDs owned by a specific address
-
-```python
-address = "0x..."
-owned_token_ids = contract.get_owned_token_ids(address)
-```
-
-<details>
-<summary>Configuration</summary>
-<div>
-
-#### address 
-
-The address to get the token IDs for. Must be of type `str`.
-
-### Return Value 
-
-A list of the owned token IDs. 
-
-```python
-List[int]
-```
-
-</div>
-</details>
+By default, the NFT metadata is uploaded and pinned to IPFS before minting.
+You can override this default behavior by providing a `string` that points to valid metadata object instead of an object.
 
 ## mint
 
-Mint a new NFT to the **connected wallet**
+Mint a new NFT to the **connected wallet**.
 
 ```python
 from thirdweb.types.nft import NFTMetadataInput
@@ -103,7 +29,7 @@ metadata = NFTMetadataInput.from_json({
     "image": open("path/to/file.jpg", "rb")
 })
 
-tx = contract.mint(metadata)
+tx = contract.erc721.mint(metadata)
 receipt = tx.receipt
 token_id = tx.id
 nft = tx.data()
@@ -158,7 +84,7 @@ Provide the metadata to the `mint` function:
 
 ```python
 # Either the string or the object can be provided to the mint function
-tx = contract.mint(metadata)
+tx = contract.erc721.mint(metadata)
 ```
 
 </div>
@@ -180,7 +106,7 @@ metadata = NFTMetadataInput.from_json({
 })
 
 # You can pass in any address here to mint the NFT to
-tx = contract..mint_to("0x7fDae677aA6f94Edff9872C4b91D26407709c790", metadata)
+tx = contract.erc721.mint_to("0x7fDae677aA6f94Edff9872C4b91D26407709c790", metadata)
 receipt = tx.receipt
 token_id = tx.id
 nft = tx.data()
@@ -204,7 +130,7 @@ metadata = NFTMetadataInput.from_json(
   # ...
 )
 
-tx = contract.mint_to(wallet_address, metadata)
+tx = contract.erc721.mint_to(wallet_address, metadata)
 ```
 
 #### metadata
@@ -221,7 +147,7 @@ Mint multiple NFTs in a single transaction to the **connected wallet**.
 ```python
 from thirdweb.types.nft import NFTMetadataInput
 
- tx = contract.mint_batch([
+ tx = contract.erc721.mint_batch([
   NFTMetadataInput.from_json(
     "name": "Cool NFT #1",
     "description": "This is a cool NFT",
@@ -253,7 +179,6 @@ See [`mint`](#mint) for more details on the properties available.
 </div>
 </details>
 
-
 ## mint_batch_to
 
 The same as [`mint_batch`](#mint_batch), but allows you to specify the address
@@ -262,7 +187,7 @@ of the wallet that will receive the NFTs rather than using the connected wallet 
 ```python
 from thirdweb.types.nft import NFTMetadataInput
 
- tx = contract.mint_batch_to("{{wallet_address}}", [
+ tx = contract.erc721.mint_batch_to("{{wallet_address}}", [
   NFTMetadataInput.from_json(
     "name": "Cool NFT #1",
     "description": "This is a cool NFT",
@@ -295,5 +220,3 @@ See [`mint`](#mint) for more details on the properties available.
 
 </div>
 </details>
-
-

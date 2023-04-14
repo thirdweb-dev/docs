@@ -1,0 +1,57 @@
+---
+title: Primary Sale
+slug: /python.contractprimarysale
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+# PrimarySale
+
+Functionality available for contracts that inherit the [`PrimarySale`](/contracts/PrimarySale) contract.
+
+## get_recipient
+
+Get the primary sale recipient.
+
+```python
+primary_sale_recipient = contract.sales.get_recipient()
+print(primary_sale_recipient)
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+Returns a `string` of the wallet address of the primary sale recipient.
+
+```python
+class ContractPrimarySaleSchema:
+    primary_sale_recipient: str = ZERO_ADDRESS
+```
+
+</div>
+</details>
+
+## set_recipient
+
+Set the primary sale recipient.
+
+```python
+primary_sale_recipient = "0x7fDae677aA6f94Edff9872C4b91D26407709c790"
+
+receipt = contract.sales.set_recipient(primary_sale_recipient)
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### recipient
+
+The wallet address of the primary sale recipient.
+
+Must be a `string`.
+
+</div>
+</details>

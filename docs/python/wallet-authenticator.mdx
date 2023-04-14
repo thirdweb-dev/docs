@@ -1,26 +1,13 @@
 ---
-slug: /wallet-authenticator
-title: WalletAuthenticator Objects
-hide_title: true
+slug: /python.walletauthenticator
+title: Wallet Authenticator
 displayed_sidebar: python
 ---
 
-<a id="core.auth.wallet_authenticator"></a>
-
-# core.auth.wallet_authenticator
-
-<a id="core.auth.wallet_authenticator.WalletAuthenticator"></a>
-
-## WalletAuthenticator Objects
-
-```python
-class WalletAuthenticator(ProviderHandler)
-```
-
-> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
 The wallet authenticator enables server-side applications to securely identify the
-connected wallet address of users on the client-side, and also enables users to authenticate
+**connected wallet address** of users on the client-side, and also enables users to authenticate
 to any backend using just their wallet. It implements the JSON Web Token (JWT) authentication
 standard.
 
@@ -43,15 +30,9 @@ token = sdk.auth.generate_auth_token(domain, payload)
 address = sdk.auth.authenticate(domain, token)
 ```
 
-<a id="core.auth.wallet_authenticator.WalletAuthenticator.login"></a>
+## login
 
-#### login
-
-```python
-def login(domain: str, options: LoginOptions = LoginOptions()) -> LoginPayload
-```
-
-Client-side function that allows the connected wallet to login to a server-side application.
+A client-side function that allows the **connected wallet** to login to a **server-side** application.
 
 Generates a login payload that can be sent to the server-side for verification or authentication.
 
@@ -63,27 +44,48 @@ domain = "example.com"
 payload = sdk.auth.login(domain)
 ```
 
-**Arguments**:
+<details>
+<summary>Configuration</summary>
+<div>
 
-- `domain`: The domain of the application that you want to log in to
-- `options`: Optional configuration options for the login payload
+#### domain
 
-**Returns**:
+The domain of the application that you want to log in to. Must be of type `str`.
 
-A login payload that can be sent to the server-side for verification or authentication
+#### options (optional)
 
-<a id="core.auth.wallet_authenticator.WalletAuthenticator.verify"></a>
-
-#### verify
+The configuration options for the login payload. Must be a `LoginOptions` object:
 
 ```python
-def verify(
-    domain: str,
-    payload: LoginPayload,
-    options: VerifyOptions = VerifyOptions()) -> str
+class LoginOptions:
+    nonce: Optional[str] = None
+    expiration_time: Optional[datetime] = None
+    chain_id: Optional[int] = None
 ```
 
-Server-side function to securely verify the address of the logged in client-side wallet
+### Return Value
+
+A `LoginPayload` object that can be sent to the server-side for verification or authentication. 
+
+```python
+class LoginPayload:
+    payload: LoginPayloadData
+    signature: str
+
+class LoginPayloadData:
+    domain: str
+    address: str
+    nonce: str
+    expiration_time: datetime
+    chain_id: Optional[int] = None
+```
+
+</div>
+</details>
+
+## verify
+
+Server-side function to securely verify the address of the **logged in client-side wallet**
 
 by validating the provided client-side login request.
 
@@ -95,26 +97,39 @@ payload = sdk.auth.login(domain)
 address = sdk.auth.verify(domain, payload)
 ```
 
-**Arguments**:
+<details>
+<summary>Configuration</summary>
+<div>
 
-- `domain`: The domain of the application to verify the login request for
-- `payload`: The login payload to verify
+#### domain
 
-**Returns**:
+The domain of the application to verify the login request for. Must of of type `str`
 
-The address of the logged in wallet that signed the payload
+#### payload
 
-<a id="core.auth.wallet_authenticator.WalletAuthenticator.generate_auth_token"></a>
-
-#### generate_auth_token
+The login payload to verify. Must be a `LoginPayload` object
 
 ```python
-def generate_auth_token(
-    domain: str,
-    payload: LoginPayload,
-    options: AuthenticationOptions = AuthenticationOptions()
-) -> str
+class LoginPayload:
+    payload: LoginPayloadData
+    signature: str
+
+class LoginPayloadData:
+    domain: str
+    address: str
+    nonce: str
+    expiration_time: datetime
+    chain_id: Optional[int] = None
 ```
+
+### Return Value
+
+Returns the address of the logged in wallet that signed the payload as a `str` type.
+
+</div>
+</details>
+
+## generate_auth_token
 
 Server-side function that generates a JWT token from the provided login request that the
 
@@ -128,23 +143,49 @@ payload = sdk.auth.login(domain)
 token = sdk.auth.generate_auth_token(domain, payload)
 ```
 
-**Arguments**:
+<details>
+<summary>Configuration</summary>
+<div>
 
-- `domain`: The domain of the application to authenticate to
-- `payload`: The login payload to authenticate with
-- `options`: Optional configuration options for the authentication token
+#### domain
 
-**Returns**:
+The domain of the application to authenticate to. Must be of type `str`.
 
-An authentication token that can be used to make authenticated requests to the server
+#### payload
 
-<a id="core.auth.wallet_authenticator.WalletAuthenticator.authenticate"></a>
-
-#### authenticate
+The login payload to authenticate with. Must be a `LoginPayload` object:
 
 ```python
-def authenticate(domain: str, token: str) -> str
+class LoginPayload:
+    payload: LoginPayloadData
+    signature: str
+
+class LoginPayloadData:
+    domain: str
+    address: str
+    nonce: str
+    expiration_time: datetime
+    chain_id: Optional[int] = None
 ```
+
+#### options (optional)
+
+The configuration options for the authentication token. Must be an `AuthenticationOptions` object:
+
+```python
+class AuthenticationOptions:
+    invalid_before: Optional[datetime] = None
+    expiration_time: Optional[datetime] = None
+```
+
+### Return Value 
+
+Returns an authentication token `string` that can be used to make authenticated requests to the server.
+
+</div>
+</details>
+
+## authenticate
 
 Server-side function that authenticates the provided JWT token. This function verifies that
 
@@ -159,11 +200,20 @@ token = sdk.auth.generate_auth_token(domain, payload)
 address = sdk.auth.authenticate(domain, token)
 ```
 
-**Arguments**:
+<details>
+<summary>Configuration</summary>
+<div>
 
-- `domain`: The domain of the application to authenticate the token to
-- `token`: The authentication token to authenticate with
+#### domain
 
-**Returns**:
+The domain of the application to authenticate the token to. Must be of type `str`.
 
-The address of the authenticated wallet
+#### token
+
+The authentication token to authenticate with. Must be of type `str`.
+
+### Return Value
+
+A `string` representing the address of the authenticated wallet.
+</div>
+</details>

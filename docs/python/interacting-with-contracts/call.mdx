@@ -1,0 +1,46 @@
+---
+slug: /contract.call
+title: Call
+hide_title: true
+displayed_sidebar: python
+---
+
+## Call Functions
+
+If the functionality of your smart contract does not come under one of the [extension interfaces](/typescript/extensions#extensions),
+use the generic `call` method to retrieve the data and store the value.
+
+## Usage 
+
+```python
+# The first argument is the function name, any subsequent arguments are passed to the function
+contract.call("function_name")
+```
+
+## Configuration
+
+### function_name
+
+The name of the function, view, mapping, variable, etc. on your smart contract.
+
+Must be a `string`.
+
+### args
+
+The arguments to the function/variable, in the same order as the function signature on your smart contract.
+
+If you provide too few or too many arguments, the function will throw an error.
+
+```python
+data = contract.call("function_name", "arg1", "arg2")
+```
+
+## Example
+
+If I want to mint an NFT on my custom contract, I would want to use the `mintTo(address, uri)` function:
+
+```python
+address = "0x..."
+uri = "ipfs://..."
+contract.call("mintTo", address, uri)
+```

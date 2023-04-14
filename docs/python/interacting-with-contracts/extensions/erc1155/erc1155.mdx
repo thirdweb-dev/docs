@@ -1,258 +1,360 @@
 ---
-slug: /erc1155
-title: ERC1155 Objects
-hide_title: true
-displayed_sidebar: python
+title: Standard
+slug: /python.erc1155
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
 ---
 
-<a id="core.classes.erc_1155"></a>
+# ERC1155
 
-# core.classes.erc_1155
+Functionality available for contracts that implement the [`ERC1155`](/solidity/extensions/erc1155) extension.
 
-<a id="core.classes.erc_1155.ERC1155"></a>
+## balance
 
-## ERC1155 Objects
+Get the quantity of a specific NFT owned by the connected wallet.
 
 ```python
-class ERC1155(Generic[TERC1155], BaseContract[TERC1155])
+token_id = 0 # Id of the NFT to check
+balance = contract.erc1155.balance(token_id)
 ```
 
-<a id="core.classes.erc_1155.ERC1155.get"></a>
+<details>
+<summary>Configuration</summary>
+ <div>
 
-#### get
+#### token_id
+
+The token ID of the NFT to check the balance of.
+
+Must be an `int`.
 
 ```python
-def get(token_id: int) -> EditionMetadata
+balance = contract.erc1155.balance(
+  # highlight-next-line
+  token_id,
+)
 ```
 
-Get metadata for a token
+### Return Value
+
+An `int` representing the quantity of the NFT owned by the wallet.
+
+</div>
+</details>
+
+## balance_of
+
+Get the quantity of a specific NFT owned by a wallet.
 
 ```python
-nft = contract.get(0)
-print(nft)
+# Address of the wallet to check NFT balance
+wallet_address = "{{wallet_address}}"
+token_id = 0 # Id of the NFT to check
+balance = contract.erc1155.balance_of(wallet_address, token_id)
 ```
 
-**Arguments**:
+<details>
+<summary>Configuration</summary>
+<div>
 
-- `token_id`: token ID to check the metadata for
+#### address
 
-**Returns**:
+The wallet address to check the NFT balance for.
 
-Metadata for the token
-
-<a id="core.classes.erc_1155.ERC1155.get_all"></a>
-
-#### get_all
+Must be a `string`.
 
 ```python
-def get_all(query_params: QueryAllParams = QueryAllParams()
-            ) -> List[EditionMetadata]
+balance = contract.erc1155.balance_of(
+  # highlight-next-line
+  "{{wallet_address}}",
+  "{{token_id}}",
+)
 ```
 
-Get the metadata for all tokens on the contract
+#### token_id
+
+The token ID of the NFT to check the balance of.
+Must be an `int`.
 
 ```python
-metadatas = contract.get_all()
-print(metadatas)
+balance = contract.erc1155.balance_of(
+  "{{wallet_address}}",
+  # highlight-next-line
+  "{{token_id}}",
+)
 ```
 
-**Arguments**:
+### Return Value
 
-- `query_params`: optional QueryAllParams to define which tokens to get metadata for
+An `int` representing the quantity of the NFT owned by the wallet.
 
-**Returns**:
+</div>
+</details>
 
-list of metadata for all tokens
+## get
 
-<a id="core.classes.erc_1155.ERC1155.get_total_count"></a>
+Get the metadata of an NFT using it&rsquos token ID.
 
-#### get_total_count
+Metadata is fetched from the `uri` property of the NFT.
+
+If the metadata is hosted on IPFS, the metadata is fetched and made available as a `EditionMetadata` object.
+The object&rsquos `image` property will be a URL that is available through the thirdweb IPFS gateway.
 
 ```python
-def get_total_count() -> int
+nft = contract.erc1155.get(0)
 ```
 
-Get the total number of NFTs on the contract
+<details>
+<summary>Configuration</summary>
+<div>
 
-**Returns**:
+#### token_id
 
-total number of tokens on the contract
+The token ID of the NFT to get the metadata for.
 
-<a id="core.classes.erc_1155.ERC1155.get_owned"></a>
-
-#### get_owned
+Must be an `int`.
 
 ```python
-def get_owned(address: str = "") -> List[EditionMetadataOwner]
+nft = contract.erc1155.get(
+  # highlight-next-line
+  "{{token_id}}",
+)
 ```
 
-Get the metadata for all the tokens owned by an address
+### Return Value
+
+Returns an `EditionMetadata` object containing the following properties:
 
 ```python
-address = "{{wallet_address}}"
-owned = contract.get_owned(address)
-print(owned)
+class EditionMetadata:
+    metadata: NFTMetadata
+    supply: int
+
+class NFTMetadata:
+    id: int
+    uri: str
+    name: str
+    description: Optional[str] = None
+    image: Optional[str] = None
+    external_url: Optional[str] = None
+    animation_url: Optional[str] = None
+    background_color: Optional[str] = None
+    properties: Optional[Dict[Any, Any]] = None
+    attributes: Optional[Dict[str, Any]] = None
 ```
 
-**Arguments**:
+</div>
+</details>
 
-- `address`: address to get the owned tokens for
+## transfer
 
-**Returns**:
-
-list of metadata for all tokens owned by the address
-
-<a id="core.classes.erc_1155.ERC1155.total_supply"></a>
-
-#### total_supply
+Transfer an NFT from the connected wallet to another wallet.
 
 ```python
-def total_supply(token_id: int) -> int
-```
-
-Get the total number of tokens on the contract
-
-**Returns**:
-
-total number of tokens on the contract
-
-<a id="core.classes.erc_1155.ERC1155.balance"></a>
-
-#### balance
-
-```python
-def balance(token_id: int) -> int
-```
-
-Get the connected wallets balance of a specific token
-
-**Arguments**:
-
-- `token_id`: token ID to check the balance for
-
-**Returns**:
-
-balance of the token
-
-<a id="core.classes.erc_1155.ERC1155.balance_of"></a>
-
-#### balance_of
-
-```python
-def balance_of(address: str, token_id: int) -> int
-```
-
-Get a specific wallets balance of a specific token
-
-```python
-address = "{{wallet_address}}"
-token_id = 0
-
-balance = contract.balance_of(address, token_id)
-```
-
-**Arguments**:
-
-- `address`: address to check the balance for
-- `token_id`: token ID to check the balance for
-
-**Returns**:
-
-balance of the token
-
-<a id="core.classes.erc_1155.ERC1155.is_transfer_restricted"></a>
-
-#### is_transfer_restricted
-
-```python
-def is_transfer_restricted() -> bool
-```
-
-Check if the contract is restricted so transfers can only be made by admins
-
-**Returns**:
-
-True if the contract is restricted, False otherwise
-
-<a id="core.classes.erc_1155.ERC1155.is_approved"></a>
-
-#### is_approved
-
-```python
-def is_approved(address: str, operator: str) -> bool
-```
-
-Check if an operator address is approved to manage a target addresses assets
-
-**Arguments**:
-
-- `address`: address whose assets to check the approval of
-- `operator`: operator address to check the approval for
-
-**Returns**:
-
-True if the operator is approved, False otherwise
-
-<a id="core.classes.erc_1155.ERC1155.transfer"></a>
-
-#### transfer
-
-```python
-def transfer(to: str,
-             token_id: int,
-             amount: int,
-             data: Union[bytes, str] = b"0") -> TxReceipt
-```
-
-Transfer a specified token from the connected wallet to a specified address.
-
-```python
-to = "{{wallet_address}}"
+to = "0x7fDae677aA6f94Edff9872C4b91D26407709c790"
 token_id = 0
 amount = 1
 
-receipt = contract.transfer(to, token_id, amount)
+receipt = contract.erc1155.transfer(to, token_id, amount)
 ```
 
-**Arguments**:
+<details>
+<summary>Configuration</summary>
+<div>
 
-- `to`: wallet address to transfer the tokens to
-- `token_id`: the specific token ID to transfer
-- `amount`: the amount of tokens to transfer
+#### to
 
-**Returns**:
+The wallet address to send the NFT to.
 
-transaction receipt of the transfer
-
-<a id="core.classes.erc_1155.ERC1155.burn"></a>
-
-#### burn
+Must be a `string`.
 
 ```python
-def burn(token_id: int, amount: int) -> TxReceipt
+contract.erc1155.transfer(
+  # highlight-next-line
+  "{{wallet_address}}",
+  "{{token_id}}",
+  "{{amount}}",
+)
 ```
 
-Burn a specified amount of tokens from the connected wallet.
+#### token_id
 
-**Arguments**:
+The token ID of the NFT to transfer.
 
-- `amount`: amount of tokens to burn
-
-**Returns**:
-
-transaction receipt of the burn
-
-<a id="core.classes.erc_1155.ERC1155.set_approval_for_all"></a>
-
-#### set_approval_for_all
+Must be an `int`.
 
 ```python
-def set_approval_for_all(operator: str, approved: bool) -> TxReceipt
+contract.erc1155.transfer(
+  "{{wallet_address}}",
+  # highlight-next-line
+  "{{token_id}}",
+  "{{amount}}",
+)
 ```
 
-Set the approval for an operator address to manage the connected wallets assets
+#### amount
 
-**Arguments**:
+The quantity of the NFT to transfer.
 
-- `operator`: operator address to set the approval for
-- `approved`: True if the operator is approved, False otherwise
+Must be an `int`.
+
+```python
+contract.erc1155.transfer(
+  "{{wallet_address}}",
+  "{{token_id}}",
+  # highlight-next-line
+  "{{amount}}",
+)
+```
+
+</div>
+</details>
+
+## is_approved
+
+Get whether this wallet has approved transfers from the given operator.
+
+This means that the operator can transfer NFTs on behalf of this wallet.
+
+```python
+is_approved = contract.erc1155.is_approved(
+  # Address of the wallet to check
+  "{{wallet_address}}",
+  # Address of the operator to check
+  "{{wallet_address}}",
+)
+```
+
+<details>
+<summary>Configuration</summary>
+<div>
+
+#### owner
+
+The wallet address that owns the NFT.
+
+Must be a `string`.
+
+```python
+is_approved = contract.erc1155.is_approved(
+  # highlight-next-line
+  "{{wallet_address}}",
+  "{{wallet_address}}",
+)
+```
+
+#### operator
+
+The wallet address for the operator to check (i.e. the wallet that does/does not have approval).
+
+Must be a `string`.
+
+```python
+ is_approved = contract.erc1155.is_approved(
+  "{{wallet_address}}",
+  # highlight-next-line
+  "{{wallet_address}}",
+)
+```
+
+### Return Value
+
+A `bool` representing wether the wallet address has approval.
+
+</div>
+</details>
+
+## set_approval_for_all
+
+Give another address approval (or remove approval) to transfer all of your NFTs from this collection.
+
+:::warning Warning
+
+Proceed with caution. Only approve addresses you trust.
+
+:::
+
+```python
+ x_result = contract.erc1155.set_approval_for_all(
+  # Address of the wallet to approve
+  "{{wallet_address}}",
+  # Whether to grant approval (true) or remove approval (false)
+  true,
+)
+```
+
+<details>
+<summary>Configuration</summary>
+<div>
+
+#### operator
+
+The wallet address to approve.
+
+Must be a `string`.
+
+```python
+tx_result = contract.erc1155.set_approval_for_all(
+  # highlight-next-line
+  "{{wallet_address}}",
+  true,
+)
+```
+
+#### approved
+
+Whether to grant approval (true) or remove approval (false).
+
+Must be a `bool`.
+
+```python
+ txResult = contract.erc1155.setApprovalForAll(
+  "{{wallet_address}}",
+  # highlight-next-line
+  true,
+)
+```
+
+## total_count
+
+Get the total number of unique NFTs in the collection.
+
+```python
+total_count = contract.erc1155.total_count()
+```
+
+### Return Value
+
+Returns an `int` representing the total number of unique NFTs in the collection.
+
+</div>
+</details>
+
+## total_supply
+
+Returns the total supply of a token in the collection, including burned tokens.
+
+```python
+total_supply = contract.erc1155.total_supply("{{token_id}}")
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### token_id
+
+The token ID of the NFT to get the total supply of.
+
+```python
+total_supply = contract.erc1155.total_supply(
+  # highlight-next-line
+  "{{token_id}}",
+)
+```
+
+### Return Value
+
+Returns an `int` representing the total supply of the token.
+
+</div>
+</details>

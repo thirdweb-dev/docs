@@ -1,0 +1,89 @@
+---
+title: Mint
+slug: /sdk.erc20mintable
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+# ERC20Mintable
+
+Functionality available for contracts that implement the
+[`ERC20`](/solidity/extensions/erc20) and
+[`ERC20Mintable`](/solidity/extensions/erc20mintable) extensions.
+
+Allows the minting of new tokens into the contract.
+
+## mint
+
+Mint tokens to the **connected wallet**.
+
+```python
+amount = 100
+
+receipt = contract.erc20.mint(amount)
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### amount
+
+The amount of tokens to mint.
+
+Must be a `float`.
+
+```python
+tx_result = contract.erc20.mint(
+  # highlight-next-line
+  1.5,
+)
+```
+
+</div>
+</details>
+
+## mint_to
+
+The same as [`mint`](#mint), but allows you to specify the address to mint the tokens to.
+
+```python
+address = "0x7fDae677aA6f94Edff9872C4b91D26407709c790"
+amount = 100
+
+receipt = contract.erc20.mint_to(address, amount)
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### to
+
+The wallet address to mint the tokens to.
+
+Must be a `string`.
+
+```python
+tx_result = contract.erc20.mint_to(
+  # highlight-next-line
+  "{{wallet_address}}",
+  1.5
+)
+```
+
+#### amount
+
+The number of tokens to mint.
+
+Must be a `float`.
+
+```python
+tx_result = contract.erc20.mint_to(
+  "{{wallet_address}}",
+  # highlight-next-line
+  1.5
+)
+```
+
+</div>
+</details>

@@ -1,88 +1,387 @@
 ---
-slug: /contract-deployer
-title: ContractDeployer Objects
-hide_title: true
+slug: /python.contractdeployer
+title: Contract Deployer
 displayed_sidebar: python
 ---
 
-<a id="core.classes.contract_deployer"></a>
+## deploy_nft_collection
 
-# core.classes.contract_deployer
-
-<a id="core.classes.contract_deployer.ContractDeployer"></a>
-
-## ContractDeployer Objects
+Deploy an [nft collection](/python/python.nftcollection) prebuilt contract.
 
 ```python
-class ContractDeployer(ProviderHandler)
+from thirdweb.types.nft import NFTCollectionContractMetadata
+
+metadata = NFTCollectionContractMetadata.from_json(
+    "name":"my_nft_collection",
+    #...
+)
+contract.deploy_nft_collection(metadata)
 ```
 
-<a id="core.classes.contract_deployer.ContractDeployer.deploy_nft_collection"></a>
+<details>
+<summary>Configuration</summary>
+<div>
 
-#### deploy_nft_collection
+#### metadata 
+
+The contract metadata. Must be an `NFTCollectionContractMetadata` object:
 
 ```python
-def deploy_nft_collection(metadata: NFTCollectionContractMetadata) -> str
+class NFTCollectionContractMetadata(
+    ContractMetadataSchema,
+    ContractRoyaltySchema,
+    ContractSymbolSchema,
+    ContractPlatformFeeSchema,
+    ContractPrimarySaleSchema,
+    ContractTrustedForwarderSchema
+):
+
+class ContractMetadataSchema:
+    name: str = ""
+    description: Optional[str] = None
+    image: Optional[Union[str, TextIO, BinaryIO]] = None
+    external_link: Optional[str] = None
+
+class ContractRoyaltySchema:
+    seller_fee_basis_points: int = 0
+    fee_recipient: str = ZERO_ADDRESS
+
+class ContractPrimarySaleSchema:
+    primary_sale_recipient: str = ZERO_ADDRESS
+
+class ContractPlatformFeeSchema:
+    platform_fee_basis_points: int = 0
+    platform_fee_recipient: str = ZERO_ADDRESS
+
+class ContractSymbolSchema:
+    symbol: str = ""
+
+class ContractTrustedForwarderSchema:
+    trusted_forwarders: List[str] = dataclasses.field(default_factory=list)
 ```
 
-Deploy an NFT Collection contract.
+</div>
+</details>
 
-<a id="core.classes.contract_deployer.ContractDeployer.deploy_edition"></a>
+## deploy_edition
 
-#### deploy_edition
+Deploy an [Edition](/python/python.edition) contract
 
 ```python
-def deploy_edition(metadata: EditionContractMetadata) -> str
+metadata = EditionContractMetadata.from_json(
+    "name":"my contract"
+    # ...
+)
+sdk.deploy_edition(metadata)
 ```
 
-Deploy an Edition contract
+<details>
+<summary>Configuration</summary>
+<div>
 
-<a id="core.classes.contract_deployer.ContractDeployer.deploy_token"></a>
+#### metadata 
 
-#### deploy_token
+The contract metadata. Must be an `EditionContractMetadata` object:
 
 ```python
-def deploy_token(metadata: TokenContractMetadata) -> str
+class EditionContractMetadata(
+    ContractMetadataSchema,
+    ContractRoyaltySchema,
+    ContractSymbolSchema,
+    ContractPlatformFeeSchema,
+    ContractPrimarySaleSchema,
+    ContractTrustedForwarderSchema
+):
+
+class ContractMetadataSchema:
+    name: str = ""
+    description: Optional[str] = None
+    image: Optional[Union[str, TextIO, BinaryIO]] = None
+    external_link: Optional[str] = None
+
+class ContractRoyaltySchema:
+    seller_fee_basis_points: int = 0
+    fee_recipient: str = ZERO_ADDRESS
+
+class ContractPrimarySaleSchema:
+    primary_sale_recipient: str = ZERO_ADDRESS
+
+class ContractPlatformFeeSchema:
+    platform_fee_basis_points: int = 0
+    platform_fee_recipient: str = ZERO_ADDRESS
+
+class ContractSymbolSchema:
+    symbol: str = ""
+
+class ContractTrustedForwarderSchema:
+    trusted_forwarders: List[str] = dataclasses.field(default_factory=list)
 ```
 
-Deploy a Token contract
+</div>
+</details>
 
-<a id="core.classes.contract_deployer.ContractDeployer.deploy_marketplace"></a>
+## deploy_token
 
-#### deploy_marketplace
+Deploy a [Token](/python/python.token) contract
 
 ```python
-def deploy_marketplace(metadata: MarketplaceContractMetadata) -> str
+metadata = TokenContractMetadata.from_json(
+    "name":"my contract"
+    # ...
+)
+sdk.deploy_token(metadata)
 ```
 
-Deploy a Marketplace contract
+<details>
+<summary>Configuration</summary>
+<div>
 
-<a id="core.classes.contract_deployer.ContractDeployer.deploy_nft_drop"></a>
+#### metadata 
 
-#### deploy_nft_drop
+The contract metadata. Must be a `TokenContractMetadata` object:
 
 ```python
-def deploy_nft_drop(metadata: NFTDropContractMetadata) -> str
+class TokenContractMetadata(
+    ContractMetadataSchema,
+    ContractSymbolSchema,
+    ContractPrimarySaleSchema,
+    ContractTrustedForwarderSchema,
+    ContractPlatformFeeSchema,
+):
+
+class ContractMetadataSchema:
+    name: str = ""
+    description: Optional[str] = None
+    image: Optional[Union[str, TextIO, BinaryIO]] = None
+    external_link: Optional[str] = None
+
+class ContractPrimarySaleSchema:
+    primary_sale_recipient: str = ZERO_ADDRESS
+
+class ContractPlatformFeeSchema:
+    platform_fee_basis_points: int = 0
+    platform_fee_recipient: str = ZERO_ADDRESS
+
+class ContractSymbolSchema:
+    symbol: str = ""
+
+class ContractTrustedForwarderSchema:
+    trusted_forwarders: List[str] = dataclasses.field(default_factory=list)
 ```
 
-Deploy an NFT Drop contract
+</div>
+</details>
 
-<a id="core.classes.contract_deployer.ContractDeployer.deploy_edition_drop"></a>
+## deploy_marketplace
 
-#### deploy_edition_drop
+Deploy a [Marketplace](/python/python.marketplace) contract
 
 ```python
-def deploy_edition_drop(metadata: EditionDropContractMetadata) -> str
+metadata = MarketplaceContractMetadata.from_json(
+    "name":"my contract"
+    # ...
+)
+sdk.deploy_marketplace(metadata)
 ```
 
-Deploy an Edition Drop contract
+<details>
+<summary>Configuration</summary>
+<div>
 
-<a id="core.classes.contract_deployer.ContractDeployer.deploy_multiwrap"></a>
+#### metadata 
 
-#### deploy_multiwrap
+The contract metadata. Must be a `MarketplaceContractMetadata` object:
 
 ```python
-def deploy_multiwrap(metadata: MultiwrapContractMetadata) -> str
+class MarketplaceContractMetadata(
+    ContractMetadataSchema,
+    ContractPlatformFeeSchema,
+    ContractTrustedForwarderSchema
+):
+
+class ContractMetadataSchema:
+    name: str = ""
+    description: Optional[str] = None
+    image: Optional[Union[str, TextIO, BinaryIO]] = None
+    external_link: Optional[str] = None
+
+class ContractPlatformFeeSchema:
+    platform_fee_basis_points: int = 0
+    platform_fee_recipient: str = ZERO_ADDRESS
+
+class ContractTrustedForwarderSchema:
+    trusted_forwarders: List[str] = dataclasses.field(default_factory=list)
 ```
 
-Deploy a Multiwrap contract
+</div>
+</details>
+
+## deploy_nft_drop
+
+Deploy an [NFT Drop](/python/python.nftdrop) contract
+
+```python
+metadata = NFTDropContractMetadata.from_json(
+    "name":"my contract"
+    # ...
+)
+sdk.deploy_nft_drop(metadata)
+```
+
+<details>
+<summary>Configuration</summary>
+<div>
+
+#### metadata 
+
+The contract metadata. Must be an `NFTDropContractMetadata` object:
+
+```python
+class NFTDropContractMetadata(
+    ContractMetadataSchema,
+    ContractRoyaltySchema,
+    ContractSymbolSchema,
+    ContractPlatformFeeSchema,
+    ContractPrimarySaleSchema,
+    ContractTrustedForwarderSchema,
+    MerkleSchema,
+):
+
+class ContractMetadataSchema:
+    name: str = ""
+    description: Optional[str] = None
+    image: Optional[Union[str, TextIO, BinaryIO]] = None
+    external_link: Optional[str] = None
+
+class ContractRoyaltySchema:
+    seller_fee_basis_points: int = 0
+    fee_recipient: str = ZERO_ADDRESS
+
+class ContractPrimarySaleSchema:
+    primary_sale_recipient: str = ZERO_ADDRESS
+
+class ContractPlatformFeeSchema:
+    platform_fee_basis_points: int = 0
+    platform_fee_recipient: str = ZERO_ADDRESS
+
+class ContractSymbolSchema:
+    symbol: str = ""
+
+class ContractTrustedForwarderSchema:
+    trusted_forwarders: List[str] = dataclasses.field(default_factory=list)
+
+class MerkleSchema:
+    merkle: Dict[str, str] = dataclasses.field(default_factory=lambda: {})
+```
+
+</div>
+</details>
+
+## deploy_edition_drop
+
+Deploy an [Edition Drop](/python/python.editiondrop) contract
+
+```python
+metadata = EditionDropContractMetadata.from_json(
+    "name":"my contract"
+    # ...
+)
+sdk.deploy_edition_drop(metadata)
+```
+
+<details>
+<summary>Configuration</summary>
+<div>
+
+#### metadata 
+
+The contract metadata. Must be an `EditionDropContractMetadata` object:
+
+```python
+class EditionDropContractMetadata(
+    ContractMetadataSchema,
+    ContractRoyaltySchema,
+    ContractSymbolSchema,
+    ContractPlatformFeeSchema,
+    ContractPrimarySaleSchema,
+    ContractTrustedForwarderSchema,
+    MerkleSchema,
+):
+
+class ContractMetadataSchema:
+    name: str = ""
+    description: Optional[str] = None
+    image: Optional[Union[str, TextIO, BinaryIO]] = None
+    external_link: Optional[str] = None
+
+class ContractRoyaltySchema:
+    seller_fee_basis_points: int = 0
+    fee_recipient: str = ZERO_ADDRESS
+
+class ContractPrimarySaleSchema:
+    primary_sale_recipient: str = ZERO_ADDRESS
+
+class ContractPlatformFeeSchema:
+    platform_fee_basis_points: int = 0
+    platform_fee_recipient: str = ZERO_ADDRESS
+
+class ContractSymbolSchema:
+    symbol: str = ""
+
+class ContractTrustedForwarderSchema:
+    trusted_forwarders: List[str] = dataclasses.field(default_factory=list)
+
+class MerkleSchema:
+    merkle: Dict[str, str] = dataclasses.field(default_factory=lambda: {})
+```
+
+</div>
+</details>
+
+## deploy_multiwrap
+
+Deploy a [Multiwrap](/python/python.multiwrap) contract
+
+```python
+metadata = MultiwrapContractMetadata.from_json(
+    "name":"my contract"
+    # ...
+)
+sdk.deploy_multiwrap(metadata)
+```
+
+<details>
+<summary>Configuration</summary>
+<div>
+
+#### metadata 
+
+The contract metadata. Must be a `MultiwrapContractMetadata` object:
+
+```python
+class MultiwrapContractMetadata(
+    ContractMetadataSchema,
+    ContractRoyaltySchema,
+    ContractSymbolSchema,
+    ContractTrustedForwarderSchema
+):
+
+class ContractMetadataSchema:
+    name: str = ""
+    description: Optional[str] = None
+    image: Optional[Union[str, TextIO, BinaryIO]] = None
+    external_link: Optional[str] = None
+
+class ContractRoyaltySchema:
+    seller_fee_basis_points: int = 0
+    fee_recipient: str = ZERO_ADDRESS
+
+class ContractSymbolSchema:
+    symbol: str = ""
+
+class ContractTrustedForwarderSchema:
+    trusted_forwarders: List[str] = dataclasses.field(default_factory=list)
+```
+
+</div>
+</details>

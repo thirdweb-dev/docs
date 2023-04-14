@@ -1,66 +1,79 @@
 ---
-slug: /marketplace
-title: Marketplace Objects
-hide_title: true
-displayed_sidebar: python
+title: Marketplace
+slug: /python.marketplace
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
 ---
 
-<a id="contracts.marketplace"></a>
+When using the [Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace) smart contract, additional top-level functionality is available to use.
 
-# contracts.marketplace
-
-Interface for interacting with a marketplace contract
-
-<a id="contracts.marketplace.Marketplace"></a>
-
-## Marketplace Objects
+To access the top-level functionality, use the `get_marketplace` method when creating the contract instance:
 
 ```python
-class Marketplace(BaseContract[MarketplaceABI])
+contract = sdk.get_marketplace(
+  "{{contract_address}}",
+)
 ```
 
-Create your own whitelabel marketplace that enables users to buy and sell any digital assets.
+## get_listing
+
+Get the details of a marketplace listing using the listing ID.
 
 ```python
-from thirdweb import ThirdwebSDK
-
-# You can customize this to a supported network or your own RPC URL
-network = "mumbai"
-
-# Now we can create a new instance of the SDK
-sdk = ThirdwebSDK(network)
-
-# If you want to send transactions, you can instantiate the SDK with a private key instead:
-#   sdk = ThirdwebSDK.from_private_key(PRIVATE_KEY, network)
-
-contract = sdk.get_marketplace("{{contract_address}}")
+listing_id = 1
+listing = contract.get_listing(listing_id)
 ```
 
-<a id="contracts.marketplace.Marketplace.get_listing"></a>
+<details>
+    <summary>Configuration</summary>
+    <div>
 
-#### get_listing
+#### listing_id
+
+The ID of the listing to get the details for.
+
+Must be an `int`.
+
+### Return Value
+
+Returns an `AuctionListing` or `DirectListing` object, depending on the type, containing the following properties:
 
 ```python
-def get_listing(listing_id: int) -> Union[DirectListing, AuctionListing]
+class DirectListing:
+    id: int
+    asset_contract_address: str
+    token_id: int
+    asset: NFTMetadata
+    start_time_in_seconds: int
+    seconds_until_end: int
+    quantity: int
+    currency_contract_address: str
+    buyout_currency_value_per_token: CurrencyValue
+    buyout_price: PriceWei
+    seller_address: str
+    type = ListingType.DIRECT
+
+
+class AuctionListing:
+    id: int
+    asset_contract_address: str
+    token_id: int
+    asset: NFTMetadata
+    start_time_in_epoch_seconds: int
+    end_time_in_epoch_seconds: int
+    quantity: int
+    currency_contract_address: str
+    reserve_price: PriceWei
+    buyout_price: PriceWei
+    buyout_currency_value_per_token: CurrencyValue
+    reserve_price_currency_value_per_token: CurrencyValue
+    seller_address: str
+    type = ListingType.AUCTION
 ```
 
-Get a listing from the marketplace by ID
+</div>
+</details>
 
-**Arguments**:
-
-- `listing_id`: ID of the listing to get
-
-**Returns**:
-
-Listing object
-
-<a id="contracts.marketplace.Marketplace.get_active_listings"></a>
-
-#### get_active_listings
-
-```python
-def get_active_listings() -> List[Union[DirectListing, AuctionListing]]
-```
+## get_active_listings
 
 Get all the currently active listings from the marketplace.
 
@@ -69,127 +82,173 @@ listings = contract.get_active_listings()
 price_of_first = listings[0].price
 ```
 
-**Returns**:
+<details>
+    <summary>Configuration</summary>
+    <div>
 
-List of listings
+### Return Value
 
-<a id="contracts.marketplace.Marketplace.get_all_listings"></a>
+A list of the listings `Union[DirectListing, AuctionListing]`.
 
-#### get_all_listings
+</div>
+</details>
 
-```python
-def get_all_listings(
-    filter: MarketplaceFilter = None
-) -> List[Union[DirectListing, AuctionListing]]
-```
+## get_all_listings
 
 Get all the listings that have ever been made on this marketplace.
 
 ```python
 listings = contract.get_all_listings()
-price_of_first = listings[0].price
 ```
 
-**Arguments**:
+<details>
+<summary>Configuration</summary>
+<div>
 
-- `filter`: Filter to apply to the listings
+### filter (optional)
 
-**Returns**:
-
-List of listings
-
-<a id="contracts.marketplace.Marketplace.get_total_count"></a>
-
-#### get_total_count
+Filter the marketplace listings. Must be of type `MarketplaceFilter`
 
 ```python
-def get_total_count() -> int
+class MarketplaceFilter:
+    start: int = 0
+    count: int = 100
+    seller: Optional[str] = None
+    token_contract: Optional[str] = None
+    token_id: Optional[int] = None
 ```
+
+```python
+from thirdweb.types.marketplace import MarketplaceFilter
+
+filter = MarketplaceFilter(0, 5)
+listings = contract.get_all_listings(filter)
+```
+
+### Return Value
+
+A list of the listings `List[Union[DirectListing, AuctionListing]]`.
+
+</div>
+</details>
+
+
+## get_total_count
 
 Get the total number of listings on this marketplace.
 
-**Returns**:
-
-Total number of listings
-
-<a id="contracts.marketplace.Marketplace.is_restricted_to_lister_role_only"></a>
-
-#### is_restricted_to_lister_role_only
-
 ```python
-def is_restricted_to_lister_role_only() -> bool
+total_count = contract.get_total_count()
 ```
 
-Check whether only wallets with the lister role can make listings.
+<details>
+<summary>Configuration</summary>
+<div>
 
-**Returns**:
+### Return Value
 
-True if only lister wallets can make listings
+An `int` representing the total number of listings on the marketplace contract.
 
-<a id="contracts.marketplace.Marketplace.get_bid_buffer_bps"></a>
+</div>
+</details>
 
-#### get_bid_buffer_bps
+## is_restricted_to_lister_role_only
 
-```python
-def get_bid_buffer_bps() -> int
-```
-
-Get the bid buffer basis points for this marketplace.
-
-**Returns**:
-
-Bid buffer basis points
-
-<a id="contracts.marketplace.Marketplace.get_time_buffer_in_seconds"></a>
-
-#### get_time_buffer_in_seconds
+Check whether only wallets with the `lister` role can make listings.
 
 ```python
-def get_time_buffer_in_seconds() -> int
+listener_only = contract.is_restricted_to_listener_role_only()
 ```
 
-Get the time buffer for this marketplace in seconds
+<details>
+<summary>Configuration</summary>
+<div>
 
-**Returns**:
+### Return Value
 
-Time buffer in seconds
+A `bool` representing whether the wallets with the `listener` role can make listings.
 
-<a id="contracts.marketplace.Marketplace.buyout_listing"></a>
+</div>
+</details>
 
-#### buyout_listing
+## get_time_buffer_in_seconds
+
+Get the time buffer for this marketplace in seconds.
 
 ```python
-def buyout_listing(listing_id: int,
-                   quantity_desired: Optional[int] = None,
-                   receiver: Optional[str] = None) -> TxReceipt
+time_buffer = contract.get_time_buffer_in_seconds()
 ```
 
-Buyout a listing by listing ID
+<details>
+<summary>Configuration</summary>
+<div>
+
+### Return Value
+
+A `int` representing the time buffer in seconds.
+
+</div>
+</details>
+
+## buyout_listing
+
+Buyout a listing by listing ID.
 
 ```python
 listing_id = 0
 quantity_desired = 1
-
-contract.buyout_listing(listing_id, quantity_desired)
+receiver = "0x..."
+time_buffer = contract.buyout_listing(listing_id, quantity_desired, receiver)
 ```
 
-**Arguments**:
+<details>
+<summary>Configuration</summary>
+<div>
 
-- `listing_id`: ID of the listing to buyout
-- `quantity_desired`: Quantity to buyout
-- `receiver`: Address to send the asset to
+#### listing_id
 
-**Returns**:
-
-Transaction receipt of buyout
-
-<a id="contracts.marketplace.Marketplace.set_bid_buffer_bps"></a>
-
-#### set_bid_buffer_bps
+ID of the listing to buyout. Must be of type `int`
 
 ```python
-def set_bid_buffer_bps(buffer_bps: int) -> TxReceipt
+# highlight-next-line
+listing_id = 0
+quantity_desired = 1
+receiver = "0x..."
+time_buffer = contract.buyout_listing(listing_id, quantity_desired, receiver)
 ```
+
+#### quantity_desired
+
+Quantity to buyout. Must be of type `int`.
+
+```python
+listing_id = 0
+# highlight-next-line
+quantity_desired = 1
+receiver = "0x..."
+time_buffer = contract.buyout_listing(listing_id, quantity_desired, receiver)
+```
+
+#### receiver
+
+Address to send the asset to. Must be of type `str`.
+
+```python
+listing_id = 0
+quantity_desired = 1
+# highlight-next-line
+receiver = "0x..."
+time_buffer = contract.buyout_listing(listing_id, quantity_desired, receiver)
+```
+
+### Return Value
+
+A `int` representing the time buffer in seconds.
+
+</div>
+</details>
+
+## set_bid_buffer_bps
 
 Set the bid buffer basis points for this marketplace.
 
@@ -198,21 +257,24 @@ buffer_bps = 500
 contract.set_bid_buffer_bps(buffer_bps)
 ```
 
-**Arguments**:
+<details>
+<summary>Configuration</summary>
+<div>
 
-- `buffer_bps`: Bid buffer basis points
+#### buffer_bps
 
-**Returns**:
-
-Transaction receipt
-
-<a id="contracts.marketplace.Marketplace.set_time_buffer_in_seconds"></a>
-
-#### set_time_buffer_in_seconds
+The bid buffer basis points. Must be of type `int`.
 
 ```python
-def set_time_buffer_in_seconds(buffer_in_seconds: int) -> TxReceipt
+# hightlight-next-line
+buffer_bps = 500
+contract.set_bid_buffer_bps(buffer_bps)
 ```
+
+</div>
+</details>
+
+## set_time_buffer_in_seconds
 
 Set the time buffer of the marketplace.
 
@@ -221,38 +283,19 @@ buffer_in_seconds = 60
 contract.set_time_buffer_in_seconds(buffer_in_seconds)
 ```
 
-**Arguments**:
+<details>
+<summary>Configuration</summary>
+<div>
 
-- `buffer_in_seconds`: Time buffer in seconds
+#### buffer_in_seconds
 
-**Returns**:
-
-Transaction receipt
-
-<a id="contracts.marketplace.Marketplace.allow_listing_from_specific_asset_only"></a>
-
-#### allow_listing_from_specific_asset_only
+The time buffer in seconds. Must be of type `int`.
 
 ```python
-def allow_listing_from_specific_asset_only(contract_address: str) -> TxReceipt
+# highlight-next-line
+buffer_in_seconds = 60
+contract.set_time_buffer_in_seconds(buffer_in_seconds)
 ```
 
-Restrict marketplace so only specific asset can be listed.
-
-**Arguments**:
-
-- `contract_address`: Address of the asset contract
-
-<a id="contracts.marketplace.Marketplace.allow_listing_from_any_asset"></a>
-
-#### allow_listing_from_any_asset
-
-```python
-def allow_listing_from_any_asset() -> TxReceipt
-```
-
-Allow asset to be listed on the marketplace.
-
-**Returns**:
-
-Transaction receipt
+</div>
+</details>
