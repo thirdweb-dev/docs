@@ -1,7 +1,7 @@
 ---
 title: useUser
-slug: /react.useuser
-displayed_sidebar: react
+slug: /react-native.useuser
+displayed_sidebar: react-native
 ---
 
 Hook for retrieving information about the currently signed in user using [auth](/auth).
@@ -9,7 +9,7 @@ Hook for retrieving information about the currently signed in user using [auth](
 Useful to get the user's address and session data, or `undefined` if no user is signed in.
 
 ```jsx
-import { useUser } from "@thirdweb-dev/react";
+import { useUser } from "@thirdweb-dev/react-native";
 ```
 
 ## Usage
@@ -17,7 +17,7 @@ import { useUser } from "@thirdweb-dev/react";
 Call the `useUser` hook to get the information about the currently signed in wallet.
 
 ```jsx
-import { useUser } from "@thirdweb-dev/react";
+import { useUser } from "@thirdweb-dev/react-native";
 
 function App() {
   const { user, isLoggedIn, isLoading } = useUser();

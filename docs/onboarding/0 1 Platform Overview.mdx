@@ -3,189 +3,55 @@ title: Overview
 slug: /platform-overview
 ---
 
-import QuickstartCard from "@components/QuickstartCard";
-import ThemedImage from "@theme/ThemedImage";
-import Image from "@theme/IdealImage";
+# Overview
 
-# Platform Overview
+thirdweb is a comprehensive development framework that empowers you to seamlessly
+build, launch, and manage web3 applications and games across any EVM-compatible blockchain.
 
-<div className="heroGrid">
+## Architecture
 
-<div>
-<p>thirdweb is a development framework that allows you to build web3 functionality into your applications.</p>
+Whether you're developing decentralized applications from scratch or enhancing existing ones,
+Our tool suite accelerates your development workflow across the smart contract, application, and infrastructure layers.
 
-<p> We provide workflows to speed up your development, including:</p>
+### Smart Contracts
 
-1. **Contracts** you can use to build the foundation of your web3 functionality.
-2. **SDKs** to create applications that interact with the blockchain in your favorite languages.
-3. **Dashboards** to manage your contract settings, team permissions, revenue streams, and analytics.
+Smart contracts serve as the foundational building blocks for any decentralized application.
+We conduct audits on our pre-built contracts to ensure the highest quality and security level.
+thirdweb's ContractKit extensions follow dynamic contract patterns by default. We also optimize contracts for gas efficiency, minimizing transaction costs.
+By prioritizing these technical considerations, developers can focus on creating exceptional web3 applications with confidence and ease.
 
-</div>
+thirdweb is designed to integrate with any contract on any blockchain seamlessly. With [**ContractKit**](/contractkit), you can quickly build and customize smart contracts while enabling extensions to unlock more functionality.
+Whether you're launching your smart contract with the [**Deploy**](/deploy), importing an already deployed contract, or exploring pre-built contracts through [**Explore**](/explore),
+it streamlines the first steps of decentralized development.
+Upon deployment, using [**Dashboard**](/dashboard), you can easily manage your smart contract and track its performance through **Data Feeds**.
 
-<div className="heroGridImageContainer">
-  <ThemedImage
-    sources={{
-      light: "/assets/portal-overview-all-light.png",
-      dark: "/assets/portal-overview-all-dark.png",
-    }}
-    className="heroGridImage"
-    alt="thirdweb Core Pillars"
-  />
-</div>
+### Applications
 
-</div>
+thirdweb offers software development kits (SDKs) that allow seamless integration with your smart contract when developing applications or games using popular programming languages such as React, React Native, TypeScript, Python, Go, and Unity.
 
-:::tip Quick Start
+Our SDKs enable wallet connectivity and provide specialized sets of functionality for common Ethereum patterns and standards (i.e., ERC-20, ERC-721, ERC-1155) based on your contract, remote procedure call (RPC) URLs, and an IPFS Gateway.
+These features optimize performance and enhance developer experience when building decentralized applications.
 
-Want to start building and see what you can do? Check out the **[Getting Started](/getting-started)** guide.
+### Infrastructure
 
-:::
+thirdweb offers a comprehensive suite of tools and technologies to facilitate the development of user-friendly and accessible decentralized applications. Our infrastructure includes options for fiat on-ramps, wallet integrations, and gasless relayers, providing seamless end-user experiences.
 
-<hr
-  style={{
-    marginTop: 32,
-    backgroundColor: "var(--ifm-toc-border-color)",
-  }}
-/>
+In addition, we provide built-in storage solutions and RPCs (remote procedure calls or connections to the blockchain) to optimize application performance and decentralization. Our indexer and Data Feeds enable easy integration of your contract's data into your application.
 
-## Contracts
+Our Auth SDK is designed to support decentralized login and seamless integration with client and server frameworks. This feature allows developers to build secure and user-friendly decentralized applications that can easily be deployed and integrated with other applications.
 
-<div className="heroGrid">
+## Solutions
 
-<div>
-  <p>Deploying smart contracts is the first step of building any web3 application.</p>
+We are committed to providing complete toolkits for developers across various industries,
+including gaming, e-commerce, finance, art, social media, and more. Our solutions toolkits incorporate
+a range of tools and technologies, proprietary and in partnership with industry leaders.
 
-You can deploy one of our [prebuilt contracts](/pre-built-contracts) for more common use cases (NFTs, tokens, marketplaces),
-or you can build your own smart contract with our [Solidity SDK](/solidity) and ship it with [Deploy](/deploy).
+[GamingKit](/gamingkit), developed in partnership with Coinbase, offers a streamlined approach to building blockchain-based games.
+It includes pre-built contracts such as Marketplace, Multiwrap, Packs, Tokens, and more, and a [Unity SDK](/unity) to build your game.
+GamingKit also enables easy fiat on-ramp solutions via Coinbase Pay.
 
-We also offer [prebuilt Solana programs](/pre-built-contracts) for common use cases.
+Similarly, [CommerceKit](/commercekit), developed in collaboration with Shopify, enables the creation of blockchain-based storefronts that can reward customers with digital assets.
+The toolkit includes features for enabling token-gated commerce, loyalty programs, and easy configuration tools for digital collectible sales/royalty fees.
 
-<p style={{ marginBottom: 6 }}>Our prebuilt contracts are:</p>
-
-- Fully **open-source** on GitHub
-- Consistently **audited** by trusted firms
-- **10x cheaper** to deploy than ordinary smart contracts
-- Completely owned by you
-
-<div className="row" style={{ marginBottom: 24 }}>
-  <div className="col col--12" style={{ marginTop: 8 }}>
-    <QuickstartCard
-      name="Learn more about contracts"
-      link="/pre-built-contracts"
-      image="/assets/icons/general.png"
-    />
-  </div>
-</div>
-
-</div>
-
-<div className="heroGridImageContainer">
-  <ThemedImage
-    sources={{
-      light: "/assets/platform-overview-contract-light.png",
-      dark: "/assets/platform-overview-contract-dark.png",
-    }}
-    className="heroGridImage"
-    alt="thirdweb contracts"
-  />
-</div>
-
-</div>
-
-<hr
-  style={{
-    marginTop: 32,
-    backgroundColor: "var(--ifm-toc-border-color)",
-  }}
-/>
-
-## SDKs
-
-<div className="heroGrid">
-  <div>
-    <p>
-      We provide a diverse set of tools to help you build your applications with whatever languages
-      and frameworks you are most comfortable using:
-    </p>
-
-We have **SDKs** to handle interaction with your contracts in multiple languages and offer plug-and-play frontend components to help you
-build elegant user interfaces around your smart contract functionality.
-
-<div className="row" style={{marginBottom:24}}>
-
-<div className="col col--12" style={{ marginTop: 8 }}>
-  <QuickstartCard
-    name="Learn more about SDKs"
-    link="/sdk"
-    image="/assets/icons/general.png"
-  />
-</div>
-
-</div>
-
-<p>
-
-</p>
-</div>
-
-<div className="heroGridImageContainer">
-    <ThemedImage
-      sources={{
-        light: "/assets/platform-overview-sdk-light.png",
-        dark: "/assets/platform-overview-sdk-dark.png",
-      }}
-      className="heroGridImage"
-      alt="thirdweb sdk"
-    />
-  </div>
-</div>
-
-<hr
-  style={{
-    marginTop: 32,
-    backgroundColor: "var(--ifm-toc-border-color)",
-  }}
-/>
-
-## Dashboard
-
-<div className="heroGrid">
-  
-  <div>
-    <p>
-      Each contract you deploy comes with a <a href='https://thirdweb.com/dashboard'>dashboard</a> to manage your applications.
-    </p>
-
-This lets you perform common admin operations for your projects without any code, such as:
-
-- **Deploying** new smart contracts and **interacting** with current contracts
-- **Configuring** royalty and platform fees or other contract settings
-- Issuing team-wide **permissions** to enable collaboration
-- Gathering **insights** from your smart contract analytics
-
-<div className="row" style={{marginBottom:24}}>
-
-<div className="col col--12" style={{ marginTop: 8 }}>
-  <QuickstartCard
-    name="Learn more about the dashboard"
-    link="/dashboard"
-    image="/assets/icons/general.png"
-  />
-</div>
-
-</div>
-
-</div>
-
-<div className="heroGridImageContainer">
-  <ThemedImage
-    sources={{
-      light: "/assets/platform-overview-dashboard-light.png",
-      dark: "/assets/platform-overview-dashboard-dark.png",
-    }}
-    className="heroGridImage"
-    alt="thirdweb dashboard"
-  />
-</div>
-
-</div>
+Our Minting solution enables creative minting mechanics and managing digital assets created on both EVM Contracts and Solana's programs.
+It includes tools for signature-based minting, releasing collections of unique NFTs, wrapping tokens into newly wrapped NFTs, randomized loot boxes, and more.

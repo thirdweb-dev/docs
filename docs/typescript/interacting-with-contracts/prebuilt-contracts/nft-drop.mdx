@@ -184,7 +184,7 @@ There are three options available:
 - `pricePerToken` - The price to pay for each token claimed. Not relevant when using claim conditions.
 
 ```javascript
-const txResult = await contract.erc721.claim("{{token_id}}", "{{quantity}}", {
+const txResult = await contract.erc721.claim("{{quantity}}", {
   checkERC20Allowance: true,
   currencyAddress: "{{currency_contract_address}}",
   pricePerToken: "{{price}}",
