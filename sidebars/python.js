@@ -65,7 +65,7 @@ const sidebars = {
         },
         {
           type: "doc",
-          label: "Using Custom Contracts",
+          label: "Call Functions",
           id: "interacting-with-contracts/call",
         },
         {

@@ -1,7 +1,6 @@
 ---
 slug: /contract.get
-title: Get
-hide_title: true
+title: Get A Custom Contract
 displayed_sidebar: python
 ---
 
@@ -23,13 +22,15 @@ The address of the smart contract you want to connect to.
 Must be a `string`.
 
 :::info Import Smart Contracts
+
 If your smart contract was not deployed using thirdweb, you&rsquo;ll need to import it on the [dashboard](/dashboard).
+
 :::
 
 ### Using Contract ABI
 
 Optionally, (if you don&rsquo;t want to use the import feature),
-you can provide your smart contract&rsquo;s ABI to the second parameter of the `getContract` method.
+you can provide your smart contract&rsquo;s ABI to the second parameter of the `get_contract` method.
 Useful when developing on a local node,
 where it may be faster to use the ABI than to import the contract using the [dashboard](/dashboard).
 
