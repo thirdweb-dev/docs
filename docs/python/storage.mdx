@@ -72,9 +72,7 @@ Uploads data to IPFS and returns the hash of the data.
 
 ```python
 data = "my data here"
-contract_address = "0x..."
-signer_address = "0x..."
-sdk.storage.upload(data, contract_address, signer_address)
+sdk.storage.upload(data)
 ```
 
 <details>
@@ -84,14 +82,6 @@ sdk.storage.upload(data, contract_address, signer_address)
 #### data
 
 The data to upload. This can either be a text file `TextIO`, a binary file `BinaryIO` or a `str` of the data.
-
-#### contract_address (optional)
-
-The address of the contract to get the token for. Must be of type `str`.
-
-#### signer_address (optional)
-
-The address of the signer to get the token for. Must be of type `str`.
 
 ## Return Value
 
@@ -134,14 +124,6 @@ Sequence[Union[TextIO, BinaryIO, str, Dict[str, Any]]]
 
 The number to start the file names with. Must be of type `int`.
 
-#### contract_address (optional)
-
-The address of the contract to get the tokens for. Must be of type `str`.
-
-#### signer_address (optional)
-
-The address of the signer to get the token for. Must be of type `str`.
-
 ## Return Value
 
 A string representing the hash of the data.
@@ -174,14 +156,6 @@ The metadata to upload. Must be a dictionary of `str` to `Any`:
 ```python
 Dict[str, Any]
 ```
-
-#### contract_address (optional)
-
-The address of the contract to get the tokens for. Must be of type `str`.
-
-#### signer_address (optional)
-
-The address of the signer to get the token for. Must be of type `str`.
 
 ## Return Value
 
@@ -227,14 +201,6 @@ A sequence of metadatas to upload. Must be a dictionary of `str` to `Any`:
 ```python
 Sequence[Dict[str, Any]]
 ```
-
-#### contract_address (optional)
-
-The address of the contract to get the tokens for. Must be of type `str`.
-
-#### signer_address (optional)
-
-The address of the signer to get the token for. Must be of type `str`.
 
 #### file_start_number (optional)
 
