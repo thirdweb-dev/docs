@@ -1,0 +1,63 @@
+---
+title: ThirdwebSDK.fromPrivateKey
+slug: /python.thirdwebsdk.fromprivatekey
+---
+
+Instantiate the [`ThirdwebSDK`](/python.thirdwebsdk) in read-write mode using a wallet&rsquo;s private key.
+
+All transactions made with this instance of the SDK will be signed using the private key.
+
+## Usage
+
+Provide the private key and the [chain](#chain) you want to use.
+
+```python
+from thirdweb import ThirdwebSDK
+from dotenv.main import load_dotenv
+import os
+
+load_dotenv()
+private_key = os.environ['PRIVATE_KEY']
+
+sdk = ThirdwebSDK.from_signer(private_key, "mumbai")
+```
+
+## Configuration
+
+### private_key
+
+The [private key](https://ethereum.org/en/developers/docs/accounts/#externally-owned-accounts-and-key-pairs)
+of the wallet you want to use to initiate transactions with.
+
+:::danger Sensitive Value
+
+The private key grants custody over the funds associated with your account.
+
+Losing or leaking your private key will result in the loss of your funds.
+
+:::
+
+```python
+from thirdweb import ThirdwebSDK
+
+sdk = ThirdwebSDK.from_signer(
+    # highlight-next-line
+    "private_key", # DANGER: This is a sensitive value that should be stored securely.
+    "mumbai"
+)
+```
+
+### chain
+
+The chain you want to use. See [configuring chain](/python/python.thirdwebsdk#provider)
+on the `ThirdwebSDK` for more information.
+
+```python
+from thirdweb import ThirdwebSDK
+
+sdk = ThirdwebSDK.from_signer(
+    "private_key", # DANGER: This is a sensitive value that should be stored securely.
+     # highlight-next-line
+    "mumbai",
+)
+```

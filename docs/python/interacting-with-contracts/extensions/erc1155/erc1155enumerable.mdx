@@ -1,0 +1,116 @@
+---
+title: Get Owned
+slug: /python.erc1155enumerable
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+# ERC1155Enumerable
+
+Functionality available for contracts that implement the [`ERC1155Enumerable`](/solidity/extensions/erc1155enumerable) extension.
+
+Metadata for each NFT is fetched from the NFT&rsquo;s `uri` property.
+
+If the metadata is hosted on IPFS, the metadata is fetched and made available as an object.
+The object&rsquo;s `image` property will be a URL that is available through the thirdweb IPFS gateway.
+
+## get_all
+
+Get the metadata and current owner of all NFTs in the contract.
+
+By default, returns the first `100` NFTs (in order of token ID). Use [`queryParams`](#queryParams-optional) to paginate the results.
+
+```python
+metadatas = contract.erc1155.get_all()
+print(metadatas)
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### query_params (optional)
+
+Provide an optional `QueryAllParams` object to configure the query. Useful for paginating the results.
+
+```python
+class QueryAllParams:
+    start: int = 0
+    count: int = 100
+```
+
+```python
+from thirdweb.types.nft import QueryAllParams
+query_params = QueryAllParams(
+  # The number of NFTs to return
+  count= 100, # Default is 100
+  # The index to start from
+  start= 0, # Default is 0
+)
+
+nfts = contract.erc1155.get_all(query_params)
+```
+
+### Return Value
+
+Returns a list of `EditionMetadata` objects:
+
+```python
+class EditionMetadata:
+    metadata: NFTMetadata
+    supply: int
+
+class NFTMetadata:
+    id: int
+    uri: str
+    name: str
+    description: Optional[str] = None
+    image: Optional[str] = None
+    external_url: Optional[str] = None
+    animation_url: Optional[str] = None
+    background_color: Optional[str] = None
+    properties: Optional[Dict[Any, Any]] = None
+    attributes: Optional[Dict[str, Any]] = None
+```
+
+</div>
+</details>
+
+## get_owned
+
+Get all the data associated with the NFTs owned by a specific wallet.
+
+```python
+# Address of the wallet to get the NFTs of
+address = "{{wallet_address}}"
+nfts = contract.erc1155.get_owned(address)
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### address
+
+The address of the wallet to get the NFTs of.
+
+Must be a `string`.
+
+```python
+nfts = contract.erc1155.get_owned(
+  # highlight-next-line
+  "{{wallet_address}}",
+)
+```
+
+### Return Value
+
+Returns a list of `EditionMetadataOwner` objects:
+
+```python
+class EditionMetadataOwner(EditionMetadata):
+    owner: str
+    quantity_owned: int
+```
+
+</div>
+</details>

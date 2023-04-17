@@ -277,7 +277,7 @@ const sidebars = {
         },
         {
           type: "link",
-          href: "/python/ipfs-storage",
+          href: "/python/python.storage",
           label: "Python",
         },
         {

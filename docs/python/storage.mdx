@@ -1,0 +1,220 @@
+---
+slug: /python.storage
+title: Storage
+displayed_sidebar: python
+---
+
+Upload and download files from IPFS.
+
+```python
+from thirdweb import ThirdwebSDK
+
+# You can customize this to a supported network or your own RPC URL
+network = "mumbai"
+
+sdk = ThirdwebSDK(network)
+
+# Now all the IPFS functions will be available on the sdk.storage name space, e.g.:
+sdk.storage.get("<IPFS_HASH>")
+```
+
+## get
+
+Gets IPFS data at a given hash and returns the data.
+
+```python
+hash = "myhash"
+sdk.storage.get(hash)
+```
+
+<details>
+<summary>Configuration</summary>
+<div>
+
+#### hash
+
+The hash of the data to get. Must be of type `str`.
+
+### Return Value
+
+A dictionary of the data, if the data is a JSON object, otherwise the raw data, will be returned.
+
+</div>
+</details>
+
+## get_upload_token
+
+Gets an upload token for a given contract address.
+
+```python
+contract_address = "0x..."
+sdk.storage.get_upload_token(contract_address)
+```
+
+<details>
+<summary>Configuration</summary>
+<div>
+
+#### contract_address
+
+The address of the contract to get the token for. Must be of type `str`.
+
+### Return Value
+
+A `str` representing the upload token.
+
+</div>
+</details>
+
+## upload
+
+Uploads data to IPFS and returns the hash of the data.
+
+```python
+data = "my data here"
+sdk.storage.upload(data)
+```
+
+<details>
+<summary>Configuration</summary>
+<div>
+
+#### data
+
+The data to upload. This can either be a text file `TextIO`, a binary file `BinaryIO` or a `str` of the data.
+
+## Return Value
+
+A string representing the hash of the data
+
+</div>
+</details>
+
+## upload_batch
+
+Uploads a list of files to IPFS and returns the hash.
+
+```python
+files = [
+    {
+        "name": "test",
+        "data": open("tests/files/test.mp4", "rb"),
+    },
+    {
+        "name": "test",
+        "data": open("tests/files/0.jpg", "rb"),
+    },
+]
+sdk.storage.upload_batch(files)
+```
+
+<details>
+<summary>Configuration</summary>
+<div>
+
+#### files
+
+The list of files to upload. The type must be a `Sequence` of either text files, binary files, strings or Dictionarys of type `str` to `Any`:
+
+```python
+Sequence[Union[TextIO, BinaryIO, str, Dict[str, Any]]]
+```
+
+#### file_start_number (optional)
+
+The number to start the file names with. Must be of type `int`.
+
+## Return Value
+
+A string representing the hash of the data.
+
+</div>
+</details>
+
+## upload_metadata
+
+Uploads metadata to IPFS and returns the hash of the metadata.
+
+```python
+metadata = {
+    "name": "test name",
+    "description": "made with python sdk",
+    "animation_url": open("tests/files/test.mp4", "rb"),
+}
+
+sdk.storage.upload_metadata(metadata)
+```
+
+<details>
+<summary>Configuration</summary>
+<div>
+
+#### metadata
+
+The metadata to upload. Must be a dictionary of `str` to `Any`:
+
+```python
+Dict[str, Any]
+```
+
+## Return Value
+
+A string representing the hash of the data.
+
+</div>
+</details>
+
+## upload_metadata_batch
+
+Uploads a list of metadata to IPFS and returns the hash.
+
+```python
+metadatas = [
+    {"name": "test 0", "image": open("tests/files/0.jpg", "rb")},
+    {
+        "name": "test 1",
+        "image": open("tests/files/1.jpg", "rb"),
+        "properties": {
+            "image": open("tests/files/3.jpg", "rb"),
+        },
+    },
+    {
+        "name": "test 2",
+        "image": open("tests/files/2.jpg", "rb"),
+        "properties": {
+            "image": open("tests/files/4.jpg", "rb"),
+            "test": {"image": open("tests/files/5.jpg", "rb")},
+        },
+    },
+]
+sdk.storage.upload_metadata_batch(metadatas)
+```
+
+<details>
+<summary>Configuration</summary>
+<div>
+
+#### metadatas
+
+A sequence of metadatas to upload. Must be a dictionary of `str` to `Any`:
+
+```python
+Sequence[Dict[str, Any]]
+```
+
+#### file_start_number (optional)
+
+The number to start the file names with. Must be of type `int`. Default value is `0`.
+
+## Return Value
+
+A `UriWithMetadata` representing the hash of the data.
+
+```python
+class UriWithMetadata:
+    base_uri: str
+    metadata_uris: List[str]
+```
+
+</div>
+</details>
