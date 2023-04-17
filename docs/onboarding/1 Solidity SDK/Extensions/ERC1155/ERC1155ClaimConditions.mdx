@@ -10,15 +10,14 @@ import QuickstartCard from "@components/QuickstartCard";
 
 ```solidity
 import "@thirdweb-dev/contracts/eip/ERC1155.sol";
-import "@thirdweb-dev/contracts/extension/LazyMint.sol";
 import "@thirdweb-dev/contracts/extension/DropSinglePhase1155.sol";
 ```
 
 Allow other wallets to claim/mint tokens from the contract under the criteria of claim conditions by
-implementing [`ERC1155`](/solidity/extensions/erc1155), [`LazyMint`](/solidity/extensions/lazymint) and [`DropSinglePhase`](/solidity/extensions/dropsinglephase) extensions.
+implementing [`ERC1155`](/solidity/extensions/erc1155) and [`DropSinglePhase`](/solidity/extensions/dropsinglephase) extensions.
 
 This is an extension which is detectable in the dashboard if the smart contract implements the 
-[`ERC1155`](/solidity/extensions/erc1155), [`LazyMint`](/solidity/extensions/lazymint) and [`ERC1155DropSinglePhase`](/solidity/extensions/erc1155dropsinglephase) extensions.
+[`ERC1155`](/solidity/extensions/erc1155) and [`ERC1155DropSinglePhase`](/solidity/extensions/erc1155dropsinglephase) extensions.
 
 
 <div className="row">
@@ -29,16 +28,6 @@ This is an extension which is detectable in the dashboard if the smart contract 
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/eip/ERC1155.sol"
   name="ERC1155"
   text="ERC1155"
-/>
-
-</div>
-
-<div style={{ paddingLeft: 12, paddingBottom: 12 }}>
-
-<ViewContractCodeButton
-  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/LazyMint.sol"
-  name="LazyMint"
-  text="LazyMint"
 />
 
 </div>

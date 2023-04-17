@@ -10,15 +10,14 @@ import QuickstartCard from "@components/QuickstartCard";
 
 ```solidity
 import "@thirdweb-dev/contracts/eip/ERC721.sol";
-import "@thirdweb-dev/contracts/extension/LazyMint.sol";
 import "@thirdweb-dev/contracts/extension/interface/IClaimableERC721.sol";
 ```
 
 Allow other wallets to claim/mint tokens that you have Lazy Minted by 
-implementing [`ERC721`](/solidity/extensions/erc721), [`LazyMint`](/solidity/extensions/lazymint) and [`ERC721Claimable`](/solidity/extensions/erc721claimable) extensions.
+implementing [`ERC721`](/solidity/extensions/erc721) and [`ERC721Claimable`](/solidity/extensions/erc721claimable) extensions.
 
 This is an extension which is detectable in the dashboard if the smart contract implements the 
-[`ERC721`](/solidity/extensions/erc721), [`LazyMint`](/solidity/extensions/lazymint) and [`ERC721Claimable`](/solidity/extensions/erc721claimable) extensions.
+[`ERC721`](/solidity/extensions/erc721) and [`ERC721Claimable`](/solidity/extensions/erc721claimable) extensions.
 
 
 <div className="row">
@@ -29,16 +28,6 @@ This is an extension which is detectable in the dashboard if the smart contract 
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/eip/ERC721A.sol"
   name="ERC721"
   text="ERC721"
-/>
-
-</div>
-
-<div style={{ paddingLeft: 12, paddingBottom: 12 }}>
-
-<ViewContractCodeButton
-  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/LazyMint.sol"
-  name="LazyMint"
-  text="LazyMint"
 />
 
 </div>
