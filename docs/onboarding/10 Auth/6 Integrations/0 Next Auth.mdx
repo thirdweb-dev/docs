@@ -237,7 +237,7 @@ export default NextAuth({
   providers: [
     ...
   ],
-  calbacks: {
+  callbacks: {
     async session({ session, user, token }) {
       const sessionWithAddress = authSession({ session, token });
 
