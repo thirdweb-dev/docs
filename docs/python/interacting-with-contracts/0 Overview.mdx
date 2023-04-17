@@ -10,7 +10,7 @@ import CodeBlock from "@theme/CodeBlock";
 
 The Python SDK provides different ways for you to interact with smart contract functionality:
 
-1. Generic reading data _from_ and writing transactions _to_ smart contracts using the [`call`](/python/python.smartcontract.call) method.
+1. Generic reading data _from_ and writing transactions _to_ smart contracts using the [`call`](/python/contract.call) method.
 2. Using special features that are available for each [extension](/solidity/extensions) that your smart contract implements.
 
 ## Extensions
@@ -110,14 +110,6 @@ Making your code safer and easier to write.
 | ERC20SignatureMintable | Use signature-based minting functionality to mint new tokens into the contract | [ERC20SignatureMintable](/python/python.erc20signaturemintable) |
 | ERC20ClaimConditions   | Allow users to claim tokens from your drop under specific conditions           | [ERC20ClaimConditions](/python/python.erc20claimconditions)     |
 
-#### Marketplace V3
-
-| Name            | Description                                                                            | Documentation                                      |
-| --------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------- |
-| DirectListings  | List NFTs for sale, allowing other users to make offers or buy them outright           | [DirectListings](/python/python.directlistings)   |
-| EnglishAuctions | List NFTs for auction, allowing users to bid on them                                   | [EnglishAuctions](/python/python.englishauctions) |
-| Offers          | Allow users to make offers on any NFT on a smart contract, even if not listed for sale | [Offers](/python/python.offers)                   |
-
 #### General Extensions
 
 | Name             | Description                                                                                             | Documentation                                        |
@@ -126,7 +118,6 @@ Making your code safer and easier to write.
 | Ownable          | Get and set the owner wallet address of a smart contract                                                | [Ownable](/python/python.ownable)                   |
 | Gasless          | Enable gasless transactions for functions on a smart contract                                           | [Gasless](/python/python.gasless)                   |
 | Permissions      | Restrict function execution for users who hold specific roles                                           | [Permissions](/python/python.permissions)           |
-| PackVRF          | Special functionality for using the [PackVRF contract](https://thirdweb.com/thirdweb.eth/PackVRFDirect) | [PackVRF](/python/python.packvrf)                   |
 | PlatformFee      | Charge a percentage fee wherever there is a transfer of currency in your contract                       | [PlatformFee](/python/python.platformfee)           |
 | PluginRouter     | Special functionality for using [dynamic contracts](https://github.com/thirdweb-dev/dynamic-contracts)  | [PluginRouter](/python/python.pluginrouter)         |
 | PrimarySale      | Configure where/how much funds are sent for sales of tokens in your contract                            | [PrimarySale](/python/python.contractprimarysale)   |
