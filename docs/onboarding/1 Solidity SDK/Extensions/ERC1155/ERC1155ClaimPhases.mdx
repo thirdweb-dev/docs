@@ -6,7 +6,7 @@ title: ERC1155ClaimPhases
 import ViewContractCodeButton from "@components/ViewContractCodeButton";
 import QuickstartCard from "@components/QuickstartCard";
 
-# ERC20ClaimPhases
+# ERC1155ClaimPhases
 
 ```solidity
 import "@thirdweb-dev/contracts/eip/ERC721.sol";
@@ -57,9 +57,9 @@ pragma solidity ^0.8.0;
 
 import "@thirdweb-dev/contracts/eip/ERC1155.sol";
 import "@thirdweb-dev/contracts/extension/LazyMint.sol";
-import "@thirdweb-dev/contracts/extension/DropSinglePhase.sol";
+import "@thirdweb-dev/contracts/extension/Drop1155.sol";
 
-contract Contract is ERC1155, LazyMint, DropSinglePhase {
+contract Contract is ERC1155, LazyMint, Drop1155 {
     constructor(
         string memory _name,
         string memory _symbol
@@ -83,9 +83,7 @@ contract Contract is ERC1155, LazyMint, DropSinglePhase {
         uint256 _pricePerToken,
         AllowlistProof calldata _allowlistProof,
         bytes memory _data
-    ) internal virtual override {
-      // Your custom implementation logic here
-    }
+    ) internal virtual {}
 
     /// @dev Runs after every `claim` function call.
     function _afterClaim(
@@ -96,30 +94,50 @@ contract Contract is ERC1155, LazyMint, DropSinglePhase {
         uint256 _pricePerToken,
         AllowlistProof calldata _allowlistProof,
         bytes memory _data
-    ) internal virtual override {
-      // Your custom implementation logic here
-    }
+    ) internal virtual {}
 
-    function _canSetClaimConditions() internal view override returns (bool) {
-        // Your custom implementation here
-    }
-
+    /// @dev Collects and distributes the primary sale value of NFTs being claimed.
     function _collectPriceOnClaim(
+        uint256 _tokenId,
         address _primarySaleRecipient,
         uint256 _quantityToClaim,
         address _currency,
         uint256 _pricePerToken
     ) internal virtual override {
-        // Your custom implementation here
+        if (_pricePerToken == 0) {
+            return;
+        }
+
+        uint256 totalPrice = _quantityToClaim * _pricePerToken;
+
+        if (_currency == CurrencyTransferLib.NATIVE_TOKEN) {
+            if (msg.value != totalPrice) {
+                revert("Must send total price.");
+            }
+        }
+
+        address saleRecipient = _primarySaleRecipient;
+        CurrencyTransferLib.transferCurrency(_currency, msg.sender, saleRecipient, totalPrice);
     }
 
-    function _transferTokensOnClaim(address _to, uint256 _quantityBeingClaimed)
+    /// @dev Transfers the tokens being claimed.
+    function _transferTokensOnClaim(address _to, uint256 _tokenId, uint256 _quantityBeingClaimed)
         internal
         virtual
         override
-        returns (uint256 startTokenId)
     {
-        // Your custom implementation here
+        _mint(_to, _tokenId, _quantityBeingClaimed, "");
+    }
+
+    /// @dev Checks whether platform fee info can be set in the given execution context.
+    function _canSetClaimConditions()
+        internal
+        view
+        virtual
+        override
+        returns (bool)
+    {
+        return msg.sender == owner();
     }
 }
 ```

@@ -6,13 +6,13 @@ title: ERC1155Drop
 import ViewContractCodeButton from "@components/ViewContractCodeButton";
 import QuickstartCard from "@components/QuickstartCard";
 
-# Drop (ERC1155)
+# ERC1155Drop 
 
 ```solidity
 import "@thirdweb-dev/contracts/extension/Drop1155.sol";
 ```
 
-The `Drop1155` smart contract is an extension meant for distributing ERC1155 tokens. It allows setting up multiple claim phases unlike `DropSinglePhase1155`. This series of claim phases is ordered by their respective `startTimestamp`.
+The `Drop1155` smart contract is an extension meant for distributing [ERC1155](/solidity/extensions/erc1155) tokens. It allows setting up multiple claim phases unlike [`ERC1155DropSinglePhase`](/solidity/extensions/erc1155deropsinglephase). This series of claim phases is ordered by their respective `startTimestamp`.
 
 This extension implements the ['Drop'](/glossary/drop) distribution mechanism: set multiple claim phases with restrictions such as a price to charge, an allowlist etc. for the public / allowlisted mint of your tokens.
 
@@ -106,6 +106,28 @@ contract MyContract is ERC1155Base, Drop1155 {
     {
         return msg.sender == owner();
     }
+
+    /// @dev Runs before every `claim` function call.
+    function _beforeClaim(
+        uint256 _tokenId,
+        address _receiver,
+        uint256 _quantity,
+        address _currency,
+        uint256 _pricePerToken,
+        AllowlistProof calldata _allowlistProof,
+        bytes memory _data
+    ) internal virtual {}
+
+    /// @dev Runs after every `claim` function call.
+    function _afterClaim(
+        uint256 _tokenId,
+        address _receiver,
+        uint256 _quantity,
+        address _currency,
+        uint256 _pricePerToken,
+        AllowlistProof calldata _allowlistProof,
+        bytes memory _data
+    ) internal virtual {}
 }
 ```
 
