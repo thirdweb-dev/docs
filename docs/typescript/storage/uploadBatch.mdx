@@ -14,11 +14,11 @@ If uploading an array of JSON objects, the method will automatically upload any 
 ```jsx
 // Example, use Node.js readFileSync to upload files from disk
 const files = [readFileSync("../file1.jpg"), readFileSync("../file2.jpg")];
-const fileUris = await sdk.storage.uploadBatch(files);
+const fileUris = await storage.uploadBatch(files);
 
 // OR, upload JSON objects
 const objects = [{ name: "JSON 1" }, { name: "JSON 2" }];
-const jsonUris = await sdk.storage.uploadBatch(objects);
+const jsonUris = await storage.uploadBatch(objects);
 ```
 
 ## Configuration
@@ -36,7 +36,7 @@ By default, the data is uploaded and **pinned** to IPFS for you.
 Customize the upload behaviour by passing in an options object as the second parameter.
 
 ```javascript
-const uris = await sdk.storage.uploadBatch(
+const uris = await storage.uploadBatch(
   [
     { name: "JSON 1", image: files[0] },
     { name: "JSON 2", image: files[1] },
@@ -54,7 +54,7 @@ const uris = await sdk.storage.uploadBatch(
 
 ## Return Value
 
-Returns an array of the URIs of the uploaded data.
+Returns an array of the URIs of the uploaded data (ex: `["ipfs://<CID1>", "ipfs://<CID2>"]`).
 
 The URIs returned are in the same order as the data you passed in.
 

@@ -1,0 +1,62 @@
+---
+title: Claim / Claim Conditions
+slug: /python.erc20claimconditions
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+Functionality available for contracts that implement the
+[`DropSinglePhase`](/solidity/extensions/dropsinglephase) extension.
+
+Enables wallets to claim (mint) tokens from the contract under specific conditions.
+
+## claim
+
+Claim a specified number of tokens to the **connected wallet**.
+
+```python
+address = "0x7fDae677aA6f94Edff9872C4b91D26407709c790" # address of the wallet you want to claim the NFTs
+quantity = 42.69 # how many tokens you want to claim
+
+tx = contract.erc20.claim(address, quantity)
+receipt = tx.receipt; # the transaction receipt
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### amount (required)
+
+The amount of tokens to claim.
+
+Must be a `float`.
+
+</div>
+</details>
+
+## claim_to
+
+The same as [`claim`](#claim), but allows specifying the recipient address rather than using the connected wallet.
+
+```python
+tx_result = contract.erc20.claim_to("{{recipient}}", "{{amount}}")
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### recipient (required)
+
+The wallet address to receive the claimed tokens.
+
+Must be a `string`.
+
+#### amount (required)
+
+The amount of tokens to claim.
+
+Must be a `float`.
+
+</div>
+</details>

@@ -1,0 +1,295 @@
+---
+slug: /auth/client-frameworks/react-native
+title: React Native
+---
+
+Once you've setup an Auth API for your application, you can add Auth support to your React Native apps.
+
+## Getting Started
+
+To add support for Auth to your React Native apps, you'll first need to setup your [React Native app](/react-native).
+
+Now we'll need to wrap our app with the `ThirdwebProvider` which stores the necessary context for Auth, and we'll provide some configuration with the `authConfig` option so that our app knows how to communicate with our Auth API.
+
+```tsx title="App.tsx"
+import { ThirdwebProvider } from "@thirdweb-dev/react-native";
+
+export default function MyApp({ Component }) {
+  return (
+    <ThirdwebProvider
+      // Required configuration for the provider, but doesn't affect Auth.
+      activeChain="ethereum"
+      authConfig={{
+        // Set this to your domain to prevent phishing attacks
+        domain: "example.com",
+        // The URL of your Auth API
+        authUrl: "/api/auth",
+        // (optional) Secure storage to use for storing the auth token when using JWT tokens.
+        secureStorage: new SecureStorage()
+      }}
+    >
+      <AppInner />
+    </ThirdwebProvider>
+  );
+}
+```
+
+Note that in React Native auth works with JWT tokens since cookie management [is not well supported](https://github.com/facebook/react-native/issues/23185).
+For this reason you can pass a `secureStorage` prop for us to store the JWT for you, if not, it will default to using [expo-secure-store](https://docs.expo.dev/versions/latest/sdk/securestore/)
+
+### Connect wallet & login button
+
+The simplest way to add an Auth flow to our app is to use the `ConnectWallet` button. This button prompts the user to connect to the `supportedWallets` specified in the `ThirdwebProvider`.
+Once connected to a wallet you can call `login` to authenticate.
+
+The `login` function returns the JWT token which you can use in subsequent requests to your backend.
+
+```tsx title="AppInner.tsx"
+import { ConnectWallet, useLogin } from "@thirdweb-dev/react-native";
+
+export default function AppInner() {
+  const { login } = useLogin();
+
+  return (
+    <>
+        <ConnectWallet />;
+        <Button title="Login" onPress={() => {
+            const token = login()
+        }} />
+    </>
+  );
+}
+```
+
+### Connect wallet & auth hooks
+
+For a more customized setup with custom UI or logic, we can instead use the wallet connection and Auth hooks provided by the `@thirdweb-dev/react-native` package.
+
+```tsx title="AppInner.tsx"
+import {
+  useAddress,
+  useMetamask,
+  useLogin,
+  useLogout,
+  useUser,
+} from "@thirdweb-dev/react-native";
+
+export default function AppInner() {
+  const address = useAddress();
+  const connect = useMetaMaskWallet();
+  const { login } = useLogin();
+  const { logout } = useLogout();
+  const { user, isLoggedIn } = useUser();
+
+  return (
+    <>
+      {isLoggedIn ? (
+        <Button title="Logout" onPress={() => logout()} />
+      ) : address ? (
+        <Button title="Login" onPress={() => login()} />
+      ) : (
+        <Button title="Connect" onPress={() => connect()} />
+      )}
+
+      <Text>Connected Wallet: {address}</Text>
+      <Text>User: {user?.address || "N/A"}</Text>
+    </>
+  );
+}
+```
+
+Here, we use the `useMetaMaskWallet` hook to prompt our users to connect their metamask wallets, and then we use the `useLogin` hook to login to our app with Auth. Then, we can access and display the logged in user with the `useUser` hook, and we can logout the user with the `useLogout` hook.
+
+For a full list of wallet connection hooks, check out our [React Native SDK documentation](/react-native/available-hooks#wallet-connection).
+
+## Usage
+
+### Check if a user is logged in
+
+On your app, you may want to check whether or not the user is logged in to conditionally render certain parts of your app. You can do this with the `isLoggedIn` value from the `useUser` hook:
+
+```tsx
+import { useUser } from "@thirdweb-dev/react-native";
+
+export default function AppInner() {
+  const { isLoggedIn } = useUser();
+
+  return (
+    <>
+      {isLoggedIn ? (
+        <Text>Here's some content only visible to logged in users.</Text>
+      ) : (
+        <Text>Here's some content only visible to logged out users.</Text>
+      )}
+    </>
+  );
+}
+```
+
+### Accessing user & session data
+
+Once a user is logged in, you can access their user data and session data with the `useUser` hook. The `user` value will be `null` if the user is not logged in, but once they're logged in, it will contain the `address` of the logged in user, the session `context` set by the backend on login, and any extra user-associated `data` sent by the backend.
+
+```tsx
+import { useUser } from "@thirdweb-dev/react-native";
+
+export default function AppInner() {
+  const { user } = useUser();
+
+  return (
+    <>
+      <Text>Logged in user: {user?.address}</Text>
+      <Text>Session context: {user?.context}</Text>
+      <Text>Extra user data: {user?.data}</Text>
+    </>
+  );
+}
+```
+
+You can think of `user.context` as a way for the backend to store arbitrary session data on the JWT, like a user's role or permissions. This data is then accessible on the frontend and doesn't change until a user has to login again.
+
+Meanwhile, `user.data` is a way for the backend to send the client any data associated with the current user like their name, profile picture, and other information. Since this data isn't stored on the JWT, it can change at any time.
+
+### Using loading states
+
+When using the `useUser` hook, you may want to show a loading state while the user's session is being fetched from the backend. You can do this by checking the `isLoading` value from the hook:
+
+```tsx
+import { useUser } from "@thirdweb-dev/react-native";
+
+export default function AppInner() {
+  const { user, isLoading } = useUser();
+
+  return (
+    <>
+      {isLoading ? <Text>Loading...</Text> : <Text>Logged in user: {user?.address}</Text>}
+    </>
+  );
+}
+```
+
+Similarly, the `useLogin` and `useLogout` hooks also have loading states to indicate when a request to the backend is being made.
+
+```tsx
+import { useLogin, useLogout } from "@thirdweb-dev/react-native";
+
+export default function AppInner() {
+  const { login, isLoading: isLoggingIn } = useLogin();
+  const { logout, isLoading: isLoggingOut } = useLogout();
+
+  return (
+    <>
+      {isLoggingIn ? (
+        <Text>Logging in...</Text>
+      ) : (
+        <Button title="Login" onPress={() => login()} />
+      )}
+      {isLoggingOut ? (
+        <Text>Logging out...</Text>
+      ) : (
+        <Button title="Logout" onPress={() => logout()} />
+      )}
+    </>
+  );
+}
+```
+
+### Customizing the login message
+
+The `login` function automatically uses some default values for the necessary fields of the [EIP4361](https://eips.ethereum.org/EIPS/eip-4361)/[CAIP122](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-122.md) specifications.
+
+However, if you want full access to customize these field values, you can overwrite them by passing an object to the `login` function:
+
+```tsx
+import { useLogin } from "@thirdweb-dev/react-native";
+
+export default function AppInner() {
+  const { login } = useLogin();
+
+  async function handleLogin() {
+    // All of these fields are optional
+    login({
+      uri: "https://example.com",
+      statement: "Please agree to our terms of service!",
+      chainId: "123",
+      nonce: "123"
+      version: "1",
+      resources: ["https://tos.example.com"],
+    })
+  }
+
+  return (
+    <>
+      <Button title="Login" onPress={() => handleLogin()} />
+    </>
+  );
+}
+```
+
+### Handling errors on login
+
+Since logging in requires the user to sign a message, the `login` fuction is asynchronous and may throw an error if the user rejects the message. You can handle this error case by using a `try/catch` block:
+
+```tsx
+import { useLogin } from "@thirdweb-dev/react-native";
+
+export default function AppInner() {
+  const { login } = useLogin();
+
+  async function handleLogin() {
+    try {
+      await login();
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  return (
+    <>
+      <Button title="Login" onPress={() => handleLogin()} />
+    </>
+  );
+}
+```
+
+### Cross-origin requests & cookies
+
+Auth in React Native uses secure storage to store the JWT token. This means that you need to pass this token in other calls to your backend.
+
+You should get the token after logging in and pass it down as a header in subsequent network calls.
+
+```ts
+export default function AppInner() {
+  const { login } = useLogin();
+  const [authToken, setAuthToken] = useState<string | null>(null);
+
+  const getSecret = useCallback(async () => {
+      let res;
+      try {
+        res = await fetch(`${your-domain}/api/data`, {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        });
+      } catch (error) {
+        console.log('error', error);
+        return;
+      }
+
+      const data = await res.json();
+    }, [authToken]);
+
+  return (
+    <>
+      <Button
+        title="Login"
+        onPress={async () => {
+          const token = await login();
+          setAuthToken(token);
+        }}
+      />
+      <Button title="Get Secret" onPress={getSecret} />
+    </>
+  )
+}
+```

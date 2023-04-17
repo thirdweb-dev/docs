@@ -1,0 +1,154 @@
+---
+slug: /python.contractevents
+title: Contract Events
+displayed_sidebar: python
+---
+
+## add_transaction_listener
+
+Add a listener for transaction events to the contract. This will be called
+
+whenever a transaction event is executed from the SDK interface.
+
+```python
+def listener(event: TxEvent):
+    nonlocal event_status
+    print(event)
+    if event_status is None:
+        assert event.status == EventStatus.SUBMITTED
+    elif event_status == EventStatus.SUBMITTED:
+        assert event.status == EventStatus.COMPLETED
+    event_status = event.status
+contract.events.add_transaction_listener(listener)
+```
+
+<details>
+<summary>Configuration</summary>
+<div>
+
+#### listener
+
+The listener function to be called on transaction events.
+
+Must be of type `Callable[[TxEvent], Any]`
+
+</div>
+</details>
+
+## remove_transaction_listener
+
+Remove a listener from transaction events.
+
+```python
+contract.events.remove_transaction_listener(listener)
+```
+
+<details>
+<summary>Configuration</summary>
+<div>
+
+#### listener
+
+The listener function to be removed.
+
+Must be of type `Callable[[TxEvent], Any]`
+
+</div>
+</details>
+
+## add_event_listener
+
+Add an event listener to this contract to listen for a specific event type.
+
+```python
+event_name = "MyEvent"
+contract.events.add_event_listener(event_name, listener)
+```
+
+<details>
+<summary>Configuration</summary>
+<div>
+
+#### listener
+
+The listener function to be called on the event.
+
+Must be of type `Callable[[TxEvent], Any]`
+
+#### event_name
+
+The name of the event to listen for. Must be of type `str`.
+
+</div>
+</details>
+
+## remove_event_listener
+
+Remove an event listener listening to a specific event type.
+
+```python
+event_name = "MyEvent"
+contract.events.remove_event_listener(event_name: str, listener)
+```
+
+<details>
+<summary>Configuration</summary>
+<div>
+
+#### listener
+
+The listener function to be removed.
+
+Must be of type `Callable[[TxEvent], Any]`
+
+#### event_name
+
+The name of the event to stop listening for. Must be of type `str`.
+
+</div>
+</details>
+
+## remove_all_listeners
+
+Remove all event listeners from this contract.
+
+```python
+contract.events.remove_all_listeners()
+```
+
+## get_events
+
+Query past events of a specific type on the contract.
+
+```python
+event_name = "MyEvent"
+contract.events.get_events(event_name) 
+```
+
+<details>
+<summary>Configuration</summary>
+<div>
+
+#### event_name
+
+The name of the event to query. Must be of type `str`.
+
+#### options (optional)
+
+The options to use when querying for events, including block range specifications and filters
+
+Must be an object of type `EventQueryOptions`.
+
+```python
+class EventQueryOptions:
+    filters: Dict[str, Any] = dataclasses.field(default_factory=dict)
+    from_block: Optional[BlockIdentifier] = "earliest"
+    to_block: Optional[BlockIdentifier] = "latest"
+```
+
+### Return Value
+
+A `Tuple[AttributeDict]` representing the list of events.
+
+</div>
+</details>

@@ -27,7 +27,7 @@ address, err := sdk.Auth.Verify(domain, payload, nil)
 // And we can also generate an authentication token to send back to the original payload sender
 token, err := sdk.Auth.GenerateAuthToken(domain, payload, nil)
 
-// Finally, the token can be use dby the original payload sender to authenticate to the backend
+// Finally, the token can be used by the original payload sender to authenticate to the backend
 // And the server can use the following function to authenticate the token and verify the address
 address, err := sdk.Auth.Authenticate(domain, token)
 ```

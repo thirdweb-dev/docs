@@ -1,0 +1,35 @@
+---
+title: useLogout
+slug: /react-native.uselogout
+displayed_sidebar: react-native
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for signing out of a wallet after a user has [logged in](/react-native/react-native.uselogin) using [auth](/auth).
+
+```jsx
+import { useLogout } from "@thirdweb-dev/react-native";
+```
+
+## Usage
+
+Call the `logout` function to have the user sign out.
+
+The `isLoading` boolean can be used to display a loading state on the UI while the user is signing out.
+
+```jsx
+import { useLogout } from "@thirdweb-dev/react-native";
+
+function App() {
+  const { logout, isLoading } = useLogout();
+
+  return (
+    <Button 
+      title={isLoading ? "Logging out..." : "Logout"}
+      onPress={() => logout()}/>
+  );
+}
+```
