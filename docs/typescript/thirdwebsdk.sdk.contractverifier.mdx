@@ -27,24 +27,50 @@ await sdk.verifier.verifyThirdwebContract(
 
 #### contractName
 
-The name of the contract to verify.
+The name of the contract to verify, for e.g. DropERC721, Marketplace, etc.
 
-Must be the official contract name, for e.g. DropERC721, Marketplace, etc.
+Must be one of the following `string` values:
+
+```typescript
+"DropERC721" |
+  "DropERC1155" |
+  "DropERC20" |
+  "SignatureDrop" |
+  "Marketplace" |
+  "MarketplaceV3" |
+  "Multiwrap" |
+  "Pack" |
+  "Split" |
+  "TokenERC721" |
+  "TokenERC1155" |
+  "TokenERC20" |
+  "VoteERC20" |
+  "AirdropERC721" |
+  "AirdropERC1155" |
+  "AirdropERC20" |
+  "NFTStake" |
+  "EditionStake" |
+  "TokenStake";
+```
 
 #### explorerAPIUrl
 
 The API endpoint to which the verification request will be sent. For e.g., https://api.etherscan.io/api.
 
+Must be a `string`.
+
 #### explorerAPIKey
 
 The API key can be generated from the explorer. See etherscan docs [here](https://docs.etherscan.io/getting-started/viewing-api-usage-statistics).
+
+Must be a `string`.
 
 </div>
 </details>
 
 ## verifyContract
 
-Verifies any deployed contract on a chain. Can be used for custom contracts.
+Verifies any contract deployed via thirdweb on a given chain. Can be used for custom contracts.
 
 ```javascript
 const contractAddress = "";
@@ -72,9 +98,13 @@ Must be a `string`.
 
 The API endpoint to which the verification request will be sent. For e.g., https://api.etherscan.io/api.
 
+Must be a `string`.
+
 #### explorerAPIKey
 
 The API key can be generated from the explorer. See etherscan docs [here](https://docs.etherscan.io/getting-started/viewing-api-usage-statistics).
+
+Must be a `string`.
 
 </div>
 </details>
