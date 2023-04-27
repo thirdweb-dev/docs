@@ -35,15 +35,64 @@ function App() {
 
 ## Configuration
 
-### theme
+### theme (optional)
 
 You can pass a custom `theme` object that will control the colors of the button
 or pass one of our default themes: `light` or `dark`.
+
+The default value is `"dark"`.
 
 ```jsx
 import { ConnectWallet } from "@thirdweb-dev/react-native";
 
 function App() {
-  return <ConnectWallet theme="light" />;
+  return (
+    <ConnectWallet
+      // highlight-next-line
+      theme="dark"
+    />
+  );
 }
 ```
+
+You could also define custom background and text color for the button:
+
+```jsx
+import { ConnectWallet, lightTheme } from "@thirdweb-dev/react-native";
+
+function App() {
+  return (
+    <ConnectWallet
+      // highlight-next-line
+      theme={lightTheme({
+        buttonBackgroundColor: 'black'
+        buttonTextColor: 'white'
+      })}
+    />
+  );
+}
+```
+
+Or you can fully customize the theme:
+
+```jsx
+import { ConnectWallet, darkTheme } from "@thirdweb-dev/react-native";
+
+const darkThemeCustom = darkTheme();
+
+function App() {
+  return (
+   <ConnectWallet
+      theme={{
+      ...darkThemeCustom,
+      colors: {
+          ...darkThemeCustom.colors,
+          backgroundHighlight: 'blue',
+      },
+      }}
+    />
+  );
+}
+```
+
+
