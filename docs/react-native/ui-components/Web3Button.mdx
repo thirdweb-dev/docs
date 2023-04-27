@@ -95,9 +95,11 @@ function App() {
 
 ### theme (optional)
 
-Change the color scheme of the button to `light` or `dark` mode, to match the color scheme of your app.
+You can pass a custom `theme` object that will control the colors of the button
+or pass one of our default themes: `light` or `dark`. We also have convenient functions to
+get a dark or light theme: `darkTheme()` and `lightTheme()`.
 
-The default value is `dark`.
+The default value is `"dark"`.
 
 ```jsx
 import { Web3Button } from "@thirdweb-dev/react-native";
@@ -114,6 +116,18 @@ function App() {
     </Web3Button>>
   );
 }
+```
+
+You could also define custom background and text color for the button:
+
+```Web3Button
+import { Web3Button, lightTheme } from '@thirdweb-dev/react-native';
+
+<Web3Button theme={lightTheme({
+   buttonBackgroundColor: 'black',
+   buttonTextColor: 'white'
+})}
+/>
 ```
 
 ### contractAbi (optional)
