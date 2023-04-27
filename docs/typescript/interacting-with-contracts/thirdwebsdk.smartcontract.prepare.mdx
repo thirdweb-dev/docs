@@ -19,9 +19,9 @@ To gain more granular control over the transaction process,
 const tx = await contract.erc721.claim.prepare(1);
 
 // Some example use cases for the transaction
-const gasCost = tx.estimateGasCost(); // Estimate the gas cost
-const simulatedTx = tx.simulate(); // Simulate the transaction
-const signedTx = tx.sign(); // Sign the transaction for later use
+const gasCost = await tx.estimateGasCost(); // Estimate the gas cost
+const simulatedTx = await tx.simulate(); // Simulate the transaction
+const signedTx = await tx.sign(); // Sign the transaction for later use
 ```
 
 ## encode
@@ -52,7 +52,7 @@ string;
 Estimate the gas cost for a transaction.
 
 ```javascript
-const gasCost = tx.estimateGasCost();
+const gasCost = await tx.estimateGasCost();
 ```
 
 <details>
@@ -78,7 +78,7 @@ Returns the gas cost for this transaction in both `ether` and `wei`.
 Estimate the gas limit for a transaction.
 
 ```javascript
-const gasLimit = tx.estimateGasLimit();
+const gasLimit = await tx.estimateGasLimit();
 ```
 
 <details>
@@ -151,7 +151,7 @@ any[];
 Calculates the gas price for transactions (adding a 10% tip buffer)
 
 ```javascript
-const gasPrice = await tx?.getGasPrice();
+const gasPrice = await tx.getGasPrice();
 ```
 
 <details>
@@ -262,7 +262,7 @@ const overrides = tx.getOverrides();
 Get the value for this transaction.
 
 ```javascript
-const value = tx.getValue();
+const value = await tx.getValue();
 ```
 
 <details>
@@ -287,7 +287,7 @@ Send the transaction without waiting for it to be mined.
 This is useful for when you want the transaction to be executed, but don&rsquo;t need the data returned.
 
 ```javascript
-const x = await tx?.send(); // Send the transaction
+const sentTransaction = await tx.send(); // Send the transaction
 ```
 
 <details>
@@ -322,10 +322,12 @@ The `AccessList` to include; only available for EIP-2930 and EIP-1559 transactio
 Provide an array of objects containing `address` and `storageKey` values that the transaction plans to access.
 
 ```javascript
-tx.setAccessList([{
-  address: "0x...",
-  storageKeys: ["0x..."],
-}]
+tx.setAccessList([
+  {
+    address: "0x...",
+    storageKeys: ["0x..."],
+  },
+]);
 ```
 
 ## setArgs
@@ -473,7 +475,7 @@ const signedTx = await tx.sign();
 Simulate a transaction&rsquo;s execution.
 
 ```javascript
-const simulatedTx = tx.simulate();
+const simulatedTx = await tx.simulate();
 ```
 
 ## updateOverrides
