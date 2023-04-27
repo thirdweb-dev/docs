@@ -1,0 +1,87 @@
+---
+title: Lazy Mint
+slug: /python.erc721lazymintable
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+# ERC721LazyMintable
+
+Functionality available for contracts that implement the
+[`ERC721`](/solidity/extensions/erc721) and
+[`LazyMint`](/solidity/extensions/lazymint)
+extensions.
+
+Allows you to lazy mint new batches of NFTs to be claimed in the future.
+
+By default, the NFT metadata is uploaded and pinned to IPFS before lazy-minting. You can override this default behavior by providing a list of URLs as `string`s
+that point to valid metadata objects.
+
+## create_batch
+
+Define a list of metadata objects that you want to lazy-mint.
+
+```python
+from thirdweb.types.nft import NFTMetadataInput
+
+# You can customize this metadata however you like
+metadatas = [
+    NFTMetadataInput.from_json({
+        "name": "Cool NFT",
+        "description": "This is a cool NFT",
+        "image": open("path/to/file.jpg", "rb"),
+    }),
+    NFTMetadataInput.from_json({
+        "name": "Cooler NFT",
+        "description": "This is a cooler NFT",
+        "image": open("path/to/file.jpg", "rb"),
+    }),
+]
+
+txs = contract.erc721.create_batch(metadatas)
+first_token_id = txs[0].id
+first_nft = txs[0].data()
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+A list of metadata objects for the NFTs you want to mint.
+
+Must be a `List` of `NFTMetadataInput` `object`s that conform to the [metadata standards](https://docs.opensea.io/docs/metadata-standards#metadata-structure).
+Alternatively, you can provide a list of `string`s that point to valid metadata objects,
+to override the default behavior of uploading and pinning the metadata to IPFS (shown below).
+
+```python
+# highlight-start
+metadatas = [
+    NFTMetadataInput.from_json({
+        "name": "Cool NFT",
+        "description": "This is a cool NFT",
+        "image": open("path/to/file.jpg", "rb"),
+    }),
+    NFTMetadataInput.from_json({
+        "name": "Cooler NFT",
+        "description": "This is a cooler NFT",
+        "image": open("path/to/file.jpg", "rb"),
+    }),
+]
+# highlight-end
+
+txResult = contract.erc721.create_batch(metadatas)
+```
+
+```python
+class NFTMetadataInput:
+    name: str
+    description: Optional[str] = None
+    image: Optional[str] = None
+    external_url: Optional[str] = None
+    animation_url: Optional[str] = None
+    background_color: Optional[str] = None
+    properties: Optional[Dict[str, Any]] = None
+    attributes: Optional[Dict[str, Any]] = None
+```
+
+</div>
+</details>

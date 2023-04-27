@@ -1,0 +1,110 @@
+---
+title: Contract Verification
+slug: /sdk.contractverifier
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+Verify contracts on any EVM.
+
+## verifyThirdwebContract
+
+Verify one of thirdweb&rsquo;s [prebuilt contracts](https://portal.thirdweb.com/pre-built-contracts).
+
+```javascript
+const explorerAPIUrl = ""; // e.g. https://api.etherscan.io/api
+const explorerAPIKey = ""; // Generate API key on the explorer
+
+await sdk.verifier.verifyThirdwebContract(
+  "DropERC721", // Name of the prebuilt contract
+  explorerAPIUrl,
+  explorerAPIKey,
+);
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### contractName
+
+The name of the contract to verify, for e.g. DropERC721, Marketplace, etc.
+
+Must be one of the following `string` values:
+
+```typescript
+"DropERC721" |
+  "DropERC1155" |
+  "DropERC20" |
+  "SignatureDrop" |
+  "Marketplace" |
+  "MarketplaceV3" |
+  "Multiwrap" |
+  "Pack" |
+  "Split" |
+  "TokenERC721" |
+  "TokenERC1155" |
+  "TokenERC20" |
+  "VoteERC20" |
+  "AirdropERC721" |
+  "AirdropERC1155" |
+  "AirdropERC20" |
+  "NFTStake" |
+  "EditionStake" |
+  "TokenStake";
+```
+
+#### explorerAPIUrl
+
+The API endpoint to which the verification request will be sent. For e.g., https://api.etherscan.io/api.
+
+Must be a `string`.
+
+#### explorerAPIKey
+
+The API key can be generated from the explorer. See etherscan docs [here](https://docs.etherscan.io/getting-started/viewing-api-usage-statistics).
+
+Must be a `string`.
+
+</div>
+</details>
+
+## verifyContract
+
+Verifies any contract deployed via thirdweb on a given chain. Can be used for custom contracts.
+
+```javascript
+const contractAddress = "";
+const explorerAPIUrl = ""; // e.g. https://api.etherscan.io/api
+const explorerAPIKey = ""; // Generate API key on the explorer
+
+await sdk.verifier.verifyContract(
+  contractAddress,
+  explorerAPIUrl,
+  explorerAPIKey,
+);
+```
+
+<details>
+   <summary>Configuration</summary>
+   <div>
+
+#### contractAddress
+
+The address of the contract to verify.
+
+Must be a `string`.
+
+#### explorerAPIUrl
+
+The API endpoint to which the verification request will be sent. For e.g., https://api.etherscan.io/api.
+
+Must be a `string`.
+
+#### explorerAPIKey
+
+The API key can be generated from the explorer. See etherscan docs [here](https://docs.etherscan.io/getting-started/viewing-api-usage-statistics).
+
+Must be a `string`.
+
+</div>
+</details>

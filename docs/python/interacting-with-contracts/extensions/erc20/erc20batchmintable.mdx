@@ -1,0 +1,58 @@
+---
+title: Batch Mint
+slug: /python.erc20batchmintable
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+# ERC20BatchMintable
+
+Functionality available for contracts that implement the
+[`ERC20`](/solidity/extensions/erc20),
+[`ERC20Mintable`](/solidity/extensions/IMintableERC20),
+and [`Multicall`](/solidity/extensions/multicall) extensions.
+
+Allow you to mint tokens to multiple wallet addresses in one transaction.
+
+## mint_batch_to
+
+Mint tokens to many wallets in one transaction.
+
+```python
+from thirdweb.types.currency import TokenAmount
+
+# Data of the tokens you want to mint
+args = [
+    TokenAmount("0x7fDae677aA6f94Edff9872C4b91D26407709c790", 1),
+    TokenAmount("0x7fDae677aA6f94Edff9872C4b91D26407709c790", 2),
+]
+
+contract.erc20.mint_batch_to(args)
+```
+
+<details>
+<summary>Configuration</summary>
+  <div>
+
+#### args
+
+A `List` of `TokenAmount` objects containing the following properties:
+
+```python 
+class TokenAmount:
+    to_address: str
+    amount: Price
+```
+
+```python
+contract.erc20.mint_batch_to(
+  # highlight-start
+  [
+    TokenAmount("{{wallet_address}}", 0.2),
+    TokenAmount("0x...", 1.4),
+  ]
+  # highlight-end
+)
+```
+
+</div>
+</details>

@@ -1,0 +1,50 @@
+---
+title: Get Owned
+slug: /python.erc721enumerable
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+# ERC721Enumerable
+
+Functionality available for contracts that implement the
+[`ERC721`](/solidity/extensions/erc721) and
+[`ERC721Enumerable`](/solidity/extensions/erc721enumerable)
+extensions.
+
+## get_owned
+
+Get the metadata of all NFTs a wallet owns from this contract.
+
+```python
+# Address of the wallet to get the NFTs of
+ address = "{{wallet_address}}" # Optional - Defaults to the connected wallet
+ nfts =  contract.erc721.get_owned(address)
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### address (optional)
+
+The address of the wallet to get the NFTs of. If not provided, defaults to the **connected wallet** address.
+
+```python
+ nfts =  contract.erc721.get_owned(
+  # highlight-next-line
+  "{{wallet_address}}",
+)
+```
+
+### Return Value
+
+Returns a list of `NFTMetadataOwner` objects.
+
+```python
+class NFTMetadataOwner:
+    metadata: NFTMetadata
+    owner: str
+```
+
+</div>
+</details>

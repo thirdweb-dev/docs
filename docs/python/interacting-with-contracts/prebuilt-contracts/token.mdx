@@ -1,0 +1,282 @@
+---
+title: Token
+slug: /python.token
+toc_max_heading_level: 2 # Show up to h4 in table of contents (default is up to h3)
+---
+
+When using the [Token](https://thirdweb.com/thirdweb.eth/TokenERC20) smart contract, additional top-level functionality is available to use.
+
+To access the top-level functionality, use the `get_token` method when creating the contract instance:
+
+```python
+contract = python.get_token(
+  "{{contract_address}}",
+)
+```
+
+The extensions that the Token Drop contract supports are listed below.
+
+- [ERC20](/python/python.erc20)
+- [ERC20Burnable](/python/python.erc20burnable)
+- [ERC20Mintable](/python/python.erc20mintable)
+- [ERC20BatchMintable](/python/python.erc20batchmintable)
+- [ERC20SignatureMintable](/python/python.erc20signaturemintable)
+- [ERC20Permit](/python/python.erc20permit)
+- [PlatformFee](/python/python.platformfee)
+- [PrimarySale](/python/python.contractprimarysale)
+- [Permissions](/python/python.permissions)
+- [ContractMetadata](/python/python.contractmetadata)
+- [Gasless](/python/python.gasless)
+
+## mint
+
+Mint tokens to the **connected wallet**.
+
+```python
+amount = 100
+
+receipt = contract.mint(amount)
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### amount
+
+The amount of tokens to mint.
+
+Must be a `float`.
+
+```python
+tx_result = contract.mint(
+  # highlight-next-line
+  1.5,
+)
+```
+
+</div>
+</details>
+
+## mint_to
+
+The same as [`mint`](#mint), but allows you to specify the address to mint the tokens to.
+
+```python
+address = "0x7fDae677aA6f94Edff9872C4b91D26407709c790"
+amount = 100
+
+receipt = contract.mint_to(address, amount)
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### to
+
+The wallet address to mint the tokens to.
+
+Must be a `string`.
+
+```python
+tx_result = contract.mint_to(
+  # highlight-next-line
+  "{{wallet_address}}",
+  1.5
+)
+```
+
+#### amount
+
+The number of tokens to mint.
+
+Must be a `float`.
+
+```python
+tx_result = contract.mint_to(
+  "{{wallet_address}}",
+  # highlight-next-line
+  1.5
+)
+```
+
+</div>
+</details>
+
+## mint_batch_to
+
+Mint tokens to many wallets in one transaction.
+
+```python
+from thirdweb.types.currency import TokenAmount
+
+# Data of the tokens you want to mint
+args = [
+    TokenAmount("0x7fDae677aA6f94Edff9872C4b91D26407709c790", 1),
+    TokenAmount("0x7fDae677aA6f94Edff9872C4b91D26407709c790", 2),
+]
+
+contract.mint_batch_to(args)
+```
+
+<details>
+<summary>Configuration</summary>
+  <div>
+
+#### args
+
+A `List` of `TokenAmount` objects containing the following properties:
+
+```python 
+class TokenAmount:
+    to_address: str
+    amount: Price
+```
+
+```python
+contract.mint_batch_to(
+  # highlight-start
+  [
+    TokenAmount("{{wallet_address}}", 0.2),
+    TokenAmount("0x...", 1.4),
+  ]
+  # highlight-end
+)
+```
+
+</div>
+</details>
+
+## get_vote_balance
+
+Get the **connected wallet's** voting power in this token.
+
+```python
+vote_balance = contract.get_vote_balance()
+```
+
+<details>
+<summary>Configuration</summary>
+<div>
+
+## Return Value
+
+A `CurrencyValue` object representing the vote balance of the connected wallet.
+
+```python
+class CurrencyValue(Currency):
+    value: PriceWei
+    display_value: Price
+```
+
+</div>
+</details>
+
+## get_vote_balance_of
+
+Get the voting power of the specified wallet in this token.
+
+```python
+account = "0x..."
+vote_balance = contract.get_vote_balance(account)
+```
+
+<details>
+<summary>Configuration</summary>
+<div>
+
+#### account
+
+The wallet address to check the balance of. Must be of type `str`.
+
+```python
+account = "0x..."
+vote_balance = contract.get_vote_balance(account)
+```
+
+## Return Value
+
+A `CurrencyValue` object representing the vote balance of the specified wallet.
+
+```python
+class CurrencyValue(Currency):
+    value: PriceWei
+    display_value: Price
+```
+</div>
+</details>
+
+## get_delegation
+
+Get the connected wallets delegatee address for this token.
+
+```python
+delegation_address = contract.get_delegation()
+```
+
+<details>
+<summary>Configuration</summary>
+<div>
+
+### Return Value 
+
+A `str` representing the delegation address of the connected wallet.
+
+</div>
+</details>
+
+## get_delegation_of
+
+Get a specified wallets delegatee for this token.
+
+```python
+account = "0x..."
+delegation_address = contract.get_delegation_of(account)
+```
+
+<details>
+<summary>Configuration</summary>
+<div>
+
+#### account
+
+The wallet address to check the delegation of. Must be of type `str`.
+
+```python
+# highlight-next-line
+account = "0x..."
+delegation_address = contract.get_delegation_of(account)
+```
+
+### Return Value 
+
+A `str` representing the delegation address of the specified wallet.
+
+</div>
+</details>
+
+## delegate_to
+
+Delegate the **connected wallet's** tokens to a specified wallet.
+
+```python
+delegatee_address = "0x..."
+contract.delegate_to(delegatee_address)
+```
+
+<details>
+<summary>Configuration</summary>
+<div>
+
+#### delegatee_address
+
+Wallet address to delegate tokens to. Must be of type `str`.
+
+```python
+# highlight-next-line
+delegatee_address = "0x..."
+contract.delegate_to(delegatee_address)
+```
+</div>
+</details>
