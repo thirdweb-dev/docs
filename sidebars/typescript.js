@@ -65,6 +65,13 @@ const sidebars = {
       id: "thirdwebsdk.sdk.contractdeployer",
     },
 
+    // Contract Verification on Block Explorers
+    {
+      type: "doc",
+      label: "Contract Verification",
+      id: "thirdwebsdk.sdk.contractverifier",
+    },
+
     // Interacting with contracts
     {
       type: "category",
