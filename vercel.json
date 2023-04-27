@@ -563,10 +563,6 @@
       "destination": "/glossary/signature-based-minting"
     },
     {
-      "source": "/typescript/sdk.contractmetadata",
-      "destination": "/typescript/sdk.contractmetadata"
-    },
-    {
       "source": "/sdk/advanced-features/gasless-transactions",
       "destination": "/glossary/gasless-transactions"
     },
