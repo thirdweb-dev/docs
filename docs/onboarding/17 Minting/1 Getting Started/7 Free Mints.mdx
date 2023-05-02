@@ -1,0 +1,26 @@
+---
+slug: /minting/getting-started/free-mints
+title: Free Mints
+hide_title: true
+---
+
+# Free Mints
+
+Publishers can choose to offer free mints where the publisher pays the gas costs by setting up a relayer service and then passing those options into their thirdweb SDK connection. By doing so all write transactions to the blockchain will be forwarded to that service for payment of the gas.
+
+```js
+{
+  gasless: {
+    // By specifying a gasless configuration - all transactions will get forwarded to enable gasless transactions
+    openzeppelin: {
+      relayerUrl, // your OZ Defender relayer URL
+      relayerForwarderAddress, // the OZ defender relayer address (defaults to the standard one)
+    },
+    biconomy: {
+      apiId, // your Biconomy API Id
+      apiKey, // your Biconomy API Key
+      deadlineSeconds, // your Biconomy timeout preference
+    },
+  },
+}
+```
