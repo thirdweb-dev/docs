@@ -1,0 +1,121 @@
+---
+slug: /solidity/base-contracts/managed-account-factory
+title: Managed Account Factory
+---
+
+# Managed Account Factory
+
+```solidity
+import "@thirdweb-dev/contracts/smart-wallet/managed/ManagedAccount.sol";
+```
+
+This contract inherits from the [`BaseAccountFactory`](/solidity/extensions/base-account-factory) contract.
+
+This factory smart contract is intended to be used to distribute ['ManagedAccounts`](/solidity/base-contracts/managed-account) programmatically.
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/smart-wallet/managed/ManagedAccount.sol"
+  name="ManagedAccount"
+/>
+
+<br/>
+
+:::info
+
+If you modify the [`ManagedAccount`](/solidity/base-contracts/managed-account) contract, it is recommended that you write your own
+factory contract by inheriting from the [`BaseAccountFactory`](/solidity/extensions/base-account-factory) extension.
+
+:::
+
+## Usage
+
+Use the [CLI](/cli) [`create`](/cli/create) command to create a `ManagedAccountFactory` smart contract:
+
+```bash
+npx thirdweb create contract
+```
+
+[Deploy](/deploy) your contract using the deploy cli command:
+
+```bash
+npx thirdweb create
+```
+
+Or import the contract into your existing project and inherit from it.
+
+```solidity
+import "@thirdweb-dev/contracts/smart-wallet/managed/ManagedAccountFactory.sol";
+
+contract MyManagedAccountFactory is ManagedAccountFactory {
+	  constructor(
+        IEntryPoint _entrypoint
+    )
+        ManagedAccountFactory(
+            _entrypoint
+        )
+    {}
+}
+```
+
+## Functions to Override
+
+The following functions have been implemented on this contract & are available to be overridden to add custom logic:
+
+<details>
+<summary>_initializeAccount</summary>
+<div>
+
+Called in `createAccount`. Initializes the account contract created in `createAccount`.
+
+```solidity
+function _initializeAccount(
+    address _account,
+    address _admin,
+    bytes calldata _data
+) internal override {
+    ManagedAccount(payable(_account)).initialize(_admin, _data);
+}
+```
+
+#### _account
+
+The address of the smart account smart contract to initialize.
+
+#### _admin
+
+The address to be set as default admin role for the contract. Must be of type `address`.
+
+#### _data
+
+If extra storage variables are required in your account contract, abi encode the variables, 
+pass them to this function as the `bytes` argument. 
+
+For example:
+
+```solidity
+
+function initializeAccount(
+    address _admin,
+    bytes calldata _data
+) public override initializer {
+    ManagedAccount.initialize(_admin, _data);
+}
+```
+
+</div>
+</details>
+
+<details>
+<summary>_canSetExtension</summary>
+<div>
+
+Returns whether an extension can be set in the given execution context.
+
+```solidity
+function _canSetExtension() internal view virtual override returns (bool) {
+    return hasRole(DEFAULT_ADMIN_ROLE, msg.sender);
+}
+```
+
+</div>
+</details>
