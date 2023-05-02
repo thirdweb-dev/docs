@@ -303,7 +303,125 @@ const walletWithOptions = new SafeWallet(
 
 ## Methods
 
-Once instantiated, utilize the following methods to interact with the wallet.
+Once instantiated, you can use the following methods to interact with the wallet.
+
+### connect
+
+Prompt the user to connect their smart wallet to your app.
+
+Note: A personal wallet must be connected before connecting to a Smart wallet.
+
+```javascript
+import { CoinbaseWallet, SmartWallet } from "@thirdweb-dev/wallets";
+import { Ethereum } from "@thirdweb-dev/chains";
+
+// First, connect the personal wallet
+const personalWallet = new CoinbaseWallet();
+await personalWallet.connect();
+
+// Then, connect the Smart wallet
+const wallet = new SmartWallet(config);
+await wallet.connect({
+  personalWallet,
+});
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### personalWallet
+
+The instance of a personal wallet that can sign transactions on the Smart Wallet.
+
+Must be an `EVMWallet` instance such as [`CoinbaseWallet`](/wallet/coinbase-wallet) or [`MetamaskWallet`](/wallet/metamask).
+
+Returns a `string` containing the wallet address, or `undefined` if the connection failed.
+
+```typescript
+string | undefined;
+```
+
+</div>
+</details>
+
+### execute
+
+Execute a single transaction as the connected Smart Wallet.
+
+```javascript
+// first, connect the Smart wallet
+const wallet = new SmartWallet(config);
+await wallet.connect({
+  personalWallet,
+});
+
+// Then you can execute transactions directly
+const transaction = prepareTransaction();
+await wallet.execute(transaction);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### transaction
+
+The transaction to execute. Must be of type `Transaction` from the [`@thirdweb-dev/sdk`](https://www.npmjs.com/package/@thirdweb-dev/sdk) package.
+
+Creating these transactions can be done easily using the [Transaction Builder](typescript/sdk.smartcontract.prepare) from the thirdweb SDK.
+
+Returns a `TransactionResult` containing the transaction receipt.
+
+```typescript
+TransactionResult;
+```
+
+</div>
+</details>
+
+### executeBatch
+
+Execute multiple transactions as the connected Smart Wallet at once, only requiring one signature from the personal wallet.
+
+```javascript
+// first, connect the Smart wallet
+const wallet = new SmartWallet(config);
+await wallet.connect({
+  personalWallet,
+});
+
+// Then you can execute multiple transactions at once
+const transactions = [
+  prepareTransaction1(),
+  prepareTransaction2(),
+  prepareTransaction3(),
+];
+await wallet.executeBatch(transactions);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### transactions
+
+An array of transactions to execute. Must be of type `Transaction[]` from the [`@thirdweb-dev/sdk`](https://www.npmjs.com/package/@thirdweb-dev/sdk) package.
+
+Creating these transactions can be done easily using the [Transaction Builder](typescript/sdk.smartcontract.prepare) from the thirdweb SDK.
+
+Returns a `TransactionResult` containing the transaction receipt.
+
+```typescript
+TransactionResult;
+```
+
+</div>
+</details>
+
+## Inherited Methods
+
+The wallet also inherits the following methods from the `AbstractClientWallet` class.
 
 ### addListener
 
@@ -425,46 +543,6 @@ const address = await wallet.autoConnect();
   <div>
 
 #### Return Value
-
-Returns a `string` containing the wallet address, or `undefined` if the connection failed.
-
-```typescript
-string | undefined;
-```
-
-</div>
-</details>
-
-### connect
-
-Prompt the user to connect their smart wallet to your app.
-
-Note: A personal wallet must be connected before connecting to a Smart wallet.
-
-```javascript
-import { CoinbaseWallet, SmartWallet } from "@thirdweb-dev/wallets";
-import { Ethereum } from "@thirdweb-dev/chains";
-
-// First, connect the personal wallet
-const personalWallet = new CoinbaseWallet();
-await personalWallet.connect();
-
-// Then, connect the Smart wallet
-const wallet = new SmartWallet(config);
-await wallet.connect({
-  personalWallet,
-});
-```
-
-<details>
-  <summary>Configuration</summary>
-  <div>
-
-#### personalWallet
-
-The instance of a personal wallet that can sign transactions on the Smart Wallet.
-
-Must be an `EVMWallet` instance such as [`CoinbaseWallet`](/wallet/coinbase-wallet) or [`MetamaskWallet`](/wallet/metamask).
 
 Returns a `string` containing the wallet address, or `undefined` if the connection failed.
 
@@ -621,29 +699,6 @@ Returns an `AbstractBrowserWallet` or `undefined if there is no connected wallet
 
 ```typescript
 AbstractBrowserWallet | undefined;
-```
-
-</div>
-</details>
-
-### getQrUrl
-
-Get a URL that can be used to generate a QR code for the wallet.
-
-```javascript
-const qrUrl = await wallet.getQrUrl();
-```
-
-<details>
-  <summary>Configuration</summary>
-  <div>
-
-#### Return Value
-
-Returns a `string` containing the URL, or `null` if there is no connected wallet.
-
-```typescript
-string | null;
 ```
 
 </div>
