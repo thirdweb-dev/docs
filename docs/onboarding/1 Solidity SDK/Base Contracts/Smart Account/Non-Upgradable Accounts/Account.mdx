@@ -11,7 +11,7 @@ import "@thirdweb-dev/contracts/smart-wallet/non-upgradable/Account.sol";
 
 This contract inherits from the [`BaseAccount`](/solidity/extensions/base-account) contract.
 
-The Account smart wallet is a **non-upgradable**, simple smart wallet that comes with all the basic benefits of account abstraction, 
+The Account smart wallet is a **non-upgradable**, simple smart wallet that comes with all the basic benefits of account abstraction,
 alongside the default features:
 
 - Have multiple owners
@@ -28,17 +28,15 @@ Developers should use this wallet if they do not anticipate making any future up
   name="Account"
 />
 
-App developers can issue Account smart wallets programmatically by deploying an [AccountFactory](/solidity/base-contracts/account-factory) smart contract. 
+App developers can issue Account smart wallets programmatically by deploying an [AccountFactory](/solidity/base-contracts/account-factory) smart contract.
 
 :::info
 
-If you intend to issue accounts programmatically, using a factory contract you must do the following:
+If you intend to issue accounts programmatically using a custom factory contract, you must do the following:
 
-- Call `_disableInitializers()` at the end of the constructor.
+- Create a new factory contract by extending the [BaseAccountFactory](/solidity/extensions/base-account-factory) extension.
 
-- Create a new factory contract by extending the [BaseAccountFactory](/solidity/extensions/base-account-factory) extension
-
-- Call `_initializeAccount` on the factory to create a new wallet.
+- Override the `_initializeAccount` function on the factory to create a new wallet. ([reference](https://github.com/thirdweb-dev/contracts/blob/main/contracts/smart-wallet/non-upgradeable/AccountFactory.sol#L36))
 
 :::
 
@@ -112,11 +110,11 @@ function initialize(address _defaultAdmin, bytes calldata _data) public virtual 
 }
 ```
 
-#### _defaultAdmin
+#### \_defaultAdmin
 
 The account admin. Must be of type `address`.
 
-#### _data
+#### \_data
 
 The abi encoded data to initialize the contract with. Must be of type `bytes`.
 
@@ -136,7 +134,7 @@ function getImplementationForFunction(bytes4 _functionSelector) public view virt
 }
 ```
 
-#### _functionSelector
+#### \_functionSelector
 
 The function selector to get the extension implementation address. Must be of type `bytes4`.
 
@@ -155,7 +153,7 @@ function isValidSigner(address _signer) public view virtual returns (bool) {
 }
 ```
 
-#### _signer
+#### \_signer
 
 The signer to check authorization for. Must be of type `address`.
 
