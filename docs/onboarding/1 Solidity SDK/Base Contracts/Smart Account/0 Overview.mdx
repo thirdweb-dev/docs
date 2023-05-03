@@ -3,5 +3,64 @@ slug: /solidity/base-contracts/smart-accounts
 title: Overview
 ---
 
-Hey Krishang, I have added a new page for you to add the design doc content to. 
-I think it would also be useful to explain how to use the relevant factories either by deploying our prebuilt or using the cli or by creating your own with BaseAccountFactory extension.
+All of thirdweb’s smart wallets are [EIP-4337](https://eips.ethereum.org/EIPS/eip-4337) smart contract wallets with role based permission control.
+
+Users can deploy a smart wallet for individual use, and app developers can issue smart wallets to their users programmatically.
+
+thirdweb’s smart wallets have the following features by default:
+
+- Have multiple owners
+- Execute transactions (single and batched).
+- Send and receive native tokens.
+- Send and receive ERC-721 and ERC-1155 NFTs.
+- Multicall-able.
+- Store contract metadata.
+
+Choose the right smart wallet setup for your app. thirdweb offers the following three different kinds of smart wallets:
+
+|                    | `Account` setup                                                                                                                         | `DynamicAccount` setup                                                                                                                                                        | `ManagedAccount` setup                                                                                                                                                                        |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Upgradeability** | Non-upgradeable                                                                                                                         | Account upgrades controlled locally by account admin.                                                                                                                         | Account upgrades controlled centrally by account factory admin.                                                                                                                               |
+| **User persona**   | Developer wants to issue simple smart wallets to their users. They do not anticipate that users wallets will need any feature upgrades. | Developer wants to issue smart wallets to their users. They do anticipate feature upgrades to user wallets, but do not want to push upgrades to user wallets without consent. | Developer wants to issue smart wallets to their users. They do anticipate feature upgrades to user wallets, and want to push upgrades to user wallets for seamless/invisible UX for upgrades. |
+
+## Simple smart wallets
+
+**`Account.sol` & `AccountFactory.sol`**
+
+The `Account` smart wallet is a simple smart wallet that comes with all the basic benefits of account abstraction, along with the mentioned default features.
+
+App developers can issue `Account` smart wallets programmatically by deploying an `AccountFactory` smart contract.
+
+The `Account` smart contract is _non-upgradeable._ Developers should use this wallet if they do not anticipate making any future upgrades to their users’ wallets.
+
+## Dynamic smart wallets
+
+**`DynamicAccount.sol` & `DynamicAccountFactory.sol`**
+
+The difference between `DynamicAccount` smart wallet and `Account` smart wallet is that `DynamicAccount` is an _upgradeable_ smart contract written in the [dynamic contract pattern](https://github.com/thirdweb-dev/dynamic-contracts).
+
+App developers can issue `DynamicAccount` smart wallets programmatically by deploying a `DynamicAccountFactory` smart contract.
+
+The admin of a given `DynamicAccount` smart wallet is allowed to make upgrades to their own smart wallets. This is the right wallet for developers who anticipate providing _opt-in upgrades_ to their users’ wallets.
+
+#### Example use case of opt-in upgrades:
+
+A game with in-game NFT items wants to offer its players the ability to store their NFT items in a staking vault as soon as their wallets receive these NFTs. This would be an upgrade to the smart wallet contract’s `onERC721Received` and `onERC1155Received` transfer hooks.
+
+The game can provide this upgrade as an opt-in upgrade to their players.
+
+## Managed smart wallets
+
+**`ManagedAccount.sol` & `ManagedAccountFactory.sol`**
+
+Like `DynamicAccount`, the `ManagedAccount` smart wallet is an _upgradeable_ smart contract written in the [dynamic contract pattern](https://github.com/thirdweb-dev/dynamic-contracts).
+
+App developers can issue `ManagedAccount` smart wallets programmatically by deploying a `ManagedAccountFactory` smart contract.
+
+The admin of the `ManagedAccountFactory` contract can push upgrades to all `ManagedAccount` that it creates. This admin does not require any permissions on the `ManagedAccount` smart wallets to do so. An upgrade to the features of `ManagedAccount` applies to _all_ `ManagedAccount` smart wallets created by the factory. This is the right wallet for developers who anticipate _pushing upgrades_ to their users’ wallets.
+
+#### Example use case of push upgrades:
+
+An app wants its user wallets to only be able to own NFTs within its ecosystem. This would be an upgrade to the smart wallet contract’s `onERC721Received` and `onERC1155Received` transfer hooks.
+
+The app can enforce this behaviour by pushing this upgrade to its user wallets.

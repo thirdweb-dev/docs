@@ -11,9 +11,16 @@ import ViewContractCodeButton from "@components/ViewContractCodeButton";
 import "@thirdweb-dev/contracts/smart-wallet/dynamic/DynamicAccount.sol";
 ```
 
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/smart-wallet/dynamic/DynamicAccount.sol"
+  name="DynamicAccount"
+/>
+
+<br />
+
 This contract inherits from the [`BaseAccount`](/solidity/extensions/base-account) contract.
 
-The difference between `DynamicAccount` smart wallet and [`Account`](/solidity/base-contracts/account) smart wallet is that `DynamicAccount` is an *upgradeable* smart contract written in the [dynamic contract pattern](https://github.com/thirdweb-dev/dynamic-contracts).
+The difference between `DynamicAccount` smart wallet and [`Account`](/solidity/base-contracts/account) smart wallet is that `DynamicAccount` is an _upgradeable_ smart contract written in the [dynamic contract pattern](https://github.com/thirdweb-dev/dynamic-contracts).
 
 The admin of a given `DynamicAccount` smart wallet is allowed to make upgrades to their **own** smart wallets. This is the right wallet for developers who anticipate providing **opt-in upgrades** to their users’ wallets.
 
@@ -23,24 +30,15 @@ A game with in-game NFT items wants to offer its players the ability to store th
 
 The game can provide this upgrade as an opt-in upgrade to their players.
 
-EIP4337 compliant dynamic smart account smart contract.
-
-<ViewContractCodeButton
-  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/smart-wallet/dynamic/DynamicAccount.sol"
-  name="DynamicAccount"
-/>
-
-App developers can issue `DynamicAccount` smart wallets programmatically by deploying a `DynamicAccountFactory` smart contract. 
+App developers can issue `DynamicAccount` smart wallets programmatically by deploying a [`DynamicAccountFactory`](/solidity/base-contracts/dynamic-account-factory) smart contract.
 
 :::info
 
-If you intend to issue accounts programmatically, using a factory contract you must do the following:
+If you intend to issue accounts programmatically using a custom factory contract, you must do the following:
 
-- Call `_disableInitializers()` at the end of the constructor.
+- Create a new factory contract by extending the [BaseAccountFactory](/solidity/extensions/base-account-factory) extension.
 
-- Create a new factory contract by extending the [BaseAccountFactory](/solidity/extensions/base-account-factory) extension
-
-- Call `_initializeAccount` on the factory to create a new wallet.
+- Override the `_initializeAccount` function on the factory to create a new wallet. ([reference](https://github.com/thirdweb-dev/contracts/blob/main/contracts/smart-wallet/non-upgradeable/AccountFactory.sol#L36))
 
 :::
 
@@ -59,7 +57,7 @@ Import the contract and inherit from it. This is an example contract demonstrati
 ```solidity
 import "@thirdweb-dev/contracts/smart-wallet/dynamic/DynamicAccount.sol";
 
-contract DynamicTokenBoundAccount is DynamicAccount { 
+contract DynamicTokenBoundAccount is DynamicAccount {
     constructor(
         IEntryPoint _entrypoint,
         address _defaultExtension
@@ -80,7 +78,7 @@ The following functions have been implemented on this contract & are available t
 <summary>initialize</summary>
 <div>
 
-Initializes the contract with the provided roles. 
+Initializes the contract with the provided roles.
 
 ```solidity
 function initialize(address _defaultAdmin, bytes calldata) public virtual override initializer {
@@ -89,14 +87,14 @@ function initialize(address _defaultAdmin, bytes calldata) public virtual overri
 }
 ```
 
-#### _defaultAdmin
+#### \_defaultAdmin
 
 The address to be set as default admin role for the contract. Must be of type `address`.
 
-#### _data
+#### \_data
 
-If extra storage variables are required in your account contract, override this function, abi encode the variables, 
-pass them to this function as the `bytes` argument and then abi-decoded in this function to be set in storage. 
+If extra storage variables are required in your account contract, override this function, abi encode the variables,
+pass them to this function as the `bytes` argument and then abi-decoded in this function to be set in storage.
 
 For example:
 
@@ -145,7 +143,7 @@ function getImplementationForFunction(bytes4 _functionSelector) public view virt
 }
 ```
 
-#### _functionSelector
+#### \_functionSelector
 
 The function selector to get the extension implementation address. Must be of type `bytes4`.
 
@@ -164,7 +162,7 @@ function isValidSigner(address _signer) public view virtual returns (bool) {
 }
 ```
 
-#### _signer
+#### \_signer
 
 The signer to check authorization for. Must be of type `address`.
 
