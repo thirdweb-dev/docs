@@ -11,28 +11,22 @@ import ViewContractCodeButton from "@components/ViewContractCodeButton";
 import "@thirdweb-dev/contracts/smart-wallet/managed/ManagedAccount.sol";
 ```
 
+This contract inherits from the [`BaseAccount`](/solidity/extensions/base-account) contract.
+
+Like [`DynamicAccount`](/solidity/base-contracts/dynamic-account), the `ManagedAccount` smart wallet is an _upgradeable_ smart contract written in the [dynamic contract pattern](https://github.com/thirdweb-dev/dynamic-contracts).
+
+App developers can issue `ManagedAccount` smart wallets programmatically by deploying a [`ManagedAccountFactory`](/solidity/base-contracts/managed-account-factory) smart contract.
+
+The admin of the [`ManagedAccountFactory`](/solidity/base-contracts/managed-account-factory) contract can push upgrades to all `ManagedAccount` contracts that it creates. This admin does not require any permissions on the `ManagedAccount` smart wallets to do so.
+
+An upgrade to the features of `ManagedAccount` applies to **all** `ManagedAccount` smart wallets created by the factory. This is the right wallet for developers who anticipate **pushing upgrades** to their users’ wallets.
+
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/smart-wallet/managed/ManagedAccount.sol"
   name="ManagedAccount"
 />
 
 <br />
-
-This contract inherits from the [`BaseAccount`](/solidity/extensions/base-account) contract.
-
-Like [`DynamicAccount`](/solidity/base-contracts/dynamic-account), the `ManagedAccount` smart wallet is an _upgradeable_ smart contract written in the [dynamic contract pattern](https://github.com/thirdweb-dev/dynamic-contracts).
-
-The admin of the [`ManagedAccountFactory`](/solidity/base-contracts/managed-account-factory) contract can push upgrades to all `ManagedAccount` contracts that it creates. This admin does not require any permissions on the `ManagedAccount` smart wallets to do so.
-
-An upgrade to the features of `ManagedAccount` applies to **all** `ManagedAccount` smart wallets created by the factory. This is the right wallet for developers who anticipate **pushing upgrades** to their users’ wallets.
-
-#### Example Push Upgrade:
-
-An app wants its user wallets to only be able to own NFTs within its ecosystem. This would be an upgrade to the smart wallet contract’s `onERC721Received` and `onERC1155Received` transfer hooks.
-
-The app can enforce this behaviour by pushing this upgrade to its user wallets.
-
-App developers can issue `ManagedAccount` smart wallets programmatically by deploying a [`ManagedAccountFactory`](/solidity/base-contracts/managed-account-factory) smart contract.
 
 :::info
 
@@ -50,6 +44,7 @@ Once deployed, you can use the features made available by these extensions on th
 
 Click on each feature to learn more about what functions are available.
 
+- [SmartWallet](/solidity/extensions/base-account)
 - [Multicall](/solidity/extensions/multicall)
 
 ## Usage

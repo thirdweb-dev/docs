@@ -8,7 +8,7 @@ import ViewContractCodeButton from "@components/ViewContractCodeButton";
 # Dynamic Account Factory
 
 ```solidity
-import "@thirdweb-dev/contracts/smart-wallet/dynamic/DynamicAccount.sol";
+import "@thirdweb-dev/contracts/smart-wallet/dynamic/DynamicAccountFactory.sol";
 ```
 
 This contract inherits from the [`BaseAccountFactory`](/solidity/extensions/base-account-factory) contract.
@@ -28,6 +28,14 @@ If you modify the [`DynamicAccount`](/solidity/base-contracts/dynamic-account) c
 factory contract by inheriting from the [`BaseAccountFactory`](/solidity/extensions/base-account-factory) extension.
 
 :::
+
+## Detected Extensions
+
+Once deployed, you can use the features made available by these extensions on the SDK and dashboard:
+
+Click on each feature to learn more about what functions are available.
+
+- [SmartWalletFactory](/solidity/extensions/base-account-factory)
 
 ## Usage
 
@@ -62,7 +70,7 @@ contract MyDynamicAccountFactory is DynamicAccountFactory {
 ## Full Reference
 
 <details>
-<summary></summary>
+<summary>_initializeAccount</summary>
 <div>
 
 Called in `createAccount`. Initializes the account contract created in `createAccount`.

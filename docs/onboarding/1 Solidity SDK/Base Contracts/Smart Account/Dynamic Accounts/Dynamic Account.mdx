@@ -11,26 +11,20 @@ import ViewContractCodeButton from "@components/ViewContractCodeButton";
 import "@thirdweb-dev/contracts/smart-wallet/dynamic/DynamicAccount.sol";
 ```
 
+This contract inherits from the [`BaseAccount`](/solidity/extensions/base-account) contract.
+
+App developers can issue `DynamicAccount` smart wallets programmatically by deploying a [`DynamicAccountFactory`](/solidity/base-contracts/dynamic-account-factory) smart contract.
+
+The difference between `DynamicAccount` smart wallet and [`Account`](/solidity/base-contracts/account) smart wallet is that `DynamicAccount` is an _upgradeable_ smart contract written in the [dynamic contract pattern](https://github.com/thirdweb-dev/dynamic-contracts).
+
+The admin of a given `DynamicAccount` smart wallet is allowed to make upgrades to their **own** smart wallets. This is the right wallet for developers who anticipate providing **opt-in upgrades** to their users’ wallets.
+
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/smart-wallet/dynamic/DynamicAccount.sol"
   name="DynamicAccount"
 />
 
 <br />
-
-This contract inherits from the [`BaseAccount`](/solidity/extensions/base-account) contract.
-
-The difference between `DynamicAccount` smart wallet and [`Account`](/solidity/base-contracts/account) smart wallet is that `DynamicAccount` is an _upgradeable_ smart contract written in the [dynamic contract pattern](https://github.com/thirdweb-dev/dynamic-contracts).
-
-The admin of a given `DynamicAccount` smart wallet is allowed to make upgrades to their **own** smart wallets. This is the right wallet for developers who anticipate providing **opt-in upgrades** to their users’ wallets.
-
-#### Example Opt-in Upgrade:
-
-A game with in-game NFT items wants to offer its players the ability to store their NFT items in a staking vault as soon as their wallets receive these NFTs. This would be an upgrade to the smart wallet contract’s `onERC721Received` and `onERC1155Received` transfer hooks.
-
-The game can provide this upgrade as an opt-in upgrade to their players.
-
-App developers can issue `DynamicAccount` smart wallets programmatically by deploying a [`DynamicAccountFactory`](/solidity/base-contracts/dynamic-account-factory) smart contract.
 
 :::info
 
@@ -48,6 +42,7 @@ Once deployed, you can use the features made available by these extensions on th
 
 Click on each feature to learn more about what functions are available.
 
+- [SmartWallet](/solidity/extensions/base-account)
 - [Multicall](/solidity/extensions/multicall)
 
 ## Usage

@@ -1,19 +1,25 @@
 ---
 slug: /solidity/extensions/base-account
-title: Base Account
+title: SmartWallet
 ---
 
 import ViewContractCodeButton from "@components/ViewContractCodeButton";
 import QuickstartCard from "@components/QuickstartCard";
 
-# Base Account
+# BaseAccount
 
 ```solidity
 import "@thirdweb-dev/contracts/smart-wallet/utils/BaseAccount.sol";
 ```
 
-The `BaseAccount` smart contract is an extension which is intended to be used when creating your own smart account contract
-which does not use one of our base-contract account smart contracts.
+The `BaseAccount` smart contract is an extension that is intended to be used when creating your own smart account contract
+which does not use one of our ready-to-use base-contract account smart contracts.
+
+It is abstract, allowing you to customize the functionality for your use case.
+
+:::info
+This smart contract extension conforms to the `IAccount` interface which is detectable on the dashboard as the `SmartWallet` extension.
+:::
 
 <br/>
 
@@ -45,6 +51,7 @@ contract MyAccountFactory is BaseAccountFactory { ... }
 
 ## SDK Usage
 
+This extension unlocks the use of the [smart wallet](wallet/smart-wallet) in the wallet SDK.
 
 ## Base Contracts Implementing This Extension
 

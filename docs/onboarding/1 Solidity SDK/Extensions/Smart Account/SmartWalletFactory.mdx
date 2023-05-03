@@ -1,12 +1,12 @@
 ---
 slug: /solidity/extensions/base-account-factory
-title: Base Account Factory
+title: SmartWalletFactory
 ---
 
 import ViewContractCodeButton from "@components/ViewContractCodeButton";
 import QuickstartCard from "@components/QuickstartCard";
 
-# Base Account Factory
+# BaseAccountFactory
 
 ```solidity
 import "@thirdweb-dev/contracts/smart-wallet/utils/BaseAccountFactory.sol";
@@ -15,7 +15,9 @@ import "@thirdweb-dev/contracts/smart-wallet/utils/BaseAccountFactory.sol";
 The `BaseAccountFactory` smart contract is an extension usable with the [Dynamic](/solidity/base-contracts/dynamic-account), [Managed](/solidity/base-contracts/managed-account) and [Non-Upgradable](/solidity/base-contracts/non-upgradable-account) Account smart contracts.
 When creating your [Smart Wallet](/glossary/smart-wallet) account factory contract, inherit from this extension to include all of the base logic to create your factory.
 
-
+:::info
+This smart contract extension conforms to the `IAccountFactory` interface which is detectable on the dashboard as the `SmartWalletFactory` extension.
+:::
 
 <br/>
 
@@ -45,6 +47,7 @@ contract MyAccountFactory is BaseAccountFactory { ... }
 
 ## SDK Usage
 
+This extension unlocks the use of the [smart wallet](wallet/smart-wallet) in the wallet SDK.
 
 ## Base Contracts Implementing This Extension
 

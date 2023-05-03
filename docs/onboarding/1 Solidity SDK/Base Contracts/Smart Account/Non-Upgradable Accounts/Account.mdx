@@ -11,12 +11,6 @@ import ViewContractCodeButton from "@components/ViewContractCodeButton";
 import "@thirdweb-dev/contracts/smart-wallet/non-upgradable/Account.sol";
 ```
 
-<ViewContractCodeButton
-  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/smart-wallet/non-upgradeable/Account.sol"
-  name="Account"
-/>
-<br />
-
 This contract inherits from the [`BaseAccount`](/solidity/extensions/base-account) contract.
 
 The Account smart wallet is a **non-upgradable**, simple smart wallet that comes with all the basic benefits of account abstraction,
@@ -32,6 +26,13 @@ alongside the default features:
 Developers should use this wallet if they do not anticipate making any future upgrades to their users’ wallets.
 
 App developers can issue `Account` smart wallets programmatically by deploying an [`AccountFactory`](/solidity/base-contracts/account-factory) smart contract.
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/smart-wallet/non-upgradeable/Account.sol"
+  name="Account"
+/>
+
+<br />
 
 :::info
 
@@ -49,6 +50,7 @@ Once deployed, you can use the features made available by these extensions on th
 
 Click on each feature to learn more about what functions are available.
 
+- [SmartWallet](/solidity/extensions/base-account)
 - [Multicall](/solidity/extensions/multicall)
 
 ## Usage
