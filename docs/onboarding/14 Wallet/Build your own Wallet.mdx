@@ -1,0 +1,254 @@
+---
+slug: /wallet/build-a-wallet
+title: Build your own Wallet
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+import QuickstartCard from "@components/QuickstartCard";
+
+To get started, install the [package](https://github.com/thirdweb-dev/js/tree/main/packages/wallets) into your project.
+
+<Tabs>
+  <TabItem value="npm" label="npm">
+    <CodeBlock language="bash">{`npm i @thirdweb-dev/wallets`}</CodeBlock>
+  </TabItem>
+  <TabItem value="yarn" label="yarn">
+    <CodeBlock language="bash">{`yarn add @thirdweb-dev/wallets`}</CodeBlock>
+  </TabItem>
+  <TabItem value="pnpm" label="pnpm">
+    <CodeBlock language="bash">{`pnpm add @thirdweb-dev/wallets`}</CodeBlock>
+  </TabItem>
+</Tabs>
+
+The following example shows how to create a wallet using the `@thirdweb-dev/wallets` package.
+
+## Building a wallet via email
+
+We wanted to support the functionality of creating a wallet via email using the [Paper.xyz SDK](https://www.npmjs.com/package/@paperxyz/embedded-wallet-service-sdk). The following will show how easy it was for us to create a new wallet using the `@thirdweb-dev/wallets` package.
+
+### `AbstractClientWallet` and `TWConnector` classes
+
+The [`AbstractClientWallet`](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/base.ts#L26) class is a base class that provides a common interface for interacting with a wallet.
+
+The main method that needs to be overridden is the `getConnector` method. This method should return a `Promise`
+that resolves to a [`TWConnector`](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/interfaces/tw-connector.ts#L6)
+object which is used to interact with the end wallet.
+
+Note that Paper needs a `clientId` to be passed to the SDK. This is done via the `TAdditionalOpts` passed in the constructor.
+
+```ts
+import { AbstractClientWallet } from "@thirdweb-dev/wallets";
+
+export abstract class AbstractClientWallet<
+  TAdditionalOpts extends Record<string, any> = {},
+  TConnectParams extends Record<string, any> = {},
+> extends AbstractWallet {
+
+  constructor(walletId: string, options?: WalletOptions<TAdditionalOpts>) {
+    super();
+    this.walletId = walletId;
+    this.options = options;
+    this.chains = options?.chains || defaultChains;
+    this.dappMetadata = options?.dappMetadata || DEFAULT_DAPP_META;
+    this.walletStorage =
+      options?.walletStorage || createAsyncLocalStorage(this.walletId);
+  }
+
+  ...
+
+  protected abstract getConnector(): Promise<TWConnector<TConnectParams>>;
+
+  ...
+}
+```
+
+```ts
+export abstract class TWConnector<
+  TConnectParams extends Record<string, any> = {},
+> extends EventEmitter {
+  abstract connect(args?: ConnectParams<TConnectParams>): Promise<string>;
+  abstract disconnect(): Promise<void>;
+  abstract getAddress(): Promise<string>;
+  abstract getSigner(): Promise<Signer>;
+  abstract getProvider(): Promise<providers.Provider>;
+  abstract switchChain(chainId: number): Promise<void>;
+  abstract isConnected(): Promise<boolean>;
+  abstract setupListeners(): Promise<void>;
+  abstract updateChains(chains: Chain[]): void;
+}
+```
+
+### Building the `PaperWalletConnector` class
+
+As mentioned before the key component to build is the Connector that will communicate with the new SDK.
+
+Let's explore some of the methods that need to be implemented. Find the full example in [our GitHub](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/connectors/paper/index.ts#L28).
+
+```ts
+import { TWConnector } from "@thirdweb-dev/wallets";
+
+export class PaperWalletConnector extends TWConnector<PaperWalletConnectionArgs> {
+
+  ...
+
+  // Defines how to connect to the Paper SDK
+  async connect(options: { email?: string; chainId?: number }) {
+    const paperSDK = await this.getPaperSDK();
+    if (!paperSDK) {
+      throw new Error("Paper SDK not initialized");
+    }
+    let user = await paperSDK.getUser();
+    switch (user.status) {
+      case UserStatus.LOGGED_OUT: {
+        let authResult: AuthLoginReturnType;
+
+        if (options.email) {
+          authResult = await paperSDK.auth.loginWithPaperEmailOtp({
+            email: options.email,
+          });
+        } else {
+          authResult = await paperSDK.auth.loginWithPaperModal();
+        }
+        this.user = authResult.user;
+        break;
+      }
+      case UserStatus.LOGGED_IN_WALLET_INITIALIZED: {
+        this.user = user;
+        break;
+      }
+    }
+    if (!this.user) {
+      throw new Error("Error connecting User");
+    }
+
+    this.setupListeners();
+    return this.getAddress();
+  }
+
+  async disconnect(): Promise<void> {
+    const paper = await this.#paper;
+    await paper?.auth.logout();
+    this.user = null;
+  }
+
+  // Returns a signer based on the Paper SDK.
+  public async getSigner(): Promise<Signer> {
+    if (this.#signer) {
+      return this.#signer;
+    }
+
+    if (!this.user) {
+      const paperSDK = await this.getPaperSDK();
+      let user = await paperSDK.getUser();
+      switch (user.status) {
+        case UserStatus.LOGGED_IN_WALLET_INITIALIZED: {
+          this.user = user;
+          break;
+        }
+      }
+    }
+
+    const signer = await this.user?.wallet.getEthersJsSigner({
+      rpcEndpoint: this.options.chain.rpc[0],
+    });
+
+    if (!signer) {
+      throw new Error("Signer not found");
+    }
+
+    this.#signer = signer;
+
+    return signer;
+  }
+
+  // How to switch chains with the SDK
+  async switchChain(chainId: number): Promise<void> {
+    // check if chainId is supported or not
+    if (!(chainId in PaperChainMap)) {
+      throw new Error("Chain not supported");
+    }
+
+    const chainName = PaperChainMap[chainId as keyof typeof PaperChainMap];
+
+    const chain = this.options.chains.find((c) => c.chainId === chainId);
+    if (!chain) {
+      throw new Error("Chain not configured");
+    }
+
+    // update chain in wallet
+    await this.user?.wallet.setChain({ chain: chainName });
+
+    // update signer
+    this.#signer = await this.user?.wallet.getEthersJsSigner({
+      rpcEndpoint: chain.rpc[0],
+    });
+
+    this.emit("change", { chain: { id: chainId, unsupported: false } });
+  }
+
+  ...
+
+}
+```
+
+### Building the `PaperWallet` class
+
+With an implemented connector we can define our [`PaperWallet` class](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/paper-wallet.ts)
+
+```ts
+import { AbstractClientWallet, WalletOptions } from "@thirdweb-dev/wallets";
+
+export class PaperWallet extends AbstractClientWallet<
+  PaperWalletAdditionalOptions,
+  PaperWalletConnectionArgs
+> {
+
+  export type PaperWalletAdditionalOptions = {
+    clientId: string;
+    chain: Pick<Chain, "chainId" | "rpc">;
+  };
+
+  export type PaperWalletOptions = WalletOptions<PaperWalletAdditionalOptions>;
+
+  constructor(options: PaperWalletOptions) {
+    super(PaperWallet.id, {
+      ...options,
+    });
+
+    this.clientId = options.clientId;
+    this.chain = options.chain;
+  }
+
+  ...
+
+  protected async getConnector(): Promise<TWConnector> {
+    if (!this.connector) {
+      const { PaperWalletConnector } = await import("../connectors/paper");
+      this.connector = new PaperWalletConnector({
+        clientId: this.clientId,
+        chain: this.chain,
+        chains: this.chains,
+      });
+    }
+    return this.connector;
+  }
+
+  ...
+}
+```
+
+At this point we are ready to create our wallet and connect to it:
+
+```ts
+const wallet = new PaperWallet({
+  chain: Ethereum, // Current chain
+  chains: [Ethereum], // Supported chains
+  clientId: "client_id", // Your client ID
+});
+
+wallet.connect();
+```
+
+For more information on our PaperWallet implementation you can [check the documentation](/wallet/paper).
