@@ -3,11 +3,20 @@ slug: /solidity/base-contracts/managed-account
 title: Managed Account
 ---
 
+import ViewContractCodeButton from "@components/ViewContractCodeButton";
+
 # Managed Account
 
 ```solidity
 import "@thirdweb-dev/contracts/smart-wallet/managed/ManagedAccount.sol";
 ```
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/smart-wallet/managed/ManagedAccount.sol"
+  name="ManagedAccount"
+/>
+
+<br />
 
 This contract inherits from the [`BaseAccount`](/solidity/extensions/base-account) contract.
 
@@ -22,11 +31,6 @@ An upgrade to the features of `ManagedAccount` applies to **all** `ManagedAccoun
 An app wants its user wallets to only be able to own NFTs within its ecosystem. This would be an upgrade to the smart wallet contract’s `onERC721Received` and `onERC1155Received` transfer hooks.
 
 The app can enforce this behaviour by pushing this upgrade to its user wallets.
-
-<ViewContractCodeButton
-  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/smart-wallet/managed/ManagedAccount.sol"
-  name="ManagedAccount"
-/>
 
 App developers can issue `ManagedAccount` smart wallets programmatically by deploying a [`ManagedAccountFactory`](/solidity/base-contracts/managed-account-factory) smart contract.
 
