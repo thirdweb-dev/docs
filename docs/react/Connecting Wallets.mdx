@@ -28,6 +28,7 @@ import {
   walletConnect,
   safeWallet,
   paperWallet,
+  magicLink,
 } from "@thirdweb-dev/react";
 
 function MyApp() {
@@ -43,6 +44,9 @@ function MyApp() {
         safeWallet(),
         paperWallet({
           clientId: "YOUR_CLIENT_ID", // required
+        }),
+        magicLink({
+          apiKey: "YOUR_MAGIC_API_KEY", // required
         }),
       ]}
       activeChain="mumbai"
@@ -62,7 +66,8 @@ Available options to use are:
 | [Wallet Connect v1](/wallet/wallet-connect-v1) | `walletConnectV1`                   | [`useWalletConnectV1`](/react/react.usewalletconnectV1) |
 | [Wallet Connect v2](/wallet/wallet-connect-v2) | `walletConnect`                     | [`useWalletConnect`](/react/react.usewalletconnect)     |
 | [Safe](/wallet/safe)                           | `safeWallet`                        | [`useSafe`](/react/react.usesafe)                       |
-| [Paper](/wallet/paper)                         | `paperWallet`                       | [`useConnect`](/react/react.useconnect)                 |
+| [Paper](/wallet/paper)                         | `paperWallet`                       | [`usePaperWallet`](/react/react.usepaperwallet)         |
+| [Magic Link](/wallet/magic)                    | `magicLink`                         | [`useMagic`](/react/react.usemagic)                     |
 
 ## 2. Prompting User Connection
 
