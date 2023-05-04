@@ -12,6 +12,15 @@ Hook for fetching all active listings from a [Marketplace](https://thirdweb.com/
 contract.
 "Active" means the listing is not canceled, expired, or sold.
 
+:::info Marketplace V3
+
+**Note: This hook is only for [Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace) contracts.**
+
+For [Marketplace V3](https://thirdweb.com/thirdweb.eth/MarketplaceV3)
+contracts, use [useValidDirectListings](/react/react.usevaliddirectlistings) or [useValidEnglishAuctions](/react/react.usevalidenglishauctions) instead.
+
+:::
+
 ```jsx
 import { useActiveListings } from "@thirdweb-dev/react";
 
