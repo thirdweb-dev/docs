@@ -149,7 +149,7 @@ The `signIn` function:
 // Note: This function lives inside the Login component above.
 async function signIn() {
   // Use the same address as the one specified in _app.tsx.
-  const payload = await thirdwebAuth.login("example.com");
+  const payload = await thirdwebAuth.login({ domain: "example.com" });
 
   // Make a request to the API with the payload.
   const res = await fetch("/api/auth/login", {
