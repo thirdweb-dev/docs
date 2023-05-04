@@ -7,7 +7,7 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 
-Prompt users to connect to your app with their [Paper Wallet](https://docs.withpaper.com/reference/embedded-wallet-service-overview).
+Prompt users to connect to your app using their email with [Paper Wallet](https://docs.withpaper.com/reference/embedded-wallet-service-overview)
 
 ## Usage
 
@@ -16,9 +16,8 @@ import { PaperWallet } from "@thirdweb-dev/wallets";
 import { Ethereum } from "@thirdweb-dev/chains";
 
 const wallet = new PaperWallet({
-  chain: Ethereum, // Current chain
-  chains: [Ethereum], // Supported chains
-  clientId: "client_id", // Your client ID
+  chain: Ethereum, //  chain to connect to
+  clientId: "client_id", // Paper SDK client ID
 });
 
 wallet.connect();
@@ -40,7 +39,7 @@ Must be a `Chain` object, from the [`@thirdweb-dev/chains`](https://www.npmjs.co
 </details>
 
 <details>
-  <summary>chains (required)</summary>
+  <summary>chains (optional)</summary>
   <div>
 
 Provide an array of chains you want to support.
@@ -54,37 +53,9 @@ Must be an array of `Chain` objects, from the [`@thirdweb-dev/chains`](https://w
   <summary>clientId (required)</summary>
   <div>
 
-Your paper client ID.
+Paper SDK requires a clientId for instantiation. You can create a clientId for your app on [paper.xyz](https://paper.xyz/product/wallet)
 
 Must be a `string`.
-
-</div>
-</details>
-
-<details>
-  <summary>dappMetadata (optional)</summary>
-  <div>
-
-Information about your app that the wallet will display when your app tries to connect to it.
-
-Must be an object containing `name`, `url`, `description` and `logoUrl` properties.
-
-```javascript
-import { PaperWallet } from "@thirdweb-dev/wallets";
-
-const walletWithOptions = new PaperWallet({
-  // ... other required config
-
-  // highlight-start
-  dappMetadata: {
-    name: "thirdweb powered dApp",
-    url: "https://thirdweb.com",
-    description: "thirdweb powered dApp",
-    logoUrl: "https://thirdweb.com/favicon.ico",
-  },
-  // highlight-end
-});
-```
 
 </div>
 </details>
@@ -93,7 +64,7 @@ const walletWithOptions = new PaperWallet({
   <summary>walletStorage (optional)</summary>
   <div>
 
-Some wallets need to store data in persistent storage. This is the storage that will be used for that.
+wallet needs to store data in a persistent storage. By default `localStorage` is used. If you want to use a different storage, you can pass it in the `walletStorage` option.
 
 Must be an object conforming to the `AsyncStorage` interface:
 
@@ -132,28 +103,6 @@ const walletWithOptions = new PaperWallet({
 </div>
 </details>
 
-<details>
-  <summary>walletId</summary>
-  <div>
-
-An ID for the wallet used to store the wallet in the `walletStorage`.
-
-```javascript
-import { PaperWallet } from "@thirdweb-dev/wallets";
-
-const walletWithOptions = new PaperWallet(
-  // highlight-start
-  {
-    // ... other required config
-    walletId: "wallet-id",
-  },
-  // highlight-end
-);
-```
-
-</div>
-</details>
-
 ## Methods
 
 Once instantiated, utilize the following methods to interact with the Paper Wallet.
@@ -163,7 +112,7 @@ Once instantiated, utilize the following methods to interact with the Paper Wall
 Add a listener for a specific event, and run a callback whenever that event is emitted.
 
 ```javascript
-wallet.addListener("connect", (data) => console.log(data));
+wallet.addListener(eventName, (data) => console.log(data));
 ```
 
 <details>
@@ -266,8 +215,9 @@ The function to run when the event is emitted.
 
 ### autoConnect
 
-Attempts to connect to the wallet without asking the user&rsquo; explicitly;
-possible if the user has already connected to the wallet to your app before.
+Attempts to connect to the wallet without asking the user explicitly.
+
+This only works if the user connected the wallet to your app before.
 
 ```javascript
 const address = await wallet.autoConnect();
@@ -279,10 +229,10 @@ const address = await wallet.autoConnect();
 
 #### Return Value
 
-Returns a `string` containing the wallet address, or `undefined` if the connection failed.
+Returns a `string` containing the wallet address, or throws an error if autoconnect fails
 
 ```typescript
-string | undefined;
+string;
 ```
 
 </div>
@@ -290,10 +240,20 @@ string | undefined;
 
 ### connect
 
-Prompt the user to connect their wallet to your app.
+Opens a Modal and prompts the user to login using their email.
+
+Once user enters their email, an OTP is sent to their email. User can then enter the OTP in the modal. Once that is done, the wallet is connected to the app.
 
 ```javascript
 const address = await wallet.connect();
+```
+
+If you know ther user's email already, you can pass the `email` to `connect` method and the modal will directly show the UI to enter the OTP sent to user's email.
+
+```javascript
+const address = await wallet.connect({
+  email: "user@example.com",
+});
 ```
 
 <details>
@@ -302,10 +262,10 @@ const address = await wallet.connect();
 
 #### Return Value
 
-Returns a `string` containing the wallet address, or `undefined` if the connection failed.
+Returns a `string` containing the wallet address, or throws an error if connection fails
 
 ```typescript
-string | undefined;
+string;
 ```
 
 </div>
@@ -313,7 +273,7 @@ string | undefined;
 
 ### disconnect
 
-Disconnect the currently connected wallet from your app.
+Disconnect the wallet from your app and logout from paper. Autoconnect won't work once user is logged out.
 
 ```javascript
 await wallet.disconnect();
@@ -324,7 +284,7 @@ await wallet.disconnect();
 Emit an event, with some optional data.
 
 ```javascript
-wallet.emit("connect", {});
+wallet.emit(eventName, data);
 ```
 
 <details>
@@ -383,10 +343,10 @@ const address = await wallet.getAddress();
 
 #### Return Value
 
-Returns a `string` containing the wallet address, or `undefined` if the connection failed.
+Returns a `string` containing the wallet address, or throws an error if wallet is not connected (user not logged in)
 
 ```typescript
-string | undefined;
+string;
 ```
 
 </div>
@@ -406,10 +366,10 @@ const chainId = await wallet.getChainId();
 
 #### Return Value
 
-Returns a `number` containing the chain ID, or `undefined` if there is no connected wallet.
+Returns a `number` containing the chain ID, or throws an error if wallet is not connected (user not logged in)
 
 ```typescript
-number | undefined;
+number;
 ```
 
 </div>
@@ -432,7 +392,7 @@ const email = await wallet.getEmail();
 Returns a `string` containing the email.
 
 ```typescript
-string | undefined;
+string;
 ```
 
 </div>
@@ -457,29 +417,6 @@ const metadata = wallet.getMeta();
   name: string;
   iconURL: string;
 }
-```
-
-</div>
-</details>
-
-### getQrUrl
-
-Get a URL that can be used to generate a QR code for the wallet.
-
-```javascript
-const qrUrl = await wallet.getQrUrl();
-```
-
-<details>
-  <summary>Configuration</summary>
-  <div>
-
-#### Return Value
-
-Returns a `string` containing the URL, or `null` if there is no connected wallet.
-
-```typescript
-string | null;
 ```
 
 </div>
@@ -513,7 +450,7 @@ Signer;
 Get the number of listeners for a given event.
 
 ```javascript
-const listenerCount = wallet.listenerCount("connect");
+const listenerCount = wallet.listenerCount(eventName);
 ```
 
 <details>
@@ -542,7 +479,7 @@ number;
 Get an array of the listeners for a given event.
 
 ```javascript
-const listeners = wallet.listeners("connect");
+const listeners = wallet.listeners(eventName);
 ```
 
 <details>
@@ -571,7 +508,8 @@ Returns an array of `function`s containing the listeners for the event.
 Remove all event listeners for either all events, or a specific event.
 
 ```javascript
-wallet.removeAllListeners();
+wallet.removeAllListeners(); // all events
+wallet.removeAllListeners(eventName); // specific event
 ```
 
 <details>
@@ -598,7 +536,7 @@ Remove a specific event listener for a given event.
 Provide the event name and the listener function to remove.
 
 ```javascript
-wallet.removeListener("connect", (data) => console.log(data));
+wallet.removeListener(eventName, callback);
 ```
 
 <details>
@@ -623,7 +561,7 @@ The listener function to remove. i.e. provide the same function that was used to
 Sign a message with the currently connected wallet.
 
 ```javascript
-const signature = await wallet.signMessage("Hello world!");
+const signature = await wallet.signMessage(message);
 ```
 
 <details>
@@ -652,7 +590,7 @@ string;
 Switch the currently connected wallet to a different chain.
 
 ```javascript
-await wallet.switchChain(1);
+await wallet.switchChain(chainId);
 ```
 
 <details>
@@ -673,11 +611,7 @@ Must be a `number`.
 Verify a signature is valid.
 
 ```javascript
-const isValid = await wallet.verifySignature(
-  "Message",
-  "Signature",
-  "wallet_address",
-);
+const isValid = await wallet.verifySignature(message, signature, address);
 ```
 
 <details>
