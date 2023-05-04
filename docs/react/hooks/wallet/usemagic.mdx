@@ -1,0 +1,113 @@
+---
+title: useMagic
+slug: /react.usemagic
+displayed_sidebar: react
+---
+
+Hook that prompts users to connect to your app using their email or phone number with [Magic Link](/wallet/magic)
+
+```jsx
+import { useMagic } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+calling this hook returns a `connect` function.
+
+There are two ways to call this `conect` function: using email or phone number.
+
+If you call the `connect` function with `email`, a modal will open and prompt the user to check their mail and click on the link sent to their email. Once user completes this step, the modal will close and the user will be connected to your app.
+
+If you call the connect method with `phoneNumber`, a modal will open and prompt the user to enter the OTP sent to their phone number. Once the user enters the OTP, the modal will close and the user will be connected to your app.
+
+Once connected, you can use the [`useAddress`](/react/react.useaddress) hook to get the user's address
+
+Magic SDK requires an apiKey for instantiation. You can create a `apiKey` for your app on [magic.link](https://magic.link/)
+
+```jsx
+import { useMagic } from "@thirdweb-dev/react";
+
+function App() {
+  const connectWithMagic = useMagic();
+
+  return (
+    <>
+      <button
+        onClick={() => {
+          connectWithMagic({
+            apiKey: "YOUR_API_KEY",
+            email: "user@example.com", // user's email
+          });
+        }}
+      >
+        connect with email
+      </button>
+
+      <button
+        onClick={() => {
+          connectWithMagic({
+            apiKey: "YOUR_API_KEY",
+            email: "+123456789", // user's phone number
+          });
+        }}
+      >
+        connect with phone number
+      </button>
+    </>
+  );
+}
+```
+
+## Configuration
+
+<details>
+  <summary>chainId</summary>
+  <div>
+
+To connect to a specific chain when connecting the wallet,
+pass the `chainId` in a configuration object as shown below.
+
+```ts
+chainId: number;
+```
+
+```jsx
+import { useMagic } from "@thirdweb-dev/react";
+import { Polygon } from "@thirdweb-dev/chains";
+
+function App() {
+  const connectWithMagic = useMagic();
+
+  return (
+    <button
+      onClick={() =>
+        connectWithMagic({
+          apiKey: "YOUR_API_KEY",
+          chainId: Polygon.chainId,
+          email: "user@example.com",
+        })
+      }
+    >
+      Connect Wallet
+    </button>
+  );
+}
+```
+
+You must add this chain in `ThirdwebProvider`&rsquo;s [supportedChains](/react/react.thirdwebprovider#supportedChains) prop as shown below
+
+```jsx
+import { Polygon } from "@thirdweb-dev/chains";
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+
+export function YourApp() {
+  return (
+    <ThirdwebProvider supportedChains={[Polygon]}>
+      <App />
+    </ThirdwebProvider>
+  );
+}
+```
+
+</div>
+</details>
