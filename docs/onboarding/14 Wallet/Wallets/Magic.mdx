@@ -135,7 +135,7 @@ Once instantiated, utilize the following methods to interact with the Wallet.
 
 There are two ways to call the `connect` method - with email or phoneNumber
 
-If you call the `connect` method with email, a modal will popup and prompt the to check their mail and click on the link sent to their email. Once user completes this step, the modal will close and the user will be connected to your app.
+If you call the `connect` method with `email`, a modal will open and prompt the user to check their mail and click on the link sent to their email. Once user completes this step, the modal will close and the user will be connected to your app.
 
 ```javascript
 const address = await wallet.connect({
@@ -143,7 +143,7 @@ const address = await wallet.connect({
 });
 ```
 
-If you call the `connect` method with phoneNumber, it will send an OTP to the user's phone number. Once the user enters the OTP, the modal will close and the user will be connected to your app.
+If you call the `connect` method with `phoneNumber`, a modal will open and prompt the user to enter the OTP sent to their phone number. Once the user enters the OTP, the modal will close and the user will be connected to your app.
 
 ```javascript
 const address = await wallet.connect({
