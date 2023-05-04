@@ -41,7 +41,9 @@ import { LocalWallet, SmartWallet } from "@thirdweb-dev/wallets";
 import { Goerli } from "@thirdweb-dev/chains";
 
 // First, connect the personal wallet, can be any wallet (metamask, walletconnect, etc.)
+// here we're just generating a new local wallet which can be saved later
 const personalWallet = new LocalWallet();
+await personalWallet.generate();
 await personalWallet.connect();
 
 // Setup the Smart wallet configuration
