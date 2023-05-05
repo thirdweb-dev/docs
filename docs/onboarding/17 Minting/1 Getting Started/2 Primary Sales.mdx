@@ -1,0 +1,26 @@
+---
+slug: /minting/getting-started/configuring-primary-sales-royalties
+title: Configuring Primary Sales and Royalties
+hide_title: true
+---
+
+# Configuring Primary Sale and Royalties
+
+Users can configure both the primary sale recipient as well as royalty percentage and recipient. Users can choose to use a single wallet address or set up distribution splits via the use of a [Split](https://thirdweb.com/thirdweb.eth/Split?via=/explore) contract.
+
+```js
+// set primary sale recipient
+await contract.sales.setRecipient(recipientWalletAddress);
+
+// set collection level royalties
+await contract.roles.setDefaultRoyaltyInfo({
+  seller_fee_basis_points: 100, // 1% royalty fee
+  fee_recipient: "0x...", // the fee recipient
+});
+
+// set token level royalties
+await contract.roles.setTokenRoyaltyInfo(tokenId, {
+  seller_fee_basis_points: 100, // 1% royalty fee
+  fee_recipient: "0x...", // the fee recipient
+});
+```
