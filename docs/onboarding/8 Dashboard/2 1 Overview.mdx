@@ -7,13 +7,17 @@ import OpenSourceInfo from "@components/OpenSourceInfo";
 
 # Dashboard
 
-The [Dashboard](https://thirdweb.com/dashboard) is a central place for you to create, manage, and interact with your smart contracts.
+Using [dashboard](https://thirdweb.com/dashboard) you can deploy, interact with, and manage all your contracts, programs, configure storage, RPC, and more.
 
-It allows you to deploy all of our [prebuilt contracts](/pre-built-contracts) to any of our [supported networks](https://blog.thirdweb.com/guides/which-network-should-you-use),
-and perform the most important operations on them, such as lazy-minting batches of NFTs, and viewing which NFTs have been minted so far.
+The dashboard allows you to deploy or import any EVM compatible contract and manage settings.
 
-Once you or your team member has deployed a contract, you can fine-tune its behavior
-by editing its configuration such as its metadata, royalty fees, and permission controls.
+Some actions enabled through dashboard:
+
+- Updating contract metadata
+- Uploading single or batch NFTs
+- Transferring, burning, or airdropping NFTs
+- Setting claim conditions (certain contracts)
+- Managing contract permissions
 
 <OpenSourceInfo
   repoName="dashboard"
@@ -23,12 +27,13 @@ by editing its configuration such as its metadata, royalty fees, and permission 
 
 ## Unlocking Dashboard Features
 
+All prebuilt contracts come with a set of default views, including:
+
+- [Build](/dashboard/build)
+- [Explorer](/dashboard/explorer)
+- [Events](/dashboard/events)
+- [Settings](/dashboard/settings)
+- [Sources](/dashboard/sources)
+
 For each contract you deploy using the [dashboard](https://thirdweb.com/dashboard) or the [CLI](/cli),
 you unlock features in the dashboard for each [extension](/solidity/extensions) you implemented in your contract.
-
-All prebuilt contracts come with a set of default features, including:
-
-- [Contract Explorer](/dashboard/view-and-interact-with-contracts)
-- [Contract Metadata & Fees](/dashboard/contract-settings)
-- [Permission Controls](/dashboard/permission-controls)
-- [Activity Feed](/dashboard/activity-feed)

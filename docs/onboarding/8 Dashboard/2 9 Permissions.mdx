@@ -1,15 +1,19 @@
 ---
-title: Permission Controls
-slug: /dashboard/permission-controls
+title: Permissions
+slug: /dashboard/permissions
 ---
 
-# Permission Controls
+# Permissions
 
 Permissions outline which wallet addresses can perform which actions on your smart contract.
 
 You can invite team members using their wallet addresses to have different levels of permissions on your smart contract under the **Permissions** tab.
 
 To define which wallets have these permissions, you must add them to the required role.
+
+From the dashboard, you can add or remove wallets for each role in the **Permissions** view:
+
+![Screenshot of permissions](./assets/permissions-view.png)
 
 Each contract has a different set of configurable roles, you can find the full list in the [ALL_ROLES](/typescript/sdk.all_roles#all_roles-variable) variable.
 
@@ -20,9 +24,17 @@ Each contract has a different set of configurable roles, you can find the full l
 | transfer  | Transfer tokens on this contract.                                            | NFTs, Tokens                                                                   |
 | unwrap    | Can unwrap tokens on this contract.                                          | [Multiwrap](/pre-built-contracts/multiwrap), [Pack](/pre-built-contracts/pack) |
 | lister    | Can create new listings on this marketplace contract.                        | [Marketplace](/pre-built-contracts/marketplace)                                |
-| pauser    | Can pause (and unpause) all external calls made to this contract's contract. | [Custom](/solidity)                                                         |
+| pauser    | Can pause (and unpause) all external calls made to this contract's contract. | [Custom](/solidity)                                                            |
 | asset     | Which assets can be listed on this marketplace contract.                     | [Marketplace](/pre-built-contracts/marketplace)                                |
 
-From the dashboard, you can add or remove wallets for each role in the **Permissions** tab:
+## Transfer
 
-![Permission Controls](./assets/permissions.png)
+By default, NFTs are set to transferable on each contract, but you may enable non-transferable or "soulbound" functionality through the dashboard.
+
+1. In the permissions view, select `Non-transferable` from the drop down.
+
+2. Add or remove selected addresses for permission to transfer NFTs.
+
+3. Click the `Update permissions` button on the bottom right to save your changes. This will prompt you to sign a transaction in your crypto wallet.
+
+![Screenshot of non-transferable](./assets/non-transferable.png)
