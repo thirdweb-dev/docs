@@ -1,39 +1,74 @@
 ---
-slug: /wallet/paper
-title: Paper Wallet
+slug: /wallet/magic
+title: Magic Link
 ---
 
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 
-Prompt users to connect to your app using their email with [Paper Wallet](https://docs.withpaper.com/reference/embedded-wallet-service-overview)
+Allows users to connect to your app with email or phone number using [Magic Auth](https://magic.link/auth)
 
 ## Usage
 
 ```javascript
-import { PaperWallet } from "@thirdweb-dev/wallets";
-import { Ethereum } from "@thirdweb-dev/chains";
+import { MagicLink } from "@thirdweb-dev/wallets";
 
-const wallet = new PaperWallet({
-  chain: Ethereum, //  chain to connect to
-  clientId: "client_id", // Paper SDK client ID
+// create a wallet instance
+const wallet = new MagicLink({
+  apiKey: "YOUR_API_KEY",
 });
 
-wallet.connect();
+// now connect using email or phone number
+
+wallet.connect({
+  email: "user@example.com",
+});
+
+// OR
+
+wallet.connect({
+  phoneNumber: "+123456789",
+});
 ```
+
+With this configuration, users will be able to login using their email or phone number.
+
+If you want to restrict login to only email or only phone number, you can do so by passing the `smsLogin:false` option or `emailLogin:false` option
 
 ## Configuration
 
-Provide a configuration object when instantiating the `PaperWallet` class.
+Provide a configuration object when instantiating the `MagicLink` class.
 
 <details>
-  <summary>chain (required)</summary>
+  <summary>apiKey (required)</summary>
   <div>
 
-The chain to connect to by default.
+Your Magic Link apiKey. You can get an API key by signing up for an account on [Magic Link's website](https://magic.link/).
 
-Must be a `Chain` object, from the [`@thirdweb-dev/chains`](https://www.npmjs.com/package/@thirdweb-dev/chains) package.
+Must be a `string`.
+
+</div>
+</details>
+
+<details>
+  <summary>smsLogin (optional)</summary>
+  <div>
+
+Specify whether you want to allow users to login with their phone number or not. It is `true` by default
+
+Must be a `boolean`.
+
+</div>
+</details>
+
+<details>
+  <summary>emailLogin (optional)</summary>
+  <div>
+
+Specify whether you want to allow users to login with their email or not. It is `true` by default
+
+Must be a `boolean`.
 
 </div>
 </details>
@@ -50,21 +85,10 @@ Must be an array of `Chain` objects, from the [`@thirdweb-dev/chains`](https://w
 </details>
 
 <details>
-  <summary>clientId (required)</summary>
-  <div>
-
-Paper SDK requires a clientId for instantiation. You can create a clientId for your app on [paper.xyz](https://paper.xyz/product/wallet)
-
-Must be a `string`.
-
-</div>
-</details>
-
-<details>
   <summary>walletStorage (optional)</summary>
   <div>
 
-wallet needs to store data in a persistent storage. By default `localStorage` is used. If you want to use a different storage, you can pass it in the `walletStorage` option.
+Wallet needs to store some data in persistent storage. By default `localStorage` is used. If you want to use a different storage, you can pass it in the `walletStorage` option.
 
 Must be an object conforming to the `AsyncStorage` interface:
 
@@ -79,9 +103,9 @@ export interface AsyncStorage {
 Example:
 
 ```javascript
-import { PaperWallet } from "@thirdweb-dev/wallets";
+import { MagicLink } from "@thirdweb-dev/wallets";
 
-const walletWithOptions = new PaperWallet({
+const walletWithOptions = new MagicLink({
   // ... other required config
 
   // highlight-start
@@ -105,11 +129,79 @@ const walletWithOptions = new PaperWallet({
 
 ## Methods
 
-Once instantiated, utilize the following methods to interact with the Paper Wallet.
+Once instantiated, utilize the following methods to interact with the Wallet.
+
+### connect
+
+There are two ways to call the `connect` method - with email or phoneNumber
+
+If you call the `connect` method with `email`, a modal will open and prompt the user to check their mail and click on the link sent to their email. Once user completes this step, the modal will close and the user will be connected to your app.
+
+```javascript
+const address = await wallet.connect({
+  email: "USER_EMAIL",
+});
+```
+
+If you call the `connect` method with `phoneNumber`, a modal will open and prompt the user to enter the OTP sent to their phone number. Once the user enters the OTP, the modal will close and the user will be connected to your app.
+
+```javascript
+const address = await wallet.connect({
+  phoneNumber: "USER_PHONE_NUMBER",
+});
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### Return Value
+
+Returns a `string` containing the wallet address, or throws an error if connection failed.
+
+```typescript
+string;
+```
+
+</div>
+</details>
+
+### disconnect
+
+Disconnect the currently connected wallet from your app and log out the user from magic link. Once logged out - autoconnect will not work.
+
+```javascript
+await wallet.disconnect();
+```
+
+### getMagic
+
+Get Magic Auth SDK instance. Learn more about [Magic Auth SDK](https://magic.link/docs/auth/overview)
+
+you use all methods available in the Magic Auth SDK from the sdk instance. Refer to [Magic Auth API](https://magic.link/docs/auth/api-reference/client-side-sdks/web) for more details.
+
+```javascript
+const magicSDK = await wallet.getMagic();
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### Return Value
+
+Returns the magic auth sdk instance of type `InstanceWithExtensions<SDKBase, OAuthExtension[]>`
+
+```typescript
+InstanceWithExtensions<SDKBase, OAuthExtension[]>;
+```
+
+</div>
+</details>
 
 ### addListener
 
-Add a listener for a specific event, and run a callback whenever that event is emitted.
+Add a listener for a specific event, and run it whenever that event is emitted.
 
 ```javascript
 wallet.addListener(eventName, (data) => console.log(data));
@@ -126,17 +218,17 @@ Each event returns a different `data` object, or no `data` object at all.
 
 Possible options:
 
-- [`change`](#change)
-- [`connect`](#connect)
-- [`disconnect`](#disconnect)
-- [`error`](#error)
-- [`message`](#message)
-- [`open_wallet`](#open_wallet)
-- [`request`](#request)
+- [`"change"`](#change)
+- [`"connect"`](#connect)
+- [`"disconnect"`](#disconnect)
+- [`"error"`](#error)
+- [`"message"`](#message)
+- [`"open_wallet"`](#open_wallet)
+- [`"request"`](#request)
 
 ##### change
 
-User changes the wallet they are connected with, or the chain they are connected to.
+User changes the account they are connected with, or the chain they are connected to.
 
 Data available:
 
@@ -216,8 +308,7 @@ The function to run when the event is emitted.
 ### autoConnect
 
 Attempts to connect to the wallet without asking the user explicitly.
-
-This only works if the user connected the wallet to your app before.
+It only works if the user has already connected to the wallet to your app before.
 
 ```javascript
 const address = await wallet.autoConnect();
@@ -229,7 +320,7 @@ const address = await wallet.autoConnect();
 
 #### Return Value
 
-Returns a `string` containing the wallet address, or throws an error if autoconnect fails
+Returns a `string` containing the wallet address, or throws an error if wallet can not be autoconnected
 
 ```typescript
 string;
@@ -237,47 +328,6 @@ string;
 
 </div>
 </details>
-
-### connect
-
-Opens a Modal and prompts the user to login using their email.
-
-Once user enters their email, an OTP is sent to their email. User can then enter the OTP in the modal. Once that is done, the wallet is connected to the app.
-
-```javascript
-const address = await wallet.connect();
-```
-
-If you know ther user's email already, you can pass the `email` to `connect` method and the modal will directly show the UI to enter the OTP sent to user's email.
-
-```javascript
-const address = await wallet.connect({
-  email: "user@example.com",
-});
-```
-
-<details>
-  <summary>Configuration</summary>
-  <div>
-
-#### Return Value
-
-Returns a `string` containing the wallet address, or throws an error if connection fails
-
-```typescript
-string;
-```
-
-</div>
-</details>
-
-### disconnect
-
-Disconnect the wallet from your app and logout from paper. Autoconnect won't work once user is logged out.
-
-```javascript
-await wallet.disconnect();
-```
 
 ### emit
 
@@ -343,7 +393,7 @@ const address = await wallet.getAddress();
 
 #### Return Value
 
-Returns a `string` containing the wallet address, or throws an error if wallet is not connected (user not logged in)
+Returns a `string` containing the wallet address, or throws an error if wallet is not connected ( user not logged in )
 
 ```typescript
 string;
@@ -366,33 +416,10 @@ const chainId = await wallet.getChainId();
 
 #### Return Value
 
-Returns a `number` containing the chain ID, or throws an error if wallet is not connected (user not logged in)
+Returns a `number` containing the chain ID, or `undefined` if there is no connected wallet.
 
 ```typescript
-number;
-```
-
-</div>
-</details>
-
-### getEmail
-
-Get the email associated with the currently connected wallet.
-
-```javascript
-const email = await wallet.getEmail();
-```
-
-<details>
-  <summary>Configuration</summary>
-  <div>
-
-#### Return Value
-
-Returns a `string` containing the email.
-
-```typescript
-string;
+number | undefined;
 ```
 
 </div>
@@ -508,8 +535,8 @@ Returns an array of `function`s containing the listeners for the event.
 Remove all event listeners for either all events, or a specific event.
 
 ```javascript
-wallet.removeAllListeners(); // all events
-wallet.removeAllListeners(eventName); // specific event
+wallet.removeAllListeners(); // for all events
+wallet.removeAllListeners(eventName); // for a specific event
 ```
 
 <details>
@@ -531,7 +558,7 @@ wallet.removeAllListeners("connect");
 
 ### removeListener
 
-Remove a specific event listener for a given event.
+Remove a specific event listener (callback) for a given event.
 
 Provide the event name and the listener function to remove.
 
@@ -611,7 +638,7 @@ Must be a `number`.
 Verify a signature is valid.
 
 ```javascript
-const isValid = await wallet.verifySignature(message, signature, address);
+const isValid = await wallet.verifySignature(message, signature, address, chainId?);
 ```
 
 <details>

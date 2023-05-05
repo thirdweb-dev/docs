@@ -12,9 +12,15 @@ The `@thirdweb-dev/wallets` package provides a set of pre-built components and f
 
 The following will guide you through how you can create your own wallet using the `@thirdweb-dev/wallets` package.
 
+<<<<<<< HEAD
 ## Extending the `Connector` class
 
 The [`Connector`](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/interfaces/connector.ts) abstract class is the
+=======
+## Extending the `TWConnector` class
+
+The [`TWConnector`](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/interfaces/tw-connector.ts) abstract class is the
+>>>>>>> main
 interface between your wallet core functionality and the actual wallet class you'll use in your application.
 
 ## Methods
@@ -84,7 +90,11 @@ Returns a `Promise<boolean>` indicating whether the wallet is connected or not.
 
 Emit an event, with some optional data.
 
+<<<<<<< HEAD
 Note that the `Connector` extends the `EventEmitter` class from the `events` package. This way you can emit events from your wallet.
+=======
+Note that the `TWConnector` extends the `EventEmitter` class from the `events` package. This way you can emit events from your wallet.
+>>>>>>> main
 Some events worth mentioning are for example:
 
 ```javascript
@@ -156,14 +166,22 @@ The [`AbstractClientWallet`](https://github.com/thirdweb-dev/js/blob/main/packag
 class that provides an interface for interacting with your connector on one side and with applications on the other.
 
 The main method that needs to be overridden is the `getConnector` method. This method should return a `Promise`
+<<<<<<< HEAD
 that resolves to a the [`Connector`](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/interfaces/connector.ts#L6)
+=======
+that resolves to a the [`TWConnector`](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/interfaces/tw-connector.ts#L6)
+>>>>>>> main
 class that you implemented.
 
 ## Methods
 
 ### getConnector
 
+<<<<<<< HEAD
 Returns a `Promise<Connector>` with the connector class that you implemented.
+=======
+Returns a `Promise<TWConnector>` with the connector class that you implemented.
+>>>>>>> main
 
 ## Using your new wallet
 
