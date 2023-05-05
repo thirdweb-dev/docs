@@ -1,0 +1,16 @@
+---
+slug: /minting/getting-started/deploying-smart-contract
+title: Deploying a Smart Contract
+hide_title: true
+---
+
+# Deploying a Smart Contract
+
+Once a smart contract template has been selected, the contract can be deployed directly to any EVM-compatible blockchain using the Contract SDK.
+
+```js
+const contractAddress = await sdk.deployer.deployNFTDrop({
+  name: "My Drop",
+  primary_sale_recipient: "your-address",
+});
+```

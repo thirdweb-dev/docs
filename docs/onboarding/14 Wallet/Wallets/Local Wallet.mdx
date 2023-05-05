@@ -9,6 +9,13 @@ import CodeBlock from "@theme/CodeBlock";
 
 Allow users to connect to your app by generating a [Local Wallet](/glossary/local-wallet) directly in your application.
 
+A local wallet is a low-level wallet that allows you to create wallets within your application or project. It is a non-custodial solution that simplifies the onboarding process by offering a "checkout as guest" experience. This improves the user experience for web3 apps in two ways:
+
+1. It enables non-web3 native users to get started easily without having to create a wallet with an external provider like MetaMask. 
+2. It hides transaction confirmations from users. With a local wallet, you can generate wallets on the backend. These wallets are app-scoped meaning that each user has one wallet per app. 
+
+Additionally, the local wallet has UI functionality, available within the [React](/react) and [React Native](/react-native) SDKs, that allows users to export and optionally store the encrypted key for the local wallet on their browser, mobile, or other devices.
+
 ## Usage
 
 ```javascript

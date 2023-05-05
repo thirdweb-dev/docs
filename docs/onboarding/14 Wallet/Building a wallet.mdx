@@ -1,0 +1,175 @@
+---
+slug: /wallet/build-a-wallet
+title: Building a Wallet
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+import QuickstartCard from "@components/QuickstartCard";
+
+The `@thirdweb-dev/wallets` package provides a set of pre-built components and functionality for creating and managing cryptocurrency wallets.
+
+The following will guide you through how you can create your own wallet using the `@thirdweb-dev/wallets` package.
+
+## Extending the `Connector` class
+
+The [`Connector`](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/interfaces/connector.ts) abstract class is the
+interface between your wallet core functionality and the actual wallet class you'll use in your application.
+
+## Methods
+
+### connect
+
+This method should trigger the connection flow of your wallet with the user's app.
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### args
+
+The arguments needed to connect your wallet. This is specific to your wallet implementation which is why we leave it open for you to
+add custom arguments here.
+
+Returns a `string` containing the wallet address, or `undefined` if the connection failed.
+
+```typescript
+abstract connect(args?: ConnectParams<TConnectParams>): Promise<string>;
+
+ConnectParams<TOpts extends Record<string, any> = {}> = {
+  chainId?: number;
+} & TOpts;
+```
+
+</div>
+</details>
+
+### disconnect
+
+Disconnect the currently connected wallet from your app.
+
+### getAddress
+
+Returns a `Promise<string>` with the currently connected wallet address.
+
+### getSigner
+
+Returns a `Promise<Signer>` with the ethers signer associated with your wallet.
+
+### getProvider
+
+Returns a `Promise<providers.Provider>` with the ethers provider associated with your wallet.
+
+### switchChain
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### chainId
+
+The chain ID to switch to.
+
+Must be a `number`.
+
+</div>
+</details>
+
+### isConnected
+
+Returns a `Promise<boolean>` indicating whether the wallet is connected or not.
+
+### emit
+
+Emit an event, with some optional data.
+
+Note that the `Connector` extends the `EventEmitter` class from the `events` package. This way you can emit events from your wallet.
+Some events worth mentioning are for example:
+
+```javascript
+wallet.emit("connect", {});
+```
+
+```javascript
+wallet.emit("disconnect", {});
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### eventName
+
+The name of the event to emit.
+
+Must be one of: `change`, `connect`, `disconnect`, `error`, `message`, `open_wallet`, `request`.
+
+#### data
+
+Optional data to send with the event. Must be an object with information relevant to the event.
+
+See [addListener](#addlistener) configuration for more information on the different events.
+
+</div>
+</details>
+
+### setupListeners
+
+This method should set all listeners needed for the wallet to work. It will be used by the `AbstractClientWallet` class to setup the listeners
+when the wallet is connected.
+
+### updateChains
+
+Update the chains the wallet can connect to.
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### chains
+
+The chains that are supported by the wallet. Defaults to our default chains.
+
+Must be an array of `Chain` objects.
+
+```typescript
+type Chain = {
+  chainId: number;
+  chainName: string;
+  nativeCurrency: {
+    name: string;
+    symbol: string;
+    decimals: number;
+  };
+  rpcUrls: string[];
+  blockExplorerUrls: string[];
+};
+```
+
+</div>
+</details>
+
+## Extending the `AbstractClientWallet` class
+
+The [`AbstractClientWallet`](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/base.ts#L26) class is the base
+class that provides an interface for interacting with your connector on one side and with applications on the other.
+
+The main method that needs to be overridden is the `getConnector` method. This method should return a `Promise`
+that resolves to a the [`Connector`](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/interfaces/connector.ts#L6)
+class that you implemented.
+
+## Methods
+
+### getConnector
+
+Returns a `Promise<Connector>` with the connector class that you implemented.
+
+## Using your new wallet
+
+At this point you should be able to instantiate your new wallet and calling `connect` on it.
+
+```ts
+const wallet = new MyWallet();
+wallet.connect();
+```

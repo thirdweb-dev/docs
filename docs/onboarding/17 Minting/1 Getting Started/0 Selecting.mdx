@@ -1,0 +1,26 @@
+---
+slug: /minting/getting-started/selecting-smart-contract
+title: Selecting a Smart Contract
+hide_title: true
+---
+
+# Selecting a Smart Contract
+
+Via thirdweb’s Contract SDK applications can query thirdweb’s smart contract registry to get a categorized set of smart contract plugins and templates that can be selected to be used in their collection.
+
+```jsx
+// getting contracts from the multi chain registry
+const contracts = sdk.multiChainRegistry.getContractList(); // available soon
+const plugins = sdk.multiChainRegistry.getAllPlugins(); // available soon
+```
+
+Examples of NFT smart contracts available with thirdweb:
+
+- NFT Drop
+- NFT Collection
+- Edition
+- Edition Drop
+- Packs
+- Multi-wrap
+- Rentable NFT (ERC-4907)
+- Membership NFT
