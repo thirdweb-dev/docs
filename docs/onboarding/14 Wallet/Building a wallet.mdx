@@ -86,7 +86,7 @@ Emit an event, with some optional data.
 
 Note that the `Connector` extends the `EventEmitter` class from the `events` package. This way you can emit events from your wallet.
 
-> > > > > > > Some events worth mentioning are for example:
+Some events worth mentioning are for example:
 
 ```javascript
 wallet.emit("connect", {});
@@ -157,20 +157,13 @@ The [`AbstractClientWallet`](https://github.com/thirdweb-dev/js/blob/main/packag
 class that provides an interface for interacting with your connector on one side and with applications on the other.
 
 The main method that needs to be overridden is the `getConnector` method. This method should return a `Promise`
-that resolves to a the [`Connector`](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/interfaces/connector.ts#L6)
-
-> > > > > > > class that you implemented.
+that resolves to a the [`Connector`](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/interfaces/connector.ts#L6) class that you implemented.
 
 ## Methods
 
 ### getConnector
 
-<<<<<<< HEAD
 Returns a `Promise<Connector>` with the connector class that you implemented.
-=======
-Returns a `Promise<TWConnector>` with the connector class that you implemented.
-
-> > > > > > > main
 
 ## Using your new wallet
 
