@@ -1,0 +1,146 @@
+---
+slug: /wallet/injected
+title: Injected
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Prompt users to connect to your app with an "injected" wallet, i.e. one that uses
+[`window.ethereum`](https://eips.ethereum.org/EIPS/eip-1193) to connect to the blockchain; including
+[MetaMask](/wallet/metamask) and [Coinbase Wallet](/wallet/coinbase-wallet).
+
+## Usage
+
+```javascript
+import { InjectedWallet } from "@thirdweb-dev/wallets";
+
+const wallet = new InjectedWallet({});
+
+wallet.connect();
+```
+
+## Configuration
+
+Optionally, provide a configuration object when instantiating the `InjectedWallet` class.
+
+<details>
+  <summary>chains</summary>
+  <div>
+
+Provide an array of chains you want to support.
+
+Must be an array of `Chain` objects, from the [`@thirdweb-dev/chains`](https://www.npmjs.com/package/@thirdweb-dev/chains) package.
+
+Defaults to our [default chains](/react/react.thirdwebprovider#default-chains).
+
+```javascript
+import { InjectedWallet } from "@thirdweb-dev/wallets";
+import { Ethereum } from "@thirdweb-dev/chains";
+
+const walletWithOptions = new InjectedWallet(
+  // highlight-start
+  {
+    chains: [Ethereum],
+  },
+  // highlight-end
+);
+```
+
+</div>
+</details>
+
+<details>
+  <summary>dappMetadata</summary>
+  <div>
+
+Information about your app that the wallet will display when your app tries to connect to it.
+
+Must be an object containing `name`, `url`, `description` and `logoUrl` properties.
+
+```javascript
+import { InjectedWallet } from "@thirdweb-dev/wallets";
+
+const walletWithOptions = new InjectedWallet({
+  // highlight-start
+  dappMetadata: {
+    name: "thirdweb powered dApp",
+    url: "https://thirdweb.com",
+    description: "thirdweb powered dApp",
+    logoUrl: "https://thirdweb.com/favicon.ico",
+  },
+  // highlight-end
+});
+```
+
+</div>
+</details>
+
+<details>
+  <summary>walletStorage</summary>
+  <div>
+
+Some wallets need to store data in persistent storage. This is the storage that will be used for that.
+
+Must be an object conforming to the `AsyncStorage` interface:
+
+```typescript
+export interface AsyncStorage {
+  getItem(key: string): Promise<string | null>;
+  setItem(key: string, value: string): Promise<void>;
+  removeItem(key: string): Promise<void>;
+}
+```
+
+Example:
+
+```javascript
+import { InjectedWallet } from "@thirdweb-dev/wallets";
+
+const walletWithOptions = new InjectedWallet(
+  // highlight-start
+  {
+    walletStorage: {
+      getItem: (key) => {
+        // Implement your own storage logic here
+      },
+      removeItem: (key) => {
+        // Implement your own storage logic here
+      },
+      setItem: (key, value) => {
+        // Implement your own storage logic here
+      },
+    },
+  },
+  // highlight-end
+);
+```
+
+</div>
+</details>
+
+<details>
+  <summary>walletId</summary>
+  <div>
+
+An ID for the wallet used to store the wallet in the `walletStorage`.
+
+```javascript
+import { InjectedWallet } from "@thirdweb-dev/wallets";
+
+const walletWithOptions = new InjectedWallet(
+  // highlight-start
+  {
+    walletId: "wallet-id",
+  },
+  // highlight-end
+);
+```
+
+</div>
+</details>
+
+## Methods
+
+Inherhits all the public methods from the [`AbstractClientWallet`](interfaces/abstract-client-wallet) class.

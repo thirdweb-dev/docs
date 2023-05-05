@@ -1,0 +1,282 @@
+---
+slug: /wallet/interfaces/abstract-wallet
+title: Abstract Wallet
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+import ViewRepoButton from "@components/ViewRepoButton";
+
+The base class for any wallet in the Wallet SDK, including backend wallets. It contains the functionality common to all wallets.
+
+This wallet is not meant to be used directly, but instead be extended to [build your own wallet](/wallet/build-a-wallet).
+
+<ViewRepoButton
+  name={"js"}
+  text="View on GitHub"
+  link={
+    "https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/abstract.ts"
+  }
+/>
+
+## Usage
+
+```javascript
+export class MyCustomWallet extends AbstractWallet {
+  async getSigner(): Promise<Signer> {
+    // your implementation
+  }
+}
+```
+
+## Public Methods
+
+### getAddress
+
+Get the address of the currently connected wallet.
+
+```javascript
+const address = await wallet.getAddress();
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### Return Value
+
+Returns a `string` containing the wallet address, or `undefined` if the connection failed.
+
+```typescript
+string | undefined;
+```
+
+</div>
+</details>
+
+### getChainId
+
+Get the chain ID of the network the wallet is currently connected to.
+
+```javascript
+const chainId = await wallet.getChainId();
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### Return Value
+
+Returns a `number` containing the chain ID, or `undefined` if there is no connected wallet.
+
+```typescript
+number | undefined;
+```
+
+</div>
+</details>
+
+### getSigner
+
+Get the [`signer`](https://docs.ethers.org/v5/api/signer/) for the currently connected wallet.
+
+```javascript
+const signer = await wallet.getSigner();
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### Return Value
+
+Returns a [`Signer`](https://docs.ethers.org/v5/api/signer/).
+
+```typescript
+Signer;
+```
+
+</div>
+</details>
+
+### signMessage
+
+Sign a message with the currently connected wallet. This function must be implemented by the parent class.
+
+```javascript
+const signature = await wallet.signMessage("Hello world!");
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### message
+
+The message to sign.
+
+Must be a `string`.
+
+#### Return Value
+
+Returns a `string` containing the signature.
+
+```typescript
+string;
+```
+
+</div>
+</details>
+
+### verifySignature
+
+Verify a signature is valid.
+
+```javascript
+const isValid = await wallet.verifySignature(
+  "Message",
+  "Signature",
+  "wallet_address",
+);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### message
+
+The message that was signed.
+
+Must be a `string`.
+
+#### signature
+
+The signature to verify.
+
+Must be a `string`.
+
+#### address
+
+The address of the wallet that signed the message.
+
+Must be a `string`.
+
+#### chainId
+
+The chain ID to check the signature on.
+
+Optional, must be a `number`.
+
+</div>
+</details>
+
+### Events
+
+Abstract Wallet implements EventEmitter, and emits useful events to track the connection lifecycle.
+
+```javascript
+wallet.on("connect", {
+  console.log("connected");
+});
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### eventName
+
+The name of the event to listen for.
+Each event returns a different `data` object, or no `data` object at all.
+
+Possible options:
+
+- [`change`](#change)
+- [`connect`](#connect)
+- [`disconnect`](#disconnect)
+- [`error`](#error)
+- [`message`](#message)
+- [`open_wallet`](#open_wallet)
+- [`request`](#request)
+
+##### change
+
+User changes the wallet they are connected with, or the chain they are connected to.
+
+Data available:
+
+```typescript
+{
+  address: string;
+  chainId: number;
+}
+```
+
+##### connect
+
+User connects their wallet to your app.
+
+Data available:
+
+```typescript
+{
+  address: string;
+  chainId: number;
+}
+```
+
+##### disconnect
+
+User disconnects their wallet from your app.
+
+No `data` is available.
+
+##### error
+
+An error occurs in the wallet.
+
+Data available:
+
+```typescript
+{
+  cause: unknown;
+  message: string;
+  name: string;
+  stack: string | undefined;
+}
+```
+
+##### message
+
+Wallet receives some message that the consumer should be notified of. The kind of message is identified by the `type` field.
+
+Data available:
+
+```typescript
+{
+  type: string;
+  data: unknown;
+}
+```
+
+##### open_wallet
+
+User opens the wallet app.
+
+`data` is a `string | undefined`.
+
+##### request
+
+Wallet receives some request that the consumer should be notified of. The kind of request is identified by the `type` field.
+
+No `data` is available.
+
+#### callback
+
+The function to run when the event is emitted.
+
+</div>
+</details>
