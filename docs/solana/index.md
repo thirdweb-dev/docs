@@ -71,5 +71,5 @@ const nft = await program.get(mintAddress);
 You can learn more about thirdweb and the Solana SDK with the following resources:
 
 - [Solana Docs](https://portal.thirdweb.com/solana)
-- [Thirdweb Twitter](https://twitter.com/thirdweb)
+- [thirdweb Twitter](https://twitter.com/thirdweb)
 - [Thirdweb Discord](https://discord.com/invite/thirdweb)
