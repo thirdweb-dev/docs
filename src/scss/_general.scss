@@ -640,7 +640,7 @@ html[data-theme="light"] {
 .open-source-info-container {
   --chakra-space-8: 2rem;
   --chakra-shadows-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --chakra-colors-borderColor: #272B30;
+  --chakra-colors-borderColor: #272b30;
   border: 1px solid var(--thirdweb-border-color);
   transition: all 0.2s ease 0s;
   box-sizing: border-box;
@@ -656,7 +656,6 @@ html[data-theme="light"] {
   margin-bottom: 16px;
   margin-top: 16px;
 
-
   h2 {
     font-family: var(--chakra-fonts-heading);
     font-size: 1rem !important;
@@ -670,4 +669,14 @@ html[data-theme="light"] {
     line-height: 1.6;
     letter-spacing: initial;
   }
+}
+
+html[data-theme="dark"] .dark_img,
+html[data-theme="light"] .light_img {
+  display: block;
+}
+
+html[data-theme="light"] .dark_img,
+html[data-theme="dark"] .light_img {
+  display: none;
 }
