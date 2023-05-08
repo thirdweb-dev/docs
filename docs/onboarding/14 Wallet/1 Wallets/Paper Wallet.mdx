@@ -1,0 +1,131 @@
+---
+slug: /wallet/paper
+title: Paper Wallet
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Prompt users to connect to your app using their email with [Paper Wallet](https://docs.withpaper.com/reference/embedded-wallet-service-overview)
+
+## Usage
+
+```javascript
+import { PaperWallet } from "@thirdweb-dev/wallets";
+import { Ethereum } from "@thirdweb-dev/chains";
+
+const wallet = new PaperWallet({
+  chain: Ethereum, //  chain to connect to
+  clientId: "client_id", // Paper SDK client ID
+});
+
+wallet.connect();
+```
+
+## Configuration
+
+Provide a configuration object when instantiating the `PaperWallet` class.
+
+<details>
+  <summary>chain (required)</summary>
+  <div>
+
+The chain to connect to by default.
+
+Must be a `Chain` object, from the [`@thirdweb-dev/chains`](https://www.npmjs.com/package/@thirdweb-dev/chains) package.
+
+</div>
+</details>
+
+<details>
+  <summary>chains (optional)</summary>
+  <div>
+
+Provide an array of chains you want to support.
+
+Must be an array of `Chain` objects, from the [`@thirdweb-dev/chains`](https://www.npmjs.com/package/@thirdweb-dev/chains) package.
+
+</div>
+</details>
+
+<details>
+  <summary>clientId (required)</summary>
+  <div>
+
+Paper SDK requires a clientId for instantiation. You can create a clientId for your app on [paper.xyz](https://paper.xyz/product/wallet)
+
+Must be a `string`.
+
+</div>
+</details>
+
+<details>
+  <summary>walletStorage (optional)</summary>
+  <div>
+
+wallet needs to store data in a persistent storage. By default `localStorage` is used. If you want to use a different storage, you can pass it in the `walletStorage` option.
+
+Must be an object conforming to the `AsyncStorage` interface:
+
+```typescript
+export interface AsyncStorage {
+  getItem(key: string): Promise<string | null>;
+  setItem(key: string, value: string): Promise<void>;
+  removeItem(key: string): Promise<void>;
+}
+```
+
+Example:
+
+```javascript
+import { PaperWallet } from "@thirdweb-dev/wallets";
+
+const walletWithOptions = new PaperWallet({
+  // ... other required config
+
+  // highlight-start
+  walletStorage: {
+    getItem: (key) => {
+      // Implement your own storage logic here
+    },
+    removeItem: (key) => {
+      // Implement your own storage logic here
+    },
+    setItem: (key, value) => {
+      // Implement your own storage logic here
+    },
+  },
+  // highlight-end
+});
+```
+
+</div>
+</details>
+
+## Methods
+
+Inherhits all the public methods from the [`AbstractClientWallet`](interfaces/abstract-client-wallet) class.
+
+### getEmail
+
+Get the email associated with the currently connected wallet.
+
+```javascript
+const email = await wallet.getEmail();
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### Return Value
+
+Returns a `string` containing the email.
+
+```typescript
+string;
+```
+
+</div>
+</details>
