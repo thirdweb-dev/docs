@@ -1,0 +1,185 @@
+---
+slug: /wallet/metamask
+title: MetaMask
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Prompt users to connect to your app with their [MetaMask](https://metamask.io/) wallet.
+
+## Usage
+
+```javascript
+import { MetaMaskWallet } from "@thirdweb-dev/wallets";
+
+const wallet = new MetaMaskWallet();
+
+wallet.connect();
+```
+
+## Configuration
+
+Optionally, provide a configuration object when instantiating the `MetaMaskWallet` class.
+
+<details>
+  <summary>chains</summary>
+  <div>
+
+Provide an array of chains you want to support.
+
+Must be an array of `Chain` objects, from the [`@thirdweb-dev/chains`](https://www.npmjs.com/package/@thirdweb-dev/chains) package.
+
+Defaults to our [default chains](/react/react.thirdwebprovider#default-chains).
+
+```javascript
+import { MetaMaskWallet } from "@thirdweb-dev/wallets";
+import { Ethereum, Polygon } from "@thirdweb-dev/chains";
+
+const walletWithOptions = new MetaMaskWallet(
+  // highlight-start
+  {
+    chains: [Ethereum, Polygon],
+  },
+  // highlight-end
+);
+```
+
+</div>
+</details>
+
+<details>
+  <summary>dappMetadata</summary>
+  <div>
+
+Information about your app that the wallet will display when your app tries to connect to it.
+
+Must be an object containing `name`, `url`, and optionally `description` and `logoUrl` properties.
+
+```javascript
+import { MetaMaskWallet } from "@thirdweb-dev/wallets";
+
+const walletWithOptions = new MetaMaskWallet({
+  // highlight-start
+  dappMetadata: {
+    name: "thirdweb powered dApp",
+    url: "https://thirdweb.com",
+    description: "thirdweb powered dApp",
+    logoUrl: "https://thirdweb.com/favicon.ico",
+  },
+  // highlight-end
+});
+```
+
+</div>
+</details>
+
+<details>
+  <summary>qrcode</summary>
+  <div>
+
+Whether to display the Wallet Connect QR code Modal for connecting to MetaMask on mobile if MetaMask is not injected.
+
+Must be a `boolean`. Defaults to `true`.
+
+```javascript
+import { MetaMaskWallet } from "@thirdweb-dev/wallets";
+
+const walletWithOptions = new MetaMaskWallet(
+  // highlight-start
+  {
+    qrcode: false,
+  },
+  // highlight-end
+);
+```
+
+</div>
+</details>
+
+<details>
+  <summary>walletStorage</summary>
+  <div>
+
+Some wallets need to store data in persistent storage. This is the storage that will be used for that.
+
+Must be an object conforming to the `AsyncStorage` interface:
+
+```typescript
+export interface AsyncStorage {
+  getItem(key: string): Promise<string | null>;
+  setItem(key: string, value: string): Promise<void>;
+  removeItem(key: string): Promise<void>;
+}
+```
+
+Example:
+
+```javascript
+import { MetaMaskWallet } from "@thirdweb-dev/wallets";
+
+const walletWithOptions = new MetaMaskWallet(
+  // highlight-start
+  {
+    walletStorage: {
+      getItem: (key) => {
+        // Implement your own storage logic here
+      },
+      removeItem: (key) => {
+        // Implement your own storage logic here
+      },
+      setItem: (key, value) => {
+        // Implement your own storage logic here
+      },
+    },
+  },
+  // highlight-end
+);
+```
+
+</div>
+</details>
+
+## Methods
+
+Inherhits all the public methods from the [`AbstractClientWallet`](interfaces/abstract-client-wallet) class.
+
+### connectWithQrCode
+
+Connect to the wallet using a QR code if the user does not have the Metamask extension installed.
+
+```javascript
+await wallet.connectWithQrCode({
+  onQrCodeUri(qrCodeUri) {
+    // render the QR code with `qrCodeUri`
+  },
+  onConnected(accountAddress) {
+    // update UI to show connected state
+  },
+  chainId: 1, // optional
+});
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### onQrCodeUri
+
+A callback to show the QR code to the user.
+
+#### onConnected
+
+A callback to run when the user has connected their wallet to your app.
+
+#### chainId
+
+The chain ID to switch to after connecting. Optional.
+
+```typescript
+string | undefined;
+```
+
+</div>
+</details>

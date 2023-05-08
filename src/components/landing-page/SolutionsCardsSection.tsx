@@ -10,25 +10,39 @@ type Product = {
 
 const products: Product[] = [
   {
-    image: "/assets/product/sdk.png",
+    image: "/assets/solutions/commerce.png",
     name: "CommerceKit",
     description:
       "An all-in-one toolkit to build web3 commerce apps. Add powerful web3 features to your Shopify storefront enabling tokengated commerce, NFT loyalty programs, digital collectible sales, and more.",
-    link: "https://thirdweb.com/solutions/commerce",
+    link: "/commercekit",
   },
   {
-    image: "/assets/product/sdk.png",
+    image: "/assets/solutions/gaming.png",
     name: "GamingKit",
     description:
       "Everything you need to build web3 games. Build a stronger community around your game by giving players ownership of in-game assets",
-    link: "https://thirdweb.com/solutions/gaming",
+    link: "/gamingkit",
   },
   {
     image: "/assets/product/sdk.png",
     name: "Minting",
     description:
       "A set of tools that allow creators and developers to launch new NFT collections in a configurable, secure and scalable way at zero cost to the creator.  ",
-    link: "https://thirdweb.com/solutions/minting",
+    link: "/minting",
+  },
+  {
+    image: "/assets/product/sdk.png",
+    name: "Mobile",
+    description:
+      "A set of developer tools and SDK’s that make it easy to integrate web3 features into iOS and Android applications.",
+    link: "/mobile",
+  },
+  {
+    image: "/assets/product/sdk.png",
+    name: "Digital Collectibles",
+    description:
+      "Comprehensive set of developer tools designed to help digital collectible projects seamlessly integrate web3 features into your digital commerce and customer experience programs.",
+    link: "/digital-collectibles",
   },
 ];
 

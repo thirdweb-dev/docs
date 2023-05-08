@@ -1,0 +1,28 @@
+---
+slug: /minting/getting-started/airdrop-nfts
+title: Airdrop of NFTs
+hide_title: true
+---
+
+# Airdrop of NFTs
+
+Owners of NFT collections can also opt to deliver their NFT’s via an airdrop mechanism. With airdrop, users select tokens and lists of addresses and can perform the airdrop with a single call.
+
+![Airdropping NFTs using the dashboard](../assets/airdrop.png)
+
+```js
+// The token ID of the NFT you want to airdrop
+const tokenId = "0";
+// Array of objects of addresses and quantities to airdrop NFTs to
+const addresses = [
+  {
+    address: "0x...",
+    quantity: 2,
+  },
+  {
+    address: "0x...",
+    quantity: 3,
+  },
+];
+await contract.airdrop(tokenId, addresses);
+```
