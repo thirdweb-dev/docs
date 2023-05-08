@@ -12,11 +12,11 @@ import { usePaperWallet } from "@thirdweb-dev/react";
 
 ## Usage
 
-Calling the function returned by the `usePaperWallet` hook opens the Paper Wallet's Modal and prompts the user to login with their email address.
+Calling the function returned by the `usePaperWallet` hook opens the Paper Wallet's Modal and prompts the user to log in with their email address.
 
-If `email` is not provided, user will be prompted to enter their email or sign-in with Google account. Once the user enters email or signs-in with Google account, an OTP will be sent to the user's email address. Once User enters the OTP, wallet will be connected.
+If `email` is not provided, the user will be prompted to enter their email address or sign in with a Google account. Once the user enters the email address or signs in with a Google account, an OTP will be sent to the user's email address. Once the user enters the OTP, the wallet will be connected.
 
-If email is provided, user will be directly shown the OTP screen - user will not be prompted to enter their email.
+If the email is provided, the user will be directly shown the OTP screen, the user will not be prompted to enter their email.
 
 once connected, you can use the [`useAddress`](/react/react.useaddress) hook to get the user's address and [`usePaperWalletUserEmail`](/react/react.usepaperwalletuseremail) hook to get the user's email address.
 
@@ -102,7 +102,7 @@ export function YourApp() {
   <summary>email</summary>
   <div>
 
-If user's email is already known, you can skip prompting the user for entering email address and directly show the OTP screen by passing the `email` in a configuration object as shown below.
+If the user's email address is already known, you can skip prompting the user for entering an email address and directly show the OTP screen by passing the `email` in a configuration object as shown below.
 
 ```jsx
 import { usePaperWallet } from "@thirdweb-dev/react";
