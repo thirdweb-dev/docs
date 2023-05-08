@@ -172,13 +172,14 @@ const wallet = new MyWallet();
 wallet.connect();
 ```
 
-## 3. Exposing your wallet to React and React Native
+## 3. Integrate with Connect Wallet button
 
-The last step is to expose your wallet to React and React Native. This is done by exposing a function for the SDK to access your wallet lazily.
-You can also let users pass custom params for your wallet as arguments to this function.
+The last step is to integrate your wallet with [Connect Wallet](/react/react.connectwallet) button. This is done by creating a function that returns a `ConfiguredWallet` object.
+
+See the Detailed Guide for [Integrating with Connect Wallet](/wallet/build-wallet-ui) for more info
 
 ```ts
-const myWallet = (myParams?: MyParams): ConfiguredWallet => {
+const myWallet = (config: MyConfig): ConfiguredWallet => {
   return {
     id: MetaMaskWallet.id,
     meta: {
@@ -186,7 +187,11 @@ const myWallet = (myParams?: MyParams): ConfiguredWallet => {
       iconURL: "{{link_to_my_wallet_icon}}",
     },
     create: (options: WalletOptions) => {
-      return new MyWallet({ ...options, ...myParams });
+      return new MyWallet({ ...options, ...config });
+    },
+    // optional
+    createUI(props) {
+      return <MyWalletUI {...props} />;
     },
   };
 };
@@ -207,5 +212,19 @@ If you think your wallet implementation would be useful to others, please consid
 <ViewRepoButton
   name={"js"}
   text="Contribute"
-  link={"https://github.com/thirdweb-dev/js/packages/wallets"}
+  link={"https://github.com/thirdweb-dev/js/tree/main/packages/wallets"}
 />
+
+## Examples
+
+You can look at how the built-in wallets in `@thirdweb-dev/wallets` package are created for reference
+
+- [MetaMask](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/metamask.ts)
+- [Coinbase](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/coinbase-wallet.ts)
+- [WalletConnect v1](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/wallet-connect-v1.ts)
+- [WalletConnect v2](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/wallet-connect.ts)
+- [Local Wallet](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/local-wallet.ts)
+- [Safe](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/safe.ts)
+- [Smart Wallet](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/smart-wallet.ts)
+- [Paper Wallet](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/paper-wallet.ts)
+- [Magic Link](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/magic.ts)
