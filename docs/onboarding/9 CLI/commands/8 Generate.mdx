@@ -8,7 +8,15 @@ import CLIOptions from "@components/CLIOptions";
 
 # Generate
 
-Preload contract ABIs and generate types for your smart contract to strongly type the thirdweb SDK.
+Detects all contract addresses in your project, then fetches and stores each smart contract&rsquo;s ABI in memory (inside `node_modules`);
+improving the performance of the SDK when using functions such as [`getContract`](/typescript/sdk.thirdwebsdk.smartcontract) and
+[`useContract`](/react/react.usecontract).
+
+Once the ABIs are cached locally, the SDK becomes **strongly typed** when interacting with your smart contracts.
+Providing you with Intellisense and type-checking when using functions such as
+[`contract.call`](/typescript/sdk.smartcontract.call), in the [TypeScript SDK](/typescript),
+or [`useContractRead`](/react/react.usecontractread), and [`useContractWrite`](/react/react.usecontractwrite)
+in the [React SDK](/react).
 
 ```bash
 npx thirdweb generate
@@ -16,11 +24,12 @@ npx thirdweb generate
 
 ## Usage
 
-This command fetches the ABIs for all the smart contracts a given wallet address has deployed, and stores them locally
-in the projects `node_modules/@thirdweb-dev/generated-abis` directory.
+This command recursively checks all files in your project for valid smart contract addresses and fetches the ABIs for each contract.
+The ABIs are then stored locally in the projects `node_modules/@thirdweb-dev/generated-abis` directory.
 
-By storing the ABIs locally, both the [SDK](/sdk) and [CLI](/cli) can use them as a cache to improve the performance of your application; since
-the ABIs no longer need to be fetched when using functions such as [`getContract`](/typescript/sdk.thirdwebsdk.smartcontract).
+Functions that require the fetching of a smart contract such as `getContract` and `useContract` will now use the cached ABIs instead of
+fetching them each time the function is called. This improves the performance of your application and allows the SDK to become strongly
+typed when interacting with your smart contracts.
 
 ```bash
 npx thirdweb generate [options]
