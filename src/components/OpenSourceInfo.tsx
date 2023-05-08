@@ -5,12 +5,14 @@ type Props = {
   repoName: string;
   repoUrl: string;
   isLibrary?: boolean;
+  buttonOnly?: boolean;
 };
 
 export default function OpenSourceInfo({
   repoName,
   repoUrl,
   isLibrary = true,
+  buttonOnly = false,
 }: Props) {
   return (
     <div className="open-source-info-container">

@@ -1,0 +1,234 @@
+---
+slug: /wallet/safe
+title: Safe (Gnosis)
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Prompt users to connect to your app with their [Safe wallet](https://safe.global/wallet).
+
+**To connect to a safe wallet, a personal wallet must first be connected.**
+
+## Usage
+
+```javascript
+import { CoinbaseWallet, SafeWallet } from "@thirdweb-dev/wallets";
+import { Ethereum } from "@thirdweb-dev/chains";
+
+// First, connect the personal wallet
+const personalWallet = new CoinbaseWallet();
+await personalWallet.connect();
+
+// Then, connect the Safe wallet
+const wallet = new SafeWallet();
+await wallet.connect({
+  personalWallet: personalWallet,
+  chain: Ethereum,
+  safeAddress: "{{contract_address}}",
+});
+```
+
+## Configuration
+
+Optionally, provide a configuration object when instantiating the `SafeWallet` class.
+
+<details>
+  <summary>chains</summary>
+  <div>
+
+Provide an array of chains you want to support.
+
+Must be an array of `Chain` objects, from the [`@thirdweb-dev/chains`](https://www.npmjs.com/package/@thirdweb-dev/chains) package.
+
+Defaults to our [default chains](/react/react.thirdwebprovider#default-chains).
+
+```javascript
+import { SafeWallet } from "@thirdweb-dev/wallets";
+import { Ethereum } from "@thirdweb-dev/chains";
+
+const walletWithOptions = new SafeWallet(
+  // highlight-start
+  {
+    chains: [Ethereum],
+  },
+  // highlight-end
+);
+```
+
+</div>
+</details>
+
+<details>
+  <summary>dappMetadata</summary>
+  <div>
+
+Information about your app that the wallet will display when your app tries to connect to it.
+
+Must be an object containing `name`, `url`, `description` and `logoUrl` properties.
+
+```javascript
+import { SafeWallet } from "@thirdweb-dev/wallets";
+
+const walletWithOptions = new SafeWallet({
+  // highlight-start
+  dappMetadata: {
+    name: "thirdweb powered dApp",
+    url: "https://thirdweb.com",
+    description: "thirdweb powered dApp",
+    logoUrl: "https://thirdweb.com/favicon.ico",
+  },
+  // highlight-end
+});
+```
+
+</div>
+</details>
+
+<details>
+  <summary>headlessMode</summary>
+  <div>
+
+If true, the wallet will not open a QR Code modal, but instead, return a QR Code string.
+
+Must be a `boolean`.
+
+```javascript
+import { SafeWallet } from "@thirdweb-dev/wallets";
+
+const walletWithOptions = new SafeWallet(
+  // highlight-start
+  {
+    headlessMode: true,
+  },
+  // highlight-end
+);
+```
+
+</div>
+</details>
+
+<details>
+  <summary>walletStorage</summary>
+  <div>
+
+Some wallets need to store data in persistent storage. This is the storage that will be used for that.
+
+Must be an object conforming to the `AsyncStorage` interface:
+
+```typescript
+export interface AsyncStorage {
+  getItem(key: string): Promise<string | null>;
+  setItem(key: string, value: string): Promise<void>;
+  removeItem(key: string): Promise<void>;
+}
+```
+
+Example:
+
+```javascript
+import { SafeWallet } from "@thirdweb-dev/wallets";
+
+const walletWithOptions = new SafeWallet(
+  // highlight-start
+  {
+    walletStorage: {
+      getItem: (key) => {
+        // Implement your own storage logic here
+      },
+      removeItem: (key) => {
+        // Implement your own storage logic here
+      },
+      setItem: (key, value) => {
+        // Implement your own storage logic here
+      },
+    },
+  },
+  // highlight-end
+);
+```
+
+</div>
+</details>
+
+<details>
+  <summary>walletId</summary>
+  <div>
+
+An ID for the wallet used to store the wallet in the `walletStorage`.
+
+```javascript
+import { SafeWallet } from "@thirdweb-dev/wallets";
+
+const walletWithOptions = new SafeWallet(
+  // highlight-start
+  {
+    walletId: "wallet-id",
+  },
+  // highlight-end
+);
+```
+
+</div>
+</details>
+
+## Methods
+
+Inherhits all the public methods from the [`AbstractClientWallet`](interfaces/abstract-client-wallet) class.
+
+### connect
+
+Prompt the user to connect their wallet to your app.
+
+Note: A personal wallet must be connected before connecting to a Safe wallet.
+
+```javascript
+import { CoinbaseWallet, SafeWallet } from "@thirdweb-dev/wallets";
+import { Ethereum } from "@thirdweb-dev/chains";
+
+// First, connect the personal wallet
+const personalWallet = new CoinbaseWallet();
+await personalWallet.connect();
+
+// Then, connect the Safe wallet
+const wallet = new SafeWallet();
+await wallet.connect({
+  personalWallet: personalWallet, // Wallet that can sign transactions on the Safe
+  chain: Ethereum, // Chain that the Safe is on
+  safeAddress: "{{contract_address}}", // Smart contract address of the Safe
+});
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### personalWallet
+
+The instance of a personal wallet that can sign transactions on the Safe.
+
+Must be an `AbstractBrowserWallet` such as [`CoinbaseWallet`](/wallet/coinbase-wallet) or [`MetamaskWallet`](/wallet/metamask).
+
+#### chain
+
+The chain that the Safe smart contract is deployed to.
+
+Must be a `Chain` object, from the [`@thirdweb-dev/chains`](https://www.npmjs.com/package/@thirdweb-dev/chains) package.
+
+#### safeAddress
+
+Smart contract address of the Safe wallet.
+
+Must be a `string`.
+
+#### Return Value
+
+Returns a `string` containing the wallet address, or `undefined` if the connection failed.
+
+```typescript
+string | undefined;
+```
+
+</div>
+</details>

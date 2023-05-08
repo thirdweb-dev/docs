@@ -1,0 +1,157 @@
+---
+slug: /wallet/magic
+title: Magic Link
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Allows users to connect to your app with email or phone number using [Magic Auth](https://magic.link/auth)
+
+## Usage
+
+```javascript
+import { MagicLink } from "@thirdweb-dev/wallets";
+
+// create a wallet instance
+const wallet = new MagicLink({
+  apiKey: "YOUR_API_KEY",
+});
+
+// now connect using email or phone number
+
+wallet.connect({
+  email: "user@example.com",
+});
+
+// OR
+
+wallet.connect({
+  phoneNumber: "+123456789",
+});
+```
+
+With this configuration, users will be able to login using their email or phone number.
+
+If you want to restrict login to only email or only phone number, you can do so by passing the `smsLogin:false` option or `emailLogin:false` option
+
+## Configuration
+
+Provide a configuration object when instantiating the `MagicLink` class.
+
+<details>
+  <summary>apiKey (required)</summary>
+  <div>
+
+Your Magic Link apiKey. You can get an API key by signing up for an account on [Magic Link's website](https://magic.link/).
+
+Must be a `string`.
+
+</div>
+</details>
+
+<details>
+  <summary>smsLogin (optional)</summary>
+  <div>
+
+Specify whether you want to allow users to login with their phone number or not. It is `true` by default
+
+Must be a `boolean`.
+
+</div>
+</details>
+
+<details>
+  <summary>emailLogin (optional)</summary>
+  <div>
+
+Specify whether you want to allow users to login with their email or not. It is `true` by default
+
+Must be a `boolean`.
+
+</div>
+</details>
+
+<details>
+  <summary>chains (optional)</summary>
+  <div>
+
+Provide an array of chains you want to support.
+
+Must be an array of `Chain` objects, from the [`@thirdweb-dev/chains`](https://www.npmjs.com/package/@thirdweb-dev/chains) package.
+
+</div>
+</details>
+
+<details>
+  <summary>walletStorage (optional)</summary>
+  <div>
+
+Wallet needs to store some data in persistent storage. By default `localStorage` is used. If you want to use a different storage, you can pass it in the `walletStorage` option.
+
+Must be an object conforming to the `AsyncStorage` interface:
+
+```typescript
+export interface AsyncStorage {
+  getItem(key: string): Promise<string | null>;
+  setItem(key: string, value: string): Promise<void>;
+  removeItem(key: string): Promise<void>;
+}
+```
+
+Example:
+
+```javascript
+import { MagicLink } from "@thirdweb-dev/wallets";
+
+const walletWithOptions = new MagicLink({
+  // ... other required config
+
+  // highlight-start
+  walletStorage: {
+    getItem: (key) => {
+      // Implement your own storage logic here
+    },
+    removeItem: (key) => {
+      // Implement your own storage logic here
+    },
+    setItem: (key, value) => {
+      // Implement your own storage logic here
+    },
+  },
+  // highlight-end
+});
+```
+
+</div>
+</details>
+
+## Methods
+
+Inherhits all the public methods from the [`AbstractClientWallet`](interfaces/abstract-client-wallet) class.
+
+### getMagic
+
+Get Magic Auth SDK instance. Learn more about [Magic Auth SDK](https://magic.link/docs/auth/overview)
+
+you use all methods available in the Magic Auth SDK from the sdk instance. Refer to [Magic Auth API](https://magic.link/docs/auth/api-reference/client-side-sdks/web) for more details.
+
+```javascript
+const magicSDK = await wallet.getMagic();
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### Return Value
+
+Returns the magic auth sdk instance of type `InstanceWithExtensions<SDKBase, OAuthExtension[]>`
+
+```typescript
+InstanceWithExtensions<SDKBase, OAuthExtension[]>;
+```
+
+</div>
+</details>

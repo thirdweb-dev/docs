@@ -1,0 +1,28 @@
+---
+slug: /minting/getting-started/creating-storing-assets
+title: Creating and Storing NFT Media Assets
+hide_title: true
+---
+
+# Creating and Storing NFT Media Assets
+
+Launchpad supports different multi-media file types including images, sound, video and 3D models. When applications and users want to configure the metadata and media associated with their NFTs, both are automatically uploaded to decentralized storage and pinned via thirdweb’s IPFS service.
+Applications can also use their own web2 or web3 storage service with the service ([guide](https://portal.thirdweb.com/storage/quickstart)).
+
+```js
+// Example metadata with images
+const metadatas = [
+  {
+    name: "Cool NFT",
+    description: "This is a cool NFT",
+    image: fs.readFileSync("path/to/image.png"), // This can be an image url or file
+  },
+  {
+    name: "Cool NFT",
+    description: "This is a cool NFT",
+    image: fs.readFileSync("path/to/image.png"),
+  },
+];
+
+const results = await contract.createBatch(metadatas); // uploads and creates the NFTs on chain
+```
