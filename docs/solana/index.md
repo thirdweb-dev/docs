@@ -72,4 +72,4 @@ You can learn more about thirdweb and the Solana SDK with the following resource
 
 - [Solana Docs](https://portal.thirdweb.com/solana)
 - [thirdweb Twitter](https://twitter.com/thirdweb)
-- [Thirdweb Discord](https://discord.com/invite/thirdweb)
+- [thirdweb Discord](https://discord.gg/thirdweb)
