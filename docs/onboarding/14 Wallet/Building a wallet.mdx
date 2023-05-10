@@ -176,7 +176,7 @@ wallet.connect();
 
 The last step is to integrate it with [Connect Wallet](/react/react.connectwallet) button by creating a function that returns a `ConfiguredWallet` object and specifying it in [supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional)
 
-```tsx
+````tsx
 import { ConfiguredWallet } from "@thirdweb-dev/react";
 
 const myWallet = (config: MyWalletConfig) => {
@@ -184,6 +184,10 @@ const myWallet = (config: MyWalletConfig) => {
   const configuredWallet: ConfiguredWallet = {
     id: "my-wallet",
 
+```ts
+const myWallet = (myParams?: MyParams): ConfiguredWallet<MyWallet> => {
+  return {
+    id: MetaMaskWallet.id,
     meta: {
       name: "My Wallet",
       iconURL: "https://...", // or ipfs://...
@@ -215,7 +219,7 @@ const myWallet = (config: MyWalletConfig) => {
 
   return configuredWallet;
 };
-```
+````
 
 <details>
   <summary> config (optional) </summary>
