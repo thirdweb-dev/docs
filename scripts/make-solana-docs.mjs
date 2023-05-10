@@ -62,7 +62,7 @@ async function main() {
         }
         if (line.includes("<!-- -->")) {
           line = line.replace(/<!-- -->/g, "");
-        }  
+        }
 
         output.push(line);
       });

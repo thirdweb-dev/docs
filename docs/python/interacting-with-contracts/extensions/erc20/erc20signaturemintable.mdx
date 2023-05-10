@@ -21,13 +21,13 @@ This is typically an **admin** operation, where the owner of the contract genera
 ```python
 from thirdweb.types.contracts.signature import PayloadToSign20
 mint_request = PayloadToSign20(
-  to = "{{wallet_address}}", 
-  price = 0.5, 
-  currency_address = "{{currency_contract_address}}", 
-  primary_sale_address = "{{primary_sale_address}}", 
-  quantity = 100, 
-  mint_start_time = int(time() + 60 * 60 * 24), 
-  mint_end_time = int(time()) - 1800, 
+  to = "{{wallet_address}}",
+  price = 0.5,
+  currency_address = "{{currency_contract_address}}",
+  primary_sale_address = "{{primary_sale_address}}",
+  quantity = 100,
+  mint_start_time = int(time() + 60 * 60 * 24),
+  mint_end_time = int(time()) - 1800,
   uid = None)
 
 good_payload = token.signature.generate(mint_request)
@@ -86,7 +86,7 @@ from thirdweb.types.contracts.signature import PayloadToSign20
 quantity = 1
 to = "0x..."
 signature = contract.erc20.signature.generate(PayloadToSign20(
-  quantity = quantity, 
+  quantity = quantity,
   to = to))
 ```
 
@@ -103,8 +103,8 @@ quantity = 1
 to = "0x..."
 currency_address = "0x..."
 signature = contract.erc20.signature.generate(PayloadToSign20(
-  quantity = quantity, 
-  to = to, 
+  quantity = quantity,
+  to = to,
   currentcy_address = currency_address))
 ```
 
@@ -123,8 +123,8 @@ quantity = 1
 to = "0x..."
 price = 0.4
 signature = contract.erc20.signature.generate(PayloadToSign20(
-  quantity = quantity, 
-  to = to, 
+  quantity = quantity,
+  to = to,
   price = price))
 ```
 
@@ -141,8 +141,8 @@ quantity = 1
 to = "0x..."
 mint_start_time = int(time() + 5)
 signature = contract.erc20.signature.generate(PayloadToSign20(
-  quantity = quantity, 
-  to = to, 
+  quantity = quantity,
+  to = to,
   mint_start_time = mint_start_time))
 ```
 
@@ -159,8 +159,8 @@ quantity = 1
 to = "0x..."
 mint_end_time = int(time() * 60 * 60 * 24 * 365 * 10)
 signature = contract.erc20.signature.generate(PayloadToSign20(
-  quantity = quantity, 
-  to = to, 
+  quantity = quantity,
+  to = to,
   mint_end_time = mint_end_time))
 ```
 
@@ -178,9 +178,9 @@ to = "0x..."
 price = 0.4
 primary_sale_recipient = "0x..."
 signature = contract.erc20.signature.generate(PayloadToSign20(
-  quantity = quantity, 
-  to = to, 
-  price = price, 
+  quantity = quantity,
+  to = to,
+  price = price,
   primary_sale_recipient = primary_sale_recipient))
 ```
 
