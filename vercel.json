@@ -745,8 +745,8 @@
       "destination": "/auth/getting-started"
     },
     {
-      "source": "/sdk.thirdwebsdk.detectfeatures",
-      "destination": "/sdk.thirdwebsdk.detectextensions"
+      "source": "/typescript/sdk.thirdwebsdk.detectfeatures",
+      "destination": "/typescript/sdk.thirdwebsdk.detectextensions"
     }
   ]
 }
