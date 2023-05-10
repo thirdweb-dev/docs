@@ -12,24 +12,31 @@ We have added support for a the following wallets in React Native:
 - Rainbow
 - Trust
 - Coinbase
+- Local Wallet
+- Smart Wallet
 
 Below we'll show how to use them with our `ThirdwebProvider`.
 
 ## Adding the wallets to the `ThirdwebProvider`
 
 ```tsx title="App.tsx"
-import { metamaskWallet, trustWallet } from "@thirdweb-dev/react-native";
+import {
+  metamaskWallet,
+  trustWallet,
+  localWallet,
+} from "@thirdweb-dev/react-native";
 
 const App = () => {
   return (
-    <ThirdwebProvider 
+    <ThirdwebProvider
       dAppMeta={{
         name: "Example App",
         description: "This is an example app",
         logoUrl: "https://example.com/logo.png",
         url: "https://example.com",
       }}
-      supportedWallets={[metamaskWallet(), trustWallet()]}>
+      supportedWallets={[metamaskWallet(), trustWallet(), localWallet()]}
+    >
       <AppInner />
     </ThirdwebProvider>
   );
@@ -42,9 +49,21 @@ By default, `supportedWallets` will have `rainbowWallet` and `metamaskWallet` si
 
 ### MetaMask, Rainbow and Trust wallets
 
-These wallets are implementations of Wallet Connect V1 and V2. The `dAppMeta` prop passed in the `ThirdwebProvider` above will be used when connecting to the wallets to show your app's information. 
+These wallets are implementations of Wallet Connect V1 and V2. The `dAppMeta` prop passed in the `ThirdwebProvider` above will be used when connecting to the wallets to show your app's information.
 
-No other configuration is needed for these.
+For more information on these wallets config, please see their base WalletConnectV1 and WalletConnectV2 specific info:
+
+- [Wallet Connect V1](/wallet/wallet-connect-v1)
+- [Wallet Connect V2](/wallet/wallet-connect-v2)
+
+MetaMask and Rainbow are extensions of WalletConnectV1 since they have not added support for WC V2 and Trust is an extension of WalletConnectV2, this means that you can call:
+
+```tsx
+metamaskWallet(config); // this config is the same as the one for wallet connect v1
+rainbowWallet(config); // this config is the same as the one for wallet connect v1
+
+trustWallet(config); // this config is the same as the one for wallet connect v2
+```
 
 ### Coinbase Wallet
 
@@ -58,16 +77,68 @@ import { coinbaseWallet } from "@thirdweb-dev/react-native";
 
 const App = () => {
   return (
-    <ThirdwebProvider 
+    <ThirdwebProvider
       supportedWallets={[
         coinbaseWallet({
-          callbackURL: new URL('https://youruniversal.link'),
+          callbackURL: new URL("https://youruniversal.link"),
         }),
-      ]}>
+      ]}
+    >
       <AppInner />
     </ThirdwebProvider>
   );
 };
 ```
 
+### Local Wallet
 
+The local wallet works mostly the same as [the web version](/wallet/local-wallet), below we outline the key differences:
+
+#### Configuration
+
+<details>
+  <summary>storage (optional)</summary>
+  <div>
+
+This is the default storage for storing the private key, mnemonic or encrypted JSON. This can be implemented in any way you want, as long as it conforms to the `AsyncStorage` interface:
+
+```typescript
+export interface AsyncStorage {
+  getItem(key: string): Promise<string | null>;
+  setItem(key: string, value: string): Promise<void>;
+  removeItem(key: string): Promise<void>;
+}
+```
+
+If omitted, it defaults to [Expo Secure Store](https://docs.expo.dev/versions/latest/sdk/securestore/), which stores the private key in your device in encrypted storage. We expose the `createSecureStorage(name: string)` utility function which creates a SecureStore instance that conforms to our `AsyncStorage` interface ([see it in our GitHub](https://github.com/thirdweb-dev/js/blob/main/packages/react-native/src/core/SecureStorage.ts#L37))
+
+Example:
+
+```javascript
+import { LocalWallet } from "@thirdweb-dev/wallets";
+
+const walletWithOptions = new LocalWallet(
+  // highlight-start
+  {
+    storage: {
+      getItem: (key) => {
+        // Implement your own storage logic here
+      },
+      removeItem: (key) => {
+        // Implement your own storage logic here
+      },
+      setItem: (key, value) => {
+        // Implement your own storage logic here
+      },
+    },
+  },
+  // highlight-end
+);
+```
+
+  </div>
+</details>
+
+### Smart Wallet
+
+See our [Smart Wallet documentation](/wallet/smart-wallet)
