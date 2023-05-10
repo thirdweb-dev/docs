@@ -12,6 +12,13 @@ Let your users connect to their [Smart Wallet](/glossary/smart-wallet).
 
 A Smart Wallet is a wallet that is controlled by a smart contract following the [ERC-4337 specification](https://eips.ethereum.org/EIPS/eip-4337).
 
+## Getting started
+
+#### 1. Deploy a smart wallet factory contract, you can deploy one in 1-click via the [explore page](https://thirdweb.com/explore/smart-wallet)
+#### 2. Get an API key, which you can obtain from the [thirdweb dashboard](https://thirdweb.com/dashboard/api-keys)
+
+The API key lets you access thirdweb's bundler and paymaster infrastructure, which is required for the smart wallet to operate and optionally enable [gasless transactions](/glossary/gasless-transactions).
+
 ## Features
 
 Smart Wallets work a little differently than other wallets since it's controlled by a programmable smart contract rather than a regular externally-owned account (EOA). This programmable wallet contract can:
@@ -23,6 +30,8 @@ Smart Wallets work a little differently than other wallets since it's controlled
 - Assign roles and permissions
 
 And more! Smart Wallets can be customized to each application's needs using the Solidity SDK.
+
+The SmartWallet API is composable - you can bring in your own [ERC 4337](https://eips.ethereum.org/EIPS/eip-4337) compatible factory contract and you can also use your own bundler or paymaster services.
 
 ## Templates
 
@@ -44,15 +53,6 @@ Clone these templates to quickly deploy Smart Wallets and connect to them.
     />
   </div>
 </div>
-
-## Requirements
-
-- A deployed account factory contract, you can deploy one in 1-click via the [explore page](https://thirdweb.com/explore/smart-wallet)
-- An API key, which you can obtain from the [thirdweb dashboard](https://thirdweb.com/dashboard/api-keys)
-
-The API key lets you access thirdweb's bundler and paymaster infrastructure, which is required for the smart wallet to operate and optionally enable [gasless transactions](/glossary/gasless-transactions).
-
-The SmartWallet API is composable - you can bring in your own [ERC 4337](https://eips.ethereum.org/EIPS/eip-4337) compatible factory contract and you can also use your own bundler or paymaster services.
 
 ## Supported chains
 
