@@ -53,8 +53,8 @@ These wallets are implementations of Wallet Connect V1 and V2. The `dAppMeta` pr
 
 For more information on these wallets config, please see their base WalletConnectV1 and WalletConnectV2 specific info:
 
-- [Wallet Connect V1](/wallet/wallet-connect-v1)
-- [Wallet Connect V2](/wallet/wallet-connect-v2)
+- [Wallet Connect V1](https://portal.thirdweb.com/wallet/wallet-connect-v1)
+- [Wallet Connect V2](https://portal.thirdweb.com/wallet/wallet-connect-v2)
 
 MetaMask and Rainbow are extensions of WalletConnectV1 since they have not added support for WC V2 and Trust is an extension of WalletConnectV2, this means that you can call:
 
@@ -92,7 +92,7 @@ const App = () => {
 
 ### Local Wallet
 
-The local wallet works mostly the same as [the web version](/wallet/local-wallet), below we outline the key differences:
+The local wallet works mostly the same as [the web version](https://portal.thirdweb.com/wallet/local-wallet), below we outline the key differences:
 
 #### Configuration
 
@@ -141,4 +141,4 @@ const walletWithOptions = new LocalWallet(
 
 ### Smart Wallet
 
-See our [Smart Wallet documentation](/wallet/smart-wallet)
+See our [Smart Wallet documentation](https://portal.thirdweb.com/wallet/smart-wallet)
