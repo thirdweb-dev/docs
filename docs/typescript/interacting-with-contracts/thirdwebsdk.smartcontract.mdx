@@ -5,6 +5,9 @@ slug: /sdk.thirdwebsdk.smartcontract
 
 Connect to a deployed smart contract to start interacting with it.
 
+The ABI of the smart contract is resolved automatically for contracts deployed or imported
+using the [dashboard](/dashboard).
+
 ## Usage
 
 ```javascript
@@ -14,6 +17,14 @@ const sdk = new ThirdWebSDK("ethereum");
 // Connect to your smart contract using the contract address.
 const contract = await sdk.getContract("0x...");
 ```
+
+:::tip Generate
+
+To cache the ABI of the smart contract, use [thirdweb generate](/cli/generate).
+
+This is recommended to improve performance and provide type-safety when interacting with your smart contract.
+
+:::
 
 ## Configuration
 
@@ -28,8 +39,9 @@ const contract = await sdk.getContract(
 );
 ```
 
-:::info Import Smart Contracts
-If your smart contract was not deployed using thirdweb, you&rsquo;ll need to import it on the [dashboard](/dashboard).
+:::info Import
+If your smart contract was not deployed using thirdweb, you&rsquo;ll need to import it using the [dashboard](/dashboard), or provide
+the [ABI](#abi) as a second parameter.
 :::
 
 ### contractType (optional)
@@ -94,7 +106,7 @@ const contract = await sdk.getContract(
 );
 ```
 
-### Using Contract ABI
+### abi (optional)
 
 Optionally, (if you don&rsquo;t want to use the import feature),
 you can provide your smart contract&rsquo;s ABI to the second parameter of the `getContract` method.
@@ -113,6 +125,10 @@ const contract = await sdk.getContract(
 ```
 
 ### Return Value
+
+<details>
+<summary>Return Value</summary>
+<div>
 
 By default, the `getContract` method returns an instance of the `SmartContract` class.
 
@@ -151,9 +167,12 @@ Below is a table of the different classes that can be returned when a contract t
 | Edition        | [`Edition`](/typescript/sdk.edition)              | ERC1155 functionality                                   |
 | Multiwrap      | [`Multiwrap`](/typescript/sdk.multiwrap)          | Functionality to wrap tokens into a new multiwrap NFT   |
 | Pack           | [`Pack`](/typescript/sdk.pack)                    | Functionality to create, open, and add to pack NFTs     |
-| Token Drop     | [`TokenDrop ](/typescript/sdk.tokendrop)          | ERC20 & Drop functionality                              |
+| Token Drop     | [`TokenDrop`](/typescript/sdk.tokendrop)          | ERC20 & Drop functionality                              |
 | Token          | [`Token`](/typescript/sdk.token)                  | ERC20 functionality                                     |
 | Marketplace    | [`Marketplace`](/typescript/sdk.marketplace)      | Marketplace features for creating, buying, selling NFTs |
 | Marketplace V3 | [`MarketplaceV3`](/typescript/sdk.marketplacev3)  | English auction, direct listing, and offer features     |
 | Split          | [`Split`](/typescript/sdk.split)                  | Unique top-level functions to the split contract        |
 | Vote           | [`Vote`](/typescript/sdk.vote)                    | Unique top-level functions to the vote contract         |
+
+</div>
+</details>
