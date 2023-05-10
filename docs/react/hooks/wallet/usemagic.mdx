@@ -61,7 +61,31 @@ function App() {
 ## Configuration
 
 <details>
-  <summary>chainId</summary>
+  <summary>apiKey </summary>
+  <div>
+
+Your Magic Link apiKey. You can get an API key by signing up for an account on [Magic Link's website](https://magic.link/).
+
+Must be a `string`.
+
+</div>
+</details>
+
+<details>
+  <summary>email or phoneNumber </summary>
+  <div>
+
+specify either `email` or `phoneNumber` of the user to connect to your app.
+
+If you call the `connect` function with `email`, a modal will open and prompt the user to click on the link sent to their email. Once user completes this step, the modal will close and the user will be connected to your app.
+
+If you call the connect method with `phoneNumber`, a modal will open and prompt the user to enter the OTP sent to their phone number. Once the user enters the OTP, the modal will close and the user will be connected to your app.
+
+</div>
+</details>
+
+<details>
+  <summary>chainId (optional)</summary>
   <div>
 
 To connect to a specific chain when connecting the wallet,
@@ -108,6 +132,50 @@ export function YourApp() {
   );
 }
 ```
+
+</div>
+</details>
+
+<details>
+  <summary>magicSdkConfiguration (optional)</summary>
+  <div>
+
+Configuration for Magic Auth SDK.
+
+```ts
+{
+  locale?: string;
+  endpoint?: string;
+  testMode?: boolean;
+}
+```
+
+<details>
+  <summary>local (optional)</summary>
+  <div>
+
+Customize the language of Magic's modal, email and confirmation screen. See [Localization](https://magic.link/docs/auth/more/customization/localization) for more.
+
+</div>
+</details>
+
+<details>
+  <summary>endpoint (optional)</summary>
+  <div>
+
+A URL pointing to the Magic iframe application.
+
+</div>
+</details>
+
+<details>
+  <summary>testMode (optional)</summary>
+  <div>
+
+Enable [testMode](https://magic.link/docs/auth/introduction/test-mode) to assert the desired behavior through the email address you provide to `loginWithMagicLink` without having to go through the auth flow.
+
+</div>
+</details>
 
 </div>
 </details>
