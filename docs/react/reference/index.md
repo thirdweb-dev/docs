@@ -1,5 +1,5 @@
 ---
-slug: /reference/index
+slug: /reference/
 title: API Reference
 hide_title: true
 displayed_sidebar: react

@@ -81,7 +81,8 @@ async function main() {
 
       const header = [
         "---",
-        `slug: /reference/${id}`,
+        // If ID is index, then the slug should be /reference
+        `slug: /reference/${id === "index" ? "" : id}`,
         `title: ${title}`,
         `hide_title: true`,
         `displayed_sidebar: typescript`,

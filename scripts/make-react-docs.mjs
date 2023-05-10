@@ -80,8 +80,14 @@ async function makeDocs({ outDir, inDir }) {
           "---",
           `slug: /${
             isSolana
-              ? `solana/reference/${id.replace("react-core", "react")}`
-              : `reference/${id.replace("react-core", "react")}`
+              ? // If ID is index, then the slug should be /reference
+                `solana/reference/${
+                  id === "index" ? "" : id.replace("react-core", "react")
+                }`
+              : // If ID is index, then the slug should be /reference
+                `reference/${
+                  id === "index" ? "" : id.replace("react-core", "react")
+                }`
           }`,
           `title: ${title}`,
           `hide_title: true`,
