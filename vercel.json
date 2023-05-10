@@ -743,6 +743,10 @@
     {
       "source": "/quth/quickstart",
       "destination": "/auth/getting-started"
+    },
+    {
+      "source": "/sdk.thirdwebsdk.detectfeatures",
+      "destination": "/sdk.thirdwebsdk.detectextensions"
     }
   ]
 }
