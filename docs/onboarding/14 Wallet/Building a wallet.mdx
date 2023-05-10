@@ -178,7 +178,7 @@ The last step is to expose your wallet to React and React Native. This is done b
 You can also let users pass custom params for your wallet as arguments to this function.
 
 ```ts
-const myWallet = (myParams?: MyParams): ConfiguredWallet => {
+const myWallet = (myParams?: MyParams): ConfiguredWallet<MyWallet> => {
   return {
     id: MetaMaskWallet.id,
     meta: {
