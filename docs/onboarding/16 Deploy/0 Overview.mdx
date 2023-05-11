@@ -11,6 +11,7 @@ Easily deploy **any** contract to **any EVM** compatible chain, using a single c
 ```bash
 npx thirdweb deploy
 ```
+
 No setup, hardcoded private keys, RPC URLs or scripting required!
 
 ## Why Use Deploy?
@@ -19,21 +20,22 @@ Benefits of using Deploy:
 
 - **No setup** or installation is needed.
 - **Increased security**:
-     - No need to export a private key. The deployment is done from the [dashboard](/dashboard) UI from your browser, using a browser wallet.
-     - Support for [Safe](https://safe.global/wallet) so no need to share private keys across your team.
+  - No need to export a private key. The deployment is done from the [dashboard](/dashboard) UI from your browser, using a browser wallet.
+  - Support for [Safe](https://safe.global/wallet) so no need to share private keys across your team.
 - No need to set an RPC URL - we handle all the complexities for you!
 - Deploy using a user interface. This allows you to set the constructor arguments at the time of deployment.
 - Automatically uploads and pins the contract metadata to IPFS.
 - Automatically verifies your contract on [Sourcify](https://sourcify.dev/).
 - Automatically adds your contract to the [dashboard](/dashboard) - this step is [gasless](/glossary/gasless-transactions)! This means you can easily manage and interact with your contract.
-- No need to copy your contract ABI when integrating your smart contract into a web3 app. 
+- No need to copy your contract ABI when integrating your smart contract into a web3 app.
 
 ## How Does it Work?
 
-By using Deploy, your contract metadata is automatically uploaded to IPFS and verified 
+By using Deploy, your contract metadata is automatically uploaded to IPFS and verified
 making your contract usable in any web3 app without having to copy your contract ABI.
 
 This works by:
+
 1. Using the default behavior of solc (the solidity compiler) - appending the encoded contract metadata to the contract bytecode.
 2. Uploading the contracts metadata to IPFS
 
@@ -41,10 +43,10 @@ This works by:
 
 By default, when compiling any solidity contract, the solc compiler:
 
-1. Computes the IPFS hash of the contract metadata JSON artifact 
-(containing information including the contract name, ABI, source code, comments and compiler settings).
+1. Computes the IPFS hash of the contract metadata JSON artifact
+   (containing information including the contract name, ABI, source code, comments and compiler settings).
 2. Encodes the computed IPFS hash using CBOR encoding
-3. Appends the encoded bytes at the end of the compiled bytecode 
+3. Appends the encoded bytes at the end of the compiled bytecode
 
 This means that from any deployed contract, you can:
 
@@ -53,8 +55,8 @@ This means that from any deployed contract, you can:
 3. Extract the IPFS hash from the decoded data.
 4. Download the original contract metadata which contains source code, ABI, etc.
 
-Since **IPFS hashes are immutable**, the encoded contract metadata is guaranteed to be correct and unmodified. 
-This means that all contracts are auto-verifiable by design and without needing any third party! However, **the compiler only computes the IPFS hash and encodes it, it does not upload anything to IPFS**! 
+Since **IPFS hashes are immutable**, the encoded contract metadata is guaranteed to be correct and unmodified.
+This means that all contracts are auto-verifiable by design and without needing any third party! However, **the compiler only computes the IPFS hash and encodes it, it does not upload anything to IPFS**!
 
 ### Uploading Contract Metadata to IPFS
 
@@ -63,7 +65,7 @@ By using Deploy:
 1. Your contract metadata is **automatically uploaded to IPFS** meaning that we can make use of solc's default behavior to unlock our [SDKs](/sdk).
 2. Your contract is **automatically verified** on [Sourcify](https://sourcify.dev/).
 
-This makes it easy to build web3 apps, using our [SDKs](/sdk), without having to copy or update the contract ABI. Instead, the ABI is retrieved from the contract metadata uploaded to IPFS! 
+This makes it easy to build web3 apps, using our [SDKs](/sdk), without having to copy or update the contract ABI. Instead, the ABI is retrieved from the contract metadata uploaded to IPFS!
 This acts as a **source of truth** and thus is always up to date.
 
 For more information on how contracts are automatically verified using Deploy, visit the ["Self-verifiable contracts using solc and IPFS"](https://mirror.xyz/joenrv.eth/DdbK6GR-CkeYxHoU8sKl0AFYbGeQwZcvCM5Qvzipr0g) blog post.

@@ -21,7 +21,7 @@ It is abstract, allowing you to customize the functionality for your use case.
 This smart contract extension conforms to the `IAccount` interface which is detectable on the dashboard as the `SmartWallet` extension.
 :::
 
-<br/>
+<br />
 
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/smart-wallet/utils/BaseAccount.sol"
@@ -32,11 +32,11 @@ This smart contract extension conforms to the `IAccount` interface which is dete
 
 The `BaseAccount` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
 
-| Name                                                               | Type                    | Description                                                                                                                                     |
-| ------------------------------------------------------------------ | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entryPoint` | public view  | Return the current entryPoint used by this account. |
-| `_validateSignature`  | internal     | Validate the signature is valid for this message.                                                                                            |
-| `_validateNonce`  | internal       | Validate the nonce of the UserOperation.                                                                                            |
+| Name                 | Type        | Description                                         |
+| -------------------- | ----------- | --------------------------------------------------- |
+| `entryPoint`         | public view | Return the current entryPoint used by this account. |
+| `_validateSignature` | internal    | Validate the signature is valid for this message.   |
+| `_validateNonce`     | internal    | Validate the nonce of the UserOperation.            |
 
 This is an example factory smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality.
 
@@ -166,9 +166,11 @@ signature and time-range of this operation:
 
 Validate the nonce of the UserOperation.
 To limit the nonce to use sequenced UserOps only (no "out of order" UserOps):
+
 - `require(nonce < type(uint64).max)`
 
-For a hypothetical account that *requires* the nonce to be out-of-order:
+For a hypothetical account that _requires_ the nonce to be out-of-order:
+
 - `require(nonce & type(uint64).max == 0)`
 
 The actual nonce uniqueness is managed by the EntryPoint, and thus no other action is needed by the account itself.

@@ -52,7 +52,7 @@ For non-default chains, see [configuring chains](#provider) or [custom chains](#
   </div>
 </details>
 
-Using this method, you can **only read data** from the blockchain. 
+Using this method, you can **only read data** from the blockchain.
 
 Initialize the thirdweb SDK.
 
@@ -146,9 +146,8 @@ The gas settings to use when sending transactions.
 - `speed`: The [priority](https://www.youtube.com/watch?v=gsfJywNxpi4) level to set for a transaction.
   Either "STANDARD", "FAST", or "FASTEST". Defaults to `FASTEST`.
 
-
 ```python
-from thirdweb import ThirdwebSDK 
+from thirdweb import ThirdwebSDK
 from thirdweb.types.sdk import SDKOptions, GasSettings, GasSpeed
 
 options = SDKOptions(gas_settings = GasSettings(speed = GasSpeed.STANDARD))
@@ -248,7 +247,7 @@ sdk.update_provider(provider)
 <summary>Configuration</summary>
 <div>
 
-#### provider 
+#### provider
 
 The web3 provider instance to use for getting on-chain data. Must be of type `str` and be one of the default chains.
 
@@ -274,7 +273,7 @@ The new signer to use for sending transactions. Must be of type `LocalAccount`.
 </div>
 </details>
 
-## Prebuilt Contracts 
+## Prebuilt Contracts
 
 Deploy any of our prebuilt contracts using the Python SDK:
 
@@ -287,14 +286,14 @@ Deploy any of our prebuilt contracts using the Python SDK:
 Returns an NFT Collection contract SDK instance
 
 ```python
-nft_collection_contract = sdk.get_nft_collection(address)  
+nft_collection_contract = sdk.get_nft_collection(address)
 ```
 
-#### address 
+#### address
 
 The address of the NFT Collection contract
 
-### Return Value 
+### Return Value
 
 The NFT Collection contract SDK instance.
 
@@ -310,14 +309,14 @@ The NFT Collection contract SDK instance.
 Returns an Edition contract SDK instance
 
 ```python
-edition_contract = sdk.get_edition(address)  
+edition_contract = sdk.get_edition(address)
 ```
 
-#### address 
+#### address
 
 The address of the Edition contract
 
-### Return Value 
+### Return Value
 
 The Edition contract SDK instance.
 
@@ -333,14 +332,14 @@ The Edition contract SDK instance.
 Returns a Token contract SDK instance
 
 ```python
-token_contract = sdk.get_token(address)  
+token_contract = sdk.get_token(address)
 ```
 
-#### address 
+#### address
 
 The address of the Token contract
 
-### Return Value 
+### Return Value
 
 The Token contract SDK instance.
 
@@ -356,14 +355,14 @@ The Token contract SDK instance.
 Returns a Marketplace contract SDK instance
 
 ```python
-marketplace_contract = sdk.get_marketplace(address)  
+marketplace_contract = sdk.get_marketplace(address)
 ```
 
-#### address 
+#### address
 
 The address of the Marketplace contract
 
-### Return Value 
+### Return Value
 
 The Marketplace contract SDK instance.
 
@@ -379,14 +378,14 @@ The Marketplace contract SDK instance.
 Returns an NFT Drop contract SDK instance
 
 ```python
-nft_drop_contract = sdk.get_nft_drop(address)  
+nft_drop_contract = sdk.get_nft_drop(address)
 ```
 
-#### address 
+#### address
 
 The address of the NFT Drop contract
 
-### Return Value 
+### Return Value
 
 The NFT Drop contract SDK instance.
 
@@ -402,14 +401,14 @@ The NFT Drop contract SDK instance.
 Returns an Edition Drop contract SDK instance
 
 ```python
-edition_drop_contract = sdk.get_edition_drop(address)  
+edition_drop_contract = sdk.get_edition_drop(address)
 ```
 
-#### address 
+#### address
 
 The address of the Edition Drop contract
 
-### Return Value 
+### Return Value
 
 The Edition Drop contract SDK instance.
 
@@ -425,14 +424,14 @@ The Edition Drop contract SDK instance.
 Returns an Multiwrap contract SDK instance
 
 ```python
-multiwrap_contract = sdk.get_multiwrap(address)  
+multiwrap_contract = sdk.get_multiwrap(address)
 ```
 
-#### address 
+#### address
 
 The address of the Multiwrap contract
 
-### Return Value 
+### Return Value
 
 The Multiwrap contract SDK instance.
 
