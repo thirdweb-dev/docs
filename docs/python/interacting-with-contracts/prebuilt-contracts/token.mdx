@@ -128,7 +128,7 @@ contract.mint_batch_to(args)
 
 A `List` of `TokenAmount` objects containing the following properties:
 
-```python 
+```python
 class TokenAmount:
     to_address: str
     amount: Price
@@ -204,6 +204,7 @@ class CurrencyValue(Currency):
     value: PriceWei
     display_value: Price
 ```
+
 </div>
 </details>
 
@@ -219,7 +220,7 @@ delegation_address = contract.get_delegation()
 <summary>Configuration</summary>
 <div>
 
-### Return Value 
+### Return Value
 
 A `str` representing the delegation address of the connected wallet.
 
@@ -249,7 +250,7 @@ account = "0x..."
 delegation_address = contract.get_delegation_of(account)
 ```
 
-### Return Value 
+### Return Value
 
 A `str` representing the delegation address of the specified wallet.
 
@@ -278,5 +279,6 @@ Wallet address to delegate tokens to. Must be of type `str`.
 delegatee_address = "0x..."
 contract.delegate_to(delegatee_address)
 ```
+
 </div>
 </details>

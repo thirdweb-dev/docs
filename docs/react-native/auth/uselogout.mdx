@@ -27,9 +27,10 @@ function App() {
   const { logout, isLoading } = useLogout();
 
   return (
-    <Button 
+    <Button
       title={isLoading ? "Logging out..." : "Logout"}
-      onPress={() => logout()}/>
+      onPress={() => logout()}
+    />
   );
 }
 ```

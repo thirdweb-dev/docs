@@ -26,11 +26,12 @@ function App() {
   const { isLoading, login } = useLogin();
 
   return (
-    <Button 
-      title={isLoading ? "Loading..." : "Sign in with Ethereum"} 
+    <Button
+      title={isLoading ? "Loading..." : "Sign in with Ethereum"}
       onPress={() => {
         const token = login();
-      }} />
+      }}
+    />
   );
 }
 ```
