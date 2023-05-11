@@ -18,12 +18,11 @@ import { useContract } from "@thirdweb-dev/react";
 ## Usage
 
 Provide your smart contract address as the first parameter.
-The second parameter is [contract type](#contract-type-optional); which is strongly recommended if your contract is a [prebuilt contract](/pre-built-contracts), but
-not required.
 
 Once connected, `contract` will be an instance of your smart contract.
 
-The [ABI](https://docs.soliditylang.org/en/v0.8.17/abi-spec.html) is resolved automatically from our on-chain registry.
+The ABI of the smart contract is resolved automatically for contracts deployed or imported
+using the [dashboard](/dashboard).
 
 ```jsx
 import { useContract } from "@thirdweb-dev/react";
@@ -33,8 +32,12 @@ function App() {
 }
 ```
 
-:::info Import Smart Contracts
-If your smart contract was not deployed using thirdweb, you&rsquo;ll need to import it on the [dashboard](/dashboard).
+:::tip Generate
+
+To cache the ABI of the smart contract, use [thirdweb generate](/cli/generate).
+
+This is recommended to improve performance and provide type-safety when interacting with your smart contract.
+
 :::
 
 ## Configuration
@@ -102,6 +105,19 @@ const { contract, isLoading, error } = useContract(
 );
 ```
 
-<!-- ## Demo Playground
+### Contract ABI (optional)
 
-<UseContractHook /> -->
+Optionally, (if you don&rsquo;t want to use the [dashboard](/dashboard) import feature),
+you can provide your smart contract&rsquo;s ABI to the second parameter of the `useContract` hook.
+This is useful when developing on a [local node](/typescript/sdk.thirdwebsdk#local-nodes),
+where it may be faster to use the ABI than to import the contract using the [dashboard](/dashboard).
+
+The ABI is only necessary if you have not deployed your contract with, or imported your contract
+to the thirdweb dashboard.
+
+```jsx
+const { contract, isLoading, error } = useContract(
+  "{{contract_address}}",
+  {{contract_abi}},
+);
+```

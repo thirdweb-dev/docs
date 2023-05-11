@@ -74,13 +74,13 @@ owned_token_ids = contract.get_owned_token_ids(address)
 <summary>Configuration</summary>
 <div>
 
-#### address 
+#### address
 
 The address to get the token IDs for. Must be of type `str`.
 
-### Return Value 
+### Return Value
 
-A list of the owned token IDs. 
+A list of the owned token IDs.
 
 ```python
 List[int]
@@ -128,7 +128,7 @@ class NFTMetadataInput:
     background_color: Optional[str] = None
     properties: Optional[Dict[str, Any]] = None
     attributes: Optional[Dict[str, Any]] = None
-  ```
+```
 
 The `image` property can be an IPFS URI, a URL, or a `File` object.
 
@@ -253,7 +253,6 @@ See [`mint`](#mint) for more details on the properties available.
 </div>
 </details>
 
-
 ## mint_batch_to
 
 The same as [`mint_batch`](#mint_batch), but allows you to specify the address
@@ -295,5 +294,3 @@ See [`mint`](#mint) for more details on the properties available.
 
 </div>
 </details>
-
-

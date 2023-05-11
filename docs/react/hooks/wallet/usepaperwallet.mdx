@@ -12,7 +12,11 @@ import { usePaperWallet } from "@thirdweb-dev/react";
 
 ## Usage
 
-Call the function returned by the `usePaperWallet` hook to prompt the user to connect Paper wallet to your app.
+Calling the function returned by the `usePaperWallet` hook opens the Paper Wallet's Modal and prompts the user to log in with their email address.
+
+If `email` is not provided, the user will be prompted to enter their email address or sign in with a Google account. Once the user enters the email address or signs in with a Google account, an OTP will be sent to the user's email address. Once the user enters the OTP, the wallet will be connected.
+
+If the email is provided, the user will be directly shown the OTP screen, the user will not be prompted to enter their email.
 
 once connected, you can use the [`useAddress`](/react/react.useaddress) hook to get the user's address and [`usePaperWalletUserEmail`](/react/react.usepaperwalletuseremail) hook to get the user's email address.
 
@@ -29,6 +33,7 @@ function App() {
       onClick={() =>
         connectWithPaperWallet({
           clientId: "<YOUR_CLIENT_ID>",
+          email: "<USER_EMAIL>", // optional - directly show OTP screen
         })
       }
     >
@@ -86,6 +91,37 @@ export function YourApp() {
     <ThirdwebProvider supportedChains={[Polygon]}>
       <App />
     </ThirdwebProvider>
+  );
+}
+```
+
+</div>
+</details>
+
+<details>
+  <summary>email (optional)</summary>
+  <div>
+
+If the user's email address is already known, you can skip prompting the user for entering an email address and directly show the OTP screen by passing the `email` in a configuration object as shown below.
+
+```jsx
+import { usePaperWallet } from "@thirdweb-dev/react";
+import { Polygon } from "@thirdweb-dev/chains";
+
+function App() {
+  const connectWithPaperWallet = usePaperWallet();
+
+  return (
+    <button
+      onClick={() =>
+        connectWithPaperWallet({
+          clientId: "<YOUR_CLIENT_ID>",
+          email: "user@example.com",
+        })
+      }
+    >
+      Connect Wallet
+    </button>
   );
 }
 ```

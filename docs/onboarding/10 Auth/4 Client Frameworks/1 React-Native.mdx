@@ -25,7 +25,7 @@ export default function MyApp({ Component }) {
         // The URL of your Auth API
         authUrl: "/api/auth",
         // (optional) Secure storage to use for storing the auth token when using JWT tokens.
-        secureStorage: new SecureStorage()
+        secureStorage: new SecureStorage(),
       }}
     >
       <AppInner />
@@ -52,10 +52,13 @@ export default function AppInner() {
 
   return (
     <>
-        <ConnectWallet />;
-        <Button title="Login" onPress={() => {
-            const token = login()
-        }} />
+      <ConnectWallet />;
+      <Button
+        title="Login"
+        onPress={() => {
+          const token = login();
+        }}
+      />
     </>
   );
 }
@@ -162,7 +165,11 @@ export default function AppInner() {
 
   return (
     <>
-      {isLoading ? <Text>Loading...</Text> : <Text>Logged in user: {user?.address}</Text>}
+      {isLoading ? (
+        <Text>Loading...</Text>
+      ) : (
+        <Text>Logged in user: {user?.address}</Text>
+      )}
     </>
   );
 }
@@ -264,20 +271,20 @@ export default function AppInner() {
   const [authToken, setAuthToken] = useState<string | null>(null);
 
   const getSecret = useCallback(async () => {
-      let res;
-      try {
-        res = await fetch(`${your-domain}/api/data`, {
-          headers: {
-            Authorization: `Bearer ${authToken}`,
-          },
-        });
-      } catch (error) {
-        console.log('error', error);
-        return;
-      }
+    let res;
+    try {
+      res = await fetch(`${your - domain}/api/data`, {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        },
+      });
+    } catch (error) {
+      console.log("error", error);
+      return;
+    }
 
-      const data = await res.json();
-    }, [authToken]);
+    const data = await res.json();
+  }, [authToken]);
 
   return (
     <>
@@ -290,6 +297,6 @@ export default function AppInner() {
       />
       <Button title="Get Secret" onPress={getSecret} />
     </>
-  )
+  );
 }
 ```
