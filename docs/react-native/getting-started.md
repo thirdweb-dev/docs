@@ -128,7 +128,7 @@ export default function Home() {
 }
 ```
 
-# Advanced Configuration
+## Advanced Configuration
 
 The `ThirdwebProvider` offers a number of configuration options to control the behavior of the React and Typescript SDK.
 
@@ -139,6 +139,7 @@ We provide defaults for all of these, but you customize them to suit your needs.
 import React from "react";
 import {
   coinbaseWallet,
+  localWallet,
   metamaskWallet,
   rainbowWallet,
   trustWallet,
@@ -158,11 +159,12 @@ const KitchenSinkExample = () => {
         url: "https://example.com",
       }}
       supportedChains={[Ethereum]}
-      supportedWallets-={[
+      supportedWallets={[
         metamaskWallet(),
         rainbowWallet(),
         coinbaseWallet(),
         trustWallet(),
+        localWallet(),
       ]}
       sdkOptions={{
         gasSettings: { maxPriceInGwei: 500, speed: "fast" },
@@ -182,3 +184,8 @@ const KitchenSinkExample = () => {
   );
 };
 ```
+
+### Supported Wallets Behavior
+
+1. We render `localWallet` as "Continue as Guest" in our ConnectWallet modal.
+2. When a single `supportedWallet` is defined, we try to auto-connect to that wallet instead of showing the wallets modal with a single wallet.
