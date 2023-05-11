@@ -20,7 +20,7 @@ This factory smart contract is intended to be used to distribute ['ManagedAccoun
   name="ManagedAccountFactory"
 />
 
-<br/>
+<br />
 
 :::info
 
@@ -28,6 +28,14 @@ If you modify the [`ManagedAccount`](/solidity/base-contracts/managed-account) c
 factory contract by inheriting from the [`BaseAccountFactory`](/solidity/extensions/base-account-factory) extension.
 
 :::
+
+## Detected Extensions
+
+Once deployed, you can use the features made available by these extensions on the SDK and dashboard:
+
+Click on each feature to learn more about what functions are available.
+
+- [SmartWalletFactory](/solidity/extensions/base-account-factory)
 
 ## Usage
 
@@ -79,18 +87,18 @@ function _initializeAccount(
 }
 ```
 
-#### _account
+#### \_account
 
 The address of the smart account smart contract to initialize.
 
-#### _admin
+#### \_admin
 
 The address to be set as default admin role for the contract. Must be of type `address`.
 
-#### _data
+#### \_data
 
-If extra storage variables are required in your account contract, abi encode the variables, 
-pass them to this function as the `bytes` argument. 
+If extra storage variables are required in your account contract, abi encode the variables,
+pass them to this function as the `bytes` argument.
 
 For example:
 
