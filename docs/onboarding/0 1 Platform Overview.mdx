@@ -3,6 +3,8 @@ title: Overview
 slug: /platform-overview
 ---
 
+import ThemedImage from "@theme/ThemedImage";
+
 # Overview
 
 thirdweb is a comprehensive development framework that empowers you to seamlessly
@@ -13,32 +15,43 @@ build, launch, and manage web3 applications and games across any EVM-compatible 
 Whether you're developing decentralized applications from scratch or enhancing existing ones,
 Our tool suite accelerates your development workflow across the smart contract, application, and infrastructure layers.
 
+<ThemedImage
+  sources={{
+    light: "/assets/platform-overview-light.png",
+    dark: "/assets/platform-overview-dark.png",
+  }}
+  className="platform-overview"
+  alt="platform-overview"
+/>
+
 ### Smart Contracts
 
 Smart contracts serve as the foundational building blocks for any decentralized application.
-We conduct audits on our pre-built contracts to ensure the highest quality and security level.
-thirdweb's ContractKit extensions follow dynamic contract patterns by default. We also optimize contracts for gas efficiency, minimizing transaction costs.
+We conduct audits on our [pre-built contracts](/explore) to ensure the highest quality and security level.
+We also optimize contracts for gas efficiency, minimizing transaction costs.
 By prioritizing these technical considerations, developers can focus on creating exceptional web3 applications with confidence and ease.
 
-thirdweb is designed to integrate with any contract on any blockchain seamlessly. With [**ContractKit**](/contractkit), you can quickly build and customize smart contracts while enabling extensions to unlock more functionality.
-Whether you're launching your smart contract with the [**Deploy**](/deploy), importing an already deployed contract, or exploring pre-built contracts through [**Explore**](/explore),
+thirdweb is designed to integrate with any contract on any blockchain seamlessly. With the [**Solidity SDK**](/solidity), you can quickly build and customize smart contracts while enabling extensions to unlock more functionality.
+Whether you're deploying your smart contract, without using a private key, with the [**Deploy**](/deploy) [CLI](/cli) command, importing an already deployed contract, or exploring pre-built contracts through [**Explore**](https://thirdweb.com/explore),
 it streamlines the first steps of decentralized development.
 Upon deployment, using [**Dashboard**](/dashboard), you can easily manage your smart contract and track its performance through **Data Feeds**.
 
 ### Applications
 
-thirdweb offers software development kits (SDKs) that allow seamless integration with your smart contract when developing applications or games using popular programming languages such as React, React Native, TypeScript, Python, Go, and Unity.
+thirdweb offers [software development kits](/sdk) (SDKs) that allow seamless integration with your smart contract when developing applications or games using popular programming languages such as [React](/react), [React Native](/react-native), [TypeScript](/typescript), [Python](/python), [Go](/go), and [Unity](/unity).
 
-Our SDKs enable wallet connectivity and provide specialized sets of functionality for common Ethereum patterns and standards (i.e., ERC-20, ERC-721, ERC-1155) based on your contract, remote procedure call (RPC) URLs, and an IPFS Gateway.
+Our SDKs detected the [extensions](/solidity/extensions) or common Ethereum patterns and standards (i.e., [ERC-20](/solidity/extensions/erc20), [ERC-721](/solidity/extensions/erc721), [ERC-1155](/solidity/extensions/erc1155)) used in your smart contract and provide extra functionality to allow you to build your application with ease. For example, if your contract uses the [ERC-721](/solidity/extensions/erc721) extension, our SDKs will provide you with a set of functions to easily interact with your contract's NFTs.
+Additionally, our SDKs enable wallet connectivity and provide specialized sets of functionality for remote procedure call (RPC) URLs, and an IPFS Gateway.
+
 These features optimize performance and enhance developer experience when building decentralized applications.
 
 ### Infrastructure
 
-thirdweb offers a comprehensive suite of tools and technologies to facilitate the development of user-friendly and accessible decentralized applications. Our infrastructure includes options for fiat on-ramps, wallet integrations, and gasless relayers, providing seamless end-user experiences.
+thirdweb offers a comprehensive suite of tools and technologies to facilitate the development of user-friendly and accessible decentralized applications. Our infrastructure includes options for fiat on-ramps, [wallet integrations](/wallet), and gasless relayers, providing seamless end-user experiences.
 
-In addition, we provide built-in storage solutions and RPCs (remote procedure calls or connections to the blockchain) to optimize application performance and decentralization. Our indexer and Data Feeds enable easy integration of your contract's data into your application.
+In addition, we provide built-in [storage solutions](/storage) and RPCs to optimize application performance and decentralization. Our indexer and Data Feeds enable easy integration of your contract's data into your application.
 
-Our Auth SDK is designed to support decentralized login and seamless integration with client and server frameworks. This feature allows developers to build secure and user-friendly decentralized applications that can easily be deployed and integrated with other applications.
+Our [Auth SDK](/auth) is designed to support decentralized login and seamless integration with client and server frameworks. This feature allows developers to build secure and user-friendly decentralized applications that can easily be deployed and integrated with other applications.
 
 ## Solutions
 

@@ -22,7 +22,7 @@ The `Enumerable` part provides the capability to view all the addresses holding 
 
 ## Usage
 
-This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality. 
+This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality.
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -80,7 +80,7 @@ By adding this extension to a smart contract, the following features, hooks and 
   <div className="col col--3" style={{ padding: 8 }}>
     <QuickstartCard
       name="Python"
-      link="/python/contract-roles"
+      link="/python/python.permissions"
       image="/assets/languages/python.png"
     />
   </div>
@@ -92,7 +92,7 @@ None of the base contracts implement this extension.
 
 ## Full API Reference
 
-`PermissionsEnumerable` inherits from the [`Permissions`](/solidity/extensions/permissions#full-api-reference) extension so includes 
+`PermissionsEnumerable` inherits from the [`Permissions`](/solidity/extensions/permissions#full-api-reference) extension so includes
 all of the functions in that extension. It also includes the following functions:
 
 <details>
@@ -120,7 +120,7 @@ function getRoleMemberCount(bytes32 role) external view returns (uint256 count);
 ```
 
 - Returns the number of accounts that have `role`. Can be used together with `getRoleMember` to enumerate all bearers of a role.
-- Parameters: 
+- Parameters:
   - `role`: keccak256 hash of the role. e.g. keccak256("TRANSFER_ROLE")
 
 </div>

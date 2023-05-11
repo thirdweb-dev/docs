@@ -6,17 +6,17 @@ title: ERC1155Drop
 import ViewContractCodeButton from "@components/ViewContractCodeButton";
 import QuickstartCard from "@components/QuickstartCard";
 
-# Drop (ERC1155)
+# ERC1155Drop
 
 ```solidity
 import "@thirdweb-dev/contracts/extension/Drop1155.sol";
 ```
 
-The `Drop1155` smart contract is an extension meant for distributing ERC1155 tokens. It allows setting up multiple claim phases unlike `DropSinglePhase1155`. This series of claim phases is ordered by their respective `startTimestamp`.
+The `Drop1155` smart contract is an extension meant for distributing [ERC1155](/solidity/extensions/erc1155) tokens. It allows setting up multiple claim phases unlike [`ERC1155DropSinglePhase`](/solidity/extensions/erc1155deropsinglephase). This series of claim phases is ordered by their respective `startTimestamp`.
 
 This extension implements the ['Drop'](/glossary/drop) distribution mechanism: set multiple claim phases with restrictions such as a price to charge, an allowlist etc. for the public / allowlisted mint of your tokens.
 
-It is recommended to use this extension alongside the [`LazyMint`](/solidity/extensions/lazymint) extension to be detectable as the [`ERC1155ClaimPhases`](/solidity/extensions/erc1155claimphases) extension.
+It is recommended to use this extension alongside the [`LazyMint`](/solidity/extensions/lazymint) extension.
 
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/Drop1155.sol"
@@ -27,15 +27,15 @@ It is recommended to use this extension alongside the [`LazyMint`](/solidity/ext
 
 The `Drop1155` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
 
-| Name                                                                                                    | Type                    | Description                                                                                                                                      |
-| ------------------------------------------------------------------------------------------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `_afterClaim`        | internal _virtual_   | Runs after every `claim` function call. |
-| `_beforeClaim`        | internal _virtual_    | Runs before every `claim` function call. |
-| `_collectPriceOnClaim`    | internal _virtual_      | Collects and distributes the primary sale value of NFTs being claimed.                                                                           |
+| Name                     | Type                    | Description                                                                                                                                      |
+| ------------------------ | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `_afterClaim`            | internal _virtual_      | Runs after every `claim` function call.                                                                                                          |
+| `_beforeClaim`           | internal _virtual_      | Runs before every `claim` function call.                                                                                                         |
+| `_collectPriceOnClaim`   | internal _virtual_      | Collects and distributes the primary sale value of NFTs being claimed.                                                                           |
 | `_transferTokensOnClaim` | internal _virtual_      | Transfers the NFTs being claimed.                                                                                                                |
 | `_canSetClaimConditions` | internal view _virtual_ | Runs on every attempt to set the claim condition on the contract. Returns whether the claim condition can be set in the given execution context. |
 
-This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality. 
+This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality.
 
 ```solidity
 // SPDX-License-Identifier: Apache-2.0
@@ -106,12 +106,34 @@ contract MyContract is ERC1155Base, Drop1155 {
     {
         return msg.sender == owner();
     }
+
+    /// @dev Runs before every `claim` function call.
+    function _beforeClaim(
+        uint256 _tokenId,
+        address _receiver,
+        uint256 _quantity,
+        address _currency,
+        uint256 _pricePerToken,
+        AllowlistProof calldata _allowlistProof,
+        bytes memory _data
+    ) internal virtual {}
+
+    /// @dev Runs after every `claim` function call.
+    function _afterClaim(
+        uint256 _tokenId,
+        address _receiver,
+        uint256 _quantity,
+        address _currency,
+        uint256 _pricePerToken,
+        AllowlistProof calldata _allowlistProof,
+        bytes memory _data
+    ) internal virtual {}
 }
 ```
 
 ## SDK Usage
 
-This extension alone does not unlock anything in the SDK. 
+This extension alone does not unlock anything in the SDK.
 By combining this extension with [`LazyMint`](/solidity/extensions/lazymint) and [`ERC1155`](/solidity/extensions/erc1155) extensions you will have the `ERC1155ClaimPhases` extension detected on your contract which unlocks these features in the SDK:
 
 <div className="row" style={{ marginBottom: 12 }}>
@@ -132,7 +154,7 @@ By combining this extension with [`LazyMint`](/solidity/extensions/lazymint) and
   <div className="col col--3" style={{ padding: 8 }}>
     <QuickstartCard
       name="Python"
-      link="/python/nft-drop-claim-conditions"
+      link="/python/python.erc1155claimconditions"
       image="/assets/languages/python.png"
     />
   </div>

@@ -1,0 +1,143 @@
+---
+title: Royalties
+slug: /python.contractroyalty
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+# Royalty
+
+Functionality available for contracts that inherit the [`Royalty`](/contracts/Royalty) contract.
+
+## get_default_royalty_info
+
+Gets the royalty recipient and BPS (basis points) of the smart contract.
+
+```python
+royalty_info = contract.royalties.get_default_royalty_info()
+print(royalty_info)
+```
+
+<details>
+<summary>Configuration</summary>
+<div>
+
+### Return Value
+
+Returns an object containing the royalty recipient address and BPS (basis points) of the smart contract.
+
+```python
+class ContractRoyaltySchema:
+    seller_fee_basis_points: int = 0
+    fee_recipient: str = ZERO_ADDRESS
+```
+
+</div>
+</details>
+
+## get_token_royalty_info
+
+Gets the royalty recipient and BPS (basis points) of a particular token in the contract.
+
+```python
+royalty_info = contract.royalties.get_token_royalty_info(
+  "{{token_id}}",
+);
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### tokenId
+
+The token ID to get the royalty info for.
+
+Must be an `int`.
+
+### Return Value
+
+Returns an object containing the royalty recipient address and BPS (basis points) of the token.
+
+```python
+class ContractRoyaltySchema:
+    seller_fee_basis_points: int = 0
+    fee_recipient: str = ZERO_ADDRESS
+```
+
+</div>
+</details>
+
+## set_default_royalty_info
+
+Set the royalty recipient and fee for the smart contract.
+
+```python
+from thirdweb.types import ContractRoyaltySchema
+
+royalty_data = ContractRoyaltySchema(
+    seller_fee_basis_points=100,
+    fee_recipient="0x7fDae677aA6f94Edff9872C4b91D26407709c790"
+)
+
+receipt = contract.royalties.set_default_royalty_info()
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### seller_fee_basis_points
+
+The royalty fee in BPS (basis points). 100 = 1%.
+
+Must be an `int`.
+
+#### fee_recipient
+
+The wallet address that will receive the royalty fees.
+
+Must be a `string`.
+
+</div>
+</details>
+
+## set_token_royalty_info
+
+Set the royalty recipient and fee for a particular token in the contract.
+
+```python
+from thirdweb.types import ContractRoyaltySchema
+
+token_id = 0
+royalty_data = ContractRoyaltySchema(
+    seller_fee_basis_points = 100,
+    fee_recipient = "0x7fDae677aA6f94Edff9872C4b91D26407709c790"
+)
+
+receipt = contract.royalties.set_token_royalty_info(token_id, royalty_data)
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### token_id
+
+The token ID to set the royalty info for.
+
+Must be an `int`.
+
+#### seller_fee_basis_points
+
+The royalty fee in BPS (basis points). 100 = 1%.
+
+Must be an `int`.
+
+#### fee_recipient
+
+The wallet address that will receive the royalty fees.
+
+Must be a `string`.
+
+</div>
+</details>

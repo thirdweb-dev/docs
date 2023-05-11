@@ -10,16 +10,14 @@ import QuickstartCard from "@components/QuickstartCard";
 
 ```solidity
 import "@thirdweb-dev/contracts/eip/ERC1155.sol";
-import "@thirdweb-dev/contracts/extension/LazyMint.sol";
 import "@thirdweb-dev/contracts/extension/interface/IClaimableERC1155.sol";
 ```
 
-Allow other wallets to claim/mint tokens that you have Lazy Minted by 
-implementing [`ERC1155`](/solidity/extensions/erc1155), [`LazyMint`](/solidity/extensions/lazymint) and [`ERC1155Claimable`](/solidity/extensions/erc1155claimable) extensions.
+Allow other wallets to claim/mint tokens that you have Lazy Minted by
+implementing [`ERC1155`](/solidity/extensions/erc1155) and [`ERC1155Claimable`](/solidity/extensions/erc1155claimable) extensions.
 
-This is an extension which is detectable in the dashboard if the smart contract implements the 
-[`ERC1155`](/solidity/extensions/erc1155), [`LazyMint`](/solidity/extensions/lazymint) and [`ERC1155Claimable`](/solidity/extensions/erc1155claimable) extensions.
-
+This is an extension which is detectable in the dashboard if the smart contract implements the
+[`ERC1155`](/solidity/extensions/erc1155) and [`ERC1155Claimable`](/solidity/extensions/erc1155claimable) extensions.
 
 <div className="row">
 
@@ -29,16 +27,6 @@ This is an extension which is detectable in the dashboard if the smart contract 
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/eip/ERC1155A.sol"
   name="ERC1155"
   text="ERC1155"
-/>
-
-</div>
-
-<div style={{ paddingLeft: 12, paddingBottom: 12 }}>
-
-<ViewContractCodeButton
-  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/LazyMint.sol"
-  name="LazyMint"
-  text="LazyMint
 />
 
 </div>
@@ -57,7 +45,7 @@ This is an extension which is detectable in the dashboard if the smart contract 
 
 ## Usage
 
-This is an example smart contract demonstrating how to inherit from the extensions which make up the `ERC1155ClaimCustom` detectable extension. 
+This is an example smart contract demonstrating how to inherit from the extensions which make up the `ERC1155ClaimCustom` detectable extension.
 The functions which are available to be (optionally) overridden are also detailed.
 
 ```solidity
@@ -104,7 +92,7 @@ contract Contract is ERC1155, LazyMint, IClaimableERC1155 {
     {
         // Your custom implementation here
     }
-    
+
     function claim(address _receiver, uint256 _quantity) external payable override {
         // Your custom implementation here
     }
@@ -136,6 +124,13 @@ By adding this extension to a smart contract, the following features, hooks and 
   </div>
   <div className="col col--3" style={{ padding: 8 }}>
     <QuickstartCard
+      name="Python"
+      link="/python/python.erc1155claimconditions"
+      image="/assets/languages/python.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
       name="Unity"
       link="/unity/erc1155claimconditions"
       image="/assets/languages/unity.webp"
@@ -147,4 +142,3 @@ By adding this extension to a smart contract, the following features, hooks and 
 
 - [ERC1155DelayedReveal](/solidity/base-contract/erc1155delayedreveal)
 - [ERC1155LazyMint](/solidity/base-contracts/erc1155lazymint)
-

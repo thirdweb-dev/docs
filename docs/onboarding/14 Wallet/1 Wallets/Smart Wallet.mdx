@@ -1,0 +1,457 @@
+---
+slug: /wallet/smart-wallet
+title: Smart Wallet
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+import ViewRepoButton from "@components/ViewRepoButton";
+
+Let your users connect to their [Smart Wallet](/glossary/smart-wallet).
+
+A Smart Wallet is a wallet that is controlled by a smart contract following the [ERC-4337 specification](https://eips.ethereum.org/EIPS/eip-4337).
+
+## Getting started
+
+#### 1. Deploy a smart wallet factory contract, you can deploy one in 1-click via the [explore page](https://thirdweb.com/explore/smart-wallet)
+#### 2. Get an API key, which you can obtain from the [thirdweb dashboard](https://thirdweb.com/dashboard/api-keys)
+
+The API key lets you access thirdweb's bundler and paymaster infrastructure, which is required for the smart wallet to operate and optionally enable [gasless transactions](/glossary/gasless-transactions).
+
+## Features
+
+Smart Wallets work a little differently than other wallets since it's controlled by a programmable smart contract rather than a regular externally-owned account (EOA). This programmable wallet contract can:
+
+- Hold any assets
+- Pay for its own gas
+- Execute transactions in batches
+- Have multiple owners
+- Assign roles and permissions
+
+And more! Smart Wallets can be customized to each application's needs using the Solidity SDK.
+
+The SmartWallet API is composable - you can bring in your own [ERC 4337](https://eips.ethereum.org/EIPS/eip-4337) compatible factory contract and you can also use your own bundler or paymaster services.
+
+## Templates
+
+Clone these templates to quickly deploy Smart Wallets and connect to them.
+
+<div className="row" style={{ marginLeft: 8 }}>
+  <div>
+    <ViewRepoButton
+      name={"js"}
+      text="Node.js Script"
+      link={"https://github.com/thirdweb-example/smart-wallet-script"}
+    />
+  </div>
+  <div style={{ marginLeft: 12 }}>
+    <ViewRepoButton
+      name={"js"}
+      text="React App"
+      link={"https://github.com/thirdweb-example/smart-wallet-react"}
+    />
+  </div>
+</div>
+
+## Supported chains
+
+With a thirdweb API key, you get access to bundler and paymaster infrastructure on the following chains:
+
+- Goerli
+- Mumbai
+- Base Goerli
+- Optimism Goerli
+- Arbitrum Goerli
+- Linea testnet
+
+more chains are added every week, to get support for a specific chain [contact us](https://thirdweb.typeform.com/to/Q93CVgUc?typeform-source=thirdweb-www-git-mariano-ftd-1670.thirdweb-preview.com).
+
+## Usage
+
+**To connect to a smart wallet, a personal wallet (acting as the key to the smart wallet) must first be connected.**
+
+```javascript
+import { LocalWallet, SmartWallet } from "@thirdweb-dev/wallets";
+import { Goerli } from "@thirdweb-dev/chains";
+
+// First, connect the personal wallet, which can be any wallet (metamask, walletconnect, etc.)
+// Here we're just generating a new local wallet which can be saved later
+const personalWallet = new LocalWallet();
+await personalWallet.generate();
+await personalWallet.connect();
+
+// Setup the Smart Wallet configuration
+const config: SmartWalletConfig = {
+  chain: Goerli, // the chain where your smart wallet will be or is deployed
+  factoryAddress: "{{factory_address}}", // your own deployed account factory address
+  thirdwebApiKey: "{{api_key}}", // obtained from the thirdweb dashboard
+  gasless: true, // enable or disable gasless transactions
+};
+
+// Then, connect the Smart wallet
+const wallet = new SmartWallet(config);
+await wallet.connect({
+  personalWallet,
+});
+```
+
+## Configuration
+
+Here's the full configuration object you can pass when instantiating the `SmartWallet` class.
+
+### Mandatory properties
+
+<details>
+  <summary>chain</summary>
+  <div>
+
+The chain that the Smart Wallet contract is deployed to.
+
+Either a `Chain` object, from the [`@thirdweb-dev/chains`](https://www.npmjs.com/package/@thirdweb-dev/chains) package, a chain name, or an RPC URL.
+
+</div>
+</details>
+
+<details>
+  <summary>factoryAddress</summary>
+  <div>
+
+The address of the Smart Wallet Factory contract.
+
+Must be a `string`.
+
+</div>
+</details>
+
+<details>
+  <summary>thirdwebApiKey</summary>
+  <div>
+
+Your thirdweb API key can be obtained from the [thirdweb dashboard](https://thirdweb.com/dashboard/api-keys).
+
+If you're using your own bundler and paymaster, you can set this to an empty string.
+
+Must be a `string`.
+
+</div>
+</details>
+
+<details>
+  <summary>gasless</summary>
+  <div>
+
+Whether to turn on or off gasless transactions.
+
+- If set to `true`, all gas fees will be paid by a paymaster.
+- If set to `false`, all gas fees will be paid by the Smart Wallet itself (needs to be funded).
+
+Must be a `boolean`.
+
+</div>
+</details>
+
+### Optional properties
+
+<details>
+  <summary>factoryInfo</summary>
+  <div>
+
+Customize how the Smart Wallet Factory contract is interacted with. If not provided, the default functions will be used.
+
+Must be a `object`. The object can contain the following properties:
+
+- `createAccount` - a function that returns the transaction object to create a new Smart Wallet.
+- `getAccountAddress` - a function that returns the address of the Smart Wallet contract given the owner address.
+- `abi` - optional ABI. If not provided, the ABI will be auto-resolved.
+
+Example:
+
+```javascript
+ const config: SmartWalletConfig = {
+      chain,
+      gasless,
+      factoryAddress,
+      thirdwebApiKey,
+      // highlight-start
+      factoryInfo: {
+        createAccount: (factory, owner) => {
+          return factory.prepare("customCreateAccount", [
+            owner,
+            getExtraData(),
+          ]);
+        },
+        getAccountAddress(factory, owner) {
+          return factory.call("getAccountAddress", [owner]);
+        },
+        abi: [...]
+      },
+      // highlight-end
+    };
+```
+
+</div>
+</details>
+
+<details>
+  <summary>accountInfo</summary>
+  <div>
+
+Customize how the Smart Wallet Account contract is interacted with. If not provided, the default functions will be used.
+
+Must be a `object`. The object can contain the following properties:
+
+- `execute` - a function that returns the transaction object to execute an arbitrary transaction.
+- `getNonce` - a function that returns the current nonce of the account.
+- `abi` - optional ABI. If not provided, the ABI will be auto-resolved.
+
+Example:
+
+```javascript
+ const config: SmartWalletConfig = {
+      chain,
+      gasless,
+      factoryAddress,
+      thirdwebApiKey,
+      // highlight-start
+      accountInfo: {
+        execute: (account, target, value, data) => {
+          return account.prepare("customExecute", [
+            target, value, data
+          ]);
+        },
+        getNonce(account) {
+          return account.call("getNonce");
+        },
+        abi: [...]
+      },
+      // highlight-end
+    };
+```
+
+</div>
+</details>
+
+<details>
+  <summary>bundlerUrl</summary>
+  <div>
+
+Your own bundler URL to send user operations to. Uses thirdweb's bundler by default.
+
+Must be a `string`.
+
+</div>
+</details>
+
+<details>
+  <summary>paymasterUrl</summary>
+  <div>
+
+Your own paymaster URL to send user operations to for gasless transactions. Uses thirdweb's paymaster by default.
+
+Must be a `string`.
+
+</div>
+</details>
+
+<details>
+  <summary>entryPointAddress</summary>
+  <div>
+
+The entrypoint contract address. Uses v0.6 by default.
+
+Must be a `string`.
+
+</div>
+</details>
+
+<details>
+  <summary>chains</summary>
+  <div>
+
+Provide an array of chains you want to support.
+
+Must be an array of `Chain` objects, from the [`@thirdweb-dev/chains`](https://www.npmjs.com/package/@thirdweb-dev/chains) package.
+
+Defaults to thirdweb's [default chains](/react/react.thirdwebprovider#default-chains).
+
+```javascript
+import { SmartWallet } from "@thirdweb-dev/wallets";
+import { Ethereum } from "@thirdweb-dev/chains";
+
+const wallet = new SmartWallet(
+  // highlight-start
+  {
+    chains: [Ethereum],
+  },
+  // highlight-end
+);
+```
+
+</div>
+</details>
+
+<details>
+  <summary>dappMetadata</summary>
+  <div>
+
+Information about your app that the wallet will display when your app tries to connect to it.
+
+Must be an object containing `name`, `url` and optionally `description` and `logoUrl` properties.
+
+```javascript
+import { SmartWallet } from "@thirdweb-dev/wallets";
+
+const wallet = new SmartWallet({
+  // highlight-start
+  dappMetadata: {
+    name: "thirdweb powered dApp",
+    url: "https://thirdweb.com",
+    description: "thirdweb powered dApp", // optional
+    logoUrl: "https://thirdweb.com/favicon.ico", // optional
+  },
+  // highlight-end
+});
+```
+
+</div>
+</details>
+
+<details>
+  <summary>walletId</summary>
+  <div>
+
+An ID for the wallet that is used to store the wallet in the `walletStorage`.
+
+```javascript
+import { SmartWallet } from "@thirdweb-dev/wallets";
+
+const wallet = new SmartWallet(
+  // highlight-start
+  {
+    walletId: "wallet-id",
+  },
+  // highlight-end
+);
+```
+
+</div>
+</details>
+
+## Methods
+
+Inherits all the public methods from the [`AbstractClientWallet`](interfaces/abstract-client-wallet) class.
+
+### connect
+
+Connect the smart wallet to your app using a personal wallet.
+
+This personal wallet must be connected before connecting to a Smart wallet.
+
+```javascript
+import { CoinbaseWallet, SmartWallet } from "@thirdweb-dev/wallets";
+import { Ethereum } from "@thirdweb-dev/chains";
+
+// First, connect the personal wallet
+const personalWallet = new CoinbaseWallet();
+const personalWalletAddress = await personalWallet.connect();
+
+// Then, connect the Smart wallet
+const smartWallet = new SmartWallet(config);
+const smartWalletAddress = await smartWallet.connect({
+  personalWallet,
+});
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### personalWallet
+
+The instance of a personal wallet that can sign transactions on the Smart Wallet.
+
+Must be an `EVMWallet` instance such as [`CoinbaseWallet`](/wallet/coinbase-wallet) or [`MetamaskWallet`](/wallet/metamask).
+
+Returns a `string` containing the wallet address, or throws an error if the connection fails.
+
+```typescript
+string;
+```
+
+</div>
+</details>
+
+### execute
+
+Execute a single transaction as the connected Smart Wallet.
+
+```javascript
+// first, connect the Smart wallet
+const wallet = new SmartWallet(config);
+await wallet.connect({
+  personalWallet,
+});
+
+// Then you can execute transactions directly
+const transaction = prepareTransaction();
+await wallet.execute(transaction);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### transaction
+
+The transaction to execute. Must be of type `Transaction` from the [`@thirdweb-dev/sdk`](https://www.npmjs.com/package/@thirdweb-dev/sdk) package.
+
+Creating these transactions can be done easily using the [Transaction Builder](/typescript/sdk.smartcontract.prepare) from the thirdweb SDK.
+
+Returns a `TransactionResult` containing the transaction receipt.
+
+```typescript
+TransactionResult;
+```
+
+</div>
+</details>
+
+### executeBatch
+
+Execute multiple transactions as the connected Smart Wallet at once, only requiring one signature from the personal wallet.
+
+```javascript
+// first, connect the Smart wallet
+const wallet = new SmartWallet(config);
+await wallet.connect({
+  personalWallet,
+});
+
+// Then you can execute multiple transactions at once
+const transactions = [
+  prepareTransaction1(),
+  prepareTransaction2(),
+  prepareTransaction3(),
+];
+await wallet.executeBatch(transactions);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### transactions
+
+An array of transactions to execute. Must be of type `Transaction[]` from the [`@thirdweb-dev/sdk`](https://www.npmjs.com/package/@thirdweb-dev/sdk) package.
+
+Creating these transactions can be done easily using the [Transaction Builder](typescript/sdk.smartcontract.prepare) from the thirdweb SDK.
+
+Returns a `TransactionResult` containing the transaction receipt.
+
+```typescript
+TransactionResult;
+```
+
+</div>
+</details>

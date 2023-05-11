@@ -1,0 +1,300 @@
+---
+title: Marketplace
+slug: /python.marketplace
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+When using the [Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace) smart contract, additional top-level functionality is available to use.
+
+To access the top-level functionality, use the `get_marketplace` method when creating the contract instance:
+
+```python
+contract = sdk.get_marketplace(
+  "{{contract_address}}",
+)
+```
+
+## get_listing
+
+Get the details of a marketplace listing using the listing ID.
+
+```python
+listing_id = 1
+listing = contract.get_listing(listing_id)
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### listing_id
+
+The ID of the listing to get the details for.
+
+Must be an `int`.
+
+### Return Value
+
+Returns an `AuctionListing` or `DirectListing` object, depending on the type, containing the following properties:
+
+```python
+class DirectListing:
+    id: int
+    asset_contract_address: str
+    token_id: int
+    asset: NFTMetadata
+    start_time_in_seconds: int
+    seconds_until_end: int
+    quantity: int
+    currency_contract_address: str
+    buyout_currency_value_per_token: CurrencyValue
+    buyout_price: PriceWei
+    seller_address: str
+    type = ListingType.DIRECT
+
+
+class AuctionListing:
+    id: int
+    asset_contract_address: str
+    token_id: int
+    asset: NFTMetadata
+    start_time_in_epoch_seconds: int
+    end_time_in_epoch_seconds: int
+    quantity: int
+    currency_contract_address: str
+    reserve_price: PriceWei
+    buyout_price: PriceWei
+    buyout_currency_value_per_token: CurrencyValue
+    reserve_price_currency_value_per_token: CurrencyValue
+    seller_address: str
+    type = ListingType.AUCTION
+```
+
+</div>
+</details>
+
+## get_active_listings
+
+Get all the currently active listings from the marketplace.
+
+```python
+listings = contract.get_active_listings()
+price_of_first = listings[0].price
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+A list of the listings `Union[DirectListing, AuctionListing]`.
+
+</div>
+</details>
+
+## get_all_listings
+
+Get all the listings that have ever been made on this marketplace.
+
+```python
+listings = contract.get_all_listings()
+```
+
+<details>
+<summary>Configuration</summary>
+<div>
+
+### filter (optional)
+
+Filter the marketplace listings. Must be of type `MarketplaceFilter`
+
+```python
+class MarketplaceFilter:
+    start: int = 0
+    count: int = 100
+    seller: Optional[str] = None
+    token_contract: Optional[str] = None
+    token_id: Optional[int] = None
+```
+
+```python
+from thirdweb.types.marketplace import MarketplaceFilter
+
+filter = MarketplaceFilter(0, 5)
+listings = contract.get_all_listings(filter)
+```
+
+### Return Value
+
+A list of the listings `List[Union[DirectListing, AuctionListing]]`.
+
+</div>
+</details>
+
+## get_total_count
+
+Get the total number of listings on this marketplace.
+
+```python
+total_count = contract.get_total_count()
+```
+
+<details>
+<summary>Configuration</summary>
+<div>
+
+### Return Value
+
+An `int` representing the total number of listings on the marketplace contract.
+
+</div>
+</details>
+
+## is_restricted_to_lister_role_only
+
+Check whether only wallets with the `lister` role can make listings.
+
+```python
+listener_only = contract.is_restricted_to_listener_role_only()
+```
+
+<details>
+<summary>Configuration</summary>
+<div>
+
+### Return Value
+
+A `bool` representing whether the wallets with the `listener` role can make listings.
+
+</div>
+</details>
+
+## get_time_buffer_in_seconds
+
+Get the time buffer for this marketplace in seconds.
+
+```python
+time_buffer = contract.get_time_buffer_in_seconds()
+```
+
+<details>
+<summary>Configuration</summary>
+<div>
+
+### Return Value
+
+A `int` representing the time buffer in seconds.
+
+</div>
+</details>
+
+## buyout_listing
+
+Buyout a listing by listing ID.
+
+```python
+listing_id = 0
+quantity_desired = 1
+receiver = "0x..."
+time_buffer = contract.buyout_listing(listing_id, quantity_desired, receiver)
+```
+
+<details>
+<summary>Configuration</summary>
+<div>
+
+#### listing_id
+
+ID of the listing to buyout. Must be of type `int`
+
+```python
+# highlight-next-line
+listing_id = 0
+quantity_desired = 1
+receiver = "0x..."
+time_buffer = contract.buyout_listing(listing_id, quantity_desired, receiver)
+```
+
+#### quantity_desired
+
+Quantity to buyout. Must be of type `int`.
+
+```python
+listing_id = 0
+# highlight-next-line
+quantity_desired = 1
+receiver = "0x..."
+time_buffer = contract.buyout_listing(listing_id, quantity_desired, receiver)
+```
+
+#### receiver
+
+Address to send the asset to. Must be of type `str`.
+
+```python
+listing_id = 0
+quantity_desired = 1
+# highlight-next-line
+receiver = "0x..."
+time_buffer = contract.buyout_listing(listing_id, quantity_desired, receiver)
+```
+
+### Return Value
+
+A `int` representing the time buffer in seconds.
+
+</div>
+</details>
+
+## set_bid_buffer_bps
+
+Set the bid buffer basis points for this marketplace.
+
+```python
+buffer_bps = 500
+contract.set_bid_buffer_bps(buffer_bps)
+```
+
+<details>
+<summary>Configuration</summary>
+<div>
+
+#### buffer_bps
+
+The bid buffer basis points. Must be of type `int`.
+
+```python
+# hightlight-next-line
+buffer_bps = 500
+contract.set_bid_buffer_bps(buffer_bps)
+```
+
+</div>
+</details>
+
+## set_time_buffer_in_seconds
+
+Set the time buffer of the marketplace.
+
+```python
+buffer_in_seconds = 60
+contract.set_time_buffer_in_seconds(buffer_in_seconds)
+```
+
+<details>
+<summary>Configuration</summary>
+<div>
+
+#### buffer_in_seconds
+
+The time buffer in seconds. Must be of type `int`.
+
+```python
+# highlight-next-line
+buffer_in_seconds = 60
+contract.set_time_buffer_in_seconds(buffer_in_seconds)
+```
+
+</div>
+</details>

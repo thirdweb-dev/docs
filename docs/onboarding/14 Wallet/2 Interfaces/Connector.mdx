@@ -1,0 +1,37 @@
+---
+slug: /wallet/interfaces/connector
+title: Connector
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+import ViewRepoButton from "@components/ViewRepoButton";
+
+The interface to bridge any wallet provider to the [`AbstractClientWallet`](/wallet/interfaces/abstract-client-wallet) universal interface.
+
+This class is not meant to be used directly, but instead be extended to [build your own wallet](/wallet/build-a-wallet).
+
+<ViewRepoButton
+  name={"js"}
+  text="View on GitHub"
+  link={
+    "https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/interfaces/connector.ts"
+  }
+/>
+
+## Usage
+
+```javascript
+export class MyConnector extends Connector {
+  connect(args?: ConnectParams<TConnectParams>): Promise<string>
+  disconnect(): Promise<void>
+  getAddress(): Promise<string>
+  getSigner(): Promise<Signer>
+  getProvider(): Promise<providers.Provider>
+  switchChain(chainId: number): Promise<void>
+  isConnected(): Promise<boolean>
+  setupListeners(): Promise<void>
+  updateChains(chains: Chain[]): void
+}
+```

@@ -1,0 +1,130 @@
+---
+title: usePaperWallet
+slug: /react.usepaperwallet
+displayed_sidebar: react
+---
+
+Hook that prompts users to connect [Paper Wallet](/wallet/paper) to your app which allows users to connect to your app using their email address
+
+```jsx
+import { usePaperWallet } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Calling the function returned by the `usePaperWallet` hook opens the Paper Wallet's Modal and prompts the user to log in with their email address.
+
+If `email` is not provided, the user will be prompted to enter their email address or sign in with a Google account. Once the user enters the email address or signs in with a Google account, an OTP will be sent to the user's email address. Once the user enters the OTP, the wallet will be connected.
+
+If the email is provided, the user will be directly shown the OTP screen, the user will not be prompted to enter their email.
+
+once connected, you can use the [`useAddress`](/react/react.useaddress) hook to get the user's address and [`usePaperWalletUserEmail`](/react/react.usepaperwalletuseremail) hook to get the user's email address.
+
+Paper SDK requires a clientId for instantiation. You can create a `clientId` for your app on [paper.xyz](https://paper.xyz/product/wallet)
+
+```jsx
+import { usePaperWallet } from "@thirdweb-dev/react";
+
+function App() {
+  const connectWithPaperWallet = usePaperWallet();
+
+  return (
+    <button
+      onClick={() =>
+        connectWithPaperWallet({
+          clientId: "<YOUR_CLIENT_ID>",
+          email: "<USER_EMAIL>", // optional - directly show OTP screen
+        })
+      }
+    >
+      Connect with Paper Wallet
+    </button>
+  );
+}
+```
+
+## Configuration
+
+<details>
+  <summary>chainId</summary>
+  <div>
+
+To connect to a specific chain when connecting the wallet,
+pass the `chainId` in a configuration object as shown below.
+
+Paper Wallet only supports 5 chains at the moment: Ethereum (1), Polygon (137), Avalanche(43114) , Goerli (5) and Mumbai (80001). If no `chainId` is specified, Ethereum (1) is used by default.
+
+```ts
+chainId: 1 | 137 | 43114 | 5 | 80001;
+```
+
+```jsx
+import { usePaperWallet } from "@thirdweb-dev/react";
+import { Polygon } from "@thirdweb-dev/chains";
+
+function App() {
+  const connectWithPaperWallet = usePaperWallet();
+
+  return (
+    <button
+      onClick={() =>
+        connectWithPaperWallet({
+          clientId: "<YOUR_CLIENT_ID>",
+          chainId: Polygon.chainId,
+        })
+      }
+    >
+      Connect Wallet
+    </button>
+  );
+}
+```
+
+You must add this chain in `ThirdwebProvider`&rsquo;s [supportedChains](/react/react.thirdwebprovider#supportedChains) prop as shown below
+
+```jsx
+import { Polygon } from "@thirdweb-dev/chains";
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+
+export function YourApp() {
+  return (
+    <ThirdwebProvider supportedChains={[Polygon]}>
+      <App />
+    </ThirdwebProvider>
+  );
+}
+```
+
+</div>
+</details>
+
+<details>
+  <summary>email (optional)</summary>
+  <div>
+
+If the user's email address is already known, you can skip prompting the user for entering an email address and directly show the OTP screen by passing the `email` in a configuration object as shown below.
+
+```jsx
+import { usePaperWallet } from "@thirdweb-dev/react";
+import { Polygon } from "@thirdweb-dev/chains";
+
+function App() {
+  const connectWithPaperWallet = usePaperWallet();
+
+  return (
+    <button
+      onClick={() =>
+        connectWithPaperWallet({
+          clientId: "<YOUR_CLIENT_ID>",
+          email: "user@example.com",
+        })
+      }
+    >
+      Connect Wallet
+    </button>
+  );
+}
+```
+
+</div>
+</details>

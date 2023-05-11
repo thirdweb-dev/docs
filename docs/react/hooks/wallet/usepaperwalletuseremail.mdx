@@ -1,0 +1,33 @@
+---
+title: usePaperWalletUserEmail
+slug: /react.usepaperwalletuseremail
+displayed_sidebar: react
+---
+
+Hook for getting the user's email address from connected paper wallet.
+
+You can use the [usePaperWallet](/react/react.usepaperwallet) hook to connect a paper wallet.
+
+```jsx
+import { usePaperWalletUserEmail } from "@thirdweb-dev/react";
+
+const emailQuery = usePaperWalletUserEmail();
+```
+
+## Usage
+
+`usePaperWalletUserEmail` hook returns a [query](https://tanstack.com/query/v3/docs/react/guides/queries) object, you can use the `data` property to get the user's email address.
+
+```jsx
+import { usePaperWalletUserEmail } from "@thirdweb-dev/react";
+
+function App() {
+  const emailQuery = usePaperWalletUserEmail();
+
+  if (emailQuery.isLoading) {
+    return <div>Loading Email...</div>;
+  } else {
+    return <div>{emailQuery.data}</div>;
+  }
+}
+```

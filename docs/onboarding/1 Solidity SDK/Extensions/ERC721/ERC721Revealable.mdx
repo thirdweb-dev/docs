@@ -10,13 +10,12 @@ import QuickstartCard from "@components/QuickstartCard";
 
 ```solidity
 import "@thirdweb-dev/contracts/eip/ERC721.sol";
-import "@thirdweb-dev/contracts/extension/LazyMint.sol";
 import "@thirdweb-dev/contracts/extension/DelayedReveal.sol";
 ```
 
 Create batches of ['delayed-reveal'](/glossary/delayed-reveal) NFTs that can be revealed at a later date after they have been minted and claimed.
 
-This is an extension which is detectable in the dashboard if the smart contract implements the 
+This is an extension which is detectable in the dashboard if the smart contract implements the
 [`ERC721`](/solidity/extensions/erc721) and [`DelayedReveal`](/solidity/extensions/delayedreveal) extensions.
 
 <div className="row">
@@ -27,16 +26,6 @@ This is an extension which is detectable in the dashboard if the smart contract 
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/eip/ERC721.sol"
   name="ERC721"
   text="ERC721"
-/>
-
-</div>
-
-<div style={{ paddingLeft: 12, paddingBottom: 12 }}>
-
-<ViewContractCodeButton
-  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/LazyMint.sol"
-  name="LazyMint"
-  text="LazyMint"
 />
 
 </div>
@@ -55,7 +44,7 @@ This is an extension which is detectable in the dashboard if the smart contract 
 
 ## Usage
 
-This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality. 
+This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality.
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -110,6 +99,13 @@ By adding this extension to a smart contract, the following features, hooks and 
   </div>
   <div className="col col--3" style={{ padding: 8 }}>
     <QuickstartCard
+      name="Python"
+      link="/python/python.erc721revealable"
+      image="/assets/languages/python.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
       name="Unity"
       link="/unity/delayedreveal721"
       image="/assets/languages/unity.webp"
@@ -121,4 +117,3 @@ By adding this extension to a smart contract, the following features, hooks and 
 
 - [ERC721DelayedReveal](/solidity/base-contracts/erc721delayedreveal)
 - [ERC721Drop](/solidity/base-contracts/erc721drop)
-

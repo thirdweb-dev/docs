@@ -11,17 +11,15 @@ import QuickstartCard from "@components/QuickstartCard";
 ```solidity
 import "@thirdweb-dev/contracts/eip/interface/IERC20.sol";
 import "@thirdweb-dev/contracts/extension/Drop.sol";
-import "@thirdweb-dev/contracts/extension/LazyMint.sol";
 ```
 
 Allow other wallets to claim/mint tokens from the contract under the criteria of claim conditions by
 implementing [`ERC20`](/solidity/extensions/erc20), [`LazyMint`](/solidity/extensions/lazymint) and [`Drop`](/solidity/extensions/drop) extensions.
 
-Unlike [`ERC20ClaimConditions`](/solidity/extensions/erc1155claimconditions), this extension allows you to set *multiple* claim phases.
+Unlike [`ERC20ClaimConditions`](/solidity/extensions/erc1155claimconditions), this extension allows you to set _multiple_ claim phases.
 
-This is an extension which is detectable in the dashboard if the smart contract implements the 
-[`ERC20`](/solidity/extensions/erc20), [`LazyMint`](/solidity/extensions/lazymint) and [`Drop`](/solidity/extensions/drop) extensions.
-
+This is an extension which is detectable in the dashboard if the smart contract implements the
+[`ERC20`](/solidity/extensions/erc20) and [`Drop`](/solidity/extensions/drop) extensions.
 
 <div className="row">
 
@@ -46,21 +44,11 @@ This is an extension which is detectable in the dashboard if the smart contract 
 
 </div>
 
-<div style={{ paddingLeft: 12, paddingBottom: 12 }}>
-
-<ViewContractCodeButton
-  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/LazyMint.sol"
-  name="LazyMint"
-  text="LazyMint"
-/>
-
-</div>
-
 </div>
 
 ## Usage
 
-This is an example smart contract demonstrating how to inherit from the extensions which make up the `ERC20ClaimPhases` detectable extension. 
+This is an example smart contract demonstrating how to inherit from the extensions which make up the `ERC20ClaimPhases` detectable extension.
 The functions which are available to be (optionally) overridden are also detailed.
 
 ```solidity
@@ -107,7 +95,7 @@ contract Contract is ERC20, Drop, LazyMint {
     ) internal virtual override {
       // Your custom implementation logic here
     }
-    
+
     function _canSetClaimConditions() internal view override returns (bool) {
         // Your custom implementation here
     }
@@ -160,6 +148,13 @@ By adding this extension to a smart contract, the following features, hooks and 
       name="TypeScript"
       link="/typescript/sdk.erc20claimconditions"
       image="/assets/languages/typescript.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Python"
+      link="/python/python.erc20claimconditions"
+      image="/assets/languages/python.png"
     />
   </div>
   <div className="col col--3" style={{ padding: 8 }}>

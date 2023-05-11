@@ -1,0 +1,180 @@
+---
+title: Permissions
+slug: /python.permissions
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+# Permissions
+
+Functionality available for contracts that inherit the [`Permissions`](/solidity/extensions/permissions) extension.
+
+Allows you to manage the roles and permissions of the smart contract.
+
+Roles include
+`admin`, `transfer`, `minter`, `pauser`, `lister`, `asset`, `unwrap`, `factory`,
+or any other custom roles you have created.
+
+## get
+
+Get a list of wallet addresses that are members of a given role.
+
+```python
+from thirdweb.constants.role import Role
+
+# Select any role to filter by
+role = Role.ADMIN
+
+role_members = contract.roles.get(role)
+print(role_members)
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### role
+
+The name of the role.
+
+Must be a `Role`.
+
+```python
+role_members = contract.roles.get(
+  # highlight-next-line
+  role,
+)
+```
+
+### Return Value
+
+A list of `string`s representing the wallet addresses associated with the given role.
+
+```python
+List[str]
+```
+
+</div>
+</details>
+
+## get_all
+
+Retrieve all of the roles and associated wallets.
+
+```python
+all_role_members = contract.roles.get_all()
+print(all_role_members)
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+A dictionary containing role names as keys and an array of wallet addresses as the value.
+
+```python
+Dict[Role, List[str]]
+```
+
+</div>
+</details>
+
+## grant
+
+Make a wallet a member of a given role.
+
+```python
+from thirdweb.constants.role import Role
+
+address = "0x7fDae677aA6f94Edff9872C4b91D26407709c790" # Address to grant a role
+role = Role.ADMIN # Select a role to grant
+
+receipt = contract.roles.grant(role, address)
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### role
+
+The name of the role to grant.
+
+Must be a `Role`.
+
+```python
+receipt = contract.roles.grant(
+  # highlight-next-line
+  role,
+  "{{wallet_address}}",
+)
+```
+
+#### wallet
+
+The wallet address to assign the role to.
+
+Must be a `string`.
+
+```python
+receipt = contract.roles.grant(
+  # highlight-next-line
+  role,
+  "{{wallet_address}}",
+)
+```
+
+</div>
+</details>
+
+## revoke
+
+Revoke a given role from a wallet.
+
+```python
+from thirdweb.constants.role import Role
+
+address = "0x7fDae677aA6f94Edff9872C4b91D26407709c790" # Address to revoke role
+role = Role.ADMIN # Select a role to revoke
+
+receipt = contract.roles.revoke(
+  role,
+  "{{wallet_address}}",
+)
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### role
+
+The name of the role to revoke.
+
+Must be a `Role`.
+
+```python
+receipt = contract.roles.revoke(
+  # highlight-next-line
+  role,
+  "{{wallet_address}}",
+)
+```
+
+#### wallet
+
+The wallet address to remove the role from.
+
+Must be a `string`.
+
+```python
+receipt = contract.roles.revoke(
+  # highlight-next-line
+  role,
+  "{{wallet_address}}",
+)
+```
+
+</div>
+</details>
