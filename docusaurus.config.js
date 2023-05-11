@@ -21,7 +21,7 @@ const config = {
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
-  organizationName: "thidweb-dev", // Usually your GitHub org/user name.
+  organizationName: "thirdweb-dev", // Usually your GitHub org/user name.
   projectName: "docs", // Usually your repo name.
   trailingSlash: false,
   webpack: {
