@@ -86,11 +86,11 @@
     "html_url": "https://github.com/thirdweb-example/catattacknft",
     "description": "Claim your cat, attack others, and accumulate points to win!",
     "created_at": "2022-08-26T20:48:18Z",
-    "updated_at": "2023-05-09T16:24:48Z",
+    "updated_at": "2023-05-10T18:31:51Z",
     "clone_url": "https://github.com/thirdweb-example/catattacknft.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 73,
+    "stargazers_count": 74,
     "is_template": false,
     "homepage": "https://catattacknft.vercel.app"
   },
@@ -112,14 +112,14 @@
     "html_url": "https://github.com/thirdweb-example/community-rewards",
     "description": "Reward your community using NFTs and thirdweb's signature based minting.",
     "created_at": "2022-05-22T23:33:24Z",
-    "updated_at": "2023-05-09T03:01:11Z",
+    "updated_at": "2023-05-11T08:34:03Z",
     "clone_url": "https://github.com/thirdweb-example/community-rewards.git",
     "topics": [
       "nft-collection",
       "signature-based-minting"
     ],
     "language": "JavaScript",
-    "stargazers_count": 23,
+    "stargazers_count": 24,
     "is_template": false,
     "homepage": "https://community-rewards.thirdweb-example.com"
   },
@@ -430,14 +430,14 @@
     "html_url": "https://github.com/thirdweb-example/erc20-staking-app",
     "description": "Allow users to stake their ERC20 tokens in return for more/other ERC20 tokens!",
     "created_at": "2023-01-27T08:07:46Z",
-    "updated_at": "2023-05-06T02:05:48Z",
+    "updated_at": "2023-05-10T11:24:37Z",
     "clone_url": "https://github.com/thirdweb-example/erc20-staking-app.git",
     "topics": [
       "staking",
       "token"
     ],
     "language": "JavaScript",
-    "stargazers_count": 1,
+    "stargazers_count": 2,
     "is_template": false,
     "homepage": "https://erc20-staking-app.thirdweb-example.com/"
   },
@@ -699,13 +699,13 @@
     "html_url": "https://github.com/thirdweb-example/lens",
     "description": "Starter kit for using Lens Protocol with the thirdweb SDK!",
     "created_at": "2022-10-27T10:15:02Z",
-    "updated_at": "2023-04-29T03:46:47Z",
+    "updated_at": "2023-05-10T20:28:34Z",
     "clone_url": "https://github.com/thirdweb-example/lens.git",
     "topics": [
       "lens-protocol"
     ],
     "language": "TypeScript",
-    "stargazers_count": 37,
+    "stargazers_count": 38,
     "is_template": false,
     "homepage": "https://lens.thirdweb-example.com/"
   },
@@ -808,13 +808,13 @@
     "html_url": "https://github.com/thirdweb-example/marketplace-with-signature-based-minting",
     "description": "Mint and list NFTs on to a marketplace using signature-based minting",
     "created_at": "2022-07-26T07:48:49Z",
-    "updated_at": "2023-04-05T02:40:58Z",
+    "updated_at": "2023-05-10T07:30:04Z",
     "clone_url": "https://github.com/thirdweb-example/marketplace-with-signature-based-minting.git",
     "topics": [
       "marketplace"
     ],
     "language": "JavaScript",
-    "stargazers_count": 10,
+    "stargazers_count": 11,
     "is_template": false,
     "homepage": "https://marketplace-with-signature-based-minting.thirdweb-example.com/"
   },
@@ -957,7 +957,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-gated-website",
     "description": "Restrict access to content based on the ownership of an NFT",
     "created_at": "2022-04-08T17:59:57Z",
-    "updated_at": "2023-05-09T03:00:08Z",
+    "updated_at": "2023-05-10T09:01:59Z",
     "clone_url": "https://github.com/thirdweb-example/nft-gated-website.git",
     "topics": [
       "auth",
@@ -968,7 +968,7 @@
       "wallet-connection"
     ],
     "language": "JavaScript",
-    "stargazers_count": 114,
+    "stargazers_count": 115,
     "is_template": false,
     "homepage": "https://nft-gated-website.thirdweb-example.com"
   },
@@ -993,7 +993,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-staking-app",
     "description": "An NFT Staking contract deployed using thirdweb deploy, where users stake their ERC721 tokens and earn ERC20 tokens in return!",
     "created_at": "2022-05-31T05:09:19Z",
-    "updated_at": "2023-05-09T03:00:25Z",
+    "updated_at": "2023-05-10T10:43:20Z",
     "clone_url": "https://github.com/thirdweb-example/nft-staking-app.git",
     "topics": [
       "erc20",
@@ -1004,7 +1004,7 @@
       "staking"
     ],
     "language": "TypeScript",
-    "stargazers_count": 105,
+    "stargazers_count": 106,
     "is_template": false,
     "homepage": "https://nft-staking-contract.thirdweb-example.com/"
   },
@@ -1132,7 +1132,7 @@
     "html_url": "https://github.com/thirdweb-example/play-to-earn-game",
     "description": "Use thirdweb's token, edition drop, and a custom contract using thirdweb deploy to build a Play-to-Earn game!",
     "created_at": "2022-06-22T11:24:30Z",
-    "updated_at": "2023-05-09T03:00:50Z",
+    "updated_at": "2023-05-10T19:26:29Z",
     "clone_url": "https://github.com/thirdweb-example/play-to-earn-game.git",
     "topics": [
       "contract-kit",
@@ -1143,7 +1143,7 @@
       "thirdweb-deploy"
     ],
     "language": "TypeScript",
-    "stargazers_count": 43,
+    "stargazers_count": 44,
     "is_template": false,
     "homepage": "https://play-to-earn.thirdweb-example.com"
   },
@@ -1235,11 +1235,11 @@
     "html_url": "https://github.com/thirdweb-example/shopify-discount-codes",
     "description": "Grant users who hold an NFT from your collection a discount code they can use in your Shopify store!",
     "created_at": "2022-10-04T23:36:42Z",
-    "updated_at": "2023-05-01T02:56:20Z",
+    "updated_at": "2023-05-11T02:51:38Z",
     "clone_url": "https://github.com/thirdweb-example/shopify-discount-codes.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 8,
+    "stargazers_count": 9,
     "is_template": false,
     "homepage": null
   },
@@ -1248,11 +1248,11 @@
     "html_url": "https://github.com/thirdweb-example/shopify-sell-nfts",
     "description": "Sell NFTs in FIAT currency using a Shopify store and webhooks!",
     "created_at": "2022-10-06T01:28:05Z",
-    "updated_at": "2023-05-03T02:26:49Z",
+    "updated_at": "2023-05-11T02:59:33Z",
     "clone_url": "https://github.com/thirdweb-example/shopify-sell-nfts.git",
     "topics": [],
     "language": "JavaScript",
-    "stargazers_count": 9,
+    "stargazers_count": 10,
     "is_template": false,
     "homepage": null
   },
@@ -1624,17 +1624,30 @@
     "homepage": "https://todo-list.thirdweb-example.com/"
   },
   {
+    "name": "token-bound-account",
+    "html_url": "https://github.com/thirdweb-example/token-bound-account",
+    "description": null,
+    "created_at": "2023-05-10T18:20:21Z",
+    "updated_at": "2023-05-11T14:18:18Z",
+    "clone_url": "https://github.com/thirdweb-example/token-bound-account.git",
+    "topics": [],
+    "language": "Solidity",
+    "stargazers_count": 0,
+    "is_template": true,
+    "homepage": null
+  },
+  {
     "name": "token-drop",
     "html_url": "https://github.com/thirdweb-example/token-drop",
     "description": "Release your token with claim conditions for a price using thirdweb's Token Drop contract",
     "created_at": "2022-05-25T04:05:25Z",
-    "updated_at": "2023-05-09T03:01:37Z",
+    "updated_at": "2023-05-10T18:56:39Z",
     "clone_url": "https://github.com/thirdweb-example/token-drop.git",
     "topics": [
       "token-drop"
     ],
     "language": "TypeScript",
-    "stargazers_count": 11,
+    "stargazers_count": 12,
     "is_template": false,
     "homepage": "https://token-drop.thirdweb-example.com"
   },
