@@ -32,7 +32,7 @@ if [ ! -d "./etc" ]; then
 fi
 pnpm generate-docs
 cd ../../../..
-pnpm make-docs
-pnpm generate-snippets
-pnpm generate-github-examples
-pnpm prettier
+yarn make-docs
+yarn generate-snippets
+yarn generate-github-examples
+yarn prettier
