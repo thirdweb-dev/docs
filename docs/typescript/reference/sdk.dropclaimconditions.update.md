@@ -16,7 +16,7 @@ Update a single claim condition with new data.
 ```typescript
 update: {
         (index: number, claimConditionInput: {
-            startTime?: Date | undefined;
+            startTime?: number | Date | undefined;
             currencyAddress?: string | undefined;
             price?: string | number | undefined;
             maxClaimableSupply?: string | number | undefined;
@@ -37,7 +37,7 @@ update: {
             data: () => Promise<unknown>;
         }, "data">>;
         prepare: (index: number, claimConditionInput: {
-            startTime?: Date | undefined;
+            startTime?: number | Date | undefined;
             currencyAddress?: string | undefined;
             price?: string | number | undefined;
             maxClaimableSupply?: string | number | undefined;

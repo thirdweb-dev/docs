@@ -44,7 +44,7 @@ await dropContract.claimConditions.set(claimConditions);
 ```typescript
 set: {
         (claimConditionInputs: {
-            startTime?: Date | undefined;
+            startTime?: number | Date | undefined;
             currencyAddress?: string | undefined;
             price?: string | number | undefined;
             maxClaimableSupply?: string | number | undefined;
@@ -65,7 +65,7 @@ set: {
             data: () => Promise<unknown>;
         }, "data">>;
         prepare: (claimConditionInputs: {
-            startTime?: Date | undefined;
+            startTime?: number | Date | undefined;
             currencyAddress?: string | undefined;
             price?: string | number | undefined;
             maxClaimableSupply?: string | number | undefined;

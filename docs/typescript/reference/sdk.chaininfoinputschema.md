@@ -40,24 +40,24 @@ ChainInfoInputSchema: z.ZodObject<
   "strip",
   z.ZodTypeAny,
   {
-    chainId: number;
-    slug: string;
     rpc: string[];
+    chainId: number;
     nativeCurrency: {
       symbol: string;
       name: string;
       decimals: number;
     };
+    slug: string;
   },
   {
-    chainId: number;
-    slug: string;
     rpc: string[];
+    chainId: number;
     nativeCurrency: {
       symbol: string;
       name: string;
       decimals: number;
     };
+    slug: string;
   }
 >;
 ```

@@ -45,7 +45,7 @@ makeOffer: {
             assetContractAddress: string;
             quantity?: string | number | bigint | BigNumber | undefined;
             currencyContractAddress?: string | undefined;
-            endTimestamp?: Date | undefined;
+            endTimestamp?: number | Date | undefined;
         }): Promise<TransactionResultWithId<never>>;
         prepare: (offer: {
             tokenId: (string | number | bigint | BigNumber) & (string | number | bigint | BigNumber | undefined);
@@ -53,7 +53,7 @@ makeOffer: {
             assetContractAddress: string;
             quantity?: string | number | bigint | BigNumber | undefined;
             currencyContractAddress?: string | undefined;
-            endTimestamp?: Date | undefined;
+            endTimestamp?: number | Date | undefined;
         }) => Promise<Transaction<TransactionResultWithId<never>>>;
     };
 ```

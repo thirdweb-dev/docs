@@ -147,7 +147,7 @@ create: {
                 totalRewards?: string | number | bigint | BigNumber | undefined;
             }[] | undefined;
             rewardsPerPack?: string | number | bigint | BigNumber | undefined;
-            openStartTime?: Date | undefined;
+            openStartTime?: number | Date | undefined;
         }): Promise<TransactionResultWithId<NFT>>;
         prepare: (metadataWithRewards: {
             packMetadata: (string | import("zod").objectInputType<{
@@ -239,7 +239,7 @@ create: {
                 totalRewards?: string | number | bigint | BigNumber | undefined;
             }[] | undefined;
             rewardsPerPack?: string | number | bigint | BigNumber | undefined;
-            openStartTime?: Date | undefined;
+            openStartTime?: number | Date | undefined;
         }) => Promise<Transaction<TransactionResultWithId<NFT>>>;
     };
 ```

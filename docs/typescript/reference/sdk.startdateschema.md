@@ -14,5 +14,12 @@ Default to now
 **Signature:**
 
 ```typescript
-StartDateSchema: z.ZodDefault<z.ZodEffects<z.ZodDate, BigNumber, Date>>;
+StartDateSchema: z.ZodDefault<
+  z.ZodUnion<
+    [
+      z.ZodEffects<z.ZodDate, BigNumber, Date>,
+      z.ZodEffects<z.ZodNumber, BigNumber, number>,
+    ]
+  >
+>;
 ```

@@ -52,8 +52,8 @@ updateListing: {
             assetContractAddress: string;
             quantity?: string | number | bigint | BigNumber | undefined;
             currencyContractAddress?: string | undefined;
-            startTimestamp?: Date | undefined;
-            endTimestamp?: Date | undefined;
+            startTimestamp?: number | Date | undefined;
+            endTimestamp?: number | Date | undefined;
             isReservedListing?: boolean | undefined;
         }): Promise<TransactionResultWithId<never>>;
         prepare: (listingId: BigNumberish, listing: {
@@ -62,8 +62,8 @@ updateListing: {
             assetContractAddress: string;
             quantity?: string | number | bigint | BigNumber | undefined;
             currencyContractAddress?: string | undefined;
-            startTimestamp?: Date | undefined;
-            endTimestamp?: Date | undefined;
+            startTimestamp?: number | Date | undefined;
+            endTimestamp?: number | Date | undefined;
             isReservedListing?: boolean | undefined;
         }) => Promise<Transaction<TransactionResultWithId<never>>>;
     };

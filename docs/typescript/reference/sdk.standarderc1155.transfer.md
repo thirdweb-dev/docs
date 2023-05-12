@@ -26,11 +26,19 @@ await contract.transfer(toAddress, tokenId, amount);
 ```typescript
 transfer: {
         (to: string, tokenId: BigNumberish, amount: BigNumberish, data?: BytesLike | undefined): Promise<Omit<{
-            receipt: import("@ethersproject/abstract-provider").TransactionReceipt;
+            receipt: import("@ethersproject/abstract-provider").TransactionReceipt; /**
+             * Returns the total supply of a specific token
+             * @param tokenId - The token ID to get the total supply of
+             * @returns the total supply
+             */
             data: () => Promise<unknown>;
         }, "data">>;
         prepare: (to: string, tokenId: BigNumberish, amount: BigNumberish, data?: BytesLike | undefined) => Promise<import("./transactions").Transaction<Omit<{
-            receipt: import("@ethersproject/abstract-provider").TransactionReceipt;
+            receipt: import("@ethersproject/abstract-provider").TransactionReceipt; /**
+             * Returns the total supply of a specific token
+             * @param tokenId - The token ID to get the total supply of
+             * @returns the total supply
+             */
             data: () => Promise<unknown>;
         }, "data">>>;
     };
