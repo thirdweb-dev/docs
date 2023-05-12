@@ -14,9 +14,9 @@ Send the transaction without waiting for it to be mined.
 **Signature:**
 
 ```typescript
-send(): Promise<ethers.ContractTransaction>;
+send(): Promise<ContractTransaction>;
 ```
 
 **Returns:**
 
-Promise&lt;ethers.ContractTransaction&gt;
+Promise&lt;ContractTransaction&gt;

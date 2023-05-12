@@ -15,7 +15,7 @@ displayed_sidebar: typescript
 export type TransactionErrorInfo = {
   reason: string;
   from: string;
-  to: string;
+  to?: string;
   network: providers.Network;
   method?: string;
   data?: string;

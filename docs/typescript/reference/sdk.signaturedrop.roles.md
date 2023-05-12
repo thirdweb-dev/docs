@@ -14,6 +14,6 @@ displayed_sidebar: typescript
 ```typescript
 roles: ContractRoles<
   SignatureDropContract,
-  typeof SignatureDrop.contractRoles[number]
+  (typeof SignatureDrop.contractRoles)[number]
 >;
 ```

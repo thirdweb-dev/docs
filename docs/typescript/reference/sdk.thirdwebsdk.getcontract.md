@@ -20,7 +20,7 @@ const contract = await sdk.getContract("{{contract_address}}");
 **Signature:**
 
 ```typescript
-getContract<TContractAddress extends AddressOrEns | ContractAddress>(address: TContractAddress): Promise<TContractAddress extends ContractAddress ? SmartContract<BaseContract> : SmartContract>;
+getContract<TContractAddress extends AddressOrEns | ContractAddress>(address: TContractAddress): Promise<TContractAddress extends ContractAddress ? SmartContract<BaseContractForAddress<TContractAddress>> : SmartContract<BaseContract>>;
 ```
 
 ## Parameters
@@ -31,6 +31,6 @@ getContract<TContractAddress extends AddressOrEns | ContractAddress>(address: TC
 
 **Returns:**
 
-Promise&lt;TContractAddress extends ContractAddress ? [SmartContract](./sdk.smartcontract.md)&lt;BaseContract&gt; : [SmartContract](./sdk.smartcontract.md)&gt;
+Promise&lt;TContractAddress extends ContractAddress ? [SmartContract](./sdk.smartcontract.md)&lt;[BaseContractForAddress](./sdk.basecontractforaddress.md)&lt;TContractAddress&gt;&gt; : [SmartContract](./sdk.smartcontract.md)&lt;BaseContract&gt;&gt;
 
 the contract

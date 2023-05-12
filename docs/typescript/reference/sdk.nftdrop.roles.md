@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-roles: ContractRoles<PrebuiltNFTDrop, typeof NFTDrop.contractRoles[number]>;
+roles: ContractRoles<PrebuiltNFTDrop, (typeof NFTDrop.contractRoles)[number]>;
 ```

@@ -14,6 +14,6 @@ displayed_sidebar: typescript
 ```typescript
 roles: ContractRoles<
   MarketplaceV3Contract,
-  typeof MarketplaceV3.contractRoles[number]
+  (typeof MarketplaceV3.contractRoles)[number]
 >;
 ```

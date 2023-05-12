@@ -14,5 +14,12 @@ Default to 10 years from now
 **Signature:**
 
 ```typescript
-EndDateSchema: z.ZodDefault<z.ZodEffects<z.ZodDate, BigNumber, Date>>;
+EndDateSchema: z.ZodDefault<
+  z.ZodUnion<
+    [
+      z.ZodEffects<z.ZodDate, BigNumber, Date>,
+      z.ZodEffects<z.ZodNumber, BigNumber, number>,
+    ]
+  >
+>;
 ```
