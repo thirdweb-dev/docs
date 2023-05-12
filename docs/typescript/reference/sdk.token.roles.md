@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-roles: ContractRoles<TokenERC20, typeof Token.contractRoles[number]>;
+roles: ContractRoles<TokenERC20, (typeof Token.contractRoles)[number]>;
 ```

@@ -14,7 +14,7 @@ displayed_sidebar: typescript
 ```typescript
 export type PrebuiltContractsInstances = {
   [K in keyof PrebuiltContractsMap]: Awaited<
-    ReturnType<typeof PREBUILT_CONTRACTS_MAP[K]["initialize"]>
+    ReturnType<(typeof PREBUILT_CONTRACTS_MAP)[K]["initialize"]>
   >;
 };
 ```

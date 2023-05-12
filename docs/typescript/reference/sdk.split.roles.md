@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-roles: ContractRoles<SplitContract, typeof Split.contractRoles[number]>;
+roles: ContractRoles<SplitContract, (typeof Split.contractRoles)[number]>;
 ```
