@@ -1,0 +1,26 @@
+---
+slug: /wallet/ethers
+title: Ethers.js
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Connect to your app with any [ethers.js](https://github.com/ethers-io/ethers.js/) signer.
+
+## Usage
+
+```javascript
+import { EthersWallet } from "@thirdweb-dev/wallets";
+
+// can be any ethers.js signer
+const signer = Wallet.createRandom();
+const wallet = new EthersWallet(signer);
+
+wallet.connect();
+```
+
+## Methods
+
+Inherhits all the public methods from the [`AbstractWallet`](interfaces/abstract-wallet) class.
