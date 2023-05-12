@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
-    "dev": "yarn start",
+    "dev": "pnpm start",
     "start": "docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
@@ -26,7 +26,7 @@
     "make-docs:python": "node scripts/make-python-docs.mjs",
     "make-docs:go": "node scripts/make-go-docs.mjs",
     "make-docs:unity": "node scripts/make-unity-docs.mjs",
-    "make-docs": "yarn make-docs:typescript && yarn make-docs:storage && yarn make-docs:solana && yarn make-docs:contracts && yarn make-docs:python && yarn make-docs:go && yarn make-docs:unity",
+    "make-docs": "pnpm make-docs:typescript && pnpm make-docs:storage && pnpm make-docs:solana && pnpm make-docs:contracts && pnpm make-docs:python && pnpm make-docs:go && pnpm make-docs:unity",
     "prettier": "prettier --write '(docs|guides|blog)/**/*.{js,jsx,ts,tsx,md,mdx}'"
   },
   "dependencies": {
