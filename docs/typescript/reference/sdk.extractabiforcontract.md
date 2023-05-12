@@ -13,5 +13,5 @@ displayed_sidebar: typescript
 
 ```typescript
 export type ExtractAbiForContract<TAddress extends ContractAddress> =
-  typeof GENERATED_ABI[TAddress];
+  (typeof GENERATED_ABI)[TAddress];
 ```

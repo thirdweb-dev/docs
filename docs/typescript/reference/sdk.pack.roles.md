@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-roles: ContractRoles<PackContract, typeof Pack.contractRoles[number]>;
+roles: ContractRoles<PackContract, (typeof Pack.contractRoles)[number]>;
 ```

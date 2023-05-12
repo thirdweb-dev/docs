@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-roles: ContractRoles<TokenERC721, typeof NFTCollection.contractRoles[number]>;
+roles: ContractRoles<TokenERC721, (typeof NFTCollection.contractRoles)[number]>;
 ```

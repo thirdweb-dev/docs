@@ -12,7 +12,7 @@ displayed_sidebar: react
 **Signature:**
 
 ```typescript
-export type SupportedChainId = typeof defaultSupportedChains[number]["id"];
+export type SupportedChainId = (typeof defaultSupportedChains)[number]["id"];
 ```
 
 **References:** [defaultSupportedChains](./react.defaultsupportedchains.md)

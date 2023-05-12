@@ -14,6 +14,6 @@ displayed_sidebar: typescript
 ```typescript
 roles: ContractRoles<
   PrebuiltEditionDrop,
-  typeof EditionDrop.contractRoles[number]
+  (typeof EditionDrop.contractRoles)[number]
 >;
 ```

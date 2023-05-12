@@ -13,13 +13,13 @@ displayed_sidebar: typescript
 
 ```typescript
 _pendingBatch: Array<{
-        request: {
-            method: string;
-            params: Array<any>;
-            id: number;
-            jsonrpc: "2.0";
-        };
-        resolve: (result: any) => void;
-        reject: (error: Error) => void;
-    }> | null;
+  request: {
+    method: string;
+    params: Array<any>;
+    id: number;
+    jsonrpc: "2.0";
+  };
+  resolve: (result: any) => void;
+  reject: (error: Error) => void;
+}> | null;
 ```
