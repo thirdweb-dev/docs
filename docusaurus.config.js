@@ -5,7 +5,7 @@ const lightCodeTheme = require("prism-react-renderer/themes/vsLight");
 const darkCodeTheme = require("prism-react-renderer/themes/oceanicNext");
 
 const npm2yarn = require("@docusaurus/remark-plugin-npm2yarn");
-const disableCachePlugin = require("./plugins/disable-cache-plugin");
+// const disableCachePlugin = require("./plugins/disable-cache-plugin");
 const path = require("path");
 
 const baseUrl = process.env.BASE_URL || "/";
@@ -66,7 +66,7 @@ const config = {
     ],
   ],
   plugins: [
-    disableCachePlugin,
+    // disableCachePlugin,
     "docusaurus-node-polyfills",
     [
       "ideal-image",
