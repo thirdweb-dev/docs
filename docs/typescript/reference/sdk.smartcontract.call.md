@@ -34,16 +34,17 @@ await contract.call("myWriteFunction", arg1, arg2, {
 **Signature:**
 
 ```typescript
-call(functionName: string, ...args: unknown[] | [...unknown[], CallOverrides]): Promise<any>;
+call<TMethod extends keyof TContract["functions"] = keyof TContract["functions"]>(functionName: string & TMethod, args?: Parameters<TContract["functions"][TMethod]>, overrides?: CallOverrides): Promise<ReturnType<TContract["functions"][TMethod]>>;
 ```
 
 ## Parameters
 
-| Parameter    | Type                                                 | Description                      |
-| ------------ | ---------------------------------------------------- | -------------------------------- |
-| functionName | string                                               | the name of the function to call |
-| args         | unknown\[\] &#124; \[...unknown\[\], CallOverrides\] | the arguments of the function    |
+| Parameter    | Type                                                  | Description                                |
+| ------------ | ----------------------------------------------------- | ------------------------------------------ |
+| functionName | string &amp; TMethod                                  | the name of the function to call           |
+| args         | Parameters&lt;TContract\["functions"\]\[TMethod\]&gt; | _(Optional)_ the arguments of the function |
+| overrides    | CallOverrides                                         | _(Optional)_                               |
 
 **Returns:**
 
-Promise&lt;any&gt;
+Promise&lt;ReturnType&lt;TContract\["functions"\]\[TMethod\]&gt;&gt;

@@ -17,7 +17,7 @@ CONTRACTS_MAP: {
         name: "SmartContract";
         contractType: "custom";
         schema: {};
-        roles: ("admin" | "minter" | "transfer" | "lister" | "asset" | "unwrap" | "pauser" | "factory")[];
+        roles: ("admin" | "minter" | "transfer" | "lister" | "asset" | "unwrap" | "pauser" | "factory" | "signer")[];
     };
     readonly "edition-drop": {
         name: "DropERC1155";
@@ -150,14 +150,14 @@ CONTRACTS_MAP: {
         roles: readonly ["admin", "minter", "transfer"];
         initialize: (network: NetworkInput, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
             supportedChains?: {
-                chainId: number;
-                slug: string;
                 rpc: string[];
+                chainId: number;
                 nativeCurrency: {
                     symbol: string;
                     name: string;
                     decimals: number;
                 };
+                slug: string;
             }[] | undefined;
             thirdwebApiKey?: string | undefined;
             alchemyApiKey?: string | undefined;
@@ -175,6 +175,8 @@ CONTRACTS_MAP: {
                     relayerUrl: string;
                     relayerForwarderAddress?: string | undefined;
                     useEOAForwarder?: boolean | undefined;
+                    domainName?: string | undefined;
+                    domainVersion?: string | undefined;
                 };
                 experimentalChainlessSupport?: boolean | undefined;
             } | {
@@ -571,14 +573,14 @@ CONTRACTS_MAP: {
         roles: readonly ["admin", "minter", "transfer"];
         initialize: (network: NetworkInput, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
             supportedChains?: {
-                chainId: number;
-                slug: string;
                 rpc: string[];
+                chainId: number;
                 nativeCurrency: {
                     symbol: string;
                     name: string;
                     decimals: number;
                 };
+                slug: string;
             }[] | undefined;
             thirdwebApiKey?: string | undefined;
             alchemyApiKey?: string | undefined;
@@ -596,6 +598,8 @@ CONTRACTS_MAP: {
                     relayerUrl: string;
                     relayerForwarderAddress?: string | undefined;
                     useEOAForwarder?: boolean | undefined;
+                    domainName?: string | undefined;
+                    domainVersion?: string | undefined;
                 };
                 experimentalChainlessSupport?: boolean | undefined;
             } | {
@@ -856,14 +860,14 @@ CONTRACTS_MAP: {
         roles: readonly ["admin", "lister", "asset"];
         initialize: (network: NetworkInput, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
             supportedChains?: {
-                chainId: number;
-                slug: string;
                 rpc: string[];
+                chainId: number;
                 nativeCurrency: {
                     symbol: string;
                     name: string;
                     decimals: number;
                 };
+                slug: string;
             }[] | undefined;
             thirdwebApiKey?: string | undefined;
             alchemyApiKey?: string | undefined;
@@ -881,6 +885,8 @@ CONTRACTS_MAP: {
                     relayerUrl: string;
                     relayerForwarderAddress?: string | undefined;
                     useEOAForwarder?: boolean | undefined;
+                    domainName?: string | undefined;
+                    domainVersion?: string | undefined;
                 };
                 experimentalChainlessSupport?: boolean | undefined;
             } | {
@@ -1147,14 +1153,14 @@ CONTRACTS_MAP: {
         roles: readonly ["admin", "lister", "asset"];
         initialize: (network: NetworkInput, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
             supportedChains?: {
-                chainId: number;
-                slug: string;
                 rpc: string[];
+                chainId: number;
                 nativeCurrency: {
                     symbol: string;
                     name: string;
                     decimals: number;
                 };
+                slug: string;
             }[] | undefined;
             thirdwebApiKey?: string | undefined;
             alchemyApiKey?: string | undefined;
@@ -1172,6 +1178,8 @@ CONTRACTS_MAP: {
                     relayerUrl: string;
                     relayerForwarderAddress?: string | undefined;
                     useEOAForwarder?: boolean | undefined;
+                    domainName?: string | undefined;
+                    domainVersion?: string | undefined;
                 };
                 experimentalChainlessSupport?: boolean | undefined;
             } | {
@@ -1387,14 +1395,14 @@ CONTRACTS_MAP: {
         roles: readonly ["admin", "transfer", "minter", "unwrap", "asset"];
         initialize: (network: NetworkInput, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
             supportedChains?: {
-                chainId: number;
-                slug: string;
                 rpc: string[];
+                chainId: number;
                 nativeCurrency: {
                     symbol: string;
                     name: string;
                     decimals: number;
                 };
+                slug: string;
             }[] | undefined;
             thirdwebApiKey?: string | undefined;
             alchemyApiKey?: string | undefined;
@@ -1412,6 +1420,8 @@ CONTRACTS_MAP: {
                     relayerUrl: string;
                     relayerForwarderAddress?: string | undefined;
                     useEOAForwarder?: boolean | undefined;
+                    domainName?: string | undefined;
+                    domainVersion?: string | undefined;
                 };
                 experimentalChainlessSupport?: boolean | undefined;
             } | {
@@ -1722,14 +1732,14 @@ CONTRACTS_MAP: {
         roles: readonly ["admin", "minter", "transfer"];
         initialize: (network: NetworkInput, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
             supportedChains?: {
-                chainId: number;
-                slug: string;
                 rpc: string[];
+                chainId: number;
                 nativeCurrency: {
                     symbol: string;
                     name: string;
                     decimals: number;
                 };
+                slug: string;
             }[] | undefined;
             thirdwebApiKey?: string | undefined;
             alchemyApiKey?: string | undefined;
@@ -1747,6 +1757,8 @@ CONTRACTS_MAP: {
                     relayerUrl: string;
                     relayerForwarderAddress?: string | undefined;
                     useEOAForwarder?: boolean | undefined;
+                    domainName?: string | undefined;
+                    domainVersion?: string | undefined;
                 };
                 experimentalChainlessSupport?: boolean | undefined;
             } | {
@@ -2046,14 +2058,14 @@ CONTRACTS_MAP: {
         roles: readonly ["admin", "minter", "transfer"];
         initialize: (network: NetworkInput, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
             supportedChains?: {
-                chainId: number;
-                slug: string;
                 rpc: string[];
+                chainId: number;
                 nativeCurrency: {
                     symbol: string;
                     name: string;
                     decimals: number;
                 };
+                slug: string;
             }[] | undefined;
             thirdwebApiKey?: string | undefined;
             alchemyApiKey?: string | undefined;
@@ -2071,6 +2083,8 @@ CONTRACTS_MAP: {
                     relayerUrl: string;
                     relayerForwarderAddress?: string | undefined;
                     useEOAForwarder?: boolean | undefined;
+                    domainName?: string | undefined;
+                    domainVersion?: string | undefined;
                 };
                 experimentalChainlessSupport?: boolean | undefined;
             } | {
@@ -2470,14 +2484,14 @@ CONTRACTS_MAP: {
         roles: readonly ["admin", "minter", "asset", "transfer"];
         initialize: (network: NetworkInput, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
             supportedChains?: {
-                chainId: number;
-                slug: string;
                 rpc: string[];
+                chainId: number;
                 nativeCurrency: {
                     symbol: string;
                     name: string;
                     decimals: number;
                 };
+                slug: string;
             }[] | undefined;
             thirdwebApiKey?: string | undefined;
             alchemyApiKey?: string | undefined;
@@ -2495,6 +2509,8 @@ CONTRACTS_MAP: {
                     relayerUrl: string;
                     relayerForwarderAddress?: string | undefined;
                     useEOAForwarder?: boolean | undefined;
+                    domainName?: string | undefined;
+                    domainVersion?: string | undefined;
                 };
                 experimentalChainlessSupport?: boolean | undefined;
             } | {
@@ -2639,14 +2655,14 @@ CONTRACTS_MAP: {
         roles: readonly ["admin", "minter", "transfer"];
         initialize: (network: NetworkInput, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
             supportedChains?: {
-                chainId: number;
-                slug: string;
                 rpc: string[];
+                chainId: number;
                 nativeCurrency: {
                     symbol: string;
                     name: string;
                     decimals: number;
                 };
+                slug: string;
             }[] | undefined;
             thirdwebApiKey?: string | undefined;
             alchemyApiKey?: string | undefined;
@@ -2664,6 +2680,8 @@ CONTRACTS_MAP: {
                     relayerUrl: string;
                     relayerForwarderAddress?: string | undefined;
                     useEOAForwarder?: boolean | undefined;
+                    domainName?: string | undefined;
+                    domainVersion?: string | undefined;
                 };
                 experimentalChainlessSupport?: boolean | undefined;
             } | {
@@ -2985,14 +3003,14 @@ CONTRACTS_MAP: {
         roles: readonly ["admin"];
         initialize: (network: NetworkInput, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
             supportedChains?: {
-                chainId: number;
-                slug: string;
                 rpc: string[];
+                chainId: number;
                 nativeCurrency: {
                     symbol: string;
                     name: string;
                     decimals: number;
                 };
+                slug: string;
             }[] | undefined;
             thirdwebApiKey?: string | undefined;
             alchemyApiKey?: string | undefined;
@@ -3010,6 +3028,8 @@ CONTRACTS_MAP: {
                     relayerUrl: string;
                     relayerForwarderAddress?: string | undefined;
                     useEOAForwarder?: boolean | undefined;
+                    domainName?: string | undefined;
+                    domainVersion?: string | undefined;
                 };
                 experimentalChainlessSupport?: boolean | undefined;
             } | {
@@ -3266,14 +3286,14 @@ CONTRACTS_MAP: {
         roles: readonly ["admin", "transfer"];
         initialize: (network: NetworkInput, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
             supportedChains?: {
-                chainId: number;
-                slug: string;
                 rpc: string[];
+                chainId: number;
                 nativeCurrency: {
                     symbol: string;
                     name: string;
                     decimals: number;
                 };
+                slug: string;
             }[] | undefined;
             thirdwebApiKey?: string | undefined;
             alchemyApiKey?: string | undefined;
@@ -3291,6 +3311,8 @@ CONTRACTS_MAP: {
                     relayerUrl: string;
                     relayerForwarderAddress?: string | undefined;
                     useEOAForwarder?: boolean | undefined;
+                    domainName?: string | undefined;
+                    domainVersion?: string | undefined;
                 };
                 experimentalChainlessSupport?: boolean | undefined;
             } | {
@@ -3589,14 +3611,14 @@ CONTRACTS_MAP: {
         roles: readonly ["admin", "minter", "transfer"];
         initialize: (network: NetworkInput, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
             supportedChains?: {
-                chainId: number;
-                slug: string;
                 rpc: string[];
+                chainId: number;
                 nativeCurrency: {
                     symbol: string;
                     name: string;
                     decimals: number;
                 };
+                slug: string;
             }[] | undefined;
             thirdwebApiKey?: string | undefined;
             alchemyApiKey?: string | undefined;
@@ -3614,6 +3636,8 @@ CONTRACTS_MAP: {
                     relayerUrl: string;
                     relayerForwarderAddress?: string | undefined;
                     useEOAForwarder?: boolean | undefined;
+                    domainName?: string | undefined;
+                    domainVersion?: string | undefined;
                 };
                 experimentalChainlessSupport?: boolean | undefined;
             } | {
@@ -3922,14 +3946,14 @@ CONTRACTS_MAP: {
         roles: readonly [];
         initialize: (network: NetworkInput, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
             supportedChains?: {
-                chainId: number;
-                slug: string;
                 rpc: string[];
+                chainId: number;
                 nativeCurrency: {
                     symbol: string;
                     name: string;
                     decimals: number;
                 };
+                slug: string;
             }[] | undefined;
             thirdwebApiKey?: string | undefined;
             alchemyApiKey?: string | undefined;
@@ -3947,6 +3971,8 @@ CONTRACTS_MAP: {
                     relayerUrl: string;
                     relayerForwarderAddress?: string | undefined;
                     useEOAForwarder?: boolean | undefined;
+                    domainName?: string | undefined;
+                    domainVersion?: string | undefined;
                 };
                 experimentalChainlessSupport?: boolean | undefined;
             } | {

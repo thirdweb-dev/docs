@@ -12,5 +12,10 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-RawDateSchema: z.ZodEffects<z.ZodDate, BigNumber, Date>;
+RawDateSchema: z.ZodUnion<
+  [
+    z.ZodEffects<z.ZodDate, BigNumber, Date>,
+    z.ZodEffects<z.ZodNumber, BigNumber, number>,
+  ]
+>;
 ```

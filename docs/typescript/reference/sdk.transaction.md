@@ -12,8 +12,10 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-export declare class Transaction<TResult = TransactionResult>
+export declare class Transaction<TResult = TransactionResult> extends TransactionContext
 ```
+
+**Extends:** TransactionContext
 
 ## Constructors
 
@@ -23,36 +25,18 @@ export declare class Transaction<TResult = TransactionResult>
 
 ## Methods
 
-| Method                                                                                        | Modifiers           | Description                                                             |
-| --------------------------------------------------------------------------------------------- | ------------------- | ----------------------------------------------------------------------- |
-| [encode()](./sdk.transaction.encode.md)                                                       |                     | Encode the function data for this transaction                           |
-| [estimateGasCost()](./sdk.transaction.estimategascost.md)                                     |                     | Estimate the total gas cost of this transaction (in both ether and wei) |
-| [estimateGasLimit()](./sdk.transaction.estimategaslimit.md)                                   |                     | Estimate the gas limit of this transaction                              |
-| [execute()](./sdk.transaction.execute.md)                                                     |                     | Send the transaction and wait for it to be mined                        |
-| [fromContractInfo(options)](./sdk.transaction.fromcontractinfo.md)                            | <code>static</code> |                                                                         |
-| [fromContractWrapper(options)](./sdk.transaction.fromcontractwrapper.md)                      | <code>static</code> |                                                                         |
-| [getArgs()](./sdk.transaction.getargs.md)                                                     |                     |                                                                         |
-| [getGaslessOptions()](./sdk.transaction.getgaslessoptions.md)                                 |                     |                                                                         |
-| [getGasPrice()](./sdk.transaction.getgasprice.md)                                             |                     | Calculates the gas price for transactions (adding a 10% tip buffer)     |
-| [getMethod()](./sdk.transaction.getmethod.md)                                                 |                     |                                                                         |
-| [getOverrides()](./sdk.transaction.getoverrides.md)                                           |                     |                                                                         |
-| [getValue()](./sdk.transaction.getvalue.md)                                                   |                     |                                                                         |
-| [send()](./sdk.transaction.send.md)                                                           |                     | Send the transaction without waiting for it to be mined.                |
-| [setAccessList(accessList)](./sdk.transaction.setaccesslist.md)                               |                     |                                                                         |
-| [setArgs(args)](./sdk.transaction.setargs.md)                                                 |                     |                                                                         |
-| [setCcipReadEnabled(ccipReadEnabled)](./sdk.transaction.setccipreadenabled.md)                |                     |                                                                         |
-| [setCustomData(customData)](./sdk.transaction.setcustomdata.md)                               |                     |                                                                         |
-| [setGaslessOptions(options)](./sdk.transaction.setgaslessoptions.md)                          |                     |                                                                         |
-| [setGasLimit(gasLimit)](./sdk.transaction.setgaslimit.md)                                     |                     |                                                                         |
-| [setGasLimitMultiple(factor)](./sdk.transaction.setgaslimitmultiple.md)                       |                     | Set a multiple to multiply the gas limit by                             |
-| [setGasPrice(gasPrice)](./sdk.transaction.setgasprice.md)                                     |                     |                                                                         |
-| [setMaxFeePerGas(maxFeePerGas)](./sdk.transaction.setmaxfeepergas.md)                         |                     |                                                                         |
-| [setMaxPriorityFeePerGas(maxPriorityFeePerGas)](./sdk.transaction.setmaxpriorityfeepergas.md) |                     |                                                                         |
-| [setNonce(nonce)](./sdk.transaction.setnonce.md)                                              |                     |                                                                         |
-| [setOverrides(overrides)](./sdk.transaction.setoverrides.md)                                  |                     |                                                                         |
-| [setParse(parse)](./sdk.transaction.setparse.md)                                              |                     |                                                                         |
-| [setType(type)](./sdk.transaction.settype.md)                                                 |                     |                                                                         |
-| [setValue(value)](./sdk.transaction.setvalue.md)                                              |                     |                                                                         |
-| [sign()](./sdk.transaction.sign.md)                                                           |                     | Get the signed transaction                                              |
-| [simulate()](./sdk.transaction.simulate.md)                                                   |                     | Simulate the transaction on-chain without executing                     |
-| [updateOverrides(overrides)](./sdk.transaction.updateoverrides.md)                            |                     |                                                                         |
+| Method                                                                   | Modifiers           | Description                                              |
+| ------------------------------------------------------------------------ | ------------------- | -------------------------------------------------------- |
+| [encode()](./sdk.transaction.encode.md)                                  |                     | Encode the function data for this transaction            |
+| [estimateGasLimit()](./sdk.transaction.estimategaslimit.md)              |                     | Estimate the gas limit of this transaction               |
+| [execute()](./sdk.transaction.execute.md)                                |                     | Send the transaction and wait for it to be mined         |
+| [fromContractInfo(options)](./sdk.transaction.fromcontractinfo.md)       | <code>static</code> |                                                          |
+| [fromContractWrapper(options)](./sdk.transaction.fromcontractwrapper.md) | <code>static</code> |                                                          |
+| [getGaslessOptions()](./sdk.transaction.getgaslessoptions.md)            |                     |                                                          |
+| [getMethod()](./sdk.transaction.getmethod.md)                            |                     |                                                          |
+| [getTarget()](./sdk.transaction.gettarget.md)                            |                     |                                                          |
+| [send()](./sdk.transaction.send.md)                                      |                     | Send the transaction without waiting for it to be mined. |
+| [setGaslessOptions(options)](./sdk.transaction.setgaslessoptions.md)     |                     |                                                          |
+| [setParse(parse)](./sdk.transaction.setparse.md)                         |                     |                                                          |
+| [sign()](./sdk.transaction.sign.md)                                      |                     | Get the signed transaction                               |
+| [simulate()](./sdk.transaction.simulate.md)                              |                     | Simulate the transaction on-chain without executing      |

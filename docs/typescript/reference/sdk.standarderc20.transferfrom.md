@@ -26,18 +26,40 @@ await contract.transferFrom(fromAddress, toAddress, amount);
 
 **Signature:**
 
-```typescript
+````typescript
 transferFrom: {
         (from: string, to: string, amount: string | number): Promise<Omit<{
-            receipt: import("@ethersproject/abstract-provider").TransactionReceipt;
+            receipt: import("@ethersproject/abstract-provider").TransactionReceipt; /**
+             * Get Token Balance for the currently connected wallet
+             *
+             * @remarks Get a wallets token balance.
+             *
+             * @example
+             * ```javascript
+             * const balance = await contract.balance();
+             * ```
+             *
+             * @returns The balance of a specific wallet.
+             */
             data: () => Promise<unknown>;
         }, "data">>;
-        prepare: (from: string, to: string, amount: string | number) => Promise<import("./transactions").Transaction<Omit<{
-            receipt: import("@ethersproject/abstract-provider").TransactionReceipt;
+        prepare: (from: string, to: string, amount: string | number) => Promise<Transaction<Omit<{
+            receipt: import("@ethersproject/abstract-provider").TransactionReceipt; /**
+             * Get Token Balance for the currently connected wallet
+             *
+             * @remarks Get a wallets token balance.
+             *
+             * @example
+             * ```javascript
+             * const balance = await contract.balance();
+             * ```
+             *
+             * @returns The balance of a specific wallet.
+             */
             data: () => Promise<unknown>;
         }, "data">>>;
     };
-```
+````
 
 ## Remarks
 

@@ -14,5 +14,9 @@ displayed_sidebar: typescript
 ```typescript
 export type DeployOptions = {
   forceDirectDeploy?: boolean;
+  notifier?: (
+    status: "deploying" | "deployed",
+    contractType: DeployedContractType | string,
+  ) => void;
 };
 ```

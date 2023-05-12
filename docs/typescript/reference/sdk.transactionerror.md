@@ -19,13 +19,14 @@ export declare class TransactionError extends Error
 
 ## Constructors
 
-| Constructor                                                    | Modifiers | Description                                                          |
-| -------------------------------------------------------------- | --------- | -------------------------------------------------------------------- |
-| [(constructor)(info)](./sdk.transactionerror._constructor_.md) |           | Constructs a new instance of the <code>TransactionError</code> class |
+| Constructor                                                         | Modifiers | Description                                                          |
+| ------------------------------------------------------------------- | --------- | -------------------------------------------------------------------- |
+| [(constructor)(info, raw)](./sdk.transactionerror._constructor_.md) |           | Constructs a new instance of the <code>TransactionError</code> class |
 
 ## Properties
 
 | Property                                   | Modifiers             | Type                                                  | Description |
 | ------------------------------------------ | --------------------- | ----------------------------------------------------- | ----------- |
 | [info](./sdk.transactionerror.info.md)     | <code>readonly</code> | [TransactionErrorInfo](./sdk.transactionerrorinfo.md) |             |
+| [raw](./sdk.transactionerror.raw.md)       | <code>readonly</code> | any                                                   |             |
 | [reason](./sdk.transactionerror.reason.md) | <code>readonly</code> | string                                                |             |

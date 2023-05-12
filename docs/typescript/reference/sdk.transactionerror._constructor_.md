@@ -14,7 +14,7 @@ Constructs a new instance of the `TransactionError` class
 **Signature:**
 
 ```typescript
-constructor(info: TransactionErrorInfo);
+constructor(info: TransactionErrorInfo, raw: any);
 ```
 
 ## Parameters
@@ -22,3 +22,4 @@ constructor(info: TransactionErrorInfo);
 | Parameter | Type                                                  | Description |
 | --------- | ----------------------------------------------------- | ----------- |
 | info      | [TransactionErrorInfo](./sdk.transactionerrorinfo.md) |             |
+| raw       | any                                                   |             |

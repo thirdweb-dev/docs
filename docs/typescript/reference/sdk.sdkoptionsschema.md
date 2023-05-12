@@ -45,24 +45,24 @@ SDKOptionsSchema: z.ZodDefault<
             "strip",
             z.ZodTypeAny,
             {
-              chainId: number;
-              slug: string;
               rpc: string[];
+              chainId: number;
               nativeCurrency: {
                 symbol: string;
                 name: string;
                 decimals: number;
               };
+              slug: string;
             },
             {
-              chainId: number;
-              slug: string;
               rpc: string[];
+              chainId: number;
               nativeCurrency: {
                 symbol: string;
                 name: string;
                 decimals: number;
               };
+              slug: string;
             }
           >,
           "many"
@@ -117,18 +117,24 @@ SDKOptionsSchema: z.ZodDefault<
                     relayerUrl: z.ZodString;
                     relayerForwarderAddress: z.ZodOptional<z.ZodString>;
                     useEOAForwarder: z.ZodDefault<z.ZodBoolean>;
+                    domainName: z.ZodDefault<z.ZodString>;
+                    domainVersion: z.ZodDefault<z.ZodString>;
                   },
                   "strip",
                   z.ZodTypeAny,
                   {
                     relayerUrl: string;
                     useEOAForwarder: boolean;
+                    domainName: string;
+                    domainVersion: string;
                     relayerForwarderAddress?: string | undefined;
                   },
                   {
                     relayerUrl: string;
                     relayerForwarderAddress?: string | undefined;
                     useEOAForwarder?: boolean | undefined;
+                    domainName?: string | undefined;
+                    domainVersion?: string | undefined;
                   }
                 >;
                 experimentalChainlessSupport: z.ZodDefault<z.ZodBoolean>;
@@ -139,6 +145,8 @@ SDKOptionsSchema: z.ZodDefault<
                 openzeppelin: {
                   relayerUrl: string;
                   useEOAForwarder: boolean;
+                  domainName: string;
+                  domainVersion: string;
                   relayerForwarderAddress?: string | undefined;
                 };
                 experimentalChainlessSupport: boolean;
@@ -148,6 +156,8 @@ SDKOptionsSchema: z.ZodDefault<
                   relayerUrl: string;
                   relayerForwarderAddress?: string | undefined;
                   useEOAForwarder?: boolean | undefined;
+                  domainName?: string | undefined;
+                  domainVersion?: string | undefined;
                 };
                 experimentalChainlessSupport?: boolean | undefined;
               }
@@ -200,14 +210,14 @@ SDKOptionsSchema: z.ZodDefault<
     z.ZodTypeAny,
     {
       supportedChains: {
-        chainId: number;
-        slug: string;
         rpc: string[];
+        chainId: number;
         nativeCurrency: {
           symbol: string;
           name: string;
           decimals: number;
         };
+        slug: string;
       }[];
       thirdwebApiKey: string;
       gasSettings: {
@@ -227,6 +237,8 @@ SDKOptionsSchema: z.ZodDefault<
             openzeppelin: {
               relayerUrl: string;
               useEOAForwarder: boolean;
+              domainName: string;
+              domainVersion: string;
               relayerForwarderAddress?: string | undefined;
             };
             experimentalChainlessSupport: boolean;
@@ -244,14 +256,14 @@ SDKOptionsSchema: z.ZodDefault<
     {
       supportedChains?:
         | {
-            chainId: number;
-            slug: string;
             rpc: string[];
+            chainId: number;
             nativeCurrency: {
               symbol: string;
               name: string;
               decimals: number;
             };
+            slug: string;
           }[]
         | undefined;
       thirdwebApiKey?: string | undefined;
@@ -275,6 +287,8 @@ SDKOptionsSchema: z.ZodDefault<
               relayerUrl: string;
               relayerForwarderAddress?: string | undefined;
               useEOAForwarder?: boolean | undefined;
+              domainName?: string | undefined;
+              domainVersion?: string | undefined;
             };
             experimentalChainlessSupport?: boolean | undefined;
           }

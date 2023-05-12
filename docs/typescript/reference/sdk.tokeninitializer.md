@@ -218,14 +218,14 @@ TokenInitializer: {
       | {
           supportedChains?:
             | {
-                chainId: number;
-                slug: string;
                 rpc: string[];
+                chainId: number;
                 nativeCurrency: {
                   symbol: string;
                   name: string;
                   decimals: number;
                 };
+                slug: string;
               }[]
             | undefined;
           thirdwebApiKey?: string | undefined;
@@ -249,6 +249,8 @@ TokenInitializer: {
                   relayerUrl: string;
                   relayerForwarderAddress?: string | undefined;
                   useEOAForwarder?: boolean | undefined;
+                  domainName?: string | undefined;
+                  domainVersion?: string | undefined;
                 };
                 experimentalChainlessSupport?: boolean | undefined;
               }

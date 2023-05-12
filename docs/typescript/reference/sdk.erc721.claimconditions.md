@@ -34,7 +34,7 @@ await contract.erc721.claimConditions.set(claimConditions);
 **Signature:**
 
 ```typescript
-get claimConditions(): import("./drop-claim-conditions").DropClaimConditions<import("../../types/eips").BaseClaimConditionERC721>;
+get claimConditions(): import("./drop-claim-conditions").DropClaimConditions<BaseClaimConditionERC721>;
 ```
 
 ## Remarks

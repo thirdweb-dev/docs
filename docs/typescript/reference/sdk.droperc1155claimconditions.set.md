@@ -45,7 +45,7 @@ await dropContract.claimConditions.set(tokenId, claimConditions);
 ```typescript
 set: {
         (tokenId: BigNumberish, claimConditionInputs: {
-            startTime?: Date | undefined;
+            startTime?: number | Date | undefined;
             currencyAddress?: string | undefined;
             price?: string | number | undefined;
             maxClaimableSupply?: string | number | undefined;
@@ -66,7 +66,7 @@ set: {
             data: () => Promise<unknown>;
         }, "data">>;
         prepare: (tokenId: BigNumberish, claimConditionInputs: {
-            startTime?: Date | undefined;
+            startTime?: number | Date | undefined;
             currencyAddress?: string | undefined;
             price?: string | number | undefined;
             maxClaimableSupply?: string | number | undefined;

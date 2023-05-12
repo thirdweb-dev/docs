@@ -34,7 +34,7 @@ await contract.erc1155.claimConditions.set(tokenId, claimConditions);
 **Signature:**
 
 ```typescript
-get claimConditions(): import("./drop-erc1155-claim-conditions").DropErc1155ClaimConditions<import("../../types/eips").BaseClaimConditionERC1155>;
+get claimConditions(): import("./drop-erc1155-claim-conditions").DropErc1155ClaimConditions<BaseClaimConditionERC1155>;
 ```
 
 ## Remarks

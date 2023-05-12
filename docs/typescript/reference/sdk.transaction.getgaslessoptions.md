@@ -16,6 +16,8 @@ getGaslessOptions(): {
         openzeppelin: {
             relayerUrl: string;
             useEOAForwarder: boolean;
+            domainName: string;
+            domainVersion: string;
             relayerForwarderAddress?: string | undefined;
         };
         experimentalChainlessSupport: boolean;
@@ -30,4 +32,4 @@ getGaslessOptions(): {
 
 **Returns:**
 
-{ openzeppelin: { relayerUrl: string; useEOAForwarder: boolean; relayerForwarderAddress?: string \| undefined; }; experimentalChainlessSupport: boolean; } \| { biconomy: { apiId: string; apiKey: string; deadlineSeconds: number; }; } \| undefined
+{ openzeppelin: { relayerUrl: string; useEOAForwarder: boolean; domainName: string; domainVersion: string; relayerForwarderAddress?: string \| undefined; }; experimentalChainlessSupport: boolean; } \| { biconomy: { apiId: string; apiKey: string; deadlineSeconds: number; }; } \| undefined
