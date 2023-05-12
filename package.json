@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "docusaurus": "docusaurus",
     "dev": "pnpm start",
     "start": "docusaurus start",
