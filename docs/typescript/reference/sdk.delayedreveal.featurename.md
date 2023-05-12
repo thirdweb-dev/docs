@@ -31,14 +31,14 @@ featureName: "ERC1155" |
   "ERC721BatchMintable" |
   "ERC721LazyMintable" |
   "ERC721Revealable" |
+  "ERC721SignatureMintV1" |
+  "ERC721SignatureMintV2" |
+  "ERC721TieredDrop" |
   "ERC721ClaimCustom" |
   "ERC721ClaimConditionsV1" |
   "ERC721ClaimConditionsV2" |
   "ERC721ClaimPhasesV1" |
   "ERC721ClaimPhasesV2" |
-  "ERC721SignatureMintV1" |
-  "ERC721SignatureMintV2" |
-  "ERC721TieredDrop" |
   "ERC1155Burnable" |
   "ERC1155Enumerable" |
   "ERC1155Mintable" |
@@ -47,11 +47,11 @@ featureName: "ERC1155" |
   "ERC1155ClaimPhasesV1" |
   "ERC1155LazyMintableV2" |
   "ERC1155Revealable" |
+  "ERC1155SignatureMintable" |
   "ERC1155ClaimCustom" |
   "ERC1155ClaimConditionsV1" |
   "ERC1155ClaimConditionsV2" |
   "ERC1155ClaimPhasesV2" |
-  "ERC1155SignatureMintable" |
   "Royalty" |
   "PlatformFee" |
   "PrimarySale" |
@@ -66,5 +66,7 @@ featureName: "ERC1155" |
   "ExtensionRouter" |
   "DirectListings" |
   "EnglishAuctions" |
-  "Offers";
+  "Offers" |
+  "SmartWallet" |
+  "SmartWalletFactory";
 ```

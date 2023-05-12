@@ -143,14 +143,14 @@ VoteInitializer: {
     roles: readonly [];
     initialize: (network: NetworkInput, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
         supportedChains?: {
-            chainId: number;
-            slug: string;
             rpc: string[];
+            chainId: number;
             nativeCurrency: {
                 symbol: string;
                 name: string;
                 decimals: number;
             };
+            slug: string;
         }[] | undefined;
         thirdwebApiKey?: string | undefined;
         alchemyApiKey?: string | undefined;
@@ -168,6 +168,8 @@ VoteInitializer: {
                 relayerUrl: string;
                 relayerForwarderAddress?: string | undefined;
                 useEOAForwarder?: boolean | undefined;
+                domainName?: string | undefined;
+                domainVersion?: string | undefined;
             };
             experimentalChainlessSupport?: boolean | undefined;
         } | {

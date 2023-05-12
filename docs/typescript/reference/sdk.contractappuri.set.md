@@ -20,33 +20,15 @@ await contract.app.set(appURI);
 
 **Signature:**
 
-````typescript
+```typescript
 set: {
         (appURI: string): Promise<Omit<{
-            receipt: import("@ethersproject/abstract-provider").TransactionReceipt; /**
-             * Set App URI
-             * @param appURI - the uri to set (typically an IPFS hash)
-             * @example
-             * ```javascript
-             * const appURI = "ipfs://some_ipfs_hash";
-             * await contract.app.set(appURI);
-             * ```
-             * @twfeature AppURI
-             */
+            receipt: import("@ethersproject/abstract-provider").TransactionReceipt;
             data: () => Promise<unknown>;
         }, "data">>;
         prepare: (appURI: string) => Promise<Transaction<Omit<{
-            receipt: import("@ethersproject/abstract-provider").TransactionReceipt; /**
-             * Set App URI
-             * @param appURI - the uri to set (typically an IPFS hash)
-             * @example
-             * ```javascript
-             * const appURI = "ipfs://some_ipfs_hash";
-             * await contract.app.set(appURI);
-             * ```
-             * @twfeature AppURI
-             */
+            receipt: import("@ethersproject/abstract-provider").TransactionReceipt;
             data: () => Promise<unknown>;
         }, "data">>>;
     };
-````
+```

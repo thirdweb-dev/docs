@@ -14,9 +14,9 @@ Estimate the gas limit of this transaction
 **Signature:**
 
 ```typescript
-estimateGasLimit(): Promise<ethers.BigNumber>;
+estimateGasLimit(): Promise<BigNumber>;
 ```
 
 **Returns:**
 
-Promise&lt;ethers.BigNumber&gt;
+Promise&lt;BigNumber&gt;

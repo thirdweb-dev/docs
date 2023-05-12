@@ -56,8 +56,8 @@ createAuction: {
             currencyContractAddress?: string | undefined;
             timeBufferInSeconds?: string | number | bigint | BigNumber | undefined;
             bidBufferBps?: string | number | bigint | BigNumber | undefined;
-            startTimestamp?: Date | undefined;
-            endTimestamp?: Date | undefined;
+            startTimestamp?: number | Date | undefined;
+            endTimestamp?: number | Date | undefined;
         }): Promise<TransactionResultWithId<never>>;
         prepare: (auction: {
             tokenId: (string | number | bigint | BigNumber) & (string | number | bigint | BigNumber | undefined);
@@ -68,8 +68,8 @@ createAuction: {
             currencyContractAddress?: string | undefined;
             timeBufferInSeconds?: string | number | bigint | BigNumber | undefined;
             bidBufferBps?: string | number | bigint | BigNumber | undefined;
-            startTimestamp?: Date | undefined;
-            endTimestamp?: Date | undefined;
+            startTimestamp?: number | Date | undefined;
+            endTimestamp?: number | Date | undefined;
         }) => Promise<Transaction<TransactionResultWithId<never>>>;
     };
 ```

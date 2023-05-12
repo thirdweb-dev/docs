@@ -14,5 +14,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-abi: ContractInterface;
+abi: Abi;
 ```

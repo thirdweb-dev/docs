@@ -12,7 +12,7 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-static fromContractWrapper<TContract extends ethers.BaseContract, TResult = TransactionResult>(options: TransactionOptionsWithContractWrapper<TContract, TResult>): Transaction<TResult>;
+static fromContractWrapper<TContract extends BaseContract, TResult = TransactionResult>(options: TransactionOptionsWithContractWrapper<TContract, TResult>): Transaction<TResult>;
 ```
 
 ## Parameters

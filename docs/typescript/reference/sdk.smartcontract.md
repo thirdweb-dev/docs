@@ -44,7 +44,7 @@ const tx = await contract.erc721.mint({
 
 | Property                                                      | Modifiers             | Type                                                                                              | Description                                           |
 | ------------------------------------------------------------- | --------------------- | ------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
-| [abi](./sdk.smartcontract.abi.md)                             |                       | ContractInterface                                                                                 | **_(BETA)_**                                          |
+| [abi](./sdk.smartcontract.abi.md)                             |                       | [Abi](./sdk.abi.md)                                                                               | **_(BETA)_**                                          |
 | [app](./sdk.smartcontract.app.md)                             | <code>readonly</code> | [ContractAppURI](./sdk.contractappuri.md)&lt;IAppURI &#124; IContractMetadata&gt;                 | **_(BETA)_** Auto-detects AppURI standard functions.  |
 | [chainId](./sdk.smartcontract.chainid.md)                     | <code>readonly</code> | number                                                                                            | **_(BETA)_**                                          |
 | [directListings](./sdk.smartcontract.directlistings.md)       | <code>readonly</code> | [MarketplaceV3DirectListings](./sdk.marketplacev3directlistings.md)&lt;DirectListingsLogic&gt;    | **_(BETA)_** Direct listings                          |
@@ -69,7 +69,7 @@ const tx = await contract.erc721.mint({
 
 | Method                                                               | Modifiers | Description                                     |
 | -------------------------------------------------------------------- | --------- | ----------------------------------------------- |
-| [call(functionName, args)](./sdk.smartcontract.call.md)              |           | **_(BETA)_** Call any function on this contract |
+| [call(functionName, args, overrides)](./sdk.smartcontract.call.md)   |           | **_(BETA)_** Call any function on this contract |
 | [getAddress()](./sdk.smartcontract.getaddress.md)                    |           | **_(BETA)_**                                    |
 | [onNetworkUpdated(network)](./sdk.smartcontract.onnetworkupdated.md) |           | **_(BETA)_**                                    |
 | [prepare(method, args, overrides)](./sdk.smartcontract.prepare.md)   |           | **_(BETA)_** Prepare a transaction for sending  |
@@ -77,7 +77,7 @@ const tx = await contract.erc721.mint({
 **Signature:**
 
 ```typescript
-export declare class SmartContract<TContract extends BaseContract = BaseContract> implements UpdateableNetwork
+export declare class SmartContract<TContract extends BaseContractInterface = BaseContract> implements UpdateableNetwork
 ```
 
 **Implements:** UpdateableNetwork
