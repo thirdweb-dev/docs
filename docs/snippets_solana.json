@@ -714,7 +714,7 @@
       },
       {
         "name": "disconnect",
-        "summary": "Disconnect the connect wallet from the SDK\n\n",
+        "summary": "Disconnect the connected wallet from the SDK\n\n",
         "remarks": null,
         "examples": {
           "javascript": "sdk.wallet.disconnect();",
