@@ -19,7 +19,7 @@ Generate a signature that a wallet address can use to mint the specified number 
 This is typically an **admin** operation, where the owner of the contract generates a signature that allows _another_ wallet to mint tokens.
 
 ```python
-from thirdweb.types.contracts import PayloadToSign1155
+from thirdweb.types.contracts.signature import PayloadToSign1155
 from thirdweb.types.nft import NFTMetadataInput
 
 payload = {
@@ -83,7 +83,7 @@ The number of tokens this signature can be used to mint.
 Must be an `int`.
 
 ```python
-from thirdweb.types.contracts import PayloadToSign1155
+from thirdweb.types.contracts.signature import PayloadToSign1155
 from thirdweb.types.nft import NFTMetadataInput
 
 signature = contract.erc1155.signature.generate(PayloadToSign1155(
@@ -105,7 +105,7 @@ This is to prevent another wallet from intercepting the signature and using it t
 Must be of type `string`.
 
 ```python
-from thirdweb.types.contracts import PayloadToSign1155
+from thirdweb.types.contracts.signature import PayloadToSign1155
 from thirdweb.types.nft import NFTMetadataInput
 
 signature = contract.erc1155.signature.generate(PayloadToSign1155(
@@ -147,7 +147,7 @@ If you provide an object, the metadata is uploaded and pinned to IPFS before
 the NFT(s) are minted.
 
 ```python
-from thirdweb.types.contracts import PayloadToSign1155
+from thirdweb.types.contracts.signature import PayloadToSign1155
 from thirdweb.types.nft import NFTMetadataInput
 
 signature = contract.erc1155.signature.generate(PayloadToSign1155(
@@ -170,7 +170,7 @@ Defaults to `NATIVE_TOKEN_ADDRESS` (the native currency of the network, e.g. Eth
 Must be of type `str`.
 
 ```python
-from thirdweb.types.contracts import PayloadToSign1155
+from thirdweb.types.contracts.signature import PayloadToSign1155
 from thirdweb.types.nft import NFTMetadataInput
 
 const signature = contract.erc1155.signature.generate(PayloadToSign1155(
@@ -193,7 +193,7 @@ Defaults to `0` (free minting).
 Must be of type `float`
 
 ```python
-from thirdweb.types.contracts import PayloadToSign1155
+from thirdweb.types.contracts.signature import PayloadToSign1155
 from thirdweb.types.nft import NFTMetadataInput
 
 signature = contract.erc1155.signature.generate(PayloadToSign1155(
@@ -216,7 +216,7 @@ Defaults to `time()` (now).
 Must be of type `int`.
 
 ```python
-from thirdweb.types.contracts import PayloadToSign1155
+from thirdweb.types.contracts.signature import PayloadToSign1155
 from thirdweb.types.nft import NFTMetadataInput
 
 signature = contract.erc1155.signature.generate(PayloadToSign1155(
@@ -239,7 +239,7 @@ Defaults to `int(time() + 1000 * 60 * 60 * 24 * 365 * 10),` (10 years from now).
 Must be of type `int`.
 
 ```python
-from thirdweb.types.contracts import PayloadToSign1155
+from thirdweb.types.contracts.signature import PayloadToSign1155
 from thirdweb.types.nft import NFTMetadataInput
 
 signature = contract.erc1155.signature.generate(PayloadToSign1155(
@@ -260,7 +260,7 @@ If a `price` is specified, the funds will be sent to the `primary_sale_recipient
 Defaults to the `primary_sale_recipient` address of the contract.
 
 ```python
-from thirdweb.types.contracts import PayloadToSign1155
+from thirdweb.types.contracts.signature import PayloadToSign1155
 from thirdweb.types.nft import NFTMetadataInput
 
 signature = contract.erc1155.signature.generate(PayloadToSign1155(
@@ -282,7 +282,7 @@ The percentage fee you want to charge for secondary sales.
 Defaults to the `royaltyBps` of the contract.
 
 ```python
-from thirdweb.types.contracts import PayloadToSign1155
+from thirdweb.types.contracts.signature import PayloadToSign1155
 from thirdweb.types.nft import NFTMetadataInput
 
 signature = contract.erc1155.signature.generate(PayloadToSign1155(
@@ -304,7 +304,7 @@ The address that will receive the royalty fees from secondary sales.
 Defaults to the `royaltyRecipient` address of the contract.
 
 ```python
-from thirdweb.types.contracts import PayloadToSign1155
+from thirdweb.types.contracts.signature import PayloadToSign1155
 from thirdweb.types.nft import NFTMetadataInput
 
 signature = contract.erc1155.signature.generate(PayloadToSign1155(
@@ -330,7 +330,7 @@ Generate a batch of signatures at once.
 This is the same as [`generate`](#generate) but it allows you to generate multiple signatures at once.
 
 ```python
-from thirdweb.types.contracts import PayloadToSign1155
+from thirdweb.types.contracts.signature import PayloadToSign1155
 from thirdweb.types.nft import NFTMetadataInput
 
 signatures = contract.erc1155.signature.generate_batch([

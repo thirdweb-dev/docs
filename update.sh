@@ -30,7 +30,7 @@ cd ../storage
 if [ ! -d "./etc" ]; then
   mkdir ./etc
 fi
-pnpm generate-docs
+yarn generate-docs
 cd ../../../..
 yarn make-docs
 yarn generate-snippets
