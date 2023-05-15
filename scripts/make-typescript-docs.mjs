@@ -116,4 +116,5 @@ async function main() {
   }
 }
 
-main();
+// TEMP: Don't generate the full reference right now...
+// main();
