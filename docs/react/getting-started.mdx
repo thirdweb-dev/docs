@@ -90,82 +90,22 @@ When using client-side libraries, additional [polyfills](https://developer.mozil
 </summary>
 <div>
 
-Use [react-app-rewired](https://www.npmjs.com/package/react-app-rewired) to
-tweak the webpack configuration.
-
 <Tabs>
   <TabItem value="npm" label="npm">
-    <CodeBlock language="bash">
-      npm i assert react-app-rewired stream -D
-    </CodeBlock>
+    <CodeBlock language="bash">npm i assert stream -D</CodeBlock>
   </TabItem>
   <TabItem value="yarn" label="yarn">
-    <CodeBlock language="bash">
-      yarn add assert react-app-rewired stream -D
-    </CodeBlock>
+    <CodeBlock language="bash">yarn add assert stream -D</CodeBlock>
   </TabItem>
   <TabItem value="pnpm" label="pnpm">
-    <CodeBlock language="bash">
-      pnpm add assert react-app-rewired stream -D
-    </CodeBlock>
+    <CodeBlock language="bash">pnpm add assert stream -D</CodeBlock>
   </TabItem>
 </Tabs>
 
-Finally, update the scripts to use `react-app-rewired`:
+To ignore the sourcemap warnings, create a `.env` file with the following in your root directory:
 
-```js
-  "scripts": {
-    "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
-    "test": "react-app-rewired test",
-    "eject": "react-scripts eject",
-  },
-```
-
-Next, create a `config-overrides.js` file in the root of your project and add the following:
-
-```js
-const webpack = require("webpack");
-
-module.exports = function override(config) {
-  const fallback = config.resolve.fallback || {};
-  config.resolve.fallback = fallback;
-  config.plugins = (config.plugins || []).concat([
-    new webpack.ProvidePlugin({
-      process: "process/browser",
-      Buffer: ["buffer", "Buffer"],
-    }),
-  ]);
-  config.resolve.extensions.push(".mjs");
-  config.module.rules.push({
-    test: /\.m?js/,
-    resolve: {
-      fullySpecified: false,
-    },
-  });
-
-  return {
-    ...config,
-    // This is needed to not show the warning about this modules don't have src files, only on dist (build)
-    ignoreWarnings: [
-      {
-        module: /node_modules\/@walletconnect/,
-      },
-      {
-        module: /node_modules\/eth-rpc-errors/,
-      },
-      {
-        module: /node_modules\/json-rpc-engine/,
-      },
-      {
-        module: /node_modules\/@metamask/,
-      },
-      {
-        module: /node_modules\/@gnosis.pm/,
-      },
-    ],
-  };
-};
+```text
+GENERATE_SOURCEMAP=false
 ```
 
 Now, you can start using the SDK!
@@ -179,15 +119,36 @@ Now, you can start using the SDK!
    </summary>
     <div>
 
+Install the vite plugins
+
+<Tabs>
+  <TabItem value="npm" label="npm">
+    <CodeBlock language="bash">
+      npm i @vitejs/plugin-react vite-plugin-node-polyfills -D
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="yarn" label="yarn">
+    <CodeBlock language="bash">
+      yarn add @vitejs/plugin-react vite-plugin-node-polyfills -D
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="pnpm" label="pnpm">
+    <CodeBlock language="bash">
+      pnpm add @vitejs/plugin-react vite-plugin-node-polyfills -D
+    </CodeBlock>
+  </TabItem>
+</Tabs>
+
 In the `vite.config.js` file, add the following configuration:
 
 ```js
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
+import { nodePolyfills } from "vite-plugin-node-polyfills";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), nodePolyfills()],
   define: {
     "process.env": {},
   },
