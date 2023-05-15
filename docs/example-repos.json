@@ -86,11 +86,11 @@
     "html_url": "https://github.com/thirdweb-example/catattacknft",
     "description": "Claim your cat, attack others, and accumulate points to win!",
     "created_at": "2022-08-26T20:48:18Z",
-    "updated_at": "2023-05-10T18:31:51Z",
+    "updated_at": "2023-05-15T16:37:53Z",
     "clone_url": "https://github.com/thirdweb-example/catattacknft.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 74,
+    "stargazers_count": 75,
     "is_template": false,
     "homepage": "https://catattacknft.vercel.app"
   },
@@ -792,14 +792,14 @@
     "html_url": "https://github.com/thirdweb-example/marketplace-v3",
     "description": "Create your own NFT marketplace where users can buy and sell NFTs!",
     "created_at": "2023-01-31T03:33:27Z",
-    "updated_at": "2023-05-09T13:01:54Z",
+    "updated_at": "2023-05-14T10:20:42Z",
     "clone_url": "https://github.com/thirdweb-example/marketplace-v3.git",
     "topics": [
       "marketplace",
       "nft-marketplace"
     ],
     "language": "TypeScript",
-    "stargazers_count": 30,
+    "stargazers_count": 32,
     "is_template": false,
     "homepage": "https://marketplace-v3.thirdweb-preview.com"
   },
@@ -941,7 +941,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-gallery",
     "description": "Create a gallery of NFTs from an NFT Collection",
     "created_at": "2023-01-27T02:51:22Z",
-    "updated_at": "2023-05-09T03:06:59Z",
+    "updated_at": "2023-05-15T05:34:26Z",
     "clone_url": "https://github.com/thirdweb-example/nft-gallery.git",
     "topics": [
       "nft-drop",
@@ -950,7 +950,7 @@
     "language": "TypeScript",
     "stargazers_count": 3,
     "is_template": false,
-    "homepage": "https://nft-gallery.thirdweb-example.com/"
+    "homepage": "https://nft-gallery.thirdweb-preview.com/"
   },
   {
     "name": "nft-gated-website",
@@ -1191,11 +1191,11 @@
     "html_url": "https://github.com/thirdweb-example/react-native-typescript-starter",
     "description": null,
     "created_at": "2022-11-02T02:03:17Z",
-    "updated_at": "2023-02-17T01:27:26Z",
+    "updated_at": "2023-05-15T09:15:56Z",
     "clone_url": "https://github.com/thirdweb-example/react-native-typescript-starter.git",
     "topics": [],
     "language": "Java",
-    "stargazers_count": 6,
+    "stargazers_count": 7,
     "is_template": false,
     "homepage": null
   },
@@ -1490,14 +1490,14 @@
     "html_url": "https://github.com/thirdweb-example/thirdweb-auth-next-auth",
     "description": "Enable wallet-based login with thirdweb Auth & Next Auth",
     "created_at": "2022-08-30T21:44:52Z",
-    "updated_at": "2023-04-23T10:44:01Z",
+    "updated_at": "2023-05-14T04:50:59Z",
     "clone_url": "https://github.com/thirdweb-example/thirdweb-auth-next-auth.git",
     "topics": [
       "auth",
       "nextauth"
     ],
     "language": "TypeScript",
-    "stargazers_count": 10,
+    "stargazers_count": 11,
     "is_template": false,
     "homepage": ""
   },
