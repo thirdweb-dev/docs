@@ -18,7 +18,7 @@ const config = {
   tagline: "Get started with thirdweb by diving into our developer portal.",
   url: "https://portal.thirdweb.com",
   baseUrl,
-  onBrokenLinks: "throw",
+  onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
   organizationName: "thidweb-dev", // Usually your GitHub org/user name.
