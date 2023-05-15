@@ -2,7 +2,7 @@ git submodule init
 git submodule update --remote
 git submodule foreach git checkout main
 git submodule foreach git pull origin main
-pnpm install
+yarn
 # go into js package and build
 cd ./submodules/js
 pnpm install
@@ -30,9 +30,9 @@ cd ../storage
 if [ ! -d "./etc" ]; then
   mkdir ./etc
 fi
-pnpm generate-docs
+yarn generate-docs
 cd ../../../..
-pnpm make-docs
-pnpm generate-snippets
-pnpm generate-github-examples
-pnpm prettier
+yarn make-docs
+yarn generate-snippets
+yarn generate-github-examples
+yarn prettier
