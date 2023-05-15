@@ -98,7 +98,10 @@ const walletWithOptions = new LocalWallet(
   <summary>storage (optional)</summary>
   <div>
 
-This is the default storage for storing the private key, mnemonic or encrypted JSON. This can be implemented in any way you want, as long as it conforms to the `AsyncStorage` interface:
+This is the storage used for storing the private key, mnemonic or encrypted JSON. On React Native we need this storage to be secure since
+we store the private key to be able to recover your wallet for reconnections.
+
+You can use any implementation of encrpyted storage you want, as long as it conforms to the `AsyncStorage` interface:
 
 If omitted, defaults to browser storage.
 
