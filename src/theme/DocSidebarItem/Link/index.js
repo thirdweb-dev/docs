@@ -31,7 +31,6 @@ export const iconMapping = {
   GamingKit: "/assets/solutions/gaming.png",
   CommerceKit: "/assets/solutions/commerce.png",
   Minting: "/assets/product/sdk.png",
-  Mobile: "/assets/product/sdk.png",
   "Digital Collectibles": "/assets/product/sdk.png",
   Storage: "/assets/product/storage.png",
   "UI Components": "/assets/product/ui.png",

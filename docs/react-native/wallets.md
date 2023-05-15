@@ -100,7 +100,9 @@ The local wallet works mostly the same as [the web version](https://portal.third
   <summary>storage (optional)</summary>
   <div>
 
-This is the default storage for storing the private key, mnemonic or encrypted JSON. This can be implemented in any way you want, as long as it conforms to the `AsyncStorage` interface:
+This is the storage used for storing the private key, mnemonic or encrypted JSON. On React Native we need this storage to be encrypted since we store the private key to be able to recover your wallet for reconnections.
+
+You can use any implementation of encrypted storage you want, as long as it conforms to the `AsyncStorage` interface:
 
 ```typescript
 export interface AsyncStorage {
@@ -115,22 +117,12 @@ If omitted, it defaults to [Expo Secure Store](https://docs.expo.dev/versions/la
 Example:
 
 ```javascript
-import { LocalWallet } from "@thirdweb-dev/wallets";
+import { createSecureStorage, LocalWallet } from "@thirdweb-dev/react-native";
 
 const walletWithOptions = new LocalWallet(
   // highlight-start
   {
-    storage: {
-      getItem: (key) => {
-        // Implement your own storage logic here
-      },
-      removeItem: (key) => {
-        // Implement your own storage logic here
-      },
-      setItem: (key, value) => {
-        // Implement your own storage logic here
-      },
-    },
+    storage: createSecureStorage("my-wallet"),
   },
   // highlight-end
 );
@@ -142,3 +134,18 @@ const walletWithOptions = new LocalWallet(
 ### Smart Wallet
 
 See our [Smart Wallet documentation](https://portal.thirdweb.com/wallet/smart-wallet)
+
+## Building your own wallet
+
+With our `@thirdweb-dev/wallets` sdk you can build your own wallets and integrate it into our [ConnectWallet button](https://portal.thirdweb.com/react-native/react-native.connectwallet). You can see how to build one in the [Building a Wallet](https://portal.thirdweb.com/wallet/build-a-wallet) section of our wallets documentation.
+
+### Built-in wallets
+
+You can look at how the built-in wallets in the `@thirdweb-dev/react-native` package are implemented for reference:
+
+- [MetaMask](https://github.com/thirdweb-dev/js/blob/main/packages/react-native/src/evm/wallets/wallets/metamask-wallet.ts)
+- [Coinbase](https://github.com/thirdweb-dev/js/blob/main/packages/react-native/src/evm/wallets/wallets/coinbase-wallet.ts)
+- [Rainbow](https://github.com/thirdweb-dev/js/blob/main/packages/react-native/src/evm/wallets/wallets/rainbow-wallet.ts)
+- [Trust](https://github.com/thirdweb-dev/js/blob/main/packages/react-native/src/evm/wallets/wallets/trust-wallet.ts)
+- [Local Wallet](https://github.com/thirdweb-dev/js/blob/main/packages/react-native/src/evm/wallets/wallets/local-wallet.tsx)
+- [Smart Wallet](https://github.com/thirdweb-dev/js/blob/main/packages/react-native/src/evm/wallets/wallets/smart-wallet.ts)
