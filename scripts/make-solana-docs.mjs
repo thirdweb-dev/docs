@@ -105,4 +105,5 @@ async function copyReadMe() {
   );
 }
 
-main();
+// TEMP: Don't generate the full reference right now...
+// main();
