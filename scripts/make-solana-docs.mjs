@@ -62,7 +62,7 @@ async function main() {
         }
         if (line.includes("<!-- -->")) {
           line = line.replace(/<!-- -->/g, "");
-        }  
+        }
 
         output.push(line);
       });
@@ -105,4 +105,5 @@ async function copyReadMe() {
   );
 }
 
-main();
+// TEMP: Don't generate the full reference right now...
+// main();

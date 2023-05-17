@@ -1,18 +1,18 @@
 ---
 slug: /solidity/extensions/account-extension
-title: Account Extension
+title: AccountExtension
 ---
 
 import ViewContractCodeButton from "@components/ViewContractCodeButton";
 import QuickstartCard from "@components/QuickstartCard";
 
-# Account Extensions
+# AccountExtension
 
 ```solidity
 import "@thirdweb-dev/contracts/smart-wallet/utils/AccountExtension.sol";
 ```
 
-The `AccountExtension` smart contract is the extension usable with the [Dynamic](/solidity/base-contracts/dynamic-account) and [Managed](/solidity/base-contracts/managed-account) Account smart contracts. It is the *default extension* for these base contracts.
+The `AccountExtension` smart contract is the extension usable with the [Dynamic](/solidity/base-contracts/dynamic-account) and [Managed](/solidity/base-contracts/managed-account) Account smart contracts. It is the _default extension_ for these base contracts.
 It includes the default logic for creating a smart account smart contract including the ability to:
 
 - Have multiple owners
@@ -22,7 +22,7 @@ It includes the default logic for creating a smart account smart contract includ
 - Multicall-able.
 - Store contract metadata.
 
-<br/>
+<br />
 
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/smart-wallet/utils/AccountExtension.sol"
@@ -31,7 +31,7 @@ It includes the default logic for creating a smart account smart contract includ
 
 ## Usage
 
-This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality. 
+This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality.
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -72,15 +72,15 @@ function execute(
 }
 ```
 
-#### _target
+#### \_target
 
 The target contract to call.
 
-#### _value
+#### \_value
 
 The amount of native tokens to send to the target contract.
 
-#### _calldata
+#### \_calldata
 
 The `bytes` calldata to send to the target contract.
 
@@ -106,15 +106,15 @@ function executeBatch(
 }
 ```
 
-#### _target
+#### \_target
 
 The target contracts to call.
 
-#### _value
+#### \_value
 
 The amounts of native tokens to send to the target contracts.
 
-#### _calldata
+#### \_calldata
 
 The `bytes` calldata to send to the target contracts.
 
@@ -142,15 +142,15 @@ function _call(
 }
 ```
 
-#### _target
+#### \_target
 
 The target contract to call.
 
-#### _value
+#### \_value
 
 The amount of native tokens to send to the target contract.
 
-#### _calldata
+#### \_calldata
 
 The `bytes` calldata to send to the target contract.
 

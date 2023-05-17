@@ -82,17 +82,15 @@ const darkThemeCustom = darkTheme();
 
 function App() {
   return (
-   <ConnectWallet
+    <ConnectWallet
       theme={{
-      ...darkThemeCustom,
-      colors: {
+        ...darkThemeCustom,
+        colors: {
           ...darkThemeCustom.colors,
-          backgroundHighlight: 'blue',
-      },
+          backgroundHighlight: "blue",
+        },
       }}
     />
   );
 }
 ```
-
-

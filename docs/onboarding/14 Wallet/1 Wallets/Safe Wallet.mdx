@@ -87,29 +87,6 @@ const walletWithOptions = new SafeWallet({
 </details>
 
 <details>
-  <summary>headlessMode</summary>
-  <div>
-
-If true, the wallet will not open a QR Code modal, but instead, return a QR Code string.
-
-Must be a `boolean`.
-
-```javascript
-import { SafeWallet } from "@thirdweb-dev/wallets";
-
-const walletWithOptions = new SafeWallet(
-  // highlight-start
-  {
-    headlessMode: true,
-  },
-  // highlight-end
-);
-```
-
-</div>
-</details>
-
-<details>
   <summary>walletStorage</summary>
   <div>
 
@@ -224,10 +201,10 @@ Must be a `string`.
 
 #### Return Value
 
-Returns a `string` containing the wallet address, or `undefined` if the connection failed.
+Returns a `string` containing the wallet address, or throws and error if connection failed.
 
 ```typescript
-string | undefined;
+string;
 ```
 
 </div>
