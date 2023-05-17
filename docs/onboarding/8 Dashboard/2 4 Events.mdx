@@ -1,0 +1,25 @@
+---
+title: Events
+slug: /dashboard/events
+---
+
+# Events
+
+In the Events view, you are able to see an updated list of all the transactions emittted on the contract and their corresponding block number, and hash. The drop downs provide a detailed view of the event data.
+
+![Screenshot of events view](./assets/events-view.png)
+
+### Events List
+
+| Event                       | Event Description |
+| --------------------------- | ----------------- |
+| ClaimConditionsUpdated      | Emitted when Claim Conditions have been updated.                  |
+| ContractURIUpdated          | Emitted when the Contract URI or metadata have been updated.                  |
+| TokensLazyMinted            | Emitted when tokens have been [lazy minted](/glossary/lazy-minting)                 |
+| Initialized                 | Emitted when the contract is initialized                  |
+| PrimarySaleRecipientUpdated | Emitted when the [primary sale recipient](/solidity/extensions/primarysale) is updated                  |
+| DefaultRoyalty              | Emitted when the default [royalty](/solidity/extensions/royalty) recipient is updated                  |
+| PlatformFeeInfoUpdated      | Emitted when the [platform fee](/solidity/extensions/platformfee) information is updated                  |
+| RoleGranted                 | Emitted when a new role is granted (for contracts with the [permissions](/solidity/extensions/permissions) extension)                  |
+| OperatorRestriction         | Emitted when the operation (e.g. function call) is restricted (e.g. to a specific role). This is emitted by contracts which implement the [OperatorFilterer](/contracts/OperatorFilterer) extension                 |
+| OwnerUpdated                | Emitted when the contract [owner](/solidity/extensions/ownable) is updated                  |
