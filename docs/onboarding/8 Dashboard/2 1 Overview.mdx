@@ -8,17 +8,17 @@ import ThemedImage from "@theme/ThemedImage";
 
 # Dashboard
 
-Using [dashboard](https://thirdweb.com/dashboard) you can deploy, interact with, and manage all your contracts, programs, configure storage, RPC, and more.
+Using [dashboard](https://thirdweb.com/dashboard) you can deploy, interact with, and manage your contracts, configure storage, RPCs, Wallets and more.
 
-The dashboard allows you to deploy or import any EVM compatible contract and manage settings.
+The dashboard allows you to [deploy](/deploy) or import any contract on an EVM-compatible network and manage settings.
 
 Some actions enabled through dashboard:
 
 - Updating contract metadata
 - Uploading single or batch NFTs
 - Transferring, burning, or airdropping NFTs
-- Setting claim conditions (certain contracts)
-- Managing contract permissions
+- Setting claim conditions (on contracts which implement the [Claimable](/solidity/extensions/erc721claimable), [Drop](/solidity/extensions/drop) or [DropSinglePhase](/solidity/extensions/dropsinglephase) extensions)
+- Managing contract permissions (on contracts which implement the [Permissions](/solidity/extensions/permissions) extension)
 
 <OpenSourceInfo
   repoName="dashboard"
@@ -39,7 +39,7 @@ Some actions enabled through dashboard:
 
 ## Unlocking Dashboard Features
 
-All prebuilt contracts come with a set of default views, including:
+All contracts come with a set of default views, including:
 
 - [Build](/dashboard/build)
 - [Explorer](/dashboard/explorer)
@@ -47,5 +47,5 @@ All prebuilt contracts come with a set of default views, including:
 - [Settings](/dashboard/settings)
 - [Sources](/dashboard/sources)
 
-For each contract you deploy using the [dashboard](https://thirdweb.com/dashboard) or the [CLI](/cli),
+For each contract you deploy using the [dashboard](https://thirdweb.com/dashboard) or the [CLI](/cli) or import,
 you unlock features in the dashboard for each [extension](/solidity/extensions) you implemented in your contract.
