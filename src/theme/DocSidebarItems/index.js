@@ -51,13 +51,7 @@ function DocSidebarItems({ items, ...props }) {
     },
     {
       title: "Solutions",
-      items: [
-        "CommerceKit",
-        "GamingKit",
-        "Minting",
-        "Mobile",
-        "Digital Collectibles",
-      ],
+      items: ["CommerceKit", "GamingKit", "Minting", "Digital Collectibles"],
     },
     {
       title: "SDK References",
