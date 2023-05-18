@@ -1,0 +1,60 @@
+---
+title: useSetConnectionStatus
+slug: /react.usesetconnectionstatus
+displayed_sidebar: react
+---
+
+Hook for setting `connectionStatus` of the wallet.
+
+This is only useful if you are manually connecting a wallet as mentioned in [Build your Wallet](/wallet/build-a-wallet#connecting-your-wallet-in-wallet-connection-ui)
+
+```jsx
+import { useSetConnectionStatus } from "@thirdweb-dev/react";
+
+const setConnectionStatus = useSetConnectionStatus();
+
+setConnectionStatus(status);
+```
+
+## Usage
+
+```jsx
+import { useSetConnectionStatus } from "@thirdweb-dev/react";
+
+function App() {
+  const setConnectionStatus = useConnectionStatus();
+
+  const handleConnect = () => {
+    setConnectionStatus("connecting");
+    // manually connect to a wallet
+    setConnectionStatus("connected");
+  };
+
+  const handleDisconnect = () => {
+    // manually connect to a wallet
+    setConnectionStatus("disconnected");
+  };
+
+  return <div> ... </div>;
+}
+```
+
+## Configuration
+
+<details>
+  <summary> status </summary>
+  <div>
+
+`status` is a string with one of the following values:
+
+```typescript
+"unknown" | "connecting" | "connected" | "disconnected";
+```
+
+- `unknown`: Application has not yet determined connection status.
+- `connecting`: Application is trying to connect to a wallet.
+- `connected`: Application is connected to a wallet.
+- `disconnected`: Application is not connected to any wallet.
+
+</div>
+</details>

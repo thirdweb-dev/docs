@@ -15,7 +15,7 @@ The following will guide you through how you can create your own wallet in a few
 
 1. Implement your own `Connector` class
 2. Implement your own `AbstractBrowserWallet` class
-3. Expose your wallet to React and React Native wallet connect button
+3. Integrate with Connect Wallet button in React/React Native
 
 At the end of this guide you should have a fully functional wallet that can be used with the thirdweb TS, React and React Native SDKs.
 
@@ -136,6 +136,9 @@ type Chain = {
 </div>
 </details>
 
+<br />
+<br />
+
 ## 2. Extending the `AbstractClientWallet` class
 
 Now that the hard part is done, the rest is easy, we just need to wrap our connector in a `AbstractClientWallet` class.
@@ -172,15 +175,34 @@ const wallet = new MyWallet();
 wallet.connect();
 ```
 
+## Examples
+
+You can look at how the built-in wallets in `@thirdweb-dev/wallets` package are created for reference
+
+- [MetaMask](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/metamask.ts)
+- [Coinbase](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/coinbase-wallet.ts)
+- [WalletConnect v1](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/wallet-connect-v1.ts)
+- [WalletConnect v2](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/wallet-connect.ts)
+- [Local Wallet](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/local-wallet.ts)
+- [Safe](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/safe.ts)
+- [Smart Wallet](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/smart-wallet.ts)
+- [Paper Wallet](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/paper-wallet.ts)
+- [Magic Link](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/magic.ts)
+
+<br />
+<br />
+
 ## 3. Integrate with Connect Wallet button
 
-The last step is to integrate it with [Connect Wallet](/react/react.connectwallet) button by creating a function that returns a `ConfiguredWallet` object and specifying it in [supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional)
+## Create a wallet configurator function
 
-```ts
-import { ConfiguredWallet } from '@thirdweb-dev/react'
+The last step is to integrate it with [Connect Wallet](/react/react.connectwallet) button by creating a wallet configurator - a function that returns a `WalletConfig` object and specifying it in [supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional)
 
-const myWallet = (config?: MyWalletConfig) {
-  const configuredWallet: ConfiguredWallet<MyWallet> = {
+```tsx
+import { WalletConfig } from '@thirdweb-dev/react'
+
+function myWallet (options?: MyWalletConfig): WalletConfig<MyWallet> {
+  return {
     id: 'my-wallet',
     meta: {
       name: "My Wallet",
@@ -188,21 +210,26 @@ const myWallet = (config?: MyWalletConfig) {
 
       // optional
       urls: {
-        chrome: "https://...", // optional
-        firefox: "https://...", // optional
-        android: "https://...", // optional
-        ios: "https://...", // optional
+        chrome: "https://...",
+        firefox: "https://...",
+        android: "https://...",
+        ios: "https://...",
       },
     },
 
-    create(options) {
-      return new MyWallet({ ...options, ...config })
+    create(walletOptions) {
+      return new MyWallet({ ...walletOptions, ...options })
     }
 
-    // optional
+    // optional - render a UI for connecting your wallet
     connectUI(props) {
-      return <MyWalletUI {...props} />;
+      return <MyWalletConnectionUI {...props} />;
     },
+
+    // optional - override the default UI for selecting your wallet in wallet selector screen
+    selectUI(props) {
+      return <MyWalletSelectionUI {...props} />
+    }
 
     // optional
     isInstalled() {
@@ -210,57 +237,18 @@ const myWallet = (config?: MyWalletConfig) {
       return true; // or false
     },
   };
-
-  return configuredWallet;
 };
 ```
 
-<details>
-  <summary> config (optional) </summary>
-  <div>
-
-If your wallet requires some extra configuration for creating a wallet instance that is not provided from the `create` function's argument, you can expose it as `config` from `myWallet` function and merge the `options` and `config` to provide all the properties required by your wallet.
-
-```ts
-// if the options are not enough
-const myWallet = (config) => {
-  const configuredWallet: ConfiguredWallet = {
-    create(options) {
-      return new MyWallet({ ...options, ...config });
-    },
-
-    // ...
-  };
-  return configuredWallet;
-};
-```
-
-If your wallet does not require any configuration, you don't need to include the `config`
-
-```ts
-// if the options are enough
-const myWallet = () => {
-  const configuredWallet: ConfiguredWallet = {
-    create(options) {
-      return new MyWallet(options);
-    },
-
-    // ...
-  };
-  return configuredWallet;
-};
-```
-
-</div>
-</details>
+### Required
 
 <details>
   <summary> id </summary>
   <div>
 
-A unique ID for your wallet that is used to identify your wallet among other wallets used in the app.
+A unique ID for your wallet. It is used to identify your wallet among other wallets in the app.
 
-It can be anything, but using the name of your wallet as `id` is recommended as it
+It can be anything, but using the name of your wallet as `id` is recommended because it
 is not likely to be used by other wallets.
 
 </div>
@@ -272,11 +260,9 @@ is not likely to be used by other wallets.
 
 metadata of your wallet.
 
-### name and iconURL
+`name` and `iconURL` are required. They are used to display your wallet in the list of supported wallets in Connect Wallet Modal's Wallet Selector screen.
 
-`name` and `iconURL` are required. They are used to display your wallet in the list of supported wallets in Connect Wallet Modal
-
-### urls
+<img src="/assets/connect-wallet/wallet-selector-screen.png" />
 
 `urls` object is optional and all of its properties are optional as well.
 
@@ -293,6 +279,8 @@ It is used to display a built-in "Get Started" screen. This screen renders UI fo
 
 "Get started" screen's link is rendered below the list of supported wallets in ConnectWallet Modal - This link is only rendered if the first wallet in [supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) array) has the `urls` object in `meta`.
 
+<img src="/assets/connect-wallet/get-started.png" />
+
 </div>
 </details>
 
@@ -308,39 +296,51 @@ A function that creates and returns the wallet instance.
 import { WalletOptions } from "@thirdweb-dev/wallets";
 import { WalletInstance } from "@thirdweb-dev/react";
 
-type Create = (options: WalletOptions) => WalletInstance;
+type Create = (walletOptions: WalletOptions) => WalletInstance;
 ```
 
-You can create an instance of your wallet using the `options` provided by the `create` function and optionally use the `config` provided by the `myWallet` function.
+You can create an instance of your wallet using the `walletOptions` provided by the `create` function and optionally add the `options` provided by the `myWallet` function.
 
 ```ts
-create(options) {
+create(walletOptions) {
   return new MyWallet({
+    ...walletOptions,
     ...options,
-    ...config,
   });
 }
 ```
 
-since the `create` method only provides `options` of type `WalletOptions` - the rest of the wallet-specific configuration (if any) can be exposed as `config` of the `myWallet` function.
+since the `create` method only provides `options` of type `WalletOptions` - the rest of the wallet-specific configuration (if any) can be exposed as `options` of the `myWallet` function.
 
 </div>
 </details>
 
+### Optional
+
 <details>
-  <summary> connectUI (optional) </summary>
+  <summary> connectUI  </summary>
   <div>
 
 A function that returns a React component that renders the UI for connecting to your wallet.
 
 This UI will be rendered inside the ConnectWallet Modal when the user clicks on your wallet in the list of supported wallets.
 
-The `connectUI` function is given props of type `ConnectUIProps` which you can use in your UI to trigger various actions - like closing the modal, opening the modal, going back to the list of supported wallets etc.
+<img src="/assets/connect-wallet/connecting-metamask.png" />
+
+The `connectUI` function provides the props of type `ConnectUIProps` which you can use in your UI to trigger various actions - like closing the modal, opening the modal, going back to the list of supported wallets etc.
 
 ### ConnectUIProps
 
 ```ts
 {
+
+  /**
+   * `WalletConfig` object of your wallet
+   *
+   * Geting the entire `WalletConfig` object is useful for connecting the wallet and getting metadata
+   */
+  walletConfig: WalletConfig;
+
    /**
    * close the connect wallet modal
    * @param reset -
@@ -364,6 +364,35 @@ The `connectUI` function is given props of type `ConnectUIProps` which you can u
    * go back to the wallet selector screen in connect wallet modal
    */
   goBack: () => void;
+
+  /**
+   * theme of the connect wallet modal
+   */
+  theme: "dark" | "light";
+
+  /**
+   * selectionData passed from `selectUI`'s `onSelect` function
+   *
+   * This is only relevant if you are using `selectUI` to render a custom UI for selecting your wallet
+   */
+  selectionData: any;
+
+  /**
+   * set selectionData
+   *
+   * This is only relevant if you are using `selectUI` to render a custom UI for selecting your wallet
+   */
+  setSelectionData: (data: any) => void;
+
+  /**
+   * List of all supported wallets including your wallet.
+   *
+   * You can use this to conditionally render UI based on how many wallets are supported.
+   * If only one wallet (your wallet) is supported, Connect Wallet Modal will skip showing the wallet selection screen and directly render the connectUI of your wallet.
+   *
+   * You can detect this by checking if `supportedWallets.length === 1` and adjusting your UI accordingly - for example: not rendering a "back" button
+   */
+  supportedWallets: WalletConfig[];
 };
 
 
@@ -371,27 +400,243 @@ The `connectUI` function is given props of type `ConnectUIProps` which you can u
 
 ### Headless Mode
 
-If no `connectUI` is given, the wallet is assumed to be in "headless" mode - meaning that it does not require any UI to be rendered inside the ConnectWallet Modal to connect the wallet - This can be the case if either the wallet has its own UI that is appended to DOM or it does not require any UI at all.
+If no `connectUI` is given, the wallet is assumed to be in "headless" mode - meaning that it does not require any UI to be rendered inside the ConnectWallet Modal to connect the wallet - This can be the case if either the wallet has its own UI that is appended to DOM (Example: walletConnect on web) or it does not require any UI at all.
 
-In this case, when the user clicks on your wallet in the list of supported wallets, the `wallet.connect` method is called and the ConnectWallet Modal is closed.
+In this case, when the user clicks on your wallet in the wallet selector screen, your wallet is connected using the `useConnect` hook and the ConnectWallet Modal is closed.
 
 </div>
 </details>
 
 <details>
-  <summary> isInstalled (optional) </summary>
+  <summary> selectUI </summary>
+  <div>
+
+A function that returns a React component that renders the UI for selecting your wallet.
+
+Instead of the default icon + name in wallet selector screen, you can render a custom UI for your wallet.
+
+Take [paper wallet](https://github.com/thirdweb-dev/js/blob/main/packages/react/src/wallet/wallets/paperWallet.tsx) for example, It renders a Input field where the user can enter their email address.
+
+<img src="/assets/connect-wallet/paper-wallet-selection-ui.png" />
+
+Wallets with `selectUI` are rendered at the top of the list in ConnectWallet Modal's wallet selector screen.
+
+The `selectUI` function provides the props of type `SelectUIProps` which you can use in your UI to trigger wallet selection and move to the next screen in ConnectWallet Modal using `onSelect` and also optionally save user's input using `onSelect(data)` which will be passed to `connectUI`'s `selectionData` prop.
+
+### SelectUIProps
+
+```tsx
+{
+  /**
+   * Call this function to "select" your wallet and render the screen for connecting the wallet
+   * @param selectionData - selectionData to be passed to `connectUI`'s `selectionData` prop
+   * @returns
+   */
+  onSelect: (selectionData: any) => void;
+
+  /**
+   * `WalletConfig` object of your wallet
+   *
+   * you can use this get metadata of your wallet by doing `walletConfig.meta`
+   */
+  walletConfig: WalletConfig;
+
+  /**
+   * List of all supported wallets including your wallet.
+   *
+   * You can use this to conditionally render UI based on how many wallets are supported.
+   * For example: You can render a "OR" at the bottom of your UI if more than one wallet is supported
+   *
+   * Note that if there is only one wallet (your wallet) is supported, Connect Wallet Modal will skip showing the wallet selection screen and directly render the connectUI of your wallet.
+   */
+  supportedWallets: WalletConfig[];
+};
+```
+
+</div>
+</details>
+
+<details>
+  <summary> isInstalled </summary>
   <div>
 
 A function that returns a boolean indicating whether your wallet is installed on the user's browser/device or not.
 
-It is used to show an "installed" badge next to your wallet's name in the list of supported wallets in Connect Wallet Modal if this function is defined and returns `true`.
+It is used to show an "installed" badge next to your wallet's name in the wallet selector screen in Connect Wallet Modal if this function is defined and returns `true`.
+
+<img src="/assets/connect-wallet/wallet-selector-screen.png" />
 
 </div>
 </details>
 
 <br />
 
-You can now use your wallet in the Connect Wallet button! Simply add it to the `supportedWallets` property of the `ThirdwebProvider`.
+### Creating wallet connection UI
+
+```tsx
+import { ConnectUIProps } from '@thirdweb-dev/react';
+
+function MyWalletConnectionUI(props: ConnectUIProps<MyWallet>) {
+  return <div> ... </div>
+}
+
+function myWallet (options?: MyWalletConfig): WalletConfig<MyWallet> {
+  // ...
+  connectUI(props) {
+    return <MyWalletConnectionUI {...props} />;
+  }
+}
+```
+
+## Connecting your wallet in wallet connection UI
+
+There are two ways to connect your wallet in `connectUI`
+
+<details>
+  <summary> Using <code>useConnect</code> hook - <em>Recommended</em>  </summary>
+  <div>
+
+The recommended way to connect your wallet is to use the [useConnect](/react/react.useconnect) hook.
+
+```tsx
+import { ConnectUIProps } from "@thirdweb-dev/react";
+
+function MyWalletConnectionUI(props: ConnectUIProps<MyWallet>) {
+  const connect = useConnect();
+
+  // call this function to connect your wallet
+  const handleConnect = async () => {
+    try {
+      await connect(
+        props.walletConfig,
+        connectOptions, // if your MyWallet.connect method accepts any options, specify it here
+      );
+
+      // close the modal after connecting your wallet
+      props.close();
+    } catch (e) {
+      console.error("failed to connect", e);
+      // show error UI or close modal using props.close();
+    }
+  };
+
+  return <div> ... </div>;
+}
+```
+
+</div>
+</details>
+
+<details>
+  <summary> Manually creating wallet instance and connecting  </summary>
+  <div>
+
+You should only use this method if need access to wallet instance before connecting your wallet. Otherwise, use the useConnect hook.
+
+There are 3 steps to connect your wallet manually:
+
+- create an instance of your wallet using [useCreateWalletInstance](/react/react.usecreatewalletinstance)
+- connect your wallet using the `connect` method of your wallet
+- once wallet is connected, set the wallet instance as connected using [useSetConnectedWallet](/react/react.usesetconnectedwallet)
+
+Make sure to update the connectionStatus using [useSetConnectionStatus](/react/react.usesetconnectionstatus) to `"connecting"` before connecting your wallet and `"disconnected"` if the connection fails.
+
+```tsx
+import {
+  ConnectUIProps,
+  useCreateWalletInstance,
+  useSetConnectionStatus,
+  useSetConnectedWallet,
+} from "@thirdweb-dev/react";
+
+function MyWalletConnectionUI(props: ConnectUIProps<MyWallet>) {
+  const createWalletInstance = useCreateWalletInstance();
+  const setConnectionStatus = useSetConnectionStatus();
+  const setConnectedWallet = useSetConnectedWallet();
+
+  // call this function to connect your wallet
+  const handleConnect = async () => {
+    // 1. create instance
+    const walletInstance = createWalletInstance(props.walletConfig);
+    setConnectionStatus("connecting");
+
+    try {
+      // 2. call `connect` method of your wallet
+      await walletInstance.connect(
+        connectOptions, // if your MyWallet.connect method accepts any options, specify it here
+      );
+
+      // 3. set connected wallet
+      setConnectedWallet(walletInstance);
+      props.close();
+    } catch (e) {
+      setConnectionStatus("disconnected");
+      console.error("failed to connect", e);
+      // show error UI or close modal using props.close()
+    }
+  };
+
+  return <div> ... </div>;
+}
+```
+
+</div>
+</details>
+
+## Rendering a custom UI for selecting your wallet
+
+Instead of the default icon + name in wallet selector screen, you can render a custom UI for your wallet.
+
+Take [paper wallet](https://github.com/thirdweb-dev/js/blob/main/packages/react/src/wallet/wallets/paperWallet.tsx) for example, It renders a Input field where the user can enter their email address.
+
+<img src="/assets/connect-wallet/paper-wallet-selection-ui.png" />
+
+This can be done by specifying a React component in the `selectUI` property of your wallet config.
+
+```tsx
+import { SelectUIProps, ConnectionUIProps, WalletConfig } from '@thirdweb-dev/react';
+
+// example: render a input field where the user can enter their email address
+function MyWalletSelectionUI(props: SelectUIProps<MyWallet>) {
+  const [email, setEmail] = useState('');
+  const usesMoreWallets = props.supportedWallets.length > 1;
+
+  return (
+    <div>
+      <input value={email} onChange={e => setEmail(e.target.value)} />
+      <button
+        onClick={() => {
+          props.onSelect(email);
+        }}
+      >
+        submit
+      </button>
+      {usesMoreWallets && <p> --- OR --- </p>}
+    </div>
+  );
+}
+
+function MyWalletConnectionUI(props: SelectUIProps<MyWallet>) {
+  // get the email address entered by the user in MyWalletSelectionUI
+  const email = props.selectionData as string;
+
+  return <div> ... </div>;
+}
+
+function myWallet (options?: MyWalletConfig): WalletConfig<MyWallet> {
+  // ...
+  selectUI(props) {
+    return <MyWalletSelectionUI {...props} />;
+  },
+  connectUI(props) {
+    return <MyWalletConnectionUI {...props} />
+  }
+}
+```
+
+## Add your wallet to `ThirdwebProvider`
+
+You can now use your wallet in the Connect Wallet button! Simply add it to the `supportedWallets` prop of the `ThirdwebProvider`.
 
 ```tsx
 <ThirdwebProvider supportedWallets={[myWallet()]}>
@@ -399,9 +644,7 @@ You can now use your wallet in the Connect Wallet button! Simply add it to the `
 </ThirdwebProvider>
 ```
 
-<details>
-  <summary> Examples  </summary>
-  <div>
+## Examples
 
 You can look at how `thirdweb-dev/react` package's built-in wallets are implemented for reference:
 
@@ -415,9 +658,6 @@ You can look at how `thirdweb-dev/react` package's built-in wallets are implemen
 - [Smart Wallet](https://github.com/thirdweb-dev/js/blob/main/packages/react/src/wallet/wallets/smartWallet/smartWallet.tsx)
 - [Magic Link](https://github.com/thirdweb-dev/js/blob/main/packages/react/src/wallet/wallets/magic/magicLink.tsx)
 
-</div>
-</details>
-
 ## Contributing to the Wallets package
 
 If you think your wallet implementation would be useful to others, please consider sharing it by opening a PR to the `@thirdweb-dev/wallets` package.
@@ -427,17 +667,3 @@ If you think your wallet implementation would be useful to others, please consid
   text="Contribute"
   link={"https://github.com/thirdweb-dev/js/tree/main/packages/wallets"}
 />
-
-## Examples
-
-You can look at how the built-in wallets in `@thirdweb-dev/wallets` package are created for reference
-
-- [MetaMask](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/metamask.ts)
-- [Coinbase](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/coinbase-wallet.ts)
-- [WalletConnect v1](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/wallet-connect-v1.ts)
-- [WalletConnect v2](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/wallet-connect.ts)
-- [Local Wallet](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/local-wallet.ts)
-- [Safe](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/safe.ts)
-- [Smart Wallet](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/smart-wallet.ts)
-- [Paper Wallet](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/paper-wallet.ts)
-- [Magic Link](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/magic.ts)

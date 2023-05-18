@@ -17,12 +17,21 @@ const connect = useConnect();
 ```jsx
 import { useConnect, metamaskWallet } from "@thirdweb-dev/react";
 
-const metamask = metamaskWallet();
+const metamaskConfig = metamaskWallet();
 
 function App() {
   const connect = useConnect();
 
-  return <button onClick={() => connect(metamask)}>Connect to MetaMask</button>;
+  return (
+    <button
+      onClick={async () => {
+        await connect(metamaskConfig);
+        console.log("connected!");
+      }}
+    >
+      Connect to MetaMask
+    </button>
+  );
 }
 ```
 
@@ -34,7 +43,7 @@ function App() {
 
 The wallet to connect to your app with.
 
-Must be of type `ConfiguredWallet`.
+Must be of type `WalletConfig`.
 
 [Learn more about the available wallet options](/react/connecting-wallets).
 
