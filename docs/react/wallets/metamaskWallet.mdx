@@ -1,0 +1,60 @@
+---
+title: metamaskWallet
+slug: /react.metamaskwallet
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+A wallet configurator for [MetaMask](/wallet/metamask) which allows integrating the wallet with React
+
+```tsx
+import { metamaskWallet } from "@thirdweb-dev/react";
+
+const metamaskConfig = metamaskWallet();
+```
+
+## Usage with `ConnectWallet`
+
+To allow users to connect to this wallet using the [ConnectWallet](/react/react.connectwallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop.
+
+```tsx
+<ThirdwebProvider supportedWallets={[metamaskWallet()]}>
+  <YourApp />
+</ThirdwebProvider>
+```
+
+## Usage with `useConnect`
+
+you can use the `useConnect` hook to programmatically connect to the wallet without using the [ConnectWallet](/react/react.connectwallet) component.
+
+Connecting wallet with `useConnect` **does not** require adding wallet to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop
+
+```tsx
+const metamaskConfig = metamaskWallet();
+
+function App() {
+  const connect = useConnect();
+
+  const handleConnect = async () => {
+    await connect(metamaskConfig, connectOptions);
+  };
+
+  return <div> ... </div>;
+}
+```
+
+<details>
+  <summary>connectOptions</summary>
+<div>
+
+```ts
+{ chainId?: number } | undefined;
+```
+
+If `chainId` is provided, wallet will be connected and immediately switch network with the provided `chainId`. This chainId must be specified in [ThirdwebProvider's supportedChains](/react/react.thirdwebprovider#supportedchains-optional) prop
+
+</div>
+</details>

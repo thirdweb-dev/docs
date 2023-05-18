@@ -1,0 +1,79 @@
+---
+title: localWallet
+slug: /react.localwallet
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+A wallet configurator for [Local Wallet](/wallet/local-wallet) which allows integrating the wallet with React
+
+```tsx
+import { localWallet } from "@thirdweb-dev/react";
+
+const localWalletConfig = localWallet(options);
+```
+
+## options
+
+<details>
+  <summary>persist (optional) </summary>
+  <div>
+
+This is only relevant when conencting localWallet with [ConnectWallet](/react/react.connectwallet) component.
+
+Specify whether to persist the wallet in local storage or not. Defaults to `true`
+
+If set to `true`, an encrypted wallet JSON will be stored on localStorage with user's given password.
+The user will need to enter their password again in Connect Wallet Modal when they revisit the site. Beacuse of this, this wallet can not be auto connected.
+
+If set to `false`, wallet will not be stored in local storage, and no password will be required to connect.
+The wallet will be lost when the user leaves or reloads page.
+
+</div>
+</details>
+
+## Usage with `ConnectWallet`
+
+To allow users to connect to this wallet using the [ConnectWallet](/react/react.connectwallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop.
+
+```tsx
+<ThirdwebProvider supportedWallets={[localWallet()]}>
+  <YourApp />
+</ThirdwebProvider>
+```
+
+## Usage with `useConnect`
+
+you can use the `useConnect` hook to programmatically connect to the wallet without using the [ConnectWallet](/react/react.connectwallet) component.
+
+Connecting wallet with `useConnect` **does not** require adding wallet to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop
+
+```tsx
+const localWalletConfig = localWallet();
+
+function App() {
+  const connect = useConnect();
+
+  const handleConnect = async () => {
+    await connect(localWalletConfig, connectOptions);
+  };
+
+  return <div> ... </div>;
+}
+```
+
+<details>
+  <summary>connectOptions</summary>
+<div>
+
+```ts
+{ chainId?: number } | undefined;
+```
+
+If `chainId` is provided, wallet will be connected and immediately switch network with the provided `chainId`. This chainId must be specified in [ThirdwebProvider's supportedChains](/react/react.thirdwebprovider#supportedchains-optional) prop
+
+</div>
+</details>
