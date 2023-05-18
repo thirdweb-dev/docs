@@ -4,73 +4,86 @@ slug: /react.usesafe
 displayed_sidebar: react
 ---
 
-Hook that allows users to connect their [Gnosis Safe](/wallet/safe) wallet to your dApp.
+Hook that allows users to connect their [Safe wallet](/wallet/safe) to your dApp.
 
-```jsx
-import { useSafe } from "@thirdweb-dev/react";
-```
+Before connecting Safe wallet, a personal wallet must be connected and should be on the same network which Safe wallet is deployed to
 
-## Usage
-
-First, configure your [`ThirdwebProvider`](/react/react.thirdwebprovider#supportedWallets)'s
-`supportedWallets` prop to include the `safeWallet`:
-
-```jsx
-import { ThirdwebProvider, safeWallet } from "@thirdweb-dev/react";
-
-function MyApp() {
-  return (
-    <ThirdwebProvider
-      activeChain={"ethereum"}
-      // highlight-next-line
-      supportedWallets={[safeWallet()]}
-    >
-      {/* Rest of your app here */}
-      <YourApp />
-    </ThirdwebProvider>
-  );
-}
-```
-
-Before connecting their Gnosis Safe wallet, user&rsquo;s must first:
-
-1. Connect a personal wallet to your dApp (use [Connect Wallet Button](/react/react.connectwallet)).
-2. Switch to the network the Gnosis Safe wallet is deployed to (use [`useSwitchChain`](/react/react.useSwitchChain)).
+You can connect to a personal wallet using either [useConnect](/react/react.useconnect) hook or wallet specific hook - for example: [useMetamask](/react/react.usemetamask)
 
 From this state, you are ready
 to use the `useSafe` hook in your app:
 
-```jsx
+```tsx
 import { Goerli } from "@thirdweb-dev/chains";
 import { useSafe, useWallet } from "@thirdweb-dev/react";
+import { SafeWallet } from "@thirdweb-dev/wallets";
 
 const Home = () => {
-  const connectWithGnosis = useSafe();
-  const personalWallet = useWallet();
+  const connectToSafe = useSafe();
+  const wallet = useWallet();
+  const connectToMetamask = useMetamask(); // using metamask as personal wallet
+
+  if (!wallet) {
+    return (
+      <button
+        onClick={() => {
+          connectToMetamask({
+            chainId: Goerli.chainId,
+          });
+        }}
+      >
+        Connect personal wallet
+      </button>
+    );
+  }
+
+  if (wallet instanceof SafeWallet) {
+    return <div>Safe wallet is connected</div>;
+  }
 
   return (
     <button
       onClick={() =>
-        connectWithGnosis({
+        connectToSafe({
           safeAddress: "0x...", // Smart contract address of the Safe wallet
           chain: Goerli, // Chain the Safe wallet is deployed to
-          personalWallet: personalWallet,
+          personalWallet: wallet,
         })
       }
     >
-      Connect Gnosis Safe
+      Connect Safe
     </button>
   );
 };
 ```
 
-Then use the [`useWallet`](/react/react.usewallet) hook to determine if the Gnosis wallet is connected:
+## Configuration
 
-```jsx
-import { useWallet } from "@thirdweb-dev/react";
+<details>
+  <summary>safeAddress</summary>
+  <div>
 
-const Home = () => {
-  const wallet = useWallet();
-  const isSafeConnected = wallet && wallet.walletId === "Safe";
-};
-```
+Smart contract address of the Safe wallet
+
+</div>
+</details>
+
+<details>
+  <summary>chain</summary>
+  <div>
+
+An object of type `Chain` from [@thirdweb-dev/chains](https://www.npmjs.com/package/@thirdweb-dev/chains) package.
+
+It should be the same chain the Safe wallet is deployed to
+
+</div>
+</details>
+
+<details>
+  <summary>personalWallet</summary>
+  <div>
+
+a connected wallet instance of type `WalletInstance` from [@thirdweb-dev/react](https://www.npmjs.com/package/@thirdweb-dev/react) package
+
+</div>
+</details>
