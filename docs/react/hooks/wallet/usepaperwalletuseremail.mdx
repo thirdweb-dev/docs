@@ -27,7 +27,10 @@ function App() {
   if (emailQuery.isLoading) {
     return <div>Loading Email...</div>;
   } else {
-    return <div>{emailQuery.data}</div>;
+    if (emailQuery.data) {
+      return <div>Logged in as {emailQuery.data}</div>;
+    }
+    return <div>Not logged in</div>;
   }
 }
 ```
