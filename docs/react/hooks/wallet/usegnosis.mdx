@@ -43,8 +43,8 @@ const Home = () => {
 
   return (
     <button
-      onClick={() =>
-        connectToSafe({
+      onClick={async () =>
+        await connectToSafe({
           safeAddress: "0x...", // Smart contract address of the Safe wallet
           chain: Goerli, // Chain the Safe wallet is deployed to
           personalWallet: wallet,
