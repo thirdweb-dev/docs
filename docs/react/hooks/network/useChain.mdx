@@ -1,6 +1,6 @@
 ---
-title: useActiveChain
-slug: /react.useActiveChain
+title: useChain
+slug: /react.usechain
 displayed_sidebar: react
 ---
 
@@ -14,18 +14,18 @@ You can use the [useConnectionStatus](/react/react.useconnectionstatus) hook to 
 If you only want to get the chain id of the network the user is connected to regardless of whether it's supported or not, use [useChainId](/react/react.usechainid) instead.
 
 ```jsx
-import { useActiveChain } from "@thirdweb-dev/react";
+import { useChain } from "@thirdweb-dev/react";
 
-const chain = useActiveChain();
+const chain = useChain();
 ```
 
 ## Usage
 
 ```jsx
-import { useActiveChain, useConnectionStatus } from "@thirdweb-dev/react";
+import { useChain, useConnectionStatus } from "@thirdweb-dev/react";
 
 function App() {
-  const chain = useActiveChain();
+  const chain = useChain();
   const status = useConnectionStatus();
 
   if (status === "unknown") return <div> Loading... </div>;
@@ -43,7 +43,7 @@ function App() {
 ## Return value
 
 <details>
-  <summary>Return Value</summary>
+  <summary>chain</summary>
   <div>
 
 An object of type `Chain` from [@thirdweb-dev/chains](https://www.npmjs.com/package/@thirdweb-dev/chains) package containing various information about the network, or `undefined` if the network is not supported or user is not connected to a wallet.
