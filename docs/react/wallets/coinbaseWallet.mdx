@@ -2,6 +2,7 @@
 title: coinbaseWallet
 slug: /react.coinbasewallet
 displayed_sidebar: react
+sidebar_position: 2
 ---
 
 import Tabs from "@theme/Tabs";
@@ -54,7 +55,22 @@ function App() {
 { chainId?: number } | undefined;
 ```
 
-If `chainId` is provided, wallet will be connected and immediately switch network with the provided `chainId`. This chainId must be specified in [ThirdwebProvider's supportedChains](/react/react.thirdwebprovider#supportedchains-optional) prop
+If `chainId` is provided, wallet will be connected and immediately switch to network with given `chainId`.
+
+`Chain` object corresponding to this chainId from [@thirdweb-dev/chains](https://www.npmjs.com/package/@thirdweb-dev/chains) package must be specified in [ThirdwebProvider's supportedChains](/react/react.thirdwebprovider#supportedchains-optional) prop as shown below
+
+```tsx
+import { Polygon } from "@thirdweb-dev/chains";
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+
+export function YourApp() {
+  return (
+    <ThirdwebProvider supportedChains={[Polygon]}>
+      <App />
+    </ThirdwebProvider>
+  );
+}
+```
 
 </div>
 </details>
