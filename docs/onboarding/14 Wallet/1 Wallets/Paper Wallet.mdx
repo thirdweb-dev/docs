@@ -107,6 +107,72 @@ const walletWithOptions = new PaperWallet({
 
 Inherhits all the public methods from the [`AbstractClientWallet`](interfaces/abstract-client-wallet) class.
 
+<details>
+  <summary>connect</summary>
+  <div>
+
+```typescript
+connect(options?: {
+  email?: string,
+  chainId: 5 |
+  10 |
+  1 |
+  56 |
+  97 |
+  137 |
+  250 |
+  420 |
+  4002 |
+  42161 |
+  43114 |
+  80001 |
+  421613 |
+  undefined;
+}): Promise<string>;
+```
+
+Calling `connect` opens the Paper Wallet's Modal and prompts the user to log in with their email address.
+
+<details>
+  <summary>email (optional)</summary>
+  <div>
+
+If `email` is not provided, the user will be prompted to enter their email address or sign in with a Google account. Once the user enters the email address or signs in with a Google account, an OTP will be sent to the user's email address. Once the user enters the OTP, the wallet will be connected.
+
+If the `email` is provided, the user will be directly shown the OTP screen, the user will not be prompted to enter their email.
+
+</div>
+</details>
+
+<details>
+  <summary>chainId (optional)</summary>
+  <div>
+
+If chainId is provided, wallet will be connected to provided chainId.
+
+Paper Wallet only supports below shown chains at the moment:
+
+- Ethereum (1)
+- Goerli (5)
+- Polygon (137)
+- Avalanche(43114)
+- Fantom (250)
+- Fantom Testnet (4002)
+- Mumbai Testnet (80001)
+- Avalanche (43114)
+- Optimism (10)
+- Optimism Testnet (420)
+- Binance Smart Chain (56)
+- Binance Smart Chain Testnet (97)
+- Arbitrum One (42161)
+- Arbitrum Goerli Testnet (421611)
+
+</div>
+</details>
+
+</div>
+</details>
+
 ### getEmail
 
 Get the email associated with the currently connected wallet.
