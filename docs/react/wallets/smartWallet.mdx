@@ -1,0 +1,118 @@
+---
+title: smartWallet
+slug: /react.smartwallet
+displayed_sidebar: react
+sidebar_position: 8
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+A wallet configurator for [Smart Wallet](/wallet/smart-wallet) which allows integrating the wallet with React
+
+```tsx
+import { smartWallet } from "@thirdweb-dev/react";
+
+const smartWalletConfig = smartWallet({
+  factoryAddress: "0x...",
+  gasless: true,
+  thirdwebApiKey: "THIRDWEB_API_KEY",
+});
+```
+
+<details>
+  <summary>personalWallets (optional) </summary>
+  <div>
+
+An array of personal wallets to show in ConnectWallet Modal for personal wallet selection
+
+This is only relevant when connecting smartWallet with [ConnectWallet](https://portal.thirdweb.com/react/react.connectwallet) component.
+
+```ts
+import {
+  smartWallet,
+  metamaskWallet,
+  coinbaseWallet,
+  walletConnectV1,
+} from "@thirdweb-dev/react";
+
+smartWallet({
+  // this is the default
+  personalWallets: [metamaskWallet(), coinbaseWallet(), walletConnectV1()],
+  // ...
+});
+```
+
+</div>
+</details>
+
+## Usage with `ConnectWallet`
+
+To allow users to connect to this wallet using the [ConnectWallet](/react/react.connectwallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop.
+
+```tsx
+import {
+  smartWallet,
+  metamaskWallet,
+  coinbaseWallet,
+  walletConnectV1,
+} from "@thirdweb-dev/react";
+
+<ThirdwebProvider
+  supportedWallets={[
+    smartWallet({
+      factoryAddress: "0x...",
+      gasless: true,
+      thirdwebApiKey: "THIRDWEB_API_KEY",
+      // this is the default
+      personalWallets: [metamaskWallet(), coinbaseWallet(), walletConnectV1()],
+    }),
+  ]}
+>
+  <YourApp />
+</ThirdwebProvider>;
+```
+
+<img src="/assets/connect-wallet/smart-select-personal-wallet.png" />
+
+## Usage with `useConnect`
+
+you can use the `useConnect` hook to programmatically connect to the wallet without using the [ConnectWallet](/react/react.connectwallet) component.
+
+Connecting wallet with `useConnect` **does not** require adding wallet to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop
+
+You need to connect to a personal wallet first, You can use the [useConnect](/react/react.useconnect) hook to connect to a personal wallet first and then connect to the Smart Wallet. Make sure personal wallet is on the same network as the Smart Wallet.
+
+```tsx
+const smartWalletConfig = smartWallet();
+
+function App() {
+  const connect = useConnect();
+
+  const handleConnect = async () => {
+    await connect(smartWalletConfig, connectOptions);
+  };
+
+  return <div> ... </div>;
+}
+```
+
+### connectOptions
+
+```ts
+import type { EVMWallet } from "@thirdweb-dev/wallets";
+
+type ConenctOptions = {
+  personalWallet: EVMWallet;
+};
+```
+
+<details>
+  <summary> personalWallet </summary>
+<div>
+
+The instance of a personal wallet that can sign transactions on the Smart Wallet
+
+</div>
+</details>
