@@ -137,7 +137,6 @@ type Chain = {
 </details>
 
 <br />
-<br />
 
 ## 2. Extending the `AbstractClientWallet` class
 
@@ -190,13 +189,12 @@ You can look at how the built-in wallets in `@thirdweb-dev/wallets` package are 
 - [Magic Link](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/magic.ts)
 
 <br />
-<br />
 
 ## 3. Integrate with Connect Wallet button
 
 ## Create a wallet configurator function
 
-The last step is to integrate it with [Connect Wallet](/react/react.connectwallet) button by creating a wallet configurator - a function that returns a `WalletConfig` object and specifying it in [supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional)
+The last step is to integrate it with [ConnectWallet](/react/react.connectwallet) by creating a wallet configurator - a function that returns a `WalletConfig` object and specifying it in [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional)
 
 ```tsx
 import { WalletConfig } from '@thirdweb-dev/react'
@@ -217,6 +215,7 @@ function myWallet (options?: MyWalletConfig): WalletConfig<MyWallet> {
       },
     },
 
+    // create and return wallet instance
     create(walletOptions) {
       return new MyWallet({ ...walletOptions, ...options })
     }
@@ -277,9 +276,9 @@ metadata of your wallet.
 
 It is used to display a built-in "Get Started" screen. This screen renders UI for downloading the wallet's browser extension or iOS/Android app.
 
-"Get started" screen's link is rendered below the list of supported wallets in ConnectWallet Modal - This link is only rendered if the first wallet in [supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) array) has the `urls` object in `meta`.
-
 <img src="/assets/connect-wallet/get-started.png" />
+
+"Get started" screen's link is rendered below the list of supported wallets in ConnectWallet Modal - This link is only rendered if the first wallet in [supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) array) has the `urls` object in `meta`.
 
 </div>
 </details>
@@ -293,8 +292,8 @@ A function that creates and returns the wallet instance.
 ### Type
 
 ```ts
-import { WalletOptions } from "@thirdweb-dev/wallets";
-import { WalletInstance } from "@thirdweb-dev/react";
+import type { WalletOptions } from "@thirdweb-dev/wallets";
+import type { WalletInstance } from "@thirdweb-dev/react";
 
 type Create = (walletOptions: WalletOptions) => WalletInstance;
 ```
@@ -325,78 +324,154 @@ A function that returns a React component that renders the UI for connecting to 
 
 This UI will be rendered inside the ConnectWallet Modal when the user clicks on your wallet in the list of supported wallets.
 
-<img src="/assets/connect-wallet/connecting-metamask.png" />
-
 The `connectUI` function provides the props of type `ConnectUIProps` which you can use in your UI to trigger various actions - like closing the modal, opening the modal, going back to the list of supported wallets etc.
 
 ### ConnectUIProps
 
 ```ts
 {
-
-  /**
-   * `WalletConfig` object of your wallet
-   *
-   * Geting the entire `WalletConfig` object is useful for connecting the wallet and getting metadata
-   */
   walletConfig: WalletConfig;
-
-   /**
-   * close the connect wallet modal
-   * @param reset -
-   * - reset Connect Wallet Modal to initial state,
-   * - so that if it's opened again, it will start from the wallet-selection screen
-   * - default: `true`
-   */
-  close: (reset?: boolean) => void;
-
-  /**
-   * indicates whether the connect wallet modal is open or not
-   */
-  isOpen: boolean;
-
-  /**
-   * Open the connect wallet modal
-   */
-  open: () => void;
-
-  /**
-   * go back to the wallet selector screen in connect wallet modal
-   */
-  goBack: () => void;
-
-  /**
-   * theme of the connect wallet modal
-   */
-  theme: "dark" | "light";
-
-  /**
-   * selectionData passed from `selectUI`'s `onSelect` function
-   *
-   * This is only relevant if you are using `selectUI` to render a custom UI for selecting your wallet
-   */
-  selectionData: any;
-
-  /**
-   * set selectionData
-   *
-   * This is only relevant if you are using `selectUI` to render a custom UI for selecting your wallet
-   */
-  setSelectionData: (data: any) => void;
-
-  /**
-   * List of all supported wallets including your wallet.
-   *
-   * You can use this to conditionally render UI based on how many wallets are supported.
-   * If only one wallet (your wallet) is supported, Connect Wallet Modal will skip showing the wallet selection screen and directly render the connectUI of your wallet.
-   *
-   * You can detect this by checking if `supportedWallets.length === 1` and adjusting your UI accordingly - for example: not rendering a "back" button
-   */
   supportedWallets: WalletConfig[];
+  open: () => void;
+  close: (reset?: boolean) => void;
+  isOpen: boolean;
+  goBack: () => void;
+  theme: "dark" | "light";
+  selectionData: any;
+  setSelectionData: (data: any) => void;
 };
-
-
 ```
+
+<details>
+  <summary> walletConfig </summary>
+  <div>
+
+```ts
+walletConfig: WalletConfig;
+```
+
+`WalletConfig` object of your wallet. You can use it for connecting your wallet and getting metadata
+
+</div>
+</details>
+
+<details>
+  <summary> supportedWallets  </summary>
+  <div>
+
+```ts
+supportedWallets: WalletConfig[];
+```
+
+List of all supported wallets including your wallet.
+
+You can use this to conditionally render UI based on how many wallets are supported.
+
+If only one wallet (your wallet) is supported, ConnectWallet Modal will skip showing the wallet selection screen and directly render the connectUI of your wallet.
+
+You can detect this by checking if `supportedWallets.length === 1` and adjusting your UI accordingly - for example: not rendering a "back" button
+
+</div>
+</details>
+
+<details>
+  <summary> open  </summary>
+  <div>
+
+```ts
+open: () => void;
+```
+
+Open the ConnectWallet modal
+
+</div>
+</details>
+
+<details>
+  <summary> close  </summary>
+  <div>
+
+```ts
+close: (reset?: boolean) => void;
+```
+
+close the ConnectWallet modal.
+
+If `close` is called with `true` ( reset = true ), the ConnectWallet modal will be reset to its initial state - so that if it's opened again, it will start from the wallet-selection screen.
+
+</div>
+</details>
+
+<details>
+  <summary> isOpen  </summary>
+  <div>
+
+```ts
+isOpen: boolean;
+```
+
+Indicates whether the connect wallet modal is open or not
+
+</div>
+</details>
+
+<details>
+  <summary> goBack  </summary>
+  <div>
+
+```ts
+goBack: () => void;
+```
+
+Go back to the wallet selector screen in ConnectWallet modal
+
+</div>
+</details>
+
+<details>
+  <summary> theme  </summary>
+  <div>
+
+Theme of the ConnectWallet modal
+
+</div>
+</details>
+
+<details>
+  <summary> selectionData  </summary>
+  <div>
+
+```ts
+selectionData: any;
+```
+
+selectionData passed from `selectUI`'s `onSelect` function.
+
+This is only relevant if you are using `selectUI` to render a custom UI for selecting your wallet
+
+</div>
+</details>
+
+<details>
+  <summary> setSelectionData  </summary>
+  <div>
+
+set selectionData
+
+This is only relevant if you are creating a `connectUI` which involves rendering other wallets and you need to render the `selectUI` of those wallets and need to pass down the `onSelect` prop.
+
+```ts
+selectionData: any;
+```
+
+selectionData passed from `selectUI`'s `onSelect` function.
+
+This is only relevant if you are using `selectUI` to render a custom UI for selecting your wallet
+
+</div>
+</details>
+
+<br />
 
 ### Headless Mode
 
