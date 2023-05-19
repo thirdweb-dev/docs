@@ -52,11 +52,6 @@ const sidebars = {
         },
         {
           type: "doc",
-          label: "Connect Wallet Button (Native)",
-          id: "prefabs/ConnectWalletNative",
-        },
-        {
-          type: "doc",
           label: "NFT Renderer",
           id: "prefabs/NFT",
         },
