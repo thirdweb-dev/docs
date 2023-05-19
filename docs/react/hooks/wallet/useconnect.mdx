@@ -4,7 +4,7 @@ slug: /react.useconnect
 displayed_sidebar: react
 ---
 
-Hook for connecting any supported [wallet](/wallet) to your app.
+Hook for connecting any supported [wallet](/react/connecting-wallets#wallets) to your app.
 
 ```jsx
 import { useConnect } from "@thirdweb-dev/react";
@@ -62,21 +62,18 @@ This will prompt the user to switch to the given network after they connect.
 ```jsx
 import { useConnect, metamaskWallet } from "@thirdweb-dev/react";
 
-const metamask = metamaskWallet();
+const metamaskConfig = metamaskWallet();
 
 function App() {
   const connect = useConnect();
 
   return (
     <button
-      onClick={() =>
-        connect(
-          metamask,
-          // highlight-start
-          { chainId: 1 },
-          // highlight-end
-        )
-      }
+      onClick={() => {
+        // highlight-start
+        connect(metamaskConfig, { chainId: 1 });
+        // highlight-end
+      }}
     >
       Connect to MetaMask
     </button>
