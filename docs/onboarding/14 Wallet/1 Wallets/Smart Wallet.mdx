@@ -257,6 +257,39 @@ Must be a `string`.
 </details>
 
 <details>
+  <summary>paymasterAPI</summary>
+  <div>
+
+Fully customize how the paymaster data is computed.
+
+Must be a `PaymasterAPI` class.
+    
+Example:
+
+```javascript
+class MyPaymaster extends PaymasterAPI {
+  async getPaymasterAndData(
+    userOp: Partial<UserOperationStruct>,
+  ): Promise<string> {
+    // your implementation, must return the signed paymaster data
+   } 
+}
+
+const config: SmartWalletConfig = {
+      chain,
+      gasless,
+      factoryAddress,
+      thirdwebApiKey,
+      // highlight-start
+      paymasterAPI: new MyPaymaster(),
+      // highlight-end
+    };    
+```
+
+</div>
+</details>
+
+<details>
   <summary>entryPointAddress</summary>
   <div>
 
