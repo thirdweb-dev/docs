@@ -747,6 +747,10 @@
     {
       "source": "/typescript/sdk.thirdwebsdk.detectfeatures",
       "destination": "/typescript/sdk.thirdwebsdk.detectextensions"
+    },
+    {
+      "source": "/unity/connectwalletnative",
+      "destination": "/unity/connectwallet"
     }
   ]
 }
