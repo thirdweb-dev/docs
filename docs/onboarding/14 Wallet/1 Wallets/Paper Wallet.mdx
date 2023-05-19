@@ -107,8 +107,16 @@ const walletWithOptions = new PaperWallet({
 
 Inherhits all the public methods from the [`AbstractClientWallet`](interfaces/abstract-client-wallet) class.
 
+### connect
+
+open the Paper Wallet's Modal and prompt the user to log in with their email address. Once connected, it returns the public wallet address assigned to the user.
+
+```ts
+await wallet.connect();
+```
+
 <details>
-  <summary>connect</summary>
+  <summary>Configuration</summary>
   <div>
 
 ```typescript
@@ -129,8 +137,6 @@ connect(options?: {
   421613
 }): Promise<string>;
 ```
-
-Calling `connect` opens the Paper Wallet's Modal and prompts the user to log in with their email address. Once connected, it returns the public wallet address
 
 <details>
   <summary>email (optional)</summary>
@@ -168,6 +174,10 @@ Paper Wallet only supports below shown chains at the moment:
 
 </div>
 </details>
+
+#### Return Value
+
+Returns a `string` containing user's assigned public wallet address.
 
 </div>
 </details>

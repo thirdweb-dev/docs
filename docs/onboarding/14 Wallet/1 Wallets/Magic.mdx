@@ -175,8 +175,26 @@ const walletWithOptions = new MagicLink({
 
 Inherhits all the public methods from the [`AbstractClientWallet`](interfaces/abstract-client-wallet) class.
 
+### connect
+
+Calling `connect` opens the Magic's Modal and prompts the user to either enter an OTP sent to their phoneNumber or click on the link sent to their email.
+
+There are two ways to call this conect function: using `email` or `phoneNumber`
+
+```ts
+await wallet.connect({
+  email: "user@example.com",
+});
+
+// or
+
+await wallet.connect({
+  phoneNumber: "+123456789",
+});
+```
+
 <details>
-  <summary>connect</summary>
+  <summary>Configuration</summary>
   <div>
 
 ```typescript
@@ -188,10 +206,6 @@ connect(options?: {
   chainId? number,
 }): Promise<string>;
 ```
-
-Calling `connect` opens the Magic's Modal and prompts the user to either enter an OTP sent to their phoneNumber or click on the link sent to their email.
-
-There are two ways to call this conect function: using `email` or `phoneNumber`
 
 <details>
   <summary>email or phoneNumber </summary>
