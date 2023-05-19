@@ -102,7 +102,7 @@ Switch the chain the wallet is connected to.
 
 ##### setupListeners
 
-This method should set all listeners needed for the wallet to work. It will be used by the `AbstractClientWallet` class to setup the listeners
+This method should set all listeners needed for the wallet to work. It will be used by the `AbstractClientWallet` class to set up the listeners
 when the wallet is connected.
 
 ##### updateChains
@@ -146,7 +146,7 @@ The [`AbstractClientWallet`](/wallet/interface/abstract-client-wallet) class is 
 class that provides an interface for interacting with your connector on one side and with applications on the other.
 
 The main method that needs to be overridden is the `getConnector` method. This method should return a `Promise`
-that resolves to a the [`Connector`](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/interfaces/connector.ts#L6)
+that resolves to the [`Connector`](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/interfaces/connector.ts#L6)
 class that you implemented.
 
 ```javascript
@@ -157,7 +157,7 @@ export class MyWallet extends AbstractClientWallet {
 }
 ```
 
-You can add expose any custom logic here as the public API for your wallet.
+You can expose any custom logic here as the public API for your wallet.
 
 ## Required Methods
 
@@ -167,7 +167,7 @@ Returns a `Promise<Connector>` with the connector class that you implemented.
 
 ## Using your new wallet
 
-At this point you should be able to instantiate your new wallet and calling `connect` on it.
+At this point, you should be able to instantiate your new wallet and call `connect` on it.
 
 ```ts
 const wallet = new MyWallet();
@@ -194,7 +194,7 @@ You can look at how the built-in wallets in `@thirdweb-dev/wallets` package are 
 
 ## Create a wallet configurator function
 
-The last step is to integrate it with [ConnectWallet](/react/react.connectwallet) by creating a wallet configurator - a function that returns a `WalletConfig` object and specifying it in [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional)
+The last step is to integrate it with the [ConnectWallet](/react/react.connectwallet) by creating a wallet configurator - a function that returns a `WalletConfig` object and adding it in [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional)
 
 ```tsx
 import { WalletConfig } from '@thirdweb-dev/react'
@@ -225,14 +225,14 @@ function myWallet (options?: MyWalletConfig): WalletConfig<MyWallet> {
       return <MyWalletConnectionUI {...props} />;
     },
 
-    // optional - override the default UI for selecting your wallet in wallet selector screen
+    // optional - override the default UI for selecting your wallet in the wallet selector screen
     selectUI(props) {
       return <MyWalletSelectionUI {...props} />
     }
 
     // optional
     isInstalled() {
-      // detect if your wallet extension is installed on user's browser/device
+      // detect if your wallet extension is installed on the user's browser/device
       return true; // or false
     },
   };
@@ -340,7 +340,7 @@ type ConnectUIProps = {
   goBack: () => void;
   theme: "dark" | "light";
   selectionData: any;
-  setSelectionData: (data: any) => void;
+  setSelectionData: (selectiondata: any) => void;
 };
 ```
 
@@ -458,17 +458,13 @@ This is only relevant if you are using `selectUI` to render a custom UI for sele
   <summary> setSelectionData  </summary>
   <div>
 
-set selectionData
-
-This is only relevant if you are creating a `connectUI` which involves rendering other wallets and you need to render the `selectUI` of those wallets and need to pass down the `onSelect` prop.
-
 ```ts
-selectionData: any;
+setSelectionData: (selectiondata: any) => void;
 ```
 
-selectionData passed from `selectUI`'s `onSelect` function.
+set `selectionData`.
 
-This is only relevant if you are using `selectUI` to render a custom UI for selecting your wallet
+This is only relevant if you are creating a `connectUI` which involves rendering other wallets and you need to render the `selectUI` of those wallets and need to pass down the `onSelect` prop.
 
 </div>
 </details>
@@ -575,7 +571,7 @@ Note that if there is only one wallet (your wallet) is supported, Connect Wallet
 
 <br />
 
-### Creating wallet connection UI
+## Creating wallet connection UI
 
 ```tsx
 import { ConnectUIProps } from '@thirdweb-dev/react';

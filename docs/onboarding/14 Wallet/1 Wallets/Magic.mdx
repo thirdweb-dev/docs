@@ -14,12 +14,12 @@ Allows users to connect to your app with email or phone number using [Magic Auth
 ```javascript
 import { MagicLink } from "@thirdweb-dev/wallets";
 
-// create a wallet instance
+// Create a wallet instance
 const wallet = new MagicLink({
   apiKey: "YOUR_API_KEY",
 });
 
-// now connect using email or phone number
+// Now connect using email or phone number
 
 wallet.connect({
   email: "user@example.com",
@@ -32,7 +32,7 @@ wallet.connect({
 });
 ```
 
-With this configuration, users will be able to login using their email or phone number.
+With this configuration, users will be able to log in using their email or phone number.
 
 If you want to restrict login to only email or only phone number, you can do so by passing the `smsLogin:false` option or `emailLogin:false` option
 
@@ -66,7 +66,7 @@ Configuration for Magic Auth SDK.
 ```
 
 <details>
-  <summary>local (optional)</summary>
+  <summary>locale (optional)</summary>
   <div>
 
 Customize the language of Magic's modal, email and confirmation screen. See [Localization](https://magic.link/docs/auth/more/customization/localization) for more.
@@ -87,7 +87,7 @@ A URL pointing to the Magic iframe application.
   <summary>testMode (optional)</summary>
   <div>
 
-Enable [testMode](https://magic.link/docs/auth/introduction/test-mode) to assert the desired behavior through the email address you provide to `loginWithMagicLink` without having to go through the auth flow.
+Enable [testMode](https://magic.link/docs/auth/introduction/test-mode) to assert the desired behavior through the email address so that you don't have to go through the auth flow.
 
 </div>
 </details>
@@ -99,7 +99,7 @@ Enable [testMode](https://magic.link/docs/auth/introduction/test-mode) to assert
   <summary>smsLogin (optional)</summary>
   <div>
 
-Specify whether you want to allow users to login with their phone number or not. It is `true` by default
+Specify whether you want to allow users to log in with their phone number or not. It is `true` by default
 
 Must be a `boolean`.
 
@@ -110,7 +110,7 @@ Must be a `boolean`.
   <summary>emailLogin (optional)</summary>
   <div>
 
-Specify whether you want to allow users to login with their email or not. It is `true` by default
+Specify whether you want to allow users to log in with their email or not. It is `true` by default
 
 Must be a `boolean`.
 
@@ -132,7 +132,7 @@ Must be an array of `Chain` objects, from the [`@thirdweb-dev/chains`](https://w
   <summary>walletStorage (optional)</summary>
   <div>
 
-Wallet needs to store some data in persistent storage. By default `localStorage` is used. If you want to use a different storage, you can pass it in the `walletStorage` option.
+The wallet needs to store some data in persistent storage. By default `localStorage` is used. If you want to use a different storage, you can pass it in the `walletStorage` option.
 
 Must be an object conforming to the `AsyncStorage` interface:
 
@@ -149,7 +149,7 @@ Example:
 ```javascript
 import { MagicLink } from "@thirdweb-dev/wallets";
 
-const walletWithOptions = new MagicLink({
+const wallet = new MagicLink({
   // ... other required config
 
   // highlight-start
@@ -173,13 +173,13 @@ const walletWithOptions = new MagicLink({
 
 ## Methods
 
-Inherhits all the public methods from the [`AbstractClientWallet`](interfaces/abstract-client-wallet) class.
+Inheritss all the public methods from the [`AbstractClientWallet`](interfaces/abstract-client-wallet) class.
 
 ### connect
 
-Calling `connect` opens the Magic's Modal and prompts the user to either enter an OTP sent to their phoneNumber or click on the link sent to their email.
+Calling `connect` opens the Magic Link's Modal and prompts the user to either enter an OTP sent to their phone number or click on the link sent to their email.
 
-There are two ways to call this conect function: using `email` or `phoneNumber`
+There are two ways to call the `connect` function: using `email` or `phoneNumber`
 
 ```ts
 await wallet.connect({
@@ -199,7 +199,7 @@ await wallet.connect({
 
 ```typescript
 connect(options?: {
-  // one of email or phoneNumber is required
+  // One of email or phoneNumber is required
   email?: string,
   phoneNumber?: string,
 
@@ -213,7 +213,7 @@ connect(options?: {
 
 specify either `email` or `phoneNumber` of the user to connect to your app.
 
-If you call the `connect` function with `email`, a modal will open and prompt the user to click on the link sent to their email. Once user completes this step, the modal will close and the user will be connected to your app.
+If you call the `connect` function with `email`, a modal will open and prompt the user to click on the link sent to their email. Once the user completes this step, the modal will close and the user will be connected to your app.
 
 If you call the connect method with `phoneNumber`, a modal will open and prompt the user to enter the OTP sent to their phone number. Once the user enters the OTP, the modal will close and the user will be connected to your app.
 
@@ -224,7 +224,7 @@ If you call the connect method with `phoneNumber`, a modal will open and prompt 
   <summary> chainId (optional) </summary>
   <div>
 
-If chainId is provided, wallet will be connected to network with given chainId, else it will be connected to Ethereum mainnet.
+If chainId is provided, the wallet will be connected to the network with the given chainId, else it will be connected to the Ethereum Mainnet.
 
 </div>
 </details>
@@ -236,7 +236,7 @@ If chainId is provided, wallet will be connected to network with given chainId, 
 
 Get Magic Auth SDK instance. Learn more about [Magic Auth SDK](https://magic.link/docs/auth/overview)
 
-you use all methods available in the Magic Auth SDK from the sdk instance. Refer to [Magic Auth API](https://magic.link/docs/auth/api-reference/client-side-sdks/web) for more details.
+you use all methods available in the Magic Auth SDK from the SDK instance. Refer to [Magic Auth API](https://magic.link/docs/auth/api-reference/client-side-sdks/web) for more details.
 
 ```javascript
 const magicSDK = await wallet.getMagic();
@@ -248,7 +248,7 @@ const magicSDK = await wallet.getMagic();
 
 #### Return Value
 
-Returns the magic auth sdk instance of type `InstanceWithExtensions<SDKBase, OAuthExtension[]>`
+Returns the magic auth SDK instance of type `InstanceWithExtensions<SDKBase, OAuthExtension[]>`
 
 ```typescript
 InstanceWithExtensions<SDKBase, OAuthExtension[]>;

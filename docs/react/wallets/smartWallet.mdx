@@ -22,6 +22,44 @@ const smartWalletConfig = smartWallet({
 ```
 
 <details>
+  <summary>factoryAddress</summary>
+  <div>
+
+The address of the Smart Wallet Factory contract.
+
+Must be a `string`.
+
+</div>
+</details>
+
+<details>
+  <summary>thirdwebApiKey</summary>
+  <div>
+
+Your thirdweb API key can be obtained from the [thirdweb dashboard](https://thirdweb.com/dashboard/api-keys).
+
+If you're using your own bundler and paymaster, you can set this to an empty string.
+
+Must be a `string`.
+
+</div>
+</details>
+
+<details>
+  <summary>gasless</summary>
+  <div>
+
+Whether to turn on or off gasless transactions.
+
+- If set to `true`, all gas fees will be paid by a paymaster.
+- If set to `false`, all gas fees will be paid by the Smart Wallet itself (needs to be funded).
+
+Must be a `boolean`.
+
+</div>
+</details>
+
+<details>
   <summary>personalWallets (optional) </summary>
   <div>
 
@@ -43,6 +81,8 @@ smartWallet({
   // ...
 });
 ```
+
+Must be of type `WalletConfig[]`
 
 </div>
 </details>

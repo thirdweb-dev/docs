@@ -45,7 +45,7 @@ Configuration for Magic Auth SDK.
 ```
 
 <details>
-  <summary>local (optional)</summary>
+  <summary>locale (optional)</summary>
   <div>
 
 Customize the language of Magic's modal, email and confirmation screen. See [Localization](https://magic.link/docs/auth/more/customization/localization) for more.
@@ -120,8 +120,6 @@ Connecting wallet with `useConnect` **does not** require adding wallet to [Third
 
 Calling `connect` opens the Magic's Modal and prompts the user to either enter an OTP sent to their phoneNumber or click on the link sent to their email.
 
-There are two ways to call this conect function: using `email` or `phoneNumber`
-
 ```tsx
 const magicLinkConfig = magicLink({
   apiKey: "MAGIC_API_KEY",
@@ -142,8 +140,10 @@ function App() {
 
 ```ts
 {
+  // one of these is required
   email?: string;
   phoneNumber?: string;
+
   chainId?: number;
 }
 ```

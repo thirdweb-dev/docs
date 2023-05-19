@@ -27,13 +27,13 @@ Optionally, provide a configuration object when instantiating the `WalletConnect
   <summary>projectId</summary>
   <div>
 
-Your project's unique identifier that can be obtained at [cloud.walletconnect.com](https://cloud.walletconnect.com).
+Your project's unique identifier. It can be obtained at [cloud.walletconnect.com](https://cloud.walletconnect.com).
 
-It Enables following functionalities within Web3Modal:
+It enables the following functionalities within WalletConnect's web3modal:
 
-- wallet and chain logos,
-- optional WalletConnect RPC,
-- support for all wallets from our Explorer and WalletConnect v2 support.
+- wallet and chain logos
+- optional WalletConnect RPC
+- support for all wallets from our Explorer and WalletConnect v2 support
 
 Defaults to `undefined`
 
@@ -84,7 +84,7 @@ const walletWithOptions = new WalletConnect(
 
 Information about your app that the wallet will display when your app tries to connect to it.
 
-Must be an object containing `name`, `url`, `description` and `logoUrl` properties.
+Must be an object containing `name`, `url`, and optionally `description` and `logoUrl` properties.
 
 ```javascript
 import { WalletConnect } from "@thirdweb-dev/wallets";
@@ -108,7 +108,7 @@ const walletWithOptions = new WalletConnect({
   <summary>qrcode</summary>
   <div>
 
-Whether to display the Wallet Connect QR code Modal for connecting to MetaMask on mobile if MetaMask is not injected.
+Whether to display the Wallet Connect QR code Modal or not.
 
 Must be a `boolean`. Defaults to `true`.
 
@@ -183,7 +183,7 @@ interface DesktopWallet {
   <summary>themeVariables</summary>
   <div>
 
-Allows to override Web3Modal's css styles. See [theming](https://docs.walletconnect.com/2.0/web3modal/theming) for Info.
+Allows to override Web3Modal's CSS styles. See [theming](https://docs.walletconnect.com/2.0/web3modal/theming) for Info.
 
 </div>
 </details>
@@ -192,7 +192,7 @@ Allows to override Web3Modal's css styles. See [theming](https://docs.walletconn
   <summary>themeMode</summary>
   <div>
 
-Puts Modal into dark or light mode. Defaults to user's system preference.
+Puts Modal into dark or light mode. Defaults to the user's system preference.
 
 </div>
 </details>
@@ -201,7 +201,7 @@ Puts Modal into dark or light mode. Defaults to user's system preference.
   <summary>standaloneChains</summary>
   <div>
 
-When using Web3Modal in standalone mode (without wagmi) you can define array of custom chains via this option.
+When using Web3Modal in standalone mode (without wagmi) you can define an array of custom chains via this option.
 
 Defaults to `undefined`
 
@@ -223,12 +223,11 @@ standaloneChains: [
   <summary>mobileWallets</summary>
   <div>
 
-You can define an array of custom desktop or web based wallets.
+You can define an array of custom mobile wallets.
 
 Note: you will also need to add appropriate wallet images in walletImages.
 
-Native link represents deeplinking url like `ledgerlive://` and Universal link represents webpage link that can redirect to the app or fallback page.
-
+Native link represents deep-linking URL like `rainbow://` and Universal link represent webpage link that can redirect to the app or fallback page.
 Defaults to `undefined`
 
 ```typescript
@@ -251,11 +250,11 @@ mobileWallets: [
   <summary>desktopWallets</summary>
   <div>
 
-You can define an array of custom desktop or web based wallets.
+You can define an array of custom desktop or web-based wallets.
 
 Note: you will also need to add appropriate wallet images in walletImages.
 
-Native link represents deeplinking url like `ledgerlive://` and Universal link represents webpage link that can redirect to the app or fallback page.
+Native link represents deep linking url like `ledgerlive://` and Universal link represents webpage link that can redirect to the app or fallback page.
 
 Defaults to `undefined`
 
@@ -279,11 +278,11 @@ desktopWallets: [
   <summary>walletImages</summary>
   <div>
 
-Array of wallet id's and their logo mappings.
+an Array of wallet ids and their logo mappings.
 
 This will override default logos.
 
-Id's in this case can be: Explorer id's, wallet id's you provided in mobileWallets or desktopWallets and Wagmi connector id's.
+Ids in this case can be: Explorer ids, wallet ids you provided in mobileWallets or desktopWallets and Wagmi connector ids.
 
 Defaults to `undefined`
 
@@ -303,7 +302,7 @@ walletImages: {
   <summary>chainImages</summary>
   <div>
 
-Array of chain id's and their logo mappings.
+an Array of chain ids and their logo mappings.
 
 This will override default logos.
 
@@ -327,7 +326,7 @@ chainImages: {
   <summary>tokenImages</summary>
   <div>
 
-Array of token symbols and their logo mappings.
+An array of token symbols and their logo mappings.
 
 Defaults to `undefined`
 
@@ -367,7 +366,7 @@ tokenContracts: {
   <summary>enableNetworkView</summary>
   <div>
 
-If more than 1 chain is provided in modal, users will be show network selection view before selecting a wallet.
+If more than 1 chain is provided in the modal, users will be shown network selection view before selecting a wallet.
 
 This option can enable or disable this behavior.
 
@@ -404,9 +403,9 @@ Defaults to `true`
 
 Allows to override default recommended wallets that are fetched from Explorer API.
 
-You can define an array of wallet id's you'd like to prioritise (order is respected).
+You can define an array of wallet ids you'd like to prioritize (order is respected).
 
-You can get / copy these id's from the explorer link mentioned before.
+You can get/copy these ids from the Explorer link mentioned before.
 
 If you want to completely disable recommended wallets, you can set this option to `"NONE"`.
 
@@ -432,11 +431,11 @@ explorerRecommendedWalletIds: "NONE";
 
 Allows to exclude wallets that are fetched from Explorer API.
 
-You can define an array of wallet id's you'd like to exclude.
+You can define an array of wallet ids you'd like to exclude.
 
-You can get / copy these id's from the explorer link mentioned before.
+You can get/copy these ids from the explorer link mentioned before.
 
-If you want to exclude all wallets, you can set this option to `"ALL"`, however if `explorerRecommendedWalletIds` are defined, they will still be fetched.
+If you want to exclude all wallets, you can set this option to `"ALL"`, however, if `explorerRecommendedWalletIds` are defined, they will still be fetched.
 
 Defaults to `undefined`
 
@@ -458,7 +457,7 @@ explorerExcludedWalletIds: "ALL";
   <summary>termsOfServiceUrl</summary>
   <div>
 
-String URL to your terms of service page, if specified will append special "legal info" footer to the modal.
+String URL to your terms of service page, if specified will append a special "legal info" footer to the modal.
 
 Defaults to `undefined`
 
@@ -469,7 +468,7 @@ Defaults to `undefined`
   <summary>privacyPolicyUrl</summary>
   <div>
 
-String URL to your privacy policy page, if specified will append special "legal info" footer to the modal.
+String URL to your privacy policy page, if specified will append a special "legal info" footer to the modal.
 
 Defaults to `undefined`
 
@@ -500,7 +499,7 @@ Example:
 ```javascript
 import { WalletConnect } from "@thirdweb-dev/wallets";
 
-const walletWithOptions = new WalletConnect(
+const wallet = new WalletConnect(
   // highlight-start
   {
     walletStorage: {
@@ -526,7 +525,7 @@ const walletWithOptions = new WalletConnect(
   <summary>walletId</summary>
   <div>
 
-An ID for the wallet used to store the wallet in the `walletStorage`.
+An ID for the wallet. It is used to store the wallet in the `walletStorage`.
 
 ```javascript
 import { WalletConnect } from "@thirdweb-dev/wallets";
@@ -545,4 +544,4 @@ const walletWithOptions = new WalletConnect(
 
 ## Methods
 
-Inherhits all the public methods from the [`AbstractClientWallet`](interfaces/abstract-client-wallet) class.
+Inherits all the public methods from the [`AbstractClientWallet`](interfaces/abstract-client-wallet) class.

@@ -53,7 +53,7 @@ Must be an array of `Chain` objects, from the [`@thirdweb-dev/chains`](https://w
   <summary>clientId (required)</summary>
   <div>
 
-Paper SDK requires a clientId for instantiation. You can create a clientId for your app on [paper.xyz](https://paper.xyz/product/wallet)
+Paper SDK requires a clientId for instantiation. You can create a `clientId` for your app on [paper.xyz](https://paper.xyz/product/wallet)
 
 Must be a `string`.
 
@@ -64,7 +64,7 @@ Must be a `string`.
   <summary>walletStorage (optional)</summary>
   <div>
 
-wallet needs to store data in a persistent storage. By default `localStorage` is used. If you want to use a different storage, you can pass it in the `walletStorage` option.
+The wallet needs to store data in persistent storage. By default `localStorage` is used. If you want to use a different storage, you can pass it in the `walletStorage` option.
 
 Must be an object conforming to the `AsyncStorage` interface:
 
@@ -81,7 +81,7 @@ Example:
 ```javascript
 import { PaperWallet } from "@thirdweb-dev/wallets";
 
-const walletWithOptions = new PaperWallet({
+const wallet = new PaperWallet({
   // ... other required config
 
   // highlight-start
@@ -105,7 +105,7 @@ const walletWithOptions = new PaperWallet({
 
 ## Methods
 
-Inherhits all the public methods from the [`AbstractClientWallet`](interfaces/abstract-client-wallet) class.
+Inherits all the public methods from the [`AbstractClientWallet`](interfaces/abstract-client-wallet) class.
 
 ### connect
 
@@ -153,9 +153,9 @@ If the `email` is provided, the user will be directly shown the OTP screen, the 
   <summary>chainId (optional)</summary>
   <div>
 
-If chainId is provided, wallet will be connected to network with given chainId, else it will be connected to Ethereum mainnet.
+If chainId is provided, the wallet will be connected to the network with the given chainId, else it will be connected to the Ethereum Mainnet.
 
-Paper Wallet only supports below shown chains at the moment:
+Paper Wallet only supports the below shown chains at the moment:
 
 - Ethereum (1)
 - Goerli (5)
@@ -177,7 +177,7 @@ Paper Wallet only supports below shown chains at the moment:
 
 #### Return Value
 
-Returns a `string` containing user's assigned public wallet address.
+Returns a `string` containing the user's assigned public wallet address.
 
 </div>
 </details>

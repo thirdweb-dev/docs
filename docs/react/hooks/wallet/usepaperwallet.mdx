@@ -8,6 +8,8 @@ Hook that prompts users to connect [Paper Wallet](/wallet/paper) to your app whi
 
 ```jsx
 import { usePaperWallet } from "@thirdweb-dev/react";
+
+const connectWithPaperWallet = usePaperWallet();
 ```
 
 ## Usage
@@ -19,8 +21,6 @@ If `email` is not provided, the user will be prompted to enter their email addre
 If the email is provided, the user will be directly shown the OTP screen, the user will not be prompted to enter their email.
 
 once connected, you can use the [`useAddress`](/react/react.useaddress) hook to get the user's address and [`usePaperWalletUserEmail`](/react/react.usepaperwalletuseremail) hook to get the user's email address.
-
-Paper SDK requires a clientId for instantiation. You can create a `clientId` for your app on [paper.xyz](https://paper.xyz/product/wallet)
 
 ```jsx
 import { usePaperWallet } from "@thirdweb-dev/react";
@@ -46,7 +46,16 @@ function App() {
 ## Configuration
 
 <details>
-  <summary>chainId</summary>
+  <summary>clientId </summary>
+  <div>
+
+Paper SDK requires a clientId for instantiation. You can create a `clientId` for your app on [paper.xyz](https://paper.xyz/product/wallet)
+
+</div>
+</details>
+
+<details>
+  <summary>chainId (optional)</summary>
   <div>
 
 To connect to a specific chain when connecting the wallet,
