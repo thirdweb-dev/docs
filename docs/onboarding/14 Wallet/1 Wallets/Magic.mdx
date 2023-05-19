@@ -175,6 +175,49 @@ const walletWithOptions = new MagicLink({
 
 Inherhits all the public methods from the [`AbstractClientWallet`](interfaces/abstract-client-wallet) class.
 
+<details>
+  <summary>connect</summary>
+  <div>
+
+```typescript
+connect(options?: {
+  // one of email or phoneNumber is required
+  email?: string,
+  phoneNumber?: string,
+
+  chainId? number,
+}): Promise<string>;
+```
+
+Calling `connect` opens the Magic's Modal and prompts the user to either enter an OTP sent to their phoneNumber or click on the link sent to their email.
+
+There are two ways to call this conect function: using `email` or `phoneNumber`
+
+<details>
+  <summary>email or phoneNumber </summary>
+  <div>
+
+specify either `email` or `phoneNumber` of the user to connect to your app.
+
+If you call the `connect` function with `email`, a modal will open and prompt the user to click on the link sent to their email. Once user completes this step, the modal will close and the user will be connected to your app.
+
+If you call the connect method with `phoneNumber`, a modal will open and prompt the user to enter the OTP sent to their phone number. Once the user enters the OTP, the modal will close and the user will be connected to your app.
+
+</div>
+</details>
+
+<details>
+  <summary> chainId (optional) </summary>
+  <div>
+
+If chainId is provided, wallet will be connected to network with given chainId, else it will be connected to Ethereum mainnet.
+
+</div>
+</details>
+
+</div>
+</details>
+
 ### getMagic
 
 Get Magic Auth SDK instance. Learn more about [Magic Auth SDK](https://magic.link/docs/auth/overview)

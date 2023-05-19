@@ -430,13 +430,15 @@ function App() {
 }
 ```
 
-<details>
-  <summary>connectOptions</summary>
-<div>
+## connectOptions
 
 ```ts
-{ chainId?: number } | undefined;
+{ chainId?: string } | undefined
 ```
+
+<details>
+  <summary>chainId (optional) </summary>
+<div>
 
 If `chainId` is provided, wallet will be connected and immediately switch to network with given `chainId`.
 

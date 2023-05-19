@@ -52,6 +52,8 @@ you can use the `useConnect` hook to programmatically connect to the wallet with
 
 Connecting wallet with `useConnect` **does not** require adding wallet to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop
 
+Calling `connect` opens the Paper Wallet's Modal and prompts the user to log in with their email address.
+
 ```tsx
 const paperWalletConfig = paperWallet({
   clientID: "PAPER_CLIENT_ID",

@@ -114,7 +114,7 @@ Inherhits all the public methods from the [`AbstractClientWallet`](interfaces/ab
 ```typescript
 connect(options?: {
   email?: string,
-  chainId: 5 |
+  chainId?: 5 |
   10 |
   1 |
   56 |
@@ -126,12 +126,11 @@ connect(options?: {
   42161 |
   43114 |
   80001 |
-  421613 |
-  undefined;
+  421613
 }): Promise<string>;
 ```
 
-Calling `connect` opens the Paper Wallet's Modal and prompts the user to log in with their email address.
+Calling `connect` opens the Paper Wallet's Modal and prompts the user to log in with their email address. Once connected, it returns the public wallet address
 
 <details>
   <summary>email (optional)</summary>
@@ -148,7 +147,7 @@ If the `email` is provided, the user will be directly shown the OTP screen, the 
   <summary>chainId (optional)</summary>
   <div>
 
-If chainId is provided, wallet will be connected to provided chainId.
+If chainId is provided, wallet will be connected to network with given chainId, else it will be connected to Ethereum mainnet.
 
 Paper Wallet only supports below shown chains at the moment:
 
