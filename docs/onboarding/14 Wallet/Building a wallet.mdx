@@ -502,31 +502,54 @@ The `selectUI` function provides the props of type `SelectUIProps` which you can
 
 ```tsx
 {
-  /**
-   * Call this function to "select" your wallet and render the screen for connecting the wallet
-   * @param selectionData - selectionData to be passed to `connectUI`'s `selectionData` prop
-   * @returns
-   */
   onSelect: (selectionData: any) => void;
-
-  /**
-   * `WalletConfig` object of your wallet
-   *
-   * you can use this get metadata of your wallet by doing `walletConfig.meta`
-   */
   walletConfig: WalletConfig;
-
-  /**
-   * List of all supported wallets including your wallet.
-   *
-   * You can use this to conditionally render UI based on how many wallets are supported.
-   * For example: You can render a "OR" at the bottom of your UI if more than one wallet is supported
-   *
-   * Note that if there is only one wallet (your wallet) is supported, Connect Wallet Modal will skip showing the wallet selection screen and directly render the connectUI of your wallet.
-   */
   supportedWallets: WalletConfig[];
 };
 ```
+
+<details>
+  <summary> onSelect </summary>
+  <div>
+
+```ts
+onSelect: (selectionData: any) => void;
+```
+
+Call this function to "select" your wallet and render the screen for connecting the wallet. You can optionally pass `selectionData` to be passed to `connectUI`'s `selectionData` prop
+
+</div>
+</details>
+
+<details>
+  <summary> walletConfig </summary>
+  <div>
+
+```ts
+walletConfig: WalletConfig;
+```
+
+`WalletConfig` object of your wallet. You can use this get metadata of your wallet by doing `walletConfig.meta`
+
+</div>
+</details>
+
+<details>
+  <summary> supportedWallets </summary>
+  <div>
+
+```ts
+supportedWallets: WalletConfig[];
+```
+
+List of all supported wallets including your wallet.
+
+You can use this to conditionally render UI based on how many wallets are supported.
+
+For example: You can render a "OR" at the bottom of your UI if more than one wallet is supported
+
+</div>
+</details>
 
 </div>
 </details>
@@ -538,6 +561,8 @@ The `selectUI` function provides the props of type `SelectUIProps` which you can
 A function that returns a boolean indicating whether your wallet is installed on the user's browser/device or not.
 
 It is used to show an "installed" badge next to your wallet's name in the wallet selector screen in Connect Wallet Modal if this function is defined and returns `true`.
+
+Note that if there is only one wallet (your wallet) is supported, Connect Wallet Modal will skip showing the wallet selection screen and directly render the connectUI of your wallet.
 
 <img src="/assets/connect-wallet/wallet-selector-screen.png" />
 
