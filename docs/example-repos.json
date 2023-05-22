@@ -662,6 +662,19 @@
     "homepage": "https://hardhat-local-node.thirdweb-preview.com"
   },
   {
+    "name": "hardhat-starter",
+    "html_url": "https://github.com/thirdweb-example/hardhat-starter",
+    "description": "A simple hardhat project with a customized ERC-721 drop contract.",
+    "created_at": "2023-05-22T11:22:27Z",
+    "updated_at": "2023-05-22T11:27:59Z",
+    "clone_url": "https://github.com/thirdweb-example/hardhat-starter.git",
+    "topics": [],
+    "language": "Solidity",
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": null
+  },
+  {
     "name": "hardhat-typescript-starter",
     "html_url": "https://github.com/thirdweb-example/hardhat-typescript-starter",
     "description": "thirdweb contracts starter project for Hardhat & TypeScript",
@@ -792,14 +805,14 @@
     "html_url": "https://github.com/thirdweb-example/marketplace-v3",
     "description": "Create your own NFT marketplace where users can buy and sell NFTs!",
     "created_at": "2023-01-31T03:33:27Z",
-    "updated_at": "2023-05-16T13:03:00Z",
+    "updated_at": "2023-05-22T04:55:24Z",
     "clone_url": "https://github.com/thirdweb-example/marketplace-v3.git",
     "topics": [
       "marketplace",
       "nft-marketplace"
     ],
     "language": "TypeScript",
-    "stargazers_count": 36,
+    "stargazers_count": 37,
     "is_template": false,
     "homepage": "https://marketplace-v3.thirdweb-preview.com"
   },
