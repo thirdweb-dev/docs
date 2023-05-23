@@ -11,7 +11,7 @@ Deploy an [nft collection](/python/python.nftcollection) prebuilt contract.
 ```python
 from thirdweb.types.nft import NFTMetadataInput
 
-metadata = NFTMetadataInput.from_json(
+metadata = NFTCollectionContractMetadata.from_json(
     {"name" : "my_nft_collection",
     #...
     }
