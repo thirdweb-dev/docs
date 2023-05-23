@@ -16,7 +16,7 @@ metadata = NFTMetadataInput.from_json(
     #...
     }
 )
-contract.deploy_nft_collection(metadata)
+contract.deployer.deploy_nft_collection(metadata)
 ```
 
 <details>
@@ -73,7 +73,7 @@ metadata = EditionContractMetadata.from_json(
     "name" : "my contract"
     # ...
 )
-sdk.deploy_edition(metadata)
+sdk.deployer.deploy_edition(metadata)
 ```
 
 <details>
@@ -130,7 +130,7 @@ metadata = TokenContractMetadata.from_json(
     "name" : "my contract"
     # ...
 )
-sdk.deploy_token(metadata)
+sdk.deployer.deploy_token(metadata)
 ```
 
 <details>
@@ -182,7 +182,7 @@ metadata = MarketplaceContractMetadata.from_json(
     "name" : "my contract"
     # ...
 )
-sdk.deploy_marketplace(metadata)
+sdk.deployer.deploy_marketplace(metadata)
 ```
 
 <details>
@@ -226,7 +226,7 @@ metadata = NFTDropContractMetadata.from_json(
     "name" : "my contract"
     # ...
 )
-sdk.deploy_nft_drop(metadata)
+sdk.deployer.deploy_nft_drop(metadata)
 ```
 
 <details>
@@ -287,7 +287,7 @@ metadata = EditionDropContractMetadata.from_json(
     "name" : "my contract"
     # ...
 )
-sdk.deploy_edition_drop(metadata)
+sdk.deployer.deploy_edition_drop(metadata)
 ```
 
 <details>
@@ -348,7 +348,7 @@ metadata = MultiwrapContractMetadata.from_json(
     "name" : "my contract"
     # ...
 )
-sdk.deploy_multiwrap(metadata)
+sdk.deployer.deploy_multiwrap(metadata)
 ```
 
 <details>
