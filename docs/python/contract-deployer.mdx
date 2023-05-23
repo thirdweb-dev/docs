@@ -11,10 +11,13 @@ Deploy an [nft collection](/python/python.nftcollection) prebuilt contract.
 ```python
 from thirdweb.types.settings.metadata import NFTCollectionContractMetadata
 
-metadata = NFTCollectionContractMetadata.from_json(
-    {"name" : "my_nft_collection",
-    #...
-    }
+metadata = NFTCollectionContractMetadata(
+    name="Python NFT Collection",
+    primary_sale_recipient="0x...",
+    seller_fee_basis_points=500, # 5% royalty fee
+    fee_recipient="0x...",
+    platform_fee_basis_points=10, # 0.1% platform fee
+    platform_fee_recipient="0x...",
 )
 sdk.deployer.deploy_nft_collection(metadata)
 ```
@@ -69,8 +72,10 @@ class ContractTrustedForwarderSchema:
 Deploy an [Edition](/python/python.edition) contract
 
 ```python
-metadata = EditionContractMetadata.from_json(
-    "name" : "my contract"
+from thirdweb.types.settings.metadata import EditionContractMetadata
+
+metadata = EditionContractMetadata(
+    name="My contract",
     # ...
 )
 sdk.deployer.deploy_edition(metadata)
@@ -126,8 +131,10 @@ class ContractTrustedForwarderSchema:
 Deploy a [Token](/python/python.token) contract
 
 ```python
-metadata = TokenContractMetadata.from_json(
-    "name" : "my contract"
+from thirdweb.types.settings.metadata import TokenContractMetadata
+
+metadata = TokenContractMetadata(
+    name="my contract"
     # ...
 )
 sdk.deployer.deploy_token(metadata)
@@ -178,8 +185,10 @@ class ContractTrustedForwarderSchema:
 Deploy a [Marketplace](/python/python.marketplace) contract
 
 ```python
-metadata = MarketplaceContractMetadata.from_json(
-    "name" : "my contract"
+from thirdweb.types.settings.metadata import MarketplaceContractMetadata
+
+metadata = MarketplaceContractMetadata(
+    name="my contract"
     # ...
 )
 sdk.deployer.deploy_marketplace(metadata)
@@ -222,9 +231,15 @@ class ContractTrustedForwarderSchema:
 Deploy an [NFT Drop](/python/python.nftdrop) contract
 
 ```python
-metadata = NFTDropContractMetadata.from_json(
-    "name" : "my contract"
-    # ...
+from thirdweb.types.settings.metadata import NFTDropContractMetadata
+
+metadata = NFTDropContractMetadata(
+    name="my contract",
+    primary_sale_recipient="0x...",
+    seller_fee_basis_points=500, # 5% royalty fee
+    fee_recipient="0x...",
+    platform_fee_basis_points=10, # 0.1% platform fee
+    platform_fee_recipient="0x...",
 )
 sdk.deployer.deploy_nft_drop(metadata)
 ```
@@ -283,9 +298,15 @@ class MerkleSchema:
 Deploy an [Edition Drop](/python/python.editiondrop) contract
 
 ```python
-metadata = EditionDropContractMetadata.from_json(
-    "name" : "my contract"
-    # ...
+from thirdweb.types.settings.metadata import EditionDropContractMetadata
+
+metadata = EditionDropContractMetadata(
+    name="my contract"
+    primary_sale_recipient="0x...",
+    seller_fee_basis_points=500, # 5% royalty fee
+    fee_recipient="0x...",
+    platform_fee_basis_points=10, # 0.1% platform fee
+    platform_fee_recipient="0x...",
 )
 sdk.deployer.deploy_edition_drop(metadata)
 ```
@@ -344,8 +365,10 @@ class MerkleSchema:
 Deploy a [Multiwrap](/python/python.multiwrap) contract
 
 ```python
-metadata = MultiwrapContractMetadata.from_json(
-    "name" : "my contract"
+from thirdweb.types.settings.metadata import MultiwrapContractMetadata
+
+metadata = MultiwrapContractMetadata(
+    name="my contract"
     # ...
 )
 sdk.deployer.deploy_multiwrap(metadata)
