@@ -93,7 +93,7 @@ Finally, we export the `ThirdwebAuthHandler` which sets up all the `/api/auth/*`
 
 The `getUser` function can be used to authenticate the user on the server. It will return the user's address if the user is authenticated, or `null` if the user is not authenticated. It can be used in any server-side context, including in Next.js API routes, as well as server-side functions like `getServerSideProps` and `getStaticProps`:
 
-```ts title="pages/api/auth/[...thirdweb].ts"
+```ts title="pages/api/secrets.ts"
 import { getUser } from "./auth/[...thirdweb]";
 import { NextApiRequest, NextApiResponse } from "next";
 
