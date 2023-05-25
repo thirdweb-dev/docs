@@ -1,0 +1,57 @@
+---
+title: useSetConnectedWallet
+slug: /react.usesetconnectedwallet
+displayed_sidebar: react
+---
+
+Hook for setting a connected wallet. Once a walletInstance is set using this hook, the wallet instance will be available from [useWallet](/react/react.usewallet) hook.
+
+This is only useful if you are manually connecting a wallet as mentioned in [Build your Wallet](/wallet/build-a-wallet#connecting-your-wallet-in-wallet-connection-ui)
+
+```jsx
+import { useSetConnectedWallet } from "@thirdweb-dev/react";
+
+const setConnectedWallet = useSetConnectedWallet();
+
+setConnectedWallet(walletInstance);
+```
+
+## Usage
+
+```jsx
+import { useSetConnectedWallet, metamaskWallet } from "@thirdweb-dev/react";
+
+const metamaskConfig = metamaskWallet();
+
+function App() {
+  // highlight-start
+  const setConnectedWallet = useSetConnectedWallet();
+  // highlight-end
+  const createWalletInstance = useCreateWalletInstance();
+
+  const handleConnect = async () => {
+    // create a wallet instance using useCreateWalletInstance
+    const metamaskWalletInstance = createWalletInstance(metamaskConfig);
+    // conect the wallet instance
+    await metamaskWalletInstance.connect();
+
+    // highlight-start
+    // set the connected wallet as connected
+    setConnectedWallet(walletInstance);
+    // highlight-end
+  };
+
+  return <div> ... </div>;
+}
+```
+
+## Configuration
+
+<details>
+  <summary> walletInstance </summary>
+  <div>
+
+`walletInstance` is of type `WalletInstance` - which is an instance type of [Abstract Client Wallet class](/wallet/interfaces/abstract-client-wallet)
+
+</div>
+</details>

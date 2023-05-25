@@ -16,22 +16,22 @@ import { useWallet } from "@thirdweb-dev/react";
 import { useWallet } from "@thirdweb-dev/react";
 
 function App() {
-  const wallet = useWallet();
+  const walletInstance = useWallet();
 }
 ```
 
 ## Return Value
 
 <details>
-<summary>Return Value</summary>
+<summary>walletInstance</summary>
 <div>
 
-Returns an instance of one of the supported [wallets](/wallet), or `undefined` if no wallet is connected.
+Returns a walletInstance of type `WalletInstance` , or `undefined` if no wallet is connected.
 
 [Learn more about wallets](/wallet).
 
 ```typescript
-AbstractBrowserWallet<Record<string, any>, Record<string, any>> | undefined;
+WalletInstance | undefined;
 ```
 
 </div>

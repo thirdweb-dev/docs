@@ -4,20 +4,30 @@ slug: /connecting-wallets
 displayed_sidebar: react
 ---
 
+| Wallet            | Wallet Configurator (React)                       | Hook (React)                                            | Wallet Class (Typescript)                      |
+| ----------------- | ------------------------------------------------- | ------------------------------------------------------- | ---------------------------------------------- |
+| MetaMask          | [`metamaskWallet`](/react/react.metamaskWallet)   | [`useMetamask`](/react/react.usemetamask)               | [`MetaMaskWallet`](/wallet/metamask)           |
+| Coinbase Wallet   | [`coinbaseWallet`](/react/react.coinbasewallet)   | [`useCoinbaseWallet`](/react/react.usecoinbasewallet)   | [`CoinbaseWallet`](/wallet/coinbase-wallet)    |
+| Wallet Connect v1 | [`walletConnectV1`](/react/react.walletconnectv1) | [`useWalletConnectV1`](/react/react.usewalletconnectV1) | [`WalletConnectV1`](/wallet/wallet-connect-v1) |
+| Wallet Connect v2 | [`walletConnect`](/react/react.walletconnect)     | [`useWalletConnect`](/react/react.usewalletconnect)     | [`WalletConnect`](/wallet/wallet-connect-v2)   |
+| Safe Wallet       | [`safeWallet`](/react/react.safewallet)           | [`useSafe`](/react/react.usesafe)                       | [`SafeWallet`](/wallet/safe)                   |
+| Paper Wallet      | [`paperWallet`](/react/react.paperwallet)         | [`usePaperWallet`](/react/react.usepaperwallet)         | [`PaperWallet`](/wallet/paper)                 |
+| Local Wallet      | [`localWallet`](/react/react.localwallet)         | [`useConnect`](/react/react.useconnect)                 | [`LocalWallet`](/wallet/local-wallet)          |
+| Smart Wallet      | [`smartWallet`](/react/react.smartwallet)         | [`useSmartWallet`](/react/react.usesmartwallet)         | [`SmartWallet`](/wallet/smart-wallet)          |
+| Magic Link        | [`magicLink`](/react/react.magiclink)             | [`useMagic`](/react/react.usemagic)                     | [`MagicLink`](/wallet/magic)                   |
+
+<br />
+
 There are two ways you can enable user&rsquo;s to connect their wallet with your application:
 
-1. Using the [Connect Wallet Button](/react/react.connectwallet) component, for a pre-built approach.
-2. Using the [wallet connection hooks](/react/react.useconnect), for a customizable approach.
+1. Using the [ConnectWallet](/react/react.connectwallet) component, for a pre-built approach.
+2. Using the wallet connection hooks, for a customizable approach.
 
-Both involve a two-step process, first to declare the supported wallets in the [`ThirdwebProvider`](/react/react.thirdwebprovider) component,
-and then prompt the user to connect, either with the UI component or a hook.
+## Using the Connect Wallet Button
 
-## 1. Declaring Supported Wallets
+To allow users to connect wallet using the [ConnectWallet](/react/react.connectwallet) component, you must first declare which wallets you want to support in [`supportedWallets`](/react/react.thirdwebprovider#supportedwallets-optional) prop of the [`ThirdwebProvider`](/react/react.thirdwebprovider) component,
 
-Using the [`supportedWallets`](/react/react.thirdwebprovider#supportedwallets-optional) prop of the [`ThirdwebProvider`](/react/react.thirdwebprovider) component,
-you can declare which wallets you want to support.
-
-If no `supportedWallets` prop is passed, the default is to support `MetaMask`, `Coinbase Wallet`, and `Wallet Connect v1`.
+If no `supportedWallets` prop is passed, the default is to support [`metamaskWallet`](/react/react.metamaskWallet), [`coinbaseWallet`](/react/react.coinbasewallet), and [`walletConnectV1`](/react/react.walletconnectv1).
 
 ```jsx
 import {
@@ -38,15 +48,15 @@ function MyApp() {
         metamaskWallet(),
         coinbaseWallet(),
         walletConnect({
-          projectId: "YOUR_PROJECT_ID", // optional
+          projectId: "YOUR_PROJECT_ID",
         }),
         walletConnectV1(),
         safeWallet(),
         paperWallet({
-          clientId: "YOUR_CLIENT_ID", // required
+          clientId: "YOUR_CLIENT_ID",
         }),
         magicLink({
-          apiKey: "YOUR_MAGIC_API_KEY", // required
+          apiKey: "YOUR_MAGIC_API_KEY",
         }),
       ]}
       activeChain="mumbai"
@@ -57,21 +67,6 @@ function MyApp() {
 }
 ```
 
-Available options to use are:
+## Using hooks
 
-| Wallet                                         | Import / supportedWallet prop value | Hook                                                    |
-| ---------------------------------------------- | ----------------------------------- | ------------------------------------------------------- |
-| [MetaMask](/wallet/metamask)                   | `metamaskWallet`                    | [`useMetamask`](/react/react.usemetamask)               |
-| [Coinbase](/wallet/coinbase-wallet)            | `coinbaseWallet`                    | [`useCoinbaseWallet`](/react/react.usecoinbasewallet)   |
-| [Wallet Connect v1](/wallet/wallet-connect-v1) | `walletConnectV1`                   | [`useWalletConnectV1`](/react/react.usewalletconnectV1) |
-| [Wallet Connect v2](/wallet/wallet-connect-v2) | `walletConnect`                     | [`useWalletConnect`](/react/react.usewalletconnect)     |
-| [Safe](/wallet/safe)                           | `safeWallet`                        | [`useSafe`](/react/react.usesafe)                       |
-| [Paper](/wallet/paper)                         | `paperWallet`                       | [`usePaperWallet`](/react/react.usepaperwallet)         |
-| [Magic Link](/wallet/magic)                    | `magicLink`                         | [`useMagic`](/react/react.usemagic)                     |
-| [Local Wallet](/wallet/local-wallet)           | `localWallet`                       | No hook available yet                                   |
-| [Smart Wallet](/wallet/smart-wallet)           | `smartWallet`                       | No hook available yet                                   |
-
-## 2. Prompting User Connection
-
-Once a wallet has been declared, either use the [Connect Wallet Button](/react/react.connectwallet) component, or a
-[wallet connection hook](/react/react.useconnect) to prompt the user to connect their wallet to your app.
+Either use a [useConnect](/react/react.useconnect) hook or use the wallet specific hooks as shown in the table above.

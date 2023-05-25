@@ -1,0 +1,51 @@
+---
+title: useCreateWalletInstance
+slug: /react.usecreatewalletinstance
+displayed_sidebar: react
+---
+
+Hook for creating a wallet instance from given `WalletConfig` object.
+
+If you just want to connect the wallet and don't need the wallet instance before connecting the wallet, use the [`useConnect`](/react.useconnect) hook instead.
+
+```jsx
+import { useCreateWalletInstance } from "@thirdweb-dev/react";
+
+const createWalletInstance = useCreateWalletInstance();
+
+const walletInstance = createWalletInstance(walletConfig);
+```
+
+## Usage
+
+```jsx
+import { useConnect, metamaskWallet } from "@thirdweb-dev/react";
+
+const metamaskConfig = metamaskWallet();
+
+function App() {
+  const createWalletInstance = useCreateWalletInstance();
+
+  return (
+    <button
+      onClick={() => {
+        const metamaskWalletInstance = createWalletInstance(metamaskConfig);
+        console.log(metamaskWalletInstance);
+      }}
+    >
+      create wallet instance
+    </button>
+  );
+}
+```
+
+## Configuration
+
+<details>
+  <summary>walletConfig </summary>
+  <div>
+
+The `WalletConfig` object of the wallet you want to create an instance of.
+
+</div>
+</details>

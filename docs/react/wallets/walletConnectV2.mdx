@@ -1,39 +1,35 @@
 ---
-slug: /wallet/wallet-connect-v2
-title: WalletConnect v2
+title: walletConnect
+slug: /react.walletconnect
+displayed_sidebar: react
+sidebar_position: 3
 ---
 
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 
-Prompt users to connect to your app with [WalletConnect v2](https://docs.walletconnect.com/2.0).
+A wallet configurator for [Wallet Connect v2](/wallet/wallet-connect-v2) which allows integrating the wallet with React
 
-## Usage
+```tsx
+import { walletConnect } from "@thirdweb-dev/react";
 
-```javascript
-import { WalletConnect } from "@thirdweb-dev/wallets";
-
-const wallet = new WalletConnect();
-
-wallet.connect();
+const walletConnectConfig = walletConnect(options);
 ```
 
-## Configuration
-
-Optionally, provide a configuration object when instantiating the `WalletConnect` class.
+## options
 
 <details>
-  <summary>projectId</summary>
+  <summary>projectId (optional) </summary>
   <div>
 
-Your project's unique identifier. It can be obtained at [cloud.walletconnect.com](https://cloud.walletconnect.com).
+Your project's unique identifier that can be obtained at [cloud.walletconnect.com](https://cloud.walletconnect.com).
 
-It enables the following functionalities within WalletConnect's web3modal:
+It Enables following functionalities within Web3Modal:
 
-- wallet and chain logos
-- optional WalletConnect RPC
-- support for all wallets from our Explorer and WalletConnect v2 support
+- wallet and chain logos,
+- optional WalletConnect RPC,
+- support for all wallets from our Explorer and WalletConnect v2 support.
 
 Defaults to `undefined`
 
@@ -53,82 +49,7 @@ const wallet = new WalletConnect(
 </details>
 
 <details>
-  <summary>chains</summary>
-  <div>
-
-Provide an array of chains you want to support.
-
-Must be an array of `Chain` objects, from the [`@thirdweb-dev/chains`](https://www.npmjs.com/package/@thirdweb-dev/chains) package.
-
-Defaults to our [default chains](/react/react.thirdwebprovider#default-chains).
-
-```javascript
-import { WalletConnect } from "@thirdweb-dev/wallets";
-import { Ethereum } from "@thirdweb-dev/chains";
-
-const walletWithOptions = new WalletConnect(
-  // highlight-start
-  {
-    chains: [Ethereum],
-  },
-  // highlight-end
-);
-```
-
-</div>
-</details>
-
-<details>
-  <summary>dappMetadata</summary>
-  <div>
-
-Information about your app that the wallet will display when your app tries to connect to it.
-
-Must be an object containing `name`, `url`, and optionally `description` and `logoUrl` properties.
-
-```javascript
-import { WalletConnect } from "@thirdweb-dev/wallets";
-
-const walletWithOptions = new WalletConnect({
-  // highlight-start
-  dappMetadata: {
-    name: "thirdweb powered dApp",
-    url: "https://thirdweb.com",
-    description: "thirdweb powered dApp",
-    logoUrl: "https://thirdweb.com/favicon.ico",
-  },
-  // highlight-end
-});
-```
-
-</div>
-</details>
-
-<details>
-  <summary>qrcode</summary>
-  <div>
-
-Whether to display the Wallet Connect QR code Modal or not.
-
-Must be a `boolean`. Defaults to `true`.
-
-```javascript
-import { WalletConnect } from "@thirdweb-dev/wallets";
-
-const walletWithOptions = new WalletConnect(
-  // highlight-start
-  {
-    qrcode: false,
-  },
-  // highlight-end
-);
-```
-
-</div>
-</details>
-
-<details>
-  <summary>qrModalOptions </summary>
+  <summary>qrModalOptions (optional) </summary>
   <div>
 
 WalletConnect's [options](https://docs.walletconnect.com/2.0/web3modal/options) to customize the QR Code Modal.
@@ -183,7 +104,7 @@ interface DesktopWallet {
   <summary>themeVariables</summary>
   <div>
 
-Allows to override Web3Modal's CSS styles. See [theming](https://docs.walletconnect.com/2.0/web3modal/theming) for Info.
+Allows to override Web3Modal's css styles. See [theming](https://docs.walletconnect.com/2.0/web3modal/theming) for Info.
 
 </div>
 </details>
@@ -192,7 +113,7 @@ Allows to override Web3Modal's CSS styles. See [theming](https://docs.walletconn
   <summary>themeMode</summary>
   <div>
 
-Puts Modal into dark or light mode. Defaults to the user's system preference.
+Puts Modal into dark or light mode. Defaults to user's system preference.
 
 </div>
 </details>
@@ -201,7 +122,7 @@ Puts Modal into dark or light mode. Defaults to the user's system preference.
   <summary>standaloneChains</summary>
   <div>
 
-When using Web3Modal in standalone mode (without wagmi) you can define an array of custom chains via this option.
+When using Web3Modal in standalone mode (without wagmi) you can define array of custom chains via this option.
 
 Defaults to `undefined`
 
@@ -250,11 +171,11 @@ mobileWallets: [
   <summary>desktopWallets</summary>
   <div>
 
-You can define an array of custom desktop or web-based wallets.
+You can define an array of custom desktop or web based wallets.
 
 Note: you will also need to add appropriate wallet images in walletImages.
 
-Native link represents deep linking url like `ledgerlive://` and Universal link represents webpage link that can redirect to the app or fallback page.
+Native link represents deeplinking url like `ledgerlive://` and Universal link represents webpage link that can redirect to the app or fallback page.
 
 Defaults to `undefined`
 
@@ -278,11 +199,11 @@ desktopWallets: [
   <summary>walletImages</summary>
   <div>
 
-an Array of wallet ids and their logo mappings.
+Array of wallet id's and their logo mappings.
 
 This will override default logos.
 
-Ids in this case can be: Explorer ids, wallet ids you provided in mobileWallets or desktopWallets and Wagmi connector ids.
+Id's in this case can be: Explorer id's, wallet id's you provided in mobileWallets or desktopWallets and Wagmi connector id's.
 
 Defaults to `undefined`
 
@@ -302,7 +223,7 @@ walletImages: {
   <summary>chainImages</summary>
   <div>
 
-an Array of chain ids and their logo mappings.
+Array of chain id's and their logo mappings.
 
 This will override default logos.
 
@@ -326,7 +247,7 @@ chainImages: {
   <summary>tokenImages</summary>
   <div>
 
-An array of token symbols and their logo mappings.
+Array of token symbols and their logo mappings.
 
 Defaults to `undefined`
 
@@ -366,7 +287,7 @@ tokenContracts: {
   <summary>enableNetworkView</summary>
   <div>
 
-If more than 1 chain is provided in the modal, users will be shown network selection view before selecting a wallet.
+If more than 1 chain is provided in modal, users will be show network selection view before selecting a wallet.
 
 This option can enable or disable this behavior.
 
@@ -403,9 +324,9 @@ Defaults to `true`
 
 Allows to override default recommended wallets that are fetched from Explorer API.
 
-You can define an array of wallet ids you'd like to prioritize (order is respected).
+You can define an array of wallet id's you'd like to prioritise (order is respected).
 
-You can get/copy these ids from the Explorer link mentioned before.
+You can get / copy these id's from the explorer link mentioned before.
 
 If you want to completely disable recommended wallets, you can set this option to `"NONE"`.
 
@@ -431,11 +352,11 @@ explorerRecommendedWalletIds: "NONE";
 
 Allows to exclude wallets that are fetched from Explorer API.
 
-You can define an array of wallet ids you'd like to exclude.
+You can define an array of wallet id's you'd like to exclude.
 
-You can get/copy these ids from the explorer link mentioned before.
+You can get / copy these id's from the explorer link mentioned before.
 
-If you want to exclude all wallets, you can set this option to `"ALL"`, however, if `explorerRecommendedWalletIds` are defined, they will still be fetched.
+If you want to exclude all wallets, you can set this option to `"ALL"`, however if `explorerRecommendedWalletIds` are defined, they will still be fetched.
 
 Defaults to `undefined`
 
@@ -457,7 +378,7 @@ explorerExcludedWalletIds: "ALL";
   <summary>termsOfServiceUrl</summary>
   <div>
 
-String URL to your terms of service page, if specified will append a special "legal info" footer to the modal.
+String URL to your terms of service page, if specified will append special "legal info" footer to the modal.
 
 Defaults to `undefined`
 
@@ -468,7 +389,7 @@ Defaults to `undefined`
   <summary>privacyPolicyUrl</summary>
   <div>
 
-String URL to your privacy policy page, if specified will append a special "legal info" footer to the modal.
+String URL to your privacy policy page, if specified will append special "legal info" footer to the modal.
 
 Defaults to `undefined`
 
@@ -478,70 +399,62 @@ Defaults to `undefined`
 </div>
 </details>
 
-<details>
-  <summary>walletStorage</summary>
-  <div>
+## Usage with `ConnectWallet`
 
-Some wallets need to store data in persistent storage. This is the storage that will be used for that.
+To allow users to connect to this wallet using the [ConnectWallet](/react/react.connectwallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop.
 
-Must be an object conforming to the `AsyncStorage` interface:
+```tsx
+<ThirdwebProvider supportedWallets={[walletConnect()]}>
+  <YourApp />
+</ThirdwebProvider>
+```
 
-```typescript
-export interface AsyncStorage {
-  getItem(key: string): Promise<string | null>;
-  setItem(key: string, value: string): Promise<void>;
-  removeItem(key: string): Promise<void>;
+## Usage with `useConnect`
+
+you can use the `useConnect` hook to programmatically connect to the wallet without using the [ConnectWallet](/react/react.connectwallet) component.
+
+Connecting wallet with `useConnect` **does not** require adding wallet to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop
+
+```tsx
+const walletConnectConfig = walletConnect();
+
+function App() {
+  const connect = useConnect();
+
+  const handleConnect = async () => {
+    await connect(walletConnectConfig, connectOptions);
+  };
+
+  return <div> ... </div>;
 }
 ```
 
-Example:
+## connectOptions
 
-```javascript
-import { WalletConnect } from "@thirdweb-dev/wallets";
-
-const wallet = new WalletConnect(
-  // highlight-start
-  {
-    walletStorage: {
-      getItem: (key) => {
-        // Implement your own storage logic here
-      },
-      removeItem: (key) => {
-        // Implement your own storage logic here
-      },
-      setItem: (key, value) => {
-        // Implement your own storage logic here
-      },
-    },
-  },
-  // highlight-end
-);
+```ts
+{ chainId?: string } | undefined
 ```
-
-</div>
-</details>
 
 <details>
-  <summary>walletId</summary>
-  <div>
+  <summary>chainId (optional) </summary>
+<div>
 
-An ID for the wallet. It is used to store the wallet in the `walletStorage`.
+If `chainId` is provided, wallet will be connected and immediately switch to network with given `chainId`.
 
-```javascript
-import { WalletConnect } from "@thirdweb-dev/wallets";
+`Chain` object corresponding to this chainId from [@thirdweb-dev/chains](https://www.npmjs.com/package/@thirdweb-dev/chains) package must be specified in [ThirdwebProvider's supportedChains](/react/react.thirdwebprovider#supportedchains-optional) prop as shown below
 
-const walletWithOptions = new WalletConnect(
-  // highlight-start
-  {
-    walletId: "wallet-id",
-  },
-  // highlight-end
-);
+```tsx
+import { Polygon } from "@thirdweb-dev/chains";
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+
+export function YourApp() {
+  return (
+    <ThirdwebProvider supportedChains={[Polygon]}>
+      <App />
+    </ThirdwebProvider>
+  );
+}
 ```
 
 </div>
 </details>
-
-## Methods
-
-Inherits all the public methods from the [`AbstractClientWallet`](interfaces/abstract-client-wallet) class.

@@ -3,13 +3,15 @@ title: Connect Wallet Button
 slug: /connectwallet
 ---
 
-The `ConnectWallet` prefab allows users to connect their wallet to your game. It is intended
-for use in [WebGL](https://docs.unity3d.com/Manual/webgl-building.html) based games, where a browser
-environment is available; thus enabling the use of browser extensions such as [MetaMask](https://metamask.io/).
+The `ConnectWallet` prefab allows users to connect their wallet to your game.
+
+It uses the [ThirdwebManager](/unity/ThirdwebManager) to determine which networks to display as well as the secondary UI related to certain providers such as WalletConnect.
+
+You can set up which wallets you want to support from the Prefab_ConnectWallet Inspector directly.
 
 When a user clicks the button, a dropdown of [supported wallets](#supported-wallets) will appear. The user can then
 select their preferred wallet to connect to the game; once connected, the button will show the user&rsquo;s balance and an option to
-[switch networks](#support-switching-networks).
+switch networks if multiple networks are set up through the ThirdwebManager.
 
 The prefab is located at: `Assets/Thirdweb/Examples/Prefabs/Prefab_ConnectWallet.prefab`.
 
@@ -24,69 +26,9 @@ From the `Inspector` window, you can configure the options for the `ConnectWalle
 The list of wallets you want to support.
 Each wallet you provide appears as a button in the dropdown.
 
-Supports `Injected` (window.ethereum), `MetaMask`, `Coinbase Wallet`, `Wallet Connect`, `Magic Auth`.
+Supports `Injected` (window.ethereum), `MetaMask`, `Coinbase Wallet`, `Wallet Connect`, `Magic Link`, `Local Wallet`.
 
-### Support Switching Networks
-
-The list of networks you want to support.
-
-Once connected, user&rsquo;s can switch between networks,
-each network you provide appears as an option.
-
-Supports any of the default chains.
-
-<details>
-  <summary>View default chains</summary>
-  <div>
-    <ul>
-      <li>
-        <b>Ethereum</b>: <code>"ethereum"</code>
-      </li>
-      <li>
-        <b>Goerli</b>: <code>"goerli"</code>
-      </li>
-      <li>
-        <b>Polygon</b>: <code>"polygon"</code>
-      </li>
-      <li>
-        <b>Mumbai</b>: <code>"mumbai"</code>
-      </li>
-      <li>
-        <b>Arbitrum One</b>: <code>"arbitrum"</code>
-      </li>
-      <li>
-        <b>Arbitrum Goerli</b>: <code>"arbitrum-goerli"</code>
-      </li>
-      <li>
-        <b>Optimism</b>: <code>"optimism"</code>
-      </li>
-      <li>
-        <b>Optimism Goerli Testnet</b>: <code>"optimism-goerli"</code>
-      </li>
-      <li>
-        <b>Binance SmartChain</b>: <code>"binance"</code>
-      </li>
-      <li>
-        <b>Binance SmartChain Testnet</b>: <code>"binance-testnet"</code>
-      </li>
-      <li>
-        <b>Fantom Opera</b>: <code>"fantom"</code>
-      </li>
-      <li>
-        <b>Fantom Testnet</b>: <code>"fantom-testnet"</code>
-      </li>
-      <li>
-        <b>Avalanche C Chain</b>: <code>"avalanche-fuji"</code>
-      </li>
-      <li>
-        <b>Avalanche Fuji Testnet</b>: <code>"avalanche-fuji-testnet"</code>
-      </li>
-      <li>
-        <b>Localhost</b>: <code>"localhost"</code>
-      </li>
-    </ul>
-  </div>
-</details>
+Some wallet providers may not be supported on some native platforms.
 
 ### Custom Callbacks
 
