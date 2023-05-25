@@ -1,0 +1,144 @@
+---
+title: paperWallet
+slug: /react.paperwallet
+displayed_sidebar: react
+sidebar_position: 5
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+A wallet configurator for [Paper Wallet](/wallet/paper) which allows integrating the wallet with React
+
+```tsx
+import { paperWallet } from "@thirdweb-dev/react";
+
+const paperWalletConfig = paperWallet({
+  clientID: "PAPER_CLIENT_ID",
+});
+```
+
+<details>
+  <summary>clientId  </summary>
+  <div>
+
+Paper SDK requires a clientId for instantiation. You can create a clientId for your app on [paper.xyz](https://paper.xyz/product/wallet)
+
+Must be a `string`.
+
+</div>
+</details>
+
+## Usage with `ConnectWallet`
+
+To allow users to connect to this wallet using the [ConnectWallet](/react/react.connectwallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop.
+
+```tsx
+<ThirdwebProvider
+  supportedWallets={[
+    paperWallet({
+      clientID: "PAPER_CLIENT_ID",
+    }),
+  ]}
+>
+  <YourApp />
+</ThirdwebProvider>
+```
+
+## Usage with `useConnect`
+
+you can use the `useConnect` hook to programmatically connect to the wallet without using the [ConnectWallet](/react/react.connectwallet) component.
+
+Connecting wallet with `useConnect` **does not** require adding wallet to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop
+
+Calling `connect` opens the Paper Wallet's Modal and prompts the user to log in with their email address.
+
+```tsx
+const paperWalletConfig = paperWallet({
+  clientID: "PAPER_CLIENT_ID",
+});
+
+function App() {
+  const connect = useConnect();
+
+  const handleConnect = async () => {
+    await connect(paperWalletConfig, connectOptions);
+  };
+
+  return <div> ... </div>;
+}
+```
+
+### connectOptions
+
+```ts
+{
+  email?: string;
+  chainId?: 5 |
+  10 |
+  1 |
+  56 |
+  97 |
+  137 |
+  250 |
+  420 |
+  4002 |
+  42161 |
+  43114 |
+  80001 |
+  421613
+} | undefined;
+```
+
+<details>
+  <summary>chainId (optional)</summary>
+<div>
+
+If `chainId` is provided, wallet will be connected to network with given `chainId`, else wallet will be connected to Ethereum mainnet by default.
+
+Paper Wallet only supports below shown chains at the moment:
+
+- Ethereum (1)
+- Goerli (5)
+- Polygon (137)
+- Avalanche(43114)
+- Fantom (250)
+- Fantom Testnet (4002)
+- Mumbai Testnet (80001)
+- Avalanche (43114)
+- Optimism (10)
+- Optimism Testnet (420)
+- Binance Smart Chain (56)
+- Binance Smart Chain Testnet (97)
+- Arbitrum One (42161)
+- Arbitrum Goerli Testnet (421611)
+
+`Chain` object corresponding to this chainId from [@thirdweb-dev/chains](https://www.npmjs.com/package/@thirdweb-dev/chains) package must be specified in [ThirdwebProvider's supportedChains](/react/react.thirdwebprovider#supportedchains-optional) prop as shown below
+
+```tsx
+import { Polygon } from "@thirdweb-dev/chains";
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+
+export function YourApp() {
+  return (
+    <ThirdwebProvider supportedChains={[Polygon]}>
+      <App />
+    </ThirdwebProvider>
+  );
+}
+```
+
+</div>
+</details>
+
+<details>
+  <summary>email (optional)</summary>
+<div>
+
+If `email` is not provided, the user will be prompted to enter their email address or sign in with a Google account. Once the user enters the email address or signs in with a Google account, an OTP will be sent to the user's email address. Once the user enters the OTP, the wallet will be connected.
+
+If the `email` is provided, the user will be directly shown the OTP screen, the user will not be prompted to enter their email.
+
+</div>
+</details>

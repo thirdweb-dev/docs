@@ -1,0 +1,78 @@
+---
+title: walletConnectV1
+slug: /react.walletconnectv1
+displayed_sidebar: react
+sidebar_position: 4
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+A wallet configurator for [Wallet Connect v1](/wallet/wallet-connect-v1) which allows integrating the wallet with React
+
+```tsx
+import { walletConnectV1 } from "@thirdweb-dev/react";
+
+const walletConnectV1Config = walletConnectV1();
+```
+
+## Usage with `ConnectWallet`
+
+To allow users to connect to this wallet using the [ConnectWallet](/react/react.connectwallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop.
+
+```tsx
+<ThirdwebProvider supportedWallets={[walletConnectV1()]}>
+  <YourApp />
+</ThirdwebProvider>
+```
+
+## Usage with `useConnect`
+
+you can use the `useConnect` hook to programmatically connect to the wallet without using the [ConnectWallet](/react/react.connectwallet) component.
+
+Connecting wallet with `useConnect` **does not** require adding wallet to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop
+
+```tsx
+const walletConnectV1Config = walletConnectV1();
+
+function App() {
+  const connect = useConnect();
+
+  const handleConnect = async () => {
+    await connect(walletConnectV1Config, connectOptions);
+  };
+
+  return <div> ... </div>;
+}
+```
+
+## connectOptions
+
+```ts
+{ chainId?: string } | undefined
+```
+
+<details>
+  <summary>chainId (optional) </summary>
+<div>
+
+If `chainId` is provided, wallet will be connected and immediately switch to network with given `chainId`.
+
+`Chain` object corresponding to this chainId from [@thirdweb-dev/chains](https://www.npmjs.com/package/@thirdweb-dev/chains) package must be specified in [ThirdwebProvider's supportedChains](/react/react.thirdwebprovider#supportedchains-optional) prop as shown below
+
+```tsx
+import { Polygon } from "@thirdweb-dev/chains";
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+
+export function YourApp() {
+  return (
+    <ThirdwebProvider supportedChains={[Polygon]}>
+      <App />
+    </ThirdwebProvider>
+  );
+}
+```
+
+</div>
+</details>

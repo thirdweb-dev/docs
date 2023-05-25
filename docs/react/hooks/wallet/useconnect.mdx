@@ -4,7 +4,7 @@ slug: /react.useconnect
 displayed_sidebar: react
 ---
 
-Hook for connecting any supported [wallet](/wallet) to your app.
+Hook for connecting any supported [wallet config](/react/connecting-wallets) to your app.
 
 ```jsx
 import { useConnect } from "@thirdweb-dev/react";
@@ -17,24 +17,32 @@ const connect = useConnect();
 ```jsx
 import { useConnect, metamaskWallet } from "@thirdweb-dev/react";
 
-const metamask = metamaskWallet();
+const metamaskConfig = metamaskWallet();
 
 function App() {
   const connect = useConnect();
 
-  return <button onClick={() => connect(metamask)}>Connect to MetaMask</button>;
+  return (
+    <button
+      onClick={async () => {
+        await connect(metamaskConfig, connectOptions);
+      }}
+    >
+      Connect to MetaMask
+    </button>
+  );
 }
 ```
 
 ## Configuration
 
 <details>
-  <summary>wallet (required)</summary>
+  <summary>walletConfig </summary>
   <div>
 
 The wallet to connect to your app with.
 
-Must be of type `ConfiguredWallet`.
+Must be of type `WalletConfig`.
 
 [Learn more about the available wallet options](/react/connecting-wallets).
 
@@ -42,38 +50,12 @@ Must be of type `ConfiguredWallet`.
 </details>
 
 <details>
-  <summary>chainId (optional)</summary>
+  <summary>connectOptions </summary>
   <div>
 
-To connect to a specific chain when connecting the wallet,
-pass the `chainId` in a configuration object as shown below.
+`connectOptions` depends on the wallet you are connecting.
 
-This will prompt the user to switch to the given network after they connect.
-
-```jsx
-import { useConnect, metamaskWallet } from "@thirdweb-dev/react";
-
-const metamask = metamaskWallet();
-
-function App() {
-  const connect = useConnect();
-
-  return (
-    <button
-      onClick={() =>
-        connect(
-          metamask,
-          // highlight-start
-          { chainId: 1 },
-          // highlight-end
-        )
-      }
-    >
-      Connect to MetaMask
-    </button>
-  );
-}
-```
+If you are using typescript, `connect` will automatically infer the type of `connectOptions` based on the `walletConfig` you pass in.
 
 </div>
 </details>

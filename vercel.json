@@ -399,6 +399,11 @@
       "permanent": true
     },
     {
+      "source": "/unity/connectwalletnative",
+      "destination": "/unity/connectwallet",
+      "permanent": true
+    },
+    {
       "source": "/sdk/connecting-to-a-wallet",
       "destination": "/ui-components/connectwalletbutton"
     },

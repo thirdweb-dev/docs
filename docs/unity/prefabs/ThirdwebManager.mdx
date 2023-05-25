@@ -11,12 +11,16 @@ other scripts, rather than having to instantiate the SDK in each script.
 
 The prefab is located at: `Assets/Thirdweb/Examples/Prefabs/ThirdwebManager.prefab`.
 
-**This prefab MUST be in your scene to run the SDK on native platforms.**
+**This prefab MUST be in your scene to run the SDK on native platforms. It is highly recommended for WebGL as well.**
 
 ## Configuration
 
 From the `Inspector`, you can customize the following settings:
 
 - `Chain`: The blockchain you want to instantiate the SDK on at this point in time.
-- `Chain Data`: An array of the chains you want to support in your game.
+- `Supported Chains`: An array of the chains you want to support in your game and their corresponding data/overrides.
+- `App Metadata`: The app name, description, favicons, and urls that would be displayed on some wallet providers.
 - `Storage IPFS Gateway Url`: Override this value to use a custom IPFS gateway for the SDK.
+- `OZ Defender Options`: Gasless settings and overrides for Openzeppelin Defender.
+- `Magic Link API Key`: API key if you want to support MagicLink as a WalletProvider.
+- `Native Prefabs`: UI/Behavior prefabs that will be instantiated at runtime for certain WalletProviders.
