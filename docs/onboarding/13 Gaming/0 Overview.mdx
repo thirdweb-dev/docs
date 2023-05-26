@@ -26,12 +26,8 @@ import YoutubeEmbed from "@components/YoutubeEmbed";
 </div>
 </div>
 
-GamingKit currently supports <a href="https://unity.com/">Unity</a> with
+GamingKit currently supports [Unity](/unity) with
 more engines coming soon.
-
-:::tip wen my game engine?
-Join our [Discord](https://discord.com/invite/thirdweb) to stay up-to-date on our latest releases.
-:::
 
 ## Get Started
 
@@ -46,6 +42,24 @@ Follow our [quickstart guide](/gamingkit/quickstart) to get up and running with 
     />
   </div>
 </div>
+
+Once, installed you can connect and interact to your smart contract in just a few lines of code:
+
+```csharp
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Thirdweb;
+
+public class Example : MonoBehaviour {
+  void Start() {
+    ThirdwebSDK sdk = new ThirdwebSDK("goerli");
+    string address = "0xb1c42E0C4289E68f1C337Eb0Da6a38C4c9F3f58e";
+    NFTCollection contract = sdk.GetContract(address);
+    List<NFT> nfts = await contract.ERC721.GetAll();
+  }
+}
+```
 
 ### Manually Setup the SDK
 
