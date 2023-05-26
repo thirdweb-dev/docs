@@ -86,11 +86,11 @@
     "html_url": "https://github.com/thirdweb-example/catattacknft",
     "description": "Claim your cat, attack others, and accumulate points to win!",
     "created_at": "2022-08-26T20:48:18Z",
-    "updated_at": "2023-05-21T13:58:06Z",
+    "updated_at": "2023-05-25T10:21:16Z",
     "clone_url": "https://github.com/thirdweb-example/catattacknft.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 79,
+    "stargazers_count": 82,
     "is_template": false,
     "homepage": "https://catattacknft.vercel.app"
   },
@@ -443,14 +443,14 @@
     "html_url": "https://github.com/thirdweb-example/erc20-staking-app",
     "description": "Allow users to stake their ERC20 tokens in return for more/other ERC20 tokens!",
     "created_at": "2023-01-27T08:07:46Z",
-    "updated_at": "2023-05-10T11:24:37Z",
+    "updated_at": "2023-05-25T10:49:50Z",
     "clone_url": "https://github.com/thirdweb-example/erc20-staking-app.git",
     "topics": [
       "staking",
       "token"
     ],
     "language": "JavaScript",
-    "stargazers_count": 2,
+    "stargazers_count": 3,
     "is_template": false,
     "homepage": "https://erc20-staking-app.thirdweb-example.com/"
   },
@@ -605,14 +605,14 @@
     "html_url": "https://github.com/thirdweb-example/github-contributor-nft-rewards",
     "description": "Use signature-based minting to allow users who have contributed to your github repositories to claim an NFT!",
     "created_at": "2022-08-29T23:19:26Z",
-    "updated_at": "2023-04-18T15:29:02Z",
+    "updated_at": "2023-05-24T07:15:09Z",
     "clone_url": "https://github.com/thirdweb-example/github-contributor-nft-rewards.git",
     "topics": [
       "auth",
       "signature-based-minting"
     ],
     "language": "TypeScript",
-    "stargazers_count": 10,
+    "stargazers_count": 11,
     "is_template": false,
     "homepage": "https://github-contributor-nft-rewards.thirdweb-example.com/"
   },
@@ -630,6 +630,19 @@
     "stargazers_count": 1,
     "is_template": false,
     "homepage": "https://gnosis-safe.thirdweb-preview.com"
+  },
+  {
+    "name": "go-signature-mint",
+    "html_url": "https://github.com/thirdweb-example/go-signature-mint",
+    "description": null,
+    "created_at": "2023-05-24T04:20:19Z",
+    "updated_at": "2023-05-24T05:41:33Z",
+    "clone_url": "https://github.com/thirdweb-example/go-signature-mint.git",
+    "topics": [],
+    "language": "Go",
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": null
   },
   {
     "name": "hardhat-javascript-starter",
@@ -743,7 +756,7 @@
     "html_url": "https://github.com/thirdweb-example/magic-link",
     "description": "Connect users to your dApp using just their email using thirdweb's useMagic hook!",
     "created_at": "2022-04-27T07:03:18Z",
-    "updated_at": "2023-04-29T03:48:09Z",
+    "updated_at": "2023-05-24T19:08:03Z",
     "clone_url": "https://github.com/thirdweb-example/magic-link.git",
     "topics": [
       "nextjs",
@@ -751,7 +764,7 @@
       "wallet-connection"
     ],
     "language": "TypeScript",
-    "stargazers_count": 19,
+    "stargazers_count": 20,
     "is_template": false,
     "homepage": "https://magic-link.thirdweb-example.com"
   },
@@ -917,7 +930,7 @@
     "html_url": "https://github.com/thirdweb-example/next-typescript-starter",
     "description": "thirdweb starter project with Next.js & TypeScript",
     "created_at": "2022-03-17T18:18:45Z",
-    "updated_at": "2023-05-19T20:59:25Z",
+    "updated_at": "2023-05-25T21:58:43Z",
     "clone_url": "https://github.com/thirdweb-example/next-typescript-starter.git",
     "topics": [
       "nextjs",
@@ -930,7 +943,7 @@
       "web3js"
     ],
     "language": "TypeScript",
-    "stargazers_count": 49,
+    "stargazers_count": 50,
     "is_template": true,
     "homepage": "https://next-typescript-starter.thirdweb-example.com"
   },
@@ -970,7 +983,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-gated-website",
     "description": "Restrict access to content based on the ownership of an NFT",
     "created_at": "2022-04-08T17:59:57Z",
-    "updated_at": "2023-05-16T15:11:49Z",
+    "updated_at": "2023-05-24T23:31:03Z",
     "clone_url": "https://github.com/thirdweb-example/nft-gated-website.git",
     "topics": [
       "auth",
@@ -1006,7 +1019,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-staking-app",
     "description": "An NFT Staking contract deployed using thirdweb deploy, where users stake their ERC721 tokens and earn ERC20 tokens in return!",
     "created_at": "2022-05-31T05:09:19Z",
-    "updated_at": "2023-05-16T15:06:48Z",
+    "updated_at": "2023-05-25T07:11:22Z",
     "clone_url": "https://github.com/thirdweb-example/nft-staking-app.git",
     "topics": [
       "erc20",
@@ -1017,7 +1030,7 @@
       "staking"
     ],
     "language": "TypeScript",
-    "stargazers_count": 107,
+    "stargazers_count": 108,
     "is_template": false,
     "homepage": "https://nft-staking-contract.thirdweb-example.com/"
   },
@@ -1232,14 +1245,14 @@
     "html_url": "https://github.com/thirdweb-example/seamless-stripe-checkout",
     "description": "Use Magic.link to authenticate users using their email, then we use stripe to collect payment for the NFTs and send them to the user's wallet generated by Magic.",
     "created_at": "2023-01-13T17:47:53Z",
-    "updated_at": "2023-05-01T02:56:04Z",
+    "updated_at": "2023-05-24T10:08:52Z",
     "clone_url": "https://github.com/thirdweb-example/seamless-stripe-checkout.git",
     "topics": [
       "auth",
       "wallet-connection"
     ],
     "language": "TypeScript",
-    "stargazers_count": 9,
+    "stargazers_count": 10,
     "is_template": false,
     "homepage": "https://seamless-stripe-checkout.thirdweb-example.com"
   },

@@ -14,4 +14,4 @@ jobs:
           markdown: true
           recurse: true
           # Temp added broken link below : https://github.com/ethereum/solidity/pull/11843%5Bethereum/solidity
-          linksToSkip: "https://opensea.io, http://localhost:3000, assets/, /assets, https://support.discord.com, https://www.pokemoncenter.com, https://collab.land/, https://polygonscan.com/, https://etherscan.io/, https://rinkeby.etherscan.io/, https://goerli.etherscan.io/, https://github.com/ethereum/solidity/pull/11843%5Bethereum/solidity, https://developer.android.com, https://twitter.com/thirdweb"
+          linksToSkip: "https://opensea.io, http://localhost:3000, assets/, /assets, https://support.discord.com, https://www.pokemoncenter.com, https://collab.land/, https://polygonscan.com/, https://etherscan.io/, https://rinkeby.etherscan.io/, https://goerli.etherscan.io/, https://github.com/ethereum/solidity/pull/11843%5Bethereum/solidity, https://developer.android.com, https://twitter.com/thirdweb, https://www.wallstreetmojo.com/english-auction/"
