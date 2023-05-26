@@ -649,7 +649,7 @@
     "html_url": "https://github.com/thirdweb-example/hardhat-javascript-starter",
     "description": "thirdweb contracts starter project for Hardhat & TypeScript",
     "created_at": "2022-07-29T02:19:53Z",
-    "updated_at": "2023-05-09T09:55:47Z",
+    "updated_at": "2023-05-26T08:19:44Z",
     "clone_url": "https://github.com/thirdweb-example/hardhat-javascript-starter.git",
     "topics": [
       "hardhat",
@@ -657,7 +657,7 @@
       "starter-kit"
     ],
     "language": "JavaScript",
-    "stargazers_count": 4,
+    "stargazers_count": 5,
     "is_template": false,
     "homepage": ""
   },
@@ -818,14 +818,14 @@
     "html_url": "https://github.com/thirdweb-example/marketplace-v3",
     "description": "Create your own NFT marketplace where users can buy and sell NFTs!",
     "created_at": "2023-01-31T03:33:27Z",
-    "updated_at": "2023-05-22T04:55:24Z",
+    "updated_at": "2023-05-26T08:15:27Z",
     "clone_url": "https://github.com/thirdweb-example/marketplace-v3.git",
     "topics": [
       "marketplace",
       "nft-marketplace"
     ],
     "language": "TypeScript",
-    "stargazers_count": 37,
+    "stargazers_count": 38,
     "is_template": false,
     "homepage": "https://marketplace-v3.thirdweb-preview.com"
   },
@@ -967,14 +967,14 @@
     "html_url": "https://github.com/thirdweb-example/nft-gallery",
     "description": "Create a gallery of NFTs from an NFT Collection",
     "created_at": "2023-01-27T02:51:22Z",
-    "updated_at": "2023-05-15T05:34:26Z",
+    "updated_at": "2023-05-26T07:58:28Z",
     "clone_url": "https://github.com/thirdweb-example/nft-gallery.git",
     "topics": [
       "nft-drop",
       "ui-components"
     ],
     "language": "TypeScript",
-    "stargazers_count": 3,
+    "stargazers_count": 4,
     "is_template": false,
     "homepage": "https://nft-gallery.thirdweb-preview.com/"
   },
@@ -1052,11 +1052,11 @@
     "html_url": "https://github.com/thirdweb-example/node-javascript-starter",
     "description": "Starter template repository for Node.js and the thirdweb SDK",
     "created_at": "2023-01-09T02:35:55Z",
-    "updated_at": "2023-04-21T16:45:19Z",
+    "updated_at": "2023-05-26T08:09:44Z",
     "clone_url": "https://github.com/thirdweb-example/node-javascript-starter.git",
     "topics": [],
     "language": "JavaScript",
-    "stargazers_count": 1,
+    "stargazers_count": 2,
     "is_template": false,
     "homepage": null
   },
@@ -1217,11 +1217,11 @@
     "html_url": "https://github.com/thirdweb-example/react-native-typescript-starter",
     "description": null,
     "created_at": "2022-11-02T02:03:17Z",
-    "updated_at": "2023-05-15T09:15:56Z",
+    "updated_at": "2023-05-26T08:18:41Z",
     "clone_url": "https://github.com/thirdweb-example/react-native-typescript-starter.git",
     "topics": [],
     "language": "Java",
-    "stargazers_count": 7,
+    "stargazers_count": 8,
     "is_template": false,
     "homepage": null
   },
