@@ -426,6 +426,19 @@
     "homepage": null
   },
   {
+    "name": "erc-6551",
+    "html_url": "https://github.com/thirdweb-example/erc-6551",
+    "description": null,
+    "created_at": "2023-05-27T00:44:17Z",
+    "updated_at": "2023-05-27T00:45:21Z",
+    "clone_url": "https://github.com/thirdweb-example/erc-6551.git",
+    "topics": [],
+    "language": "Solidity",
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": null
+  },
+  {
     "name": "erc1155",
     "html_url": "https://github.com/thirdweb-example/erc1155",
     "description": null,
@@ -1467,13 +1480,13 @@
     "html_url": "https://github.com/thirdweb-example/thirdweb-auth-express",
     "description": "Enable wallet-based login with thirdweb Auth & Express",
     "created_at": "2022-08-19T15:40:00Z",
-    "updated_at": "2023-01-30T15:12:24Z",
+    "updated_at": "2023-05-27T00:59:56Z",
     "clone_url": "https://github.com/thirdweb-example/thirdweb-auth-express.git",
     "topics": [
       "auth"
     ],
     "language": "TypeScript",
-    "stargazers_count": 3,
+    "stargazers_count": 4,
     "is_template": false,
     "homepage": ""
   },
