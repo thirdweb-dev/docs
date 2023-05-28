@@ -19,6 +19,7 @@ After generating wallets for your users, your can offer multiple persistance and
 ## Usage
 
 ```javascript
+import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 import { LocalWallet } from "@thirdweb-dev/wallets";
 
 const wallet = new LocalWallet();
@@ -37,7 +38,102 @@ await wallet.load(config);
 const exportedWallet = await wallet.export(config);
 // and import it back in
 await wallet.import(exportedWallet, config);
+
+// You can then use this wallet to perform transactions via the SDK
+const sdk = await ThirdwebSDK.fromWallet(wallet, "goerli");
 ```
+
+## Local Wallet Backup
+
+Local wallets can be persisted on disk, or backed up to the cloud. Currently 3 formats are supported:
+
+- `encryptedJSON` - a standard format for encrypted wallets, this requires a password to encrypt/decrypt the wallet. Recommended for safe backups.
+- `privateKey` - the raw private key. This can be stored encrypted or un-encrypted. If not encrypted, make sure you store it somewhere safe.
+- `menmonic` - the raw seed phrase. This can be stored encrypted or un-encrypted. If not encrypted, make sure you store it somewhere safe.
+
+We provide encryption capabilities out of the box, but you can customize the type of encryption, and also turn it off completely.
+
+The type of storage can also be overriden, allowing you to store wallets anywhere you want, including remote locations. 
+
+By default, wallets will be stored on the browser's storage for web (React), and on the secure storage of the device for mobile (React Native).
+
+On Node.js, you can use `LocalWalletNode` which by default will save to the local file system of the machine.
+
+```javascript
+import { LocalWalletNode } from "@thirdweb-dev/wallets/evm/wallets/local-wallet-node";
+
+// wallet data will be saved in 'wallet.json' by default
+// you can also pass a different file path by specifying 'storageJsonFile' in the constructor
+const wallet = new LocalWalletNode();
+
+await localWallet.loadOrCreate({
+  strategy: "mnemonic",
+  encryption: false,
+});
+```
+
+Customizing where the wallet data is persisted only requires implementing a simple interface. Here's an example of a Local Wallet with custom storage:
+
+```typescript
+class MyStorage implements AsyncStorage {
+  getItem(key: string): Promise<string | null> { ... }
+  setItem(key: string, value: string): Promise<void> { ... }
+  removeItem(key: string): Promise<void> { ... }
+}
+
+const wallet = new LocalWallet({
+  storage: new MyStorage(),
+})
+```
+
+You can implement this any way you like, file persistance, remote cloud storage, etc.
+
+## Encryption examples
+
+Here's some examples of different encryption configurations:
+
+1. Save an encrypted privateKey with default encryption a password as the encryption key:
+
+```javascript
+localWallet.save({
+  strategy: "privateKey",
+  encryption: {
+     password: "your-encryption-password" // uses default encryption
+  },
+});
+```
+
+2. Import a raw private key or menmonic (seed phrase) with no encryption:
+
+```javascript
+// privateKey
+localWallet.import({
+  privateKey: "your-raw-privateKey",
+  encryption: false, // no encryption
+});
+
+// mnemonic
+localWallet.import({
+  mnemonic: "your-raw-menmonic",
+  encryption: false, // no encryption
+});
+```
+
+3. Save an encrypted mnemonic with a custom encryption:
+
+```javascript
+// privateKey
+localWallet.save({
+  strategy: "mnemonic",
+  encryption: {
+    encrypt: (message: string, password: string) => {
+      return yourCustomEncryption(message, password);
+    },
+    password: "your-encryption-password",
+  }
+});
+```
+
 
 ## Configuration
 
