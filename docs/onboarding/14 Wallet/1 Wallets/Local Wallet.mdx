@@ -526,8 +526,8 @@ Example:
 ```javascript
 wallet.export({
   // highlight-start
-  strategy: "encryptedJson",
-  password: "password",
+  strategy: "privateKey",
+  encryption: false,
   // highlight-end
 });
 ```
@@ -548,8 +548,8 @@ Promise<string>;
 Create a local wallet from an "encryptedJson", "privateKey" or "mnemonic"
 
 ```javascript
-const address = await wallet.import({
-  encryptedJson: "mnemonic",
+localWallet.import({
+  privateKey: "...",
   encryption: false,
 });
 ```
@@ -583,7 +583,7 @@ Example:
 ```javascript
 wallet.import({
   // highlight-start
-  strategy: "encryptedJson",
+  encryptedJson: "...",
   password: "password",
   // highlight-end
 });
