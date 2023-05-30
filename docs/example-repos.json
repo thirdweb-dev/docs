@@ -1678,9 +1678,9 @@
   {
     "name": "token-bound-account-app",
     "html_url": "https://github.com/thirdweb-example/token-bound-account-app",
-    "description": "Create a frontend for users to create smart wallets for their NFTs & claim erc-20 tokens!",
+    "description": "Create a frontend for users to create erc-6551 smart wallets for their NFTs & claim erc-20 tokens!",
     "created_at": "2023-05-18T23:02:18Z",
-    "updated_at": "2023-05-21T05:43:59Z",
+    "updated_at": "2023-05-30T13:05:56Z",
     "clone_url": "https://github.com/thirdweb-example/token-bound-account-app.git",
     "topics": [],
     "language": "CSS",
@@ -1693,13 +1693,13 @@
     "html_url": "https://github.com/thirdweb-example/token-drop",
     "description": "Release your token with claim conditions for a price using thirdweb's Token Drop contract",
     "created_at": "2022-05-25T04:05:25Z",
-    "updated_at": "2023-05-30T05:14:06Z",
+    "updated_at": "2023-05-30T14:59:56Z",
     "clone_url": "https://github.com/thirdweb-example/token-drop.git",
     "topics": [
       "token-drop"
     ],
     "language": "TypeScript",
-    "stargazers_count": 13,
+    "stargazers_count": 14,
     "is_template": false,
     "homepage": "https://token-drop.thirdweb-example.com"
   },
@@ -1800,11 +1800,11 @@
     "html_url": "https://github.com/thirdweb-example/unlock-subscribe",
     "description": "Build a simple on-chain subscription model into your app using the Lock contract by Unlock",
     "created_at": "2022-12-01T17:35:46Z",
-    "updated_at": "2023-02-19T22:16:46Z",
+    "updated_at": "2023-05-30T14:40:33Z",
     "clone_url": "https://github.com/thirdweb-example/unlock-subscribe.git",
     "topics": [],
     "language": "CSS",
-    "stargazers_count": 5,
+    "stargazers_count": 6,
     "is_template": true,
     "homepage": "https://unlock-subscribe.thirdweb-example.com/"
   },
