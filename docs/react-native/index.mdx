@@ -85,12 +85,12 @@ Now, we can add the dependencies:
   <TabItem value="yarn" label="yarn" default>
     <CodeBlock
       language={"bash"}
-    >{`yarn add 'ethers@^5' @thirdweb-dev/react-native @thirdweb-dev/react-native-compat node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg @react-native-async-storage/async-storage`}</CodeBlock>
+    >{`yarn add 'ethers@^5' @thirdweb-dev/react-native @thirdweb-dev/react-native-compat node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg react-native-mmkv @react-native-async-storage/async-storage`}</CodeBlock>
   </TabItem>
   <TabItem value="npm" label="npm">
     <CodeBlock
       language={"bash"}
-    >{`npm i 'ethers@^5' @thirdweb-dev/react-native @thirdweb-dev/react-native-compat node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg @react-native-async-storage/async-storage`}</CodeBlock>
+    >{`npm i 'ethers@^5' @thirdweb-dev/react-native @thirdweb-dev/react-native-compat node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg react-native-mmkv @react-native-async-storage/async-storage`}</CodeBlock>
   </TabItem>
 </Tabs>
 
@@ -98,12 +98,6 @@ Our wallets package uses the Expo Modules API, please [configure it](https://doc
 
 ```sh
 npx install-expo-modules@latest
-```
-
-The package `react-native-mmkv` is used for our storage needs:
-
-```sh
-expo install react-native-mmkv
 ```
 
 </TabItem>
