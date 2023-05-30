@@ -53,7 +53,7 @@ Local wallets can be persisted on disk, or backed up to the cloud. Currently 3 f
 
 We provide encryption capabilities out of the box, but you can customize the type of encryption, and also turn it off completely.
 
-The type of storage can also be overriden, allowing you to store wallets anywhere you want, including remote locations. 
+The type of storage can also be overriden, allowing you to store wallets anywhere you want, including remote locations.
 
 By default, wallets will be stored on the browser's storage for web (React), and on the secure storage of the device for mobile (React Native).
 
@@ -98,7 +98,7 @@ Here's some examples of different encryption configurations:
 localWallet.save({
   strategy: "privateKey",
   encryption: {
-     password: "your-encryption-password" // uses default encryption
+    password: "your-encryption-password", // uses default encryption
   },
 });
 ```
@@ -130,10 +130,9 @@ localWallet.save({
       return yourCustomEncryption(message, password);
     },
     password: "your-encryption-password",
-  }
+  },
 });
 ```
-
 
 ## Configuration
 
