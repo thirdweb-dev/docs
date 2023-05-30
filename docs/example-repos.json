@@ -86,11 +86,11 @@
     "html_url": "https://github.com/thirdweb-example/catattacknft",
     "description": "Claim your cat, attack others, and accumulate points to win!",
     "created_at": "2022-08-26T20:48:18Z",
-    "updated_at": "2023-05-25T10:21:16Z",
+    "updated_at": "2023-05-29T11:26:45Z",
     "clone_url": "https://github.com/thirdweb-example/catattacknft.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 82,
+    "stargazers_count": 83,
     "is_template": false,
     "homepage": "https://catattacknft.vercel.app"
   },
@@ -333,11 +333,24 @@
     "html_url": "https://github.com/thirdweb-example/dex-app",
     "description": "DEX app to sell your tokens to the public!",
     "created_at": "2023-04-14T14:52:29Z",
-    "updated_at": "2023-04-27T02:34:24Z",
+    "updated_at": "2023-05-26T11:53:40Z",
     "clone_url": "https://github.com/thirdweb-example/dex-app.git",
     "topics": [],
-    "language": null,
+    "language": "TypeScript",
     "stargazers_count": 1,
+    "is_template": false,
+    "homepage": null
+  },
+  {
+    "name": "dex-contracts",
+    "html_url": "https://github.com/thirdweb-example/dex-contracts",
+    "description": "DEX contracts to accompany the DEX app",
+    "created_at": "2023-05-26T11:56:01Z",
+    "updated_at": "2023-05-26T11:58:11Z",
+    "clone_url": "https://github.com/thirdweb-example/dex-contracts.git",
+    "topics": [],
+    "language": "Solidity",
+    "stargazers_count": 0,
     "is_template": false,
     "homepage": null
   },
@@ -409,6 +422,19 @@
     "topics": [],
     "language": "TypeScript",
     "stargazers_count": 4,
+    "is_template": false,
+    "homepage": null
+  },
+  {
+    "name": "erc-6551",
+    "html_url": "https://github.com/thirdweb-example/erc-6551",
+    "description": null,
+    "created_at": "2023-05-27T00:44:17Z",
+    "updated_at": "2023-05-27T00:45:21Z",
+    "clone_url": "https://github.com/thirdweb-example/erc-6551.git",
+    "topics": [],
+    "language": "Solidity",
+    "stargazers_count": 0,
     "is_template": false,
     "homepage": null
   },
@@ -605,14 +631,14 @@
     "html_url": "https://github.com/thirdweb-example/github-contributor-nft-rewards",
     "description": "Use signature-based minting to allow users who have contributed to your github repositories to claim an NFT!",
     "created_at": "2022-08-29T23:19:26Z",
-    "updated_at": "2023-05-24T07:15:09Z",
+    "updated_at": "2023-05-26T19:44:21Z",
     "clone_url": "https://github.com/thirdweb-example/github-contributor-nft-rewards.git",
     "topics": [
       "auth",
       "signature-based-minting"
     ],
     "language": "TypeScript",
-    "stargazers_count": 11,
+    "stargazers_count": 12,
     "is_template": false,
     "homepage": "https://github-contributor-nft-rewards.thirdweb-example.com/"
   },
@@ -649,7 +675,7 @@
     "html_url": "https://github.com/thirdweb-example/hardhat-javascript-starter",
     "description": "thirdweb contracts starter project for Hardhat & TypeScript",
     "created_at": "2022-07-29T02:19:53Z",
-    "updated_at": "2023-05-09T09:55:47Z",
+    "updated_at": "2023-05-26T08:19:44Z",
     "clone_url": "https://github.com/thirdweb-example/hardhat-javascript-starter.git",
     "topics": [
       "hardhat",
@@ -657,7 +683,7 @@
       "starter-kit"
     ],
     "language": "JavaScript",
-    "stargazers_count": 4,
+    "stargazers_count": 5,
     "is_template": false,
     "homepage": ""
   },
@@ -801,7 +827,7 @@
     "html_url": "https://github.com/thirdweb-example/marketplace",
     "description": "An NFT Marketplace where you can list NFTs for direct sale or for auction. Users can come and bid on your listings or buy your NFTs, similar to OpenSea.",
     "created_at": "2022-04-27T23:59:14Z",
-    "updated_at": "2023-05-15T21:41:25Z",
+    "updated_at": "2023-05-26T12:38:07Z",
     "clone_url": "https://github.com/thirdweb-example/marketplace.git",
     "topics": [
       "marketplace",
@@ -809,7 +835,7 @@
       "typescript"
     ],
     "language": "TypeScript",
-    "stargazers_count": 64,
+    "stargazers_count": 65,
     "is_template": false,
     "homepage": "https://marketplace.thirdweb-example.com"
   },
@@ -818,14 +844,14 @@
     "html_url": "https://github.com/thirdweb-example/marketplace-v3",
     "description": "Create your own NFT marketplace where users can buy and sell NFTs!",
     "created_at": "2023-01-31T03:33:27Z",
-    "updated_at": "2023-05-22T04:55:24Z",
+    "updated_at": "2023-05-26T08:15:27Z",
     "clone_url": "https://github.com/thirdweb-example/marketplace-v3.git",
     "topics": [
       "marketplace",
       "nft-marketplace"
     ],
     "language": "TypeScript",
-    "stargazers_count": 37,
+    "stargazers_count": 38,
     "is_template": false,
     "homepage": "https://marketplace-v3.thirdweb-preview.com"
   },
@@ -967,14 +993,14 @@
     "html_url": "https://github.com/thirdweb-example/nft-gallery",
     "description": "Create a gallery of NFTs from an NFT Collection",
     "created_at": "2023-01-27T02:51:22Z",
-    "updated_at": "2023-05-15T05:34:26Z",
+    "updated_at": "2023-05-30T10:04:32Z",
     "clone_url": "https://github.com/thirdweb-example/nft-gallery.git",
     "topics": [
       "nft-drop",
       "ui-components"
     ],
     "language": "TypeScript",
-    "stargazers_count": 3,
+    "stargazers_count": 6,
     "is_template": false,
     "homepage": "https://nft-gallery.thirdweb-preview.com/"
   },
@@ -983,7 +1009,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-gated-website",
     "description": "Restrict access to content based on the ownership of an NFT",
     "created_at": "2022-04-08T17:59:57Z",
-    "updated_at": "2023-05-24T23:31:03Z",
+    "updated_at": "2023-05-30T16:52:46Z",
     "clone_url": "https://github.com/thirdweb-example/nft-gated-website.git",
     "topics": [
       "auth",
@@ -994,7 +1020,7 @@
       "wallet-connection"
     ],
     "language": "JavaScript",
-    "stargazers_count": 117,
+    "stargazers_count": 118,
     "is_template": false,
     "homepage": "https://nft-gated-website.thirdweb-example.com"
   },
@@ -1052,11 +1078,11 @@
     "html_url": "https://github.com/thirdweb-example/node-javascript-starter",
     "description": "Starter template repository for Node.js and the thirdweb SDK",
     "created_at": "2023-01-09T02:35:55Z",
-    "updated_at": "2023-04-21T16:45:19Z",
+    "updated_at": "2023-05-26T08:09:44Z",
     "clone_url": "https://github.com/thirdweb-example/node-javascript-starter.git",
     "topics": [],
     "language": "JavaScript",
-    "stargazers_count": 1,
+    "stargazers_count": 2,
     "is_template": false,
     "homepage": null
   },
@@ -1217,11 +1243,11 @@
     "html_url": "https://github.com/thirdweb-example/react-native-typescript-starter",
     "description": null,
     "created_at": "2022-11-02T02:03:17Z",
-    "updated_at": "2023-05-15T09:15:56Z",
+    "updated_at": "2023-05-29T11:02:23Z",
     "clone_url": "https://github.com/thirdweb-example/react-native-typescript-starter.git",
     "topics": [],
     "language": "Java",
-    "stargazers_count": 7,
+    "stargazers_count": 9,
     "is_template": false,
     "homepage": null
   },
@@ -1454,13 +1480,13 @@
     "html_url": "https://github.com/thirdweb-example/thirdweb-auth-express",
     "description": "Enable wallet-based login with thirdweb Auth & Express",
     "created_at": "2022-08-19T15:40:00Z",
-    "updated_at": "2023-01-30T15:12:24Z",
+    "updated_at": "2023-05-27T00:59:56Z",
     "clone_url": "https://github.com/thirdweb-example/thirdweb-auth-express.git",
     "topics": [
       "auth"
     ],
     "language": "TypeScript",
-    "stargazers_count": 3,
+    "stargazers_count": 4,
     "is_template": false,
     "homepage": ""
   },
@@ -1650,31 +1676,11 @@
     "homepage": "https://todo-list.thirdweb-example.com/"
   },
   {
-    "name": "token-bound-account",
-    "html_url": "https://github.com/thirdweb-example/token-bound-account",
-    "description": "Create token bound smart wallets for your users using the thirdweb Solidity SDK!",
-    "created_at": "2023-05-10T18:20:21Z",
-    "updated_at": "2023-05-18T15:51:49Z",
-    "clone_url": "https://github.com/thirdweb-example/token-bound-account.git",
-    "topics": [
-      "account-abstraction",
-      "erc4337",
-      "erc6551",
-      "solidity",
-      "solidity-contracts",
-      "token-bound-account"
-    ],
-    "language": "Solidity",
-    "stargazers_count": 2,
-    "is_template": true,
-    "homepage": ""
-  },
-  {
     "name": "token-bound-account-app",
     "html_url": "https://github.com/thirdweb-example/token-bound-account-app",
-    "description": "Create a frontend for users to create smart wallets for their NFTs & claim erc-20 tokens!",
+    "description": "Create a frontend for users to create erc-6551 smart wallets for their NFTs & claim erc-20 tokens!",
     "created_at": "2023-05-18T23:02:18Z",
-    "updated_at": "2023-05-21T05:43:59Z",
+    "updated_at": "2023-05-30T13:05:56Z",
     "clone_url": "https://github.com/thirdweb-example/token-bound-account-app.git",
     "topics": [],
     "language": "CSS",
@@ -1687,15 +1693,35 @@
     "html_url": "https://github.com/thirdweb-example/token-drop",
     "description": "Release your token with claim conditions for a price using thirdweb's Token Drop contract",
     "created_at": "2022-05-25T04:05:25Z",
-    "updated_at": "2023-05-10T18:56:39Z",
+    "updated_at": "2023-05-30T14:59:56Z",
     "clone_url": "https://github.com/thirdweb-example/token-drop.git",
     "topics": [
       "token-drop"
     ],
     "language": "TypeScript",
-    "stargazers_count": 12,
+    "stargazers_count": 14,
     "is_template": false,
     "homepage": "https://token-drop.thirdweb-example.com"
+  },
+  {
+    "name": "token-gated-account",
+    "html_url": "https://github.com/thirdweb-example/token-gated-account",
+    "description": "Create token bound smart wallets for your users using the thirdweb Solidity SDK!",
+    "created_at": "2023-05-10T18:20:21Z",
+    "updated_at": "2023-05-26T22:16:32Z",
+    "clone_url": "https://github.com/thirdweb-example/token-gated-account.git",
+    "topics": [
+      "account-abstraction",
+      "erc4337",
+      "erc6551",
+      "solidity",
+      "solidity-contracts",
+      "token-bound-account"
+    ],
+    "language": "Solidity",
+    "stargazers_count": 2,
+    "is_template": true,
+    "homepage": ""
   },
   {
     "name": "unity-guides",
@@ -1774,11 +1800,11 @@
     "html_url": "https://github.com/thirdweb-example/unlock-subscribe",
     "description": "Build a simple on-chain subscription model into your app using the Lock contract by Unlock",
     "created_at": "2022-12-01T17:35:46Z",
-    "updated_at": "2023-02-19T22:16:46Z",
+    "updated_at": "2023-05-30T14:40:33Z",
     "clone_url": "https://github.com/thirdweb-example/unlock-subscribe.git",
     "topics": [],
     "language": "CSS",
-    "stargazers_count": 5,
+    "stargazers_count": 6,
     "is_template": true,
     "homepage": "https://unlock-subscribe.thirdweb-example.com/"
   },
