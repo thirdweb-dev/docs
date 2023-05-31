@@ -6,11 +6,11 @@ title: Smart Wallet
 A Smart Wallet is a wallet that is controlled by a smart contract following the [ERC-4337 specification](https://eips.ethereum.org/EIPS/eip-4337).
 
 Ethereum has 2 types of accounts to transfer and receive tokens: EOAs (Externally Owned Accounts) and Contract Accounts. A smart contract wallet is a wallet managed by a contract account
-instead of an EOA. A smart wallet is a wallet type requiring no private keys or seed phrases.
+instead of an EOA. A smart wallet is a wallet type requiring **no private keys or seed phrases**.
 Smart contract wallets rely on code instead of private keys to secure and recover wallet information.
 Instead, you set _who_ and _under what conditions_, users may access the wallet via smart contracts.
 
-A smart contract wallet is a type of Web3 wallet powered by smart contracts.
+**A smart contract wallet is a type of Web3 wallet powered by smart contracts.**
 
 This smart wallet is unlocked by a 'key' - a personal account. This key can be anything from a [MetaMask](/wallet/metamask) wallet or even a [Local Wallet](/wallet/local-wallet) and is used as a way to 'sign in' to the wallet.
 
@@ -22,3 +22,22 @@ Benefits of Smart Wallets:
 3. Social & Multi-Sig Recovery
    - Recover a wallet without seed phrases/passwords
    - Nominate a trusted person to recover your wallet in the case of an emergency
+
+## Terminology
+
+### UserOperations
+
+### EntryPoint
+
+The EntryPoint is a singleton contract (a contract that has a predictable address that is the same on every chain).
+It has two methods that are used as entry points to execute bundles of UserOperations: `handleOps` and `handleAggregatedOps`. 
+
+### Bundler (relayer)
+
+A bundler is a smart contract that bundles multiple transactions into a single transaction to save on gas fees.
+
+### Paymaster 
+
+A paymaster is a smart contract that acts as a gas reserve and is used to relay transactions where a third party pays 
+the transaction fee on behalf of the user. The third party stores the gas beforehand using Paymaster which then 
+can be used during the transaction flow via EntryPoint.
