@@ -19,9 +19,11 @@ The type of wallet to connect to, and which chain to connect to.
 
 ```csharp
 // Connect to the user's wallet via CoinbaseWallet
-string address = await sdk.wallet.Connect(new WalletConnection(
-    provider = WalletProvider.WalletConnectV1, // e.g. use WalletConnect on any platform
-    chainId = 1 // Switch the wallet Ethereum Mainnet on connection
+string address = await sdk.wallet.Connect(
+    new WalletConnection(
+        provider = WalletProvider.WalletConnectV1, // e.g. use WalletConnect on any platform
+        chainId = 1 // Switch the wallet Ethereum Mainnet on connection
+    )
 );
 ```
 
