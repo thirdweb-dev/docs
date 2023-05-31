@@ -469,14 +469,14 @@
     "html_url": "https://github.com/thirdweb-example/erc20-staking-app",
     "description": "Allow users to stake their ERC20 tokens in return for more/other ERC20 tokens!",
     "created_at": "2023-01-27T08:07:46Z",
-    "updated_at": "2023-05-25T10:49:50Z",
+    "updated_at": "2023-05-31T12:41:09Z",
     "clone_url": "https://github.com/thirdweb-example/erc20-staking-app.git",
     "topics": [
       "staking",
       "token"
     ],
     "language": "JavaScript",
-    "stargazers_count": 3,
+    "stargazers_count": 5,
     "is_template": false,
     "homepage": "https://erc20-staking-app.thirdweb-example.com/"
   },
@@ -1009,7 +1009,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-gated-website",
     "description": "Restrict access to content based on the ownership of an NFT",
     "created_at": "2022-04-08T17:59:57Z",
-    "updated_at": "2023-05-30T16:52:46Z",
+    "updated_at": "2023-05-31T11:18:39Z",
     "clone_url": "https://github.com/thirdweb-example/nft-gated-website.git",
     "topics": [
       "auth",
@@ -1020,7 +1020,7 @@
       "wallet-connection"
     ],
     "language": "JavaScript",
-    "stargazers_count": 118,
+    "stargazers_count": 119,
     "is_template": false,
     "homepage": "https://nft-gated-website.thirdweb-example.com"
   },
@@ -1045,7 +1045,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-staking-app",
     "description": "An NFT Staking contract deployed using thirdweb deploy, where users stake their ERC721 tokens and earn ERC20 tokens in return!",
     "created_at": "2022-05-31T05:09:19Z",
-    "updated_at": "2023-05-25T07:11:22Z",
+    "updated_at": "2023-05-31T12:57:01Z",
     "clone_url": "https://github.com/thirdweb-example/nft-staking-app.git",
     "topics": [
       "erc20",
@@ -1056,7 +1056,7 @@
       "staking"
     ],
     "language": "TypeScript",
-    "stargazers_count": 108,
+    "stargazers_count": 109,
     "is_template": false,
     "homepage": "https://nft-staking-contract.thirdweb-example.com/"
   },
@@ -1388,11 +1388,11 @@
     "html_url": "https://github.com/thirdweb-example/smart-wallet-react",
     "description": "Connecting and interacting using smart wallets in a React app",
     "created_at": "2023-05-04T11:41:45Z",
-    "updated_at": "2023-05-18T05:58:52Z",
+    "updated_at": "2023-05-31T11:08:21Z",
     "clone_url": "https://github.com/thirdweb-example/smart-wallet-react.git",
     "topics": [],
     "language": "JavaScript",
-    "stargazers_count": 2,
+    "stargazers_count": 3,
     "is_template": false,
     "homepage": null
   },
@@ -1429,14 +1429,14 @@
     "html_url": "https://github.com/thirdweb-example/solana-nft-gallery",
     "description": "Build an NFT Gallery showcasing all of your collection's NFTs on Solana!",
     "created_at": "2022-10-26T01:06:53Z",
-    "updated_at": "2023-03-11T01:20:30Z",
+    "updated_at": "2023-05-31T17:06:06Z",
     "clone_url": "https://github.com/thirdweb-example/solana-nft-gallery.git",
     "topics": [
       "nft-collection",
       "solana"
     ],
     "language": "TypeScript",
-    "stargazers_count": 5,
+    "stargazers_count": 4,
     "is_template": false,
     "homepage": "https://solana-nft-gallery.thirdweb-example.com"
   },
@@ -1445,13 +1445,13 @@
     "html_url": "https://github.com/thirdweb-example/solana-token-deploy",
     "description": "Deploy a token program using the TypeScript SDK",
     "created_at": "2022-09-27T08:25:47Z",
-    "updated_at": "2023-04-16T16:17:47Z",
+    "updated_at": "2023-05-31T14:37:15Z",
     "clone_url": "https://github.com/thirdweb-example/solana-token-deploy.git",
     "topics": [
       "solana"
     ],
     "language": "JavaScript",
-    "stargazers_count": 3,
+    "stargazers_count": 4,
     "is_template": false,
     "homepage": ""
   },
