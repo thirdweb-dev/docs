@@ -1680,11 +1680,11 @@
     "html_url": "https://github.com/thirdweb-example/token-bound-account-app",
     "description": "Create a frontend for users to create erc-6551 smart wallets for their NFTs & claim erc-20 tokens!",
     "created_at": "2023-05-18T23:02:18Z",
-    "updated_at": "2023-05-30T13:05:56Z",
+    "updated_at": "2023-06-01T08:02:34Z",
     "clone_url": "https://github.com/thirdweb-example/token-bound-account-app.git",
     "topics": [],
     "language": "CSS",
-    "stargazers_count": 1,
+    "stargazers_count": 2,
     "is_template": true,
     "homepage": "https://token-bound-account-app.thirdweb-preview.com/"
   },
@@ -1879,11 +1879,11 @@
     "html_url": "https://github.com/thirdweb-example/web3flight",
     "description": "Smart Wallet demo",
     "created_at": "2023-04-24T21:26:56Z",
-    "updated_at": "2023-04-29T03:40:01Z",
+    "updated_at": "2023-06-01T04:56:45Z",
     "clone_url": "https://github.com/thirdweb-example/web3flight.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 1,
+    "stargazers_count": 2,
     "is_template": false,
     "homepage": "https://web3flight.thirdweb-preview.com"
   }
