@@ -1,0 +1,48 @@
+---
+title: Deploy via Factory
+slug: /publish/deploy-via-factory
+---
+
+Choose this option if you would like users to deploy proxies of your implementation contract using the thirdweb default factory contract or using your own pre-deployed custom factory.
+
+:::info
+To use the "Deploy via Factory" option, you should be publishing your implementation contract rather than a factory. 
+:::
+
+## Default Factory
+
+Publishing your contract using the [thirdweb default factory](https://github.com/thirdweb-dev/contracts/blob/main/contracts/TWStatelessFactory.sol) allows users to deploy a proxy contract.
+
+- Allows users to deploy to **any EVM compatible network**.
+- Users will deploy an [EIP-1167](https://eips.ethereum.org/EIPS/eip-1167) minimal proxy contract, containing the state, which will refer to your implementation contract for the logic. This makes the deployment cheaper for your users.
+- The [thirdweb default factory](https://github.com/thirdweb-dev/contracts/blob/main/contracts/TWStatelessFactory.sol) is open-source, permissionless, and does not alter contract ownership - contract deployers have 100% ownership.
+
+### Requirements 
+
+- Your contract needs to implement the [upgradeable pattern](https://docs.openzeppelin.com/upgrades-plugins/1.x/writing-upgradeable), meaning it has an "initialize" function to set the storage, instead of a constructor.
+
+### Usage
+
+1. Choose your "initialize" function - in most cases, this will be `initialize` but can be any function on your contract.
+2. Select which networks you would like to publish to. This way, you can limit which networks your users can deploy to.
+3. Click "Next" and fill in the ["Contract Parameters"](/publish/getting-started#customize-contract-parameters) form.
+
+![Deploy via Default Factory](/assets/publish/auto-factory-deploy-settings.png)
+
+## Custom Factory
+
+Publishing your contract using a custom factory allows users to deploy a proxy contract using your own pre-deployed custom factory.
+This allows you to add custom logic to the function which is invoked when a user deploys a contract. 
+
+### Requirements
+
+- Be publishing your implementation contract rather than a factory.
+- Have a custom factory contract pre-deployed to all networks you are publishing to.
+
+### Usage
+
+1. Enter the address(s) of your custom factory contract on each network you would like users to be able to deploy to.
+2. Choose your "factory function" - this will be the function that will be called when deploying a user's contract.
+3. Click "Next" and fill in the ["Contract Parameters"](/publish/getting-started#customize-contract-parameters) form.
+
+![Deploy via Custom Factory](/assets/publish/custom-factory-deploy-settings.png)
