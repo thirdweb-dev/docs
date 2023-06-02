@@ -41,8 +41,6 @@ From the dashboard, provide the metadata for your smart contract including:
 - **Description**
 - **README** - Markdown is supported. What your contract does, common use cases & examples are great things to include here.
 
-This information is what users will see when they visit your smart contract from the [Explore](/explore) page.
-
 ![Enter Contract Metadata](/assets/publish/publish-your-contract.png)
 
 ### Add A Version & Audit Report (Optional)
@@ -80,6 +78,7 @@ Help users trying to deploy your smart contract by changing what your contract p
 - **Display name**: Use this to have a more readable version of the parameter name. Otherwise, the parameter name from the contract will be shown as is.
 - **Default value**: This will be pre-filled in the deploy form. Use this to guide users on what value to enter. If the parameter is of the address datatype, you can pre-fill the users connected wallet address by setting the default value as {{connected_wallet}}
 - **Description**: Use this to clear up any confusion and explain what value this parameter is expecting
+- **Advanced**: Tick this option if you want to hide this parameter from the deploy form. This is useful for parameters that are not required to be changed by the user. This option is only available for parameters that have a default value.
 
 ![Describe Constructor Parameters](/assets/publish/contract-parameters.png)
 
