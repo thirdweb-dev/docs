@@ -63,21 +63,22 @@ Select the contract type for your published contract
   - This option can be used for **any contract**
   - there are no requirements for using this option to publish your contract. 
   - Users will deploy the **full contract**: storage and implementation logic.
-- [Deploy via Factory](/publish/deploy-via-factory): Choose this option if you would like users to deploy proxies of your contract using the thirdweb default factory contract or using your own pre-deployed custom factory.
-  - [Default Factory](/publish/deploy-via-factory#default-factory) - Use this option to use the thirdweb default factory if your contract follows the upgradeable contract pattern.
-  - [Custom Factory](/publish/deploy-via-factory#custom-factory) - Use this option to use your own pre-deployed custom factory to create proxies for your users.
+- [Deploy via Factory](/publish/deployment-options): Choose this option if you would like users to deploy proxies of your contract using the thirdweb default factory contract or using your own pre-deployed custom factory.
+  - [Default Factory](/publish/deployment-options#default-factory) - Use this option to use the thirdweb default factory if your contract follows the upgradeable contract pattern.
+  - [Custom Factory](/publish/deployment-options#custom-factory) - Use this option to use your own pre-deployed custom factory to create proxies for your users.
 
 ![Choose Contract Type](/assets/publish/choose-contract-type.png)
 
 Once selected, click "Next" to move on to the flow corresponding to the contract type selected.
 
-### Not Sure Which Option to Choose?
+### Choose which network(s) to publish your contract to
 
-| Type of Contract                                                          | Description                                                                                                          | Main use case                                                                                                                          | Requirements                                                                                                          | Can my contract be deployed to any EVM?                       |  Can your contract be featured on Explore? |
-|---------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------|--------------------------------------------|
-| Direct Deploy                                                             | Users can deploy a copy of your contract, including the logic and storage.                                           | Smart contract developers using publish to share their smart contract and are not expecting their contract to get lots of deploys      | No requirements.                                                                                                      | Yes.                                                          | No.                                        |
-| [Deploy via Default Factory](/publish/deploy-via-factory#default-factory) | Users can deploy proxies of your implementation contract, containing the storage, using the thirdweb default factory | Protocols that want their contract to be deployable to all networks and want to gas-optimize the deploys                               | Must be written in the [upgradeable pattern](https://docs.openzeppelin.com/upgrades-plugins/1.x/writing-upgradeable). | Yes.                                                          | Yes.                                       |
-| [Deploy via Custom Factory](/publish/deploy-via-factory#custom-factory)   | Use your own pre-deployed factory contract to deploy proxies for your users.                                         | Protocols that want to use a custom factory to create proxies for their users & the ability to add custom logic to the create function.| Must have pre-deployed a custom factory on each chain you would like users to be able to deploy to.                   | Deployable to all networks the custom factory is deployed to. | Yes.                                       |
+Select the network(s) you would like to publish your contract. You can select multiple networks or any EVM.
+
+![Choose Network](/assets/publish/choose-network.png)
+
+If you chose to publish via direct deploy, you will be asked to select the network(s) you would like users to be able to deploy your contract to and then click the "Next" button.
+If you chose to publish via factory, you will be asked to select the network(s) you would like users to be able to deploy your contract to when setting your "Factory deploy settings".
 
 ### Customize Contract Parameters
 
