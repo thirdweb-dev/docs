@@ -8,6 +8,7 @@ sidebar_position: 7
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
+import { CustomizeWalletConfigurator } from "@components/build-wallet/CustomizeWalletConfigurator";
 
 A wallet configurator for [Safe Wallet](/wallet/safe) which allows integrating the wallet with React
 
@@ -16,6 +17,13 @@ import { safeWallet } from "@thirdweb-dev/react";
 
 const safeWalletConfig = safeWallet();
 ```
+
+<CustomizeWalletConfigurator
+  config="safeWalletConfig"
+  configurator="safeWallet"
+  connectUI="SafeWalletConnectUI"
+  selectUI="SafeWalletSelectUI"
+/>
 
 <details>
   <summary>personalWallets (optional) </summary>

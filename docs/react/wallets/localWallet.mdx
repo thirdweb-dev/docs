@@ -8,6 +8,7 @@ sidebar_position: 6
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
+import { CustomizeWalletConfigurator } from "@components/build-wallet/CustomizeWalletConfigurator";
 
 A wallet configurator for [Local Wallet](/wallet/local-wallet) which allows integrating the wallet with React
 
@@ -16,6 +17,13 @@ import { localWallet } from "@thirdweb-dev/react";
 
 const localWalletConfig = localWallet(options);
 ```
+
+<CustomizeWalletConfigurator
+  config="localWalletConfig"
+  configurator="localWallet"
+  connectUI="LocalWalletConnectUI"
+  selectUI="LocalWalletSelectUI"
+/>
 
 ## options
 

@@ -8,6 +8,7 @@ sidebar_position: 1
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
+import { CustomizeWalletConfigurator } from "@components/build-wallet/CustomizeWalletConfigurator";
 
 A wallet configurator for [MetaMask](/wallet/metamask) which allows integrating the wallet with React
 
@@ -16,6 +17,14 @@ import { metamaskWallet } from "@thirdweb-dev/react";
 
 const metamaskConfig = metamaskWallet();
 ```
+
+<CustomizeWalletConfigurator
+  config="metamaskConfig"
+  configurator="metamaskWallet"
+  connectUI="MetamaskConnectUI"
+  selectUI="MetamaskSelectUI"
+  isInstalled="isMetamaskInstalled"
+/>
 
 ## Usage with `ConnectWallet`
 
