@@ -75,19 +75,7 @@ function App() {
 ```ts
 {
   email?: string;
-  chainId?: 5 |
-  10 |
-  1 |
-  56 |
-  97 |
-  137 |
-  250 |
-  420 |
-  4002 |
-  42161 |
-  43114 |
-  80001 |
-  421613
+  chainId?: number;
 } | undefined;
 ```
 
@@ -96,23 +84,6 @@ function App() {
 <div>
 
 If `chainId` is provided, wallet will be connected to network with given `chainId`, else wallet will be connected to Ethereum mainnet by default.
-
-Paper Wallet only supports below shown chains at the moment:
-
-- Ethereum (1)
-- Goerli (5)
-- Polygon (137)
-- Avalanche(43114)
-- Fantom (250)
-- Fantom Testnet (4002)
-- Mumbai Testnet (80001)
-- Avalanche (43114)
-- Optimism (10)
-- Optimism Testnet (420)
-- Binance Smart Chain (56)
-- Binance Smart Chain Testnet (97)
-- Arbitrum One (42161)
-- Arbitrum Goerli Testnet (421611)
 
 `Chain` object corresponding to this chainId from [@thirdweb-dev/chains](https://www.npmjs.com/package/@thirdweb-dev/chains) package must be specified in [ThirdwebProvider's supportedChains](/react/react.thirdwebprovider#supportedchains-optional) prop as shown below
 
