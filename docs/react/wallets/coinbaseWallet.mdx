@@ -8,6 +8,7 @@ sidebar_position: 2
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
+import { CustomizeWalletConfigurator } from "@components/build-wallet/CustomizeWalletConfigurator";
 
 A wallet configurator for [Coinbase Wallet](/wallet/coinbase-wallet) which allows integrating the wallet with React
 
@@ -16,6 +17,14 @@ import { coinbaseWallet } from "@thirdweb-dev/react";
 
 const coinbaseConfig = coinbaseWallet();
 ```
+
+<CustomizeWalletConfigurator
+  config="coinbaseConfig"
+  configurator="coinbaseWallet"
+  connectUI="CoinbaseConnectUI"
+  selectUI="CoinbaseSelectUI"
+  isInstalled="isCoinbaseInstalled"
+/>
 
 ## Usage with `ConnectWallet`
 

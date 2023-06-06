@@ -122,19 +122,7 @@ await wallet.connect();
 ```typescript
 connect(options?: {
   email?: string,
-  chainId?: 5 |
-  10 |
-  1 |
-  56 |
-  97 |
-  137 |
-  250 |
-  420 |
-  4002 |
-  42161 |
-  43114 |
-  80001 |
-  421613
+  chainId?: number
 }): Promise<string>;
 ```
 
@@ -154,23 +142,6 @@ If the `email` is provided, the user will be directly shown the OTP screen, the 
   <div>
 
 If chainId is provided, the wallet will be connected to the network with the given chainId, else it will be connected to the Ethereum Mainnet.
-
-Paper Wallet only supports the below shown chains at the moment:
-
-- Ethereum (1)
-- Goerli (5)
-- Polygon (137)
-- Avalanche(43114)
-- Fantom (250)
-- Fantom Testnet (4002)
-- Mumbai Testnet (80001)
-- Avalanche (43114)
-- Optimism (10)
-- Optimism Testnet (420)
-- Binance Smart Chain (56)
-- Binance Smart Chain Testnet (97)
-- Arbitrum One (42161)
-- Arbitrum Goerli Testnet (421611)
 
 </div>
 </details>

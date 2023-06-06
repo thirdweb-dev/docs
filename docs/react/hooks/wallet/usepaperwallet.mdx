@@ -61,40 +61,10 @@ Paper SDK requires a clientId for instantiation. You can create a `clientId` for
 To connect to a specific chain when connecting the wallet,
 pass the `chainId` in a configuration object as shown below.
 
-Paper Wallet only supports below shown chains at the moment:
-
-- Ethereum (1)
-- Goerli (5)
-- Polygon (137)
-- Avalanche(43114)
-- Fantom (250)
-- Fantom Testnet (4002)
-- Mumbai Testnet (80001)
-- Avalanche (43114)
-- Optimism (10)
-- Optimism Testnet (420)
-- Binance Smart Chain (56)
-- Binance Smart Chain Testnet (97)
-- Arbitrum One (42161)
-- Arbitrum Goerli Testnet (421611)
-
 If no `chainId` is specified, Ethereum (1) is used by default.
 
 ```ts
-chianId: 5 |
-  10 |
-  1 |
-  56 |
-  97 |
-  137 |
-  250 |
-  420 |
-  4002 |
-  42161 |
-  43114 |
-  80001 |
-  421613 |
-  undefined;
+chianId: number | undefined;
 ```
 
 ```jsx

@@ -434,7 +434,7 @@ Go back to the wallet selector screen in ConnectWallet modal
   <summary> theme  </summary>
   <div>
 
-The theme of the ConnectWallet modal
+The theme of the ConnectWallet modal. You can use this to render your connect UI to match the theme of the modal
 
 </div>
 </details>
@@ -517,6 +517,19 @@ onSelect: (selectionData: any) => void;
 ```
 
 Call this function to "select" your wallet and render the screen for connecting the wallet. You can optionally pass `selectionData` to be passed to `connectUI`'s `selectionData` prop
+
+</div>
+</details>
+
+<details>
+  <summary> theme </summary>
+  <div>
+
+```ts
+theme: "dark" | "light";
+```
+
+The theme of the ConnectWallet modal. You can use this to render your select UI to match the theme of the ConnectWallet modal
 
 </div>
 </details>
