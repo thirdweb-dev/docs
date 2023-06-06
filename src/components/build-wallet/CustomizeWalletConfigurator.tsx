@@ -19,7 +19,7 @@ export function CustomizeWalletConfigurator({
   isInstalled,
 }: Props) {
   return (
-    <Details summary="customize">
+    <Details summary="customize (optional)">
       <p>
         <code>{config}</code> contains the default config for metadata and UI.
         you can optionally choose to override the defaults to customize the
