@@ -36,3 +36,4 @@ yarn make-docs
 yarn generate-snippets
 yarn generate-github-examples
 yarn prettier
+yarn generate-chain-docs

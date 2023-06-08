@@ -1,8 +1,8 @@
 import fs from "fs";
 
-const thirdwebChainsPath = `../submodules/js/packages/chains/chains`;
-const docsOutPath = `../docs/chains/chains`;
-const chainTemplateHelperDirectory = `../scripts/helper/chain-template-helpers`;
+const thirdwebChainsPath = `${process.cwd()}/submodules/js/packages/chains/chains`;
+const docsOutPath = `${process.cwd()}/docs/chains/chains`;
+const chainTemplateHelperDirectory = `${process.cwd()}/scripts/helper/chain-template-helpers`;
 const overridesPath = `${chainTemplateHelperDirectory}/overrides`;
 
 function getExportName(slug: string) {
