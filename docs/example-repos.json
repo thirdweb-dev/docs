@@ -1693,11 +1693,11 @@
     "html_url": "https://github.com/thirdweb-example/token-bound-account-app",
     "description": "Create a frontend for users to create erc-6551 smart wallets for their NFTs & claim erc-20 tokens!",
     "created_at": "2023-05-18T23:02:18Z",
-    "updated_at": "2023-06-06T08:33:06Z",
+    "updated_at": "2023-06-08T11:52:01Z",
     "clone_url": "https://github.com/thirdweb-example/token-bound-account-app.git",
     "topics": [],
     "language": "CSS",
-    "stargazers_count": 3,
+    "stargazers_count": 4,
     "is_template": true,
     "homepage": "https://token-bound-account-app.thirdweb-preview.com/"
   },
