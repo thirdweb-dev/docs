@@ -175,6 +175,18 @@ const config = {
         // ... other options
       },
     ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "chains",
+        path: "docs/chains",
+        routeBasePath: "chains",
+        sidebarPath: require.resolve("./sidebars/chains.js"),
+        remarkPlugins: [[npm2yarn, { sync: true }]],
+        editUrl: "https://github.com/thirdweb-dev/docs/edit/main",
+        // ... other options
+      },
+    ],
     "posthog-docusaurus",
     "docusaurus-plugin-sass",
     [
