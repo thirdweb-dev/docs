@@ -19,11 +19,12 @@ The type of wallet to connect to, and which chain to connect to.
 
 ```csharp
 // Connect to the user's wallet via CoinbaseWallet
-string address = await sdk.wallet.Connect(new WalletConnection()
-{
-    provider = WalletProvider.WalletConnect, // e.g. use WalletConnect on any platform
-    chainId = 1 // Switch the wallet Ethereum Mainnet on connection
-});
+string address = await sdk.wallet.Connect(
+    new WalletConnection(
+        provider = WalletProvider.WalletConnectV1, // e.g. use WalletConnect on any platform
+        chainId = 1 // Switch the wallet Ethereum Mainnet on connection
+    )
+);
 ```
 
 #### provider
@@ -31,10 +32,12 @@ string address = await sdk.wallet.Connect(new WalletConnection()
 Available providers:
 
 - `WalletProvider.Injected`: Injected (window.ethereum)
-- `WalletProvider.CoinbaseWallet`: Coinbase Wallet
+- `WalletProvider.Coinbase`: Coinbase Wallet
 - `WalletProvider.MetaMask`: MetaMask
-- `WalletProvider.WalletConnect`: WalletConnect
-- `WalletProvider.MagicAuth`: Magic.Link
+- `WalletProvider.WalletConnectV1`: WalletConnect
+- `WalletProvider.MagicLink`: Magic.Link
+- `WalletProvider.LocalWallet`: Local Wallet
+- `WalletProvider.SmartWallet`: Smart Wallet
 
 #### chainId
 
@@ -44,15 +47,21 @@ Must be an `int`.
 
 #### password
 
-Optional password for encrypted Device Wallet account, uses auto-generated password if left empty.
+Optional password for encrypted Local Wallet account, uses auto-generated password if left empty.
 
 Must be a `string`.
 
-#### privateKey
+#### email
 
-Private key based account (not recommended).
+Optional email used for MagicLink provider.
 
 Must be a `string`.
+
+#### personalWallet
+
+Optional `WalletProvider` to use with `WalletProvider.SmartWallet` as your main provider.
+
+Defaults to `WalletProvider.LocalWallet`
 
 ## Return Value
 

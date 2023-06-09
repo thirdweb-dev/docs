@@ -8,6 +8,7 @@ sidebar_position: 8
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
+import { CustomizeWalletConfigurator } from "@components/build-wallet/CustomizeWalletConfigurator";
 
 A wallet configurator for [Smart Wallet](/wallet/smart-wallet) which allows integrating the wallet with React
 
@@ -20,6 +21,15 @@ const smartWalletConfig = smartWallet({
   thirdwebApiKey: "THIRDWEB_API_KEY",
 });
 ```
+
+<CustomizeWalletConfigurator
+  config="smartWalletConfig"
+  configurator="smartWallet"
+  connectUI="SmartWalletConnectUI"
+  selectUI="SmartWalletSelectUI"
+/>
+
+<br />
 
 <details>
   <summary>factoryAddress</summary>
