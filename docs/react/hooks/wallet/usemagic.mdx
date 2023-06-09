@@ -10,6 +10,8 @@ Hook that prompts users to connect to your app using their email or phone number
 import { useMagic } from "@thirdweb-dev/react";
 ```
 
+The [magicLink](/react/react.magicLink) also needs to be added in [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) if you want the wallet to auto-connect on next page load.
+
 ## Usage
 
 calling this hook returns a `connect` function.

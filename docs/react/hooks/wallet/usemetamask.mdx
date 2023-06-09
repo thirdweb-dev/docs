@@ -10,6 +10,8 @@ Hook that prompts users to connect their [MetaMask](/wallet/metamask) wallet to 
 import { useMetamask } from "@thirdweb-dev/react";
 ```
 
+The [metamaskWallet](/react/react.metamaskWallet) also needs to be added in [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) if you want the wallet to auto-connect on next page load.
+
 ## Usage
 
 Call the function returned by the `useMetamask` hook to prompt the user to connect their MetaMask wallet to your dApp.
