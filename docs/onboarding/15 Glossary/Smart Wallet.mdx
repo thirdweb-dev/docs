@@ -27,6 +27,21 @@ Benefits of Smart Wallets:
 
 ### UserOperations
 
+This is the data structure for the transaction that the user wants to perform. It contains the following fields:
+
+- `sender`: The account making the operation.
+- `nonce`: Anti-replay parameter; also used as the salt for first-time account creation.
+- `initCode`: The initialization code needed to create the account (needed if and only if the account is not yet on-chain).
+- `callData`: The data to pass to the `sender` during the operation.
+- `callGasLimit`: The amount of gas to allocate for the operation.
+- `verificationGasLimit`: The amount of gas to allocate for the verification step.
+- `preVerificationGas`: The amount of gas to pay for to compensate the bundler for pre-verification execution and calldata.
+- `maxFeePerGas`: Maximum fee per gas (similar to [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559) `max_fee_per_gas`).
+- `maxPriorityFeePerGas`: Maximum priority fee per gas (similar to [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559)).
+- `paymasterAndData`: Address of paymaster sponsoring the transaction, followed by extra data to send to the paymaster (empty for self-sponsored transaction).
+- `signature`: Data passed into the account along with the nonce during the verification step. Should depend on the `chainid` and `EntryPoint` address to prevent replay attacks.
+
+
 ### EntryPoint
 
 The EntryPoint is a singleton contract (a contract that has a predictable address that is the same on every chain).
@@ -34,10 +49,11 @@ It has two methods that are used as entry points to execute bundles of UserOpera
 
 ### Bundler (relayer)
 
-A bundler is a smart contract that bundles multiple transactions into a single transaction to save on gas fees.
+A bundler is a smart contract that bundles multiple 'UserOperations' into a single bundle, a `handleOps` call, to the `EntryPoint` contract.
 
 ### Paymaster 
 
-A paymaster is a smart contract that acts as a gas reserve and is used to relay transactions where a third party pays 
-the transaction fee on behalf of the user. The third party stores the gas beforehand using Paymaster which then 
-can be used during the transaction flow via EntryPoint.
+A paymaster is a smart contract that relays transactions. It provides a service that enables a third party to pay 
+the transaction fee on behalf of the user by funding the paymaster in advance. The Paymaster acts as a gas reserve which then 
+can be used during the call execution via `EntryPoint`. The thirdweb [Smart Wallet](/wallet/smart-wallet) paymaster is initially paid for by thirdweb. By using an API key, 
+usage is tracked the third-party billed (currently, using our paymaster is free as Smart Wallets are only enabled on testnets).
