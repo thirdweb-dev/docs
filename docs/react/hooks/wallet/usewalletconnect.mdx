@@ -10,6 +10,8 @@ Hook for initiating a [Wallet Connect](/wallet/wallet-connect) connection prompt
 import { useWalletConnect } from "@thirdweb-dev/react";
 ```
 
+The [walletConnect](/react/react.walletconnect) also needs to be added in [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) if you want the wallet to auto-connect on next page load.
+
 ## Usage
 
 Call the function returned by the `useWalletConnect` hook to prompt the user to connect their mobile wallet to your dApp via Wallet Connect.

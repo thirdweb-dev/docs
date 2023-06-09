@@ -12,6 +12,8 @@ import { usePaperWallet } from "@thirdweb-dev/react";
 const connectWithPaperWallet = usePaperWallet();
 ```
 
+The [paperWallet](/react/react.paperWallet) also needs to be added in [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) if you want the wallet to auto-connect on next page load.
+
 ## Usage
 
 Calling the function returned by the `usePaperWallet` hook opens the Paper Wallet's Modal and prompts the user to log in with their email address.
