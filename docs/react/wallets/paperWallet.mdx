@@ -16,7 +16,7 @@ A wallet configurator for [Paper Wallet](/wallet/paper) which allows integrating
 import { paperWallet } from "@thirdweb-dev/react";
 
 const paperWalletConfig = paperWallet({
-  clientID: "PAPER_CLIENT_ID",
+  clientId: "PAPER_CLIENT_ID",
 });
 ```
 
@@ -46,7 +46,7 @@ To allow users to connect to this wallet using the [ConnectWallet](/react/react.
 <ThirdwebProvider
   supportedWallets={[
     paperWallet({
-      clientID: "PAPER_CLIENT_ID",
+      clientId: "PAPER_CLIENT_ID",
     }),
   ]}
 >
@@ -64,7 +64,7 @@ Calling `connect` opens the Paper Wallet's Modal and prompts the user to log in 
 
 ```tsx
 const paperWalletConfig = paperWallet({
-  clientID: "PAPER_CLIENT_ID",
+  clientId: "PAPER_CLIENT_ID",
 });
 
 function App() {
