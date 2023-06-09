@@ -8,6 +8,7 @@ sidebar_position: 9
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
+import { CustomizeWalletConfigurator } from "@components/build-wallet/CustomizeWalletConfigurator";
 
 A wallet configurator for [Magic Wallet](/wallet/magic) which allows integrating the wallet with React
 
@@ -18,6 +19,15 @@ const magicLinkConfig = magicLink({
   apiKey: "MAGIC_API_KEY,
 });
 ```
+
+<CustomizeWalletConfigurator
+  config="magicLinkConfig"
+  configurator="magicLink"
+  connectUI="MagicLinkConnectUI"
+  selectUI="MagicLinkSelectUI"
+/>
+
+<br />
 
 <details>
   <summary>apiKey </summary>

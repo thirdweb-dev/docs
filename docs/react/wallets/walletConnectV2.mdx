@@ -8,6 +8,7 @@ sidebar_position: 3
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
+import { CustomizeWalletConfigurator } from "@components/build-wallet/CustomizeWalletConfigurator";
 
 A wallet configurator for [Wallet Connect v2](/wallet/wallet-connect-v2) which allows integrating the wallet with React
 
@@ -16,6 +17,13 @@ import { walletConnect } from "@thirdweb-dev/react";
 
 const walletConnectConfig = walletConnect(options);
 ```
+
+<CustomizeWalletConfigurator
+  config="walletConnectConfig"
+  configurator="walletConnect"
+  connectUI="WalletConnectConnectUI"
+  selectUI="WalletConnectSelectUI"
+/>
 
 ## options
 

@@ -25,7 +25,8 @@ function App() {
   return (
     <button
       onClick={async () => {
-        await connect(metamaskConfig, connectOptions);
+        const wallet = await connect(metamaskConfig, connectOptions);
+        console.log("connected to ", wallet);
       }}
     >
       Connect to MetaMask
