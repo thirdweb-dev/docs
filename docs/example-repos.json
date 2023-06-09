@@ -584,7 +584,7 @@
     "html_url": "https://github.com/thirdweb-example/full-stack-web3-app",
     "description": "Build an application on top of a custom contract using the thirdweb SDK",
     "created_at": "2022-06-15T06:28:28Z",
-    "updated_at": "2023-05-04T01:43:56Z",
+    "updated_at": "2023-06-09T08:50:51Z",
     "clone_url": "https://github.com/thirdweb-example/full-stack-web3-app.git",
     "topics": [
       "contract-kit",
@@ -592,7 +592,7 @@
       "thirdweb-deploy"
     ],
     "language": "JavaScript",
-    "stargazers_count": 11,
+    "stargazers_count": 12,
     "is_template": false,
     "homepage": ""
   },
@@ -675,11 +675,11 @@
     "html_url": "https://github.com/thirdweb-example/go-signature-mint",
     "description": null,
     "created_at": "2023-05-24T04:20:19Z",
-    "updated_at": "2023-05-24T05:41:33Z",
+    "updated_at": "2023-06-09T19:01:21Z",
     "clone_url": "https://github.com/thirdweb-example/go-signature-mint.git",
     "topics": [],
     "language": "Go",
-    "stargazers_count": 0,
+    "stargazers_count": 1,
     "is_template": false,
     "homepage": null
   },
@@ -857,14 +857,14 @@
     "html_url": "https://github.com/thirdweb-example/marketplace-v3",
     "description": "Create your own NFT marketplace where users can buy and sell NFTs!",
     "created_at": "2023-01-31T03:33:27Z",
-    "updated_at": "2023-06-06T12:02:41Z",
+    "updated_at": "2023-06-09T13:42:05Z",
     "clone_url": "https://github.com/thirdweb-example/marketplace-v3.git",
     "topics": [
       "marketplace",
       "nft-marketplace"
     ],
     "language": "TypeScript",
-    "stargazers_count": 40,
+    "stargazers_count": 41,
     "is_template": false,
     "homepage": "https://marketplace-v3.thirdweb-preview.com"
   },
@@ -991,13 +991,13 @@
     "html_url": "https://github.com/thirdweb-example/nft-drop",
     "description": "Create an NFT minting page using thirdweb's React SDK",
     "created_at": "2022-05-16T01:17:47Z",
-    "updated_at": "2023-06-04T08:35:04Z",
+    "updated_at": "2023-06-09T13:43:34Z",
     "clone_url": "https://github.com/thirdweb-example/nft-drop.git",
     "topics": [
       "nft-drop"
     ],
     "language": "TypeScript",
-    "stargazers_count": 99,
+    "stargazers_count": 100,
     "is_template": false,
     "homepage": "https://nft-drop.thirdweb-preview.com/"
   },
