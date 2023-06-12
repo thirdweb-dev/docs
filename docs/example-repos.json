@@ -857,14 +857,14 @@
     "html_url": "https://github.com/thirdweb-example/marketplace-v3",
     "description": "Create your own NFT marketplace where users can buy and sell NFTs!",
     "created_at": "2023-01-31T03:33:27Z",
-    "updated_at": "2023-06-11T10:12:15Z",
+    "updated_at": "2023-06-12T17:49:05Z",
     "clone_url": "https://github.com/thirdweb-example/marketplace-v3.git",
     "topics": [
       "marketplace",
       "nft-marketplace"
     ],
     "language": "TypeScript",
-    "stargazers_count": 43,
+    "stargazers_count": 44,
     "is_template": false,
     "homepage": "https://marketplace-v3.thirdweb-preview.com"
   },
