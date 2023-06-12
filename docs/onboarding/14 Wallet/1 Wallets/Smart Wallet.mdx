@@ -8,21 +8,25 @@ import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 import ViewRepoButton from "@components/ViewRepoButton";
 
-Let your users connect to their [Smart Wallet](/glossary/smart-wallet).
+Let your users connect to any [Smart Wallet](/glossary/smart-wallet).
 
 A Smart Wallet is a wallet that is controlled by a smart contract following the [ERC-4337 specification](https://eips.ethereum.org/EIPS/eip-4337).
 
-## Getting started
+## Requirements
 
-#### 1. Deploy a smart wallet factory contract, you can deploy one in 1-click via the [explore page](https://thirdweb.com/explore/smart-wallet)
+#### 1. A smart wallet factory contract
 
-#### 2. Get an API key, which you can obtain from the [thirdweb dashboard](https://thirdweb.com/dashboard/api-keys)
+Deployable via the [explore page](https://thirdweb.com/explore/smart-wallet) or use your own [ERC 4337](https://eips.ethereum.org/EIPS/eip-4337) compatible factory contract.
+
+#### 2. An API key
+
+Obtain an API key from the [thirdweb dashboard](https://thirdweb.com/dashboard/api-keys).
 
 The API key lets you access thirdweb's bundler and paymaster infrastructure, which is required for the smart wallet to operate and optionally enable [gasless transactions](/glossary/gasless-transactions).
 
 ## Features
 
-Smart Wallets work a little differently than other wallets since it's controlled by a programmable smart contract rather than a regular externally-owned account (EOA). This programmable wallet contract can:
+Smart Wallets are controlled by a programmable smart contract rather than by a user as is the case for externally-owned accounts (EOA). This programmable wallet contract can:
 
 - Hold any assets
 - Pay for its own gas
@@ -30,9 +34,11 @@ Smart Wallets work a little differently than other wallets since it's controlled
 - Have multiple owners
 - Assign roles and permissions
 
-And more! Smart Wallets can be customized to each application's needs using the Solidity SDK.
+And more! 
 
-The SmartWallet API is composable - you can bring in your own [ERC 4337](https://eips.ethereum.org/EIPS/eip-4337) compatible factory contract and you can also use your own bundler or paymaster services.
+Smart Wallets can be customized to each application's needs using the [Solidity SDK](/solidity).
+
+The SmartWallet API is **composable** - you can use in your own [ERC 4337](https://eips.ethereum.org/EIPS/eip-4337) compatible factory contract and you can also use your own bundler or paymaster services.
 
 ## Templates
 
@@ -59,14 +65,37 @@ Clone these templates to quickly deploy Smart Wallets and connect to them.
 
 With a thirdweb API key, you get access to bundler and paymaster infrastructure on the following chains:
 
-- Goerli
-- Sepolia
-- Mumbai
-- Base Goerli
-- Optimism Goerli
-- Arbitrum Goerli
-- Linea Testnet
-- Celo Alfajores Testnet
+<details>
+  <summary>View supported chains</summary>
+  <div>
+    <ul>
+      <li>
+        <b>Goerli</b>
+      </li>
+      <li>
+        <b>Sepolia</b>
+      </li>
+      <li>
+        <b>Mumbai</b>
+      </li>
+      <li>
+        <b>Base Goerli</b>
+      </li>
+      <li>
+        <b>Optimism Goerli</b>
+      </li>
+      <li>
+        <b>Arbitrum Goerli</b>
+      </li>
+      <li>
+        <b>Linea Testnet</b>
+      </li>
+      <li>
+        <b>Celo Alfajores Testnet</b>
+      </li>
+    </ul>
+  </div>
+</details>
 
 more chains are added every week, to get support for a specific chain [contact us](https://thirdweb.typeform.com/to/Q93CVgUc?typeform-source=thirdweb-www-git-mariano-ftd-1670.thirdweb-preview.com).
 
