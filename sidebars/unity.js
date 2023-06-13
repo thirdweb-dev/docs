@@ -172,6 +172,13 @@ const sidebars = {
       label: "Storage",
       id: "storage/storage",
     },
+
+    // Submit Wallet
+    {
+      type: "doc",
+      label: "Submit Wallet",
+      id: "submit-wallet",
+    },
   ],
 };
 
