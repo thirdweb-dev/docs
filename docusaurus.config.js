@@ -23,6 +23,7 @@ const config = {
   favicon: "img/favicon.ico",
   organizationName: "thirdweb-dev", // Usually your GitHub org/user name.
   projectName: "docs", // Usually your repo name.
+  themes: ["@markprompt/docusaurus-theme-search"],
   trailingSlash: false,
   webpack: {
     jsLoader: (isServer) => ({
@@ -201,6 +202,9 @@ const config = {
         apiKey: "phc_hKK4bo8cHZrKuAVXfXGpfNSLSJuucUnguAgt2j6dgSV",
         appUrl: "https://a.thirdweb.com", // optional
         enableInDevelopment: true, // optional
+      },
+      markprompt: {
+        projectKey: "Cdb3v0bS8cunZezpR6fY1tKhAUgJsvWa",
       },
       colorMode: {
         respectPrefersColorScheme: true,

@@ -35,6 +35,7 @@
     "@docusaurus/plugin-ideal-image": "^2.0.1",
     "@docusaurus/preset-classic": "^2.0.1",
     "@docusaurus/remark-plugin-npm2yarn": "^2.0.1",
+    "@markprompt/docusaurus-theme-search": "^0.2.0",
     "@mdx-js/react": "^1.6.21",
     "@thirdweb-dev/react": "^3",
     "@thirdweb-dev/sdk": "^3",
