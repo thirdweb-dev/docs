@@ -74,35 +74,9 @@ const sidebars = {
 
     // Deterministic Deployments
     {
-      type: "category",
+      type: "doc",
       label: "Deterministic Deployments",
-      items: [
-        {
-          type: "doc",
-          label: "Overview",
-          id: "deterministic-deployments/0 Overview",
-        },
-        {
-          type: "doc",
-          label: "directDeployDeterministic",
-          id: "deterministic-deployments/directDeployDeterministic",
-        },
-        {
-          type: "doc",
-          label: "directDeployDeterministicWithUri",
-          id: "deterministic-deployments/directDeployDeterministicWithUri",
-        },
-        {
-          type: "doc",
-          label: "predictAddressDeterministic",
-          id: "deterministic-deployments/predictAddressDeterministic",
-        },
-        {
-          type: "doc",
-          label: "predictAddressDeterministicWithUri",
-          id: "deterministic-deployments/predictAddressDeterministicWithUri",
-        },
-      ],
+      id: "deterministic-deployments",
     },
 
     // Interacting with contracts
