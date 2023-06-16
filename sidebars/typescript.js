@@ -72,6 +72,39 @@ const sidebars = {
       id: "thirdwebsdk.sdk.contractverifier",
     },
 
+    // Deterministic Deployments
+    {
+      type: "category",
+      label: "Deterministic Deployments",
+      items: [
+        {
+          type: "doc",
+          label: "Overview",
+          id: "deterministic-deployments/0 Overview",
+        },
+        {
+          type: "doc",
+          label: "directDeployDeterministic",
+          id: "deterministic-deployments/directDeployDeterministic",
+        },
+        {
+          type: "doc",
+          label: "directDeployDeterministicWithUri",
+          id: "deterministic-deployments/directDeployDeterministicWithUri",
+        },
+        {
+          type: "doc",
+          label: "predictAddressDeterministic",
+          id: "deterministic-deployments/predictAddressDeterministic",
+        },
+        {
+          type: "doc",
+          label: "predictAddressDeterministicWithUri",
+          id: "deterministic-deployments/predictAddressDeterministicWithUri",
+        },
+      ],
+    },
+
     // Interacting with contracts
     {
       type: "category",
