@@ -1313,11 +1313,11 @@
     "html_url": "https://github.com/thirdweb-example/shopify-discount-codes",
     "description": "Grant users who hold an NFT from your collection a discount code they can use in your Shopify store!",
     "created_at": "2022-10-04T23:36:42Z",
-    "updated_at": "2023-06-14T09:30:45Z",
+    "updated_at": "2023-06-17T09:25:20Z",
     "clone_url": "https://github.com/thirdweb-example/shopify-discount-codes.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 10,
+    "stargazers_count": 11,
     "is_template": false,
     "homepage": null
   },
@@ -1732,13 +1732,13 @@
     "html_url": "https://github.com/thirdweb-example/token-drop",
     "description": "Release your token with claim conditions for a price using thirdweb's Token Drop contract",
     "created_at": "2022-05-25T04:05:25Z",
-    "updated_at": "2023-06-03T21:53:13Z",
+    "updated_at": "2023-06-17T18:16:39Z",
     "clone_url": "https://github.com/thirdweb-example/token-drop.git",
     "topics": [
       "token-drop"
     ],
     "language": "TypeScript",
-    "stargazers_count": 16,
+    "stargazers_count": 17,
     "is_template": false,
     "homepage": "https://token-drop.thirdweb-example.com"
   },
