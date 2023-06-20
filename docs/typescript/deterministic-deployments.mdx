@@ -15,7 +15,7 @@ While the addresses are deterministic, it can't be ensured that those will be sa
 
 However, using these utility functions, you can predict the address where the contract will be deployed.
 
-> **IMPORTANT**: _Please note that the contract is deployed by a Create2 factory contract. Value of `msg.sender`, if used in the constructor, will be the Create2 factory address and not the address of user's wallet._
+> **IMPORTANT**: _Please note that the contract is deployed by a Create2 factory contract. Hence, the value of `msg.sender`, if used in the constructor, will be the Create2 factory address instead of the wallet address used for sending the transaction._
 
 ## Deterministic Deployment With Bytecode & ABI
 
