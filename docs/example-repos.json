@@ -86,11 +86,11 @@
     "html_url": "https://github.com/thirdweb-example/catattacknft",
     "description": "Claim your cat, attack others, and accumulate points to win!",
     "created_at": "2022-08-26T20:48:18Z",
-    "updated_at": "2023-06-15T11:04:56Z",
+    "updated_at": "2023-06-20T07:48:27Z",
     "clone_url": "https://github.com/thirdweb-example/catattacknft.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 85,
+    "stargazers_count": 86,
     "is_template": false,
     "homepage": "https://catattacknft.vercel.app"
   },
@@ -469,7 +469,7 @@
     "html_url": "https://github.com/thirdweb-example/erc20-staking-app",
     "description": "Allow users to stake their ERC20 tokens in return for more/other ERC20 tokens!",
     "created_at": "2023-01-27T08:07:46Z",
-    "updated_at": "2023-06-12T20:22:13Z",
+    "updated_at": "2023-06-18T04:54:22Z",
     "clone_url": "https://github.com/thirdweb-example/erc20-staking-app.git",
     "topics": [
       "staking",
@@ -485,11 +485,11 @@
     "html_url": "https://github.com/thirdweb-example/erc721staking-lockup",
     "description": "NFT Staking contract with lockup period",
     "created_at": "2023-01-09T07:19:08Z",
-    "updated_at": "2023-03-27T05:37:21Z",
+    "updated_at": "2023-06-21T08:00:06Z",
     "clone_url": "https://github.com/thirdweb-example/erc721staking-lockup.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 6,
+    "stargazers_count": 8,
     "is_template": false,
     "homepage": null
   },
@@ -614,7 +614,7 @@
     "html_url": "https://github.com/thirdweb-example/getting-started",
     "description": "Get started with thirdweb by building and deploying a full project including a smart contract and react application.",
     "created_at": "2022-09-15T05:36:12Z",
-    "updated_at": "2023-04-12T15:26:31Z",
+    "updated_at": "2023-06-20T13:30:55Z",
     "clone_url": "https://github.com/thirdweb-example/getting-started.git",
     "topics": [
       "contract-kit",
@@ -622,7 +622,7 @@
       "ui-components"
     ],
     "language": "JavaScript",
-    "stargazers_count": 3,
+    "stargazers_count": 4,
     "is_template": false,
     "homepage": ""
   },
@@ -870,14 +870,14 @@
     "html_url": "https://github.com/thirdweb-example/marketplace-v3",
     "description": "Create your own NFT marketplace where users can buy and sell NFTs!",
     "created_at": "2023-01-31T03:33:27Z",
-    "updated_at": "2023-06-12T17:49:05Z",
+    "updated_at": "2023-06-20T07:48:55Z",
     "clone_url": "https://github.com/thirdweb-example/marketplace-v3.git",
     "topics": [
       "marketplace",
       "nft-marketplace"
     ],
     "language": "TypeScript",
-    "stargazers_count": 44,
+    "stargazers_count": 46,
     "is_template": false,
     "homepage": "https://marketplace-v3.thirdweb-preview.com"
   },
@@ -1035,7 +1035,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-gated-website",
     "description": "Restrict access to content based on the ownership of an NFT",
     "created_at": "2022-04-08T17:59:57Z",
-    "updated_at": "2023-06-15T23:11:57Z",
+    "updated_at": "2023-06-21T23:02:38Z",
     "clone_url": "https://github.com/thirdweb-example/nft-gated-website.git",
     "topics": [
       "auth",
@@ -1046,7 +1046,7 @@
       "wallet-connection"
     ],
     "language": "JavaScript",
-    "stargazers_count": 123,
+    "stargazers_count": 125,
     "is_template": false,
     "homepage": "https://nft-gated-website.thirdweb-example.com"
   },
@@ -1313,11 +1313,11 @@
     "html_url": "https://github.com/thirdweb-example/shopify-discount-codes",
     "description": "Grant users who hold an NFT from your collection a discount code they can use in your Shopify store!",
     "created_at": "2022-10-04T23:36:42Z",
-    "updated_at": "2023-06-14T09:30:45Z",
+    "updated_at": "2023-06-17T09:25:20Z",
     "clone_url": "https://github.com/thirdweb-example/shopify-discount-codes.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 10,
+    "stargazers_count": 11,
     "is_template": false,
     "homepage": null
   },
@@ -1719,11 +1719,11 @@
     "html_url": "https://github.com/thirdweb-example/token-bound-account-app",
     "description": "Create a frontend for users to create erc-6551 smart wallets for their NFTs & claim erc-20 tokens!",
     "created_at": "2023-05-18T23:02:18Z",
-    "updated_at": "2023-06-15T04:58:34Z",
+    "updated_at": "2023-06-18T06:35:13Z",
     "clone_url": "https://github.com/thirdweb-example/token-bound-account-app.git",
     "topics": [],
     "language": "CSS",
-    "stargazers_count": 7,
+    "stargazers_count": 8,
     "is_template": true,
     "homepage": "https://token-bound-account-app.thirdweb-preview.com/"
   },
@@ -1732,13 +1732,13 @@
     "html_url": "https://github.com/thirdweb-example/token-drop",
     "description": "Release your token with claim conditions for a price using thirdweb's Token Drop contract",
     "created_at": "2022-05-25T04:05:25Z",
-    "updated_at": "2023-06-03T21:53:13Z",
+    "updated_at": "2023-06-17T18:16:39Z",
     "clone_url": "https://github.com/thirdweb-example/token-drop.git",
     "topics": [
       "token-drop"
     ],
     "language": "TypeScript",
-    "stargazers_count": 16,
+    "stargazers_count": 17,
     "is_template": false,
     "homepage": "https://token-drop.thirdweb-example.com"
   },
