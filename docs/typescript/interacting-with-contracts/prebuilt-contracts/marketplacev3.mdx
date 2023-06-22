@@ -808,7 +808,6 @@ const allListings = await contract.directListings.getAll(
   // highlight-start
   {
     count: 100, // Number of listings to fetch
-    offeror: "{{offeror_address}}", // Has offers from this address
     seller: "{{seller_address}}", // Being sold by this address
     start: 0, // Start from this index (pagination)
     tokenContract: "{{token_contract_address}}", // Only show NFTs from this collection
