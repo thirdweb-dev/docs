@@ -10,6 +10,8 @@ Hook that prompts users to connect their [Coinbase Wallet](/wallet/coinbase-wall
 import { useCoinbaseWallet } from "@thirdweb-dev/react";
 ```
 
+The [coinbaseWallet](/react/react.coinbaseWallet) also needs to be added in [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) if you want the wallet to auto-connect on next page load.
+
 ## Usage
 
 Call the function returned by the `useCoinbaseWallet` hook to prompt the user to connect their Coinbase wallet to your dApp.

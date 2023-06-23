@@ -752,6 +752,11 @@
     {
       "source": "/typescript/sdk.thirdwebsdk.detectfeatures",
       "destination": "/typescript/sdk.thirdwebsdk.detectextensions"
+    },
+    {
+      "source": "/typescript/sdk.thirdwebsdk.getcontract",
+      "destination": "/typescript/sdk.thirdwebsdk.smartcontract",
+      "permanent": true
     }
   ]
 }

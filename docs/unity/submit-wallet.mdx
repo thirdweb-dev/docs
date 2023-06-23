@@ -1,0 +1,223 @@
+---
+title: Submit Your Wallet
+slug: /submit-wallet
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+# Submit Your Wallet
+
+## Step 1 - WalletProvider
+
+Add your wallet identifier to the `WalletProvider` enum in `Wallet.cs`.
+
+```csharp
+public enum WalletProvider
+{
+    ...,
+    MyEpicWallet
+}
+```
+
+## Step 2 - Extend IThirdwebWallet
+
+You must implement the `IThirdwebWallet` interface and add your wallet class under `Thirdweb/Wallets`.
+
+```csharp
+namespace Thirdweb.Wallets
+{
+    public interface IThirdwebWallet
+    {
+        // Main Connect call - should fully connect to the wallet and return the address
+        Task<string> Connect(WalletConnection walletConnection, string rpc);
+
+        // Main Disconnect call - should fully disconnect from the wallet and reset any variables
+        Task Disconnect();
+
+        // Get the local account if any, return null otherwise
+        Account GetLocalAccount();
+
+        // Return the address of the main account
+        Task<string> GetAddress();
+
+        // Return the address of the signer account (if any, otherwise return GetAddress)
+        Task<string> GetSignerAddress();
+
+        // Return the WalletProvider you added above
+        WalletProvider GetProvider();
+
+        // Return the WalletProvider of the signer account (if any, otherwise return GetProvider)
+        WalletProvider GetSignerProvider();
+
+        // Return the Web3 Nethereum provider for the main account - must override Task<RpcResponseMessage> SendAsync
+        Task<Web3> GetWeb3();
+
+        // Return the Web3 Nethereum provider for the signer account (if any, otherwise return GetWeb3)
+        Task<Web3> GetSignerWeb3();
+
+        // Return whether the wallet is currently connected (e.g. Web3 != null)
+        Task<bool> IsConnected();
+    }
+}
+```
+
+## Step 3 - Instantiate wallet in `ThirdwebSession.Connect`
+
+Head to `ThirdwebSession.cs` and instantiate your wallet in the `Connect` method.
+
+```csharp
+switch (walletConnection.provider)
+{
+    ...
+    case WalletProvider.MyEpicWallet:
+        ActiveWallet = new MyEpicWallet();
+        break;
+    ...
+}
+```
+
+## Tips
+
+### WalletConnection
+
+If you need additional data for your constructor/connect calls, you can add fields to the `WalletConnection` class under `Wallet.cs`.
+
+```csharp
+public class WalletConnection
+{
+    ...
+    public string myNewRequiredVariable;
+
+    public WalletConnection(..., string myNewRequiredVariable = null)
+    {
+        ...
+        this.myNewRequiredVariable = myNewRequiredVariable;
+    }
+}
+```
+
+### Nethereum Web3 Provider
+
+All RPC calls will pass through Nethereum's `Web3` provider.
+
+You'll need four classes to fully implement the provider, here's a Smart Wallet example:
+
+Extending `IAccount`
+
+```csharp
+using Nethereum.JsonRpc.Client;
+using Nethereum.RPC.Accounts;
+using Nethereum.RPC.AccountSigning;
+using Nethereum.RPC.NonceServices;
+using Nethereum.RPC.TransactionManagers;
+
+namespace Thirdweb.AccountAbstraction
+{
+    public class SmartWalletAccount : IAccount
+    {
+        private readonly SmartWallet _wallet;
+        private readonly IClient _client;
+
+        public string Address
+        {
+            get { return _wallet.Accounts[0]; }
+        }
+
+        public ITransactionManager TransactionManager { get; }
+        public INonceService NonceService { get; set; }
+        public IAccountSigningService AccountSigningService { get; }
+
+        public IClient Client
+        {
+            get { return _client; }
+        }
+
+        public SmartWalletAccount(SmartWallet wallet, IClient client)
+        {
+            _wallet = wallet;
+            _client = client;
+            TransactionManager = new SmartWalletTransactionManager(this);
+            NonceService = new InMemoryNonceService(Address, client);
+            AccountSigningService = new AccountSigningService(client);
+        }
+    }
+}
+```
+
+Extending `ClientBase`
+
+```csharp
+using System;
+using System.Linq;
+using System.Threading.Tasks;
+using Nethereum.JsonRpc.Client;
+using Nethereum.JsonRpc.Client.RpcMessages;
+
+namespace Thirdweb.AccountAbstraction
+{
+    public class SmartWalletClient : ClientBase
+    {
+        private SmartWallet _smartWallet;
+
+        public SmartWalletClient(SmartWallet smartWallet)
+        {
+            this._smartWallet = smartWallet;
+        }
+
+        private static readonly Random rng = new Random();
+        private static readonly DateTime UnixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+
+        public static long GenerateRpcId()
+        {
+            var date = (long)((DateTime.UtcNow - UnixEpoch).TotalMilliseconds) * (10L * 10L * 10L);
+            var extra = (long)Math.Floor(rng.NextDouble() * (10.0 * 10.0 * 10.0));
+            return date + extra;
+        }
+
+        protected override async Task<RpcResponseMessage> SendAsync(RpcRequestMessage message, string route = null)
+        {
+            message.Id = GenerateRpcId();
+            return await _smartWallet.Request(message);
+        }
+
+        protected override Task<RpcResponseMessage[]> SendAsync(RpcRequestMessage[] requests)
+        {
+            return Task.WhenAll(requests.Select(r => SendAsync(r)));
+        }
+    }
+}
+```
+
+Extending `TransactionManagerBase` (not used in practice)
+
+```csharp
+namespace Thirdweb.AccountAbstraction
+{
+    public class SmartWalletTransactionManager : Nethereum.RPC.TransactionManagers.TransactionManager
+    {
+        public SmartWalletTransactionManager(SmartWalletAccount account)
+            : base(account.Client)
+        {
+            Account = account;
+        }
+    }
+}
+```
+
+Finally, an extension to create a `Web3` provider
+
+```csharp
+using Nethereum.Web3;
+
+namespace Thirdweb.AccountAbstraction
+{
+    public static class SmartWalletNEthereumExtensions
+    {
+        public static Web3 CreateWeb3(this SmartWallet smartWallet)
+        {
+            var client = new SmartWalletClient(smartWallet);
+            var account = new SmartWalletAccount(smartWallet, client);
+            return new Web3(account, client);
+        }
+    }
+}
+```
