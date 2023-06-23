@@ -124,9 +124,9 @@ const sidebars = {
       href: "/glossary",
     },
     {
-      type: "doc",
+      type: "link",
       label: "Templates",
-      id: "14 Templates",
+      href: "https://thirdweb.com/templates",
     },
     {
       type: "link",
@@ -179,7 +179,7 @@ const sidebars = {
       type: "link",
       href: "/contracts",
       label: "Full Reference",
-    }
+    },
   ],
 
   publish: [
