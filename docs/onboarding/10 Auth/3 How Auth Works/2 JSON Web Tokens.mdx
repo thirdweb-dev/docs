@@ -48,7 +48,7 @@ The payload is the most important part of the JWT, as it contains the data that 
 }
 ```
 
-This payload makes use of [standard JWT claims](https://www.iana.org/assignments/jwt/jwt.xhtml#claims) to store data on the token. Most importantly, we store information about when the token expires in the `exp` claim (defaults to 5 hours from when it was issued in the case of Auth), and we also store the address of the user's wallet in the `sub` claim. This allows the server to verify that the user is who they say they are, and that the token hasn't expired.
+This payload makes use of [standard JWT claims](https://www.iana.org/assignments/jwt/jwt.xhtml#claims) to store data on the token. Most importantly, we store information about when the token expires in the `exp` claim (defaults to 3 days from when it was issued in the case of Auth), and we also store the address of the user's wallet in the `sub` claim. This allows the server to verify that the user is who they say they are, and that the token hasn't expired.
 
 ### Signature
 
