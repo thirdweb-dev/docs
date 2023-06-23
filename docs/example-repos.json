@@ -86,11 +86,11 @@
     "html_url": "https://github.com/thirdweb-example/catattacknft",
     "description": "Claim your cat, attack others, and accumulate points to win!",
     "created_at": "2022-08-26T20:48:18Z",
-    "updated_at": "2023-06-20T07:48:27Z",
+    "updated_at": "2023-06-22T23:05:39Z",
     "clone_url": "https://github.com/thirdweb-example/catattacknft.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 86,
+    "stargazers_count": 88,
     "is_template": false,
     "homepage": "https://catattacknft.vercel.app"
   },
@@ -1697,6 +1697,19 @@
     "stargazers_count": 38,
     "is_template": false,
     "homepage": ""
+  },
+  {
+    "name": "tiered-loyalty-contract",
+    "html_url": "https://github.com/thirdweb-example/tiered-loyalty-contract",
+    "description": null,
+    "created_at": "2023-06-21T22:06:44Z",
+    "updated_at": "2023-06-22T22:35:21Z",
+    "clone_url": "https://github.com/thirdweb-example/tiered-loyalty-contract.git",
+    "topics": [],
+    "language": "Solidity",
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": null
   },
   {
     "name": "todo-list",
