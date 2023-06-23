@@ -16,9 +16,16 @@ npx thirdweb install
 
 ## Usage
 
+Run this command to install thirdweb dependencies into your project. If no path is specified, the current directory will be used.
+
+```bash
+npx thirdweb install <projectpath> [options]
+```
+
 This command will automatically detect the type of project you are working on and install or update the appropriate thirdweb dependencies.
 
 **Dependencies installed:**
+
 - **JS/TS**
   - **Smart contract projects**: [`@thirdweb/contracts`](/typescript)
   - **App projects:**
@@ -32,10 +39,6 @@ This command will automatically detect the type of project you are working on an
   - **App projects**: [`github.com/thirdweb-dev/go-sdk/v2`](/go)
 
 If any thirdweb package _(or Ethers)_ is already installed, they are updated to the latest compatible version.
-
-```bash
-npx thirdweb install <projectpath> [options]
-```
 
 ## Options
 
