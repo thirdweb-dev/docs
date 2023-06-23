@@ -86,11 +86,11 @@
     "html_url": "https://github.com/thirdweb-example/catattacknft",
     "description": "Claim your cat, attack others, and accumulate points to win!",
     "created_at": "2022-08-26T20:48:18Z",
-    "updated_at": "2023-06-20T07:48:27Z",
+    "updated_at": "2023-06-22T23:05:39Z",
     "clone_url": "https://github.com/thirdweb-example/catattacknft.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 86,
+    "stargazers_count": 88,
     "is_template": false,
     "homepage": "https://catattacknft.vercel.app"
   },
@@ -256,7 +256,7 @@
     "html_url": "https://github.com/thirdweb-example/creator-platform",
     "description": "Authenticate users into a web2 database to build a hybrid web2+web3 creator platform!",
     "created_at": "2022-09-23T01:22:38Z",
-    "updated_at": "2023-05-17T16:36:05Z",
+    "updated_at": "2023-06-23T05:32:52Z",
     "clone_url": "https://github.com/thirdweb-example/creator-platform.git",
     "topics": [
       "auth",
@@ -264,7 +264,7 @@
       "web2"
     ],
     "language": "TypeScript",
-    "stargazers_count": 14,
+    "stargazers_count": 15,
     "is_template": false,
     "homepage": ""
   },
@@ -469,14 +469,14 @@
     "html_url": "https://github.com/thirdweb-example/erc20-staking-app",
     "description": "Allow users to stake their ERC20 tokens in return for more/other ERC20 tokens!",
     "created_at": "2023-01-27T08:07:46Z",
-    "updated_at": "2023-06-18T04:54:22Z",
+    "updated_at": "2023-06-22T12:58:07Z",
     "clone_url": "https://github.com/thirdweb-example/erc20-staking-app.git",
     "topics": [
       "staking",
       "token"
     ],
     "language": "JavaScript",
-    "stargazers_count": 8,
+    "stargazers_count": 9,
     "is_template": false,
     "homepage": "https://erc20-staking-app.thirdweb-example.com/"
   },
@@ -485,11 +485,11 @@
     "html_url": "https://github.com/thirdweb-example/erc721staking-lockup",
     "description": "NFT Staking contract with lockup period",
     "created_at": "2023-01-09T07:19:08Z",
-    "updated_at": "2023-06-20T07:49:11Z",
+    "updated_at": "2023-06-21T08:00:06Z",
     "clone_url": "https://github.com/thirdweb-example/erc721staking-lockup.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 7,
+    "stargazers_count": 8,
     "is_template": false,
     "homepage": null
   },
@@ -567,7 +567,7 @@
     "html_url": "https://github.com/thirdweb-example/forge-starter",
     "description": "thirdweb contracts starter project for Forge",
     "created_at": "2022-08-02T21:35:35Z",
-    "updated_at": "2023-04-28T10:25:01Z",
+    "updated_at": "2023-06-23T14:12:30Z",
     "clone_url": "https://github.com/thirdweb-example/forge-starter.git",
     "topics": [
       "forge",
@@ -575,7 +575,7 @@
       "starter-kit"
     ],
     "language": "Solidity",
-    "stargazers_count": 2,
+    "stargazers_count": 3,
     "is_template": false,
     "homepage": ""
   },
@@ -982,7 +982,7 @@
     "html_url": "https://github.com/thirdweb-example/next-typescript-starter",
     "description": "thirdweb starter project with Next.js & TypeScript",
     "created_at": "2022-03-17T18:18:45Z",
-    "updated_at": "2023-06-16T07:56:19Z",
+    "updated_at": "2023-06-23T15:55:06Z",
     "clone_url": "https://github.com/thirdweb-example/next-typescript-starter.git",
     "topics": [
       "nextjs",
@@ -995,7 +995,7 @@
       "web3js"
     ],
     "language": "TypeScript",
-    "stargazers_count": 51,
+    "stargazers_count": 52,
     "is_template": true,
     "homepage": "https://next-typescript-starter.thirdweb-example.com"
   },
@@ -1035,7 +1035,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-gated-website",
     "description": "Restrict access to content based on the ownership of an NFT",
     "created_at": "2022-04-08T17:59:57Z",
-    "updated_at": "2023-06-18T09:11:31Z",
+    "updated_at": "2023-06-21T23:02:38Z",
     "clone_url": "https://github.com/thirdweb-example/nft-gated-website.git",
     "topics": [
       "auth",
@@ -1046,7 +1046,7 @@
       "wallet-connection"
     ],
     "language": "JavaScript",
-    "stargazers_count": 124,
+    "stargazers_count": 125,
     "is_template": false,
     "homepage": "https://nft-gated-website.thirdweb-example.com"
   },
@@ -1386,13 +1386,13 @@
     "html_url": "https://github.com/thirdweb-example/signature-drop",
     "description": "Use the signature drop pre-built contract to claim NFTs under a claim phase as well as claim using signature-based minting!",
     "created_at": "2022-07-14T23:58:52Z",
-    "updated_at": "2023-06-05T01:58:20Z",
+    "updated_at": "2023-06-23T09:09:35Z",
     "clone_url": "https://github.com/thirdweb-example/signature-drop.git",
     "topics": [
       "signature-drop"
     ],
     "language": "TypeScript",
-    "stargazers_count": 16,
+    "stargazers_count": 17,
     "is_template": false,
     "homepage": "http://signature-drop.thirdweb-example.com/"
   },
@@ -1401,11 +1401,11 @@
     "html_url": "https://github.com/thirdweb-example/signature-minting",
     "description": "Authorize users to mint on your NFT collection using a backend infrastructure",
     "created_at": "2023-06-14T13:40:01Z",
-    "updated_at": "2023-06-14T13:54:05Z",
+    "updated_at": "2023-06-22T18:44:35Z",
     "clone_url": "https://github.com/thirdweb-example/signature-minting.git",
     "topics": [],
     "language": "JavaScript",
-    "stargazers_count": 0,
+    "stargazers_count": 1,
     "is_template": false,
     "homepage": "https://signature-minting.thirdweb-preview.com"
   },
@@ -1699,6 +1699,19 @@
     "homepage": ""
   },
   {
+    "name": "tiered-loyalty-contract",
+    "html_url": "https://github.com/thirdweb-example/tiered-loyalty-contract",
+    "description": null,
+    "created_at": "2023-06-21T22:06:44Z",
+    "updated_at": "2023-06-23T10:45:15Z",
+    "clone_url": "https://github.com/thirdweb-example/tiered-loyalty-contract.git",
+    "topics": [],
+    "language": "Solidity",
+    "stargazers_count": 1,
+    "is_template": false,
+    "homepage": null
+  },
+  {
     "name": "todo-list",
     "html_url": "https://github.com/thirdweb-example/todo-list",
     "description": "Build a simple todo list by building and interacting with a smart contract!",
@@ -1810,11 +1823,11 @@
     "html_url": "https://github.com/thirdweb-example/unity-rpg-game",
     "description": "Speak with NPCs and complete quests to earn ERC20 tokens which you can use to buy NFTs from the in-game shop!",
     "created_at": "2022-11-28T07:08:09Z",
-    "updated_at": "2023-06-01T21:29:59Z",
+    "updated_at": "2023-06-23T13:11:17Z",
     "clone_url": "https://github.com/thirdweb-example/unity-rpg-game.git",
     "topics": [],
     "language": "C#",
-    "stargazers_count": 11,
+    "stargazers_count": 12,
     "is_template": false,
     "homepage": "https://unity-rpg-game.thirdweb-example.com"
   },
