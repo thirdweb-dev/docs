@@ -256,7 +256,7 @@
     "html_url": "https://github.com/thirdweb-example/creator-platform",
     "description": "Authenticate users into a web2 database to build a hybrid web2+web3 creator platform!",
     "created_at": "2022-09-23T01:22:38Z",
-    "updated_at": "2023-05-17T16:36:05Z",
+    "updated_at": "2023-06-23T05:32:52Z",
     "clone_url": "https://github.com/thirdweb-example/creator-platform.git",
     "topics": [
       "auth",
@@ -264,7 +264,7 @@
       "web2"
     ],
     "language": "TypeScript",
-    "stargazers_count": 14,
+    "stargazers_count": 15,
     "is_template": false,
     "homepage": ""
   },
@@ -1386,13 +1386,13 @@
     "html_url": "https://github.com/thirdweb-example/signature-drop",
     "description": "Use the signature drop pre-built contract to claim NFTs under a claim phase as well as claim using signature-based minting!",
     "created_at": "2022-07-14T23:58:52Z",
-    "updated_at": "2023-06-05T01:58:20Z",
+    "updated_at": "2023-06-23T09:09:35Z",
     "clone_url": "https://github.com/thirdweb-example/signature-drop.git",
     "topics": [
       "signature-drop"
     ],
     "language": "TypeScript",
-    "stargazers_count": 16,
+    "stargazers_count": 17,
     "is_template": false,
     "homepage": "http://signature-drop.thirdweb-example.com/"
   },
@@ -1703,11 +1703,11 @@
     "html_url": "https://github.com/thirdweb-example/tiered-loyalty-contract",
     "description": null,
     "created_at": "2023-06-21T22:06:44Z",
-    "updated_at": "2023-06-22T22:35:21Z",
+    "updated_at": "2023-06-23T10:45:15Z",
     "clone_url": "https://github.com/thirdweb-example/tiered-loyalty-contract.git",
     "topics": [],
     "language": "Solidity",
-    "stargazers_count": 0,
+    "stargazers_count": 1,
     "is_template": false,
     "homepage": null
   },
