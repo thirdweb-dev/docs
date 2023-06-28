@@ -43,19 +43,15 @@ By default, `supportedWallets` will have `rainbowWallet` and `metamaskWallet` si
 
 ### MetaMask, Rainbow and Trust wallets
 
-These wallets are implementations of Wallet Connect V1 and V2. The `dAppMeta` prop passed in the `ThirdwebProvider` above will be used when connecting to the wallets to show your app's information.
+These wallets are implementations of Wallet Connect V2. The `dAppMeta` prop passed in the `ThirdwebProvider` above will be used when connecting to the wallets to show your app's information.
 
-For more information on these wallets config, please see their base WalletConnectV1 and WalletConnectV2 specific info:
+For more information on these wallets config, please see the WalletConnectV2 specific info:
 
-- [Wallet Connect V1](https://portal.thirdweb.com/wallet/wallet-connect-v1)
 - [Wallet Connect V2](https://portal.thirdweb.com/wallet/wallet-connect-v2)
 
-MetaMask and Rainbow are extensions of WalletConnectV1 since they have not added support for WC V2 and Trust is an extension of WalletConnectV2, this means that you can call:
-
 ```tsx
-metamaskWallet(config); // this config is the same as the one for wallet connect v1
-rainbowWallet(config); // this config is the same as the one for wallet connect v1
-
+metamaskWallet(config); // this config is the same as the one for wallet connect v2
+rainbowWallet(config); // this config is the same as the one for wallet connect v2
 trustWallet(config); // this config is the same as the one for wallet connect v2
 ```
 
@@ -305,7 +301,7 @@ With our `@thirdweb-dev/wallets` sdk you can build your own wallets and integrat
 
 ### Integrating wallets that support the WalletConnect protocol
 
-We have made it super easy to integrate wallets that support the WalletConnect protocol. We have two abstract classes, `WalletConnectV1` and `WalletConnectV2` that do all the work for you, you only need to set the wallet metadata and you are set to pass the new wallet in our `ThirdwebProvider`'s `supportedWallets` prop.
+We have made it super easy to integrate wallets that support the WalletConnect protocol. We have the abstract class, `WalletConnectV2` that do all the work for you, you only need to set the wallet metadata and you are set to pass the new wallet in our `ThirdwebProvider`'s `supportedWallets` prop.
 
 The following example shows you how to create a `MyWallet` wallet that implements the WalletConnectV2 protocol:
 
@@ -373,7 +369,7 @@ You can look at how the built-in wallets in the `@thirdweb-dev/react-native` pac
 - [Local Wallet](https://github.com/thirdweb-dev/js/blob/main/packages/react-native/src/evm/wallets/wallets/local-wallet.tsx)
 - [Smart Wallet](https://github.com/thirdweb-dev/js/blob/main/packages/react-native/src/evm/wallets/wallets/smart-wallet.ts)
 - [Email/Phone-Number Wallet](https://github.com/thirdweb-dev/js/blob/main/packages/react-native/src/evm/wallets/wallets/magic-wallet.tsx)
-- [MetaMask (WalletConnectV1)](https://github.com/thirdweb-dev/js/blob/main/packages/react-native/src/evm/wallets/wallets/metamask-wallet.ts)
-- [Rainbow (WalletConnectV1)](https://github.com/thirdweb-dev/js/blob/main/packages/react-native/src/evm/wallets/wallets/rainbow-wallet.ts)
+- [MetaMask (WalletConnectV2)](https://github.com/thirdweb-dev/js/blob/main/packages/react-native/src/evm/wallets/wallets/metamask-wallet.ts)
+- [Rainbow (WalletConnectV2)](https://github.com/thirdweb-dev/js/blob/main/packages/react-native/src/evm/wallets/wallets/rainbow-wallet.ts)
 - [Trust (WalletConnectV2)](https://github.com/thirdweb-dev/js/blob/main/packages/react-native/src/evm/wallets/wallets/trust-wallet.ts)
 - [Coinbase](https://github.com/thirdweb-dev/js/blob/main/packages/react-native/src/evm/wallets/wallets/coinbase-wallet.ts)
