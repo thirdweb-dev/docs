@@ -30,6 +30,11 @@ const sidebars = {
     },
     {
       type: "doc",
+      label: "ThirdwebManager",
+      id: "ThirdwebManager",
+    },
+    {
+      type: "doc",
       label: "ThirdwebSDK",
       id: "thirdwebsdk",
     },
@@ -40,11 +45,6 @@ const sidebars = {
       label: "Prefabs",
       collapsed: false,
       items: [
-        {
-          type: "doc",
-          label: "ThirdwebManager",
-          id: "prefabs/ThirdwebManager",
-        },
         {
           type: "doc",
           label: "Connect Wallet Button",
