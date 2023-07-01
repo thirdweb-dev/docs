@@ -1,8 +1,8 @@
 ---
-title: walletConnectV1
-slug: /react.walletconnectv1
+title: trustWallet
+slug: /react.trustWallet
 displayed_sidebar: react
-sidebar_position: 4
+sidebar_position: 3
 ---
 
 import Tabs from "@theme/Tabs";
@@ -10,27 +10,48 @@ import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 import { CustomizeWalletConfigurator } from "@components/build-wallet/CustomizeWalletConfigurator";
 
-A wallet configurator for [Wallet Connect v1](/wallet/wallet-connect-v1) which allows integrating the wallet with React
+A wallet configurator for trust Wallet which allows integrating the wallet with React.
+
+trust Wallet is an extension of our WalletConnect wallet which supports WCV2.
 
 ```tsx
-import { walletConnectV1 } from "@thirdweb-dev/react";
+import { trustWallet } from "@thirdweb-dev/react";
 
-const walletConnectV1Config = walletConnectV1();
+const walletConnectConfig = trustWallet(options);
 ```
 
-<CustomizeWalletConfigurator
-  config="walletConnectV1Config"
-  configurator="walletConnectV1"
-  connectUI="WalletConnectV1ConnectUI"
-  selectUI="WalletConnectV1SelectUI"
-/>
+## options
+
+<details>
+  <summary>projectId (optional) </summary>
+  <div>
+
+Your project's unique identifier that can be obtained at [cloud.walletconnect.com](https://cloud.walletconnect.com).
+
+Defaults to a common thirdweb projectId. We recommend getting your own projectId at
+[cloud.walletconnect.com](https://cloud.walletconnect.com) when launching your project.
+
+```javascript
+import { trustWallet } from "@thirdweb-dev/react";
+
+trustWallet(
+  // highlight-start
+  {
+    projectId: "<PROJECT_ID>",
+  },
+  // highlight-end
+);
+```
+
+</div>
+</details>
 
 ## Usage with `ConnectWallet`
 
 To allow users to connect to this wallet using the [ConnectWallet](/react/react.connectwallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop.
 
 ```tsx
-<ThirdwebProvider supportedWallets={[walletConnectV1()]}>
+<ThirdwebProvider supportedWallets={[trustWallet()]}>
   <YourApp />
 </ThirdwebProvider>
 ```
@@ -42,13 +63,13 @@ you can use the `useConnect` hook to programmatically connect to the wallet with
 The wallet also needs to be added in [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) if you want the wallet to auto-connect on next page load.
 
 ```tsx
-const walletConnectV1Config = walletConnectV1();
+const trustWalletConfig = trustWallet();
 
 function App() {
   const connect = useConnect();
 
   const handleConnect = async () => {
-    await connect(walletConnectV1Config, connectOptions);
+    await connect(trustWalletConfig, connectOptions);
   };
 
   return <div> ... </div>;
