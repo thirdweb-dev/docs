@@ -82,12 +82,12 @@ import {
   smartWallet,
   metamaskWallet,
   coinbaseWallet,
-  walletConnectV1,
+  walletConnect,
 } from "@thirdweb-dev/react";
 
 smartWallet({
   // this is the default
-  personalWallets: [metamaskWallet(), coinbaseWallet(), walletConnectV1()],
+  personalWallets: [metamaskWallet(), coinbaseWallet(), walletConnect()],
   // ...
 });
 ```
@@ -106,7 +106,7 @@ import {
   smartWallet,
   metamaskWallet,
   coinbaseWallet,
-  walletConnectV1,
+  walletConnect,
 } from "@thirdweb-dev/react";
 
 <ThirdwebProvider
@@ -116,7 +116,7 @@ import {
       gasless: true,
       thirdwebApiKey: "THIRDWEB_API_KEY",
       // this is the default
-      personalWallets: [metamaskWallet(), coinbaseWallet(), walletConnectV1()],
+      personalWallets: [metamaskWallet(), coinbaseWallet(), walletConnect()],
     }),
   ]}
 >

@@ -7,29 +7,42 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 
-Allows users to connect to your app with email or phone number using [Magic Auth](https://magic.link/auth)
+Allows users to connect to your app using [Magic Auth](https://magic.link/docs/auth/overview) or [Magic Connect](https://magic.link/docs/connect/overview)
 
 ## Usage
+
+### Magic Auth
 
 ```javascript
 import { MagicLink } from "@thirdweb-dev/wallets";
 
-// Create a wallet instance
 const wallet = new MagicLink({
   apiKey: "YOUR_API_KEY",
+  type: "auth",
 });
 
-// Now connect using email or phone number
-
-wallet.connect({
+await wallet.connect({
   email: "user@example.com",
 });
 
 // OR
 
-wallet.connect({
+await wallet.connect({
   phoneNumber: "+123456789",
 });
+```
+
+### Magic Connect
+
+```javascript
+import { MagicLink } from "@thirdweb-dev/wallets";
+
+const wallet = new MagicLink({
+  apiKey: "YOUR_API_KEY",
+  type: "connect",
+});
+
+await wallet.connect();
 ```
 
 With this configuration, users will be able to log in using their email or phone number.
@@ -39,6 +52,21 @@ If you want to restrict login to only email or only phone number, you can do so 
 ## Configuration
 
 Provide a configuration object when instantiating the `MagicLink` class.
+
+<details>
+  <summary>type (optional) </summary>
+  <div>
+
+Whether to use [Magic Auth](https://magic.link/docs/auth/overview) or [Magic Connect](https://magic.link/docs/connect/overview) to connect to the wallet.
+
+Default is `"auth"`.
+
+```ts
+type: "auth" | "connect";
+```
+
+</div>
+</details>
 
 <details>
   <summary>apiKey (required)</summary>
@@ -55,7 +83,9 @@ Must be a `string`.
   <summary>magicSdkConfiguration (optional)</summary>
   <div>
 
-Configuration for Magic Auth SDK.
+Configuration for [Magic Auth](https://magic.link/docs/auth/overview) SDK.
+
+This is only relevant if you are using `type: 'auth'`.
 
 ```ts
 {
@@ -101,6 +131,8 @@ Enable [testMode](https://magic.link/docs/auth/introduction/test-mode) to assert
 
 Specify whether you want to allow users to log in with their phone number or not. It is `true` by default
 
+This is only relevant if you are using `type: 'auth'`.
+
 Must be a `boolean`.
 
 </div>
@@ -111,6 +143,8 @@ Must be a `boolean`.
   <div>
 
 Specify whether you want to allow users to log in with their email or not. It is `true` by default
+
+This is only relevant if you are using `type: 'auth'`.
 
 Must be a `boolean`.
 
@@ -182,6 +216,7 @@ Calling `connect` opens the Magic Link's Modal and prompts the user to either en
 There are two ways to call the `connect` function: using `email` or `phoneNumber`
 
 ```ts
+// if you are using type: 'auth'
 await wallet.connect({
   email: "user@example.com",
 });
@@ -191,6 +226,9 @@ await wallet.connect({
 await wallet.connect({
   phoneNumber: "+123456789",
 });
+
+// if you are using type: 'connect'
+await wallet.connect();
 ```
 
 <details>
@@ -199,7 +237,7 @@ await wallet.connect({
 
 ```typescript
 connect(options?: {
-  // One of email or phoneNumber is required
+  // One of email or phoneNumber is required if you are using type: 'auth'
   email?: string,
   phoneNumber?: string,
 

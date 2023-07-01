@@ -404,6 +404,11 @@
       "permanent": true
     },
     {
+      "source": "/unity/prefabs/thirdwebmanager",
+      "destination": "/unity/thirdwebmanager",
+      "permanent": true
+    },
+    {
       "source": "/sdk/connecting-to-a-wallet",
       "destination": "/ui-components/connectwalletbutton"
     },
@@ -756,6 +761,21 @@
     {
       "source": "/typescript/sdk.thirdwebsdk.getcontract",
       "destination": "/typescript/sdk.thirdwebsdk.smartcontract",
+      "permanent": true
+    },
+    {
+      "source": "/react/react.walletconnectv1",
+      "destination": "/react/react.walletconnect",
+      "permanent": true
+    },
+    {
+      "source": "/react/react.usewalletconnectv1",
+      "destination": "/react/react.usewalletconnect",
+      "permanent": true
+    },
+    {
+      "source": "/wallet/wallet-connect-v1",
+      "destination": "/wallet/wallet-connect-v2",
       "permanent": true
     }
   ]
