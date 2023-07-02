@@ -191,7 +191,7 @@ Pack pack = contract.pack;`,
     get: 'var tokenId = "0";\nvar pack = await contract.Get(tokenId);',
     getAll: "var packs = await contract.GetAll();",
     getOwned:
-      '// Address of the Wallet to get the packs of\nvar address = "{{wallet_address}}";\nvar packss = await contract.GetOwned(address);',
+      '// Address of the Wallet to get the packs of\nvar address = "{{wallet_address}}";\nvar packs = await contract.GetOwned(address);',
     getPackContents:
       'var packId = "0";\nvar contents = await contract.GetPackContents(packId);\nDebug.Log(contents.erc20Rewards);\nDebug.Log(contents.erc721Rewards);\nDebug.Log(contents.erc1155Rewards);',
     open: 'var tokenId = "0";\nvar amount = "1";\nvar tx = await contract.Open(tokenId, amount);',
