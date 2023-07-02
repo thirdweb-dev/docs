@@ -9,7 +9,7 @@ displayed_sidebar: solana
 
 # ThirdwebSDK.fromPrivateKey() method
 
-reate a new SDK instance connected with the given private key
+Create a new SDK instance connected with the given private key
 
 **Signature:**
 
