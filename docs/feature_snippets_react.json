@@ -222,7 +222,7 @@
     },
     {
       "name": "useMakeOffer",
-      "summary": "Nake an offer on a direct or auction listing\n\n",
+      "summary": "Make an offer on a direct or auction listing\n\n",
       "remarks": null,
       "examples": {
         "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: makeOffer,\n    isLoading,\n    error,\n  } = useMakeOffer(contract);\n\n  if (error) {\n    console.error(\"failed to make a bid\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => makeOffer({ listingId: 1, pricePerToken: 0.5, quantity: 1 })}\n    >\n      Bid!\n    </button>\n  );\n};"
