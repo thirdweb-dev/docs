@@ -484,7 +484,7 @@ _Returns the address of the current owner._
 function platformFeeRecipient() external view returns (address)
 ```
 
-_The adress that receives all primary sales value._
+_The address that receives all primary sales value._
 
 #### Returns
 
@@ -498,7 +498,7 @@ _The adress that receives all primary sales value._
 function primarySaleRecipient() external view returns (address)
 ```
 
-_The adress that receives all primary sales value._
+_The address that receives all primary sales value._
 
 #### Returns
 

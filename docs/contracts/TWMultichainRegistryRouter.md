@@ -61,7 +61,7 @@ function addPlugin(IPluginMap.Plugin _plugin) external nonpayable
 function getAllFunctionsOfPlugin(address _pluginAddress) external view returns (bytes4[] registered)
 ```
 
-_View all funtionality as list of function signatures._
+_View all functionality as list of function signatures._
 
 #### Parameters
 
@@ -81,7 +81,7 @@ _View all funtionality as list of function signatures._
 function getAllPlugins() external view returns (struct IPluginMap.Plugin[] registered)
 ```
 
-_View all funtionality existing on the contract._
+_View all functionality existing on the contract._
 
 #### Returns
 

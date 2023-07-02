@@ -23,7 +23,7 @@ The server then has to be able to verify this proof-of-identity, after which it 
 
 To prevent this, we need a way for the server to **remember** that a user has already authenticated before, and consequently remember the identity of a user.
 
-This is exactly what JWTs are used for. When a server succesfully authenticates a user, it can issue a signed JWT to the user. This JWT contains the user's identity, which the user can then send to the server in subsequent requests to access resources.
+This is exactly what JWTs are used for. When a server successfully authenticates a user, it can issue a signed JWT to the user. This JWT contains the user's identity, which the user can then send to the server in subsequent requests to access resources.
 
 Most importantly, because the JWT has been signed by the server, the server can verify that it already previously authenticated the user, an can instantly access the user's intity without having to authenticate them again.
 
@@ -59,7 +59,7 @@ So with this information, we can update the first the simplified diagram we made
 
 ### Authority
 
-Finally, as we mentioned earlier, Auth uses JWTs to help the server "remember" when a user has already succesfully authenticated and proven their identity before. These JWTs must be signed by the server-side **authority** so that the server can later verify that the JWT is valid.
+Finally, as we mentioned earlier, Auth uses JWTs to help the server "remember" when a user has already successfully authenticated and proven their identity before. These JWTs must be signed by the server-side **authority** so that the server can later verify that the JWT is valid.
 
 In standard web2 flows, this issuing and verification of JWT tokens is often handled by a third party service like auth0, who manages the signing private key and JWTs for your users. This leads to a dependency on external third-party services for your applications authentication.
 
