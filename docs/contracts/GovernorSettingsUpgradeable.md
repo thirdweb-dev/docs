@@ -241,7 +241,7 @@ function hasVoted(uint256 proposalId, address account) external view returns (bo
 
 module:voting
 
-_Returns weither `account` has cast a vote on `proposalId`._
+_Returns whether `account` has cast a vote on `proposalId`._
 
 #### Parameters
 
