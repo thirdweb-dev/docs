@@ -35,5 +35,5 @@ The arguments to the function/variable, in the same order they are on your smart
 If you provide too few or too many arguments, the function will throw an error.
 
 ```csharp
-var data = await contract.Read<int>("functionName", new object[] { "arg1", "arg2" });
+var data = await contract.Read<int>("functionName", "arg1", "arg2", ...);
 ```
