@@ -38,6 +38,51 @@ Must be a `string`.
 </div>
 </details>
 
+<details>
+  <summary>adnvancedOptions (optional)</summary>
+  <div>
+
+Advanced options for Paper SDK.
+
+```ts
+advancedOptions: {
+  recoveryShareManagement?: 'AWS_MANAGED' | 'USER_MANAGED'
+}
+```
+
+`recoveryShareManagement` indicates who should be in charge of managing the user's recovery share. Choosing `"AWS_MANAGED"` is the easiest to get started and is generally what we recommend. For more information, see [managing the user's recovery share](https://docs.withpaper.com/reference/managing-the-users-recovery-share)
+
+</div>
+</details>
+
+<details>
+  <summary>styles (optional)</summary>
+  <div>
+
+customize the UI component of Paper SDK.
+
+```ts
+styles: {
+  // The roundness of buttons.
+  borderRadius?: string,
+  // The background color of the UI components.
+  colorBackground?: string,
+  // The button and link color of the UI components.
+  colorPrimary?: string,
+  // The text color of the UI components.
+  colorText?: string,
+  // The font family of the UI components.
+  fontFamily?: string,
+  // background color of the input fields
+  inputBackgroundColor?: string,
+  // border color of the input fields
+  inputBorderColor?: string,
+}
+```
+
+</div>
+</details>
+
 ## Usage with `ConnectWallet`
 
 To allow users to connect to this wallet using the [ConnectWallet](/react/react.connectwallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop.
@@ -84,6 +129,25 @@ function App() {
 {
   email?: string;
   chainId?: number;
+  advancedOptions?: {
+    recoveryShareManagement?: 'AWS_MANAGED' | 'USER_MANAGED'
+  },
+  styles?: {
+    // The roundness of buttons.
+    borderRadius?: string,
+    // The background color of the UI components.
+    colorBackground?: string,
+    // The button and link color of the UI components.
+    colorPrimary?: string,
+    // The text color of the UI components.
+    colorText?: string,
+    // The font family of the UI components.
+    fontFamily?: string,
+    // background color of the input fields
+    inputBackgroundColor?: string,
+    // border color of the input fields
+    inputBorderColor?: string,
+  }
 } | undefined;
 ```
 
@@ -118,6 +182,51 @@ export function YourApp() {
 If `email` is not provided, the user will be prompted to enter their email address or sign in with a Google account. Once the user enters the email address or signs in with a Google account, an OTP will be sent to the user's email address. Once the user enters the OTP, the wallet will be connected.
 
 If the `email` is provided, the user will be directly shown the OTP screen, the user will not be prompted to enter their email.
+
+</div>
+</details>
+
+<details>
+  <summary>adnvancedOptions (optional)</summary>
+  <div>
+
+Advanced options for Paper SDK.
+
+```ts
+advancedOptions: {
+  recoveryShareManagement?: 'AWS_MANAGED' | 'USER_MANAGED'
+}
+```
+
+`recoveryShareManagement` indicates who should be in charge of managing the user's recovery share. Choosing `"AWS_MANAGED"` is the easiest to get started and is generally what we recommend. For more information, see [managing the user's recovery share](https://docs.withpaper.com/reference/managing-the-users-recovery-share)
+
+</div>
+</details>
+
+<details>
+  <summary>styles (optional)</summary>
+  <div>
+
+customize the UI component of Paper SDK.
+
+```ts
+styles: {
+  // The roundness of buttons.
+  borderRadius?: string,
+  // The background color of the UI components.
+  colorBackground?: string,
+  // The button and link color of the UI components.
+  colorPrimary?: string,
+  // The text color of the UI components.
+  colorText?: string,
+  // The font family of the UI components.
+  fontFamily?: string,
+  // background color of the input fields
+  inputBackgroundColor?: string,
+  // border color of the input fields
+  inputBorderColor?: string,
+}
+```
 
 </div>
 </details>

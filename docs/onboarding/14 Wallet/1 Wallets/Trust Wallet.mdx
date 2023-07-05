@@ -27,12 +27,10 @@ Optionally, provide a configuration object when instantiating the `TrustWallet` 
   <summary>projectId</summary>
   <div>
 
-Your project's unique identifier. It can be obtained at [cloud.walletconnect.com](https://cloud.walletconnect.com).
+Your project's unique identifier for Wallet Connect.
 
 Defaults to a common thirdweb projectId. We recommend getting your own projectId at
 [cloud.walletconnect.com](https://cloud.walletconnect.com) when launching your project.
-
-````javascript
 
 ```javascript
 import { TrustWallet } from "@thirdweb-dev/wallets";
@@ -44,7 +42,7 @@ const wallet = new TrustWallet(
   },
   // highlight-end
 );
-````
+```
 
 </div>
 </details>
@@ -136,9 +134,9 @@ WalletConnect's [options](https://docs.walletconnect.com/2.0/web3modal/options) 
 ```typescript
 type QRModalOptions = {
   themeVariables?: {
-    "--w3m-z-index"?: string;
-    "--w3m-accent-color"?: string;
-    "--w3m-accent-fill-color"?: string;
+    "--wcm-z-index"?: string;
+    "--wcm-accent-color"?: string;
+    "--wcm-accent-fill-color"?: string;
     // ... and more
   };
   themeMode?: "dark" | "light";

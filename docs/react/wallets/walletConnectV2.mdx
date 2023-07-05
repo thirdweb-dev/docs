@@ -31,7 +31,7 @@ const walletConnectConfig = walletConnect(options);
   <summary>projectId (optional) </summary>
   <div>
 
-Your project's unique identifier that can be obtained at [cloud.walletconnect.com](https://cloud.walletconnect.com).
+Your project's unique identifier that can be obtained at [cloud.walletconnect.com](https://cloud.walletconnect.com). It is highly recommended to use your own project id and only use the default one for testing purposes.
 
 It Enables following functionalities within Web3Modal:
 
@@ -39,7 +39,7 @@ It Enables following functionalities within Web3Modal:
 - optional WalletConnect RPC,
 - support for all wallets from our Explorer and WalletConnect v2 support.
 
-Defaults to `undefined`
+Defaults to thirdweb's common project id.
 
 ```javascript
 import { WalletConnect } from "@thirdweb-dev/wallets";
@@ -67,9 +67,9 @@ WalletConnect's [options](https://docs.walletconnect.com/2.0/web3modal/options) 
 ```typescript
 type QRModalOptions = {
   themeVariables?: {
-    "--w3m-z-index"?: string;
-    "--w3m-accent-color"?: string;
-    "--w3m-accent-fill-color"?: string;
+    "--wcm-z-index"?: string;
+    "--wcm-accent-color"?: string;
+    "--wcm-accent-fill-color"?: string;
     // ... and more
   };
   themeMode?: "dark" | "light";
