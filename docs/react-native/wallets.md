@@ -270,6 +270,7 @@ yarn add react-native-safe-area-context react-native-webview react-native-device
 which will install the following dependencies:
 
 - [react-native-safe-area-context](https://www.npmjs.com/package/react-native-safe-area-context?ref=blog.thirdweb.com)
+  - **Note**: The magic wallet requires the app to be wrapped in a `SafeAreaProvider`. This is something we handle in the SDK so please, if your app already has a `SafeAreaProvider` you can remove it and just wrap your app in our `ThirdwebProvider`, this will take care of the safe area context for you.
 - [react-native-webview](https://www.npmjs.com/package/react-native-webview?ref=blog.thirdweb.com)
 - [react-native-device-info](https://www.npmjs.com/package/react-native-device-info?ref=blog.thirdweb.com)
 
