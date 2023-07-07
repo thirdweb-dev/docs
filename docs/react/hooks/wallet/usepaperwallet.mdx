@@ -12,6 +12,8 @@ import { usePaperWallet } from "@thirdweb-dev/react";
 const connectWithPaperWallet = usePaperWallet();
 ```
 
+The [paperWallet](/react/react.paperWallet) also needs to be added in [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) if you want the wallet to auto-connect on next page load.
+
 ## Usage
 
 Calling the function returned by the `usePaperWallet` hook opens the Paper Wallet's Modal and prompts the user to log in with their email address.
@@ -61,40 +63,10 @@ Paper SDK requires a clientId for instantiation. You can create a `clientId` for
 To connect to a specific chain when connecting the wallet,
 pass the `chainId` in a configuration object as shown below.
 
-Paper Wallet only supports below shown chains at the moment:
-
-- Ethereum (1)
-- Goerli (5)
-- Polygon (137)
-- Avalanche(43114)
-- Fantom (250)
-- Fantom Testnet (4002)
-- Mumbai Testnet (80001)
-- Avalanche (43114)
-- Optimism (10)
-- Optimism Testnet (420)
-- Binance Smart Chain (56)
-- Binance Smart Chain Testnet (97)
-- Arbitrum One (42161)
-- Arbitrum Goerli Testnet (421611)
-
 If no `chainId` is specified, Ethereum (1) is used by default.
 
 ```ts
-chianId: 5 |
-  10 |
-  1 |
-  56 |
-  97 |
-  137 |
-  250 |
-  420 |
-  4002 |
-  42161 |
-  43114 |
-  80001 |
-  421613 |
-  undefined;
+chianId: number | undefined;
 ```
 
 ```jsx
@@ -162,6 +134,51 @@ function App() {
       Connect Wallet
     </button>
   );
+}
+```
+
+</div>
+</details>
+
+<details>
+  <summary>adnvancedOptions (optional)</summary>
+  <div>
+
+Advanced options for Paper SDK.
+
+```ts
+advancedOptions: {
+  recoveryShareManagement?: 'AWS_MANAGED' | 'USER_MANAGED'
+}
+```
+
+`recoveryShareManagement` indicates who should be in charge of managing the user's recovery share. Choosing `"AWS_MANAGED"` is the easiest to get started and is generally what we recommend. For more information, see [managing the user's recovery share](https://docs.withpaper.com/reference/managing-the-users-recovery-share)
+
+</div>
+</details>
+
+<details>
+  <summary>styles (optional)</summary>
+  <div>
+
+customize the UI component of Paper SDK.
+
+```ts
+styles: {
+  // The roundness of buttons.
+  borderRadius?: string,
+  // The background color of the UI components.
+  colorBackground?: string,
+  // The button and link color of the UI components.
+  colorPrimary?: string,
+  // The text color of the UI components.
+  colorText?: string,
+  // The font family of the UI components.
+  fontFamily?: string,
+  // background color of the input fields
+  inputBackgroundColor?: string,
+  // border color of the input fields
+  inputBorderColor?: string,
 }
 ```
 

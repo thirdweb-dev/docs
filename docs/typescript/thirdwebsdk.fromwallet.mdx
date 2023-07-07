@@ -3,7 +3,7 @@ title: ThirdwebSDK.fromWallet
 slug: /sdk.thirdwebsdk.fromwallet
 ---
 
-Instantiate the [`ThirdwebSDK`](/sdk.thirdwebsdk) in read-write mode using a `Wallet` object.
+Instantiate the [`ThirdwebSDK`](/typescript/sdk.thirdwebsdk) in read-write mode using a `Wallet` object.
 
 The [`@thirdweb-dev/wallets`](https://github.com/thirdweb-dev/js/tree/main/packages/wallets) package provides a set
 of wallets for you to use to instantiate the SDK.
@@ -18,7 +18,7 @@ This is the recommended method to instantiate the SDK in a production environmen
 First, install the [`@thirdweb-dev/wallets`](https://github.com/thirdweb-dev/js/tree/main/packages/wallets) package:
 
 ```bash npm2yarn
-npm install @thirdweb/wallets
+npm install @thirdweb-dev/wallets
 ```
 
 Then, you can use the `ThirdwebSDK.fromWallet` method to instantiate the SDK.
@@ -27,7 +27,7 @@ Below is an example of how to instantiate the SDK with the [AWS Key Management S
 
 ```typescript
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
-import { AwsKmsWallet } from "@thirdweb-dev/wallets";
+import { AwsKmsWallet } from "@thirdweb-dev/wallets/evm/wallets/aws-kms";
 
 const wallet = new AwsKmsWallet({
   region: "us-east-1",
@@ -69,7 +69,7 @@ The value stored in your secret value should be your wallet&rsquo;s private key.
 
 ```typescript
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
-import { AwsKmsWallet } from "@thirdweb-dev/wallets";
+import { AwsKmsWallet } from "@thirdweb-dev/wallets/evm/wallets/aws-kms";
 
 const wallet = new AwsKmsWallet({
   region: "us-east-1", // Region where your secret is stored
@@ -90,7 +90,7 @@ The value stored in your secret value should be your wallet&rsquo;s private key.
 
 ```typescript
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
-import { AwsSecretsManagerWallet } from "@thirdweb-dev/wallets";
+import { AwsSecretsManagerWallet } from "@thirdweb-dev/wallets/evm/wallets/aws-secrets-manager";
 
 const wallet = new AwsSecretsManagerWallet({
   secretId: "{{secret-id}}", // ID of the secret value

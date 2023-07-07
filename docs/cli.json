@@ -65,6 +65,10 @@
     {
       "flags": ["--dev"],
       "description": "Install the dev version of packages."
+    },
+    {
+      "flags": ["--debug"],
+      "description": "Show debug logs"
     }
   ],
   "build": [
