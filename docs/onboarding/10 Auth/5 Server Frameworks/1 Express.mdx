@@ -122,7 +122,7 @@ app.get("/secret", async (req, res) => {
 
 ### Validating the login request
 
-By default, the Auth API will validate the login request by checking that the user requesting to login succesfully signed a valid [sign-in with wallet](/auth/how-auth-works/sign-in-with-wallet) message. However, this doesn't perform specific checks on the exact contents of the payload, aside from the domain used for anti-phishing.
+By default, the Auth API will validate the login request by checking that the user requesting to login successfully signed a valid [sign-in with wallet](/auth/how-auth-works/sign-in-with-wallet) message. However, this doesn't perform specific checks on the exact contents of the payload, aside from the domain used for anti-phishing.
 
 If you want to add specific checks to enforce the exact data on the login payload signed by users, you can use the `authOptions` configuration:
 
@@ -181,11 +181,11 @@ export const { ThirdwebAuthHandler, getUser } = ThirdwebAuth({
 
 ### Changing the token refresh interval
 
-As discussed above, each JWT has a validity duration for which it is valid, and once that duration passes, the JWT will no longer be accepted by the backend. In this case, the user would have to login again. However, for users who login frequently, having to relogin every few days would be an inconvenience.
+As discussed above, each JWT has a validity duration for which it is valid, and once that duration passes, the JWT will no longer be accepted by the backend. In this case, the user would have to login again. However, for users who login frequently, having to re-login every few days would be an inconvenience.
 
 This is where the refresh token flow comes in - for users who come back to your website frequently, they can get their valid JWTs refreshed to have an extended validity duration.
 
-The `refreshIntervalInSeconds` option allows you to configure how long after a JWT has initially been issued must pass before the token can be refreshed. Ideally, you don't want the token to be refresh too frequently because you'll received an unncessary amount of requests to your API, but you want it to be refreshed frequently enough to increase convenience for frequently returning users. The default value for the `refreshIntervalInSeconds` value is 3 hours (10800 seconds), meaning users who come back to your site after 3 hours of initially logging in will get their tokens refreshed.
+The `refreshIntervalInSeconds` option allows you to configure how long after a JWT has initially been issued must pass before the token can be refreshed. Ideally, you don't want the token to be refresh too frequently because you'll received an unnecessary amount of requests to your API, but you want it to be refreshed frequently enough to increase convenience for frequently returning users. The default value for the `refreshIntervalInSeconds` value is 3 hours (10800 seconds), meaning users who come back to your site after 3 hours of initially logging in will get their tokens refreshed.
 
 ```ts title="pages/api/auth/[...thirdweb].ts"
 export const { ThirdwebAuthHandler, getUser } = ThirdwebAuth({
@@ -256,7 +256,7 @@ export const { authRouter, authMiddleware, getUser } = ThirdwebAuth({
 
 ### Enhancing user data
 
-Alternatively, you can populate data about a user everytime user data is requested from the `/user` endpoint or `getUser` function. This data is not session-wide as it is not stored on the JWT, so it isn't persisted an can change between requests. It can be useful for populating data that is not stored on the JWT, such as user profile information. We can do this by returning data from the `callbacks.onUser` callback function.
+Alternatively, you can populate data about a user every time user data is requested from the `/user` endpoint or `getUser` function. This data is not session-wide as it is not stored on the JWT, so it isn't persisted an can change between requests. It can be useful for populating data that is not stored on the JWT, such as user profile information. We can do this by returning data from the `callbacks.onUser` callback function.
 
 ```ts title="pages/api/auth/[...thirdweb].ts"
 import type { User } from "@thirdweb/auth/express";

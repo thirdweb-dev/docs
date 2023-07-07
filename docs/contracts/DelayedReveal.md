@@ -85,7 +85,7 @@ _Reveal encrypted base URI for `_batchId` with caller/admin&#39;s `_key` used fo
 function isEncryptedBatch(uint256 _batchId) external view returns (bool)
 ```
 
-Returns whether the relvant batch of NFTs is subject to a delayed reveal.
+Returns whether the relevant batch of NFTs is subject to a delayed reveal.
 
 _Returns `true` if `_batchId`&#39;s base URI is encrypted._
 

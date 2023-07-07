@@ -38,7 +38,7 @@ The `/login` endpoint goes through the following high-level steps to accomplish 
 
 ![auth-api-2](../assets/auth-api-2.png)
 
-The `/user` endpoint is a `GET` endpoint that allows the client to perioically check if the user is still logged in, and to get any associated user data that's relevant to the client (like profile data, for example).
+The `/user` endpoint is a `GET` endpoint that allows the client to periodically check if the user is still logged in, and to get any associated user data that's relevant to the client (like profile data, for example).
 
 It can accomplish this by going through the following high-level steps:
 
@@ -51,7 +51,7 @@ It can accomplish this by going through the following high-level steps:
 
 ![auth-api-3](../assets/auth-api-3.png)
 
-The `/logout` endpoint is the simplest of all of them. It's goal is simply to invalidate the users JWT and log them out of the application. It accomplishes this by deleting any client-side cookies with the JWT, and optionally invaliating the JWT if a database setup is used.
+The `/logout` endpoint is the simplest of all of them. It's goal is simply to invalidate the users JWT and log them out of the application. It accomplishes this by deleting any client-side cookies with the JWT, and optionally invalidating the JWT if a database setup is used.
 
 ## Protected Endpoints
 
@@ -72,6 +72,6 @@ There's one additional endpoint which we didn't cover above in the core flow of 
 
 The purpose of this endpoint is to support the more advanced flow of enabling multiple accounts to be logged in with Auth at one time, and to enable the client-side user to switch which account they want to actively perform actions with (similar to a typical OAuth flow where you can swap between multiple logged-in accounts).
 
-The way Auth maintains multipled logged in accounts at once is by storing the JWT for each logged in wallet in a separate cookie on the browser. In order to determine which of these cookies should be used with each request, the Auth API sends an additioanl cookie that stores the "active account" that the user wants to perform actions with. Then, when the user wants to switch accounts, they can make a request to this `/switch-account` endpoint to update the active account cookie.
+The way Auth maintains multiplied logged in accounts at once is by storing the JWT for each logged in wallet in a separate cookie on the browser. In order to determine which of these cookies should be used with each request, the Auth API sends an additionally cookie that stores the "active account" that the user wants to perform actions with. Then, when the user wants to switch accounts, they can make a request to this `/switch-account` endpoint to update the active account cookie.
 
 If you're using the thirdweb React SDK on the client-side, switching accounts is automatically handled for you when user's switch between logged in wallets.
