@@ -277,7 +277,7 @@ _Returns the claim condition at the given uid._
 function getDefaultRoyaltyInfo() external view returns (address, uint16)
 ```
 
-Returns the defualt royalty recipient and BPS for this contract&#39;s NFTs.
+Returns the default royalty recipient and BPS for this contract&#39;s NFTs.
 
 #### Returns
 
@@ -481,9 +481,9 @@ _Returns `true` if `account` has been granted `role`._
 function hasRoleWithSwitch(bytes32 role, address account) external view returns (bool)
 ```
 
-Checks whether an account has a particular role; role restrictions can be swtiched on and off.
+Checks whether an account has a particular role; role restrictions can be switched on and off.
 
-_Returns `true` if `account` has been granted `role`. Role restrictions can be swtiched on and off: - If address(0) has ROLE, then the ROLE restrictions don&#39;t apply. - If address(0) does not have ROLE, then the ROLE restrictions will apply._
+_Returns `true` if `account` has been granted `role`. Role restrictions can be switched on and off: - If address(0) has ROLE, then the ROLE restrictions don&#39;t apply. - If address(0) does not have ROLE, then the ROLE restrictions will apply._
 
 #### Parameters
 
@@ -504,7 +504,7 @@ _Returns `true` if `account` has been granted `role`. Role restrictions can be s
 function initialize(address _defaultAdmin, string _name, string _symbol, string _contractURI, address[] _trustedForwarders, address _saleRecipient, address _royaltyRecipient, uint128 _royaltyBps, uint128 _platformFeeBps, address _platformFeeRecipient) external nonpayable
 ```
 
-_Initiliazes the contract, like a constructor._
+_Initializes the contract, like a constructor._
 
 #### Parameters
 
@@ -548,7 +548,7 @@ _See {IERC721-isApprovedForAll}._
 function isEncryptedBatch(uint256 _batchId) external view returns (bool)
 ```
 
-Returns whether the relvant batch of NFTs is subject to a delayed reveal.
+Returns whether the relevant batch of NFTs is subject to a delayed reveal.
 
 _Returns `true` if `_batchId`&#39;s base URI is encrypted._
 

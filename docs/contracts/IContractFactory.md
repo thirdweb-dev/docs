@@ -24,7 +24,7 @@ Deploys a proxy that points to that points to the given implementation.
 | Name           | Type    | Description                                                                                   |
 | -------------- | ------- | --------------------------------------------------------------------------------------------- |
 | implementation | address | Address of the implementation to point to.                                                    |
-| data           | bytes   | Additional data to pass to the proxy constructor or any other data useful during deployement. |
+| data           | bytes   | Additional data to pass to the proxy constructor or any other data useful during deployment. |
 | salt           | bytes32 | Salt to use for the deterministic address generation.                                         |
 
 #### Returns
