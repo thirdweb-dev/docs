@@ -49,7 +49,7 @@ sdk.wallet.connect(signer);
 | Method                                                                              | Modifiers           | Description                                                   |
 | ----------------------------------------------------------------------------------- | ------------------- | ------------------------------------------------------------- |
 | [fromNetwork(network, storage)](./sdk.thirdwebsdk.fromnetwork.md)                   | <code>static</code> | Create a new SDK instance for the specified network           |
-| [fromPrivateKey(network, privateKey, storage)](./sdk.thirdwebsdk.fromprivatekey.md) | <code>static</code> | reate a new SDK instance connected with the given private key |
+| [fromPrivateKey(network, privateKey, storage)](./sdk.thirdwebsdk.fromprivatekey.md) | <code>static</code> | Create a new SDK instance connected with the given private key |
 | [getNFTCollection(address)](./sdk.thirdwebsdk.getnftcollection.md)                  |                     | Get an SDK interface for an NFT Collection program            |
 | [getNFTDrop(address)](./sdk.thirdwebsdk.getnftdrop.md)                              |                     | Get an SDK interface for an NFT Drop program                  |
 | [getProgram(address)](./sdk.thirdwebsdk.getprogram.md)                              |                     | Get an SDK interface for a deployed program                   |

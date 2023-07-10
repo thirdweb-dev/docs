@@ -4,11 +4,15 @@ slug: /submit-wallet
 toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
 ---
 
+import ViewRepoButton from "@components/ViewRepoButton";
+
 # Submit Your Wallet
+
+The Thirdweb Unity SDK comes with many built-in wallets, but you can add your own wallet to the SDK by following these steps.
 
 ## Step 1 - WalletProvider
 
-Add your wallet identifier to the `WalletProvider` enum in `Wallet.cs`.
+Add your wallet identifier to the WalletProvider enum in the Wallet.cs file. This enum represents the different wallet providers.
 
 ```csharp
 public enum WalletProvider
@@ -18,9 +22,9 @@ public enum WalletProvider
 }
 ```
 
-## Step 2 - Extend IThirdwebWallet
+## Step 2 - Implement IThirdwebWallet
 
-You must implement the `IThirdwebWallet` interface and add your wallet class under `Thirdweb/Wallets`.
+Implement the IThirdwebWallet interface for your wallet. This interface defines the methods and properties required for wallet integration.
 
 ```csharp
 namespace Thirdweb.Wallets
@@ -60,37 +64,37 @@ namespace Thirdweb.Wallets
 }
 ```
 
-## Step 3 - Instantiate wallet in `ThirdwebSession.Connect`
+## Step 3 - Instantiate Your Wallet in ThirdwebSession.Connect
 
-Head to `ThirdwebSession.cs` and instantiate your wallet in the `Connect` method.
+In the ThirdwebSession.cs file, instantiate your wallet in the Connect method.
 
 ```csharp
 switch (walletConnection.provider)
 {
-    ...
-    case WalletProvider.MyEpicWallet:
-        ActiveWallet = new MyEpicWallet();
+    // ...
+    case WalletProvider.MyWalletProvider:
+        ActiveWallet = new MyWallet();
         break;
-    ...
+    // ...
 }
 ```
 
-## Tips
+## Advanced
 
 ### WalletConnection
 
-If you need additional data for your constructor/connect calls, you can add fields to the `WalletConnection` class under `Wallet.cs`.
+If your wallet implementation requires additional data for the constructor or connect methods, you can add fields to the `WalletConnection` class in the `Wallet.cs` file.
 
 ```csharp
 public class WalletConnection
 {
-    ...
-    public string myNewRequiredVariable;
+    // ...
+    public string additionalData;
 
-    public WalletConnection(..., string myNewRequiredVariable = null)
+    public WalletConnection(/* ... */, string additionalData = null)
     {
-        ...
-        this.myNewRequiredVariable = myNewRequiredVariable;
+        // ...
+        this.additionalData = additionalData;
     }
 }
 ```
@@ -221,3 +225,13 @@ namespace Thirdweb.AccountAbstraction
     }
 }
 ```
+
+## Submitting Your Wallet
+
+If you think your wallet implementation would be useful to others, please consider sharing it by opening a PR to the `thirdweb-dev/unity-sdk` repository.
+
+<ViewRepoButton
+  name={"js"}
+  text="Contribute"
+  link={"https://github.com/thirdweb-dev/unity-sdk"}
+/>

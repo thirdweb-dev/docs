@@ -404,6 +404,11 @@
       "permanent": true
     },
     {
+      "source": "/unity/prefabs/thirdwebmanager",
+      "destination": "/unity/thirdwebmanager",
+      "permanent": true
+    },
+    {
       "source": "/sdk/connecting-to-a-wallet",
       "destination": "/ui-components/connectwalletbutton"
     },

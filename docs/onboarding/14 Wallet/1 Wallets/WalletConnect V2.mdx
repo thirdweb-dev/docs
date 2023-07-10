@@ -27,7 +27,7 @@ Optionally, provide a configuration object when instantiating the `WalletConnect
   <summary>projectId</summary>
   <div>
 
-Your project's unique identifier. It can be obtained at [cloud.walletconnect.com](https://cloud.walletconnect.com).
+Your project's unique identifier. It can be obtained at [cloud.walletconnect.com](https://cloud.walletconnect.com). It is highly recommended to use your own project id and only use the default one for testing purposes.
 
 It enables the following functionalities within WalletConnect's web3modal:
 
@@ -35,7 +35,7 @@ It enables the following functionalities within WalletConnect's web3modal:
 - optional WalletConnect RPC
 - support for all wallets from our Explorer and WalletConnect v2 support
 
-Defaults to `undefined`
+Defaults to thirdweb's common project id.
 
 ```javascript
 import { WalletConnect } from "@thirdweb-dev/wallets";
@@ -138,9 +138,9 @@ WalletConnect's [options](https://docs.walletconnect.com/2.0/web3modal/options) 
 ```typescript
 type QRModalOptions = {
   themeVariables?: {
-    "--w3m-z-index"?: string;
-    "--w3m-accent-color"?: string;
-    "--w3m-accent-fill-color"?: string;
+    "--wcm-z-index"?: string;
+    "--wcm-accent-color"?: string;
+    "--wcm-accent-fill-color"?: string;
     // ... and more
   };
   themeMode?: "dark" | "light";
@@ -258,7 +258,7 @@ Native link represents deep linking url like `ledgerlive://` and Universal link 
 
 Defaults to `undefined`
 
-```typscript
+```typescript
 desktopWallets: [
   {
     id: string,

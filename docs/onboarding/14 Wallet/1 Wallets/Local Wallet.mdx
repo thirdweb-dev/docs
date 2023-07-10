@@ -49,11 +49,11 @@ Local wallets can be persisted on disk, or backed up to the cloud. Currently 3 f
 
 - `encryptedJSON` - a standard format for encrypted wallets, this requires a password to encrypt/decrypt the wallet. Recommended for safe backups.
 - `privateKey` - the raw private key. This can be stored encrypted or un-encrypted. If not encrypted, make sure you store it somewhere safe.
-- `menmonic` - the raw seed phrase. This can be stored encrypted or un-encrypted. If not encrypted, make sure you store it somewhere safe.
+- `mnemonic` - the raw seed phrase. This can be stored encrypted or un-encrypted. If not encrypted, make sure you store it somewhere safe.
 
 We provide encryption capabilities out of the box, but you can customize the type of encryption, and also turn it off completely.
 
-The type of storage can also be overriden, allowing you to store wallets anywhere you want, including remote locations.
+The type of storage can also be overridden, allowing you to store wallets anywhere you want, including remote locations.
 
 By default, wallets will be stored on the browser's storage for web (React), and on the secure storage of the device for mobile (React Native).
 
@@ -103,7 +103,7 @@ localWallet.save({
 });
 ```
 
-2. Import a raw private key or menmonic (seed phrase) with no encryption:
+2. Import a raw private key or mnemonic (seed phrase) with no encryption:
 
 ```javascript
 // privateKey
@@ -114,7 +114,7 @@ localWallet.import({
 
 // mnemonic
 localWallet.import({
-  mnemonic: "your-raw-menmonic",
+  mnemonic: "your-raw-mnemonic",
   encryption: false, // no encryption
 });
 ```
@@ -298,7 +298,7 @@ const walletWithOptions = new LocalWallet(
 
 ## Methods
 
-Inherhits all the public methods from the [`AbstractClientWallet`](interfaces/abstract-client-wallet) class.
+Inherits all the public methods from the [`AbstractClientWallet`](interfaces/abstract-client-wallet) class.
 
 Also provides wallet specific public methods:
 

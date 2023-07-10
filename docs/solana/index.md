@@ -40,7 +40,7 @@ import { ThirdwebSDK } from "@thirdweb-dev/sdk/solana";
 const sdk = ThirdwebSDK.fromNetwork("devnet");
 
 // Next, we pass in a keypair to the SDK (you can generate this or use your own)
-// You can also generate one, using Kepair.generate() from @solana/web3.js
+// You can also generate one, using Keypair.generate() from @solana/web3.js
 const keypair = Keypair.fromSecretKey(...)
 sdk.wallet.connect(keypair);
 

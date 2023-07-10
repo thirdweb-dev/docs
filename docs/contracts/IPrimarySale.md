@@ -17,7 +17,7 @@ Thirdweb&#39;s `Primary` is a contract extension to be used with any base contra
 function primarySaleRecipient() external view returns (address)
 ```
 
-_The adress that receives all primary sales value._
+_The address that receives all primary sales value._
 
 #### Returns
 

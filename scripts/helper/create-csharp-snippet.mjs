@@ -169,17 +169,17 @@ Pack pack = contract.pack;`,
   },
   Split: {
     balanceOf:
-      "// Split is not yet supported in Unity. You can still use the contrat.Read and contract.Write functions to call functions directly.",
+      "// Split is not yet supported in Unity. You can still use the contract.Read and contract.Write functions to call functions directly.",
     balanceOfToken:
-      "// Split is not yet supported in Unity. You can still use the contrat.Read and contract.Write functions to call functions directly.",
+      "// Split is not yet supported in Unity. You can still use the contract.Read and contract.Write functions to call functions directly.",
     distribute:
-      "// Split is not yet supported in Unity. You can still use the contrat.Read and contract.Write functions to call functions directly.",
+      "// Split is not yet supported in Unity. You can still use the contract.Read and contract.Write functions to call functions directly.",
     distributeToken:
-      "// Split is not yet supported in Unity. You can still use the contrat.Read and contract.Write functions to call functions directly.",
+      "// Split is not yet supported in Unity. You can still use the contract.Read and contract.Write functions to call functions directly.",
     getAllRecipients:
-      "// Split is not yet supported in Unity. You can still use the contrat.Read and contract.Write functions to call functions directly.",
+      "// Split is not yet supported in Unity. You can still use the contract.Read and contract.Write functions to call functions directly.",
     withdraw:
-      "// Split is not yet supported in Unity. You can still use the contrat.Read and contract.Write functions to call functions directly.",
+      "// Split is not yet supported in Unity. You can still use the contract.Read and contract.Write functions to call functions directly.",
   },
   Pack: {
     addPackContents:
@@ -191,7 +191,7 @@ Pack pack = contract.pack;`,
     get: 'var tokenId = "0";\nvar pack = await contract.Get(tokenId);',
     getAll: "var packs = await contract.GetAll();",
     getOwned:
-      '// Address of the Wallet to get the packs of\nvar address = "{{wallet_address}}";\nvar packss = await contract.GetOwned(address);',
+      '// Address of the Wallet to get the packs of\nvar address = "{{wallet_address}}";\nvar packs = await contract.GetOwned(address);',
     getPackContents:
       'var packId = "0";\nvar contents = await contract.GetPackContents(packId);\nDebug.Log(contents.erc20Rewards);\nDebug.Log(contents.erc721Rewards);\nDebug.Log(contents.erc1155Rewards);',
     open: 'var tokenId = "0";\nvar amount = "1";\nvar tx = await contract.Open(tokenId, amount);',
@@ -203,32 +203,32 @@ Pack pack = contract.pack;`,
   },
   Vote: {
     canExecute:
-      "// Vote is not yet supported in Unity. You can still use the contrat.Read and contract.Write functions to call functions directly.",
+      "// Vote is not yet supported in Unity. You can still use the contract.Read and contract.Write functions to call functions directly.",
     execute:
-      "// Vote is not yet supported in Unity. You can still use the contrat.Read and contract.Write functions to call functions directly.",
+      "// Vote is not yet supported in Unity. You can still use the contract.Read and contract.Write functions to call functions directly.",
     getAll:
-      "// Vote is not yet supported in Unity. You can still use the contrat.Read and contract.Write functions to call functions directly.",
+      "// Vote is not yet supported in Unity. You can still use the contract.Read and contract.Write functions to call functions directly.",
     hasVoted:
-      "// Vote is not yet supported in Unity. You can still use the contrat.Read and contract.Write functions to call functions directly.",
+      "// Vote is not yet supported in Unity. You can still use the contract.Read and contract.Write functions to call functions directly.",
     propose:
-      "// Vote is not yet supported in Unity. You can still use the contrat.Read and contract.Write functions to call functions directly.",
-    vote: "// Vote is not yet supported in Unity. You can still use the contrat.Read and contract.Write functions to call functions directly.",
+      "// Vote is not yet supported in Unity. You can still use the contract.Read and contract.Write functions to call functions directly.",
+    vote: "// Vote is not yet supported in Unity. You can still use the contract.Read and contract.Write functions to call functions directly.",
   },
   Multiwrap: {
     getWrappedContents:
-      "// Multiwrap is not yet supported in Unity. You can still use the contrat.Read and contract.Write functions to call functions directly.",
+      "// Multiwrap is not yet supported in Unity. You can still use the contract.Read and contract.Write functions to call functions directly.",
     unwrap:
-      "// Multiwrap is not yet supported in Unity. You can still use the contrat.Read and contract.Write functions to call functions directly.",
-    wrap: "// Multiwrap is not yet supported in Unity. You can still use the contrat.Read and contract.Write functions to call functions directly.",
+      "// Multiwrap is not yet supported in Unity. You can still use the contract.Read and contract.Write functions to call functions directly.",
+    wrap: "// Multiwrap is not yet supported in Unity. You can still use the contract.Read and contract.Write functions to call functions directly.",
     balanceOf:
-      "// Multiwrap is not yet supported in Unity. You can still use the contrat.Read and contract.Write functions to call functions directly.",
-    get: "// Multiwrap is not yet supported in Unity. You can still use the contrat.Read and contract.Write functions to call functions directly.",
+      "// Multiwrap is not yet supported in Unity. You can still use the contract.Read and contract.Write functions to call functions directly.",
+    get: "// Multiwrap is not yet supported in Unity. You can still use the contract.Read and contract.Write functions to call functions directly.",
     getAll:
-      "// Multiwrap is not yet supported in Unity. You can still use the contrat.Read and contract.Write functions to call functions directly.",
+      "// Multiwrap is not yet supported in Unity. You can still use the contract.Read and contract.Write functions to call functions directly.",
     getOwned:
-      "// Multiwrap is not yet supported in Unity. You can still use the contrat.Read and contract.Write functions to call functions directly.",
+      "// Multiwrap is not yet supported in Unity. You can still use the contract.Read and contract.Write functions to call functions directly.",
     transfer:
-      "// Multiwrap is not yet supported in Unity. You can still use the contrat.Read and contract.Write functions to call functions directly.",
+      "// Multiwrap is not yet supported in Unity. You can still use the contract.Read and contract.Write functions to call functions directly.",
   },
   ContractDeployer: {
     deployEdition:

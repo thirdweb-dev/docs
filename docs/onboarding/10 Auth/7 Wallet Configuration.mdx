@@ -14,7 +14,7 @@ Auth makes use of a server-side wallet to sign and verify JWTs, as covered in th
 
 The easiest way to get started with Auth would be to use a simple private key or signer wallet directly. It's easy to use such a setup with just the core `@thirdweb-dev/auth` package.
 
-Given that private key and signer wallets for EVM and Solana depend on different packages underneath, they are accessible via separate `@thirdweb-dev/auth/evm` and `@thirdweb-dev/auth/solana` entrypoints, which each have their own `peerDependencies`.
+Given that private key and signer wallets for EVM and Solana depend on different packages underneath, they are accessible via separate `@thirdweb-dev/auth/evm` and `@thirdweb-dev/auth/solana` entry points, which each have their own `peerDependencies`.
 
 ### EVM
 
@@ -106,7 +106,7 @@ const wallet = new SignerWallet(keypair);
 
 ## Advanced Wallets
 
-For more advanced wallet setups like cloud wallets, managed private keys, and more, we have a variety of options available in our `@thirdweb-dev/wallets` package. The package is an optional `peerDependency` of `@thirdweb-dev/auth`, so you'll need to install it separately, along with any peer depenencis of the specific wallet you want to use.
+For more advanced wallet setups like cloud wallets, managed private keys, and more, we have a variety of options available in our `@thirdweb-dev/wallets` package. The package is an optional `peerDependency` of `@thirdweb-dev/auth`, so you'll need to install it separately, along with any peer dependencies of the specific wallet you want to use.
 
 ```bash npm2yarn
 npm install @thirdweb-dev/auth @thirdweb-dev/wallets
@@ -173,7 +173,7 @@ interface GenericAuthWallet {
 
 You can see how this interface is chain agnostic, and can be used across different blockchain ecosystems.
 
-For example, here is a minimal implementation of the basic `SignerWallet` class from the `@thirdweb-dev/auth/evm` entrypoing, which follows the `GenericAuthWallet` interface:
+For example, here is a minimal implementation of the basic `SignerWallet` class from the `@thirdweb-dev/auth/evm` entry point, which follows the `GenericAuthWallet` interface:
 
 ```typescript
 import type { Ecosystem, GenericAuthWallet } from "@thirdweb-dev/wallets";

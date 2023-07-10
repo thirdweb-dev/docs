@@ -50,7 +50,7 @@ returns: the transaction receipt of the mint
 func (edition *Edition) MintAdditionalSupply(ctx context.Context, tokenId int, additionalSupply int) (*types.Transaction, error)
 ```
 
-Mint additionaly supply of a token to the connected wallet\.
+Mint additionally supply of a token to the connected wallet\.
 
 tokenId: token ID to mint additional supply of
 
@@ -70,7 +70,7 @@ to: address of the wallet to mint NFTs to
 
 tokenId: token Id to mint additional supply of
 
-additionalySupply: additional supply to mint
+additionallySupply: additional supply to mint
 
 returns: the transaction receipt of the mint
 
