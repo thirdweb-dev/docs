@@ -386,7 +386,7 @@
     },
     {
       "name": "MintAdditionalSupply",
-      "summary": "Mint additionaly supply of an NFT",
+      "summary": "Mint additionally supply of an NFT",
       "examples": {
         "go": "tokenId := 0\nadditionalSupply := 100\n\ntx, err := contract.MintAdditionalSupply(context.Background(), tokenId, additionalSupply)\n"
       },
@@ -426,7 +426,7 @@
     },
     {
       "name": "MintAdditionalSupply",
-      "summary": "Mint additionaly supply of an NFT",
+      "summary": "Mint additionally supply of an NFT",
       "examples": {
         "go": "tokenId := 0\nadditionalSupply := 100\n\ntx, err := contract.MintAdditionalSupply(context.Background(), tokenId, additionalSupply)\n"
       },

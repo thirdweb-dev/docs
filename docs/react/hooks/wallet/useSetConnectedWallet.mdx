@@ -32,7 +32,7 @@ function App() {
   const handleConnect = async () => {
     // create a wallet instance using useCreateWalletInstance
     const metamaskWalletInstance = createWalletInstance(metamaskConfig);
-    // conect the wallet instance
+    // connect the wallet instance
     await metamaskWalletInstance.connect();
 
     // highlight-start

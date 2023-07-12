@@ -335,7 +335,7 @@ _See {IGovernor-hashProposal}. The proposal id is produced by hashing the ABI en
 function initialize(string _name, string _contractURI, address[] _trustedForwarders, address _token, uint256 _initialVotingDelay, uint256 _initialVotingPeriod, uint256 _initialProposalThreshold, uint256 _initialVoteQuorumFraction) external nonpayable
 ```
 
-_Initiliazes the contract, like a constructor._
+_Initializes the contract, like a constructor._
 
 #### Parameters
 
