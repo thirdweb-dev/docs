@@ -1,0 +1,55 @@
+---
+title: Settings
+slug: /dashboard/settings
+---
+
+# Settings
+
+The settings page allows you to configure and create API keys. An API key is required to use thirdweb's infrastructure services such as Smart Wallet, Storage and RPCs.
+
+## Creating an API Key
+
+To create an API key, 
+- Click the button labeled "Create API Key"
+- Enter a name for the key. The name is used to identify the key in the list of API keys. 
+- Select the services that the key will have access to
+    - [Storage](/storage)
+    - [Smart Wallet](/wallet/smart-wallet) - you will need to add the smart wallet addresses which will be allowed to use this API key.
+    - RPCs
+- Click the "Create" button to create the key.
+
+This will create an API key which you can you use to access thirdweb's infrastructure services by copying the Publishable Key and instantiating the thirdweb SDK:
+
+```javascript
+const sdk = new ThirdwebSDK("goerli", {
+        apiKey: "pk-7bdfc499fbdd4678687ae5d6fe68dbd5a761559ceaa176e3"
+    });
+```
+
+## Viewing and Managing an API Key
+
+To view and manage your API key, click the key from your list of API keys. This will open a modal where you can restrict your publishable key, create secret keys, view which services the key has access to and edit your API key.
+
+### Editing an API Key
+
+To edit an API key, click the "Edit" button. This will allow you to edit the name of the key and the allowed domains and select which services it is allowed to access.
+
+### Publishable Key
+
+The publishable key is used to access thirdweb services from the browser. It is safe to share this key with anyone as it can be restricted to allowed domains and enabled services. 
+
+:::info
+This Publishable Key can be used from any domain. Anyone with the key can use it to access all the services enabled for this key.
+:::
+
+### Secret Key
+
+The secret key is also used to access thirdweb's infrastructure services but it is not safe to share this key with anyone. It does not adhere to restrictions you define. Anyone with the Secret Key can access all thirdweb services.
+
+To generate a secret key, click the "Generate" button.
+
+If you suspect that your secret key has been compromised, you can regenerate the key by clicking the "Regenerate" button. This will invalidate the old key and generate a new one.
+
+### Revoking an API Key
+
+To revoke your API key, click the "Revoke" button. This will invalidate the key and it will no longer be usable. You can regenerate the key to create a new one.
