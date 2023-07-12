@@ -109,7 +109,7 @@ _airdrop expiration timestamp._
 function initialize(address _defaultAdmin, address[] _trustedForwarders, address _tokenOwner, address _airdropTokenAddress, uint256[] _tokenIds, uint256[] _availableAmounts, uint256 _expirationTimestamp, uint256[] _maxWalletClaimCount, bytes32[] _merkleRoot) external nonpayable
 ```
 
-_Initiliazes the contract, like a constructor._
+_Initializes the contract, like a constructor._
 
 #### Parameters
 

@@ -42,7 +42,7 @@ Returns the latest version of a contract published by a publisher.
 | Name       | Type    | Description                                                                |
 | ---------- | ------- | -------------------------------------------------------------------------- |
 | publisher  | address | The address of the publisher.                                              |
-| contractId | string  | The identifier for a published contract (that can have multiple verisons). |
+| contractId | string  | The identifier for a published contract (that can have multiple versions). |
 
 #### Returns
 
@@ -63,7 +63,7 @@ Returns all versions of a published contract.
 | Name       | Type    | Description                                                                |
 | ---------- | ------- | -------------------------------------------------------------------------- |
 | publisher  | address | The address of the publisher.                                              |
-| contractId | string  | The identifier for a published contract (that can have multiple verisons). |
+| contractId | string  | The identifier for a published contract (that can have multiple versions). |
 
 #### Returns
 
@@ -124,7 +124,7 @@ Let&#39;s an account publish a contract.
 | Name                | Type    | Description                                                                                                                                           |
 | ------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | publisher           | address | The address of the publisher.                                                                                                                         |
-| contractId          | string  | The identifier for a published contract (that can have multiple verisons).                                                                            |
+| contractId          | string  | The identifier for a published contract (that can have multiple versions).                                                                            |
 | publishMetadataUri  | string  | The IPFS URI of the publish metadata.                                                                                                                 |
 | compilerMetadataUri | string  | The IPFS URI of the compiler metadata.                                                                                                                |
 | bytecodeHash        | bytes32 | The keccak256 hash of the contract bytecode.                                                                                                          |
@@ -158,7 +158,7 @@ Lets a publisher unpublish a contract and all its versions.
 | Name       | Type    | Description                                                                |
 | ---------- | ------- | -------------------------------------------------------------------------- |
 | publisher  | address | The address of the publisher.                                              |
-| contractId | string  | The identifier for a published contract (that can have multiple verisons). |
+| contractId | string  | The identifier for a published contract (that can have multiple versions). |
 
 ## Events
 

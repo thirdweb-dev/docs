@@ -559,7 +559,7 @@ function votingDelay() external view returns (uint256)
 
 module:user-config
 
-_Delay, in number of block, between the proposal is created and the vote starts. This can be increassed to leave time for users to buy voting power, or delegate it, before the voting of a proposal starts._
+_Delay, in number of block, between the proposal is created and the vote starts. This can be increased to leave time for users to buy voting power, or delegate it, before the voting of a proposal starts._
 
 #### Returns
 

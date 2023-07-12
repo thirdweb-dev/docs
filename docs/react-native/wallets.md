@@ -207,12 +207,12 @@ Defaults to `'v2'`.
 </details>
 
 <details>
-  <summary>walletConenctV2ProjectId</summary>
+  <summary>walletConnectV2ProjectId</summary>
   <div>
 
 The WalletConnect V2 `projectId`. You can get one in the [WalletConnect docs](https://docs.walletconnect.com/2.0/web/sign/installation#1-obtain-project-id).
 
-Defaults to a common `projectId` set by thirdweb. This should be ok for testing but note that if you want to deploy your mobile app it may make sense to create your own as WalletConnect may throttle traffic comming from the same `projectId`.
+Defaults to a common `projectId` set by thirdweb. This should be ok for testing but note that if you want to deploy your mobile app it may make sense to create your own as WalletConnect may throttle traffic coming from the same `projectId`.
 
 </div>
 </details>
@@ -270,6 +270,7 @@ yarn add react-native-safe-area-context react-native-webview react-native-device
 which will install the following dependencies:
 
 - [react-native-safe-area-context](https://www.npmjs.com/package/react-native-safe-area-context?ref=blog.thirdweb.com)
+  - **Note**: The magic wallet requires the app to be wrapped in a `SafeAreaProvider`. This is something we handle in the SDK so please, if your app already has a `SafeAreaProvider` you can remove it and just wrap your app in our `ThirdwebProvider`, this will take care of the safe area context for you.
 - [react-native-webview](https://www.npmjs.com/package/react-native-webview?ref=blog.thirdweb.com)
 - [react-native-device-info](https://www.npmjs.com/package/react-native-device-info?ref=blog.thirdweb.com)
 
