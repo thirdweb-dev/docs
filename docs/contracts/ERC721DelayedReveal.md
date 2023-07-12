@@ -210,7 +210,7 @@ _See {getBaseURICount}._
 function getDefaultRoyaltyInfo() external view returns (address, uint16)
 ```
 
-Returns the defualt royalty recipient and BPS for this contract&#39;s NFTs.
+Returns the default royalty recipient and BPS for this contract&#39;s NFTs.
 
 #### Returns
 
@@ -292,7 +292,7 @@ _See {IERC721-isApprovedForAll}._
 function isEncryptedBatch(uint256 _batchId) external view returns (bool)
 ```
 
-Returns whether the relvant batch of NFTs is subject to a delayed reveal.
+Returns whether the relevant batch of NFTs is subject to a delayed reveal.
 
 _Returns `true` if `_batchId`&#39;s base URI is encrypted._
 

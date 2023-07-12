@@ -41,7 +41,7 @@ await directDeployDeterministic(bytecode, abi, signer, constructorArgs, salt);
 ## Deterministic Deployment With URI
 
 Direct deploy a contract at a deterministic address, using Create2 method. Address depends on the Create2 factory address and salt.
-URI is generated when publishing / deploying with thirwdeb CLI.
+URI is generated when publishing / deploying with thirdweb CLI.
 
 ### Usage
 
@@ -51,7 +51,7 @@ import {
   directDeployDeterministicWithUri,
 } from "@thirdweb-dev/sdk";
 
-const publishMetadataUri = "ipfs://..."; // URI generated when publishing / deploying with thirwdeb CLI
+const publishMetadataUri = "ipfs://..."; // URI generated when publishing / deploying with thirdweb CLI
 const salt = ""; // Specify a salt for Create2 - if not provided, bytecode-hash will be used
 const constructorArgs = []; // input args for constructor
 
@@ -96,7 +96,7 @@ const address = await predictAddressDeterministic(
 ## Predict Deterministic Address With URI
 
 Predict address of the contract in advance. Address depends on the Create2 factory address and salt.
-URI is generated when publishing / deploying with thirwdeb CLI.
+URI is generated when publishing / deploying with thirdweb CLI.
 
 ### Usage
 
@@ -106,7 +106,7 @@ import {
   predictAddressDeterministicWithUri,
 } from "@thirdweb-dev/sdk";
 
-const publishMetadataUri = "ipfs://..."; // URI generated when publishing / deploying with thirwdeb CLI
+const publishMetadataUri = "ipfs://..."; // URI generated when publishing / deploying with thirdweb CLI
 const salt = ""; // Specify a salt for Create2 - if not provided, bytecode-hash will be used
 const constructorArgs = []; // input args for constructor
 
