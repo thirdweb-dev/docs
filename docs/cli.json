@@ -152,5 +152,11 @@
   "upload": [],
   "generate": [
     { "flags": ["-p", "--path <string>"], "description": "Path to project" }
-  ]
+  ],
+  "login": [
+    {
+      "flags": ["-n", "--new <string>"], "description": "Login with a new API secret key"
+    }
+  ],
+  "logout": []
 }
