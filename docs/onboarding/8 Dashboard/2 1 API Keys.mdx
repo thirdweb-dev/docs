@@ -5,7 +5,9 @@ slug: /dashboard/api-keys
 
 # API Keys
 
-The settings page allows you to configure and create API keys. An API key is required to use thirdweb's infrastructure services such as Smart Wallet, Storage and RPCs.
+The settings tab allows you to configure and create API keys. An API key is required to use thirdweb's infrastructure services such as Smart Wallet, Storage and RPCs.
+
+![Create an API Key](/assets/dashboard/settings-tab.png)
 
 ## Creating an API Key
 
@@ -18,6 +20,8 @@ To create an API key,
     - RPCs
 - Click the "Create" button to create the key.
 
+![Create an API Key](/assets/dashboard/create-api-key.png)
+
 This will create an API key that you can use to access thirdweb's infrastructure services by copying the Publishable Key and instantiating the thirdweb SDK:
 
 ```javascript
@@ -28,15 +32,37 @@ const sdk = new ThirdwebSDK("goerli", {
 
 ## Viewing and Managing an API Key
 
-To view and manage your API key, click the key from your list of API keys. This will open a modal where you can restrict your publishable key, create secret keys, view which services the key has access to and edit your API key.
+To view and manage your API key, click the key from your list of API keys. 
+
+![View an API Key](/assets/dashboard/view-api-key.png)
+
+This will open a modal where you can restrict your publishable key, create secret keys, view which services the key has access to and edit your API key.
+
+![Manage API Key](/assets/dashboard/manage-api-key.png)
+
+The "Services" tab allows you to view which services the key has access to and enable or disable services.
+
+![Manage an API Key Services](/assets/dashboard/manage-services-api-key.png)
 
 ### Editing an API Key
 
-To edit an API key, click the "Edit" button. This will allow you to edit the name of the key and the allowed domains and select which services it is allowed to access.
+To edit an API key, click the "Edit" button. 
+
+![Edit an API Key Button](/assets/dashboard/edit-api-key-highlighted.png)
+
+This will allow you to edit the name of the key and the allowed domains.
+
+![Edit an API Key](/assets/dashboard/edit-api-key.png)
+
+You can also modify which services it is allowed to access by heading to the "Services" tab.
+
+![Edit an API Key Services](/assets/dashboard/edit-api-key-services.png)
 
 ### Publishable Key
 
 The publishable key is used to access thirdweb services from the browser. It is safe to share this key with anyone as it can be restricted to allowed domains and enabled services. 
+
+To restrict the publishable key to a domain, enter the domain in the "Allowed Domains" field. You can add multiple domains by separating them with a comma.
 
 :::info
 This Publishable Key can be used from any domain. Anyone with the key can use it to access all the services enabled for this key.
@@ -48,8 +74,18 @@ The secret key is also used to access thirdweb's infrastructure services but it 
 
 To generate a secret key, click the "Generate" button.
 
+![Generate Secret Key](/assets/dashboard/generate-secret-key.png)
+
+This will generate a secret key that you will need to copy and save in a safe place. You will not be able to view the secret key again.
+
+![Your Secret Key](/assets/dashboard/your-secret-key.png)
+
 If you suspect that your secret key has been compromised, you can regenerate the key by clicking the "Regenerate" button. This will invalidate the old key and generate a new one.
+
+![Regenerate Secret Key](/assets/dashboard/regenerate-secret-key.png)
 
 ### Revoking an API Key
 
 To revoke your API key, click the "Revoke" button. This will invalidate the key and it will no longer be usable. You can regenerate the key to create a new one.
+
+![Revoke API Key](/assets/dashboard/revoke-api-key.png)
