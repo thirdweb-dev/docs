@@ -36,7 +36,9 @@ const sdk = new ThirdwebSDK("goerli", {
     });
 ```
 
+:::warning
 It will also generate a secret key that you will need to copy and save in a safe place. **You will not be able to view the secret key again**.
+:::
 
 ![Your API Key](/assets/dashboard/your-api-key.png)
 
@@ -46,7 +48,7 @@ To view and manage your API key, click the key from your list of API keys.
 
 ![View an API Key](/assets/dashboard/view-api-key.png)
 
-This will open a modal where you can restrict your client id, create secret keys, view which services the key has access to and edit your API key.
+This will open a modal where you can restrict your client id, view which services the key has access to and edit your API key.
 
 ![Manage API Key](/assets/dashboard/manage-api-key.png)
 
@@ -68,7 +70,7 @@ You can also modify which services it is allowed to access by heading to the "Se
 
 ![Edit an API Key Services](/assets/dashboard/edit-api-key-services.png)
 
-### client Id
+### client Id and Secret Key
 
 The client id is used to access thirdweb services from the browser. It is safe to share this key with anyone as it can be restricted to allowed domains and enabled services. 
 
@@ -76,6 +78,14 @@ To restrict the client id to a domain, enter the domain in the "Allowed Domains"
 
 :::info
 This client id can be used from any domain. Anyone with the key can use it to access all the services enabled for this key.
+:::
+
+The secret key is used to access thirdweb services from the backend. It is not safe to share this key with anyone. It does not adhere to the restrictions you define. 
+
+:::warning
+Once your API key has been created, you will not be able to view the secret key again. If you lose the secret key, you will need to create a new API key.
+
+Anyone with the Secret Key can access all thirdweb services so store it in a safe place.
 :::
 
 ### Revoking an API Key
