@@ -9,9 +9,15 @@ The settings tab allows you to configure and create API keys. An API key is requ
 
 ![Create an API Key](/assets/dashboard/settings-tab.png)
 
+An API key is made up of two parts:
+
+- **Client ID** - This key is used to access thirdweb's infrastructure services and identifies your application. It can be restricted to allowed domains and enabled services.
+- **Secret Key** - This key is used to access thirdweb's infrastructure services by identifying and authenticating your application from the backend. It is not safe to share this key with anyone. It does not adhere to the restrictions you define. Anyone with the Secret Key can access all thirdweb services.
+
 ## Creating an API Key
 
-To create an API key, 
+To create an API key:
+
 - Click the button labeled "Create API Key"
 - Enter a name for the key. The name is used to identify the key in the list of API keys. 
 - Select the services that the key will have access to
@@ -22,13 +28,17 @@ To create an API key,
 
 ![Create an API Key](/assets/dashboard/create-api-key.png)
 
-This will create an API key that you can use to access thirdweb's infrastructure services by copying the Publishable Key and instantiating the thirdweb SDK:
+This will create an API key that you can use to access thirdweb's infrastructure services by copying the client id and instantiating the thirdweb SDK:
 
 ```javascript
 const sdk = new ThirdwebSDK("goerli", {
-        apiKey: "pk-7bdfc499fbdd4678687ae5d6fe68dbd5a761559ceaa176e3"
+        clientId: "your-client-id"
     });
 ```
+
+It will also generate a secret key that you will need to copy and save in a safe place. **You will not be able to view the secret key again**.
+
+![Your API Key](/assets/dashboard/your-api-key.png)
 
 ## Viewing and Managing an API Key
 
@@ -36,7 +46,7 @@ To view and manage your API key, click the key from your list of API keys.
 
 ![View an API Key](/assets/dashboard/view-api-key.png)
 
-This will open a modal where you can restrict your publishable key, create secret keys, view which services the key has access to and edit your API key.
+This will open a modal where you can restrict your client id, create secret keys, view which services the key has access to and edit your API key.
 
 ![Manage API Key](/assets/dashboard/manage-api-key.png)
 
@@ -58,31 +68,15 @@ You can also modify which services it is allowed to access by heading to the "Se
 
 ![Edit an API Key Services](/assets/dashboard/edit-api-key-services.png)
 
-### Publishable Key
+### client Id
 
-The publishable key is used to access thirdweb services from the browser. It is safe to share this key with anyone as it can be restricted to allowed domains and enabled services. 
+The client id is used to access thirdweb services from the browser. It is safe to share this key with anyone as it can be restricted to allowed domains and enabled services. 
 
-To restrict the publishable key to a domain, enter the domain in the "Allowed Domains" field. You can add multiple domains by separating them with a comma.
+To restrict the client id to a domain, enter the domain in the "Allowed Domains" field. You can add multiple domains by separating them with a comma.
 
 :::info
-This Publishable Key can be used from any domain. Anyone with the key can use it to access all the services enabled for this key.
+This client id can be used from any domain. Anyone with the key can use it to access all the services enabled for this key.
 :::
-
-### Secret Key
-
-The secret key is also used to access thirdweb's infrastructure services but it is not safe to share this key with anyone. It does not adhere to the restrictions you define. Anyone with the Secret Key can access all thirdweb services.
-
-To generate a secret key, click the "Generate" button.
-
-![Generate Secret Key](/assets/dashboard/generate-secret-key.png)
-
-This will generate a secret key that you will need to copy and save in a safe place. You will not be able to view the secret key again.
-
-![Your Secret Key](/assets/dashboard/your-secret-key.png)
-
-If you suspect that your secret key has been compromised, you can regenerate the key by clicking the "Regenerate" button. This will invalidate the old key and generate a new one.
-
-![Regenerate Secret Key](/assets/dashboard/regenerate-secret-key.png)
 
 ### Revoking an API Key
 
