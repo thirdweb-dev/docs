@@ -108,7 +108,7 @@ export default function DocSidebarItemLink({
             ${
               (label === "Home" ||
                 label === "Overview " ||
-                label === "Getting Started") &&
+                label === "API Keys") &&
               styles.invertLightIcon
             }
               
