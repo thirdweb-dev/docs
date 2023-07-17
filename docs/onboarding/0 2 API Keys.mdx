@@ -20,18 +20,18 @@ The settings tab, located in Dashboard, allows you to configure and create API k
 An API key is made up of two parts:
 
 - **Client ID** - This key is used to access the enabled thirdweb infrastructure services and identifies your application through an app bundle id (the unique identifier of a native app) or domain. It can be restricted to only certain allowed domains and app bundle ids to access the API key's enabled services.
-- **Secret Key** - This key is used to access the enabled thirdweb infrastructure services by identifying and authenticating your application from the backend. It is not safe to share this key with anyone. It can only access the API key's enabled services. Anyone with the Secret Key can access all thirdweb services.
+- **Secret Key** - This key is used to access the enabled thirdweb infrastructure services by identifying and authenticating your application from the backend. It is not safe to share this key with anyone. Anyone with the Secret Key can access all thirdweb services.
 
 ## Creating an API Key
 
 To create an API key:
 
 - Click the button labeled "Create API Key"
-- Enter a name for the key. The name is used to identify the key in the list of API keys. 
-- Select the services that the key will have access to
-    - [Storage](/storage)
-    - [Smart Wallet](/wallet/smart-wallet) - you will need to add the smart wallet addresses which will be allowed to use this API key.
-    - RPCs
+- Enter a name for the key.
+- Select the services that the key will have access to:
+    - [Storage](/storage): IPFS Upload and Download.
+    - [Smart Wallet](/wallet/smart-wallet): Bundler & Paymaster services - you will need to add the smart wallet addresses which will be allowed to use this API key.
+    - RPCs (coming soon): Accelerated RPC Edge.
 - Click the "Create" button to create the key.
 
 ![Create an API Key](/assets/dashboard/create-api-key.png)
@@ -42,12 +42,12 @@ This will create an API key that you can use to access the API key's allowed ser
 It will also generate a secret key that you will need to copy and save in a safe place. **You will not be able to view the secret key again**.
 :::
 
-For apps and websites, you can use the client id to instantiating the thirdweb SDK:
+For apps and websites, you can use the Client Id to instantiating the thirdweb SDK:
 
 ```javascript
 const sdk = new ThirdwebSDK("goerli", {
         clientId: "your-client-id"
-    });
+});
 ```
 
 or, for backends, use the secret key:
@@ -60,13 +60,13 @@ const sdk = new ThirdwebSDK("goerli", {
 
 ![Your API Key](/assets/dashboard/your-api-key.png)
 
-## Viewing and Managing an API Key
+## Viewing and Managing API Keys
 
 To view and manage your API key, click the key from your list of API keys. 
 
 ![View an API Key](/assets/dashboard/view-api-key.png)
 
-This will open a modal where you can restrict the domains or app bundle ids your client Id can be used with, view which services the key has access to and edit your API key.
+This will open a modal where you can restrict the domains or app bundle ids your Client Id can be used with, view which services the key has access to and edit your API key.
 
 ![Manage API Key](/assets/dashboard/manage-api-key.png)
 
@@ -80,7 +80,7 @@ To edit an API key, click the "Edit" button.
 
 ![Edit an API Key Button](/assets/dashboard/edit-api-key-highlighted.png)
 
-This will allow you to edit the name of the key and the client id's allowed domains/app bundle ids.
+This will allow you to edit the name of the key and the Client Id's allowed domains/app bundle ids.
 
 ![Edit an API Key](/assets/dashboard/edit-api-key.png)
 
@@ -90,17 +90,17 @@ You can also modify which services the API key is allowed to access by heading t
 
 ### client Id and Secret Key
 
-The client id is used to access thirdweb services from the browser. It is safe to share this key with anyone as it can be restricted to allowed domains or bundler ids. 
+The Client id is used to access thirdweb services from a frontend app like a desktop or native app. It is safe to share this key with anyone as it can be restricted to allowed domains and/or bundler ids. 
 
-To restrict the client id to a specific domain (or app bundle id), enter the domain in the "Allowed Domains" field. You can add multiple domains by separating them with a comma.
+To restrict the client Id to a specific domain (or app bundle id), enter the domain in the "Allowed Domains" field. You can add multiple domains by separating them with a comma or new line.
 
-:::info
-This client id can be used from any domain. Anyone with the key can use it to access all the services enabled for this key.
+:::caution
+This Client id can be used from any domain. Anyone with the key can use it to access all the services enabled for this key.
 :::
 
 The secret key is used to access thirdweb services from the backend. It is not safe to share this key with anyone. It is also restricted to the services you enable on the API key. 
 
-:::warning
+:::caution
 Once your API key has been created, you will not be able to view the secret key again. If you lose the secret key, you will need to create a new API key.
 
 Anyone with the Secret Key can access all thirdweb services so store it in a safe place.
