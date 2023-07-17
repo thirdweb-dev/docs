@@ -42,12 +42,16 @@ import { ThirdwebProvider } from "@thirdweb-dev/react";
 
 const App = () => {
   return (
-    <ThirdwebProvider activeChain="ethereum">
+    <ThirdwebProvider activeChain="ethereum" clientId="your-client-id">
       <YourApp />
     </ThirdwebProvider>
   );
 };
 ```
+
+:::info
+You will need to create an API key to use the SDK by visiting the [Dashboard](https://thirdweb.com/dashboard).
+:::
 
 <p style={{ opacity: 0.8, marginTop: -8 }}>
   <i>

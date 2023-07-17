@@ -141,6 +141,7 @@ To allow users to connect to this wallet using the [ConnectWallet](/react/react.
       apiKey: "MAGIC_API_KEY",
     }),
   ]}
+  clientId="your-client-id"
 >
   <YourApp />
 </ThirdwebProvider>
@@ -196,7 +197,7 @@ import { ThirdwebProvider } from "@thirdweb-dev/react";
 
 export function YourApp() {
   return (
-    <ThirdwebProvider supportedChains={[Polygon]}>
+    <ThirdwebProvider supportedChains={[Polygon]} clientId="your-client-id">
       <App />
     </ThirdwebProvider>
   );
