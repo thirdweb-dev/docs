@@ -27,7 +27,7 @@ function DocSidebarItems({ items, ...props }) {
   const sidebarItems = [
     {
       title: null, // No title for the first section
-      items: ["Home", "Overview ", "Getting Started"],
+      items: ["Home", "Overview ", "API Keys"],
     },
     {
       title: "Tools",
