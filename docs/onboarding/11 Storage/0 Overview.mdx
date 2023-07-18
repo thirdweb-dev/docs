@@ -28,11 +28,15 @@ We now require you to authenticate using your [API key](/dashboard/api-key) whic
 
 ## IPFS Gateway
 
+:::caution
+You will require an API key to use thirdweb’s storage services. If you haven’t created a key yet you can do so [**here**](https://thirdweb.com/create-api-key).
+:::
+
 To read data from IPFS, an [IPFS Gateway](https://docs.ipfs.tech/concepts/ipfs-gateway/) is required; which
 allows you to access data from the IPFS protocol on browsers and other HTTP clients, such as when building an application using our [SDK](/sdk).
 
-Out of the box, we provide you with a public, unrestricted IPFS gateway at `https://ipfs.thirdwebcdn.com/ipfs/[cid]`,
-which you can use to access any file available on IPFS for free; with no rate limits or restrictions.
+Out of the box, we provide you with a public, unrestricted IPFS gateway at `https://{client-id}.thirdwebstorage.com/ipfs/{path}`,
+which you can use to access any file available on IPFS for free; with no rate limits or restrictions. You will need to pass a **Client ID**, from an API key, in the URL, which you can obtain [here](https://thirdweb.com/create-api-key).
 
 ## Get Started
 
