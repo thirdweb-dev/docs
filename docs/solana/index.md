@@ -37,7 +37,7 @@ The first thing to do to get started with Solana using thirdweb is to deploy a p
 import { ThirdwebSDK } from "@thirdweb-dev/sdk/solana";
 
 // First, we instantiate the SDK and connect to Solana devnet
-const sdk = ThirdwebSDK.fromNetwork("devnet", 
+const sdk = ThirdwebSDK.fromNetwork("devnet",
   {
     clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
     secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings

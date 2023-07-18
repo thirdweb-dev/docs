@@ -51,7 +51,10 @@ rainbowWallet(
 To allow users to connect to this wallet using the [ConnectWallet](/react/react.connectwallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop.
 
 ```tsx
-<ThirdwebProvider supportedWallets={[rainbowWallet()]} clientId="your-client-id">
+<ThirdwebProvider
+  supportedWallets={[rainbowWallet()]}
+  clientId="your-client-id"
+>
   <YourApp />
 </ThirdwebProvider>
 ```

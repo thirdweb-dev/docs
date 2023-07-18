@@ -23,8 +23,8 @@ export declare class NFTDrop
 import { ThirdwebSDK } from "@thirdweb-dev/sdk/solana";
 
 const sdk = ThirdwebSDK.fromNetwork("devnet", {
-    clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
-    secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
+  clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
+  secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
 });
 sdk.wallet.connect(signer);
 
