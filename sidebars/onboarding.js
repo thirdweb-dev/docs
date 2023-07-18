@@ -30,7 +30,7 @@ const sidebars = {
     },
     {
       type: "doc",
-      label: "Getting Started",
+      label: "API Keys",
       id: "0 Getting Started/API Keys",
     },
     {
