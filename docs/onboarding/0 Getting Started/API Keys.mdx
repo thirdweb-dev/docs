@@ -11,18 +11,26 @@ It is required to instantiate the thirdweb SDKs to unlock the full capabilities.
 By using the API Key to instantiate the SDKs, you are able to use thirdweb's infrastructure such as RPCs, [account abstraction](/glossary/smart-wallet) infrastructure and [storage](/storage) gateway.
 This means that all the complexities of web3 development are handled for you and you can focus on building your application.
 
-:::info
-It is possible to use the thirdweb SDKs without an API key and override the default infrastructure. This requires you to provide your own infrastructure such as RPCs and IPFS/storage gateway.
-:::
-
 The settings tab, located in Dashboard, allows you to configure and create API keys. 
 
 ![Create an API Key](/assets/dashboard/settings-tab.png)
 
 An API key is made up of two parts:
 
-- **Client ID** - This key is used to access the enabled thirdweb infrastructure services and identifies your application through an app bundle id (the unique identifier of a native app) or domain. It can be restricted to only certain allowed domains and app bundle ids to access the API key's enabled services.
+- **Client ID** - This key is used to access the enabled thirdweb infrastructure services and identifies your application through an app bundle id (the unique identifier of a native app) or domain (the identifier for websites). It can be restricted to only certain allowed domains and app bundle ids to access the API key's enabled services.
 - **Secret Key** - This key is used to access the enabled thirdweb infrastructure services by identifying and authenticating your application from the backend. It is not safe to share this key with anyone. Anyone with the Secret Key can access all thirdweb services.
+
+:::caution
+Once your API key has been created, you will not be able to view the secret key again. If you lose the secret key, you will need to create a new API key.
+
+Anyone with the Secret Key can access all enabled thirdweb services so store it in a safe place.
+
+Your secret key should only be used in backend environments like CLI, scripts, and servers. It should never be exposed in client-side code (browsers, apps) as there are no access restrictions on secret keys. 
+:::
+
+:::info
+It is possible to use the thirdweb SDKs without an API key and override the default infrastructure. This requires you to provide your own infrastructure such as RPCs and IPFS/storage gateway.
+:::
 
 ## Creating an API Key
 
@@ -30,15 +38,13 @@ To create an API key:
 
 - Click the button labeled "Create API Key"
 - Enter a name for the key.
-- Select the services that the key will have access to:
-    - [Storage](/storage): IPFS Upload and Download.
-    - [Smart Wallet](/wallet/smart-wallet): Bundler & Paymaster services - you will need to add the smart wallet addresses which will be allowed to use this API key.
-    - RPCs (coming soon): Accelerated RPC Edge.
+- Enter the domains or app bundle ids that the Client Id will be allowed to be used with.
 - Click the "Create" button to create the key.
 
 ![Create an API Key](/assets/dashboard/create-api-key.png)
 
-This will create an API key that you can use to access the API key's allowed services.
+This will first prompt you to copy and store your secret key in a safe place and then
+create an API key that you can use to access the API key's allowed services.
 
 :::caution
 It will also generate a secret key that you will need to copy and save in a safe place. **You will not be able to view the secret key again**.
@@ -90,7 +96,7 @@ You can also modify which services the API key is allowed to access by heading t
 
 ![Edit an API Key Services](/assets/dashboard/edit-api-key-services.png)
 
-### client Id and Secret Key
+### Setting Allowed Bundle IDs & Domains
 
 The Client id is used to access thirdweb services from a frontend app like a desktop or native app. It is safe to share this key with anyone as it can be restricted to allowed domains and/or bundler ids. 
 
@@ -100,13 +106,8 @@ To restrict the client Id to a specific domain (or app bundle id), enter the dom
 This Client id can be used from any domain. Anyone with the key can use it to access all the services enabled for this key.
 :::
 
-The secret key is used to access thirdweb services from the backend. It is not safe to share this key with anyone. It is also restricted to the services you enable on the API key. 
+The secret key is used to access enabled thirdweb services from the backend. It is not safe to share this key with anyone. It is also restricted to the services you enable on the API key. 
 
-:::caution
-Once your API key has been created, you will not be able to view the secret key again. If you lose the secret key, you will need to create a new API key.
-
-Anyone with the Secret Key can access all thirdweb services so store it in a safe place.
-:::
 
 ### Revoking an API Key
 
