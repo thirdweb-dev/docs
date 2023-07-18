@@ -71,7 +71,7 @@ import { ThirdwebProvider } from "@thirdweb-dev/react";
 
 export function YourApp() {
   return (
-    <ThirdwebProvider supportedChains={[Dogechain]}>
+    <ThirdwebProvider supportedChains={[Dogechain]} clientId="your-client-id">
       <App />
     </ThirdwebProvider>
   );

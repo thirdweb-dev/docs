@@ -77,7 +77,9 @@ Provide the name of a default chain, or your own custom RPC URL of any EVM-compa
 </details>
 
 ```csharp
-ThirdwebSDK sdk = new ThirdwebSDK("ethereum");
+ThirdwebSDK sdk = new ThirdwebSDK("ethereum", { 
+      clientId = myClientId // you can get client id from dashboard settings
+    });
 ```
 
 ## Configuration
