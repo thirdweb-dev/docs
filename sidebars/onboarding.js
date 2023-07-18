@@ -30,8 +30,8 @@ const sidebars = {
     },
     {
       type: "doc",
-      label: "API Keys",
-      id: "0 2 API Keys",
+      label: "Getting Started",
+      id: "0 Getting Started/API Keys",
     },
     {
       type: "link",

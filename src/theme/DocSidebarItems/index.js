@@ -27,7 +27,7 @@ function DocSidebarItems({ items, ...props }) {
   const sidebarItems = [
     {
       title: null, // No title for the first section
-      items: ["Home", "Overview ", "API Keys"],
+      items: ["Home", "Overview ", "Getting Started"],
     },
     {
       title: "Tools",
@@ -170,7 +170,7 @@ function DocSidebarItems({ items, ...props }) {
                 // - Invert the icon for Solidity on dark mode
                 // - Invert the icon for React and React Native on light mode
                 // - Add padding for the svg icons (guides and templates)
-                // - Invert the icon for "Home", "Platform Overview", and "API Keys" on light mode
+                // - Invert the icon for "Home", "Platform Overview", and "Getting Started" on light mode
                 className={`
             
             ${styles.icon} ${
@@ -193,7 +193,7 @@ function DocSidebarItems({ items, ...props }) {
             ${
               (formatCategoryName(props?.activePath) === "Home" ||
                 formatCategoryName(props?.activePath) === "Platform Overview" ||
-                formatCategoryName(props?.activePath) === "API Keys") &&
+                formatCategoryName(props?.activePath) === "Getting Started") &&
               styles.invertLightIcon
             }
             `}

@@ -36,7 +36,7 @@ export const iconMapping = {
   "UI Components": "/assets/product/ui.png",
   Home: "/assets/icons/home.png",
   "Overview ": "/assets/icons/wrench.png",
-  "API Keys": "/assets/icons/rocket.png",
+  "Getting Started": "/assets/icons/rocket.png",
   Templates: "/assets/resources/sdk-reference.svg",
   Guides: "/assets/resources/guides.svg",
   CLI: "/assets/product/CLI.png",
@@ -108,7 +108,7 @@ export default function DocSidebarItemLink({
             ${
               (label === "Home" ||
                 label === "Overview " ||
-                label === "API Keys") &&
+                label === "Getting Started") &&
               styles.invertLightIcon
             }
               
