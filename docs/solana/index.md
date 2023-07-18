@@ -40,7 +40,7 @@ import { ThirdwebSDK } from "@thirdweb-dev/sdk/solana";
 const sdk = ThirdwebSDK.fromNetwork("devnet", 
   {
     clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
-    secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings);
+    secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
 });
 
 // Next, we pass in a keypair to the SDK (you can generate this or use your own)

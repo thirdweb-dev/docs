@@ -184,7 +184,6 @@ import { ThirdwebProvider, metamaskWallet, smartWallet } from '@thirdweb-dev/rea
     supportedWallets={[
         smartWallet({
             factoryAddress: "..."
-            thirdwebApiKey: "apiKey"
             gasless: true,
             personalWallets: [localWallet()],
             enableConnectApp: true,

@@ -90,6 +90,7 @@ function MyApp() {
       activeChain={"ethereum"}
       // Example: Use ethers to get the signer from the window.ethereum object
       signer={new ethers.providers.Web3Provider(window.ethereum).getSigner()}
+      clientId="your-client-id"
     >
       <App />
     </ThirdwebSDKProvider>
@@ -126,12 +127,35 @@ function MyApp() {
       // Example: Use ethers to get the signer from the window.ethereum object
       signer={new ethers.providers.Web3Provider(window.ethereum).getSigner()}
       // highlight-end
+      clientId="your-client-id"
     >
       <App />
     </ThirdwebSDKProvider>
   );
 }
 ```
+
+### clientId (recommended)
+
+The `clientId` prop is required to use the thirdweb infrastructure services with the SDK. You can get a client ID by [creating an API key](/dashboard/settings) [here](https://thirdweb.com/create-api-key).
+
+```jsx
+function MyApp() {
+  return (
+    <ThirdwebSDKProvider
+      activeChain={"ethereum"}
+      // Example: Use ethers to get the signer from the window.ethereum object
+      signer={new ethers.providers.Web3Provider(window.ethereum).getSigner()}
+      // highlight-start
+      clientId="your-client-id"
+      // highlight-end
+    >
+      <App />
+    </ThirdwebSDKProvider>
+  );
+}
+```
+
 
 ### activeChain (recommended)
 
@@ -348,7 +372,6 @@ function MyApp() {
         },
         infuraApiKey: "<infura-api-key>", // your Infura API key
         alchemyApiKey: "<alchemy-api-key>", // your Alchemy API key
-        thirdwebApiKey: "<thirdweb-api-key>", // your thirdweb API key
       }}
       // highlight-end
     >

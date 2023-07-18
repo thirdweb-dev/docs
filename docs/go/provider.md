@@ -7,6 +7,10 @@ displayed_sidebar: go
 
 # Provider
 
+:::info
+You will require an API key to use thirdweb’s infrastructure services with the SDK. If you haven’t created a key yet you can do so [**here**](https://thirdweb.com/create-api-key).
+:::
+
 ```go
 type ProviderHandler struct {}
 ```
