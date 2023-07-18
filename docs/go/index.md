@@ -25,7 +25,7 @@ go get github.com/thirdweb-dev/go-sdk/v2/thirdweb
 ## Getting Started
 
 :::info
-You will require an API key to use thirdweb’s infrastructure services with the SDK. If you haven’t created a key yet you can do so for free [**here**](https://thirdweb.com/create-api-key).
+You will require an API key to use thirdweb’s infrastructure services with the SDK. If you haven’t created a key yet you can do so for free from the [**thirdweb dashboard**](https://thirdweb.com/create-api-key).
 :::
 
 To start using this SDK, you just need to pass in a provider configuration.
