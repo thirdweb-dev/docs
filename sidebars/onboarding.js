@@ -389,6 +389,14 @@ const sidebars = {
         },
         {
           type: "doc",
+          id: "9 CLI/commands/9 Login",
+        },
+        {
+          type: "doc",
+          id: "9 CLI/commands/10 Logout",
+        },
+        {
+          type: "doc",
           id: "9 CLI/commands/7 Upload",
         },
         {
