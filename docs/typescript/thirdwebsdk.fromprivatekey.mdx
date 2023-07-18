@@ -28,7 +28,6 @@ To use the Typescript SDK, you need to obtain either the `clientId` or `secretKe
 
 - **Client-side**: Use the SDK in the browser or mobile app. In this instance, you would use the `clientId` prop.
 - **Server-side**: Use the SDK in a server environment. In this instance, you would use the `secretKey` prop.
- 
 
 ### privateKey
 
@@ -55,7 +54,8 @@ const sdk = ThirdwebSDK.fromPrivateKey(
   {
     clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
     secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
-});
+  },
+);
 ```
 
 ### chain

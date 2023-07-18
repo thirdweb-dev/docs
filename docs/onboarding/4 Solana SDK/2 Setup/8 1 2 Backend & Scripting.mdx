@@ -26,7 +26,7 @@ import { ThirdwebSDK } from "@thirdweb-dev/sdk/solana";
 // Simply pass in the network you want to connect to
 // can be one of "mainnet-beta", "devnet", "testnet", "localhost" or your own RPC url
 const sdk = ThirdwebSDK.fromNetwork("devnet", {
-    secretKey: "...", // obtain from an API key from the Dashboard
+  secretKey: "...", // obtain from an API key from the Dashboard
 });
 ```
 
@@ -43,7 +43,7 @@ import { ThirdwebSDK } from "@thirdweb-dev/sdk/solana";
 
 const privateKey = "..."; // Consider fetching this from a secrets manager
 const sdk = ThirdwebSDK.fromPrivateKey("devnet", privateKey, {
-    secretKey: "...", // obtain from an API key from the Dashboard
+  secretKey: "...", // obtain from an API key from the Dashboard
 });
 ```
 
