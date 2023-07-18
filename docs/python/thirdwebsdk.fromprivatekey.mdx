@@ -19,7 +19,7 @@ import os
 load_dotenv()
 private_key = os.environ['PRIVATE_KEY']
 
-sdk = ThirdwebSDK.from_signer(private_key, "mumbai")
+sdk = ThirdwebSDK.from_private_key(private_key, "mumbai")
 ```
 
 ## Configuration
@@ -40,7 +40,7 @@ Losing or leaking your private key will result in the loss of your funds.
 ```python
 from thirdweb import ThirdwebSDK
 
-sdk = ThirdwebSDK.from_signer(
+sdk = ThirdwebSDK.from_private_key(
     # highlight-next-line
     "private_key", # DANGER: This is a sensitive value that should be stored securely.
     "mumbai"
@@ -55,7 +55,7 @@ on the `ThirdwebSDK` for more information.
 ```python
 from thirdweb import ThirdwebSDK
 
-sdk = ThirdwebSDK.from_signer(
+sdk = ThirdwebSDK.from_private_key(
     "private_key", # DANGER: This is a sensitive value that should be stored securely.
      # highlight-next-line
     "mumbai",
