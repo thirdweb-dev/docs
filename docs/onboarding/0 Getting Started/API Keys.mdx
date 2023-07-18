@@ -6,12 +6,12 @@ slug: /api-keys
 # API Keys
 
 An API key is required to use thirdweb's infrastructure services such as Smart Wallet, Storage and RPCs and it is **completely free to use**. These services are built into many of the thirdweb products such as the [CLI](/cli) and [SKDs](/sdk).
-It is required to instantiate the thirdweb SDKs to unlock the full capabilities. 
+It is required to instantiate the thirdweb SDKs to unlock the full capabilities.
 
 By using the API Key to instantiate the SDKs, you are able to use thirdweb's infrastructure such as RPCs, [account abstraction](/glossary/smart-wallet) infrastructure and [storage](/storage) gateway.
 This means that all the complexities of web3 development are handled for you and you can focus on building your application.
 
-The settings tab, located in Dashboard, allows you to configure and create API keys. 
+The settings tab, located in Dashboard, allows you to configure and create API keys.
 
 ![Create an API Key](/assets/dashboard/settings-tab.png)
 
@@ -25,7 +25,7 @@ Once your API key has been created, you will not be able to view the secret key 
 
 Anyone with the Secret Key can access all enabled thirdweb services so store it in a safe place.
 
-Your secret key should only be used in backend environments like CLI, scripts, and servers. It should never be exposed in client-side code (browsers, apps) as there are no access restrictions on secret keys. 
+Your secret key should only be used in backend environments like CLI, scripts, and servers. It should never be exposed in client-side code (browsers, apps) as there are no access restrictions on secret keys.
 :::
 
 :::info
@@ -54,7 +54,7 @@ For apps and websites, you can use the Client Id to instantiating the thirdweb S
 
 ```javascript
 const sdk = new ThirdwebSDK("goerli", {
-        clientId: "your-client-id"
+  clientId: "your-client-id",
 });
 ```
 
@@ -62,7 +62,7 @@ or, for backends, use the secret key:
 
 ```javascript
 const sdk = new ThirdwebSDK("goerli", {
-    secretKey: "your-secret-key"
+  secretKey: "your-secret-key",
 });
 ```
 
@@ -70,7 +70,7 @@ const sdk = new ThirdwebSDK("goerli", {
 
 ## Viewing and Managing API Keys
 
-To view and manage your API key, click the key from your list of API keys. 
+To view and manage your API key, click the key from your list of API keys.
 
 ![View an API Key](/assets/dashboard/view-api-key.png)
 
@@ -85,7 +85,7 @@ The "Services" tab allows you to view which services the API key has access to a
 
 ### Editing an API Key
 
-To edit an API key, click the "Edit" button. 
+To edit an API key, click the "Edit" button.
 
 ![Edit an API Key Button](/assets/dashboard/edit-api-key-highlighted.png)
 
@@ -99,7 +99,7 @@ You can also modify which services the API key is allowed to access by heading t
 
 ### Setting Allowed Bundle IDs & Domains
 
-The Client id is used to access thirdweb services from a frontend app like a desktop or native app. It is safe to share this key with anyone as it can be restricted to allowed domains and/or bundler ids. 
+The Client id is used to access thirdweb services from a frontend app like a desktop or native app. It is safe to share this key with anyone as it can be restricted to allowed domains and/or bundler ids.
 
 To restrict the client Id to a specific domain (or app bundle id), enter the domain in the "Allowed Domains" field. You can add multiple domains by separating them with a comma or new line.
 
@@ -107,8 +107,7 @@ To restrict the client Id to a specific domain (or app bundle id), enter the dom
 This Client id can be used from any domain. Anyone with the key can use it to access all the services enabled for this key.
 :::
 
-The secret key is used to access enabled thirdweb services from the backend. It is not safe to share this key with anyone. It is also restricted to the services you enable on the API key. 
-
+The secret key is used to access enabled thirdweb services from the backend. It is not safe to share this key with anyone. It is also restricted to the services you enable on the API key.
 
 ### Revoking an API Key
 

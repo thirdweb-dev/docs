@@ -51,7 +51,6 @@ To use the Typescript SDK, you need to obtain either the `clientId` or `secretKe
 
 - **Client-side**: Use the SDK in the browser or mobile app. In this instance, you would use the `clientId` prop.
 - **Server-side**: Use the SDK in a server environment. In this instance, you would use the `secretKey` prop.
- 
 
 ### chain
 
@@ -69,10 +68,11 @@ const sdk = ThirdwebSDK.fromWallet(
   wallet,
   // highlight-next-line
   "ethereum", // Can be a string, a Chain object from @thirdweb-dev/chains, or a custom chain.
-{
+  {
     clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
     secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
-});
+  },
+);
 ```
 
 ### Using AwsKmsWallet
@@ -94,8 +94,8 @@ const wallet = new AwsKmsWallet({
 });
 
 const sdk = ThirdwebSDK.fromWallet(wallet, "ethereum", {
-    clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
-    secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
+  clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
+  secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
 });
 ```
 
@@ -122,7 +122,7 @@ const wallet = new AwsSecretsManagerWallet({
 });
 
 const sdk = ThirdwebSDK.fromWallet(wallet, "ethereum", {
-    clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
-    secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
+  clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
+  secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
 });
 ```
