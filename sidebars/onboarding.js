@@ -292,6 +292,11 @@ const sidebars = {
         },
         {
           type: "link",
+          href: "/react-native/storage",
+          label: "React Native",
+        },
+        {
+          type: "link",
           href: "/typescript/storage",
           label: "TypeScript",
         },
