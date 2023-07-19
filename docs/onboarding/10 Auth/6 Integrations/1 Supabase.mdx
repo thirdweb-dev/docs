@@ -100,6 +100,7 @@ export default function MyApp({ Component, pageProps }) {
         // Set this to your domain to prevent signature malleability attacks.
         domain: process.env.NEXT_PUBLIC_THIRDWEB_AUTH_DOMAIN,
       }}
+      clientId="your-client-id"
     >
       <Component {...pageProps} />
     </ThirdwebProvider>

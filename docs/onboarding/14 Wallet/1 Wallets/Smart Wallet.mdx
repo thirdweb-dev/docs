@@ -20,9 +20,19 @@ Deployable via the [explore page](https://thirdweb.com/explore/smart-wallet) or 
 
 #### 2. An API key
 
-Obtain an API key from the [thirdweb dashboard](https://thirdweb.com/dashboard/api-keys).
+:::info
+You will require an API key to use thirdweb’s infrastructure services such as the bundler and paymaster.
+
+The API key will need to have the following:
+- smart wallet as an enabled service
+- The contracts that the smart wallet will interact with must be whitelisted. Learn more [here](/api-keys#smart-wallet-allowed-destination-addresses).
+:::
+
+Obtain an API key from the [thirdweb dashboard](https://thirdweb.com/create-api-key).
 
 The API key lets you access thirdweb's bundler and paymaster infrastructure, which is required for the smart wallet to operate and optionally enable [gasless transactions](/glossary/gasless-transactions).
+
+Learn more about creating an API key and restricting which contracts the smart wallet can interact with [here](/api-keys).
 
 ## Features
 
@@ -116,7 +126,8 @@ await personalWallet.generate();
 const config: SmartWalletConfig = {
   chain: Goerli, // the chain where your smart wallet will be or is deployed
   factoryAddress: "{{factory_address}}", // your own deployed account factory address
-  thirdwebApiKey: "{{api_key}}", // obtained from the thirdweb dashboard
+  clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
+  secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
   gasless: true, // enable or disable gasless transactions
 };
 
@@ -156,12 +167,14 @@ Must be a `string`.
 </details>
 
 <details>
-  <summary>thirdwebApiKey</summary>
+  <summary>clientId or secretKey (recommend)</summary>
   <div>
 
-Your thirdweb API key can be obtained from the [thirdweb dashboard](https://thirdweb.com/dashboard/api-keys).
+Your API key can be obtained from the [thirdweb dashboard](https://thirdweb.com/create-api-key).
 
 If you're using your own bundler and paymaster, you can set this to an empty string.
+
+You can use either the `clientId` or the `secretKey` depending on whether your application is client or server side.
 
 Must be a `string`.
 
@@ -203,7 +216,7 @@ Example:
       chain,
       gasless,
       factoryAddress,
-      thirdwebApiKey,
+      clientId,
       // highlight-start
       factoryInfo: {
         createAccount: (factory, owner) => {
@@ -243,7 +256,7 @@ Example:
       chain,
       gasless,
       factoryAddress,
-      thirdwebApiKey,
+      clientId,
       // highlight-start
       accountInfo: {
         execute: (account, target, value, data) => {
@@ -308,7 +321,7 @@ const config: SmartWalletConfig = {
   chain,
   gasless,
   factoryAddress,
-  thirdwebApiKey,
+  clientId,
   // highlight-start
   paymasterAPI: new MyPaymaster(),
   // highlight-end

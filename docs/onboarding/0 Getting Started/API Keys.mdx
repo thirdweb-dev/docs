@@ -1,0 +1,114 @@
+---
+title: API Keys
+slug: /api-keys
+---
+
+# API Keys
+
+An API key is required to use thirdweb's infrastructure services such as Smart Wallet, Storage and RPCs and it is **completely free to use**. These services are built into many of the thirdweb products such as the [CLI](/cli) and [SDKs](/sdk).
+It is required to instantiate the thirdweb SDKs to unlock the full capabilities. 
+
+By using the API Key to instantiate the SDKs, you are able to use thirdweb's infrastructure such as RPCs, [account abstraction](/glossary/smart-wallet) infrastructure and [storage](/storage) gateway.
+This means that all the complexities of web3 development are handled for you and you can focus on building your application.
+
+The [settings tab](https://thirdweb.com/create-api-key), located in Dashboard, allows you to configure and create API keys.
+
+![Create an API Key](/assets/dashboard/settings-tab.png)
+
+An API key is made up of two parts:
+
+- **Client ID** - This key is used to access the enabled thirdweb infrastructure services and identifies your application through an app bundle id (the unique identifier of a native app) or domain (the identifier for websites). It can be restricted to only certain allowed domains and app bundle ids to access the API key's enabled services.
+- **Secret Key** - This key is used to access the enabled thirdweb infrastructure services by identifying and authenticating your application from the backend. It is not safe to share this key with anyone. Anyone with the Secret Key can access all thirdweb services.
+
+:::caution
+Once your API key has been created, you will not be able to view the secret key again. If you lose the secret key, you will need to create a new API key.
+
+Anyone with the Secret Key can access all enabled thirdweb services so store it in a safe place.
+
+Your secret key should only be used in backend environments like CLI, scripts, and servers. It should never be exposed in client-side code (browsers, apps) as there are no access restrictions on secret keys.
+:::
+
+:::info
+It is possible to use the thirdweb SDKs without an API key and override the default infrastructure. This requires you to provide your own infrastructure such as RPCs and IPFS/storage gateway.
+:::
+
+## Creating an API Key
+
+To create an API key:
+
+- Head to the [settings tab](https://thirdweb.com/create-api-key) in Dashboard.
+- Click the button labeled "Create API Key"
+- Enter a name for the key.
+- Enter the domains or app bundle ids that the Client Id will be allowed to be used with.
+- Click the "Create" button to create the key.
+
+![Create an API Key](/assets/dashboard/create-api-key-combined.png)
+
+This will first prompt you to copy and store your secret key in a safe place and then
+create an API key that you can use to access the API key's allowed services.
+
+:::caution
+It will also generate a secret key that you will need to copy and save in a safe place. **You will not be able to view the secret key again**.
+:::
+
+For apps and websites, you can use the Client Id to instantiating the thirdweb SDK:
+
+```javascript
+const sdk = new ThirdwebSDK("goerli", {
+  clientId: "your-client-id",
+});
+```
+
+or, for backends, use the secret key:
+
+```javascript
+const sdk = new ThirdwebSDK("goerli", {
+  secretKey: "your-secret-key",
+});
+```
+
+![Your API Key](/assets/dashboard/your-api-key.png)
+
+## Viewing and Managing API Keys
+
+To view and manage your API key, click the key from your list of API keys.
+
+![View an API Key](/assets/dashboard/view-api-key.png)
+
+This will open a modal where you can view the restricted domains and app bundle ids your Client Id can be used with, view which services the key has access to and edit your API key.
+The "Services" tab allows you to view which services the API key has access to and enable or disable services.
+
+![View an API Key](/assets/dashboard/manage-api-key-flow.png)
+
+## Editing an API Key
+
+To edit an API key, click the "Edit" button.
+
+You can edit the name of the API key, the allowed domains (for websites) and app bundle ids (for mobile apps and games), the smart wallet target addresses and the enabled services.
+To modify which services the API key is allowed to access & the smart wallet target addresses, head to the "Services" tab.
+
+![Edit an API Key](/assets/dashboard/edit-api-key-flow.png)
+
+### Smart Wallet Allowed Destination Addresses
+
+This is a list of addresses that the Smart Wallet is allowed to send transactions to/interact with. These addresses can be smart contracts but also EOAs or other smart wallet addresses. This is useful for e.g. restricting the Smart Wallet to only send transactions to your own contracts.
+
+To restrict the contracts that smart wallet can interact with:
+-  Click the "Edit" button 
+-  Select the "Services" tab
+-  Enter the address(s) in the "Allowed Target Addresses" field. 
+-  You can add multiple addresses by separating them with a comma or new line.
+
+### Setting Allowed Bundle IDs & Domains
+
+The Client id is used to access thirdweb services from a frontend app like a desktop or native app. It is safe to share this key with anyone as it can be restricted to allowed domains and/or bundler ids.
+
+To restrict the client Id to a specific domain (or app bundle id), enter the domain in the "Allowed Domains" field. You can add multiple domains by separating them with a comma or new line.
+
+The secret key is used to access enabled thirdweb services from the backend. It is not safe to share this key with anyone. It is also restricted to the services you enable on the API key.
+
+### Revoking an API Key
+
+To revoke your API key, click the "Revoke" button. This will invalidate the key and it will no longer be usable.
+
+![Revoke API Key](/assets/dashboard/revoke-api-key.png)
