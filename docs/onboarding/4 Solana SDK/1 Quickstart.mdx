@@ -70,7 +70,10 @@ import { ThirdwebSDK } from "@thirdweb-dev/sdk/solana";
 // You can get this private key from your wallet, but it's important to store it securely
 const privateKey = "...";
 // Here we choose to setup the SDK on the Solana devnet network
-const sdk = ThirdwebSDK.fromPrivateKey("devnet", privateKey);
+const sdk = ThirdwebSDK.fromPrivateKey("devnet", privateKey, {
+  clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
+  secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
+});
 ```
 
 ### Deploying a Program
@@ -112,7 +115,10 @@ import { readFileSync } from "fs";
 
 // Initialize the SDK
 const privateKey = "...";
-const sdk = ThirdwebSDK.fromPrivateKey("devnet", privateKey);
+const sdk = ThirdwebSDK.fromPrivateKey("devnet", privateKey, {
+  clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
+  secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
+});
 
 // Use the address of the NFT Drop program we just deployed to connect to the program
 const programAddress = "...";
@@ -178,7 +184,7 @@ const network: Network = "devnet";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ThirdwebProvider endpoint={network}>
+    <ThirdwebProvider endpoint={network} clientId="your-client-id">
       <WalletModalProvider>
         <Component {...pageProps} />
       </WalletModalProvider>

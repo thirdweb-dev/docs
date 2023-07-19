@@ -752,7 +752,7 @@ function myWallet (options?: MyWalletConfig): WalletConfig<MyWallet> {
 You can now use your wallet with the Connect Wallet button! Simply add it to the `supportedWallets` prop of the `ThirdwebProvider`.
 
 ```tsx
-<ThirdwebProvider supportedWallets={[myWallet()]}>
+<ThirdwebProvider supportedWallets={[myWallet()]} clientId="your-client-id">
   <App />
 </ThirdwebProvider>
 ```

@@ -77,7 +77,9 @@ Provide the name of a default chain, or your own custom RPC URL of any EVM-compa
 </details>
 
 ```csharp
-ThirdwebSDK sdk = new ThirdwebSDK("ethereum");
+ThirdwebSDK sdk = new ThirdwebSDK("ethereum", {
+      clientId = myClientId // you can get client id from dashboard settings
+    });
 ```
 
 ## Configuration
@@ -102,6 +104,12 @@ ThirdwebSDK sdk = new ThirdwebSDK("goerli", 5);
 
 ### options
 
+:::info
+To use the Unity SDK, you need to pass a `clientId` option which you can obtain from an API key from the [Dashboard](https://thirdweb.com/dashboard).
+:::
+
+````csharp
+
 You can use [gasless transactions](/glossary/gasless-transactions) to forward all transactions to a relayer.
 
 Currently supports [OpenZeppelin Defender](https://blog.thirdweb.com/guides/setup-gasless-transactions/) relayers.
@@ -109,6 +117,7 @@ Currently supports [OpenZeppelin Defender](https://blog.thirdweb.com/guides/setu
 ```csharp
 ThirdwebSDK sdk = new ThirdwebSDK("goerli", 5, new ThirdwebSDK.Options()
 {
+    clientId = "my-client-id", // you can get client id from dashboard settings
     // Gasless configuration options
     gasless = new ThirdwebSDK.GaslessOptions()
     {
@@ -148,11 +157,10 @@ ThirdwebSDK sdk = new ThirdwebSDK("goerli", 5, new ThirdwebSDK.Options()
     smartWalletConfig = new ThirdwebSDK.SmartWalletConfig()
     {
         factoryAddress = "factory-address", // The address of the factory contract for smart wallets
-        thirdwebApiKey = "thirdweb-api-key", // The API key for Thirdweb services
         gasless = true, // Indicates whether gasless (paymaster) transactions are enabled
         bundlerUrl = "bundler-url", // The URL of the bundler service (optional)
         paymasterUrl = "paymaster-url", // The URL of the paymaster service (optional)
         entryPointAddress = "entry-point-address" // The address of the entry point contract (optional)
     }
 });
-```
+````
