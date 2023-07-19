@@ -23,6 +23,7 @@ export default function MyApp({ Component, pageProps }) {
     <ThirdwebProvider
       // Required configuration for the provider, but doesn't affect Auth.
       activeChain="ethereum"
+      clientId="your-client-id"
       authConfig={{
         // Set this to your domain to prevent phishing attacks
         domain: "example.com",
