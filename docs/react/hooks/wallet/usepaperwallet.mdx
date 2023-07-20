@@ -34,7 +34,7 @@ function App() {
     <button
       onClick={() =>
         connectWithPaperWallet({
-          clientId: "<YOUR_CLIENT_ID>",
+          paperClientId: "<YOUR_PAPER_SDK_CLIENT_ID>",
           email: "<USER_EMAIL>", // optional - directly show OTP screen
         })
       }
@@ -48,7 +48,7 @@ function App() {
 ## Configuration
 
 <details>
-  <summary>clientId </summary>
+  <summary>paperClientId </summary>
   <div>
 
 Paper SDK requires a clientId for instantiation. You can create a `clientId` for your app on [paper.xyz](https://paper.xyz/product/wallet)
@@ -80,7 +80,7 @@ function App() {
     <button
       onClick={() =>
         connectWithPaperWallet({
-          clientId: "<YOUR_CLIENT_ID>",
+          paperClientId: "<YOUR_PAPER_SDK_CLIENT_ID>",
           chainId: Polygon.chainId,
         })
       }
@@ -126,7 +126,7 @@ function App() {
     <button
       onClick={() =>
         connectWithPaperWallet({
-          clientId: "<YOUR_CLIENT_ID>",
+          paperClientId: "<YOUR_CLIENT_ID>",
           email: "user@example.com",
         })
       }

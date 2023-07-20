@@ -17,7 +17,7 @@ import { Ethereum } from "@thirdweb-dev/chains";
 
 const wallet = new PaperWallet({
   chain: Ethereum, //  chain to connect to
-  clientId: "client_id", // Paper SDK client ID
+  paperClientId: "your_paper_client_id", // Paper SDK client ID
 });
 
 wallet.connect();
@@ -26,6 +26,17 @@ wallet.connect();
 ## Configuration
 
 Provide a configuration object when instantiating the `PaperWallet` class.
+
+<details>
+  <summary>paperClientId (required)</summary>
+  <div>
+
+Paper SDK requires a clientId for instantiation. You can create a `clientId` for your app on [paper.xyz](https://paper.xyz/product/wallet)
+
+Must be a `string`.
+
+</div>
+</details>
 
 <details>
   <summary>chain (required)</summary>
@@ -45,17 +56,6 @@ Must be a `Chain` object, from the [`@thirdweb-dev/chains`](https://www.npmjs.co
 Provide an array of chains you want to support.
 
 Must be an array of `Chain` objects, from the [`@thirdweb-dev/chains`](https://www.npmjs.com/package/@thirdweb-dev/chains) package.
-
-</div>
-</details>
-
-<details>
-  <summary>clientId (required)</summary>
-  <div>
-
-Paper SDK requires a clientId for instantiation. You can create a `clientId` for your app on [paper.xyz](https://paper.xyz/product/wallet)
-
-Must be a `string`.
 
 </div>
 </details>
