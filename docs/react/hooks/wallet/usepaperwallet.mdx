@@ -99,7 +99,7 @@ import { ThirdwebProvider } from "@thirdweb-dev/react";
 
 export function YourApp() {
   return (
-    <ThirdwebProvider supportedChains={[Polygon]}>
+    <ThirdwebProvider supportedChains={[Polygon]} clientId="your-client-id">
       <App />
     </ThirdwebProvider>
   );
@@ -141,7 +141,7 @@ function App() {
 </details>
 
 <details>
-  <summary>adnvancedOptions (optional)</summary>
+  <summary>advancedOptions (optional)</summary>
   <div>
 
 Advanced options for Paper SDK.

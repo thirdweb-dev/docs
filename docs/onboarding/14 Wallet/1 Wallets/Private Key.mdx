@@ -17,8 +17,6 @@ import { PrivateKeyWallet } from "@thirdweb-dev/wallets";
 // can be any ethers.js signer
 const privateKey = env.process.PRIVATE_KEY;
 const wallet = new PrivateKeyWallet(privateKey);
-
-wallet.connect();
 ```
 
 ## Configuration
@@ -37,15 +35,6 @@ The private key to use for signing transactions.
   <div>
 
 The chain or rpc url to connect to when querying the blockchain directly through this wallet.
-
-</div>
-</details>
-
-<details>
-  <summary>thirdwebApiKey (optional)</summary>
-  <div>
-
-The api key for using the default thirdweb rpcs.
 
 </div>
 </details>

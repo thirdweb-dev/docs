@@ -10,6 +10,25 @@ Hook for uploading files to IPFS and retrieving the IPFS URI.
 import { useStorage } from "@thirdweb-dev/react";
 ```
 
+:::caution API Key
+You will require an API key to use thirdweb’s storage services with the SDK. If you haven’t created a key yet you can do so for free from the [**thirdweb dashboard**](https://thirdweb.com/create-api-key).
+
+You can then obtain a `clientId` from the API key which you will need to pass to the [`ThirdwebProvider`](/react/react.thirdwebprovider) component:
+
+```jsx
+import { ThirdwebProvider } from "@thirdweb/react";
+
+const App = () => {
+  return (
+    <ThirdwebProvider clientId="YOUR_CLIENT_ID">
+      <YourApp />
+    </ThirdwebProvider>
+  );
+};
+```
+
+:::
+
 ## Usage
 
 ```jsx
