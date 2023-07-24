@@ -15,7 +15,7 @@ A wallet configurator for [MetaMask](/wallet/metamask) which allows integrating 
 ```tsx
 import { metamaskWallet } from "@thirdweb-dev/react";
 
-const metamaskConfig = metamaskWallet();
+const metamaskConfig = metamaskWallet(options);
 ```
 
 <CustomizeWalletConfigurator
@@ -25,6 +25,27 @@ const metamaskConfig = metamaskWallet();
   selectUI="MetamaskSelectUI"
   isInstalled="isMetamaskInstalled"
 />
+
+### options
+
+<details>
+  <summary>projectId (recommended) </summary>
+  <div>
+
+This is only relevant if you want to use [WalletConnect](https://walletconnect.com/) for connecting to MetaMask mobile app when MetaMask is not injected.
+
+This `projectId` can be obtained at [cloud.walletconnect.com](https://cloud.walletconnect.com/). It is highly recommended to use your own project id and only use the default one for testing purposes.
+
+```ts
+metamaskWallet({
+  // highlight-start
+  projectId: "your-wallet-connect-project-id",
+  // highlight-end
+});
+```
+
+</div>
+</details>
 
 ## Usage with `ConnectWallet`
 

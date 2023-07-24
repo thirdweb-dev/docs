@@ -17,13 +17,13 @@ trust Wallet is an extension of our WalletConnect wallet which supports WCV2.
 ```tsx
 import { trustWallet } from "@thirdweb-dev/react";
 
-const walletConnectConfig = trustWallet(options);
+const trustWalletConfig = trustWallet(options);
 ```
 
 ## options
 
 <details>
-  <summary>projectId (optional) </summary>
+  <summary>projectId (recommended) </summary>
   <div>
 
 Your project's unique identifier that can be obtained at [cloud.walletconnect.com](https://cloud.walletconnect.com).
@@ -34,13 +34,11 @@ Defaults to a common thirdweb projectId. We recommend getting your own projectId
 ```javascript
 import { trustWallet } from "@thirdweb-dev/react";
 
-trustWallet(
+trustWallet({
   // highlight-start
-  {
-    projectId: "<PROJECT_ID>",
-  },
+  projectId: "your-wallet-connect-project-id",
   // highlight-end
-);
+});
 ```
 
 </div>

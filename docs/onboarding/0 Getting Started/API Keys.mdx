@@ -6,7 +6,7 @@ slug: /api-keys
 # API Keys
 
 An API key is required to use thirdweb's infrastructure services such as Smart Wallet, Storage and RPCs and it is **completely free to use**. These services are built into many of the thirdweb products such as the [CLI](/cli) and [SDKs](/sdk).
-It is required to instantiate the thirdweb SDKs to unlock the full capabilities. 
+It is required to instantiate the thirdweb SDKs to unlock the full capabilities.
 
 By using the API Key to instantiate the SDKs, you are able to use thirdweb's infrastructure such as RPCs, [account abstraction](/glossary/smart-wallet) infrastructure and [storage](/storage) gateway.
 This means that all the complexities of web3 development are handled for you and you can focus on building your application.
@@ -17,7 +17,7 @@ The [settings tab](https://thirdweb.com/create-api-key), located in Dashboard, a
 
 An API key is made up of two parts:
 
-- **Client ID** - This key is used to access the enabled thirdweb infrastructure services and identifies your application through an app bundle id (the unique identifier of a native app) or domain (the identifier for websites). It can be restricted to only certain allowed domains and app bundle ids to access the API key's enabled services.
+- **Client ID** - This key is used to access the enabled thirdweb infrastructure services and identifies your application through an app bundle id (the unique identifier of a native app, see how to get yours [here](#how-to-get-my-bundleid)) or domain (the identifier for websites). It can be restricted to only certain allowed domains and app bundle ids to access the API key's enabled services.
 - **Secret Key** - This key is used to access the enabled thirdweb infrastructure services by identifying and authenticating your application from the backend. It is not safe to share this key with anyone. Anyone with the Secret Key can access all thirdweb services.
 
 :::caution
@@ -69,6 +69,48 @@ const sdk = new ThirdwebSDK("goerli", {
 
 ![Your API Key](/assets/dashboard/your-api-key.png)
 
+### How to get my bundleId?
+
+The `bundleId` is only needed if you are developing Unity native or mobile applications. It is the unique identifier of your app and it is used to restrict the `clientId` to only be used by your app.
+
+#### Unity Native
+
+You can find your `bundleId` by either logging `Utils.GetBundleId()` or by checking your Project Settings platform-specific options.
+It is typically in the format of `com.companyName.productName` based on your top level Project Settings.
+
+#### React Native
+
+**Android**
+
+Open the file `<Project>/android/app/build.gradle` and search for `applicationId`:
+
+```javascript
+  android {
+    defaultConfig {
+    applicationId "com.example.yourproject"
+    ...
+    }
+  }
+```
+
+**iOS**
+
+Open the file `<Project>/ios/<Project>/Info.plist` and search for `CFBundleIdentifier`:
+
+```javascript
+  <key>CFBundleIdentifier</key>
+  <string>com.example.yourproject</string>
+```
+
+Or if you want to get the `bundleId` programmatically for both iOS and Android, you can use the `expo-application` package
+already in use in the @thirdweb-dev/react-native sdk:
+
+```javascript
+import * as Application from "expo-application";
+
+const bundleId = Application.applicationId;
+```
+
 ## Viewing and Managing API Keys
 
 To view and manage your API key, click the key from your list of API keys.
@@ -94,10 +136,11 @@ To modify which services the API key is allowed to access & the smart wallet tar
 This is a list of addresses that the Smart Wallet is allowed to send transactions to/interact with. These addresses can be smart contracts but also EOAs or other smart wallet addresses. This is useful for e.g. restricting the Smart Wallet to only send transactions to your own contracts.
 
 To restrict the contracts that smart wallet can interact with:
--  Click the "Edit" button 
--  Select the "Services" tab
--  Enter the address(s) in the "Allowed Target Addresses" field. 
--  You can add multiple addresses by separating them with a comma or new line.
+
+- Click the "Edit" button
+- Select the "Services" tab
+- Enter the address(s) in the "Allowed Target Addresses" field.
+- You can add multiple addresses by separating them with a comma or new line.
 
 ### Setting Allowed Bundle IDs & Domains
 
