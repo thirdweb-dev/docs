@@ -25,7 +25,9 @@ import { ThirdwebSDK } from "@thirdweb-dev/sdk/solana";
 
 // Simply pass in the network you want to connect to
 // can be one of "mainnet-beta", "devnet", "testnet", "localhost" or your own RPC url
-const sdk = ThirdwebSDK.fromNetwork("devnet");
+const sdk = ThirdwebSDK.fromNetwork("devnet", {
+  secretKey: "...", // obtain from an API key from the Dashboard
+});
 ```
 
 ## Read-Write SDK
@@ -40,7 +42,9 @@ To connect the SDK with a specific wallet, you can pass in the wallet's private 
 import { ThirdwebSDK } from "@thirdweb-dev/sdk/solana";
 
 const privateKey = "..."; // Consider fetching this from a secrets manager
-const sdk = ThirdwebSDK.fromPrivateKey("devnet", privateKey);
+const sdk = ThirdwebSDK.fromPrivateKey("devnet", privateKey, {
+  secretKey: "...", // obtain from an API key from the Dashboard
+});
 ```
 
 :::warning

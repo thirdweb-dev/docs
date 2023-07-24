@@ -64,7 +64,7 @@ ${config}.isInstalled = ${isInstalled}; // function`
       <CodeBlock language="tsx">
         {`\
 // add to ThirdwebProvider to add it in ConnectWallet's modal
-<ThirdwebProvider supportedWallets={[${config}]} />;
+<ThirdwebProvider supportedWallets={[${config}]} clientId="your-client-id"/>;
 
 // or use it with useConnect hook
 const connect = useConnect();

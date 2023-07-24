@@ -28,7 +28,7 @@ const walletConnectConfig = walletConnect(options);
 ## options
 
 <details>
-  <summary>projectId (optional) </summary>
+  <summary>projectId (recommended) </summary>
   <div>
 
 Your project's unique identifier that can be obtained at [cloud.walletconnect.com](https://cloud.walletconnect.com). It is highly recommended to use your own project id and only use the default one for testing purposes.
@@ -412,7 +412,10 @@ Defaults to `undefined`
 To allow users to connect to this wallet using the [ConnectWallet](/react/react.connectwallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop.
 
 ```tsx
-<ThirdwebProvider supportedWallets={[walletConnect()]}>
+<ThirdwebProvider
+  supportedWallets={[walletConnect()]}
+  clientId="your-client-id"
+>
   <YourApp />
 </ThirdwebProvider>
 ```
@@ -457,7 +460,7 @@ import { ThirdwebProvider } from "@thirdweb-dev/react";
 
 export function YourApp() {
   return (
-    <ThirdwebProvider supportedChains={[Polygon]}>
+    <ThirdwebProvider supportedChains={[Polygon]} clientId="your-client-id">
       <App />
     </ThirdwebProvider>
   );
