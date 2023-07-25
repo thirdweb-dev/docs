@@ -127,7 +127,7 @@
       "flags": ["--dynamic"],
       "description": "Deploy a dynamic smart contract made up of extensions to blockchains"
     },
-    { "flags": ["-k", "--key"], "description": "Prioritize using this key instead of the stored one (if applicable)" }
+    { "flags": ["-k", "--key <string>"], "description": "Optional parameter to use passed in secret key, most useful for continuous integration use cases" }
   ],
   "publish": [
     { "flags": ["-p", "--path <string>"], "description": "Path to project" },
@@ -149,12 +149,12 @@
     },
     { "flags": ["-d", "--debug"], "description": "Show debug logs" },
     { "flags": ["--ci"], "description": "Continuous Integration mode" },
-    { "flags": ["-k", "--key"], "description": "Prioritize using this key instead of the stored one (if applicable)" }
+    { "flags": ["-k", "--key <string>"], "description": "Optional parameter to use passed in secret key, most useful for continuous integration use cases" }
   ],
-  "upload": [{ "flags": ["-k", "--key"], "description": "Prioritize using this key instead of the stored one (if applicable)" }],
+  "upload": [{ "flags": ["-k", "--key <string>"], "description": "Optional parameter to use passed in secret key, most useful for continuous integration use cases" }],
   "generate": [
     { "flags": ["-p", "--path <string>"], "description": "Path to project" },
-    { "flags": ["-k", "--key"], "description": "Prioritize using this key instead of the stored one (if applicable)" }
+    { "flags": ["-k", "--key <string>"], "description": "Optional parameter to use passed in secret key, most useful for continuous integration use cases" }
   ],
   "login": [
     {
