@@ -3,6 +3,9 @@ title: API Keys
 slug: /api-keys
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # API Keys
 
 An API key is required to use thirdweb's infrastructure services such as Smart Wallet, Storage and RPCs and it is **completely free to use**. These services are built into many of the thirdweb products such as the [CLI](/cli) and [SDKs](/sdk).
@@ -11,7 +14,137 @@ It is required to instantiate the thirdweb SDKs to unlock the full capabilities.
 By using the API Key to instantiate the SDKs, you are able to use thirdweb's infrastructure such as RPCs, [account abstraction](/glossary/smart-wallet) infrastructure and [storage](/storage) gateway.
 This means that all the complexities of web3 development are handled for you and you can focus on building your application.
 
-The [settings tab](https://thirdweb.com/create-api-key), located in Dashboard, allows you to configure and create API keys.
+## Usage
+
+The following services require an API key to use:
+- [**Smart Wallet**](/glossary/smart-wallet)
+- [**Storage**](/storage)
+- The following [**CLI**](/cli) commands (these commands require you to login using the [login](/cli/commands/login) command):
+  - [**Generate**](/cli/commands/generate)
+  - [**Deploy**](/cli/commands/deploy)
+  - [**Publish**](/cli/commands/publish)
+  - [**Upload**](/cli/commands/upload)
+- **RPCs**
+
+When initializing the SDKs, you will need to use either your client id or secret key. The SDKs are now initialized as follows:
+
+<Tabs>
+  <TabItem value="Typescript" label="Typescript" default>
+
+  When writing backends or scripts, you can use the secret key to instantiate the SDK:
+
+  ```ts
+    // Read-only mode
+    const readOnlySdk = new ThirdwebSDK("goerli", {
+      secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
+    });
+  ```
+
+  When using the Typescript SDK for frontend applications, use the client id:
+
+  ```ts
+    import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+    // Read-only mode
+    const readOnlySdk = new ThirdwebSDK("goerli", {
+      clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
+    });
+  ```
+
+  </TabItem>
+  <TabItem value="React" label="React">
+
+  When using the React SDK, you can use the client id to instantiate the SDK:
+
+  ```jsx
+    import { ThirdwebProvider } from "@thirdweb-dev/react";
+
+    function MyApp() {
+      return (
+        <ThirdwebProvider
+          activeChain="ethereum"
+          // highlight-start
+          clientId="your-client-id"
+          // highlight-end
+        >
+          <YourApp />
+        </ThirdwebProvider>
+      );
+    }
+  ```
+
+  </TabItem>
+  <TabItem value="Unity" label="Unity">
+
+  When using the Unity SDK, you can use the client id to instantiate the SDK:
+
+  ```csharp
+    ThirdwebSDK sdk = new ThirdwebSDK("goerli", 5, new ThirdwebSDK.Options()
+    {
+      clientId = "my-client-id", // you can get client id from dashboard settings
+    });
+  ```
+
+  </TabItem>
+  <TabItem value="Python" label="Python">
+
+  When using the Python SDK, you can use the secret key to instantiate the SDK:
+
+  ```python
+    from thirdweb import ThirdwebSDK
+    from thirdweb.types import SDKOptions
+    from dotenv.main import load_dotenv
+    import os
+
+      load_dotenv()
+      secret_key = os.environ['SECRET_KEY']
+      private_key = os.environ['PRIVATE_KEY']
+
+      sdk = ThirdwebSDK.from_private_key(private_key, "mumbai", SDKOptions(secret_key=secret_key))
+  ```
+  </TabItem>
+  <TabItem value="GO" label="GO">
+
+  When using the GO SDK, you can use the secret key to instantiate the SDK:
+
+  ```go
+    package main
+
+    import (
+	    "fmt"
+
+	    "github.com/thirdweb-dev/go-sdk/v2/thirdweb"
+    )
+
+    func main() {
+	    // Your secret key from the thirdweb api keys dashboard
+	    secretKey := "..."
+
+	    // Creates a new SDK instance to get read-only data for your contracts, you can pass:
+	    // - a chain name (mainnet, rinkeby, goerli, polygon, mumbai, avalanche, fantom)
+	    // - a custom RPC URL
+	    sdk, err := thirdweb.NewThirdwebSDK("mumbai", &thirdweb.SDKOptions{
+		    SecretKey: secretKey,
+	    })
+	    if err != nil {
+		    panic(err)
+      }
+
+	    // Now we can interact with the SDK, like displaying the connected chain ID
+	    chainId, err := sdk.GetChainID()
+	    if err != nil {
+		    panic(err)
+	    }
+
+	    fmt.Println("New SDK instance create on chain", chainId)
+    }
+  ```
+
+  </TabItem>
+</Tabs>
+
+## Creating & Managing your API Keys via the Dashboard Settings Tab
+
+The [**settings tab**](https://thirdweb.com/create-api-key), located in Dashboard, allows you to configure and create API keys.
 
 ![Create an API Key](/assets/dashboard/settings-tab.png)
 
