@@ -6,6 +6,24 @@ body {
   letter-spacing: initial;
 }
 
+.announcementBar {
+  width: 100vw;
+  position: fixed; // Use only if necessary
+  z-index: 1;
+}
+
+@media (min-width: 997px) {
+  :root {
+    --docusaurus-announcement-bar-height: 30px;
+  }
+
+  .announcementBarPlaceholder,
+  .announcementBarClose {
+    flex-basis: 100% !important;
+    width: 100% !important;
+  }
+}
+
 .markdown {
   h1,
   h2,

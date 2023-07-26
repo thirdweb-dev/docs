@@ -188,6 +188,7 @@ const config = {
   ],
 
   themeConfig:
+  
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       image: "img/portal.png",
@@ -207,6 +208,14 @@ const config = {
         defaultMode: "dark",
         // This removes light mode
         disableSwitch: false,
+      },
+      announcementBar: {
+        id: 'api-keys',
+        content:
+          'API keys will be required for access to thirdweb infrastructure services (effective August 1st) <a target="_blank" rel="noopener noreferrer" href="/api-keys">learn more here!</a>',
+        backgroundColor: '#5204BF',
+        textColor: '#fff',
+        isCloseable: true,
       },
       navbar: {
         logo: {
@@ -296,6 +305,7 @@ const config = {
       "data-api": "https://pl.thirdweb.com/api/event",
     },
   ],
+  
 };
 
 module.exports = config;
