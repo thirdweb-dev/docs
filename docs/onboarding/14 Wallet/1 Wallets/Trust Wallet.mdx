@@ -24,7 +24,18 @@ wallet.connect();
 Optionally, provide a configuration object when instantiating the `TrustWallet` class.
 
 <details>
-  <summary>projectId</summary>
+  <summary>clientId (recommended) </summary>
+  <div>
+
+Provide `clientId` to use the thirdweb RPCs for given `chains`
+
+You can create a client ID for your application from [thirdweb dashboard](https://thirdweb.com/create-api-key).
+
+</div>
+</details>
+
+<details>
+  <summary>projectId (recommended)</summary>
   <div>
 
 Your project's unique identifier for Wallet Connect.
@@ -127,7 +138,7 @@ const walletWithOptions = new TrustWallet(
   <div>
 
 Trust Wallet is an implementation of our WalletConnect wallet. You can use
-WalletConnect's [options](https://docs.walletconnect.com/2.0/web3modal/options) to customize the QR Code Modal.
+WalletConnect's [options](https://docs.walletconnect.com/2.0/web/web3modal/html/wagmi/options) to customize the QR Code Modal.
 
 ### Type
 
