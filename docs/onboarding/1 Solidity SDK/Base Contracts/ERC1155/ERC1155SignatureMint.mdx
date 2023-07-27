@@ -65,6 +65,7 @@ import "@thirdweb-dev/contracts/base/ERC1155SignatureMint.sol";
 
 contract MyNFT is ERC1155SignatureMint {
     constructor(
+        address _defaultAdmin,
         string memory _name,
         string memory _symbol,
         address _royaltyRecipient,
@@ -72,6 +73,7 @@ contract MyNFT is ERC1155SignatureMint {
         address _primarySaleRecipient
     )
         ERC1155SignatureMint(
+            _defaultAdmin,
             _name,
             _symbol,
             _royaltyRecipient,
