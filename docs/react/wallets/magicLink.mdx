@@ -8,6 +8,7 @@ sidebar_position: 9
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
+import { CustomizeWalletConfigurator } from "@components/build-wallet/CustomizeWalletConfigurator";
 
 A wallet configurator for [Magic Wallet](/wallet/magic) which allows integrating the wallet with React
 
@@ -16,14 +17,41 @@ import { magicLink } from "@thirdweb-dev/react";
 
 const magicLinkConfig = magicLink({
   apiKey: "MAGIC_API_KEY,
+  type: 'auth' // or 'connect'
 });
 ```
+
+<CustomizeWalletConfigurator
+  config="magicLinkConfig"
+  configurator="magicLink"
+  connectUI="MagicLinkConnectUI"
+  selectUI="MagicLinkSelectUI"
+/>
+
+<br />
+
+<details>
+  <summary>type (optional) </summary>
+  <div>
+
+Whether to use [Magic Auth](https://magic.link/docs/auth/overview) or [Magic Connect](https://magic.link/docs/connect/overview) to connect to the wallet.
+
+Default is `"auth"`.
+
+```ts
+type: "auth" | "connect";
+```
+
+</div>
+</details>
 
 <details>
   <summary>apiKey </summary>
   <div>
 
-Your Magic Link apiKey. You can get an API key by signing up for an account on [Magic Link's website](https://magic.link/).
+Your Magic Link apiKey.
+
+You can get an API key by signing up for an account on [Magic Link's website](https://magic.link/).
 
 Must be a `string`.
 
@@ -34,7 +62,9 @@ Must be a `string`.
   <summary>magicSdkConfiguration (optional)</summary>
   <div>
 
-Configuration for Magic Auth SDK.
+Configuration for [Magic Auth](https://magic.link/docs/auth/overview) SDK.
+
+This is only relevant if you are using `type: 'auth'` in your config.
 
 ```ts
 {
@@ -80,6 +110,8 @@ Enable [testMode](https://magic.link/docs/auth/introduction/test-mode) to assert
 
 Specify whether you want to allow users to login with their phone number or not. It is `true` by default
 
+This is only relevant if you are using `type: 'auth'`.
+
 Must be a `boolean`.
 
 </div>
@@ -90,6 +122,8 @@ Must be a `boolean`.
   <div>
 
 Specify whether you want to allow users to login with their email or not. It is `true` by default
+
+This is only relevant if you are using `type: 'auth'`.
 
 Must be a `boolean`.
 
@@ -107,6 +141,7 @@ To allow users to connect to this wallet using the [ConnectWallet](/react/react.
       apiKey: "MAGIC_API_KEY",
     }),
   ]}
+  clientId="your-client-id"
 >
   <YourApp />
 </ThirdwebProvider>
@@ -116,7 +151,7 @@ To allow users to connect to this wallet using the [ConnectWallet](/react/react.
 
 you can use the `useConnect` hook to programmatically connect to the wallet without using the [ConnectWallet](/react/react.connectwallet) component.
 
-Connecting wallet with `useConnect` **does not** require adding wallet to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop
+The wallet also needs to be added in [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) if you want the wallet to auto-connect on next page load.
 
 Calling `connect` opens the Magic's Modal and prompts the user to either enter an OTP sent to their phoneNumber or click on the link sent to their email.
 
@@ -140,7 +175,7 @@ function App() {
 
 ```ts
 {
-  // one of these is required
+  // one of these is required if using type: 'auth'
   email?: string;
   phoneNumber?: string;
 
@@ -162,7 +197,7 @@ import { ThirdwebProvider } from "@thirdweb-dev/react";
 
 export function YourApp() {
   return (
-    <ThirdwebProvider supportedChains={[Polygon]}>
+    <ThirdwebProvider supportedChains={[Polygon]} clientId="your-client-id">
       <App />
     </ThirdwebProvider>
   );
@@ -175,6 +210,8 @@ export function YourApp() {
 <details>
   <summary>email or phoneNumber </summary>
   <div>
+
+This is only relevant if you are using `type: 'auth'`.
 
 specify either `email` or `phoneNumber` of the user to connect to your app.
 

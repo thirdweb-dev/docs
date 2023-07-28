@@ -10,6 +10,10 @@ import CLIOptions from "@components/CLIOptions";
 
 Use the [CLI](/cli) to deploy your contracts directly to **Any EVM compatible chain** using the [dashboard](/dashboard).
 
+:::caution
+We now require you to authenticate using your API secret key in order to use this command. Check out how to login [here](/cli/login).
+:::
+
 ```bash
 npx thirdweb deploy
 ```
@@ -37,4 +41,3 @@ npx thirdweb [options]
     <CLIOptions flags={flags} description={description} />
   ))}
 </div>
-```

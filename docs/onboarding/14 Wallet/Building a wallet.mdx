@@ -434,7 +434,7 @@ Go back to the wallet selector screen in ConnectWallet modal
   <summary> theme  </summary>
   <div>
 
-The theme of the ConnectWallet modal
+The theme of the ConnectWallet modal. You can use this to render your connect UI to match the theme of the modal
 
 </div>
 </details>
@@ -517,6 +517,19 @@ onSelect: (selectionData: any) => void;
 ```
 
 Call this function to "select" your wallet and render the screen for connecting the wallet. You can optionally pass `selectionData` to be passed to `connectUI`'s `selectionData` prop
+
+</div>
+</details>
+
+<details>
+  <summary> theme </summary>
+  <div>
+
+```ts
+theme: "dark" | "light";
+```
+
+The theme of the ConnectWallet modal. You can use this to render your select UI to match the theme of the ConnectWallet modal
 
 </div>
 </details>
@@ -739,7 +752,7 @@ function myWallet (options?: MyWalletConfig): WalletConfig<MyWallet> {
 You can now use your wallet with the Connect Wallet button! Simply add it to the `supportedWallets` prop of the `ThirdwebProvider`.
 
 ```tsx
-<ThirdwebProvider supportedWallets={[myWallet()]}>
+<ThirdwebProvider supportedWallets={[myWallet()]} clientId="your-client-id">
   <App />
 </ThirdwebProvider>
 ```
@@ -751,7 +764,6 @@ You can look at how `thirdweb-dev/react` package's built-in wallets are implemen
 - [MetaMask](https://github.com/thirdweb-dev/js/blob/main/packages/react/src/wallet/wallets/metamask/metamaskWallet.tsx)
 - [Coinbase](https://github.com/thirdweb-dev/js/blob/main/packages/react/src/wallet/wallets/coinbase/coinbaseWallet.tsx)
 - [WalletConnect](https://github.com/thirdweb-dev/js/blob/main/packages/react/src/wallet/wallets/walletConnect.tsx)
-- [WalletConnectV1](https://github.com/thirdweb-dev/js/blob/main/packages/react/src/wallet/wallets/walletConnectV1.tsx)
 - [Safe](https://github.com/thirdweb-dev/js/blob/main/packages/react/src/wallet/wallets/safe/safeWallet.tsx)
 - [Paper wallet](https://github.com/thirdweb-dev/js/blob/main/packages/react/src/wallet/wallets/paperWallet.tsx)
 - [Local Wallet](https://github.com/thirdweb-dev/js/blob/main/packages/react/src/wallet/wallets/localWallet/localWallet.tsx)

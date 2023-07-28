@@ -8,6 +8,7 @@ sidebar_position: 8
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
+import { CustomizeWalletConfigurator } from "@components/build-wallet/CustomizeWalletConfigurator";
 
 A wallet configurator for [Smart Wallet](/wallet/smart-wallet) which allows integrating the wallet with React
 
@@ -17,28 +18,23 @@ import { smartWallet } from "@thirdweb-dev/react";
 const smartWalletConfig = smartWallet({
   factoryAddress: "0x...",
   gasless: true,
-  thirdwebApiKey: "THIRDWEB_API_KEY",
 });
 ```
+
+<CustomizeWalletConfigurator
+  config="smartWalletConfig"
+  configurator="smartWallet"
+  connectUI="SmartWalletConnectUI"
+  selectUI="SmartWalletSelectUI"
+/>
+
+<br />
 
 <details>
   <summary>factoryAddress</summary>
   <div>
 
 The address of the Smart Wallet Factory contract.
-
-Must be a `string`.
-
-</div>
-</details>
-
-<details>
-  <summary>thirdwebApiKey</summary>
-  <div>
-
-Your thirdweb API key can be obtained from the [thirdweb dashboard](https://thirdweb.com/dashboard/api-keys).
-
-If you're using your own bundler and paymaster, you can set this to an empty string.
 
 Must be a `string`.
 
@@ -72,12 +68,12 @@ import {
   smartWallet,
   metamaskWallet,
   coinbaseWallet,
-  walletConnectV1,
+  walletConnect,
 } from "@thirdweb-dev/react";
 
 smartWallet({
   // this is the default
-  personalWallets: [metamaskWallet(), coinbaseWallet(), walletConnectV1()],
+  personalWallets: [metamaskWallet(), coinbaseWallet(), walletConnect()],
   // ...
 });
 ```
@@ -96,7 +92,7 @@ import {
   smartWallet,
   metamaskWallet,
   coinbaseWallet,
-  walletConnectV1,
+  walletConnect,
 } from "@thirdweb-dev/react";
 
 <ThirdwebProvider
@@ -104,11 +100,11 @@ import {
     smartWallet({
       factoryAddress: "0x...",
       gasless: true,
-      thirdwebApiKey: "THIRDWEB_API_KEY",
       // this is the default
-      personalWallets: [metamaskWallet(), coinbaseWallet(), walletConnectV1()],
+      personalWallets: [metamaskWallet(), coinbaseWallet(), walletConnect()],
     }),
   ]}
+  clientId="your-client-id"
 >
   <YourApp />
 </ThirdwebProvider>;
@@ -120,7 +116,7 @@ import {
 
 you can use the `useConnect` hook to programmatically connect to the wallet without using the [ConnectWallet](/react/react.connectwallet) component.
 
-Connecting wallet with `useConnect` **does not** require adding wallet to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop
+The wallet also needs to be added in [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) if you want the wallet to auto-connect on next page load.
 
 You need to connect to a personal wallet first, You can use the [useConnect](/react/react.useconnect) hook to connect to a personal wallet first and then connect to the Smart Wallet. Make sure personal wallet is on the same network as the Smart Wallet.
 

@@ -637,6 +637,10 @@ Returns an array of `NFT` objects.
 
 Get all wallet addresses that own an NFT in this contract.
 
+```javascript
+const owners = await contract.erc721.getAllOwners();
+```
+
 <details>
     <summary>Configuration</summary>
     <div>
@@ -1734,7 +1738,7 @@ Throws an **error** if the wallet does not have any of the given roles.
 ```javascript
 const verifyRole = await contract.roles.verify(
   ["admin", "minter"],
-  "{{wallet_addres}}",
+  "{{wallet_address}}",
 );
 ```
 
@@ -1752,7 +1756,7 @@ Must be an array of `string`s.
 const verifyRole = await contract.roles.verify(
   // highlight-next-line
   ["admin", "minter"],
-  "{{wallet_addres}}",
+  "{{wallet_address}}",
 );
 ```
 
@@ -1766,7 +1770,7 @@ Must be a `string`.
 const verifyRole = await contract.roles.verify(
   ["admin", "minter"],
   // highlight-next-line
-  "{{wallet_addres}}",
+  "{{wallet_address}}",
 );
 ```
 

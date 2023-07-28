@@ -16,6 +16,10 @@ Wrap your app in the `ThirdwebProvider` to access the SDK&rsquo;s functionality 
 
 ## Usage
 
+:::info API Keys
+To use the React SDK, you need to first obtain an API key from the [Dashboard](https://thirdweb.com/dashboard) and then copy the `clientId` to pass as a prop to the `ThirdwebPovider`.
+:::
+
 If you are using one of our <a href="#default-chains">default chains</a>, provide the name of the chain as a `string` to the `activeChain` prop.
 
 For non-default chains, see [configuring active chains](#activechain-recommended) or [custom chains](#custom-evm-chains).
@@ -83,7 +87,7 @@ import { ThirdwebProvider } from "@thirdweb-dev/react";
 
 function App() {
   return (
-    <ThirdwebProvider activeChain="ethereum">
+    <ThirdwebProvider activeChain="ethereum" clientId="your-client-id">
       <YourApp />
     </ThirdwebProvider>
   );
@@ -122,6 +126,28 @@ function MyApp() {
       // highlight-start
       activeChain={Gnosis}
       // highlight-end
+      clientId="your-client-id"
+    >
+      <YourApp />
+    </ThirdwebProvider>
+  );
+}
+```
+
+### clientId (recommended)
+
+The `clientId` prop is required to use the thirdweb infrastructure services with the SDK. You can get a client ID by creating an API key [on thirdweb dashboard](https://thirdweb.com/create-api-key).
+
+```jsx
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+
+function MyApp() {
+  return (
+    <ThirdwebProvider
+      activeChain="ethereum"
+      // highlight-start
+      clientId="your-client-id"
+      // highlight-end
     >
       <YourApp />
     </ThirdwebProvider>
@@ -147,7 +173,7 @@ const App = () => {
         rpc: ["<your-rpc-url-here>"],
 
         // === Information for adding the network to your wallet (how it will appear for first time users) === \\
-        // Information about the chains native currency (i.e. the currency that is used to pay for gas)
+        // Information about the chain's native currency (i.e. the currency that is used to pay for gas)
         nativeCurrency: {
           decimals: 18,
           name: "Consensys ETH",
@@ -273,6 +299,7 @@ function MyApp() {
     <ThirdwebProvider
       supportedWallets={[metamaskWallet(), coinbaseWallet(), walletConnect()]}
       activeChain="ethereum"
+      clientId="your-client-id"
     >
       <App />
     </ThirdwebProvider>
@@ -378,7 +405,7 @@ function MyApp() {
       sdkOptions={{
         readonlySettings: {
           rpcUrl: "<rpc-url>", // force read calls to go through your own RPC url
-          chainId: 1, // reduce RPC calls by sepcifying your chain ID
+          chainId: 1, // reduce RPC calls by specifying your chain ID
         },
         gasSettings: {
           maxPriceInGwei: 123, // Maximum gas price for transactions (default 300 gwei)
@@ -398,7 +425,6 @@ function MyApp() {
         },
         infuraApiKey: "<infura-api-key>", // your Infura API key
         alchemyApiKey: "<alchemy-api-key>", // your Alchemy API key
-        thirdwebApiKey: "<thirdweb-api-key>", // your thirdweb API key
       }}
       // highlight-end
     >

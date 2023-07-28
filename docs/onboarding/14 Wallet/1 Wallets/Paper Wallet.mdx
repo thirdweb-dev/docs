@@ -17,7 +17,7 @@ import { Ethereum } from "@thirdweb-dev/chains";
 
 const wallet = new PaperWallet({
   chain: Ethereum, //  chain to connect to
-  clientId: "client_id", // Paper SDK client ID
+  paperClientId: "your_paper_client_id", // Paper SDK client ID
 });
 
 wallet.connect();
@@ -28,12 +28,34 @@ wallet.connect();
 Provide a configuration object when instantiating the `PaperWallet` class.
 
 <details>
+  <summary>paperClientId (required)</summary>
+  <div>
+
+Paper SDK requires a clientId for instantiation. You can create a `clientId` for your app on [paper.xyz](https://paper.xyz/product/wallet)
+
+Must be a `string`.
+
+</div>
+</details>
+
+<details>
   <summary>chain (required)</summary>
   <div>
 
 The chain to connect to by default.
 
 Must be a `Chain` object, from the [`@thirdweb-dev/chains`](https://www.npmjs.com/package/@thirdweb-dev/chains) package.
+
+</div>
+</details>
+
+<details>
+  <summary>clientId (recommended)</summary>
+  <div>
+
+Provide `clientId` to use the thirdweb RPCs for given `chains`
+
+You can create a client ID for your application from [thirdweb dashboard](https://thirdweb.com/create-api-key).
 
 </div>
 </details>
@@ -50,12 +72,46 @@ Must be an array of `Chain` objects, from the [`@thirdweb-dev/chains`](https://w
 </details>
 
 <details>
-  <summary>clientId (required)</summary>
+  <summary>advancedOptions (optional)</summary>
   <div>
 
-Paper SDK requires a clientId for instantiation. You can create a `clientId` for your app on [paper.xyz](https://paper.xyz/product/wallet)
+Advanced options for Paper SDK.
 
-Must be a `string`.
+```ts
+advancedOptions: {
+  recoveryShareManagement?: 'AWS_MANAGED' | 'USER_MANAGED'
+}
+```
+
+`recoveryShareManagement` indicates who should be in charge of managing the user's recovery share. Choosing `"AWS_MANAGED"` is the easiest to get started and is generally what we recommend. For more information, see [managing the user's recovery share](https://docs.withpaper.com/reference/managing-the-users-recovery-share)
+
+</div>
+</details>
+
+<details>
+  <summary>styles (optional)</summary>
+  <div>
+
+customize the UI component of Paper SDK.
+
+```ts
+styles: {
+  // The roundness of buttons.
+  borderRadius?: string,
+  // The background color of the UI components.
+  colorBackground?: string,
+  // The button and link color of the UI components.
+  colorPrimary?: string,
+  // The text color of the UI components.
+  colorText?: string,
+  // The font family of the UI components.
+  fontFamily?: string,
+  // background color of the input fields
+  inputBackgroundColor?: string,
+  // border color of the input fields
+  inputBorderColor?: string,
+}
+```
 
 </div>
 </details>
@@ -122,19 +178,7 @@ await wallet.connect();
 ```typescript
 connect(options?: {
   email?: string,
-  chainId?: 5 |
-  10 |
-  1 |
-  56 |
-  97 |
-  137 |
-  250 |
-  420 |
-  4002 |
-  42161 |
-  43114 |
-  80001 |
-  421613
+  chainId?: number
 }): Promise<string>;
 ```
 
@@ -154,23 +198,6 @@ If the `email` is provided, the user will be directly shown the OTP screen, the 
   <div>
 
 If chainId is provided, the wallet will be connected to the network with the given chainId, else it will be connected to the Ethereum Mainnet.
-
-Paper Wallet only supports the below shown chains at the moment:
-
-- Ethereum (1)
-- Goerli (5)
-- Polygon (137)
-- Avalanche(43114)
-- Fantom (250)
-- Fantom Testnet (4002)
-- Mumbai Testnet (80001)
-- Avalanche (43114)
-- Optimism (10)
-- Optimism Testnet (420)
-- Binance Smart Chain (56)
-- Binance Smart Chain Testnet (97)
-- Arbitrum One (42161)
-- Arbitrum Goerli Testnet (421611)
 
 </div>
 </details>

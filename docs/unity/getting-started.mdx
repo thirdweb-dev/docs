@@ -10,8 +10,12 @@ import GettingStartedLiveEditor from "@components/live-code/snippets/GettingStar
 Before getting started, you'll need to
 [download and install the Unity Hub and Unity Editor](https://learn.unity.com/tutorial/install-the-unity-hub-and-editor).
 
+:::info
+You will require an API key to use thirdweb’s infrastructure services with the SDK. If you haven’t created a key yet you can do so for free from the [**thirdweb dashboard**](https://thirdweb.com/create-api-key).
+:::
+
 Import the thirdweb SDK, by downloading the `.unitypackage` file for the version of the SDK
-you want to use (_usually you&rsquo;ll want the latest version_) from the
+you want to use (_usually you’ll want the latest version_) from the
 [Releases page](https://github.com/thirdweb-dev/unity-sdk/releases) on the GitHub repository:
 
 ![Download Unity Package](./assets/unitypackage.png)
@@ -30,25 +34,11 @@ In your `Project` window now, you'll be able to see all of the resources that we
 
 ![Project Window](./assets/project.png)
 
-Now you&rsquo;re ready to use the SDK. Use any of the prefabs, scenes, or scripts that come within the `Examples` folder,
-or create your own script and instantiate the SDK to get started.
+Now you’re ready to use the SDK. In your `Project` window, navigate to `Thirdweb` > `Core` > `Prefabs` > `ThirdwebManager` drag it into your scene. This [ThirdwebManager](./ThirdwebManager) acts as a singleton manager class for your Thirdweb SDK, providing a convenient interface for setting up and controlling SDK parameters directly from the Unity inspector.
 
-```csharp
-using UnityEngine;
+Alternatively, use our handy quickstart installer! Accessible from the top level `Thirdweb` menu.
+![ThirdwebManager Quickstart](./assets/thirdweb-unity-sdk-setup.png)
 
-// Import the Thirdweb SDK namespace
-using Thirdweb;
+All the configurable parameters are annotated with tooltips, just hover over them in the inspector to understand their purpose. After you have set up your [ThirdwebManager](./ThirdwebManager) according to your needs, you can access the SDK from any script using `ThirdwebManager.Instance.SDK`.
 
-public class ThirdwebSDKDemos : MonoBehaviour
-{
-    // Create a Thirdweb SDK instance to use throughout this class
-    private ThirdwebSDK sdk;
-
-    void Start()
-    {
-        // When the app starts, set up the Thirdweb SDK
-        // Here, we're setting up a read-only instance on the "goerli" test network.
-        sdk = new ThirdwebSDK("goerli");
-    }
-}
-```
+For help building your first scene, check out the Unity SDK [Build Settings](https://github.com/thirdweb-dev/unity-sdk#build)

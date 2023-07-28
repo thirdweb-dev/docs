@@ -7,7 +7,7 @@ displayed_sidebar: contracts
 
 # ERC1155Drop
 
-BASE: ERC1155Base EXTENSION: DropSinglePhase1155 The `ERC1155Base` smart contract implements the ERC1155 NFT standard. It includes the following additions to standard ERC1155 logic: - Contract metadata for royalty support on platforms such as OpenSea that use off-chain information to distribute roaylties. - Ownership of the contract, with the ability to restrict certain functions to only be called by the contract&#39;s owner. - Multicall capability to perform multiple actions atomically - EIP 2981 compliance for royalty support on NFT marketplaces. The `drop` mechanism in the `DropSinglePhase1155` extension is a distribution mechanism for lazy minted tokens. It lets you set restrictions such as a price to charge, an allowlist etc. when an address atttempts to mint lazy minted tokens. The `ERC721Drop` contract lets you lazy mint tokens, and distribute those lazy minted tokens via the drop mechanism.
+BASE: ERC1155Base EXTENSION: DropSinglePhase1155 The `ERC1155Base` smart contract implements the ERC1155 NFT standard. It includes the following additions to standard ERC1155 logic: - Contract metadata for royalty support on platforms such as OpenSea that use off-chain information to distribute royalties. - Ownership of the contract, with the ability to restrict certain functions to only be called by the contract&#39;s owner. - Multicall capability to perform multiple actions atomically - EIP 2981 compliance for royalty support on NFT marketplaces. The `drop` mechanism in the `DropSinglePhase1155` extension is a distribution mechanism for lazy minted tokens. It lets you set restrictions such as a price to charge, an allowlist etc. when an address attempts to mint lazy minted tokens. The `ERC721Drop` contract lets you lazy mint tokens, and distribute those lazy minted tokens via the drop mechanism.
 
 ## Methods
 
@@ -237,7 +237,7 @@ _See {getBaseURICount}._
 function getDefaultRoyaltyInfo() external view returns (address, uint16)
 ```
 
-Returns the defualt royalty recipient and BPS for this contract&#39;s NFTs.
+Returns the default royalty recipient and BPS for this contract&#39;s NFTs.
 
 #### Returns
 
@@ -340,7 +340,7 @@ Queries the approval status of an operator for a given owner.
 function isEncryptedBatch(uint256 _batchId) external view returns (bool)
 ```
 
-Returns whether the relvant batch of NFTs is subject to a delayed reveal.
+Returns whether the relevant batch of NFTs is subject to a delayed reveal.
 
 _Returns `true` if `_batchId`&#39;s base URI is encrypted._
 

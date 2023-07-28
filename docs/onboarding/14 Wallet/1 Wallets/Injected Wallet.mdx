@@ -16,7 +16,7 @@ Prompt users to connect to your app with an "injected" wallet, i.e. one that use
 ```javascript
 import { InjectedWallet } from "@thirdweb-dev/wallets";
 
-const wallet = new InjectedWallet({});
+const wallet = new InjectedWallet();
 
 wallet.connect();
 ```
@@ -24,6 +24,17 @@ wallet.connect();
 ## Configuration
 
 Optionally, provide a configuration object when instantiating the `InjectedWallet` class.
+
+<details>
+  <summary>clientId (recommended) </summary>
+  <div>
+
+Provide `clientId` to use the thirdweb RPCs for given `chains`
+
+You can create a client ID for your application from [thirdweb dashboard](https://thirdweb.com/create-api-key).
+
+</div>
+</details>
 
 <details>
   <summary>chains</summary>
@@ -143,4 +154,4 @@ const walletWithOptions = new InjectedWallet(
 
 ## Methods
 
-Inherhits all the public methods from the [`AbstractClientWallet`](interfaces/abstract-client-wallet) class.
+Inherits all the public methods from the [`AbstractClientWallet`](interfaces/abstract-client-wallet) class.

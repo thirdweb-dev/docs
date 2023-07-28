@@ -11,7 +11,7 @@ To solve this problem, we need a way to remember that the user is authenticated 
 
 JWTs are a way to encode information about a user in a format that's easy to transfer between the client and the server. Importantly, they are signed by the server, so that the server can later verify that the information in the JWT is correct and hasn't been tampered with or falsified.
 
-Once a user succesfully logs in, our server can store data about their identity inside of a signed JWT, and send this JWT back to the client. Then, when the client sends this JWT with future requests, the server can verify that the user previously authenticated succesfully, and can also read the identity of the user off the data embedded in the JWT.
+Once a user successfully logs in, our server can store data about their identity inside of a signed JWT, and send this JWT back to the client. Then, when the client sends this JWT with future requests, the server can verify that the user previously authenticated successfully, and can also read the identity of the user off the data embedded in the JWT.
 
 ## What is the structure of a JWT?
 
@@ -48,7 +48,7 @@ The payload is the most important part of the JWT, as it contains the data that 
 }
 ```
 
-This payload makes use of [standard JWT claims](https://www.iana.org/assignments/jwt/jwt.xhtml#claims) to store data on the token. Most importantly, we store information about when the token expires in the `exp` claim (defaults to 5 hours from when it was issued in the case of Auth), and we also store the address of the user's wallet in the `sub` claim. This allows the server to verify that the user is who they say they are, and that the token hasn't expired.
+This payload makes use of [standard JWT claims](https://www.iana.org/assignments/jwt/jwt.xhtml#claims) to store data on the token. Most importantly, we store information about when the token expires in the `exp` claim (defaults to 3 days from when it was issued in the case of Auth), and we also store the address of the user's wallet in the `sub` claim. This allows the server to verify that the user is who they say they are, and that the token hasn't expired.
 
 ### Signature
 
