@@ -8,15 +8,27 @@ import QuickstartCard from "@components/QuickstartCard";
 
 # Wallet SDK
 
-The Wallet SDK is a [library](https://github.com/thirdweb-dev/js/tree/main/packages/wallets) that enables you to integrate wallet connection capabilities into web3 applications.
+Wallet SDK allows you to build a fully featured wallet solution
+or integrate an existing wallet provider with thirdweb's
+[Typescript](/typescript),
+[React](/react),
+[React Native](/react-native), and
+[Unity](/unity) SDKs. These SDKs provide everything you need to create web3 apps with ease
 
-It is usable as a standalone package to allow users to connect their wallets to your app,
-and integrates with our [SDK](/sdk) to use the connected wallet
-to interact with smart contracts, utilise [auth](/auth), [storage](/storage), and more.
+<OpenSourceInfo
+  repoName="wallets"
+  repoUrl="https://github.com/thirdweb-dev/js/tree/main/packages/wallets"
+/>
 
-## Supported Wallets
+## Popular wallets available out of the box
 
-Access the largest catalog of wallets, from custodial to MPC to smart contracts.
+Wallet SDK comes out of the box with support for most popular wallets that are ready to be used with thirdweb SDKs:
+
+- custodial wallets like [MetaMask](/wallet/metamask), [WalletConnect](/wallet/wallet-connect-v2), and [Coinbase Wallet](/wallet/coinbase-wallet) etc.
+- non-custodial wallets like [Magic](/wallet/magic) and [Paper](/wallet/paper),
+- multi-sig wallets like [Safe (Gnosis)](/wallet/safe),
+- [ERC-4337](https://eips.ethereum.org/EIPS/eip-4337) compliant [Smart Wallet](/wallet/smart-wallet)
+- [Local Wallet](/wallet/local-wallet) that allows you to create a "continue as guest" experience
 
 <div className="row" style={{ marginBottom: 12, padding: 8, paddingTop: 0 }}>
   <div className="col col--4" style={{ padding: 8 }}>
@@ -125,20 +137,206 @@ Access the largest catalog of wallets, from custodial to MPC to smart contracts.
   </div>
 </div>
 
-## Features
+<br />
 
-It supports an array of the most popular browser wallets such as [MetaMask](/wallet/metamask),
-WalletConnect [V1](/wallet/wallet-connect-v1) and [V2](/wallet/wallet-connect-v2), [Coinbase Wallet](/wallet/coinbase-wallet), non-custodial wallets such as [Magic](/wallet/magic) and [Paper](/wallet/paper), multi-sig wallets such as [Safe (Gnosis)](/wallet/safe),
-and more; each with fine-grained control over the connection flow to create customized experiences,
-or pre-built UI components to get you up and running quickly.
+:::note
 
-It also supports [Smart Wallets](/wallet/smart-wallet) following the [ERC-4337](https://eips.ethereum.org/EIPS/eip-4337) specification and
-the ability to create a transactionless [Local Wallets](/wallet/local-wallet) that allows users to onboard easily to web3 apps with a "guest checkout" experience.
+You can build your own wallet using Wallet SDK by following [Build a wallet guide](http://localhost:3000/wallet/build-a-wallet).
 
-<OpenSourceInfo
-  repoName="wallets"
-  repoUrl="https://github.com/thirdweb-dev/js/tree/main/packages/wallets"
-/>
+You can also add your wallet to Wallet SDK and make it available to all the users of Wallet SDK by creatubg a PR in [thirdweb's JS monorepo](https://github.com/thirdweb-dev/js) on GitHub
+
+:::
+
+## Usage with TypeScript SDK
+
+thirdweb's [Typescript SDK](/typescript) allows you to interact with smart contracts, sign messages, and utilize common standards such as tokens, NFTs, and marketplaces; all with built-in RPC URLs, IPFS gateways, and more.
+
+You can initialize the SDK using a wallet instance as shown below
+
+```ts
+import { MetaMaskWallet } from "@thirdweb-dev/wallets";
+import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+
+// Instantiate the wallet you want to use
+const wallet = new MetaMaskWallet();
+
+// Instantiate the SDK using the wallet
+const sdk = ThirdwebSDK.fromWallet(wallet, "ethereum", {
+  clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
+  secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
+});
+
+// sdk is now ready to use
+```
+
+## Usage with React or React Native SDK
+
+thirdweb's [React SDK](/react) and [React Native SDK](/react-native) offer **100+ hooks** and **UI components** to build web3 apps with ease on **Any EVM-compatible blockchain**. It allows you to Connect wallets, interact with smart contracts, sign messages, and utilize common standards such as tokens, NFTs, and marketplaces; all with built-in caching, RPC URLs, IPFS gateways, and more.
+
+When you want to use a wallet with React/React Native SDK - Instead of importing the wallet from `@thirdweb-dev/wallets` , you need import a “wallet configurator” function from the `@thirdweb-dev/react` or `@thirdweb-dev/react-native`. This wallet configurator function contains additional metadata and UI for connecting the wallet which is shown in [ConnectWallet](http://localhost:3000/react/react.connectwallet) component's Modal.
+
+You can find the list of all wallet configurators for React SDK [here](/react/connecting-wallets), and React Native SDK [here](/react-native/wallets)
+
+Take [metamaskWallet](/react/react.metamaskwallet) wallet configurator for example, You can connect to Metamask wallet using the wallet configurator in two ways:
+
+<details>
+  <summary>Using ConnectWallet component</summary>
+
+[ConnectWallet](/react/react.connectwallet) component allows you to connect to wallets that are specified in [ThirdwebProvider](/react/react.thirdwebprovider#supportedwallets-optional)
+
+clicking on the `ConnectWallet` button shows wallets in a Modal and shows wallet specific UI for connecting the wallet when it is selected (This UI is defined in the wallet configurator itself, not in `ConnectWallet` component)
+
+<img src="/assets/connect-wallet/paper-wallet-selection-ui.png" />
+
+### Example
+
+```tsx
+import {
+  ThirdwebProvider,
+  metamaskWallet,
+  coinbaseWallet,
+  walletConnect,
+} from "@thirdweb-dev/react";
+
+function MyApp() {
+  return (
+    <ThirdwebProvider
+      supportedWallets={[
+        metamaskWallet(),
+        coinbaseWallet(),
+        walletConnect({
+          projectId: "YOUR_PROJECT_ID",
+        }),
+      ]}
+      clientId="your-client-id"
+    >
+      <App />
+    </ThirdwebProvider>
+  );
+}
+```
+
+```tsx
+import { ConnectWallet } from "@thirdweb-dev/react";
+
+function App() {
+  return (
+    <div>
+      <ConnectWallet />
+    </div>
+  );
+}
+```
+
+</details>
+
+<details>
+
+<summary>Using useConnect hook</summary>
+
+[useConnect](/react/react.useconnect) hook allows you to programmatically connect to the wallet if you do not want to use [ConnectWallet](/react/react.connectwallet) component.
+
+```tsx
+import { useConnect, metamaskWallet } from "@thirdweb-dev/react";
+
+const metamask = metamaskWallet();
+
+function App() {
+  const connect = useConnect();
+
+  return (
+    <button
+      onClick={async () => {
+        const wallet = await connect(metamask, connectOptions);
+        console.log("connected to ", wallet);
+      }}
+    >
+      Connect to MetaMask
+    </button>
+  );
+}
+```
+
+</details>
+
+<br />
+
+:::info
+
+If you are building your own wallet and want to use it with React or React Native SDK
+you will need to create a wallet configurator as mentioned in [Build a wallet guide](/wallet/build-a-wallet#3-integrate-with-connect-wallet-button)
+where you can define a custom UI for connecting your wallet that will be shown in the ConnectWallet modal
+:::
+
+## Usage with Unity SDK
+
+thirdweb's [Unity SDK](/unity) makes building games on the blockchain easy
+
+Unity SDK provides a [ConnectWallet](/unity/connectwallet) prefab that allows users to connect their wallet to your game. [Learn more about ConnectWallet prefab](/unity/connectwallet)
+
+## Methods available on wallet instance
+
+All wallets in wallet SDK inherit methods from the [AbstractWallet](/wallet/interfaces/abstract-wallet) base class,
+and client-side wallets (web, mobile) extend from [AbstractClientWallet](/wallet/interfaces/abstract-client-wallet) base class. Each wallet may have its own unique methods. Below are the common methods shared by all wallets
+
+<details>
+<summary>getAddress</summary>
+
+Get the address of the currently connected wallet
+
+```ts
+const address = await wallet.getAddress();
+```
+
+</details>
+
+<details>
+<summary>getChainId</summary>
+
+Get the chain ID of the network the wallet is currently connected to
+
+```ts
+const chainId = await wallet.getChainId();
+```
+
+</details>
+
+<details>
+<summary>getSigner</summary>
+
+Get the [signer](https://docs.ethers.org/v5/api/signer/) for the currently connected wallet.
+
+```ts
+const signer = await wallet.getSigner();
+```
+
+</details>
+
+<details>
+<summary>signMessage</summary>
+
+Sign a message with the currently connected wallet. This function must be implemented by the parent class.
+
+```ts
+const signature = await wallet.signMessage("Hello world!");
+```
+
+</details>
+
+<details>
+<summary>verifySignature</summary>
+
+Verify if a signature is valid or not
+
+```ts
+const isValid = await wallet.verifySignature(
+  "Message",
+  "Signature",
+  "wallet_address",
+);
+```
+
+</details>
 
 ## Get Started
 
