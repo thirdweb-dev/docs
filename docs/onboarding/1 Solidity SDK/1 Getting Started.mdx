@@ -54,11 +54,12 @@ import "@thirdweb-dev/contracts/base/ERC721Base.sol";
 
 contract MyNFT is ERC721Base {
     constructor(
+        address _defaultAdmin,
         string memory _name,
         string memory _symbol,
         address _royaltyRecipient,
         uint128 _royaltyBps
-    ) ERC721Base(_name, _symbol, _royaltyRecipient, _royaltyBps) {}
+    ) ERC721Base(_defaultAdmin, _name, _symbol, _royaltyRecipient, _royaltyBps) {}
 }
 ```
 
@@ -81,11 +82,12 @@ import "@thirdweb-dev/contracts/extension/Permissions.sol";
 
 contract MyNFT is ERC721Base, Permissions {
     constructor(
+        address _defaultAdmin,
         string memory _name,
         string memory _symbol,
         address _royaltyRecipient,
         uint128 _royaltyBps
-    ) ERC721Base(_name, _symbol, _royaltyRecipient, _royaltyBps) {}
+    ) ERC721Base(_defaultAdmin, _name, _symbol, _royaltyRecipient, _royaltyBps) {}
 }
 ```
 
@@ -109,11 +111,12 @@ contract MyNFT is ERC721Base, Permissions {
     bytes32 private constant MINTER_ROLE = keccak256("MINTER_ROLE");
 
     constructor(
+        address _defaultAdmin,
         string memory _name,
         string memory _symbol,
         address _royaltyRecipient,
         uint128 _royaltyBps
-    ) ERC721Base(_name, _symbol, _royaltyRecipient, _royaltyBps) {}
+    ) ERC721Base(_defaultAdmin, _name, _symbol, _royaltyRecipient, _royaltyBps) {}
 
     /**
      *  `_canMint` is a function available in `ERC721Base`.
@@ -158,11 +161,12 @@ import "@thirdweb-dev/contracts/extension/Permissions.sol";
 
 contract MyNFT is ERC721Base, Permissions {
     constructor(
+        address _defaultAdmin,
         string memory _name,
         string memory _symbol,
         address _royaltyRecipient,
         uint128 _royaltyBps
-    ) ERC721Base(_name, _symbol, _royaltyRecipient, _royaltyBps) {}
+    ) ERC721Base(_defaultAdmin, _name, _symbol, _royaltyRecipient, _royaltyBps) {}
 
     function mintTo(address _to, string memory _tokenURI) public override {
         require(balanceOf(_to) < 1, "only 1 NFT per wallet!");

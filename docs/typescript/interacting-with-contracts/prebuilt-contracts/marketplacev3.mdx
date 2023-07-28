@@ -749,7 +749,6 @@ const allListings = await contract.englishAuctions.getAll(
   // highlight-start
   {
     count: 100, // Number of listings to fetch
-    offeror: "{{offeror_address}}", // Has offers from this address
     seller: "{{seller_address}}", // Being sold by this address
     start: 0, // Start from this index (pagination)
     tokenContract: "{{token_contract_address}}", // Only show NFTs from this collection
@@ -809,7 +808,6 @@ const allListings = await contract.directListings.getAll(
   // highlight-start
   {
     count: 100, // Number of listings to fetch
-    offeror: "{{offeror_address}}", // Has offers from this address
     seller: "{{seller_address}}", // Being sold by this address
     start: 0, // Start from this index (pagination)
     tokenContract: "{{token_contract_address}}", // Only show NFTs from this collection
@@ -865,7 +863,6 @@ Filter the results returned by the function.
 ```javascript
 const offers = await contract.offers.getAll({
   offeror: "{{wallet_address}}", // Offers made by this wallet address
-  seller: "{{wallet_address}}", // Offers on items being sold by this wallet address
   tokenContract: "{{contract_address}}", // Offers on items from this contract
   tokenId: "{{token_id}}", // Offers on this specific token
   start: 0, // Pagination: Start from this index

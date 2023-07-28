@@ -42,11 +42,12 @@ import "@thirdweb-dev/contracts/lib/CurrencyTransferLib.sol";
 
 contract ERC721SignatureMint is ERC721Base, SignatureMintERC721 {
     constructor(
+        address _defaultAdmin,
         string memory _name,
         string memory _symbol,
         address _royaltyRecipient,
         uint128 _royaltyBps
-    ) ERC721Base(_name, _symbol, _royaltyRecipient, _royaltyBps) {}
+    ) ERC721Base(_defaultAdmin, _name, _symbol, _royaltyRecipient, _royaltyBps) {}
 
     /// @dev Mints tokens according to the provided mint request.
     function mintWithSignature(
