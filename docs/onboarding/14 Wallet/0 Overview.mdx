@@ -24,9 +24,9 @@ or integrate an existing wallet provider with thirdweb's
 
 Wallet SDK comes out of the box with support for the most popular wallets that are ready to be used with thirdweb SDKs:
 
-- custodial wallets like [MetaMask](/wallet/metamask), [WalletConnect](/wallet/wallet-connect-v2), and [Coinbase Wallet](/wallet/coinbase-wallet) etc.
-- non-custodial wallets like [Magic](/wallet/magic) and [Paper](/wallet/paper),
-- multi-sig wallets like [Safe (Gnosis)](/wallet/safe),
+- custodial wallets like [MetaMask](/wallet/metamask), [WalletConnect](/wallet/wallet-connect-v2), and [Coinbase Wallet](/wallet/coinbase-wallet)
+- non-custodial wallets like [Magic](/wallet/magic) and [Paper](/wallet/paper)
+- multi-sig wallets like [Safe (Gnosis)](/wallet/safe)
 - [ERC-4337](https://eips.ethereum.org/EIPS/eip-4337) compliant [Smart Wallet](/wallet/smart-wallet)
 - [Local Wallet](/wallet/local-wallet) that allows you to create a "continue as guest" experience
 
@@ -270,14 +270,12 @@ where you can define a custom UI for connecting your wallet that will be shown i
 
 ## Usage with Unity SDK
 
-thirdweb's [Unity SDK](/unity) makes building games on the blockchain easy
-
-Unity SDK provides a [ConnectWallet](/unity/connectwallet) prefab that allows users to connect their wallet to your game. [Learn more about ConnectWallet prefab](/unity/connectwallet)
+thirdweb's Unity SDK provides a [ConnectWallet](/unity/connectwallet) prefab that allows users to connect their wallet to your game. [Learn more about Unity SDK](/unity)
 
 ## Methods available on wallet instance
 
-All wallets in wallet SDK inherit methods from the [AbstractWallet](/wallet/interfaces/abstract-wallet) base class,
-and client-side wallets (web, mobile) extend from [AbstractClientWallet](/wallet/interfaces/abstract-client-wallet) base class. Each wallet may have its own unique methods. Below are the common methods shared by all wallets
+All wallets in wallet SDK extend from the [AbstractWallet](/wallet/interfaces/abstract-wallet) base class,
+and all client-side wallets (web, mobile) extend from [AbstractClientWallet](/wallet/interfaces/abstract-client-wallet) base class. Each wallet may have its own unique methods. Below are the common methods shared by all wallets
 
 <details>
 <summary>getAddress</summary>
