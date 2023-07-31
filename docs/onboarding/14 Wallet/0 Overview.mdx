@@ -185,10 +185,9 @@ When you want to use a wallet with React/React Native SDK - Instead of importing
 
 You can find the list of all wallet configurators for React SDK [here](/react/connecting-wallets), and React Native SDK [here](/react-native/wallets)
 
-Take [metamaskWallet](/react/react.metamaskwallet) wallet configurator for example, You can connect to Metamask wallet using the wallet configurator in two ways:
+You can connect to a wallet in two ways:
 
-<details>
-  <summary>Using ConnectWallet component</summary>
+### 1. Using ConectWallet
 
 [ConnectWallet](/react/react.connectwallet) component allows you to connect to wallets that are specified in [ThirdwebProvider](/react/react.thirdwebprovider#supportedwallets-optional)
 
@@ -196,7 +195,7 @@ clicking on the `ConnectWallet` button shows wallets in a Modal and shows wallet
 
 <img src="/assets/connect-wallet/paper-wallet-selection-ui.png" />
 
-### Example
+#### Example
 
 ```tsx
 import {
@@ -236,11 +235,7 @@ function App() {
 }
 ```
 
-</details>
-
-<details>
-
-<summary>Using useConnect hook</summary>
+### 2. Using useConnect hook
 
 [useConnect](/react/react.useconnect) hook allows you to programmatically connect to the wallet if you do not want to use the [ConnectWallet](/react/react.connectwallet) component.
 
@@ -264,8 +259,6 @@ function App() {
   );
 }
 ```
-
-</details>
 
 <br />
 
@@ -340,6 +333,74 @@ const isValid = await wallet.verifySignature(
   "Signature",
   "wallet_address",
 );
+```
+
+</details>
+
+<details>
+<summary>transfer</summary>
+
+Transfer native or ERC20 tokens from this wallet to another wallet
+
+```javascript
+// for native tokens
+const txResult = await wallet.transfer(recipientAddress, amount);
+
+// for ERC20 tokens
+const txResult = await wallet.transfer(recipientAddress, amount, tokenAddress);
+```
+
+#### recipientAddress
+
+Address of the recipient to send the tokens to
+
+```
+string
+```
+
+#### amount
+
+Amount of tokens to send
+
+```
+string | number
+```
+
+#### Return Value
+
+```
+Promise<TransactionResult>
+```
+
+</details>
+
+<details>
+  <summary> getBalance </summary>
+
+Get the the native token balance or ERC20 token balance of the wallet.
+
+```javascript
+// for native token balance
+const txResult = await wallet.getBalance();
+
+// for ERC20 token balance
+const txResult = await wallet.getBalance(tokenAddress);
+```
+
+#### tokenAddress
+
+Address of the ERC20 token. If no address is provided, the native token balance is returned.
+
+#### Return Value
+
+```ts
+Promise<{
+  symbol: string;
+  value: BigNumber;
+  name: string;
+  decimals: number;
+  displayValue: string;
+}>;
 ```
 
 </details>
