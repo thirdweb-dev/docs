@@ -1,6 +1,7 @@
 ---
 slug: /wallet
 title: Overview
+sidebar_position: 1
 ---
 
 import OpenSourceInfo from "@components/OpenSourceInfo";
@@ -155,259 +156,7 @@ You can also add your wallet to Wallet SDK and make it available to all the user
 
 :::
 
-## Usage with TypeScript SDK
-
-thirdweb's [Typescript SDK](/typescript) allows you to interact with smart contracts, sign messages, and utilize common standards such as tokens, NFTs, and marketplaces; all with built-in RPC URLs, IPFS gateways, and more.
-
-You can initialize the SDK using a wallet instance as shown below
-
-```ts
-import { MetaMaskWallet } from "@thirdweb-dev/wallets";
-import { ThirdwebSDK } from "@thirdweb-dev/sdk";
-
-// Instantiate the wallet you want to use
-const wallet = new MetaMaskWallet();
-
-// Instantiate the SDK using the wallet
-const sdk = ThirdwebSDK.fromWallet(wallet, "ethereum", {
-  clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
-  secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
-});
-
-// sdk is now ready to use
-```
-
-## Usage with React or React Native SDK
-
-thirdweb's [React SDK](/react) and [React Native SDK](/react-native) offer **100+ hooks** and **UI components** to build web3 apps with ease on **Any EVM-compatible blockchain**. It allows you to Connect wallets, interact with smart contracts, sign messages, and utilize common standards such as tokens, NFTs, and marketplaces; all with built-in caching, RPC URLs, IPFS gateways, and more.
-
-When you want to use a wallet with React/React Native SDK - Instead of importing the wallet from `@thirdweb-dev/wallets` , you need to import a “wallet configurator” function from the `@thirdweb-dev/react` or `@thirdweb-dev/react-native`. This wallet configurator function contains additional metadata and UI for connecting the wallet which is shown in the [ConnectWallet](/react/react.connectwallet) component's Modal.
-
-You can find the list of all wallet configurators for React SDK [here](/react/connecting-wallets), and React Native SDK [here](/react-native/wallets)
-
-You can connect to a wallet in two ways:
-
-### 1. Using ConectWallet
-
-[ConnectWallet](/react/react.connectwallet) component allows you to connect to wallets that are specified in [ThirdwebProvider](/react/react.thirdwebprovider#supportedwallets-optional)
-
-clicking on the `ConnectWallet` button shows wallets in a Modal and shows wallet-specific UI for connecting the wallet when it is selected (This UI is defined in the wallet configurator itself, not in `ConnectWallet` component)
-
-<img src="/assets/connect-wallet/paper-wallet-selection-ui.png" />
-
-#### Example
-
-```tsx
-import {
-  ThirdwebProvider,
-  metamaskWallet,
-  coinbaseWallet,
-  walletConnect,
-} from "@thirdweb-dev/react";
-
-function MyApp() {
-  return (
-    <ThirdwebProvider
-      supportedWallets={[
-        metamaskWallet(),
-        coinbaseWallet(),
-        walletConnect({
-          projectId: "YOUR_PROJECT_ID",
-        }),
-      ]}
-      clientId="your-client-id"
-    >
-      <App />
-    </ThirdwebProvider>
-  );
-}
-```
-
-```tsx
-import { ConnectWallet } from "@thirdweb-dev/react";
-
-function App() {
-  return (
-    <div>
-      <ConnectWallet />
-    </div>
-  );
-}
-```
-
-### 2. Using useConnect hook
-
-[useConnect](/react/react.useconnect) hook allows you to programmatically connect to the wallet if you do not want to use the [ConnectWallet](/react/react.connectwallet) component.
-
-```tsx
-import { useConnect, metamaskWallet } from "@thirdweb-dev/react";
-
-const metamask = metamaskWallet();
-
-function App() {
-  const connect = useConnect();
-
-  return (
-    <button
-      onClick={async () => {
-        const wallet = await connect(metamask, connectOptions);
-        console.log("connected to ", wallet);
-      }}
-    >
-      Connect to MetaMask
-    </button>
-  );
-}
-```
-
-<br />
-
-:::info
-
-If you are building your own wallet and want to use it with React or React Native SDK
-you will need to create a wallet configurator as mentioned in [Build a wallet guide](/wallet/build-a-wallet#3-integrate-with-connect-wallet-button)
-where you can define a custom UI for connecting your wallet that will be shown in the ConnectWallet modal
-:::
-
-## Usage with Unity SDK
-
-thirdweb's Unity SDK provides a [ConnectWallet](/unity/connectwallet) prefab that allows users to connect their wallet to your game. [Learn more about Unity SDK](/unity)
-
-## Methods available on wallet instance
-
-All wallets in wallet SDK extend from the [AbstractWallet](/wallet/interfaces/abstract-wallet) base class,
-and all client-side wallets (web, mobile) extend from [AbstractClientWallet](/wallet/interfaces/abstract-client-wallet) base class. Each wallet may have its own unique methods. Below are the common methods shared by all wallets
-
-<details>
-<summary>getAddress</summary>
-
-Get the address of the currently connected wallet
-
-```ts
-const address = await wallet.getAddress();
-```
-
-</details>
-
-<details>
-<summary>getChainId</summary>
-
-Get the chain ID of the network the wallet is currently connected to
-
-```ts
-const chainId = await wallet.getChainId();
-```
-
-</details>
-
-<details>
-<summary>getSigner</summary>
-
-Get the [signer](https://docs.ethers.org/v5/api/signer/) for the currently connected wallet.
-
-```ts
-const signer = await wallet.getSigner();
-```
-
-</details>
-
-<details>
-<summary>signMessage</summary>
-
-Sign a message with the currently connected wallet. This function must be implemented by the parent class.
-
-```ts
-const signature = await wallet.signMessage("Hello world!");
-```
-
-</details>
-
-<details>
-<summary>verifySignature</summary>
-
-Verify if a signature is valid or not
-
-```ts
-const isValid = await wallet.verifySignature(
-  "Message",
-  "Signature",
-  "wallet_address",
-);
-```
-
-</details>
-
-<details>
-<summary>transfer</summary>
-
-Transfer native or ERC20 tokens from this wallet to another wallet
-
-```javascript
-// for native tokens
-const txResult = await wallet.transfer(recipientAddress, amount);
-
-// for ERC20 tokens
-const txResult = await wallet.transfer(recipientAddress, amount, tokenAddress);
-```
-
-#### recipientAddress
-
-Address of the recipient to send the tokens to
-
-```
-string
-```
-
-#### amount
-
-Amount of tokens to send
-
-```
-string | number
-```
-
-#### Return Value
-
-```
-Promise<TransactionResult>
-```
-
-</details>
-
-<details>
-  <summary> getBalance </summary>
-
-Get the the native token balance or ERC20 token balance of the wallet.
-
-```javascript
-// for native token balance
-const txResult = await wallet.getBalance();
-
-// for ERC20 token balance
-const txResult = await wallet.getBalance(tokenAddress);
-```
-
-#### tokenAddress
-
-Address of the ERC20 token. If no address is provided, the native token balance is returned.
-
-#### Return Value
-
-```ts
-Promise<{
-  symbol: string;
-  value: BigNumber;
-  name: string;
-  decimals: number;
-  displayValue: string;
-}>;
-```
-
-</details>
-
 ## Get Started
-
-Learn how to quickly integrate wallet connection capabilities into your apps with the [Getting Started](/wallet/getting-started) guide.
 
 <div className="row" style={{ marginBottom: 12, padding: 8, paddingTop: 0 }}>
   <div className="col col--12" style={{ padding: 8 }}>
@@ -415,6 +164,48 @@ Learn how to quickly integrate wallet connection capabilities into your apps wit
       name="Get started with Wallet"
       link="/wallet/getting-started"
       image="/assets/product/wallet.png"
+    />
+  </div>
+</div>
+
+## Usage with thirdweb SDKs
+
+<div className="row" style={{ marginBottom: 0, padding: 8, paddingTop: 0 }}>
+  <div className="col col--12" style={{ padding: 8, paddingBottom: 0 }}>
+    <QuickstartCard
+      name="Usage with TypeScript SDK"
+      link="/wallet/usage-with-typescript-sdk"
+      image="/assets/languages/typescript.png"
+    />
+  </div>
+</div>
+
+<div className="row" style={{ marginBottom: 0, padding: 8, paddingTop: 0 }}>
+  <div className="col col--12" style={{ padding: 8, paddingBottom: 0 }}>
+    <QuickstartCard
+      name="Usage with React SDK"
+      link="/wallet/usage-with-react-sdk"
+      image="/assets/languages/react.png"
+    />
+  </div>
+</div>
+
+<div className="row" style={{ marginBottom: 0, padding: 8, paddingTop: 0 }}>
+  <div className="col col--12" style={{ padding: 8, paddingBottom: 0 }}>
+    <QuickstartCard
+      name="Usage with React Native SDK"
+      link="/wallet/usage-with-react-native-sdk"
+      image="/assets/languages/react-native.png"
+    />
+  </div>
+</div>
+
+<div className="row" style={{ marginBottom: 0, padding: 8, paddingTop: 0 }}>
+  <div className="col col--12" style={{ padding: 8, paddingBottom: 0 }}>
+    <QuickstartCard
+      name="Usage with Unity SDK"
+      link="/unity/connectwallet"
+      image="/assets/languages/unity.webp"
     />
   </div>
 </div>
