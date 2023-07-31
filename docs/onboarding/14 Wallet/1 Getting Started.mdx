@@ -1,6 +1,7 @@
 ---
 slug: /wallet/getting-started
 title: Getting Started
+sidebar_position: 2
 ---
 
 import Tabs from "@theme/Tabs";
@@ -41,30 +42,176 @@ const walletAddress = await coinbaseWallet.connect();
 const signer = await coinbaseWallet.getSigner();
 ```
 
-## Integrating with the SDK
+## Methods available on wallet instance
 
-Learn how to use the wallets package with the [SDK](/sdk).
+All wallets in wallet SDK extend from the [AbstractWallet](/wallet/interfaces/abstract-wallet) base class,
+and all client-side wallets (web, mobile) extend from [AbstractClientWallet](/wallet/interfaces/abstract-client-wallet) base class. Each wallet may have its own unique methods. Below are the common methods shared by all wallets
 
-<div className="row" style={{ marginBottom: 12 }}>
-  <div className="col col--4" style={{ padding: 8 }}>
+<details>
+<summary>getAddress</summary>
+
+Get the address of the currently connected wallet
+
+```ts
+const address = await wallet.getAddress();
+```
+
+</details>
+
+<details>
+<summary>getChainId</summary>
+
+Get the chain ID of the network the wallet is currently connected to
+
+```ts
+const chainId = await wallet.getChainId();
+```
+
+</details>
+
+<details>
+<summary>getSigner</summary>
+
+Get the [signer](https://docs.ethers.org/v5/api/signer/) for the currently connected wallet.
+
+```ts
+const signer = await wallet.getSigner();
+```
+
+</details>
+
+<details>
+<summary>signMessage</summary>
+
+Sign a message with the currently connected wallet. This function must be implemented by the parent class.
+
+```ts
+const signature = await wallet.signMessage("Hello world!");
+```
+
+</details>
+
+<details>
+<summary>verifySignature</summary>
+
+Verify if a signature is valid or not
+
+```ts
+const isValid = await wallet.verifySignature(
+  "Message",
+  "Signature",
+  "wallet_address",
+);
+```
+
+</details>
+
+<details>
+<summary>transfer</summary>
+
+Transfer native or ERC20 tokens from this wallet to another wallet
+
+```javascript
+// for native tokens
+const txResult = await wallet.transfer(recipientAddress, amount);
+
+// for ERC20 tokens
+const txResult = await wallet.transfer(recipientAddress, amount, tokenAddress);
+```
+
+#### recipientAddress
+
+Address of the recipient to send the tokens to
+
+```
+string
+```
+
+#### amount
+
+Amount of tokens to send
+
+```
+string | number
+```
+
+#### Return Value
+
+```
+Promise<TransactionResult>
+```
+
+</details>
+
+<details>
+  <summary> getBalance </summary>
+
+Get the the native token balance or ERC20 token balance of the wallet.
+
+```javascript
+// for native token balance
+const balance = await wallet.getBalance();
+
+// for ERC20 token balance
+const balance = await wallet.getBalance(tokenAddress);
+```
+
+#### tokenAddress
+
+Address of the ERC20 token. If no address is provided, the native token balance is returned.
+
+#### Return Value
+
+```ts
+Promise<{
+  symbol: string;
+  value: BigNumber;
+  name: string;
+  decimals: number;
+  displayValue: string;
+}>;
+```
+
+</details>
+
+## Usage with thirdweb SDKs
+
+<div className="row" style={{ marginBottom: 0, padding: 8, paddingTop: 0 }}>
+  <div className="col col--12" style={{ padding: 8, paddingBottom: 0 }}>
     <QuickstartCard
-      name="React"
-      link="/react/connecting-wallets"
+      name="Usage with TypeScript SDK"
+      link="/wallet/usage-with-typescript-sdk"
+      image="/assets/languages/typescript.png"
+    />
+  </div>
+</div>
+
+<div className="row" style={{ marginBottom: 0, padding: 8, paddingTop: 0 }}>
+  <div className="col col--12" style={{ padding: 8, paddingBottom: 0 }}>
+    <QuickstartCard
+      name="Usage with React SDK"
+      link="/wallet/usage-with-react-sdk"
       image="/assets/languages/react.png"
     />
   </div>
-  <div className="col col--4" style={{ padding: 8 }}>
+</div>
+
+<div className="row" style={{ marginBottom: 0, padding: 8, paddingTop: 0 }}>
+  <div className="col col--12" style={{ padding: 8, paddingBottom: 0 }}>
     <QuickstartCard
-      name="React Native"
-      link="/react-native/wallets"
+      name="Usage with React Native SDK"
+      link="/wallet/usage-with-react-native-sdk"
       image="/assets/languages/react-native.png"
     />
   </div>
-  <div className="col col--4" style={{ padding: 8 }}>
+</div>
+
+<div className="row" style={{ marginBottom: 0, padding: 8, paddingTop: 0 }}>
+  <div className="col col--12" style={{ padding: 8, paddingBottom: 0 }}>
     <QuickstartCard
-      name="TypeScript"
-      link="/typescript/sdk.thirdwebsdk.fromwallet"
-      image="/assets/languages/typescript.png"
+      name="Usage with Unity SDK"
+      link="/wallet/usage-with-unity-sdk"
+      image="/assets/languages/unity.webp"
     />
   </div>
 </div>
