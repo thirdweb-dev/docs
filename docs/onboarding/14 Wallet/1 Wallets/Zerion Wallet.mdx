@@ -24,13 +24,12 @@ wallet.connect();
 Optionally, provide a configuration object when instantiating the `ZerionWallet` class.
 
 <details>
-  <summary>projectId</summary>
+  <summary>clientId (recommended) </summary>
   <div>
 
-Your project's unique identifier for Wallet Connect.
+Provide `clientId` to use the thirdweb RPCs for given `chains`
 
-Defaults to a common thirdweb projectId. We recommend getting your own projectId at
-[cloud.walletconnect.com](https://cloud.walletconnect.com) when launching your project.
+You can create a client ID for your application from [thirdweb dashboard](https://thirdweb.com/create-api-key).
 
 ```javascript
 import { ZerionWallet } from "@thirdweb-dev/wallets";
@@ -38,7 +37,30 @@ import { ZerionWallet } from "@thirdweb-dev/wallets";
 const wallet = new ZerionWallet(
   // highlight-start
   {
-    projectId: "<PROJECT_ID>",
+    clientId: "YOUR_CLIENT_ID",
+  },
+  // highlight-end
+);
+```
+
+</div>
+</details>
+
+<details>
+  <summary>projectId (recommended) </summary>
+  <div>
+
+This is only relevant if you want to use [WalletConnect](https://walletconnect.com/) for connecting to Zerion wallet mobile app when MetaMask is not injected.
+
+This `projectId` can be obtained at [cloud.walletconnect.com](https://cloud.walletconnect.com/). It is highly recommended to use your own project id and only use the default one for testing purposes.
+
+```javascript
+import { ZerionWallet } from "@thirdweb-dev/wallets";
+
+const wallet = new ZerionWallet(
+  // highlight-start
+  {
+    projectId: "YOUR_WALLET_CONNECT_PROJECT_ID",
   },
   // highlight-end
 );
@@ -51,7 +73,7 @@ const wallet = new ZerionWallet(
   <summary>qrcode</summary>
   <div>
 
-Whether to open the default Wallet Connect QR code Modal for connecting to Zerion Wallet on mobile 
+Whether to open the default Wallet Connect QR code Modal for connecting to Zerion Wallet on mobile
 (if Zerion is not injected when calling `connect()`).
 
 Must be a `boolean`. Defaults to `false`.
@@ -66,6 +88,58 @@ const walletWithOptions = new ZerionWallet(
   },
   // highlight-end
 );
+```
+
+</div>
+</details>
+
+<details>
+  <summary>chains</summary>
+  <div>
+
+Provide an array of chains you want to support.
+
+Must be an array of `Chain` objects, from the [`@thirdweb-dev/chains`](https://www.npmjs.com/package/@thirdweb-dev/chains) package.
+
+Defaults to our [default chains](/react/react.thirdwebprovider#default-chains).
+
+```javascript
+import { ZerionWallet } from "@thirdweb-dev/wallets";
+import { Ethereum } from "@thirdweb-dev/chains";
+
+const wallet = new ZerionWallet(
+  // highlight-start
+  {
+    chains: [Ethereum],
+  },
+  // highlight-end
+);
+```
+
+</div>
+</details>
+
+<details>
+  <summary>dappMetadata</summary>
+  <div>
+
+Information about your app that the wallet will display when your app tries to connect to it.
+
+Must be an object containing `name`, `url`, and optionally `description` and `logoUrl` properties.
+
+```javascript
+import { ZerionWallet } from "@thirdweb-dev/wallets";
+
+const wallet = new ZerionWallet({
+  // highlight-start
+  dappMetadata: {
+    name: "thirdweb powered dApp",
+    url: "https://thirdweb.com",
+    description: "thirdweb powered dApp",
+    logoUrl: "https://thirdweb.com/favicon.ico",
+  },
+  // highlight-end
+});
 ```
 
 </div>
@@ -419,6 +493,49 @@ Defaults to `undefined`
 
 </div>
 </details>
+
+</div>
+</details>
+
+<details>
+  <summary>walletStorage</summary>
+  <div>
+
+Some wallets need to store data in persistent storage. This is the storage that will be used for that.
+
+Must be an object conforming to the `AsyncStorage` interface:
+
+```typescript
+export interface AsyncStorage {
+  getItem(key: string): Promise<string | null>;
+  setItem(key: string, value: string): Promise<void>;
+  removeItem(key: string): Promise<void>;
+}
+```
+
+Example:
+
+```javascript
+import { ZerionWallet } from "@thirdweb-dev/wallets";
+
+const wallet = new ZerionWallet(
+  // highlight-start
+  {
+    walletStorage: {
+      getItem: (key) => {
+        // Implement your own storage logic here
+      },
+      removeItem: (key) => {
+        // Implement your own storage logic here
+      },
+      setItem: (key, value) => {
+        // Implement your own storage logic here
+      },
+    },
+  },
+  // highlight-end
+);
+```
 
 </div>
 </details>

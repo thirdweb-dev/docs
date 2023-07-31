@@ -31,17 +31,28 @@ Provide `clientId` to use the thirdweb RPCs for given `chains`
 
 You can create a client ID for your application from [thirdweb dashboard](https://thirdweb.com/create-api-key).
 
+```javascript
+import { TrustWallet } from "@thirdweb-dev/wallets";
+
+const wallet = new TrustWallet(
+  // highlight-start
+  {
+    clientId: "YOUR_CLIENT_ID",
+  },
+  // highlight-end
+);
+```
+
 </div>
 </details>
 
 <details>
-  <summary>projectId (recommended)</summary>
+  <summary>projectId (recommended) </summary>
   <div>
 
-Your project's unique identifier for Wallet Connect.
+This is only relevant if you want to use [WalletConnect](https://walletconnect.com/) for connecting to Zerion wallet mobile app when MetaMask is not injected.
 
-Defaults to a common thirdweb projectId. We recommend getting your own projectId at
-[cloud.walletconnect.com](https://cloud.walletconnect.com) when launching your project.
+This `projectId` can be obtained at [cloud.walletconnect.com](https://cloud.walletconnect.com/). It is highly recommended to use your own project id and only use the default one for testing purposes.
 
 ```javascript
 import { TrustWallet } from "@thirdweb-dev/wallets";
@@ -49,7 +60,7 @@ import { TrustWallet } from "@thirdweb-dev/wallets";
 const wallet = new TrustWallet(
   // highlight-start
   {
-    projectId: "<PROJECT_ID>",
+    projectId: "YOUR_WALLET_CONNECT_PROJECT_ID",
   },
   // highlight-end
 );
