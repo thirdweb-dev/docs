@@ -122,20 +122,16 @@ You will need to create an alias for the that component in a separate file with 
 ```tsx
 "use client";
 
-import { ThirdwebProvider } from "@thirdweb-dev/react";
+export { ThirdwebProvider } from "@thirdweb-dev/react";
 
-export const ThirdwebProviderClient: typeof ThirdwebProvider = (props) => (
-  <ThirdwebProvider {...props} />
-);
-
-// app/components/ThirdwebProviderClient.tsx
+// app/components/ThirdwebProvider.tsx
 ```
 
 ```tsx
-import { ThirdwebProviderClient } from "./components/ThirdwebProviderClient";
+import { ThirdwebProvider } from "./components/ThirdwebProvider";
 
 export default function Home() {
-  return <ThirdwebProviderClient> ... </ThirdwebProviderClient>;
+  return <ThirdwebProvider> ... </ThirdwebProvider>;
 }
 
 // app/page.tsx
