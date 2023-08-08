@@ -12,85 +12,100 @@ import { useMagic } from "@thirdweb-dev/react";
 
 The [magicLink](/react/react.magicLink) also needs to be added in [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) if you want the wallet to auto-connect on next page load.
 
+:::info Magic apiKey
+
+Magic SDK requires an apiKey for instantiation. You can create a `apiKey` for your app on [magic.link](https://magic.link/)
+
+:::
+
 ## Usage
 
 calling this hook returns a `connect` function.
 
-There are two ways to call this `connect` function: using `email` or `phoneNumber` if you are using `type: "auth"`
-
-If you call the `connect` function with `email`, a modal will open and prompt the user to click on the link sent to their email. Once user completes this step, the modal will close and the user will be connected to your app.
-
-If you call the connect method with `phoneNumber`, a modal will open and prompt the user to enter the OTP sent to their phone number. Once the user enters the OTP, the modal will close and the user will be connected to your app.
-
-If you call the `connect` function with `type: "connect"`, a Magic Connect Widget will open and prompt the user to login with their email or Sign in with Google.
-
-Once connected, you can use the [`useAddress`](/react/react.useaddress) hook to get the user's address
-
-Magic SDK requires an apiKey for instantiation. You can create a `apiKey` for your app on [magic.link](https://magic.link/)
-
-```jsx
-import { useMagic } from "@thirdweb-dev/react";
-
-function App() {
-  const connectWithMagic = useMagic();
-
-  return (
-    <>
-      <button
-        onClick={async () => {
-          const magicWallet = await connectWithMagic({
-            type: "auth",
-            apiKey: "YOUR_API_KEY",
-            email: "user@example.com", // user's email
-          });
-        }}
-      >
-        connect with email
-      </button>
-
-      <button
-        onClick={async () => {
-          const magicWallet = await connectWithMagic({
-            type: "auth",
-            apiKey: "YOUR_API_KEY",
-            phoneNumber: "+123456789", // user's phone number
-          });
-        }}
-      >
-        connect with phone number
-      </button>
-
-      <button
-        onClick={async () => {
-          const magicWallet = await connectWithMagic({
-            type: "connect",
-            apiKey: "YOUR_API_KEY",
-          });
-        }}
-      >
-        connect with magic connect Widget
-      </button>
-    </>
-  );
-}
-```
-
-## Configuration
-
-<details>
-  <summary>type (optional) </summary>
-  <div>
-
-Whether to use [Magic Auth](https://magic.link/docs/auth/overview) or [Magic Connect](https://magic.link/docs/connect/overview) to connect to the wallet.
-
-Default is `"auth"`.
+Magic offers two flavors of our SDK: Magic Connect, which provides a plug-and-play experience, and Magic Auth, a customizable white-labeled wallet solution.
 
 ```ts
-type: "auth" | "connect";
+// in a react component
+const connect = useMagic();
+
+// when you want to connect
+const magicWallet = await connect(connectOptions);
+```
+
+<details>
+<summary> Magic Auth </summary>
+
+There are three ways to call the `connect` function - `email` or `phoneNumber` or `oauthProvider`.
+
+<details>
+  <summary> email </summary>
+<div>
+
+This opens the Magic Link's Modal and prompts the user to click on the link sent to their email.
+
+```ts
+const magicWallet = await connect({
+  apiKey: "YOUR_MAGIC_AUTH_API_KEY",
+  email: "user@example.com",
+});
 ```
 
 </div>
 </details>
+
+<details>
+  <summary> phoneNumber </summary>
+<div>
+
+This opens the Magic Link's Modal and prompts the user to enter the OTP sent to their phone via SMS.
+
+```ts
+const magicWallet = await connect({
+  apiKey: "YOUR_MAGIC_AUTH_API_KEY",
+  phoneNumber: "+123456789",
+});
+```
+
+</div>
+</details>
+
+<details>
+  <summary> oauthProvider </summary>
+<div>
+
+This redirects the user to given provider's sign-in page and once the user is authenticated, it redirects the user back to the provided `redirectURI`
+
+```ts
+const magicWallet = await connect({
+  apiKey: "YOUR_MAGIC_AUTH_API_KEY",
+  oauthProvider: "google",
+  oauthOptions: {
+    // URL to redirect the user to after authentication
+    redirectURI: "https://example.com/foo",
+  },
+});
+```
+
+</div>
+</details>
+
+</details>
+
+<details>
+  <summary> Magic Connect </summary>
+<div>
+
+```ts
+const magicWallet = await connect({
+  type: "connect",
+  apiKey: "YOUR_MAGIC_CONNECT_API_KEY",
+});
+```
+
+</div>
+</details>
+
+## connectOptions
 
 <details>
   <summary>apiKey </summary>
@@ -104,16 +119,16 @@ Must be a `string`.
 </details>
 
 <details>
-  <summary>email or phoneNumber </summary>
+  <summary>type (optional) </summary>
   <div>
 
-This is only relevant if you are using `type: 'auth'` in your config.
+Whether to use [Magic Auth](https://magic.link/docs/auth/overview) or [Magic Connect](https://magic.link/docs/connect/overview) to connect to the wallet.
 
-specify either `email` or `phoneNumber` of the user to connect to your app.
+Default is `"auth"`.
 
-If you call the `connect` function with `email`, a modal will open and prompt the user to click on the link sent to their email. Once user completes this step, the modal will close and the user will be connected to your app.
-
-If you call the connect method with `phoneNumber`, a modal will open and prompt the user to enter the OTP sent to their phone number. Once the user enters the OTP, the modal will close and the user will be connected to your app.
+```ts
+type: "auth" | "connect";
+```
 
 </div>
 </details>

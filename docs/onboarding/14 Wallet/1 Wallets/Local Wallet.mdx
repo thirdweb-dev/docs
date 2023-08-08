@@ -67,7 +67,7 @@ import { LocalWalletNode } from "@thirdweb-dev/wallets/evm/wallets/local-wallet-
 const wallet = new LocalWalletNode();
 
 await localWallet.loadOrCreate({
-  strategy: "mnemonic",
+  strategy: "privateKey",
   encryption: false,
 });
 ```
@@ -559,7 +559,7 @@ wallet.loadOrCreate({
 
 #### options
 
-Must be a `LoadOptions` object:
+Must be a `LoadOrCreateOptions` object:
 
 ```typescript
 type LoadOptions =
@@ -570,11 +570,6 @@ type LoadOptions =
     }
   | {
       strategy: "privateKey";
-      storage?: AsyncStorage;
-      encryption: DecryptOptions;
-    }
-  | {
-      strategy: "mnemonic";
       storage?: AsyncStorage;
       encryption: DecryptOptions;
     };
