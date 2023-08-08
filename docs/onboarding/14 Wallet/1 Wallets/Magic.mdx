@@ -9,9 +9,22 @@ import CodeBlock from "@theme/CodeBlock";
 
 Allows users to connect to your app using [Magic Auth](https://magic.link/docs/auth/overview) or [Magic Connect](https://magic.link/docs/connect/overview)
 
+Magic is a developer SDK that integrates with your application to enable passwordless Web3 onboarding (no seed phrases) and authentication using magic links
+
 ## Usage
 
-### Magic Auth
+Magic offers two flavors of our SDK: Magic Connect, which provides a plug-and-play experience, and Magic Auth, a customizable white-labeled wallet solution.
+
+<details>
+  <summary> Magic Auth </summary>
+
+<div>
+
+#### Login with Email or Phone Number
+
+With below configuration, users will be able to log in using their email or phone number.
+
+If you want to restrict login via email only - pass `smsLogin:false`. If you want to restrict login via phone number only - pass `emailLogin:false` to the `MagicLink` constructor.
 
 ```javascript
 import { MagicLink } from "@thirdweb-dev/wallets";
@@ -20,6 +33,8 @@ const wallet = new MagicLink({
   apiKey: "YOUR_API_KEY",
   type: "auth",
 });
+
+// connect with email or phone number
 
 await wallet.connect({
   email: "user@example.com",
@@ -32,7 +47,36 @@ await wallet.connect({
 });
 ```
 
-### Magic Connect
+#### Social Login
+
+```javascript
+import { MagicLink } from "@thirdweb-dev/wallets";
+
+const wallet = new MagicLink({
+  apiKey: "YOUR_API_KEY",
+  type: "auth",
+
+  // specify which Oauth providers to enable
+  // and the URI to redirect to after the oauth flow is complete
+  oauthOptions: {
+    redirectURI: "https://example.com/foobar",
+    providers: ["google", "facebook"],
+  },
+});
+
+// connect with a oauth provider
+await magic.connect({
+  oauthProvider: "google",
+});
+```
+
+</div>
+</details>
+
+<details>
+<summary> Magic Connect </summary>
+
+<div>
 
 ```javascript
 import { MagicLink } from "@thirdweb-dev/wallets";
@@ -45,13 +89,23 @@ const wallet = new MagicLink({
 await wallet.connect();
 ```
 
-With this configuration, users will be able to log in using their email or phone number.
+</div>
+</details>
 
-If you want to restrict login to only email or only phone number, you can do so by passing the `smsLogin:false` option or `emailLogin:false` option
-
-## Configuration
+### Configuration
 
 Provide a configuration object when instantiating the `MagicLink` class.
+
+<details>
+  <summary>apiKey (required)</summary>
+  <div>
+
+Your Magic Link apiKey. You can get an API key by signing up for an account on [Magic Link's website](https://magic.link/).
+
+Must be a `string`.
+
+</div>
+</details>
 
 <details>
   <summary>clientId (recommended)</summary>
@@ -75,17 +129,6 @@ Default is `"auth"`.
 ```ts
 type: "auth" | "connect";
 ```
-
-</div>
-</details>
-
-<details>
-  <summary>apiKey (required)</summary>
-  <div>
-
-Your Magic Link apiKey. You can get an API key by signing up for an account on [Magic Link's website](https://magic.link/).
-
-Must be a `string`.
 
 </div>
 </details>
@@ -163,6 +206,64 @@ Must be a `boolean`.
 </details>
 
 <details>
+  <summary>oauthOptions (optional)</summary>
+  <div>
+
+Specify which oauth providers you support in `providers` array.
+
+Specify which URI to redirect to after the oauth flow is complete in `redirectURI` option. If no `redirectURI` is specified, the user will be redirected to the current page.
+
+:::caution
+
+You must pass full URL and not just a relative path. For example, `"https://example.com/foo"` is valid but `"/foo"` is not.
+You can use `new URL("/foo", window.location.origin).href` to get the full URL from a relative path based on the current origin.
+
+:::
+
+This is only relevant if you are using `type: 'auth'`.
+
+You also need to enable the oauth providers for your apiKey from [Magic dashboard](https://dashboard.magic.link/).
+
+#### Type
+
+```ts
+type OauthOptions = {
+  redirectURI?: string;
+  providers: OauthProvider[];
+};
+
+type OauthProvider =
+  | "google"
+  | "facebook"
+  | "apple"
+  | "github"
+  | "bitbucket"
+  | "gitlab"
+  | "linkedin"
+  | "twitter"
+  | "discord"
+  | "twitch"
+  | "microsoft";
+```
+
+#### Example
+
+```ts
+const wallet = new MagicLink({
+  apiKey: "YOUR_API_KEY",
+  type: "auth",
+  // specify which Oauth providers to enable
+  oauthOptions: {
+    redirectURI: new URL("/foo", window.location.origin).href,
+    providers: ["google", "facebook", "github", "bitbucket"],
+  },
+});
+```
+
+</div>
+</details>
+
+<details>
   <summary>chains (optional)</summary>
   <div>
 
@@ -222,63 +323,99 @@ Inherits all the public methods from the [`AbstractClientWallet`](interfaces/abs
 
 ### connect
 
-Calling `connect` opens the Magic Link's Modal and prompts the user to either enter an OTP sent to their phone number or click on the link sent to their email.
+<details>
+  <summary> Magic Auth </summary>
 
-There are two ways to call the `connect` function: using `email` or `phoneNumber`
+<div>
+
+There are three ways to call the `connect` function - `email` or `phoneNumber` or `oauthProvider`
+
+<details>
+  <summary> email </summary>
+<div>
+
+This opens the Magic Link's Modal and prompts the user to click on the link sent to their email.
 
 ```ts
-// if you are using type: 'auth'
 await wallet.connect({
   email: "user@example.com",
 });
+```
 
-// or
+</div>
+</details>
 
+<details>
+  <summary> phoneNumber </summary>
+<div>
+
+This opens the Magic Link's Modal and prompts the user to enter the OTP sent to their phone via SMS.
+
+```ts
 await wallet.connect({
   phoneNumber: "+123456789",
 });
+```
 
-// if you are using type: 'connect'
+</div>
+</details>
+
+<details>
+  <summary> oauthProvider </summary>
+<div>
+
+This redirects the user to given provider's sign-in page and once the user is authenticated, it redirects the user back to the `redirectURI` provided in `MagicLink` constructor.
+
+```ts
+await magic.connect({
+  oauthProvider: "google",
+});
+```
+
+</div>
+</details>
+
+<br />
+
+#### Additional Configuration
+
+```typescript
+wallet.connect({
+  chainId: 5,
+});
+```
+
+If `chainId` is provided, the wallet will be connected to the network with the given chainId, else it will be connected to the Ethereum Mainnet.
+
+</div>
+
+</details>
+
+<details>
+<summary> Magic Connect </summary>
+
+<div>
+
+You can call the `connect` function without any arguments. Calling `connect` opens the Magic Link's Modal and prompts the user to login via Google or email.
+
+```ts
 await wallet.connect();
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<br />
+
+#### Additional Configuration
 
 ```typescript
-connect(options?: {
-  // One of email or phoneNumber is required if you are using type: 'auth'
-  email?: string,
-  phoneNumber?: string,
-
-  chainId? number,
-}): Promise<string>;
+wallet.connect({
+  chainId: 5,
+});
 ```
 
-<details>
-  <summary>email or phoneNumber </summary>
-  <div>
-
-specify either `email` or `phoneNumber` of the user to connect to your app.
-
-If you call the `connect` function with `email`, a modal will open and prompt the user to click on the link sent to their email. Once the user completes this step, the modal will close and the user will be connected to your app.
-
-If you call the connect method with `phoneNumber`, a modal will open and prompt the user to enter the OTP sent to their phone number. Once the user enters the OTP, the modal will close and the user will be connected to your app.
+If `chainId` is provided, the wallet will be connected to the network with the given chainId, else it will be connected to the Ethereum Mainnet.
 
 </div>
-</details>
 
-<details>
-  <summary> chainId (optional) </summary>
-  <div>
-
-If chainId is provided, the wallet will be connected to the network with the given chainId, else it will be connected to the Ethereum Mainnet.
-
-</div>
-</details>
-
-</div>
 </details>
 
 ### getMagic
