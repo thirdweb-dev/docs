@@ -1,8 +1,8 @@
 ---
-title: trustWallet
-slug: /react.trustWallet
+title: zerionWallet
+slug: /react.zerion
 displayed_sidebar: react
-sidebar_position: 7
+sidebar_position: 8
 ---
 
 import Tabs from "@theme/Tabs";
@@ -10,14 +10,12 @@ import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 import { CustomizeWalletConfigurator } from "@components/build-wallet/CustomizeWalletConfigurator";
 
-A wallet configurator for trust Wallet which allows integrating the wallet with React.
-
-trust Wallet is an extension of our WalletConnect wallet which supports WCV2.
+A wallet configurator for [Zerion Wallet](/wallet/zerion-wallet) which allows integrating the wallet with React.
 
 ```tsx
-import { trustWallet } from "@thirdweb-dev/react";
+import { zerionWallet } from "@thirdweb-dev/react";
 
-const trustWalletConfig = trustWallet(options);
+const zerionWalletConfig = zerionWallet(options);
 ```
 
 ## options
@@ -32,13 +30,15 @@ Defaults to a common thirdweb projectId. We recommend getting your own projectId
 [cloud.walletconnect.com](https://cloud.walletconnect.com) when launching your project.
 
 ```javascript
-import { trustWallet } from "@thirdweb-dev/react";
+import { zerionWallet } from "@thirdweb-dev/react";
 
-trustWallet({
+zerionWallet(
   // highlight-start
-  projectId: "your-wallet-connect-project-id",
+  {
+    projectId: "<PROJECT_ID>",
+  },
   // highlight-end
-});
+);
 ```
 
 </div>
@@ -49,7 +49,7 @@ trustWallet({
 To allow users to connect to this wallet using the [ConnectWallet](/react/react.connectwallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop.
 
 ```tsx
-<ThirdwebProvider supportedWallets={[trustWallet()]} clientId="your-client-id">
+<ThirdwebProvider supportedWallets={[zerionWallet()]} clientId="your-client-id">
   <YourApp />
 </ThirdwebProvider>
 ```
@@ -61,13 +61,13 @@ you can use the `useConnect` hook to programmatically connect to the wallet with
 The wallet also needs to be added in [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) if you want the wallet to auto-connect on next page load.
 
 ```tsx
-const trustWalletConfig = trustWallet();
+const zerionWalletConfig = zerionWallet();
 
 function App() {
   const connect = useConnect();
 
   const handleConnect = async () => {
-    await connect(trustWalletConfig, connectOptions);
+    await connect(zerionWalletConfig, connectOptions);
   };
 
   return <div> ... </div>;
