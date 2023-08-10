@@ -119,7 +119,7 @@ On the homepage (`pages/index.tsx`), we'll allow the user to connect their walle
 ```tsx title="pages/index.tsx"
 import React from "react";
 import { ConnectWallet, useAddress, useAuth } from "@thirdweb-dev/react";
-import { doc, serverTimestamp, setDoc } from "firebase/firestore";
+import { doc, serverTimestamp, setDoc, getDoc } from "firebase/firestore";
 import { signInWithCustomToken } from "firebase/auth";
 import initializeFirebaseClient from "../lib/initFirebase";
 
@@ -172,10 +172,20 @@ async function signIn() {
 
       // If this is a new user, we create a new document in the database.
       const usersRef = doc(db, "users", user.uid!);
-      if (!usersRef) {
-        // User now has permission to update their own document outlined in the Firestore rules.
-        setDoc(usersRef, { createdAt: serverTimestamp() }, { merge: true });
-      }
+
+      // Use getDoc to retrieve the document
+      getDoc(usersRef)
+        .then((docSnapshot) => {
+          if (docSnapshot.exists()) {
+            console.log("User already exists");
+          } else {
+            // User now has permission to update their own document outlined in the Firestore rules.
+            setDoc(usersRef, { createdAt: serverTimestamp() }, { merge: true });
+          }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
     })
     .catch((error) => {
       console.error(error);
