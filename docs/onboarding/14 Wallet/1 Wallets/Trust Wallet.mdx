@@ -1,6 +1,7 @@
 ---
 slug: /wallet/trust-wallet
 title: Trust Wallet
+sidebar_position: 7
 ---
 
 import Tabs from "@theme/Tabs";
@@ -24,13 +25,12 @@ wallet.connect();
 Optionally, provide a configuration object when instantiating the `TrustWallet` class.
 
 <details>
-  <summary>projectId</summary>
+  <summary>clientId (recommended) </summary>
   <div>
 
-Your project's unique identifier for Wallet Connect.
+Provide `clientId` to use the thirdweb RPCs for given `chains`
 
-Defaults to a common thirdweb projectId. We recommend getting your own projectId at
-[cloud.walletconnect.com](https://cloud.walletconnect.com) when launching your project.
+You can create a client ID for your application from [thirdweb dashboard](https://thirdweb.com/create-api-key).
 
 ```javascript
 import { TrustWallet } from "@thirdweb-dev/wallets";
@@ -38,7 +38,30 @@ import { TrustWallet } from "@thirdweb-dev/wallets";
 const wallet = new TrustWallet(
   // highlight-start
   {
-    projectId: "<PROJECT_ID>",
+    clientId: "YOUR_CLIENT_ID",
+  },
+  // highlight-end
+);
+```
+
+</div>
+</details>
+
+<details>
+  <summary>projectId (recommended) </summary>
+  <div>
+
+This is only relevant if you want to use [WalletConnect](https://walletconnect.com/) for connecting to Zerion wallet mobile app when MetaMask is not injected.
+
+This `projectId` can be obtained at [cloud.walletconnect.com](https://cloud.walletconnect.com/). It is highly recommended to use your own project id and only use the default one for testing purposes.
+
+```javascript
+import { TrustWallet } from "@thirdweb-dev/wallets";
+
+const wallet = new TrustWallet(
+  // highlight-start
+  {
+    projectId: "YOUR_WALLET_CONNECT_PROJECT_ID",
   },
   // highlight-end
 );
@@ -127,7 +150,7 @@ const walletWithOptions = new TrustWallet(
   <div>
 
 Trust Wallet is an implementation of our WalletConnect wallet. You can use
-WalletConnect's [options](https://docs.walletconnect.com/2.0/web3modal/options) to customize the QR Code Modal.
+WalletConnect's [options](https://docs.walletconnect.com/2.0/web/web3modal/html/wagmi/options) to customize the QR Code Modal.
 
 ### Type
 

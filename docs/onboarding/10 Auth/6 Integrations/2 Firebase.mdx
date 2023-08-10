@@ -95,6 +95,7 @@ import { ThirdwebProvider } from "@thirdweb-dev/react";
 export default function MyApp({ Component, pageProps }) {
   return (
     <ThirdwebProvider
+      clientId="your-client-id"
       authConfig={{
         // Set this to your domain to prevent signature malleability attacks.
         domain: process.env.NEXT_PUBLIC_THIRDWEB_AUTH_DOMAIN,

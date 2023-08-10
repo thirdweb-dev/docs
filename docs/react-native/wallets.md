@@ -30,6 +30,7 @@ const App = () => {
         url: "https://example.com",
       }}
       supportedWallets={[metamaskWallet(), trustWallet(), localWallet()]}
+      clientId="your-client-id"
     >
       <AppInner />
     </ThirdwebProvider>
@@ -73,6 +74,7 @@ const App = () => {
           callbackURL: new URL("https://youruniversal.link"),
         }),
       ]}
+      clientId="your-client-id"
     >
       <AppInner />
     </ThirdwebProvider>
@@ -178,10 +180,10 @@ import { ThirdwebProvider, metamaskWallet, smartWallet } from '@thirdweb-dev/rea
 
 <ThirdwebProvider
     activeChain={Mumbai}
+    clientId="your-client-id"
     supportedWallets={[
         smartWallet({
             factoryAddress: "..."
-            thirdwebApiKey: "apiKey"
             gasless: true,
             personalWallets: [localWallet()],
             enableConnectApp: true,
@@ -288,6 +290,7 @@ import { ThirdwebProvider, magicWallet, metamaskWallet } from '@thirdweb-dev/rea
 
 <ThirdwebProvider
     activeChain={Goerli}
+    clientId="your-client-id"
     supportedWallets={[
     magicWallet({
         apiKey: 'magic_api_key',
@@ -358,7 +361,7 @@ You can then use your new wallet in the `ThirdwebProvider`'s `supportedWallets` 
 ```javascript
 import { ThirdwebProvider } from "@thirdweb-dev/react-native";
 
-<ThirdwebProvider supportedWallets={[myWallet()]}>
+<ThirdwebProvider supportedWallets={[myWallet()]} clientId="your-client-id">
   <App />
 </ThirdwebProvider>;
 ```

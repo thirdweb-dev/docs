@@ -88,6 +88,7 @@ export default function MyApp({
   return (
     <SessionProvider session={session}>
       <ThirdwebProvider
+        clientId="your-client-id"
         authConfig={{
           // Here we specify the domain, which should match the domain
           // configured on the backend

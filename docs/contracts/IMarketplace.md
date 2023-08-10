@@ -162,7 +162,7 @@ _Each (address, listing ID) pair maps to a single unique offer. So e.g. if a buy
 | \_quantityWanted      | uint256 | For auction listings: the &#39;quantity wanted&#39; is the total amount of NFTs being auctioned, regardless of the value of `_quantityWanted` passed. For direct listings: `_quantityWanted` is the quantity of NFTs from the listing, for which the offer is being made. |
 | \_currency            | address | For auction listings: the &#39;currency of the bid&#39; is the currency accepted by the auction, regardless of the value of `_currency` passed. For direct listings: this is the currency in which the offer is made.                                                     |
 | \_pricePerToken       | uint256 | For direct listings: offered price per token. For auction listings: the bid amount per token. The total offer/bid amount is `_quantityWanted * _pricePerToken`.                                                                                                           |
-| \_expirationTimestamp | uint256 | For auction listings: inapplicable. For direct listings: The timestamp after which the seller can no longer accept the offer.                                                                                                                                              |
+| \_expirationTimestamp | uint256 | For auction listings: inapplicable. For direct listings: The timestamp after which the seller can no longer accept the offer.                                                                                                                                             |
 
 ### setContractURI
 

@@ -1,6 +1,7 @@
 ---
 slug: /wallet/local-wallet
 title: Local Wallet
+sidebar_position: 6
 ---
 
 import Tabs from "@theme/Tabs";
@@ -67,7 +68,7 @@ import { LocalWalletNode } from "@thirdweb-dev/wallets/evm/wallets/local-wallet-
 const wallet = new LocalWalletNode();
 
 await localWallet.loadOrCreate({
-  strategy: "mnemonic",
+  strategy: "privateKey",
   encryption: false,
 });
 ```
@@ -137,6 +138,19 @@ localWallet.save({
 ## Configuration
 
 Optionally, provide a configuration object when instantiating the `LocalWallet` class.
+
+<details>
+  <summary>clientId or secretKey (recommended) </summary>
+  <div>
+
+Provide `clientId` or `secretKey` to use the thirdweb RPCs for given `chains`
+
+If you are using the `LocalWallet` in a in frontend - provide a `clientId`, If you are using the `LocalWallet` in backend - you can provide a `secretKey`.
+
+You can create a `clientId` / `secretKey` from [thirdweb dashboard](https://thirdweb.com/create-api-key).
+
+</div>
+</details>
 
 <details>
   <summary>chain (optional)</summary>
@@ -546,7 +560,7 @@ wallet.loadOrCreate({
 
 #### options
 
-Must be a `LoadOptions` object:
+Must be a `LoadOrCreateOptions` object:
 
 ```typescript
 type LoadOptions =
@@ -557,11 +571,6 @@ type LoadOptions =
     }
   | {
       strategy: "privateKey";
-      storage?: AsyncStorage;
-      encryption: DecryptOptions;
-    }
-  | {
-      strategy: "mnemonic";
       storage?: AsyncStorage;
       encryption: DecryptOptions;
     };

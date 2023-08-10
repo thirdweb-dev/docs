@@ -8,6 +8,10 @@ import CLIOptions from "@components/CLIOptions";
 
 # Generate
 
+:::caution
+We now require you to authenticate using your API secret key in order to use this command. Check out how to login [here](/cli/login).
+:::
+
 Detects all contract addresses in your project, then fetches and stores each smart contract&rsquo;s ABI in memory (inside `node_modules`);
 improving the performance of the SDK when using functions such as [`getContract`](/typescript/sdk.thirdwebsdk.smartcontract) and
 [`useContract`](/react/react.usecontract).

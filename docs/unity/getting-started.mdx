@@ -10,6 +10,10 @@ import GettingStartedLiveEditor from "@components/live-code/snippets/GettingStar
 Before getting started, you'll need to
 [download and install the Unity Hub and Unity Editor](https://learn.unity.com/tutorial/install-the-unity-hub-and-editor).
 
+:::info
+You will require an API key to use thirdweb’s infrastructure services with the SDK. If you haven’t created a key yet you can do so for free from the [**thirdweb dashboard**](https://thirdweb.com/create-api-key).
+:::
+
 Import the thirdweb SDK, by downloading the `.unitypackage` file for the version of the SDK
 you want to use (_usually you’ll want the latest version_) from the
 [Releases page](https://github.com/thirdweb-dev/unity-sdk/releases) on the GitHub repository:
@@ -32,7 +36,8 @@ In your `Project` window now, you'll be able to see all of the resources that we
 
 Now you’re ready to use the SDK. In your `Project` window, navigate to `Thirdweb` > `Core` > `Prefabs` > `ThirdwebManager` drag it into your scene. This [ThirdwebManager](./ThirdwebManager) acts as a singleton manager class for your Thirdweb SDK, providing a convenient interface for setting up and controlling SDK parameters directly from the Unity inspector.
 
-![ThirdwebManager Inspector](./assets/thirdweb_manager.png)
+Alternatively, use our handy quickstart installer! Accessible from the top level `Thirdweb` menu.
+![ThirdwebManager Quickstart](./assets/thirdweb-unity-sdk-setup.png)
 
 All the configurable parameters are annotated with tooltips, just hover over them in the inspector to understand their purpose. After you have set up your [ThirdwebManager](./ThirdwebManager) according to your needs, you can access the SDK from any script using `ThirdwebManager.Instance.SDK`.
 

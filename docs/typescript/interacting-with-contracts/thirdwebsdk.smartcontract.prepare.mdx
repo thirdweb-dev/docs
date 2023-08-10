@@ -16,7 +16,8 @@ To gain more granular control over the transaction process,
 
 ```typescript
 // Prepare a transaction, but DON'T send it
-const tx = await contract.erc721.claim.prepare(1);
+const quantity = 1;
+const tx = await contract.erc721.claim.prepare(quantity);
 
 // Some example use cases for the transaction
 const gasCost = await tx.estimateGasCost(); // Estimate the gas cost

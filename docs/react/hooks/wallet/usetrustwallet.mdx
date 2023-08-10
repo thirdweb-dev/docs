@@ -2,6 +2,7 @@
 title: useTrustWallet
 slug: /react.usetrustwallet
 displayed_sidebar: react
+sidebar_position: 14
 ---
 
 Hook that prompts users to connect their Trust wallet to your app.
@@ -69,7 +70,7 @@ import { ThirdwebProvider } from "@thirdweb-dev/react";
 
 export function YourApp() {
   return (
-    <ThirdwebProvider supportedChains={[Dogechain]}>
+    <ThirdwebProvider supportedChains={[Dogechain]} clientId="your-client-id">
       <App />
     </ThirdwebProvider>
   );
