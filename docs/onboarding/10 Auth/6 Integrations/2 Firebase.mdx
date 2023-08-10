@@ -172,20 +172,13 @@ async function signIn() {
 
       // If this is a new user, we create a new document in the database.
       const usersRef = doc(db, "users", user.uid!);
+      const userDoc = await getDoc(usersRef);
 
       // Use getDoc to retrieve the document
-      getDoc(usersRef)
-        .then((docSnapshot) => {
-          if (docSnapshot.exists()) {
-            console.log("User already exists");
-          } else {
-            // User now has permission to update their own document outlined in the Firestore rules.
-            setDoc(usersRef, { createdAt: serverTimestamp() }, { merge: true });
-          }
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-        });
+      if (!userDoc.exists()) {
+        // User now has permission to update their own document outlined in the Firestore rules.
+        setDoc(usersRef, { createdAt: serverTimestamp() }, { merge: true });
+      }
     })
     .catch((error) => {
       console.error(error);
