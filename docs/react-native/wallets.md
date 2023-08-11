@@ -280,6 +280,8 @@ You also need a [Magic api-key](https://dashboard.magic.link/signup?ref=blog.thi
 
 #### Using the new wallet
 
+**NOTE**: We are going to deprecate `magicWallet` starting in version `@thirdweb-dev/react-native@0.2.49` in favor of `magicLink` for consistency with our React SDK.
+
 We suggest you add `magicWallet` as the first wallet in your `supportedWallets` list since the UI for it is a TextInput field:
 
 ```javascript
