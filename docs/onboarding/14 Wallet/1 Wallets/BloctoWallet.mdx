@@ -1,28 +1,28 @@
 ---
-slug: /wallet/metamask
-title: MetaMask
-sidebar_position: 1
+slug: /wallet/blocto
+title: Blocto Wallet
+sidebar_position: 11
 ---
 
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 
-Prompt users to connect to your app with their [MetaMask](https://metamask.io/) wallet.
+Prompt users to connect to your app with their [Blocto Wallet](https://blocto.app/).
 
 ## Usage
 
 ```javascript
-import { MetaMaskWallet } from "@thirdweb-dev/wallets";
+import { BloctoWallet } from "@thirdweb-dev/wallets";
 
-const wallet = new MetaMaskWallet();
+const wallet = new BloctoWallet();
 
 wallet.connect();
 ```
 
 ## Configuration
 
-Optionally, provide a configuration object when instantiating the `MetaMaskWallet` class.
+Optionally, provide a configuration object when instantiating the `BloctoWallet` class.
 
 <details>
   <summary>clientId (recommended) </summary>
@@ -33,9 +33,9 @@ Provide `clientId` to use the thirdweb RPCs for given `chains`
 You can create a client ID for your application from [thirdweb dashboard](https://thirdweb.com/create-api-key).
 
 ```javascript
-import { MetaMaskWallet } from "@thirdweb-dev/wallets";
+import { BloctoWallet } from "@thirdweb-dev/wallets";
 
-const wallet = new MetaMaskWallet(
+const wallet = new BloctoWallet(
   // highlight-start
   {
     clientId: "YOUR_CLIENT_ID",
@@ -48,20 +48,18 @@ const wallet = new MetaMaskWallet(
 </details>
 
 <details>
-  <summary>projectId (recommended) </summary>
+  <summary>appId (recommended) </summary>
   <div>
 
-This is only relevant if you want to use [WalletConnect](https://walletconnect.com/) for connecting to MetaMask mobile app when MetaMask is not injected.
-
-This `projectId` can be obtained at [cloud.walletconnect.com](https://cloud.walletconnect.com/). It is highly recommended to use your own project id and only use the default one for testing purposes.
+To get advanced features and support from Blocto, you can create an appId from [blocto dashboard](https://docs.blocto.app/blocto-sdk/register-app-id)
 
 ```javascript
-import { MetaMaskWallet } from "@thirdweb-dev/wallets";
+import { BloctoWallet } from "@thirdweb-dev/wallets";
 
-const wallet = new MetaMaskWallet(
+const wallet = new BloctoWallet(
   // highlight-start
   {
-    projectId: "YOUR_WALLET_CONNECT_PROJECT_ID",
+    appId: "YOUR_BLOCTO_APP_ID",
   },
   // highlight-end
 );
@@ -81,10 +79,10 @@ Must be an array of `Chain` objects, from the [`@thirdweb-dev/chains`](https://w
 Defaults to our [default chains](/react/react.thirdwebprovider#default-chains).
 
 ```javascript
-import { MetaMaskWallet } from "@thirdweb-dev/wallets";
+import { BloctoWallet } from "@thirdweb-dev/wallets";
 import { Ethereum, Polygon } from "@thirdweb-dev/chains";
 
-const walletWithOptions = new MetaMaskWallet(
+const walletWithOptions = new BloctoWallet(
   // highlight-start
   {
     chains: [Ethereum, Polygon],
@@ -105,9 +103,9 @@ Information about your app that the wallet will display when your app tries to c
 Must be an object containing `name`, `url`, and optionally `description` and `logoUrl` properties.
 
 ```javascript
-import { MetaMaskWallet } from "@thirdweb-dev/wallets";
+import { BloctoWallet } from "@thirdweb-dev/wallets";
 
-const walletWithOptions = new MetaMaskWallet({
+const walletWithOptions = new BloctoWallet({
   // highlight-start
   dappMetadata: {
     name: "thirdweb powered dApp",
@@ -123,20 +121,19 @@ const walletWithOptions = new MetaMaskWallet({
 </details>
 
 <details>
-  <summary>qrcode</summary>
+  <summary>chain</summary>
   <div>
 
-Whether to display the Wallet Connect QR code Modal for connecting to MetaMask on mobile if MetaMask is not injected.
-
-Must be a `boolean`. Defaults to `true`.
+The Network to connect the wallet to. Must be a `Chain` object, from the [`@thirdweb-dev/chains`](https://www.npmjs.com/package/@thirdweb-dev/chains) package.
 
 ```javascript
-import { MetaMaskWallet } from "@thirdweb-dev/wallets";
+import { BloctoWallet } from "@thirdweb-dev/wallets";
+import { Ethereum } from "@thirdweb-dev/chains";
 
-const walletWithOptions = new MetaMaskWallet(
+const walletWithOptions = new BloctoWallet(
   // highlight-start
   {
-    qrcode: false,
+    chain: Ethereum,
   },
   // highlight-end
 );
@@ -164,9 +161,9 @@ export interface AsyncStorage {
 Example:
 
 ```javascript
-import { MetaMaskWallet } from "@thirdweb-dev/wallets";
+import { BloctoWallet } from "@thirdweb-dev/wallets";
 
-const walletWithOptions = new MetaMaskWallet(
+const walletWithOptions = new BloctoWallet(
   // highlight-start
   {
     walletStorage: {
@@ -191,42 +188,3 @@ const walletWithOptions = new MetaMaskWallet(
 ## Methods
 
 Inherits all the public methods from the [`AbstractClientWallet`](interfaces/abstract-client-wallet) class.
-
-### connectWithQrCode
-
-Connect to the wallet using a QR code if the user does not have the Metamask extension installed.
-
-```javascript
-await wallet.connectWithQrCode({
-  onQrCodeUri(qrCodeUri) {
-    // render the QR code with `qrCodeUri`
-  },
-  onConnected(accountAddress) {
-    // update UI to show connected state
-  },
-  chainId: 1, // optional - if provided, It forces the wallet to switch to the given chainId after connecting
-});
-```
-
-<details>
-  <summary>Configuration</summary>
-  <div>
-
-#### onQrCodeUri
-
-A callback to show the QR code to the user.
-
-#### onConnected
-
-A callback to run when the user has connected their wallet to your app.
-
-#### chainId
-
-The chain ID to switch to after connecting. Optional.
-
-```typescript
-string | undefined;
-```
-
-</div>
-</details>

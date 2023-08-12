@@ -266,7 +266,7 @@ We implemented this feature using the Magic SDK.
 The `@magic-sdk` has a few dependencies you need to add to your app before using the SDK in React Native. For convenience you can run:
 
 ```json
-yarn add react-native-safe-area-context react-native-webview react-native-device-info && cd ios && pod install
+yarn add react-native-safe-area-context@4.5.3 react-native-webview react-native-device-info && cd ios && pod install
 ```
 
 which will install the following dependencies:
@@ -280,11 +280,13 @@ You also need a [Magic api-key](https://dashboard.magic.link/signup?ref=blog.thi
 
 #### Using the new wallet
 
-We suggest you add `magicWallet` as the first wallet in your `supportedWallets` list since the UI for it is a TextInput field:
+**NOTE**: `magicWallet` has been deprecated starting in version `@thirdweb-dev/react-native@0.2.49` in favor of `magicLink` for consistency with our React SDK.
+
+We suggest you add `magicLink` as the first wallet in your `supportedWallets` list since the UI for it is a TextInput field:
 
 ```javascript
 import { Goerli } from '@thirdweb-dev/chains';
-import { ThirdwebProvider, magicWallet, metamaskWallet } from '@thirdweb-dev/react-native';
+import { ThirdwebProvider, magicLink, metamaskWallet } from '@thirdweb-dev/react-native';
 
 ...
 
@@ -292,7 +294,7 @@ import { ThirdwebProvider, magicWallet, metamaskWallet } from '@thirdweb-dev/rea
     activeChain={Goerli}
     clientId="your-client-id"
     supportedWallets={[
-    magicWallet({
+    magicLink({
         apiKey: 'magic_api_key',
     }),
     metamaskWallet(),
