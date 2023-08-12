@@ -10,24 +10,32 @@ type Product = {
 
 const products: Product[] = [
   {
-    image: "/assets/product/storage.png",
-    name: "Storage",
-    description: "Upload and access files in decentralized storage",
-    link: "/storage",
+    image: "/assets/wallets/smart-wallet.svg",
+    name: "Create Wallets",
+    description:
+      "Create wallets with different key management structures and security models.",
+    link: "/wallet/smart-wallet",
+  },
+
+  {
+    image: "/assets/product/wallet.png",
+    name: "Connect Wallets",
+    description: "Connect any wallet to your application.",
+    link: "/wallet",
   },
   {
-    image: "/assets/icons/deployment.png",
-    name: "RPC Edge",
-    description: "Free, fast and reliable access to 900+ chains.",
-    link: "https://thirdweb.com/dashboard/rpc",
+    image: "/assets/product/auth.png",
+    name: "Auth",
+    description: "Prove the ownership of a wallet to off-chain systems",
+    link: "/auth",
   },
 ];
 
-export default function InfrastructureCards() {
+export default function WalletSection() {
   return (
     <div className="explore-products-container">
       <h2 className="explore-products-heading" style={{ marginBottom: 12 }}>
-        Infrastructure
+        Wallets
       </h2>
       <div className="row" style={{ marginBottom: 64 }}>
         {products.map((p, i) => (

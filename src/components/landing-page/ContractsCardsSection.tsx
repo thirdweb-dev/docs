@@ -10,24 +10,38 @@ type Product = {
 
 const products: Product[] = [
   {
-    image: "/assets/product/storage.png",
-    name: "Storage",
-    description: "Upload and access files in decentralized storage",
-    link: "/storage",
+    image: "/assets/product/contracts.png",
+    name: "Build",
+    description:
+      "Easily build smart contracts using our pre-built contracts or Solidity SDK.",
+    link: "/solidity",
   },
   {
-    image: "/assets/icons/deployment.png",
-    name: "RPC Edge",
-    description: "Free, fast and reliable access to 900+ chains.",
-    link: "https://thirdweb.com/dashboard/rpc",
+    image: "/assets/product/publish.png",
+    name: "Marketplace",
+    description: "Publish and discover pre-built contracts.",
+    link: "/publish",
+  },
+  {
+    image: "/assets/product/sdk.png",
+    name: "Interact",
+    description: "Read and write data from the blockchain using our SDKs",
+    link: "/sdk",
+  },
+  {
+    image: "/assets/product/deploy.png",
+    name: "Deploy",
+    description:
+      "Easilt and securely deploy your smart contracts to the blockchain.",
+    link: "/deploy",
   },
 ];
 
-export default function InfrastructureCards() {
+export default function ContractsSection() {
   return (
     <div className="explore-products-container">
       <h2 className="explore-products-heading" style={{ marginBottom: 12 }}>
-        Infrastructure
+        Contracts
       </h2>
       <div className="row" style={{ marginBottom: 64 }}>
         {products.map((p, i) => (
