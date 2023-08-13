@@ -43,7 +43,7 @@ Encoding two transactions to multicall them into a single transaction.
 
 ```typescript
 // Prepare an ERC721 burn and a erc721 mint to be executed in one tx
-const tx1 = await contract.erc721.burn(tokenId);
+const tx1 = await contract.erc721.burn.prepare(tokenId);
 const tx2 = await contract.erc721.mint.prepare(nftMetadata);
 
 // Encode both transactions and execute them via multicall
