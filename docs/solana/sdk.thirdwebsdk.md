@@ -23,7 +23,10 @@ export declare class ThirdwebSDK
 import { ThirdwebSDK } from "@thirdweb-dev/sdk/solana";
 
 // Create SDK on specified network, and then pass a signer
-const sdk = ThirdwebSDK.fromNetwork("devnet");
+const sdk = ThirdwebSDK.fromNetwork("devnet", {
+  clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
+  secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
+});
 // Signer can be a keypair or browser wallet adapter
 sdk.wallet.connect(signer);
 ```
@@ -46,14 +49,14 @@ sdk.wallet.connect(signer);
 
 ## Methods
 
-| Method                                                                              | Modifiers           | Description                                                   |
-| ----------------------------------------------------------------------------------- | ------------------- | ------------------------------------------------------------- |
-| [fromNetwork(network, storage)](./sdk.thirdwebsdk.fromnetwork.md)                   | <code>static</code> | Create a new SDK instance for the specified network           |
-| [fromPrivateKey(network, privateKey, storage)](./sdk.thirdwebsdk.fromprivatekey.md) | <code>static</code> | reate a new SDK instance connected with the given private key |
-| [getNFTCollection(address)](./sdk.thirdwebsdk.getnftcollection.md)                  |                     | Get an SDK interface for an NFT Collection program            |
-| [getNFTDrop(address)](./sdk.thirdwebsdk.getnftdrop.md)                              |                     | Get an SDK interface for an NFT Drop program                  |
-| [getProgram(address)](./sdk.thirdwebsdk.getprogram.md)                              |                     | Get an SDK interface for a deployed program                   |
-| [getProgram(address, programType)](./sdk.thirdwebsdk.getprogram_1.md)               |                     | Get an SDK interface for a deployed program                   |
-| [getProgram(address, Idl)](./sdk.thirdwebsdk.getprogram_2.md)                       |                     | Get an SDK interface for a deployed program                   |
-| [getProgramWithIdl(address, idl)](./sdk.thirdwebsdk.getprogramwithidl.md)           |                     | Get an SDK interface for a deployed program                   |
-| [getToken(address)](./sdk.thirdwebsdk.gettoken.md)                                  |                     | Get an SDK interface for an Token program                     |
+| Method                                                                              | Modifiers           | Description                                                    |
+| ----------------------------------------------------------------------------------- | ------------------- | -------------------------------------------------------------- |
+| [fromNetwork(network, storage)](./sdk.thirdwebsdk.fromnetwork.md)                   | <code>static</code> | Create a new SDK instance for the specified network            |
+| [fromPrivateKey(network, privateKey, storage)](./sdk.thirdwebsdk.fromprivatekey.md) | <code>static</code> | Create a new SDK instance connected with the given private key |
+| [getNFTCollection(address)](./sdk.thirdwebsdk.getnftcollection.md)                  |                     | Get an SDK interface for an NFT Collection program             |
+| [getNFTDrop(address)](./sdk.thirdwebsdk.getnftdrop.md)                              |                     | Get an SDK interface for an NFT Drop program                   |
+| [getProgram(address)](./sdk.thirdwebsdk.getprogram.md)                              |                     | Get an SDK interface for a deployed program                    |
+| [getProgram(address, programType)](./sdk.thirdwebsdk.getprogram_1.md)               |                     | Get an SDK interface for a deployed program                    |
+| [getProgram(address, Idl)](./sdk.thirdwebsdk.getprogram_2.md)                       |                     | Get an SDK interface for a deployed program                    |
+| [getProgramWithIdl(address, idl)](./sdk.thirdwebsdk.getprogramwithidl.md)           |                     | Get an SDK interface for a deployed program                    |
+| [getToken(address)](./sdk.thirdwebsdk.gettoken.md)                                  |                     | Get an SDK interface for an Token program                      |

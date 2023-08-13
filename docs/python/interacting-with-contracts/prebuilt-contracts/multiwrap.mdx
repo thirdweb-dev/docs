@@ -152,7 +152,7 @@ tx = contract.wrap(
             ERC1155Wrappable(contract_address="0x...", token_id=0, quantity=1),
         ]
     ),
-    # highligh-end
+    # highlight-end
     NFTMetadataInput(
         name="Wrapped NFT",
         description="This is a wrapped bundle of tokens and NFTs",
@@ -206,7 +206,7 @@ tx = contract.wrap(
         description="This is a wrapped bundle of tokens and NFTs",
         image="ipfs://...",
     )
-    # highligh-end
+    # highlight-end
 )
 
 print(tx.receipt, tx.id)
@@ -258,7 +258,7 @@ Unwrap a wrapped token bundle
 ```python
 wrapped_token_id = 0
 recipient_address = "0x..."
-tx = contract.unwrap(wrapped_token_id, receipient_address)
+tx = contract.unwrap(wrapped_token_id, recipient_address)
 ```
 
 <details>
@@ -273,7 +273,7 @@ The ID of the wrapped token to unwrap. Must be of type `int`.
 # highlight-next-line
 wrapped_token_id = 0
 recipient_address = "0x..."
-tx = contract.unwrap(wrapped_token_id, receipient_address)
+tx = contract.unwrap(wrapped_token_id, recipient_address)
 ```
 
 #### recipient_address (optional)
@@ -284,7 +284,7 @@ The optional address to send the unwrapped tokens to. Must be of type `str`.
 wrapped_token_id = 0
 # highlight-next-line
 recipient_address = "0x..."
-tx = contract.unwrap(wrapped_token_id, receipient_address)
+tx = contract.unwrap(wrapped_token_id, recipient_address)
 ```
 
 </div>

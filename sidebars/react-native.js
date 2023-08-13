@@ -78,6 +78,11 @@ const sidebars = {
         },
       ],
     },
+    {
+      type: "doc",
+      label: "Storage",
+      id: "storage",
+    },
   ],
 };
 

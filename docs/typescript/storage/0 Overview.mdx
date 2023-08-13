@@ -5,6 +5,10 @@ slug: /storage
 
 # Storage - TypeScript
 
+:::caution
+We now require you to authenticate using your [API key](/dashboard/api-key) which you can obtain from the [Dashboard](https://thirdweb.com/dashboard).
+:::
+
 The [`ThirdwebSDK`](/typescript/sdk.thirdwebsdk) class includes [storage](/storage)
 **out of the box**, available by using `sdk.storage`:
 
@@ -29,7 +33,9 @@ Once installed, import and instantiate the `ThirdwebStorage` class:
 ```typescript
 import { ThirdwebStorage } from "@thirdweb-dev/storage";
 
-const storage = new ThirdwebStorage();
+const storage = new ThirdwebStorage({
+  secretKey: "YOUR_SECRET_KEY", // You can get one from dashboard settings
+});
 ```
 
 ### Configuration

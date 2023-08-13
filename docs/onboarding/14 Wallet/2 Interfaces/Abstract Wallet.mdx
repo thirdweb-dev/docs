@@ -78,6 +78,82 @@ number | undefined;
 </div>
 </details>
 
+### transfer
+
+Transfer native or ERC20 tokens from this wallet to another wallet
+
+```javascript
+// for native tokens
+const txResult = await wallet.transfer(recipientAddress, amount);
+
+// for ERC20 tokens
+const txResult = await wallet.transfer(recipientAddress, amount, tokenAddress);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### recipientAddress
+
+Address of the recipient to send the tokens to
+
+```
+string
+```
+
+#### amount
+
+Amount of tokens to send
+
+```
+string | number
+```
+
+#### Return Value
+
+```
+Promise<TransactionResult>
+```
+
+</div>
+</details>
+
+### getBalance
+
+Get the the native token balance or ERC20 token balance of the wallet.
+
+```javascript
+// for native token balance
+const balance = await wallet.getBalance();
+
+// for ERC20 token balance
+const balance = await wallet.getBalance(tokenAddress);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### tokenAddress
+
+Address of the ERC20 token. If no address is provided, the native token balance is returned.
+
+#### Return Value
+
+```ts
+Promise<{
+  symbol: string;
+  value: BigNumber;
+  name: string;
+  decimals: number;
+  displayValue: string;
+}>;
+```
+
+</div>
+</details>
+
 ### getSigner
 
 Get the [`signer`](https://docs.ethers.org/v5/api/signer/) for the currently connected wallet.

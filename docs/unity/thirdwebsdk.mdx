@@ -6,9 +6,23 @@ displayed_sidebar: unity
 
 The `ThirdwebSDK` is the entry point to all functionality of the Unity SDK.
 
-You initialize the SDK on your desired chain and use the instance to access the different methods and properties of the SDK.
+You can initialize the SDK on your desired chain through the `ThirdwebManager` MonoBehaviour or manually instantiate it. Use the instance to access the different methods and properties of the SDK.
 
 ## Usage
+
+### Using ThirdwebManager
+
+The `ThirdwebManager` MonoBehaviour provides a convenient and customizable way to instantiate and manage the `ThirdwebSDK`. By attaching this script to a GameObject in your initial scene and using `DontDestroyOnLoad()`, the SDK remains instantiated throughout your game's lifecycle.
+
+Please refer to the [ThirdwebManager](/unity/thirdwebmanager) guide for detailed instructions on how to configure the manager.
+
+Once `ThirdwebManager` is set up and the game starts, it will instantiate the `ThirdwebSDK` based on your settings. You can access the instantiated SDK from other scripts using:
+
+```csharp
+ThirdwebSDK sdk = ThirdwebManager.Instance.SDK;
+```
+
+### Manual Instantiation
 
 Provide the name of a default chain, or your own custom RPC URL of any EVM-compatible blockchain to instantiate the SDK.
 
@@ -58,88 +72,95 @@ Provide the name of a default chain, or your own custom RPC URL of any EVM-compa
       <li>
         <b>Avalanche Fuji Testnet</b>: <code>"avalanche-fuji-testnet"</code>
       </li>
-      <li>
-        <b>Localhost</b>: <code>"localhost"</code>
-      </li>
     </ul>
   </div>
 </details>
 
 ```csharp
-ThirdwebSDK sdk = new ThirdwebSDK("ethereum");
+ThirdwebSDK sdk = new ThirdwebSDK("ethereum", {
+      clientId = myClientId // you can get client id from dashboard settings
+    });
 ```
 
 ## Configuration
 
 ### chainOrRPC
 
-The blockchain/network you want to instantiate the SDK on.
+The blockchain you want to instantiate the SDK on.
 
 Provide the name of a default chain (see above), or your own custom RPC URL of any EVM-compatible blockchain.
 
 ```csharp
-ThirdwebSDK sdk = new ThirdwebSDK("my-rpc-url");
+ThirdwebSDK sdk = new ThirdwebSDK("https://my-rpc-url");
 ```
 
-### gaslessOptions
+### chainId
 
-Use [gasless transactions](/glossary/gasless-transactions) to forward all transactions to a relayer.
-
-Currently supports either [OpenZeppelin Defender](https://blog.thirdweb.com/guides/setup-gasless-transactions/)
-or [Biconomy](https://blog.thirdweb.com/guides/biconomy-gasless-guide/) relayers.
+The chain ID of the blockchain you want to instantiate the SDK on.
 
 ```csharp
-ThirdwebSDK sdk = new ThirdwebSDK("goerli", -1, new ThirdwebSDK.Options()
+ThirdwebSDK sdk = new ThirdwebSDK("goerli", 5);
+```
+
+### options
+
+:::info
+To use the Unity SDK, you need to pass a `clientId` option which you can obtain from an API key from the [Dashboard](https://thirdweb.com/dashboard).
+:::
+
+````csharp
+
+You can use [gasless transactions](/glossary/gasless-transactions) to forward all transactions to a relayer.
+
+Currently supports [OpenZeppelin Defender](https://blog.thirdweb.com/guides/setup-gasless-transactions/) relayers.
+
+```csharp
+ThirdwebSDK sdk = new ThirdwebSDK("goerli", 5, new ThirdwebSDK.Options()
 {
-    // highlight-start
+    clientId = "my-client-id", // you can get client id from dashboard settings
+    // Gasless configuration options
     gasless = new ThirdwebSDK.GaslessOptions()
     {
-        biconomy = new ThirdwebSDK.BiconomyOptions() {
-            apiId = "biconomy-api-id",  // your Biconomy API Id
-            apiKey = "biconomy-api-key" // your Biconomy API Key
-        },
+        // OpenZeppelin Defender options
         openzeppelin = new ThirdwebSDK.OZDefenderOptions()
         {
-            relayerForwarderAddress = "0x...", // the OZ defender relayer address (defaults to the standard one)
-            relayerUrl ="open-zeppelin-forwarder-address" // your OZ Defender relayer URL
+            relayerUrl = "open-zeppelin-relayer-url", // Your OZ Defender relayer URL
+            relayerForwarderAddress = "0x...", // The OZ defender relayer address
+            domainName = "domain-name", // The domain name for the forwarder
+            domainVersion = "domain-version" // The version of the forwarder domain
         },
-    }
-    // highlight-end
-});
-```
+    },
 
-### storageOptions
-
-Override the default IPFS gateway URL to use your own.
-
-```csharp
-ThirdwebSDK sdk = new ThirdwebSDK("goerli", -1, new ThirdwebSDK.Options()
-{
-    // highlight-start
+    // Storage configuration options
     storage = new ThirdwebSDK.StorageOptions()
     {
-        ipfsGatewayUrl= "https://my-ipfs-gateway.com/ipfs/"
-    }
-    // highlight-end
-});
-```
+        ipfsGatewayUrl = "https://my-ipfs-gateway.com/ipfs/" // Override the default IPFS gateway URL
+    },
 
-### walletOptions
-
-Add extra data to pass to the wallet provider.
-
-```csharp
-ThirdwebSDK sdk = new ThirdwebSDK("goerli", -1, new ThirdwebSDK.Options()
-{
-    // highlight-start
+    // Wallet configuration options
     wallet = new ThirdwebSDK.WalletOptions()
     {
-        appName= "My App", // the app name that will show in different wallet providers
-        extras= new Dictionary<string, object>() // extra data to pass to the wallet provider
+        appName = "My App", // The name of the app that will be displayed in different wallet providers
+        appDescription = "App Description", // The description of the app
+        appUrl = "https://my-app.com", // The URL of the app
+        appIcons = new string[] { "https://my-app.com/icon1.png", "https://my-app.com/icon2.png" }, // An array of URLs for app icons
+        magicLinkApiKey = "magic-link-api-key", // The API key for Magic Link authentication
+        walletConnectProjectId = "wallet-connect-project-id", // The project ID for WalletConnect authentication
+        paperClientId = "paper-client-id", // The client ID for Paper authentication
+        extras = new Dictionary<string, object>()
         {
-            { "foo", "bar" }
+            { "foo", "bar" } // Additional data to pass to the wallet provider
         }
+    },
+
+    // Smart wallet configuration options
+    smartWalletConfig = new ThirdwebSDK.SmartWalletConfig()
+    {
+        factoryAddress = "factory-address", // The address of the factory contract for smart wallets
+        gasless = true, // Indicates whether gasless (paymaster) transactions are enabled
+        bundlerUrl = "bundler-url", // The URL of the bundler service (optional)
+        paymasterUrl = "paymaster-url", // The URL of the paymaster service (optional)
+        entryPointAddress = "entry-point-address" // The address of the entry point contract (optional)
     }
-    // highlight-end
 });
-```
+````

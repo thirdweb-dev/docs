@@ -1,22 +1,35 @@
 ---
 slug: /wallet
 title: Overview
+sidebar_position: 1
 ---
 
 import OpenSourceInfo from "@components/OpenSourceInfo";
 import QuickstartCard from "@components/QuickstartCard";
 
-# Wallet
+# Wallet SDK
 
-Wallet is a [library](https://github.com/thirdweb-dev/js/tree/main/packages/wallets) that enables you to integrate wallet connection capabilities into web3 applications.
+Wallet SDK allows you to build a fully featured wallet solution
+or integrate an existing wallet provider with thirdweb's
+[Typescript](/typescript),
+[React](/react),
+[React Native](/react-native), and
+[Unity](/unity) SDKs. These SDKs provide everything you need to create web3 apps with ease
 
-It is usable as a standalone package to allow users to connect their wallets to your app,
-and integrates with our [SDK](/sdk) to use the connected wallet
-to interact with smart contracts, utilise [auth](/auth), [storage](/storage), and more.
+<OpenSourceInfo
+  repoName="wallets"
+  repoUrl="https://github.com/thirdweb-dev/js/tree/main/packages/wallets"
+/>
 
-## Supported Wallets
+## Popular wallets available out of the box
 
-Access the largest catalog of wallets, from custodial to MPC to smart contracts.
+Wallet SDK comes out of the box with support for the most popular wallets that are ready to be used with thirdweb SDKs:
+
+- custodial wallets like [MetaMask](/wallet/metamask), [WalletConnect](/wallet/wallet-connect-v2), and [Coinbase Wallet](/wallet/coinbase-wallet)
+- non-custodial wallets like [Magic](/wallet/magic) and [Paper](/wallet/paper)
+- multi-sig wallets like [Safe (Gnosis)](/wallet/safe)
+- [ERC-4337](https://eips.ethereum.org/EIPS/eip-4337) compliant [Smart Wallet](/wallet/smart-wallet)
+- [Local Wallet](/wallet/local-wallet) that allows you to create a "continue as guest" experience
 
 <div className="row" style={{ marginBottom: 12, padding: 8, paddingTop: 0 }}>
   <div className="col col--4" style={{ padding: 8 }}>
@@ -48,7 +61,7 @@ Access the largest catalog of wallets, from custodial to MPC to smart contracts.
       name="Magic Link"
       link="/wallet/magic"
       image="/assets/wallets/magic.png"
-      description="Connect with email or phone number via Magic"
+      description="Connect with email, phone number or social Login"
     />
   </div>
   <div className="col col--4" style={{ padding: 8 }}>
@@ -56,7 +69,7 @@ Access the largest catalog of wallets, from custodial to MPC to smart contracts.
       name="Paper"
       link="/wallet/paper"
       image="/assets/wallets/paper.svg"
-      description="Connect with email via paper"
+      description="Connect with email"
     />
   </div>
   <div className="col col--4" style={{ padding: 8 }}>
@@ -64,12 +77,12 @@ Access the largest catalog of wallets, from custodial to MPC to smart contracts.
       name="MetaMask"
       link="/wallet/metamask"
       image="/assets/wallets/metamask.png"
-      description="Connect with metamask"
+      description="Connect with MetaMask"
     />
   </div>
   <div className="col col--4" style={{ padding: 8 }}>
     <QuickstartCard
-      name="Coinbase wallet"
+      name="Coinbase"
       link="/wallet/coinbase-wallet"
       image="/assets/wallets/coinbase.png"
       description="Connect with Coinbase Wallet"
@@ -77,10 +90,18 @@ Access the largest catalog of wallets, from custodial to MPC to smart contracts.
   </div>
   <div className="col col--4" style={{ padding: 8 }}>
     <QuickstartCard
+      name="Trust"
+      link="/wallet/trust-wallet"
+      image="/assets/wallets/trust.png"
+      description="Connect with Trust Wallet"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
       name="WalletConnect"
       link="/wallet/wallet-connect-v2"
       image="/assets/wallets/walletconnect.svg"
-      description="Connect with AWS Key Management Service"
+      description="Connect with Wallet Connect"
     />
   </div>
   <div className="col col--4" style={{ padding: 8 }}>
@@ -102,7 +123,7 @@ Access the largest catalog of wallets, from custodial to MPC to smart contracts.
   <div className="col col--4" style={{ padding: 8 }}>
     <QuickstartCard
       name="Ethers.js"
-      link=""
+      link="/wallet/ethers"
       image="/assets/wallets/ethers.png"
       description="Connect any Ethers.js compatible wallet"
     />
@@ -110,31 +131,32 @@ Access the largest catalog of wallets, from custodial to MPC to smart contracts.
   <div className="col col--4" style={{ padding: 8 }}>
     <QuickstartCard
       name="Private Key"
-      link=""
+      link="/wallet/private-key"
       image="/assets/product/wallet.png"
       description="Connect a wallet directly by a private key"
     />
   </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Zerion"
+      link="/wallet/zerion-wallet"
+      image="/assets/wallets/zerion.svg"
+      description="Connect with Zerion Wallet"
+    />
+  </div>
 </div>
 
-## Features
+<br />
 
-It supports a vast array of the most popular browser wallets such as [MetaMask](/wallet/metamask),
-WalletConnect [V1](/wallet/wallet-connect-v1) and [V2](/wallet/wallet-connect-v2), [Coinbase Wallet](/wallet/coinbase-wallet), non-custodial wallets such as [Magic](/wallet/magic) and [Paper](/wallet/paper), multi-sig wallets such as [Safe (Gnosis)](/wallet/safe),
-and more; each with fine-grained control over the connection flow to create customized experiences,
-or pre-built UI components to get you up and running quickly.
+:::note
 
-It also supports [Smart Wallets](/wallet/smart-wallet) following the [ERC-4337](https://eips.ethereum.org/EIPS/eip-4337) specification and
-the ability to create a transactionless [Local Wallets](/wallet/local-wallet) that allows users to onboard easily to web3 apps with a "guest checkout" experience.
+You can build your own wallet using Wallet SDK by following [Build a wallet guide](/wallet/build-a-wallet).
 
-<OpenSourceInfo
-  repoName="wallets"
-  repoUrl="https://github.com/thirdweb-dev/js/tree/main/packages/wallets"
-/>
+You can also add your wallet to Wallet SDK and make it available to all the users of Wallet SDK by creating a PR in [thirdweb's JS monorepo](https://github.com/thirdweb-dev/js) on GitHub
+
+:::
 
 ## Get Started
-
-Learn how to quickly integrate wallet connection capabilities into your apps with the [Getting Started](/wallet/getting-started) guide.
 
 <div className="row" style={{ marginBottom: 12, padding: 8, paddingTop: 0 }}>
   <div className="col col--12" style={{ padding: 8 }}>
@@ -142,6 +164,48 @@ Learn how to quickly integrate wallet connection capabilities into your apps wit
       name="Get started with Wallet"
       link="/wallet/getting-started"
       image="/assets/product/wallet.png"
+    />
+  </div>
+</div>
+
+## Usage with thirdweb SDKs
+
+<div className="row" style={{ marginBottom: 0, padding: 8, paddingTop: 0 }}>
+  <div className="col col--12" style={{ padding: 8, paddingBottom: 0 }}>
+    <QuickstartCard
+      name="Usage with TypeScript SDK"
+      link="/wallet/usage-with-typescript-sdk"
+      image="/assets/languages/typescript.png"
+    />
+  </div>
+</div>
+
+<div className="row" style={{ marginBottom: 0, padding: 8, paddingTop: 0 }}>
+  <div className="col col--12" style={{ padding: 8, paddingBottom: 0 }}>
+    <QuickstartCard
+      name="Usage with React SDK"
+      link="/wallet/usage-with-react-sdk"
+      image="/assets/languages/react.png"
+    />
+  </div>
+</div>
+
+<div className="row" style={{ marginBottom: 0, padding: 8, paddingTop: 0 }}>
+  <div className="col col--12" style={{ padding: 8, paddingBottom: 0 }}>
+    <QuickstartCard
+      name="Usage with React Native SDK"
+      link="/wallet/usage-with-react-native-sdk"
+      image="/assets/languages/react-native.png"
+    />
+  </div>
+</div>
+
+<div className="row" style={{ marginBottom: 0, padding: 8, paddingTop: 0 }}>
+  <div className="col col--12" style={{ padding: 8, paddingBottom: 0 }}>
+    <QuickstartCard
+      name="Usage with Unity SDK"
+      link="/unity/connectwallet"
+      image="/assets/languages/unity.webp"
     />
   </div>
 </div>

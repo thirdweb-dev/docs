@@ -3,7 +3,7 @@ title: ThirdwebSDK.fromWallet
 slug: /sdk.thirdwebsdk.fromwallet
 ---
 
-Instantiate the [`ThirdwebSDK`](/sdk.thirdwebsdk) in read-write mode using a `Wallet` object.
+Instantiate the [`ThirdwebSDK`](/typescript/sdk.thirdwebsdk) in read-write mode using a `Wallet` object.
 
 The [`@thirdweb-dev/wallets`](https://github.com/thirdweb-dev/js/tree/main/packages/wallets) package provides a set
 of wallets for you to use to instantiate the SDK.
@@ -18,7 +18,7 @@ This is the recommended method to instantiate the SDK in a production environmen
 First, install the [`@thirdweb-dev/wallets`](https://github.com/thirdweb-dev/js/tree/main/packages/wallets) package:
 
 ```bash npm2yarn
-npm install @thirdweb/wallets
+npm install @thirdweb-dev/wallets
 ```
 
 Then, you can use the `ThirdwebSDK.fromWallet` method to instantiate the SDK.
@@ -27,7 +27,7 @@ Below is an example of how to instantiate the SDK with the [AWS Key Management S
 
 ```typescript
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
-import { AwsKmsWallet } from "@thirdweb-dev/wallets";
+import { AwsKmsWallet } from "@thirdweb-dev/wallets/evm/wallets/aws-kms";
 
 const wallet = new AwsKmsWallet({
   region: "us-east-1",
@@ -37,10 +37,20 @@ const wallet = new AwsKmsWallet({
   keyId: process.env.AWS_KEY_ID,
 });
 
-const sdk = ThirdwebSDK.fromWallet(wallet, "ethereum");
+const sdk = ThirdwebSDK.fromWallet(wallet, "ethereum", {
+  clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
+  secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
+});
 ```
 
 ## Configuration
+
+### Client ID or Secret Key(required)
+
+To use the Typescript SDK, you need to obtain either the `clientId` or `secretKey` from an API key which you can obtain from the [Dashboard](https://thirdweb.com/dashboard). You can instatiate the SDK in two ways:
+
+- **Client-side**: Use the SDK in the browser or mobile app. In this instance, you would use the `clientId` prop.
+- **Server-side**: Use the SDK in a server environment. In this instance, you would use the `secretKey` prop.
 
 ### chain
 
@@ -58,6 +68,10 @@ const sdk = ThirdwebSDK.fromWallet(
   wallet,
   // highlight-next-line
   "ethereum", // Can be a string, a Chain object from @thirdweb-dev/chains, or a custom chain.
+  {
+    clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
+    secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
+  },
 );
 ```
 
@@ -69,7 +83,7 @@ The value stored in your secret value should be your wallet&rsquo;s private key.
 
 ```typescript
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
-import { AwsKmsWallet } from "@thirdweb-dev/wallets";
+import { AwsKmsWallet } from "@thirdweb-dev/wallets/evm/wallets/aws-kms";
 
 const wallet = new AwsKmsWallet({
   region: "us-east-1", // Region where your secret is stored
@@ -79,7 +93,10 @@ const wallet = new AwsKmsWallet({
   keyId: process.env.AWS_KEY_ID, // Add environment variables to store your AWS credentials
 });
 
-const sdk = ThirdwebSDK.fromWallet(wallet, "ethereum");
+const sdk = ThirdwebSDK.fromWallet(wallet, "ethereum", {
+  clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
+  secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
+});
 ```
 
 ### Using AwsSecretsManagerWallet
@@ -90,7 +107,7 @@ The value stored in your secret value should be your wallet&rsquo;s private key.
 
 ```typescript
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
-import { AwsSecretsManagerWallet } from "@thirdweb-dev/wallets";
+import { AwsSecretsManagerWallet } from "@thirdweb-dev/wallets/evm/wallets/aws-secrets-manager";
 
 const wallet = new AwsSecretsManagerWallet({
   secretId: "{{secret-id}}", // ID of the secret value
@@ -104,5 +121,8 @@ const wallet = new AwsSecretsManagerWallet({
   },
 });
 
-const sdk = ThirdwebSDK.fromWallet(wallet, "ethereum");
+const sdk = ThirdwebSDK.fromWallet(wallet, "ethereum", {
+  clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
+  secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
+});
 ```

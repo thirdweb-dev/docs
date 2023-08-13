@@ -7,7 +7,7 @@ displayed_sidebar: contracts
 
 # ERC20Drop
 
-BASE: ERC20 EXTENSION: DropSinglePhase The `ERC20Drop` smart contract implements the ERC20 standard. It includes the following additions to standard ERC20 logic: - Ownership of the contract, with the ability to restrict certain functions to only be called by the contract&#39;s owner. - Multicall capability to perform multiple actions atomically - EIP 2612 compliance: See {ERC20-permit} method, which can be used to change an account&#39;s ERC20 allowance by presenting a message signed by the account. The `drop` mechanism in the `DropSinglePhase` extension is a distribution mechanism for tokens. It lets you set restrictions such as a price to charge, an allowlist etc. when an address atttempts to mint tokens.
+BASE: ERC20 EXTENSION: DropSinglePhase The `ERC20Drop` smart contract implements the ERC20 standard. It includes the following additions to standard ERC20 logic: - Ownership of the contract, with the ability to restrict certain functions to only be called by the contract&#39;s owner. - Multicall capability to perform multiple actions atomically - EIP 2612 compliance: See {ERC20-permit} method, which can be used to change an account&#39;s ERC20 allowance by presenting a message signed by the account. The `drop` mechanism in the `DropSinglePhase` extension is a distribution mechanism for tokens. It lets you set restrictions such as a price to charge, an allowlist etc. when an address attempts to mint tokens.
 
 ## Methods
 

@@ -1,6 +1,7 @@
 ---
 slug: /wallet/smart-wallet
 title: Smart Wallet
+sidebar_position: 4
 ---
 
 import Tabs from "@theme/Tabs";
@@ -8,21 +9,37 @@ import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 import ViewRepoButton from "@components/ViewRepoButton";
 
-Let your users connect to their [Smart Wallet](/glossary/smart-wallet).
+Let your users connect to any [Smart Wallet](/glossary/smart-wallet).
 
 A Smart Wallet is a wallet that is controlled by a smart contract following the [ERC-4337 specification](https://eips.ethereum.org/EIPS/eip-4337).
 
-## Getting started
+## Requirements
 
-#### 1. Deploy a smart wallet factory contract, you can deploy one in 1-click via the [explore page](https://thirdweb.com/explore/smart-wallet)
+#### 1. A smart wallet factory contract
 
-#### 2. Get an API key, which you can obtain from the [thirdweb dashboard](https://thirdweb.com/dashboard/api-keys)
+Deployable via the [explore page](https://thirdweb.com/explore/smart-wallet) or use your own [ERC 4337](https://eips.ethereum.org/EIPS/eip-4337) compatible factory contract.
+
+#### 2. An API key
+
+:::info
+You will require an API key to use thirdweb’s infrastructure services such as the bundler and paymaster.
+
+The API key will need to have the following settings:
+
+- smart wallet as an enabled service
+- The contracts that the smart wallet will interact with must be added to the "Destination Contracts" list. Learn more [here](/api-keys#smart-wallet-allowed-destination-addresses)
+
+:::
+
+Obtain an API key from the [thirdweb dashboard](https://thirdweb.com/create-api-key).
 
 The API key lets you access thirdweb's bundler and paymaster infrastructure, which is required for the smart wallet to operate and optionally enable [gasless transactions](/glossary/gasless-transactions).
 
+Learn more about creating an API key and restricting which contracts the smart wallet can interact with [here](/api-keys).
+
 ## Features
 
-Smart Wallets work a little differently than other wallets since it's controlled by a programmable smart contract rather than a regular externally-owned account (EOA). This programmable wallet contract can:
+Smart Wallets are controlled by a programmable smart contract rather than by a user as is the case for externally-owned accounts (EOA). This programmable wallet contract can:
 
 - Hold any assets
 - Pay for its own gas
@@ -30,9 +47,11 @@ Smart Wallets work a little differently than other wallets since it's controlled
 - Have multiple owners
 - Assign roles and permissions
 
-And more! Smart Wallets can be customized to each application's needs using the Solidity SDK.
+And more!
 
-The SmartWallet API is composable - you can bring in your own [ERC 4337](https://eips.ethereum.org/EIPS/eip-4337) compatible factory contract and you can also use your own bundler or paymaster services.
+Smart Wallets can be customized to each application's needs using the [Solidity SDK](/solidity).
+
+The SmartWallet API is **composable** - you can use in your own [ERC 4337](https://eips.ethereum.org/EIPS/eip-4337) compatible factory contract and you can also use your own bundler or paymaster services.
 
 ## Templates
 
@@ -59,13 +78,37 @@ Clone these templates to quickly deploy Smart Wallets and connect to them.
 
 With a thirdweb API key, you get access to bundler and paymaster infrastructure on the following chains:
 
-- Goerli
-- Sepolia
-- Mumbai
-- Base Goerli
-- Optimism Goerli
-- Arbitrum Goerli
-- Linea testnet
+<details>
+  <summary>View supported chains</summary>
+  <div>
+    <ul>
+      <li>
+        <b>Goerli</b>
+      </li>
+      <li>
+        <b>Sepolia</b>
+      </li>
+      <li>
+        <b>Mumbai</b>
+      </li>
+      <li>
+        <b>Base Goerli</b>
+      </li>
+      <li>
+        <b>Optimism Goerli</b>
+      </li>
+      <li>
+        <b>Arbitrum Goerli</b>
+      </li>
+      <li>
+        <b>Linea Testnet</b>
+      </li>
+      <li>
+        <b>Celo Alfajores Testnet</b>
+      </li>
+    </ul>
+  </div>
+</details>
 
 more chains are added every week, to get support for a specific chain [contact us](https://thirdweb.typeform.com/to/Q93CVgUc?typeform-source=thirdweb-www-git-mariano-ftd-1670.thirdweb-preview.com).
 
@@ -81,13 +124,13 @@ import { Goerli } from "@thirdweb-dev/chains";
 // Here we're just generating a new local wallet which can be saved later
 const personalWallet = new LocalWallet();
 await personalWallet.generate();
-await personalWallet.connect();
 
 // Setup the Smart Wallet configuration
 const config: SmartWalletConfig = {
   chain: Goerli, // the chain where your smart wallet will be or is deployed
   factoryAddress: "{{factory_address}}", // your own deployed account factory address
-  thirdwebApiKey: "{{api_key}}", // obtained from the thirdweb dashboard
+  clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
+  secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
   gasless: true, // enable or disable gasless transactions
 };
 
@@ -127,12 +170,14 @@ Must be a `string`.
 </details>
 
 <details>
-  <summary>thirdwebApiKey</summary>
+  <summary>clientId or secretKey (recommended)</summary>
   <div>
 
-Your thirdweb API key can be obtained from the [thirdweb dashboard](https://thirdweb.com/dashboard/api-keys).
+Your API key can be obtained from the [thirdweb dashboard](https://thirdweb.com/create-api-key).
 
 If you're using your own bundler and paymaster, you can set this to an empty string.
+
+You can use either the `clientId` or the `secretKey` depending on whether your application is client or server side.
 
 Must be a `string`.
 
@@ -156,6 +201,19 @@ Must be a `boolean`.
 ### Optional properties
 
 <details>
+  <summary>clientId or secretKey (optional) </summary>
+  <div>
+
+Provide `clientId` or `secretKey` to use the thirdweb RPCs for given `chains`
+
+If you are using the `SmartWallet` in a in frontend - provide a `clientId`, If you are using the `SmartWallet` in backend - you can provide a `secretKey`.
+
+You can create a `clientId` / `secretKey` from [thirdweb dashboard](https://thirdweb.com/create-api-key).
+
+</div>
+</details>
+
+<details>
   <summary>factoryInfo</summary>
   <div>
 
@@ -174,7 +232,7 @@ Example:
       chain,
       gasless,
       factoryAddress,
-      thirdwebApiKey,
+      clientId,
       // highlight-start
       factoryInfo: {
         createAccount: (factory, owner) => {
@@ -214,7 +272,7 @@ Example:
       chain,
       gasless,
       factoryAddress,
-      thirdwebApiKey,
+      clientId,
       // highlight-start
       accountInfo: {
         execute: (account, target, value, data) => {
@@ -279,7 +337,7 @@ const config: SmartWalletConfig = {
   chain,
   gasless,
   factoryAddress,
-  thirdwebApiKey,
+  clientId,
   // highlight-start
   paymasterAPI: new MyPaymaster(),
   // highlight-end
@@ -400,12 +458,12 @@ Defaults to `'v2'`.
 </details>
 
 <details>
-  <summary>walletConenctV2ProjectId</summary>
+  <summary>walletConnectV2ProjectId</summary>
   <div>
 
 The WalletConnect V2 `projectId`. You can get one in the [WalletConnect docs](https://docs.walletconnect.com/2.0/web/sign/installation#1-obtain-project-id).
 
-Defaults to a common `projectId` set by thirdweb. This should be ok for testing but note that if you want to deploy your mobile app it may make sense to create your own as WalletConnect may throttle traffic comming from the same `projectId`.
+Defaults to a common `projectId` set by thirdweb. This should be ok for testing but note that if you want to deploy your mobile app it may make sense to create your own as WalletConnect may throttle traffic coming from the same `projectId`.
 
 </div>
 </details>

@@ -1,0 +1,290 @@
+---
+title: API Keys
+slug: /api-keys
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# API Keys
+
+An API key is required to use thirdweb's infrastructure services such as Smart Wallet, Storage and RPCs and it is **completely free to use**. These services are built into many of the thirdweb products such as the [CLI](/cli) and [SDKs](/sdk).
+It is required to instantiate the thirdweb SDKs to unlock the full capabilities.
+
+By using the API Key to instantiate the SDKs, you are able to use thirdweb's infrastructure such as RPCs, [account abstraction](/glossary/smart-wallet) infrastructure and [storage](/storage) gateway.
+This means that all the complexities of web3 development are handled for you and you can focus on building your application.
+
+## Usage
+
+The following services require an API key to use:
+- [**Smart Wallet**](/glossary/smart-wallet)
+- [**Storage**](/storage)
+- The following [**CLI**](/cli) commands (these commands require you to login using the [login](/cli/login) command):
+  - [**Generate**](/cli/commands/generate)
+  - [**Deploy**](/cli/commands/deploy)
+  - [**Publish**](/cli/commands/publish)
+  - [**Upload**](/cli/commands/upload)
+- **RPCs**
+
+When initializing the SDKs, you will need to use either your client id or secret key. The SDKs are now initialized as follows:
+
+<Tabs>
+  <TabItem value="Typescript" label="Typescript" default>
+
+  When writing backends or scripts, you can use the secret key to instantiate the SDK:
+
+  ```ts
+    // Read-only mode
+    const readOnlySdk = new ThirdwebSDK("goerli", {
+      secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
+    });
+  ```
+
+  When using the Typescript SDK for frontend applications, use the client id:
+
+  ```ts
+    import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+    // Read-only mode
+    const readOnlySdk = new ThirdwebSDK("goerli", {
+      clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
+    });
+  ```
+
+  </TabItem>
+  <TabItem value="React" label="React">
+
+  When using the React SDK, you can use the client id to instantiate the SDK:
+
+  ```jsx
+    import { ThirdwebProvider } from "@thirdweb-dev/react";
+
+    function MyApp() {
+      return (
+        <ThirdwebProvider
+          activeChain="ethereum"
+          // highlight-start
+          clientId="your-client-id"
+          // highlight-end
+        >
+          <YourApp />
+        </ThirdwebProvider>
+      );
+    }
+  ```
+
+  </TabItem>
+  <TabItem value="Unity" label="Unity">
+
+  When using the Unity SDK, you can use the client id to instantiate the SDK:
+
+  ```csharp
+    ThirdwebSDK sdk = new ThirdwebSDK("goerli", 5, new ThirdwebSDK.Options()
+    {
+      clientId = "my-client-id", // you can get client id from dashboard settings
+    });
+  ```
+
+  </TabItem>
+  <TabItem value="Python" label="Python">
+
+  When using the Python SDK, you can use the secret key to instantiate the SDK:
+
+  ```python
+    from thirdweb import ThirdwebSDK
+    from thirdweb.types import SDKOptions
+    from dotenv.main import load_dotenv
+    import os
+
+      load_dotenv()
+      secret_key = os.environ['SECRET_KEY']
+      private_key = os.environ['PRIVATE_KEY']
+
+      sdk = ThirdwebSDK.from_private_key(private_key, "mumbai", SDKOptions(secret_key=secret_key))
+  ```
+  </TabItem>
+  <TabItem value="GO" label="GO">
+
+  When using the GO SDK, you can use the secret key to instantiate the SDK:
+
+  ```go
+    package main
+
+    import (
+	    "fmt"
+
+	    "github.com/thirdweb-dev/go-sdk/v2/thirdweb"
+    )
+
+    func main() {
+	    // Your secret key from the thirdweb api keys dashboard
+	    secretKey := "..."
+
+	    // Creates a new SDK instance to get read-only data for your contracts, you can pass:
+	    // - a chain name (mainnet, rinkeby, goerli, polygon, mumbai, avalanche, fantom)
+	    // - a custom RPC URL
+	    sdk, err := thirdweb.NewThirdwebSDK("mumbai", &thirdweb.SDKOptions{
+		    SecretKey: secretKey,
+	    })
+	    if err != nil {
+		    panic(err)
+      }
+
+	    // Now we can interact with the SDK, like displaying the connected chain ID
+	    chainId, err := sdk.GetChainID()
+	    if err != nil {
+		    panic(err)
+	    }
+
+	    fmt.Println("New SDK instance create on chain", chainId)
+    }
+  ```
+
+  </TabItem>
+</Tabs>
+
+## Creating & Managing your API Keys via the Dashboard Settings Tab
+
+The [**settings tab**](https://thirdweb.com/create-api-key), located in Dashboard, allows you to configure and create API keys.
+
+![Create an API Key](/assets/dashboard/settings-tab.png)
+
+An API key is made up of two parts:
+
+- **Client ID** - This key is used to access the enabled thirdweb infrastructure services and identifies your application through an app bundle id (the unique identifier of a native app, see how to get yours [here](#how-to-get-my-bundleid)) or domain (the identifier for websites). It can be restricted to only certain allowed domains and app bundle ids to access the API key's enabled services.
+- **Secret Key** - This key is used to access the enabled thirdweb infrastructure services by identifying and authenticating your application from the backend. It is not safe to share this key with anyone. Anyone with the Secret Key can access all thirdweb services.
+
+:::caution
+Once your API key has been created, you will not be able to view the secret key again. If you lose the secret key, you will need to create a new API key.
+
+Anyone with the Secret Key can access all enabled thirdweb services so store it in a safe place.
+
+Your secret key should only be used in backend environments like CLI, scripts, and servers. It should never be exposed in client-side code (browsers, apps) as there are no access restrictions on secret keys.
+:::
+
+:::info
+It is possible to use the thirdweb SDKs without an API key and override the default infrastructure. This requires you to provide your own infrastructure such as RPCs and IPFS/storage gateway.
+:::
+
+## Creating an API Key
+
+To create an API key:
+
+- Head to the [settings tab](https://thirdweb.com/create-api-key) in Dashboard.
+- Click the button labeled "Create API Key"
+- Enter a name for the key.
+- Enter the domains or app bundle ids that the Client Id will be allowed to be used with.
+- Click the "Create" button to create the key.
+
+![Create an API Key](/assets/dashboard/create-api-key-combined.png)
+
+This will first prompt you to copy and store your secret key in a safe place and then
+create an API key that you can use to access the API key's allowed services.
+
+:::caution
+It will also generate a secret key that you will need to copy and save in a safe place. **You will not be able to view the secret key again**.
+:::
+
+For apps and websites, you can use the Client Id to instantiating the thirdweb SDK:
+
+```javascript
+const sdk = new ThirdwebSDK("goerli", {
+  clientId: "your-client-id",
+});
+```
+
+or, for backends, use the secret key:
+
+```javascript
+const sdk = new ThirdwebSDK("goerli", {
+  secretKey: "your-secret-key",
+});
+```
+
+![Your API Key](/assets/dashboard/your-api-key.png)
+
+### How to get my bundleId?
+
+The `bundleId` is only needed if you are developing Unity native or mobile applications. It is the unique identifier of your app and it is used to restrict the `clientId` to only be used by your app.
+
+#### Unity Native
+
+You can find your `bundleId` by either logging `Utils.GetBundleId()` or by checking your Project Settings platform-specific options.
+It is typically in the format of `com.companyName.productName` based on your top level Project Settings.
+
+#### React Native
+
+**Android**
+
+Open the file `<Project>/android/app/build.gradle` and search for `applicationId`:
+
+```javascript
+  android {
+    defaultConfig {
+    applicationId "com.example.yourproject"
+    ...
+    }
+  }
+```
+
+**iOS**
+
+Open the file `<Project>/ios/<Project>/Info.plist` and search for `CFBundleIdentifier`:
+
+```javascript
+  <key>CFBundleIdentifier</key>
+  <string>com.example.yourproject</string>
+```
+
+Or if you want to get the `bundleId` programmatically for both iOS and Android, you can use the `expo-application` package
+already in use in the @thirdweb-dev/react-native sdk:
+
+```javascript
+import * as Application from "expo-application";
+
+const bundleId = Application.applicationId;
+```
+
+## Viewing and Managing API Keys
+
+To view and manage your API key, click the key from your list of API keys.
+
+![View an API Key](/assets/dashboard/view-api-key.png)
+
+This will open a modal where you can view the restricted domains and app bundle ids your Client Id can be used with, view which services the key has access to and edit your API key.
+The "Services" tab allows you to view which services the API key has access to and enable or disable services.
+
+![View an API Key](/assets/dashboard/manage-api-key-flow.png)
+
+## Editing an API Key
+
+To edit an API key, click the "Edit" button.
+
+You can edit the name of the API key, the allowed domains (for websites) and app bundle ids (for mobile apps and games), the smart wallet target addresses and the enabled services.
+To modify which services the API key is allowed to access & the smart wallet target addresses, head to the "Services" tab.
+
+![Edit an API Key](/assets/dashboard/edit-api-key-flow.png)
+
+### Smart Wallet Allowed Destination Addresses
+
+This is a list of addresses that the Smart Wallet is allowed to send transactions to/interact with. These addresses can be smart contracts but also EOAs or other smart wallet addresses. This is useful for e.g. restricting the Smart Wallet to only send transactions to your own contracts.
+
+To restrict the contracts that smart wallet can interact with:
+
+- Click the "Edit" button
+- Select the "Services" tab
+- Enter the address(s) in the "Allowed Target Addresses" field.
+- You can add multiple addresses by separating them with a comma or new line.
+
+### Setting Allowed Bundle IDs & Domains
+
+The Client id is used to access thirdweb services from a frontend app like a desktop or native app. It is safe to share this key with anyone as it can be restricted to allowed domains and/or bundler ids.
+
+To restrict the client Id to a specific domain (or app bundle id), enter the domain in the "Allowed Domains" field. You can add multiple domains by separating them with a comma or new line.
+
+The secret key is used to access enabled thirdweb services from the backend. It is not safe to share this key with anyone. It is also restricted to the services you enable on the API key.
+
+### Revoking an API Key
+
+To revoke your API key, click the "Revoke" button. This will invalidate the key and it will no longer be usable.
+
+![Revoke API Key](/assets/dashboard/revoke-api-key.png)

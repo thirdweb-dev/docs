@@ -10,7 +10,7 @@ import styles from "../DocSidebarItem/Link/styles.module.css";
 // TODO this triggers whole sidebar re-renders on navigation
 function DocSidebarItems({ items, ...props }) {
   // Category logic (i.e. "Build contracts", etc.)
-  const showCategoryPages = ["/platform-overview", "/templates"];
+  const showCategoryPages = ["/platform-overview", "/templates", "/api-keys"];
   const checkIfShowCategoryPages = (item) => {
     // check if starts with
     return (
@@ -27,7 +27,7 @@ function DocSidebarItems({ items, ...props }) {
   const sidebarItems = [
     {
       title: null, // No title for the first section
-      items: ["Home", "Overview ", "Getting Started"],
+      items: ["Home", "Overview ", "API Keys"],
     },
     {
       title: "Tools",

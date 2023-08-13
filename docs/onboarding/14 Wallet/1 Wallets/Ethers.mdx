@@ -13,6 +13,7 @@ Connect to your app with any [ethers.js](https://github.com/ethers-io/ethers.js/
 
 ```javascript
 import { EthersWallet } from "@thirdweb-dev/wallets";
+import { Wallet } from "ethers";
 
 // can be any ethers.js signer
 const signer = Wallet.createRandom();
@@ -23,4 +24,4 @@ wallet.connect();
 
 ## Methods
 
-Inherhits all the public methods from the [`AbstractWallet`](interfaces/abstract-wallet) class.
+Inherits all the public methods from the [`AbstractWallet`](interfaces/abstract-wallet) class.

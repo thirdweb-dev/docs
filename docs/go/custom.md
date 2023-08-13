@@ -9,7 +9,7 @@ displayed_sidebar: go
 
 ### Custom Contracts
 
-With the thirdweb SDK, you can get a contract instance for any contract\. Additionally, if you deployed your contract using thirdweb deploy, you can get a more explicit and intuitive interface to interact with your contracts\.
+With the thirdweb SDK, you can get a contract instance for any contract. Additionally, if you deployed your contract using thirdweb deploy, you can get a more explicit and intuitive interface to interact with your contracts.
 
 \# Getting a Custom Contract Instance
 
@@ -20,10 +20,12 @@ import (
 	"github.com/thirdweb-dev/go-sdk/v2/thirdweb"
 )
 
-privateKey = "..."
+privateKey := "..."
+secretKey := "..."
 
 sdk, err := thirdweb.NewThirdwebSDK("mumbai", &thirdweb.SDKOptions{
 	PrivateKey: privateKey,
+	SecretKey: secretKey
 })
 
 // You can replace your own contract address here
@@ -71,18 +73,22 @@ tx, err := contract.Call("mintTo", "{{wallet_address}}", "ipfs://...")
 
 ```go
 type SmartContract struct {
+    Helper  *contractHelper
     Encoder *ContractEncoder
     Events  *ContractEvents
+    ERC20   *ERC20
+    ERC721  *ERC721
+    ERC1155 *ERC1155
 }
 ```
 
-### func \(\*SmartContract\) [Call](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/smart_contract.go#L134)
+### func \(\*SmartContract\) [Call](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/smart_contract.go#L155>)
 
 ```go
 func (c *SmartContract) Call(ctx context.Context, method string, args ...interface{}) (interface{}, error)
 ```
 
-Call any function on your contract\.
+Call any function on your contract.
 
 method: the name of the method on your contract you want to call
 
@@ -99,7 +105,7 @@ balance, err := contract.Call("balanceOf", "{{wallet_address}}")
 tx, err := contract.Call(context.Background(), "mintTo", "{{wallet_address}}", "ipfs://...")
 ```
 
-## type [SnapshotClaim](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/snapshots.go#L17-L21)
+## type [SnapshotClaim](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/snapshots.go#L18-L22>)
 
 ```go
 type SnapshotClaim struct {
@@ -109,7 +115,7 @@ type SnapshotClaim struct {
 }
 ```
 
-## type [SnapshotEntry](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/types.go#L573-L578)
+## type [SnapshotEntry](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/types.go#L593-L598>)
 
 ```go
 type SnapshotEntry struct {
@@ -120,7 +126,7 @@ type SnapshotEntry struct {
 }
 ```
 
-## type [SnapshotEntryWithProof](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/types.go#L551-L557)
+## type [SnapshotEntryWithProof](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/types.go#L571-L577>)
 
 ```go
 type SnapshotEntryWithProof struct {
@@ -132,7 +138,7 @@ type SnapshotEntryWithProof struct {
 }
 ```
 
-## type [SnapshotInfo](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/snapshots.go#L23-L26)
+## type [SnapshotInfo](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/snapshots.go#L24-L27>)
 
 ```go
 type SnapshotInfo struct {
@@ -141,7 +147,7 @@ type SnapshotInfo struct {
 }
 ```
 
-## type [SnapshotInfos](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/snapshots.go#L28-L32)
+## type [SnapshotInfos](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/snapshots.go#L29-L33>)
 
 ```go
 type SnapshotInfos struct {
@@ -151,7 +157,7 @@ type SnapshotInfos struct {
 }
 ```
 
-## type [SnapshotInput](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/snapshots.go#L12-L15)
+## type [SnapshotInput](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/snapshots.go#L13-L16>)
 
 ```go
 type SnapshotInput struct {

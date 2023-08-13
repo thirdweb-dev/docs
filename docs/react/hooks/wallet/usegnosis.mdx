@@ -2,6 +2,7 @@
 title: useSafe
 slug: /react.usesafe
 displayed_sidebar: react
+sidebar_position: 11
 ---
 
 Hook that allows users to connect their [Safe wallet](/wallet/safe) to your dApp.
@@ -56,6 +57,8 @@ const Home = () => {
   );
 };
 ```
+
+The [safeWallet](/react/react.safeWallet) (with all personalWallets configured) need to be added in [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) if you want the wallet to auto-connect on next page load.
 
 ## Configuration
 

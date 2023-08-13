@@ -23,7 +23,10 @@ export declare class Deployer
 import { ThirdwebSDK } from "@thirdweb-dev/sdk/solana";
 
 // Instantiate the SDK and pass in a signer
-const sdk = ThirdwebSDK.fromNetwork("devnet");
+const sdk = ThirdwebSDK.fromNetwork("devnet", {
+  clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
+  secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
+});
 sdk.wallet.connect(signer);
 
 // Define the metadata for your program

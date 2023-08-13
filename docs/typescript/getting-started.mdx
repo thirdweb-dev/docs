@@ -31,6 +31,10 @@ npx thirdweb create app
 
 <br />
 
+:::info
+You will require an API key to use thirdweb’s infrastructure services with the SDK. If you haven’t created a key yet you can do so for free from the [**thirdweb dashboard**](https://thirdweb.com/create-api-key).
+:::
+
 Instantiate the SDK using your private key to enable both read and **write** operations.
 
 ```ts
@@ -39,6 +43,10 @@ import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 const sdk = ThirdwebSDK.fromPrivateKey(
   process.env.PRIVATE_KEY, // Your wallet's private key (only required for write operations)
   "ethereum",
+  {
+    clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
+    secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
+  },
 );
 ```
 

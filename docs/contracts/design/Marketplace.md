@@ -40,7 +40,7 @@ To make an offer to a direct listing, a buyer specifies —
 
 When making an offer to a direct listing, the offer amount is not escrowed in the Marketplace. Instead, making an offer requires the buyer to approve Marketplace to transfer the appropriate amount of currency to let Marketplace transfer the offer amount from the buyer to the lister, in case the lister accepts the buyer's offer.
 
-To buy NFTs from a direct listing buy paying the listing's specified price, a buyer specifes -
+To buy NFTs from a direct listing buy paying the listing's specified price, a buyer specifies -
 
 | Parameter    | Type    | Description                                                                            |
 | ------------ | ------- | -------------------------------------------------------------------------------------- |
@@ -50,7 +50,7 @@ To buy NFTs from a direct listing buy paying the listing's specified price, a bu
 | `currency`   | address | The currency in which to pay for the NFTs being bought.                                |
 | `totalPrice` | uint256 | The total price to pay for the NFTs being bought.                                      |
 
-A sale will fail to execute if either (1) the buyer does not own or has not approved Marketplace to transfer the appropriate amount of currency (or hasn't sent the appropriate amount of native tokens), or (2) the lister does not own or has removed Markeplace's approval to transfer the tokens listed for sale.
+A sale will fail to execute if either (1) the buyer does not own or has not approved Marketplace to transfer the appropriate amount of currency (or hasn't sent the appropriate amount of native tokens), or (2) the lister does not own or has removed Marketplace's approval to transfer the tokens listed for sale.
 
 A sale is executed when either a buyer pays the fixed price, or the seller accepts an offer made to the listing.
 
@@ -62,16 +62,16 @@ Auctions on thirdweb's Marketplace are [english auctions](https://www.wallstreet
 
 To list NFTs in an auction, a lister specifies —
 
-| Parameter               | Type    | Description                                                                                                                                                                                                                                        |
-| ----------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `assetContract`         | address | The contract address of the NFTs being listed for sale.                                                                                                                                                                                            |
-| `tokenId`               | uint256 | The token ID on the 'assetContract' of the NFTs to list for sale.                                                                                                                                                                                  |
-| `startTime`             | uint256 | The unix timestamp after which NFTs can be bought from the listing.                                                                                                                                                                                |
-| `secondsUntilEndTime`   | uint256 | No. of seconds after `startTime`, after which NFTs can no longer be bought from the listing.                                                                                                                                                       |
-| `quantityToList`        | uint256 | The amount of NFTs of the given 'assetContract' and 'tokenId' to list for sale. For ERC721 NFTs, this is always 1.                                                                                                                                 |
-| `currencyToAccept`      | address | The address of the currency accepted by the listing. Either an ERC20 token or the chain's native token (e.g. ether on Ethereum mainnet).                                                                                                           |
-| `rerservePricePerToken` | uint256 | All bids made to this auction must be at least as great as the reserve price per unit of NFTs auctioned, times the total number of NFTs put up for auction.                                                                                        |
-| `buyoutPricePerToken`   | uint256 | An optional parameter. If a buyer bids an amount greater than or equal to the buyout price per unit of NFTs auctioned, times the total number of NFTs put up for auction, the auction is considered closed and the buyer wins the auctioned items. |
+| Parameter              | Type    | Description                                                                                                                                                                                                                                        |
+| ---------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `assetContract`        | address | The contract address of the NFTs being listed for sale.                                                                                                                                                                                            |
+| `tokenId`              | uint256 | The token ID on the 'assetContract' of the NFTs to list for sale.                                                                                                                                                                                  |
+| `startTime`            | uint256 | The unix timestamp after which NFTs can be bought from the listing.                                                                                                                                                                                |
+| `secondsUntilEndTime`  | uint256 | No. of seconds after `startTime`, after which NFTs can no longer be bought from the listing.                                                                                                                                                       |
+| `quantityToList`       | uint256 | The amount of NFTs of the given 'assetContract' and 'tokenId' to list for sale. For ERC721 NFTs, this is always 1.                                                                                                                                 |
+| `currencyToAccept`     | address | The address of the currency accepted by the listing. Either an ERC20 token or the chain's native token (e.g. ether on Ethereum mainnet).                                                                                                           |
+| `reservePricePerToken` | uint256 | All bids made to this auction must be at least as great as the reserve price per unit of NFTs auctioned, times the total number of NFTs put up for auction.                                                                                        |
+| `buyoutPricePerToken`  | uint256 | An optional parameter. If a buyer bids an amount greater than or equal to the buyout price per unit of NFTs auctioned, times the total number of NFTs put up for auction, the auction is considered closed and the buyer wins the auctioned items. |
 
 Every auction listing obeys two 'buffers' to make it a fair auction:
 
@@ -84,7 +84,7 @@ The NFTs to list in an auction _do_ leave the wallet of the lister, and are escr
 
 **Note:** As a result, the new winning bidder pays for the gas used in refunding the previous winning bidder. This trade-off is made for better UX for bidders — a bidder that has been outbid is automatically refunded, and does not need to pull out their deposited bid manually. This reduces bidding to a single action, instead of two actions — bidding, and pulling out the bid on being outbid.
 
-If the lister sets a `buyoutPricePerToken`, the marketplace expects the `buyoutPricePerToken` to be greater than or equal to the `rerservePricePerToken` of the auction.
+If the lister sets a `buyoutPricePerToken`, the marketplace expects the `buyoutPricePerToken` to be greater than or equal to the `reservePricePerToken` of the auction.
 
 Once the auction window ends, the seller collects the highest bid, and the buyer collects the auctioned NFTs.
 
