@@ -115,7 +115,7 @@ No additional configuration is required if you are using the [pages router](http
 
 If you are using the new [app router](https://nextjs.org/docs/app), and If you import a component such as `ThirdwebProvider` in a server component, Next.js will throw an error saying that the component is not marked with `"use client"` directive.
 
-You will need to create an alias for the that component in a separate file with `"use client"` directive on top (before all the imports) and import that instead of using the the component directly from `@thirdweb-dev/react` in server components.
+You will need to create an alias for that component in a separate file with `"use client"` directive on top (before all the imports) and import that instead of using the component directly from `@thirdweb-dev/react` in server components.
 
 #### Example
 
@@ -151,7 +151,7 @@ export default function Home() {
 <br />
 
 :::caution API KEYS
-You will require an API key to use thirdweb's infrastructure services with the SDK. If you haven'tt created a key yet you can do so for **free** from the [**thirdweb dashboard**](https://thirdweb.com/create-api-key).
+You will require an API key to use thirdweb's infrastructure services with the SDK. If you haven't created a key yet you can do so for **free** from the [**thirdweb dashboard**](https://thirdweb.com/create-api-key).
 :::
 
 ## Wrap your application in ThirdwebProvider
