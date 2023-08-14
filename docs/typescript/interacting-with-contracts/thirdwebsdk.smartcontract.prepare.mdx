@@ -27,7 +27,7 @@ const signedTx = await tx.sign(); // Sign the transaction for later use
 
 ## Examples
 
-Sending a transaction without waiting for confirmations, and show a "view on block explorer" UI instead.
+Sending a transaction without waiting for confirmations, and show a "view on block explorer" UI instead:
 
 ```typescript
 // Prepare an ERC20 transfer
@@ -39,7 +39,7 @@ const txHash = sentTx.hash;
 // ... show a "view on block explorer" UI with the hash
 ```
 
-Encoding two transactions to multicall them into a single transaction.
+Encoding two transactions to multicall them into a single transaction:
 
 ```typescript
 // Prepare an ERC721 burn and a erc721 mint to be executed in one tx
@@ -49,6 +49,16 @@ const tx2 = await contract.erc721.mint.prepare(nftMetadata);
 // Encode both transactions and execute them via multicall
 // this will only prompt the user for 1 transaction to sign instead of 2
 await contract.call("multicall", [tx1.encode(), tx2.encode()]);
+```
+
+Simulating a deploy transaction to get the deployed contract address before it's deployed:
+
+```typescript
+// Prepare an deploy transaction
+const tx = await sdk.deployer.deployNFTCollection.prepare(contractMetadata);
+
+// Simulate the transaction to get the address without deploying it
+const predictedAddress = await tx.simulate();
 ```
 
 ## encode
