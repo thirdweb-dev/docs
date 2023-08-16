@@ -18,7 +18,7 @@ In this case, with thirdweb’s `Pack` contract, each pack is guaranteed to yiel
 
 ![pack-diag-1.png](/assets/pack-diag-1.png)
 
-On opening one of these 100 packs, the opener will receive one of the pack's rewards - either a **circle**, a **square**, or a **star**. The chances of receiving a particular reward are determined by how many of that reward exists across our set of packs.
+On opening one of these 100 packs, the opener will receive one of the pack's rewards - either a **circle**, a **square**, or a **star**. The chances of receiving a particular reward is determined by how many of that reward exists across our set of packs.
 
 The percentage chance of receiving a particular kind of reward (e.g. a **star**) on opening a pack is calculated as:`(number_of_stars_packed) / (total number of packs)`
 
