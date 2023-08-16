@@ -62,8 +62,6 @@ const wallet = new WalletConnect(
 
 WalletConnect's [options](https://docs.walletconnect.com/2.0/web/web3modal/html/wagmi/options) to customize the QR Code Modal.
 
-### Type
-
 ```typescript
 type QRModalOptions = {
   themeVariables?: {
@@ -133,8 +131,6 @@ Puts Modal into dark or light mode. Defaults to user's system preference.
 When using Web3Modal in standalone mode (without wagmi) you can define array of custom chains via this option.
 
 Defaults to `undefined`
-
-### Example
 
 ```javascript
 standaloneChains: [
@@ -215,8 +211,6 @@ Id's in this case can be: Explorer id's, wallet id's you provided in mobileWalle
 
 Defaults to `undefined`
 
-### Example
-
 ```typescript
 walletImages: {
   rainbow: "/images/rainbow.webp",
@@ -239,8 +233,6 @@ You can find detailed chain data at [chainlist.org](https://chainlist.org/)
 
 Defaults to `undefined`
 
-### Example
-
 ```javascript
 chainImages: {
   1: "/images/ethereum.webp",
@@ -259,8 +251,6 @@ Array of token symbols and their logo mappings.
 
 Defaults to `undefined`
 
-### Example
-
 ```javascript
 tokenImages: {
   ETH: "/images/eth.webp",
@@ -278,8 +268,6 @@ tokenImages: {
 Allows to override default token(s) address for each chain to show custom balances in account view.
 
 Defaults to `undefined`
-
-### Example
 
 ```javascript
 tokenContracts: {
@@ -340,8 +328,6 @@ If you want to completely disable recommended wallets, you can set this option t
 
 Defaults to `undefined`
 
-### Example
-
 ```javascript
 explorerRecommendedWalletIds: [
   "1ae92b26df02f0abca6304df07debccd18262fdf5fe82daa81593582dac9a369",
@@ -367,8 +353,6 @@ You can get / copy these id's from the explorer link mentioned before.
 If you want to exclude all wallets, you can set this option to `"ALL"`, however if `explorerRecommendedWalletIds` are defined, they will still be fetched.
 
 Defaults to `undefined`
-
-### Example
 
 ```javascript
 explorerExcludedWalletIds: [

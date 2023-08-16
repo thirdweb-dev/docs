@@ -3,8 +3,8 @@ title: API Keys
 slug: /api-keys
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
 
 # API Keys
 
@@ -17,6 +17,7 @@ This means that all the complexities of web3 development are handled for you and
 ## Usage
 
 The following services require an API key to use:
+
 - [**Smart Wallet**](/glossary/smart-wallet)
 - [**Storage**](/storage)
 - The following [**CLI**](/cli) commands (these commands require you to login using the [login](/cli/login) command):
@@ -31,91 +32,92 @@ When initializing the SDKs, you will need to use either your client id or secret
 <Tabs>
   <TabItem value="Typescript" label="Typescript" default>
 
-  When writing backends or scripts, you can use the secret key to instantiate the SDK:
+When writing backends or scripts, you can use the secret key to instantiate the SDK:
 
-  ```ts
-    // Read-only mode
-    const readOnlySdk = new ThirdwebSDK("goerli", {
-      secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
-    });
-  ```
+```ts
+// Read-only mode
+const readOnlySdk = new ThirdwebSDK("goerli", {
+  secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
+});
+```
 
-  When using the Typescript SDK for frontend applications, use the client id:
+When using the Typescript SDK for frontend applications, use the client id:
 
-  ```ts
-    import { ThirdwebSDK } from "@thirdweb-dev/sdk";
-    // Read-only mode
-    const readOnlySdk = new ThirdwebSDK("goerli", {
-      clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
-    });
-  ```
+```ts
+import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+// Read-only mode
+const readOnlySdk = new ThirdwebSDK("goerli", {
+  clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
+});
+```
 
   </TabItem>
   <TabItem value="React" label="React">
 
-  When using the React SDK, you can use the client id to instantiate the SDK:
+When using the React SDK, you can use the client id to instantiate the SDK:
 
-  ```jsx
-    import { ThirdwebProvider } from "@thirdweb-dev/react";
+```jsx
+import { ThirdwebProvider } from "@thirdweb-dev/react";
 
-    function MyApp() {
-      return (
-        <ThirdwebProvider
-          activeChain="ethereum"
-          // highlight-start
-          clientId="your-client-id"
-          // highlight-end
-        >
-          <YourApp />
-        </ThirdwebProvider>
-      );
-    }
-  ```
+function MyApp() {
+  return (
+    <ThirdwebProvider
+      activeChain="ethereum"
+      // highlight-start
+      clientId="your-client-id"
+      // highlight-end
+    >
+      <YourApp />
+    </ThirdwebProvider>
+  );
+}
+```
 
   </TabItem>
   <TabItem value="Unity" label="Unity">
 
-  When using the Unity SDK, you can use the client id to instantiate the SDK:
+When using the Unity SDK, you can use the client id to instantiate the SDK:
 
-  ```csharp
-    ThirdwebSDK sdk = new ThirdwebSDK("goerli", 5, new ThirdwebSDK.Options()
-    {
-      clientId = "my-client-id", // you can get client id from dashboard settings
-    });
-  ```
+```csharp
+  ThirdwebSDK sdk = new ThirdwebSDK("goerli", 5, new ThirdwebSDK.Options()
+  {
+    clientId = "my-client-id", // you can get client id from dashboard settings
+  });
+```
 
   </TabItem>
   <TabItem value="Python" label="Python">
 
-  When using the Python SDK, you can use the secret key to instantiate the SDK:
+When using the Python SDK, you can use the secret key to instantiate the SDK:
 
-  ```python
-    from thirdweb import ThirdwebSDK
-    from thirdweb.types import SDKOptions
-    from dotenv.main import load_dotenv
-    import os
+```python
+  from thirdweb import ThirdwebSDK
+  from thirdweb.types import SDKOptions
+  from dotenv.main import load_dotenv
+  import os
 
-      load_dotenv()
-      secret_key = os.environ['SECRET_KEY']
-      private_key = os.environ['PRIVATE_KEY']
+    load_dotenv()
+    secret_key = os.environ['SECRET_KEY']
+    private_key = os.environ['PRIVATE_KEY']
 
-      sdk = ThirdwebSDK.from_private_key(private_key, "mumbai", SDKOptions(secret_key=secret_key))
-  ```
+    sdk = ThirdwebSDK.from_private_key(private_key, "mumbai", SDKOptions(secret_key=secret_key))
+```
+
   </TabItem>
   <TabItem value="GO" label="GO">
 
-  When using the GO SDK, you can use the secret key to instantiate the SDK:
+When using the GO SDK, you can use the secret key to instantiate the SDK:
 
-  ```go
-    package main
+```go
+  package main
 
-    import (
+  import (
 	    "fmt"
 
 	    "github.com/thirdweb-dev/go-sdk/v2/thirdweb"
-    )
+  )
 
-    func main() {
+  func main() {
 	    // Your secret key from the thirdweb api keys dashboard
 	    secretKey := "..."
 
@@ -127,7 +129,7 @@ When initializing the SDKs, you will need to use either your client id or secret
 	    })
 	    if err != nil {
 		    panic(err)
-      }
+    }
 
 	    // Now we can interact with the SDK, like displaying the connected chain ID
 	    chainId, err := sdk.GetChainID()
@@ -136,8 +138,8 @@ When initializing the SDKs, you will need to use either your client id or secret
 	    }
 
 	    fmt.Println("New SDK instance create on chain", chainId)
-    }
-  ```
+  }
+```
 
   </TabItem>
 </Tabs>
@@ -288,3 +290,24 @@ The secret key is used to access enabled thirdweb services from the backend. It 
 To revoke your API key, click the "Revoke" button. This will invalidate the key and it will no longer be usable.
 
 ![Revoke API Key](/assets/dashboard/revoke-api-key.png)
+
+## Error Codes
+
+| Status Code | Error Code                          | Error Message                                                                                                                                                                                            |
+| ----------- | ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 400         | KEY_CONFLICT                        | Please pass either a client id or a secret key.                                                                                                                                                          |
+| 401         | SECRET_INVALID                      | Incorrect key provided. You can view your active API keys at https://thirdweb.com/dashboard/settings                                                                                                     |
+| 401         | ORIGIN_UNAUTHORIZED                 | Incorrect key provided. You can view your active API keys at https://thirdweb.com/dashboard/settings                                                                                                     |
+| 401         | BUNDLE_UNAUTHORIZED                 | Invalid request: Unauthorized Bundle ID: ${bundleId}. You can view the restrictions on this API key at https://thirdweb.com/create-api-key                                                               |
+| 401         | UNAUTHORIZED                        | The keys are invalid. Please check the secret-key/clientId and try again.                                                                                                                                |
+| 500         | NO_ACCOUNT                          | No error but also no account returned.                                                                                                                                                                   |
+| 500         | FAILED_TO_LOAD_ACCOUNT              | Failed to get account information.                                                                                                                                                                       |
+| 401         | MISSING_ACCOUNT                     | Missing account information.                                                                                                                                                                             |
+| 401         | MISSING_KEY                         | Missing clientId or secretKey.                                                                                                                                                                           |
+| 500         | NO_KEY                              | No error but also no key returned.                                                                                                                                                                       |
+| 500         | FAILED_TO_FETCH_KEY                 | Failed to fetch key metadata. Please check your secret-key/clientId.                                                                                                                                     |
+| 401         | INVALID_KEY                         | Key is invalid. Please check your secret-key/clientId.                                                                                                                                                   |
+| 403         | SERVICE_UNAUTHORIZED                | Invalid request: Unauthorized service: ${serviceConfig.serviceScope}. You can view the restrictions on this API key in your dashboard: https://thirdweb.com/create-api-key                               |
+| 403         | SERVICE_ACTION_UNAUTHORIZED         | Invalid request: Unauthorized action: ${serviceConfig.serviceScope} ${serviceConfig.serviceAction}. You can view the restrictions on this API key in your dashboard: https://thirdweb.com/create-api-key |
+| 403         | SERVICE_TARGET_ADDRESS_UNAUTHORIZED | Invalid request: Unauthorized action: ${serviceConfig.serviceScope} ${serviceConfig.serviceAction}. You can view the restrictions on this API key in your dashboard: https://thirdweb.com/create-api-key |
+| 500         | INTERNAL_SERVER_ERROR               | Invalid request: Unauthorized action: ${serviceConfig.serviceScope} ${serviceConfig.serviceAction}. You can view the restrictions on this API key in your dashboard: https://thirdweb.com/create-api-key |
