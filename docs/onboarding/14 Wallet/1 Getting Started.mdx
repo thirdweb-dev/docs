@@ -41,7 +41,7 @@ const walletAddress = await coinbaseWallet.connect();
 const signer = await coinbaseWallet.getSigner();
 ```
 
-## Methods available on wallet instance
+## Methods available on a Wallet Instance
 
 All wallets in wallet SDK extend from the [AbstractWallet](/wallet/interfaces/abstract-wallet) base class,
 and all client-side wallets (web, mobile) extend from [AbstractClientWallet](/wallet/interfaces/abstract-client-wallet) base class. Each wallet may have its own unique methods. Below are the common methods shared by all wallets
