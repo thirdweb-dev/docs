@@ -15,7 +15,7 @@ Connect to your app with a private key.
 import { PrivateKeyWallet } from "@thirdweb-dev/wallets";
 
 // can be any ethers.js signer
-const privateKey = env.process.PRIVATE_KEY;
+const privateKey = process.env.PRIVATE_KEY;
 const wallet = new PrivateKeyWallet(privateKey);
 ```
 
