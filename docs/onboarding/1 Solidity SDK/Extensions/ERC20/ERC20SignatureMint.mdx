@@ -45,8 +45,8 @@ contract ERC20SignatureMint is ERC20Base, SignatureMintERC20 {
                             Constructor
     //////////////////////////////////////////////////////////////*/
 
-    constructor(string memory _name, string memory _symbol)
-        ERC20Base(_name, _symbol)
+    constructor(address _defaultAdmin, string memory _name, string memory _symbol)
+        ERC20Base(_defaultAdmin, _name, _symbol)
     {}
 
     /// @dev Mints tokens according to the provided mint request.

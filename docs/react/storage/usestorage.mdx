@@ -8,6 +8,25 @@ Get the instance of the `ThirdwebStorage` class being used by the [`ThirdwebProv
 
 Allows you to use the TypeScript SDK functionality of [Storage](/storage) in your React app.
 
+:::caution API Key
+You will require an API key to use thirdweb’s storage services with the SDK. If you haven’t created a key yet you can do so for free from the [**thirdweb dashboard**](https://thirdweb.com/create-api-key).
+
+You can then obtain a `clientId` from the API key which you will need to pass to the [`ThirdwebProvider`](/react/react.thirdwebprovider) component:
+
+```jsx
+import { ThirdwebProvider } from "@thirdweb/react";
+
+const App = () => {
+  return (
+    <ThirdwebProvider clientId="YOUR_CLIENT_ID">
+      <YourApp />
+    </ThirdwebProvider>
+  );
+};
+```
+
+:::
+
 Configurable in the [`storageInterface`](/react/react.thirdwebprovider#storageinterface-optional) prop of the [`ThirdwebProvider`](/react/react.thirdwebprovider).
 
 The hook returns a [`ThirdwebStorage`](/typescript/storage) instance. View the [TypeScript Storage](/typescript/storage) documentation for more information.

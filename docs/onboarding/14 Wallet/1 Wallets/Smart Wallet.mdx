@@ -1,6 +1,7 @@
 ---
 slug: /wallet/smart-wallet
 title: Smart Wallet
+sidebar_position: 4
 ---
 
 import Tabs from "@theme/Tabs";
@@ -12,17 +13,45 @@ Let your users connect to any [Smart Wallet](/glossary/smart-wallet).
 
 A Smart Wallet is a wallet that is controlled by a smart contract following the [ERC-4337 specification](https://eips.ethereum.org/EIPS/eip-4337).
 
+thirdweb’s smart wallets have the following features by default:
+
+- Have multiple owners
+- Execute transactions (single and batched).
+- Send and receive native tokens.
+- Send and receive ERC-721 and ERC-1155 NFTs.
+- Multicall-able.
+- Store contract metadata.
+
 ## Requirements
 
-#### 1. A smart wallet factory contract
+#### 1. Smart Wallet Factory Contract
 
 Deployable via the [explore page](https://thirdweb.com/explore/smart-wallet) or use your own [ERC 4337](https://eips.ethereum.org/EIPS/eip-4337) compatible factory contract.
 
+Choose the right smart wallet setup for your app. thirdweb offers the following three different kinds of smart wallets:
+
+|                    | [`Account`](/solidity/base-contracts/account) setup                                                                                     | [`DynamicAccount`](/solidity/base-contracts/dynamic-account) setup                                                                                                           | [`ManagedAccount`](/solidity/base-contracts/managed-account) setup                                                                                                                            |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Upgradeability** | Non-upgradeable                                                                                                                         | Account upgrades controlled locally by account admin.                                                                                                                        | Account upgrades controlled centrally by account factory admin.                                                                                                                               |
+| **User persona**   | Developer wants to issue simple smart wallets to their users. They do not anticipate that users wallets will need any feature upgrades. | Developer wants to issue smart wallets to their users. They do anticipate feature upgrades to user wallets but do not want to push upgrades to user wallets without consent. | Developer wants to issue smart wallets to their users. They do anticipate feature upgrades to user wallets, and want to push upgrades to user wallets for seamless/invisible UX for upgrades. |
+
 #### 2. An API key
 
-Obtain an API key from the [thirdweb dashboard](https://thirdweb.com/dashboard/api-keys).
+:::info
+You will require an API key to use thirdweb’s infrastructure services such as the bundler and paymaster.
+
+The API key will need to have the following settings:
+
+- smart wallet as an enabled service
+- The contracts that the smart wallet will interact with must be added to the "Destination Contracts" list. Learn more [here](/api-keys#smart-wallet-allowed-destination-addresses)
+
+:::
+
+Obtain an API key from the [thirdweb dashboard](https://thirdweb.com/create-api-key).
 
 The API key lets you access thirdweb's bundler and paymaster infrastructure, which is required for the smart wallet to operate and optionally enable [gasless transactions](/glossary/gasless-transactions).
+
+Learn more about creating an API key and restricting which contracts the smart wallet can interact with [here](/api-keys).
 
 ## Features
 
@@ -111,13 +140,13 @@ import { Goerli } from "@thirdweb-dev/chains";
 // Here we're just generating a new local wallet which can be saved later
 const personalWallet = new LocalWallet();
 await personalWallet.generate();
-await personalWallet.connect();
 
 // Setup the Smart Wallet configuration
 const config: SmartWalletConfig = {
   chain: Goerli, // the chain where your smart wallet will be or is deployed
   factoryAddress: "{{factory_address}}", // your own deployed account factory address
-  thirdwebApiKey: "{{api_key}}", // obtained from the thirdweb dashboard
+  clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
+  secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
   gasless: true, // enable or disable gasless transactions
 };
 
@@ -157,12 +186,14 @@ Must be a `string`.
 </details>
 
 <details>
-  <summary>thirdwebApiKey</summary>
+  <summary>clientId or secretKey (recommended)</summary>
   <div>
 
-Your thirdweb API key can be obtained from the [thirdweb dashboard](https://thirdweb.com/dashboard/api-keys).
+Your API key can be obtained from the [thirdweb dashboard](https://thirdweb.com/create-api-key).
 
 If you're using your own bundler and paymaster, you can set this to an empty string.
+
+You can use either the `clientId` or the `secretKey` depending on whether your application is client or server side.
 
 Must be a `string`.
 
@@ -186,6 +217,19 @@ Must be a `boolean`.
 ### Optional properties
 
 <details>
+  <summary>clientId or secretKey (optional) </summary>
+  <div>
+
+Provide `clientId` or `secretKey` to use the thirdweb RPCs for given `chains`
+
+If you are using the `SmartWallet` in a in frontend - provide a `clientId`, If you are using the `SmartWallet` in backend - you can provide a `secretKey`.
+
+You can create a `clientId` / `secretKey` from [thirdweb dashboard](https://thirdweb.com/create-api-key).
+
+</div>
+</details>
+
+<details>
   <summary>factoryInfo</summary>
   <div>
 
@@ -204,7 +248,7 @@ Example:
       chain,
       gasless,
       factoryAddress,
-      thirdwebApiKey,
+      clientId,
       // highlight-start
       factoryInfo: {
         createAccount: (factory, owner) => {
@@ -244,7 +288,7 @@ Example:
       chain,
       gasless,
       factoryAddress,
-      thirdwebApiKey,
+      clientId,
       // highlight-start
       accountInfo: {
         execute: (account, target, value, data) => {
@@ -309,7 +353,7 @@ const config: SmartWalletConfig = {
   chain,
   gasless,
   factoryAddress,
-  thirdwebApiKey,
+  clientId,
   // highlight-start
   paymasterAPI: new MyPaymaster(),
   // highlight-end
@@ -430,12 +474,12 @@ Defaults to `'v2'`.
 </details>
 
 <details>
-  <summary>walletConenctV2ProjectId</summary>
+  <summary>walletConnectV2ProjectId</summary>
   <div>
 
 The WalletConnect V2 `projectId`. You can get one in the [WalletConnect docs](https://docs.walletconnect.com/2.0/web/sign/installation#1-obtain-project-id).
 
-Defaults to a common `projectId` set by thirdweb. This should be ok for testing but note that if you want to deploy your mobile app it may make sense to create your own as WalletConnect may throttle traffic comming from the same `projectId`.
+Defaults to a common `projectId` set by thirdweb. This should be ok for testing but note that if you want to deploy your mobile app it may make sense to create your own as WalletConnect may throttle traffic coming from the same `projectId`.
 
 </div>
 </details>

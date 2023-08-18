@@ -1,0 +1,147 @@
+---
+slug: /wallet/frame
+title: Frame Wallet
+sidebar_position: 11
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Prompt users to connect to your app with their [Frame Wallet](https://frame.sh/).
+
+## Usage
+
+```javascript
+import { FrameWallet } from "@thirdweb-dev/wallets";
+
+const wallet = new FrameWallet();
+
+wallet.connect();
+```
+
+## Configuration
+
+Optionally, provide a configuration object when instantiating the `FrameWallet` class.
+
+<details>
+  <summary>clientId (recommended) </summary>
+  <div>
+
+Provide `clientId` to use the thirdweb RPCs for given `chains`
+
+You can create a client ID for your application from [thirdweb dashboard](https://thirdweb.com/create-api-key).
+
+```javascript
+import { FrameWallet } from "@thirdweb-dev/wallets";
+
+const wallet = new FrameWallet(
+  // highlight-start
+  {
+    clientId: "YOUR_CLIENT_ID",
+  },
+  // highlight-end
+);
+```
+
+</div>
+</details>
+
+<details>
+  <summary>chains</summary>
+  <div>
+
+Provide an array of chains you want to support.
+
+Must be an array of `Chain` objects, from the [`@thirdweb-dev/chains`](https://www.npmjs.com/package/@thirdweb-dev/chains) package.
+
+Defaults to our [default chains](/react/react.thirdwebprovider#default-chains).
+
+```javascript
+import { FrameWallet } from "@thirdweb-dev/wallets";
+import { Ethereum, Polygon } from "@thirdweb-dev/chains";
+
+const walletWithOptions = new FrameWallet(
+  // highlight-start
+  {
+    chains: [Ethereum, Polygon],
+  },
+  // highlight-end
+);
+```
+
+</div>
+</details>
+
+<details>
+  <summary>dappMetadata</summary>
+  <div>
+
+Information about your app that the wallet will display when your app tries to connect to it.
+
+Must be an object containing `name`, `url`, and optionally `description` and `logoUrl` properties.
+
+```javascript
+import { FrameWallet } from "@thirdweb-dev/wallets";
+
+const walletWithOptions = new FrameWallet({
+  // highlight-start
+  dappMetadata: {
+    name: "thirdweb powered dApp",
+    url: "https://thirdweb.com",
+    description: "thirdweb powered dApp",
+    logoUrl: "https://thirdweb.com/favicon.ico",
+  },
+  // highlight-end
+});
+```
+
+</div>
+</details>
+
+<details>
+  <summary>walletStorage</summary>
+  <div>
+
+Some wallets need to store data in persistent storage. This is the storage that will be used for that.
+
+Must be an object conforming to the `AsyncStorage` interface:
+
+```typescript
+export interface AsyncStorage {
+  getItem(key: string): Promise<string | null>;
+  setItem(key: string, value: string): Promise<void>;
+  removeItem(key: string): Promise<void>;
+}
+```
+
+Example:
+
+```javascript
+import { FrameWallet } from "@thirdweb-dev/wallets";
+
+const walletWithOptions = new FrameWallet(
+  // highlight-start
+  {
+    walletStorage: {
+      getItem: (key) => {
+        // Implement your own storage logic here
+      },
+      removeItem: (key) => {
+        // Implement your own storage logic here
+      },
+      setItem: (key, value) => {
+        // Implement your own storage logic here
+      },
+    },
+  },
+  // highlight-end
+);
+```
+
+</div>
+</details>
+
+## Methods
+
+Inherits all the public methods from the [`AbstractClientWallet`](interfaces/abstract-client-wallet) class.

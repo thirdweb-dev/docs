@@ -1,6 +1,7 @@
 ---
 slug: /wallet/wallet-connect-v2
 title: WalletConnect v2
+sidebar_position: 3
 ---
 
 import Tabs from "@theme/Tabs";
@@ -24,10 +25,10 @@ wallet.connect();
 Optionally, provide a configuration object when instantiating the `WalletConnect` class.
 
 <details>
-  <summary>projectId</summary>
+  <summary>projectId (recommended)</summary>
   <div>
 
-Your project's unique identifier. It can be obtained at [cloud.walletconnect.com](https://cloud.walletconnect.com).
+Your project's unique identifier. It can be obtained at [cloud.walletconnect.com](https://cloud.walletconnect.com). It is highly recommended to use your own project id and only use the default one for testing purposes.
 
 It enables the following functionalities within WalletConnect's web3modal:
 
@@ -35,7 +36,7 @@ It enables the following functionalities within WalletConnect's web3modal:
 - optional WalletConnect RPC
 - support for all wallets from our Explorer and WalletConnect v2 support
 
-Defaults to `undefined`
+Defaults to thirdweb's common project id.
 
 ```javascript
 import { WalletConnect } from "@thirdweb-dev/wallets";
@@ -48,6 +49,17 @@ const wallet = new WalletConnect(
   // highlight-end
 );
 ```
+
+</div>
+</details>
+
+<details>
+  <summary>clientId (recommended) </summary>
+  <div>
+
+Provide `clientId` to use the thirdweb RPCs for given `chains`
+
+You can create a client ID for your application from [thirdweb dashboard](https://thirdweb.com/create-api-key).
 
 </div>
 </details>
@@ -131,16 +143,16 @@ const walletWithOptions = new WalletConnect(
   <summary>qrModalOptions </summary>
   <div>
 
-WalletConnect's [options](https://docs.walletconnect.com/2.0/web3modal/options) to customize the QR Code Modal.
+WalletConnect's [options](https://docs.walletconnect.com/2.0/web/web3modal/html/wagmi/options) to customize the QR Code Modal.
 
 ### Type
 
 ```typescript
 type QRModalOptions = {
   themeVariables?: {
-    "--w3m-z-index"?: string;
-    "--w3m-accent-color"?: string;
-    "--w3m-accent-fill-color"?: string;
+    "--wcm-z-index"?: string;
+    "--wcm-accent-color"?: string;
+    "--wcm-accent-fill-color"?: string;
     // ... and more
   };
   themeMode?: "dark" | "light";
@@ -258,7 +270,7 @@ Native link represents deep linking url like `ledgerlive://` and Universal link 
 
 Defaults to `undefined`
 
-```typscript
+```typescript
 desktopWallets: [
   {
     id: string,

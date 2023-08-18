@@ -1,0 +1,87 @@
+---
+title: ThirdwebManager
+slug: /thirdwebmanager
+displayed_sidebar: unity
+---
+
+The `ThirdwebManager` is a MonoBehaviour that provides a convenient and customizable way to instantiate and manage the [ThirdwebSDK](/unity/thirdwebsdk). By attaching this script to a GameObject in your initial scene and using `DontDestroyOnLoad()`, the SDK remains instantiated throughout your game's lifecycle.
+
+![ThirdwebManager Inspector](./assets/thirdweb_manager.png)
+
+## Configuration
+
+Configure `ThirdwebManager` through the Unity Inspector window. Here are the sections and their respective settings:
+
+### General Settings
+
+This section involves the basic blockchain configurations. Adjust the following settings:
+
+- `Chain`: The identifier for the default blockchain to use.
+- `Supported Chains`: A list of all blockchains your game /api-keyssupports. For each chain, provide an identifier, a chain ID, and optionally, an RPC override.
+- `Client ID`: Thirdweb [API Key](https://thirdweb.com/api-key). Used for default thirdweb services such as Storage and Account Abstraction.
+
+### App Metadata
+
+This section lets you define how your app appears in wallet providers like Metamask, WalletConnect, and MagicLink. Modify the following fields:
+
+- `App Name`: The name of your application.
+- `App Description`: A brief description of your app.
+- `App Icons`: Your app's icons.
+- `App URL`: The URL for your app.
+
+### Storage Options
+
+Here, you can specify the URL for your IPFS gateway, which stores your assets in a decentralized way. Edit the following:
+
+- `Storage IPFS Gateway Url`: The URL for your IPFS gateway.
+
+### OpenZeppelin Defender Options
+
+In this section, configure settings for OpenZeppelin Defender, a service that handles gasless transactions for your users. Adjust the following:
+
+- `Relayer Url`: The URL for your relayer service.
+- `Forwarder Address`: The address of your forwarder contract.
+- `Forwarder Domain Override` and `Forwarder Version Override`: Optional settings if you want to override the defaults for OpenZeppelin Defender.
+
+### Magic Link Options
+
+If you want to support MagicLink as a wallet provider, specify your API key here:
+
+- `Magic Link API Key`: Your API key for MagicLink.
+
+### Wallet Connect Options
+
+Here, provide your project ID for WalletConnect:
+
+- `WalletConnect Project ID`: Your project ID for WalletConnect.
+
+### Paper Options
+
+If you want to support Paper as a wallet provider, specify your client ID:
+
+- `Paper Client ID`: Your client ID for Paper.
+
+### Smart Wallet Options
+
+These settings are required to set up a smart wallet. Adjust the following:
+
+- `Factory Contract Address`: The address of your smart wallet factory contract.
+- `Thirdweb API Key`: Your API key for Thirdweb.
+- `Gasless`: Whether or not you want to use gasless transactions.
+- `Bundler Url`, `Paymaster Url`, `EntryPoint Address`: Optional overrides for setting up your smart wallet.
+
+### Native Prefabs (Danger Zone)
+
+This section allows you to provide GameObject prefabs for native wallet providers, which will be instantiated at runtime. Adjust the following:
+
+- `WalletConnect Prefab`: The prefab for WalletConnect's UI/behavior.
+- `Metamask Prefab`: The prefab for Metamask's UI/behavior.
+- `Paper Prefab`: The prefab for Paper's UI/behavior.
+
+## Accessing the SDK
+
+Once `ThirdwebManager` is set up and the game starts, it will instantiate the Thirdweb SDK based on your settings. You can access the instantiated SDK from other scripts using:
+
+```csharp
+var sdk = ThirdwebManager.Instance.SDK;
+```

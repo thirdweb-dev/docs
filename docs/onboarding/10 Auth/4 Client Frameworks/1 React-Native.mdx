@@ -19,6 +19,7 @@ export default function MyApp({ Component }) {
     <ThirdwebProvider
       // Required configuration for the provider, but doesn't affect Auth.
       activeChain="ethereum"
+      clientId="your-client-id"
       authConfig={{
         // Set this to your domain to prevent phishing attacks
         domain: "example.com",
@@ -235,7 +236,7 @@ export default function AppInner() {
 
 ### Handling errors on login
 
-Since logging in requires the user to sign a message, the `login` fuction is asynchronous and may throw an error if the user rejects the message. You can handle this error case by using a `try/catch` block:
+Since logging in requires the user to sign a message, the `login` function is asynchronous and may throw an error if the user rejects the message. You can handle this error case by using a `try/catch` block:
 
 ```tsx
 import { useLogin } from "@thirdweb-dev/react-native";
@@ -297,6 +298,31 @@ export default function AppInner() {
       />
       <Button title="Get Secret" onPress={getSecret} />
     </>
+  );
+}
+```
+
+### Switching between logged-in accounts
+
+As discussed in the [switching accounts section of the Auth API explanation](/auth/how-auth-works/auth-api#switching-accounts), Auth enables multiple wallets to login at once. If you use the thirdweb React SDK on the frontend to enable users to connect their wallets via the wallet connection hooks or the `<ConnectWallet/>` button, switching accounts will be automatically handled for your users when they switch connected wallets.
+However, if you want to customize when accounts or switched or add your own manual account switching flows, you can use the `useSwitchAccount` hook exposed by the React SDK.
+
+```ts
+import { useSwitchAccount } from "@thirdweb-dev/react";
+
+export default function Home() {
+  const { switchAccount } = useSwitchAccount();
+
+  async function handleSwitchAccount() {
+    // The wallet address to switch accounts to (assuming the user has logged in previously)
+    const newWalletAddress = "0x...";
+    await switchAccount(newWalletAddress);
+  }
+
+  return (
+    <div>
+      <button onClick={handleSwitchAccount}>Switch Accounts</button>
+    </div>
   );
 }
 ```

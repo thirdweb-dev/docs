@@ -2,7 +2,7 @@
 title: smartWallet
 slug: /react.smartwallet
 displayed_sidebar: react
-sidebar_position: 8
+sidebar_position: 4
 ---
 
 import Tabs from "@theme/Tabs";
@@ -18,7 +18,6 @@ import { smartWallet } from "@thirdweb-dev/react";
 const smartWalletConfig = smartWallet({
   factoryAddress: "0x...",
   gasless: true,
-  thirdwebApiKey: "THIRDWEB_API_KEY",
 });
 ```
 
@@ -36,19 +35,6 @@ const smartWalletConfig = smartWallet({
   <div>
 
 The address of the Smart Wallet Factory contract.
-
-Must be a `string`.
-
-</div>
-</details>
-
-<details>
-  <summary>thirdwebApiKey</summary>
-  <div>
-
-Your thirdweb API key can be obtained from the [thirdweb dashboard](https://thirdweb.com/dashboard/api-keys).
-
-If you're using your own bundler and paymaster, you can set this to an empty string.
 
 Must be a `string`.
 
@@ -82,12 +68,12 @@ import {
   smartWallet,
   metamaskWallet,
   coinbaseWallet,
-  walletConnectV1,
+  walletConnect,
 } from "@thirdweb-dev/react";
 
 smartWallet({
   // this is the default
-  personalWallets: [metamaskWallet(), coinbaseWallet(), walletConnectV1()],
+  personalWallets: [metamaskWallet(), coinbaseWallet(), walletConnect()],
   // ...
 });
 ```
@@ -106,7 +92,7 @@ import {
   smartWallet,
   metamaskWallet,
   coinbaseWallet,
-  walletConnectV1,
+  walletConnect,
 } from "@thirdweb-dev/react";
 
 <ThirdwebProvider
@@ -114,11 +100,11 @@ import {
     smartWallet({
       factoryAddress: "0x...",
       gasless: true,
-      thirdwebApiKey: "THIRDWEB_API_KEY",
       // this is the default
-      personalWallets: [metamaskWallet(), coinbaseWallet(), walletConnectV1()],
+      personalWallets: [metamaskWallet(), coinbaseWallet(), walletConnect()],
     }),
   ]}
+  clientId="your-client-id"
 >
   <YourApp />
 </ThirdwebProvider>;

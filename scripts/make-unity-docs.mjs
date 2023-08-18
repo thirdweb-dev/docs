@@ -47,7 +47,7 @@ async function main() {
 
         const homeLink = line.match(/\[Home\]\(.\/index\.md\) &gt; (.*)/);
         if (homeLink) {
-          //skip the breadcrumb line alltogether
+          //skip the breadcrumb line altogether
           return;
         }
         // See issue #4. api-documenter expects \| to escape table

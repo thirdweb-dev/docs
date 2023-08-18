@@ -21,11 +21,13 @@ The type of wallet to connect to, and which chain to connect to.
 // Connect to the user's wallet via CoinbaseWallet
 string address = await sdk.wallet.Connect(
     new WalletConnection(
-        provider = WalletProvider.WalletConnectV1, // e.g. use WalletConnect on any platform
+        provider = WalletProvider.WalletConnect, // e.g. use WalletConnect on any platform
         chainId = 1 // Switch the wallet Ethereum Mainnet on connection
     )
 );
 ```
+
+[See more script examples.](https://thirdweb.com/dashboard/wallet)
 
 #### provider
 
@@ -36,14 +38,16 @@ Available providers:
 - `WalletProvider.MetaMask`: MetaMask
 - `WalletProvider.WalletConnectV1`: WalletConnect
 - `WalletProvider.MagicLink`: Magic.Link
+- `WalletProvider.Paper`: Paper
 - `WalletProvider.LocalWallet`: Local Wallet
 - `WalletProvider.SmartWallet`: Smart Wallet
+- `WalletProvider.Hyperplay`: Hyperplay (connect to their launcher first)
 
 #### chainId
 
 The ID of the blockchain to switch to upon connection.
 
-Must be an `int`.
+Must be a `BigInteger` (or `int`).
 
 #### password
 

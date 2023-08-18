@@ -5,7 +5,7 @@ title: Firebase
 
 import QuickstartCard from "@components/QuickstartCard";
 
-This guide will show you how to integrate Auth as a custom authentication provider for [Firebase](https://firebase.google.com/) and automatically create a document in the `users` Firestore collection when a user signs up succesfully.
+This guide will show you how to integrate Auth as a custom authentication provider for [Firebase](https://firebase.google.com/) and automatically create a document in the `users` Firestore collection when a user signs up successfully.
 
 :::tip
 
@@ -77,7 +77,7 @@ Now we have an easy way to access Firebase Auth and Firestore in both client and
 
 ### Configure thirdweb Auth
 
-Finally, to configure thirdweb Auth, we just need to add the `NEXT_PUBLIC_THIRDWEB_AUTH_DOMAIN` evironment variable to the `.env.local` file as follows:
+Finally, to configure thirdweb Auth, we just need to add the `NEXT_PUBLIC_THIRDWEB_AUTH_DOMAIN` environment variable to the `.env.local` file as follows:
 
 ```
 NEXT_PUBLIC_THIRDWEB_AUTH_DOMAIN=<thirdweb-auth-domain>
@@ -95,6 +95,7 @@ import { ThirdwebProvider } from "@thirdweb-dev/react";
 export default function MyApp({ Component, pageProps }) {
   return (
     <ThirdwebProvider
+      clientId="your-client-id"
       authConfig={{
         // Set this to your domain to prevent signature malleability attacks.
         domain: process.env.NEXT_PUBLIC_THIRDWEB_AUTH_DOMAIN,

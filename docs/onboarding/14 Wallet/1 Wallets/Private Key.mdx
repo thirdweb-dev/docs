@@ -15,10 +15,8 @@ Connect to your app with a private key.
 import { PrivateKeyWallet } from "@thirdweb-dev/wallets";
 
 // can be any ethers.js signer
-const privateKey = env.process.PRIVATE_KEY;
+const privateKey = process.env.PRIVATE_KEY;
 const wallet = new PrivateKeyWallet(privateKey);
-
-wallet.connect();
 ```
 
 ## Configuration
@@ -42,14 +40,16 @@ The chain or rpc url to connect to when querying the blockchain directly through
 </details>
 
 <details>
-  <summary>thirdwebApiKey (optional)</summary>
+  <summary>secretKey (recommended)</summary>
   <div>
 
-The api key for using the default thirdweb rpcs.
+Provide `secretKey` to use the thirdweb RPCs for given `chain`
+
+You can create a secret key from [thirdweb dashboard](https://thirdweb.com/create-api-key).
 
 </div>
 </details>
 
 ## Methods
 
-Inherhits all the public methods from the [`AbstractWallet`](interfaces/abstract-wallet) class.
+Inherits all the public methods from the [`AbstractWallet`](interfaces/abstract-wallet) class.

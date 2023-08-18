@@ -90,6 +90,7 @@ function MyApp() {
       activeChain={"ethereum"}
       // Example: Use ethers to get the signer from the window.ethereum object
       signer={new ethers.providers.Web3Provider(window.ethereum).getSigner()}
+      clientId="your-client-id"
     >
       <App />
     </ThirdwebSDKProvider>
@@ -125,6 +126,28 @@ function MyApp() {
       // highlight-start
       // Example: Use ethers to get the signer from the window.ethereum object
       signer={new ethers.providers.Web3Provider(window.ethereum).getSigner()}
+      // highlight-end
+      clientId="your-client-id"
+    >
+      <App />
+    </ThirdwebSDKProvider>
+  );
+}
+```
+
+### clientId (recommended)
+
+The `clientId` prop is required to use the thirdweb infrastructure services with the SDK. You can get a client ID by creating an API key on [thirdweb dashboard](https://thirdweb.com/create-api-key).
+
+```jsx
+function MyApp() {
+  return (
+    <ThirdwebSDKProvider
+      activeChain={"ethereum"}
+      // Example: Use ethers to get the signer from the window.ethereum object
+      signer={new ethers.providers.Web3Provider(window.ethereum).getSigner()}
+      // highlight-start
+      clientId="your-client-id"
       // highlight-end
     >
       <App />
@@ -188,7 +211,7 @@ const App = () => {
         rpc: ["<your-rpc-url-here>"],
 
         // === Information for adding the network to your wallet (how it will appear for first time users) === \\
-        // Information about the chains native currency (i.e. the currency that is used to pay for gas)
+        // Information about the chain's native currency (i.e. the currency that is used to pay for gas)
         nativeCurrency: {
           decimals: 18,
           name: "Consensys ETH",
@@ -328,7 +351,7 @@ function MyApp() {
       sdkOptions={{
         readonlySettings: {
           rpcUrl: "<rpc-url>", // force read calls to go through your own RPC url
-          chainId: 1, // reduce RPC calls by sepcifying your chain ID
+          chainId: 1, // reduce RPC calls by specifying your chain ID
         },
         gasSettings: {
           maxPriceInGwei: 123, // Maximum gas price for transactions (default 300 gwei)
@@ -348,7 +371,6 @@ function MyApp() {
         },
         infuraApiKey: "<infura-api-key>", // your Infura API key
         alchemyApiKey: "<alchemy-api-key>", // your Alchemy API key
-        thirdwebApiKey: "<thirdweb-api-key>", // your thirdweb API key
       }}
       // highlight-end
     >

@@ -17,6 +17,10 @@ ideal for storing files in a permanent, decentralized, censorship-resistant mann
 Storage powers functionality in a number of our other products, such as uploading smart contract ABIs in [deploy](/deploy),
 our [IPFS Renderer](/react/react.mediarenderer) UI component & [NFT metadata fetching](/react/react.usenft) capabilities in the SDK, and uploading of NFT metadata in the dashboard.
 
+:::caution
+You will require an API key to use thirdweb’s storage services. If you haven’t created a key yet you can do so for free from the [**thirdweb dashboard**](https://thirdweb.com/create-api-key).
+:::
+
 <OpenSourceInfo
   repoName="storage"
   repoUrl="https://github.com/thirdweb-dev/js/tree/main/packages/storage"
@@ -27,8 +31,8 @@ our [IPFS Renderer](/react/react.mediarenderer) UI component & [NFT metadata fet
 To read data from IPFS, an [IPFS Gateway](https://docs.ipfs.tech/concepts/ipfs-gateway/) is required; which
 allows you to access data from the IPFS protocol on browsers and other HTTP clients, such as when building an application using our [SDK](/sdk).
 
-Out of the box, we provide you with a public, unrestricted IPFS gateway at `https://ipfs.thirdwebcdn.com/ipfs/[cid]`,
-which you can use to access any file available on IPFS for free; with no rate limits or restrictions.
+Out of the box, we provide you with a public, unrestricted IPFS gateway at `https://{clientId}.ipfscdn.io/ipfs/{cid}/{path}`,
+which you can use to access any file available on IPFS for free; with no rate limits or restrictions. You will need to pass a **Client ID**, from an API key, in the URL, which you can obtain [here](https://thirdweb.com/create-api-key).
 
 ## Get Started
 
@@ -60,6 +64,13 @@ Or integrate decentralized storage into your application with our SDKs:
     <QuickstartCard
       name="React"
       link="/react/react.usestorage"
+      image="/assets/languages/react.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="React Native"
+      link="/react-native/storage"
       image="/assets/languages/react.png"
     />
   </div>

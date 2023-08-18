@@ -87,7 +87,11 @@ function App() {
   return (
     <Web3Button
       contractAddress={contractAddress}
-      action={() => mutateAsync(["My Name"])}
+      action={() =>
+        mutateAsync({
+          args: ["My Name"],
+        })
+      }
     >
       Send Transaction
     </Web3Button>
@@ -108,11 +112,11 @@ If your smart contract function requires arguments, you can provide them as argu
 **in the `mutate` or `mutateAsync` function** that is returned by the hook.
 
 For example, if your smart contract has a function called `setName` that requires a string as an argument,
-you would provide `["My Name"]` as the arguments to the `mutate` or `mutateAsync` function.
+you would provide `["My Name"]` as the arguments to the `mutate` or `mutateAsync` function by calling the function with `{ args: ["My Name"] }`
 
 If you provide too many or too few arguments, the `error` property will be populated with an error message.
 
-If your function has no arguments, provide an empty array.
+If your function has no arguments, provide an empty array by calling the function with `{ args: [] }`
 
 ```jsx
 import { useContractWrite, useContract, Web3Button } from "@thirdweb-dev/react";
@@ -131,12 +135,12 @@ function App() {
     <Web3Button
       contractAddress={contractAddress}
       action={() =>
-        mutateAsync(
+        mutateAsync({
           // highlight-start
           // Place your arguments here in an array, in the same order as your smart contract function
-          ["My Name"],
+          args: ["My Name"],
           // highlight-end
-        )
+        })
       }
     >
       Send Transaction
@@ -154,12 +158,11 @@ function App() {
 
 ### Call Overrides (optional)
 
-Override the default transaction options by providing an `overrides` object as the final argument in your
-arguments array.
+Override the default transaction options by providing `overrides` object
 
 ```jsx
 import { useContractWrite, useContract, Web3Button } from "@thirdweb-dev/react";
-import { ethers } from "ethers";
+import { utils } from "ethers";
 
 // Your smart contract address
 const contractAddress = "{{contract_address}}";
@@ -175,15 +178,15 @@ function App() {
     <Web3Button
       contractAddress={contractAddress}
       action={() =>
-        mutateAsync([
-          "My Name",
+        mutateAsync({
+          args: ["My Name"],
           // highlight-start
-          {
+          overrides: {
             gasLimit: 1000000, // override default gas limit
-            value: ethers.utils.parseEther("0.1"), // send 0.1 ether with the contract call
+            value: utils.parseEther("0.1"), // send 0.1 native token with the contract call
           },
           // highlight-end
-        ])
+        })
       }
     >
       Send Transaction

@@ -2,7 +2,7 @@
 title: safeWallet
 slug: /react.safewallet
 displayed_sidebar: react
-sidebar_position: 7
+sidebar_position: 10
 ---
 
 import Tabs from "@theme/Tabs";
@@ -38,12 +38,12 @@ import {
   safeWallet,
   metamaskWallet,
   coinbaseWallet,
-  walletConnectV1,
+  walletConnect,
 } from "@thirdweb-dev/react";
 
 safeWallet({
   // this is the default
-  personalWallets: [metamaskWallet(), coinbaseWallet(), walletConnectV1()],
+  personalWallets: [metamaskWallet(), coinbaseWallet(), walletConnect()],
 });
 ```
 
@@ -59,16 +59,17 @@ import {
   safeWallet,
   metamaskWallet,
   coinbaseWallet,
-  walletConnectV1,
+  walletConnect,
 } from "@thirdweb-dev/react";
 
 <ThirdwebProvider
   supportedWallets={[
     safeWallet({
       // this is the default
-      personalWallets: [metamaskWallet(), coinbaseWallet(), walletConnectV1()],
+      personalWallets: [metamaskWallet(), coinbaseWallet(), walletConnect()],
     }),
   ]}
+  clientId="your-client-id"
 >
   <YourApp />
 </ThirdwebProvider>;
@@ -104,7 +105,7 @@ function App() {
 import type { Chain } from "@thirdweb-dev/chains";
 import type { EVMWallet } from "@thirdweb-dev/wallets";
 
-type ConenctOptions = {
+type ConnectOptions = {
   chain: Chain;
   personalWallet: EVMWallet;
   safeAddress: string;

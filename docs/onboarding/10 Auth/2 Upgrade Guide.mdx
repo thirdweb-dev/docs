@@ -28,6 +28,7 @@ export default function MyApp({ Component, pageProps }) {
     <ThirdwebProvider
       // Required configuration for the provider, but doesn't affect Auth.
       activeChain="ethereum"
+      clientId="your-client-id"
       authConfig={{
         domain: "example.com",
         authUrl: "/api/auth",
@@ -91,7 +92,7 @@ export const { ThirdwebAuthHandler, getUser } = ThirdwebAuth({
 export default ThirdwebAuthHandler();
 ```
 
-Here, we instantaite a new EVM `PrivateKeyWallet` to use for authentication. For more information on configuring wallets on the backend, checkout the full wallet configuration guide:
+Here, we instantiate a new EVM `PrivateKeyWallet` to use for authentication. For more information on configuring wallets on the backend, checkout the full wallet configuration guide:
 
 <div>
   <div className="col col--12" style={{ padding: 8, marginBottom: 12 }}>

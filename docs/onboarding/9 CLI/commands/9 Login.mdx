@@ -1,0 +1,47 @@
+---
+title: Login
+slug: /cli/login
+---
+
+import CLI from "/docs/cli.json";
+import CLIOptions from "@components/CLIOptions";
+
+# Login
+
+:::caution
+If you are on windows, please avoid using powershell it has some known issues that we are actively working on, please use git bash instead or the windows command prompt.
+:::
+
+Authenticate with the thirdweb CLI using your API secret key or replace an existing API secret key. You can find or create your API secret key at the [thirdweb dashboard](https://thirdweb.com/create-api-key).
+By using an API key, you can access the thirdweb infrastructure and services which the CLI commands use under the hood such as storage. 
+
+```bash
+npx thirdweb login [options]
+```
+
+## Usage
+
+If it's your first time using the CLI you will need to login with your API secret key in order to use the following commands:
+
+- [Deploy](/deploy)
+- [Publish](/publish)
+- [Upload](/cli/upload)
+- [Generate](/cli/generate)
+
+Once you've logged in, your API secret key will be stored in your home directory for future use.
+
+:::info
+If you want to login with a different API secret key, you can use the `--new` flag to replace your existing API secret key.
+:::
+
+```bash
+npx thirdweb login --new <api-secret-key>
+```
+
+## Options
+
+<div>
+  {CLI.login.map(({ flags, description }) => (
+    <CLIOptions flags={flags} description={description} />
+  ))}
+</div>
