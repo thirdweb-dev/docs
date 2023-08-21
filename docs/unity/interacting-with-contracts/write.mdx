@@ -26,6 +26,16 @@ The name of the function, view, mapping, variable, etc. on your smart contract.
 
 Must be a `string`.
 
+### transactionOverrides
+
+Optional transaction overrides to change parameters like `value` or `gasLimit`.
+
+Must be of type `TransactionRequest`
+
+```csharp
+var data = await contract.Write("functionName", new TransactionRequest() { value = "100000" });
+```
+
 ### args
 
 The arguments to the function/variable, in the same order they are on your smart contract.
@@ -33,5 +43,5 @@ The arguments to the function/variable, in the same order they are on your smart
 If you provide too few or too many arguments, the function will throw an error.
 
 ```csharp
-var data = await contract.Write("functionName", "arg1", "arg2");
+var data = await contract.Write("functionName", arg1, arg2, ...);
 ```
