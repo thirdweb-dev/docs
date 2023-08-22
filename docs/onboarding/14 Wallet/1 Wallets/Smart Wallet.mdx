@@ -251,13 +251,13 @@ Example:
       clientId,
       // highlight-start
       factoryInfo: {
-        createAccount: (factory, owner) => {
+        createAccount: async (factory, owner) => {
           return factory.prepare("customCreateAccount", [
             owner,
             getExtraData(),
           ]);
         },
-        getAccountAddress(factory, owner) {
+        getAccountAddress: async (factory, owner) => {
           return factory.call("getAccountAddress", [owner]);
         },
         abi: [...]
@@ -291,12 +291,12 @@ Example:
       clientId,
       // highlight-start
       accountInfo: {
-        execute: (account, target, value, data) => {
+        execute: async (account, target, value, data) => {
           return account.prepare("customExecute", [
             target, value, data
           ]);
         },
-        getNonce(account) {
+        getNonce: async (account) => {
           return account.call("getNonce");
         },
         abi: [...]
