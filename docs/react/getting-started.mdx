@@ -31,17 +31,39 @@ To get started, install the required dependencies into your React project.
 </summary>
 <div>
 
-Below packages are required to be installed as dev dependencies to use thirdweb SDK with Create React App.
+Add below packages as dependencies in your package.json
+
+```json
+{
+  ...
+  "dependencies": {
+    ...
+    // highlight-start
+    "url": "latest",
+    "http": "npm:http-browserify",
+    "https": "npm:https-browserify",
+    "zlib": "npm:browserify-zlib",
+    "http-browserify": "latest",
+    "https-browserify": "latest",
+    "browserify-zlib": "latest",
+    "assert": "^2.0.0",
+    "stream": "^0.0.2"
+    // highlight-end
+  }
+}
+```
+
+Install them from NPM using the following command
 
 <Tabs>
   <TabItem value="npm" label="npm">
-    <CodeBlock language="bash">npm i assert stream -D</CodeBlock>
+    <CodeBlock language="bash">npm install</CodeBlock>
   </TabItem>
   <TabItem value="yarn" label="yarn">
-    <CodeBlock language="bash">yarn add assert stream -D</CodeBlock>
+    <CodeBlock language="bash">yarn</CodeBlock>
   </TabItem>
   <TabItem value="pnpm" label="pnpm">
-    <CodeBlock language="bash">pnpm add assert stream -D</CodeBlock>
+    <CodeBlock language="bash">pnpm install</CodeBlock>
   </TabItem>
 </Tabs>
 
