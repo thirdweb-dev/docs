@@ -30,6 +30,10 @@ function DocSidebarItems({ items, ...props }) {
       items: ["Home", "Overview ", "API Keys"],
     },
     {
+      title: "Wallets",
+      items: ["Wallet", "Auth"],
+    },
+    {
       title: "Contracts",
       items: [
         "Solidity SDK",
@@ -41,10 +45,6 @@ function DocSidebarItems({ items, ...props }) {
         "UI Components",
         "Dashboard",
       ],
-    },
-    {
-      title: "Wallets",
-      items: ["Wallet", "Auth"],
     },
     {
       title: "Tools",
