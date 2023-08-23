@@ -155,6 +155,9 @@ const wallet = new SmartWallet(config);
 await wallet.connect({
   personalWallet,
 });
+
+// You can then use this wallet to perform transactions via the SDK
+const sdk = await ThirdwebSDK.fromWallet(wallet, Goerli);
 ```
 
 ## Configuration
