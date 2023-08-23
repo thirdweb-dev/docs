@@ -5,7 +5,7 @@ slug: /publish/deployment-options
 
 The deployment options you choose will determine how _users_ deploy your contract.
 
-## Direct deploy
+## 1. Direct deploy
 
 Publishing with the direct deploy option allows users to deploy a copy of your contract, including the logic and storage.
 Choose this option if your contract does not follow the upgradeable contract pattern.
@@ -14,7 +14,7 @@ Choose this option if your contract does not follow the upgradeable contract pat
 
 There are no requirements. Any contract can be published with this deployment option.
 
-## Deploy via Factory
+## 2. Deploy via Factory
 
 Choose this option if you would like users to deploy proxies of your implementation contract using the thirdweb default factory contract or using your own pre-deployed custom factory.
 
@@ -22,7 +22,7 @@ Choose this option if you would like users to deploy proxies of your implementat
 To use the "Deploy via Factory" option, you should be publishing your implementation contract rather than a factory.
 :::
 
-### Default Factory
+### 2(a). Default Factory
 
 Publishing your contract using the [thirdweb default factory](https://github.com/thirdweb-dev/contracts/blob/main/contracts/TWStatelessFactory.sol) allows users to deploy a proxy contract.
 
@@ -42,7 +42,7 @@ Publishing your contract using the [thirdweb default factory](https://github.com
 
 ![Deploy via Default Factory](/assets/publish/auto-factory-deploy-settings.png)
 
-### Custom Factory
+### 2(b). Custom Factory
 
 Publishing your contract using a custom factory allows users to deploy a proxy contract using your own pre-deployed custom factory.
 This allows you to add custom logic to the function which is invoked when a user deploys a contract.
