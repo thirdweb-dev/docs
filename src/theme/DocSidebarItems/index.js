@@ -37,7 +37,7 @@ function DocSidebarItems({ items, ...props }) {
       title: "Contracts",
       items: [
         "Solidity SDK",
-        "Pre-built Contracts",
+        "Explore",
         "Publish",
         "Deploy",
         "EVM SDK",
