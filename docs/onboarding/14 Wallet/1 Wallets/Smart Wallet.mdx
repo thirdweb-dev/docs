@@ -13,11 +13,27 @@ Let your users connect to any [Smart Wallet](/glossary/smart-wallet).
 
 A Smart Wallet is a wallet that is controlled by a smart contract following the [ERC-4337 specification](https://eips.ethereum.org/EIPS/eip-4337).
 
+thirdweb’s smart wallets have the following features by default:
+
+- Have multiple owners
+- Execute transactions (single and batched).
+- Send and receive native tokens.
+- Send and receive ERC-721 and ERC-1155 NFTs.
+- Multicall-able.
+- Store contract metadata.
+
 ## Requirements
 
-#### 1. A smart wallet factory contract
+#### 1. Smart Wallet Factory Contract
 
 Deployable via the [explore page](https://thirdweb.com/explore/smart-wallet) or use your own [ERC 4337](https://eips.ethereum.org/EIPS/eip-4337) compatible factory contract.
+
+Choose the right smart wallet setup for your app. thirdweb offers the following three different kinds of smart wallets:
+
+|                    | [`Account`](/solidity/base-contracts/account) setup                                                                                     | [`DynamicAccount`](/solidity/base-contracts/dynamic-account) setup                                                                                                           | [`ManagedAccount`](/solidity/base-contracts/managed-account) setup                                                                                                                            |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Upgradeability** | Non-upgradeable                                                                                                                         | Account upgrades controlled locally by account admin.                                                                                                                        | Account upgrades controlled centrally by account factory admin.                                                                                                                               |
+| **User persona**   | Developer wants to issue simple smart wallets to their users. They do not anticipate that users wallets will need any feature upgrades. | Developer wants to issue smart wallets to their users. They do anticipate feature upgrades to user wallets but do not want to push upgrades to user wallets without consent. | Developer wants to issue smart wallets to their users. They do anticipate feature upgrades to user wallets, and want to push upgrades to user wallets for seamless/invisible UX for upgrades. |
 
 #### 2. An API key
 
@@ -235,13 +251,13 @@ Example:
       clientId,
       // highlight-start
       factoryInfo: {
-        createAccount: (factory, owner) => {
+        createAccount: async (factory, owner) => {
           return factory.prepare("customCreateAccount", [
             owner,
             getExtraData(),
           ]);
         },
-        getAccountAddress(factory, owner) {
+        getAccountAddress: async (factory, owner) => {
           return factory.call("getAccountAddress", [owner]);
         },
         abi: [...]
@@ -275,12 +291,12 @@ Example:
       clientId,
       // highlight-start
       accountInfo: {
-        execute: (account, target, value, data) => {
+        execute: async (account, target, value, data) => {
           return account.prepare("customExecute", [
             target, value, data
           ]);
         },
-        getNonce(account) {
+        getNonce: async (account) => {
           return account.call("getNonce");
         },
         abi: [...]

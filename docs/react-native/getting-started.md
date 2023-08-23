@@ -149,12 +149,12 @@ import {
   trustWallet,
   ThirdwebProvider,
 } from "@thirdweb-dev/react-native";
-import { Ethereum } from "@thirdweb-dev/chains";
 
 const KitchenSinkExample = () => {
   return (
     <ThirdwebProvider
-      activeChain={Ethereum}
+      clientId="your-client-id"
+      activeChain={"ethereum"}
       dAppMeta={{
         name: "Example App",
         description: "This is an example app",

@@ -25,8 +25,7 @@ To get started, install the [package](https://github.com/thirdweb-dev/js/tree/ma
 
 <br />
 
-Now you&rsquo;re ready to use any of our supported wallets, prompt the user to connect with the wallet, access
-information such as the signer and wallet address, and more.
+Now you&rsquo;re ready to use any of our supported wallets. 
 
 ```js
 // 1. Import the wallet you want to use from the package
@@ -42,7 +41,7 @@ const walletAddress = await coinbaseWallet.connect();
 const signer = await coinbaseWallet.getSigner();
 ```
 
-## Methods available on wallet instance
+## Methods available on a Wallet Instance
 
 All wallets in wallet SDK extend from the [AbstractWallet](/wallet/interfaces/abstract-wallet) base class,
 and all client-side wallets (web, mobile) extend from [AbstractClientWallet](/wallet/interfaces/abstract-client-wallet) base class. Each wallet may have its own unique methods. Below are the common methods shared by all wallets
