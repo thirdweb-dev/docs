@@ -10,19 +10,26 @@ type Product = {
 
 const products: Product[] = [
   {
-    image: "/assets/product/storage.png",
-    name: "Storage",
+    image: "/assets/product/wallet.png",
+    name: "Wallet SDK",
     description:
-      "Get fast access to data stored on blockchain with a unified API that works with a storage provider of your choice",
-    link: "/storage",
+      "Integrate wallet connection capabilities into web3 applications",
+    link: "/wallet",
+  },
+  {
+    image: "/assets/product/auth.png",
+    name: "Auth",
+    description:
+      "Authenticate users with their wallets. Securely verify a user’s on-chain identity without relying on a centralized database",
+    link: "/auth",
   },
 ];
 
-export default function InfrastructureCards() {
+export default function SolutionsSection() {
   return (
     <div className="explore-products-container">
       <h2 className="explore-products-heading" style={{ marginBottom: 12 }}>
-        Infrastructure
+        Wallets
       </h2>
       <div className="row" style={{ marginBottom: 64 }}>
         {products.map((p, i) => (
