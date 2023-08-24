@@ -31,7 +31,7 @@ function DocSidebarItems({ items, ...props }) {
     },
     {
       title: "Wallets",
-      items: ["Wallet", "Auth"],
+      items: ["Wallet", "Auth", "Connect Wallet Button"],
     },
     {
       title: "Contracts",

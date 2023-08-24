@@ -35,6 +35,11 @@ const sidebars = {
     },
     {
       type: "link",
+      label: "Connect Wallet Button",
+      href: "https://thirdweb.com/dashboard/wallet",
+    },
+    {
+      type: "link",
       label: "Solidity SDK",
       href: "/solidity",
     },
