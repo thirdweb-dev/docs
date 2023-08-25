@@ -51,13 +51,6 @@ const products: Product[] = [
       "Publish your contracts to be discovered by our community of 70k+ web3 developers",
     link: "/publish",
   },
-  {
-    image: "/assets/product/dashboard.png",
-    name: "Dashboard",
-    description:
-      "Manage, analyze, and interact with all your deployed contracts conveniently from a single place",
-    link: "/dashboard",
-  },
 ];
 
 export default function ContractsSection() {

@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
@@ -24,6 +26,9 @@ const config = {
   organizationName: "thirdweb-dev", // Usually your GitHub org/user name.
   projectName: "docs", // Usually your repo name.
   trailingSlash: false,
+  customFields: {
+    clientId: process.env.TW_DOCS_CLIENT_ID,
+  },
   webpack: {
     jsLoader: (isServer) => ({
       loader: require.resolve("swc-loader"),

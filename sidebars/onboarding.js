@@ -36,7 +36,7 @@ const sidebars = {
     {
       type: "link",
       label: "Connect Wallet Button",
-      href: "https://thirdweb.com/dashboard/wallet",
+      href: "https://thirdweb.com/dashboard/wallets/connect",
     },
     {
       type: "link",

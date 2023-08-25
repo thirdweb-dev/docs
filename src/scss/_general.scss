@@ -32,6 +32,29 @@ aside {
   border-radius: var(--thirdweb-border-radius);
 }
 
+.connect-wallet-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem 1rem 2rem 2rem;
+  border: #272b30;
+  border-radius: 8px;
+}
+
+.callout-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem 1rem 2rem 2rem;
+  border: solid #272b30;
+  border-radius: 8px;
+  margin: 1rem;
+}
+
 .hero-container {
   display: flex;
   flex-direction: row;
@@ -640,7 +663,7 @@ html[data-theme="light"] {
 .open-source-info-container {
   --chakra-space-8: 2rem;
   --chakra-shadows-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --chakra-colors-borderColor: #272B30;
+  --chakra-colors-borderColor: #272b30;
   border: 1px solid var(--thirdweb-border-color);
   transition: all 0.2s ease 0s;
   box-sizing: border-box;
@@ -655,7 +678,6 @@ html[data-theme="light"] {
   border-radius: 8px;
   margin-bottom: 16px;
   margin-top: 16px;
-
 
   h2 {
     font-family: var(--chakra-fonts-heading);
