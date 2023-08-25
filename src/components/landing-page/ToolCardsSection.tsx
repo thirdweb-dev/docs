@@ -16,6 +16,13 @@ const products: Product[] = [
       "A suite of commands that let you interface with thirdweb tools through your terminal",
     link: "/cli",
   },
+  {
+    image: "/assets/product/dashboard.png",
+    name: "Dashboard",
+    description:
+      "Manage, analyze, and interact with all your deployed contracts conveniently from a single place",
+    link: "/dashboard",
+  },
 ];
 
 export default function ToolSection() {

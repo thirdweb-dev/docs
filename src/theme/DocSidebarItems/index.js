@@ -31,7 +31,7 @@ function DocSidebarItems({ items, ...props }) {
     },
     {
       title: "Wallets",
-      items: ["Wallet", "Auth"],
+      items: ["Wallet", "Connect Wallet Button", "Auth"],
     },
     {
       title: "Contracts",
@@ -43,16 +43,15 @@ function DocSidebarItems({ items, ...props }) {
         "EVM SDK",
         "Solana SDK",
         "UI Components",
-        "Dashboard",
       ],
-    },
-    {
-      title: "Tools",
-      items: ["CLI"],
     },
     {
       title: "Infrastructure",
       items: ["Storage"],
+    },
+    {
+      title: "Tools",
+      items: ["CLI", "Dashboard"],
     },
     {
       title: "SDK References",

@@ -35,6 +35,11 @@ const sidebars = {
     },
     {
       type: "link",
+      label: "Connect Wallet Button",
+      href: "react/react.connectwallet",
+    },
+    {
+      type: "link",
       label: "Solidity SDK",
       href: "/solidity",
     },

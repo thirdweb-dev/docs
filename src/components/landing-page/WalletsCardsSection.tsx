@@ -17,6 +17,13 @@ const products: Product[] = [
     link: "/wallet",
   },
   {
+    image: "/assets/product/connect-wallet.png",
+    name: "Connect Wallet Button",
+    description:
+      "A simple button that lets users connect their wallets to your web3 application",
+    link: "react/react.connectwallet",
+  },
+  {
     image: "/assets/product/auth.png",
     name: "Auth",
     description:
