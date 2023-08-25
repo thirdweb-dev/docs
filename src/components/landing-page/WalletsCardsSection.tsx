@@ -23,7 +23,7 @@ const products: Product[] = [
     name: "Connect Wallet Button",
     description:
       "A simple button that lets users connect their wallets to your web3 application",
-    link: "https://thirdweb.com/dashboard/wallets/connect",
+    link: "react/react.connectwallet",
   },
   {
     image: "/assets/product/auth.png",
@@ -43,16 +43,14 @@ export default function SolutionsSection() {
       <h2 className="explore-products-heading" style={{ marginBottom: 12 }}>
         Wallets
       </h2>
-      <div className="callout-container">
-        <h3>Connect Wallet Button</h3>
-        <div className="connect-wallet-container">
-          <ThirdwebProvider
-            activeChain={"goerli"}
-            clientId={customFields.clientId as string}
-          >
-            <ConnectWallet theme={"dark"} />
-          </ThirdwebProvider>
-        </div>
+      <h3>Connect Wallet Button</h3>
+      <div className="connect-wallet-container">
+        <ThirdwebProvider
+          activeChain={"goerli"}
+          clientId={customFields.clientId as string}
+        >
+          <ConnectWallet theme={"dark"} />
+        </ThirdwebProvider>
       </div>
       <div className="row" style={{ marginBottom: 64 }}>
         {products.map((p, i) => (
