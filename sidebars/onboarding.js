@@ -399,11 +399,11 @@ const sidebars = {
         },
         {
           type: "doc",
-          id: "9 CLI/commands/9 Login",
+          id: "9 CLI/commands/1 Login",
         },
         {
           type: "doc",
-          id: "9 CLI/commands/10 Logout",
+          id: "9 CLI/commands/2 0 Logout",
         },
         {
           type: "doc",
