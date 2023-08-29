@@ -10,32 +10,25 @@ type Product = {
 
 const products: Product[] = [
   {
-    image: "/assets/product/extensions.png",
-    name: "Solidity SDK",
-    description:
-      "Base contracts that can be configured with extensions to meet your specific use case",
-    link: "/solidity",
-  },
-  {
-    image: "/assets/product/contracts.png",
-    name: "Explore",
-    description:
-      "Discover and deploy contracts from world-class protocols & developers in 1-click",
-    link: "/pre-built-contracts",
-  },
-  {
     image: "/assets/product/sdk.png",
-    name: "SDK",
+    name: "Contract SDKs",
     description:
       "Powerful SDKs for every stack. Support for Javascript, React, Python, Go, Node.js, Unity",
     link: "/sdk",
   },
   {
-    image: "/assets/product/ui.png",
-    name: "UI Components",
+    image: "/assets/product/contracts.png",
+    name: "Pre-Built Contracts",
     description:
-      "Plug and play UI components to easily add web3 functionality to your apps",
-    link: "/ui-components",
+      "Discover and deploy contracts from world-class protocols & developers in 1-click",
+    link: "/pre-built-contracts",
+  },
+  {
+    image: "/assets/product/extensions.png",
+    name: "Solidity SDK",
+    description:
+      "Base contracts that can be configured with extensions to meet your specific use case",
+    link: "/solidity",
   },
   {
     image: "/assets/product/deploy.png",
@@ -50,6 +43,13 @@ const products: Product[] = [
     description:
       "Publish your contracts to be discovered by our community of 70k+ web3 developers",
     link: "/publish",
+  },
+  {
+    image: "/assets/product/ui.png",
+    name: "UI Components",
+    description:
+      "Plug and play UI components to easily add web3 functionality to your apps",
+    link: "/ui-components",
   },
 ];
 
