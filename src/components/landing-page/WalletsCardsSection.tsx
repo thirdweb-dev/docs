@@ -13,21 +13,20 @@ const products: Product[] = [
     image: "/assets/product/wallet.png",
     name: "Wallet SDK",
     description:
-      "Integrate wallet connection capabilities into web3 applications",
+      "Integrate, connect and embed wallets into web3 apps and games",
     link: "/wallet",
   },
   {
     image: "/assets/product/connect-wallet.png",
-    name: "Connect Wallet Button",
-    description:
-      "A simple button that lets users connect their wallets to your web3 application",
+    name: "Connect Wallet",
+    description: "Enable users to connect their wallets to web3 apps and games",
     link: "react/react.connectwallet",
   },
   {
     image: "/assets/product/auth.png",
     name: "Auth",
     description:
-      "Authenticate users with their wallets. Securely verify a user’s on-chain identity without relying on a centralized database",
+      "Authenticate users with their wallets. Securely verify a user's on-chain identity without relying on a centralized database",
     link: "/auth",
   },
 ];

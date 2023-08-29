@@ -35,7 +35,7 @@ const sidebars = {
     },
     {
       type: "link",
-      label: "Connect Wallet Button",
+      label: "Connect Wallet",
       href: "react/react.connectwallet",
     },
     {
@@ -55,12 +55,12 @@ const sidebars = {
     },
     {
       type: "link",
-      label: "Explore",
+      label: "Pre-Built Contracts",
       href: "/pre-built-contracts",
     },
     {
       type: "link",
-      label: "EVM SDK",
+      label: "Contract SDKs",
       href: "/sdk",
     },
     {
@@ -110,7 +110,7 @@ const sidebars = {
     },
     {
       type: "link",
-      label: "Wallet",
+      label: "Wallet SDK",
       href: "/wallet",
     },
     {
@@ -399,11 +399,11 @@ const sidebars = {
         },
         {
           type: "doc",
-          id: "9 CLI/commands/9 Login",
+          id: "9 CLI/commands/1 Login",
         },
         {
           type: "doc",
-          id: "9 CLI/commands/10 Logout",
+          id: "9 CLI/commands/2 0 Logout",
         },
         {
           type: "doc",
