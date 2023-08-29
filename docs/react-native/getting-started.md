@@ -6,13 +6,13 @@ displayed_sidebar: react-native
 
 # Getting Started
 
-:::info
-You will require an API key to use thirdweb’s infrastructure services with the SDK. If you haven’t created a key yet you can do so for free from the [**thirdweb dashboard**](https://thirdweb.com/create-api-key).
-:::
-
 Our SDK uses a [Provider Pattern](https://flexiple.com/react/provider-pattern-with-react-context-api/); meaning any component within the `ThirdwebProvider` will have access to the SDK.
 
 Let's take a look at a typical setup:
+
+## API Key
+
+You will require an API key to use thirdweb’s infrastructure services with the SDK. If you haven’t created a key yet you can do so for free from the [**thirdweb dashboard**](https://thirdweb.com/create-api-key).
 
 ## Configure the `ThirdwebProvider`
 
