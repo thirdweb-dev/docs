@@ -25,7 +25,7 @@ const products: Product[] = [
   },
   {
     image: "/assets/product/sdk.png",
-    name: "SDK",
+    name: "Contract SDKs",
     description:
       "Powerful SDKs for every stack. Support for Javascript, React, Python, Go, Node.js, Unity",
     link: "/sdk",

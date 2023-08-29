@@ -31,16 +31,16 @@ function DocSidebarItems({ items, ...props }) {
     },
     {
       title: "Wallets",
-      items: ["Wallet", "Connect Wallet Button", "Auth"],
+      items: ["Wallet SDK", "Connect Wallet", "Auth"],
     },
     {
       title: "Contracts",
       items: [
+        "Contract SDKs",
+        "Pre-Built Contracts",
         "Solidity SDK",
-        "Explore",
-        "Publish",
         "Deploy",
-        "EVM SDK",
+        "Publish",
         "Solana SDK",
         "UI Components",
       ],
