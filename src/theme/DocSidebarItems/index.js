@@ -30,28 +30,28 @@ function DocSidebarItems({ items, ...props }) {
       items: ["Home", "Overview ", "API Keys"],
     },
     {
-      title: "Tools",
-      items:
-        // Tools
-        [
-          "Solidity SDK",
-          "Explore",
-          "EVM SDK",
-          "Solana SDK",
-          "UI Components",
-          "Deploy",
-          "Publish",
-          "Dashboard",
-          "CLI",
-        ],
+      title: "Wallets",
+      items: ["Wallet SDK", "Connect Wallet", "Auth"],
+    },
+    {
+      title: "Contracts",
+      items: [
+        "Contract SDKs",
+        "Pre-Built Contracts",
+        "Solidity SDK",
+        "Deploy",
+        "Publish",
+        "Solana SDK",
+        "UI Components",
+      ],
     },
     {
       title: "Infrastructure",
-      items: ["Auth", "Storage", "Wallet"],
+      items: ["Storage"],
     },
     {
-      title: "Solutions",
-      items: ["CommerceKit", "GamingKit", "Minting", "Digital Collectibles"],
+      title: "Tools",
+      items: ["CLI", "Dashboard"],
     },
     {
       title: "SDK References",
@@ -64,6 +64,10 @@ function DocSidebarItems({ items, ...props }) {
         "Unity",
         "Solidity",
       ],
+    },
+    {
+      title: "Solutions",
+      items: ["CommerceKit", "GamingKit", "Minting", "Digital Collectibles"],
     },
     {
       title: "Resources",
