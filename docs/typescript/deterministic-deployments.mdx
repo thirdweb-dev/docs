@@ -30,7 +30,6 @@ const sdk = ThirdwebSDK.fromPrivateKey(`private key here`, "goerli", {
   clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
   secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
 });
-const signer = await sdk.getSigner();
 
 const contractName = "MyContract"; // Name of the published contract that you want to deploy
 const constructorArgs = []; // Input args for constructor
