@@ -4,6 +4,8 @@ slug: /deterministic-deployments
 hide_title: true
 ---
 
+import ViewRepoButton from "@components/ViewRepoButton";
+
 # Deterministic Deployments With CREATE2
 
 Thirdweb SDK provides utility functions for deploying a contract deterministically.
@@ -16,6 +18,20 @@ While the addresses are deterministic, it can't be ensured that those will be sa
 However, using these utility functions, you can predict the address where the contract will be deployed.
 
 > **IMPORTANT**: _Please note that the contract is deployed by a Create2 factory contract. Hence, the value of `msg.sender`, if used in the constructor, will be the Create2 factory address instead of the wallet address used for sending the transaction._
+
+## Demo scripts
+
+Clone these templates to quickly setup a deterministic deploy script.
+
+<div className="row" style={{ marginLeft: 8 }}>
+  <div>
+    <ViewRepoButton
+      name={"js"}
+      text="Deterministic Deploy Script"
+      link={"https://github.com/thirdweb-example/deterministic-deploy-demo"}
+    />
+  </div>
+</div>
 
 ## Deterministic Deployment Of Published contracts
 
