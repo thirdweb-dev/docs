@@ -38,7 +38,7 @@ const constructorArgs = []; // Input args for constructor
 // Optional params -- specify values if you wish to override defaults
 const publisherAddress // Defaults to thirdweb publisher
 const contractVersion // Defaults to latest published version
-const salt = await signer.getAddress(); // Recommended to use signer address
+const salt = await sdk.wallet.getAddress(); // Recommended to use signer address for salt
 
 const deployedContractAddress =
   await sdk.deployer.deployPublishedContractDeterministic(
