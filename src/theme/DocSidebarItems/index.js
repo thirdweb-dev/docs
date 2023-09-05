@@ -31,7 +31,13 @@ function DocSidebarItems({ items, ...props }) {
     },
     {
       title: "Wallets",
-      items: ["Wallet SDK", "Connect Wallet", "Auth"],
+      items: [
+        "Wallet SDK",
+        "Connect Wallet",
+        "Smart Wallet",
+        "Email Wallet",
+        "Auth",
+      ],
     },
     {
       title: "Contracts",
@@ -51,7 +57,7 @@ function DocSidebarItems({ items, ...props }) {
     },
     {
       title: "Tools",
-      items: ["CLI", "Dashboard"],
+      items: ["CLI", "Dashboard", "SDKs"],
     },
     {
       title: "SDK References",

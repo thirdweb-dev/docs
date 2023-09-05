@@ -40,6 +40,16 @@ const sidebars = {
     },
     {
       type: "link",
+      label: "Smart Wallet",
+      href: "/wallet/smart-wallet",
+    },
+    {
+      type: "link",
+      label: "Email Wallet",
+      href: "/wallet/paper",
+    },
+    {
+      type: "link",
       label: "Solidity SDK",
       href: "/solidity",
     },
@@ -61,6 +71,11 @@ const sidebars = {
     {
       type: "link",
       label: "Contract SDKs",
+      href: "/sdk",
+    },
+    {
+      type: "link",
+      label: "SDKs",
       href: "/sdk",
     },
     {

@@ -1,0 +1,39 @@
+---
+title: Open Edition ERC721
+slug: /pre-built-contracts/open-edition-erc721
+---
+
+import DeployThisContractButton from "@components/DeployThisContractButton";
+
+# Open Edition ERC721
+
+<div className="deployContractBtnContainer" style={{ marginTop: -70 }}>
+  <DeployThisContractButton
+    link={"https://thirdweb.com/thirdweb.eth/OpenEditionERC721?via=portal"}
+    contractType="open-edition-erc721"
+  />
+</div>
+
+The `OpenEditionERC721` contract is an 'open edition' ERC721 NFT collection. The contract uses the [ERC-721A](/solidity/extensions/erc721) standard.
+
+The `OpenEditionERC721` contract is ideal when you want to release an open edition of NFTs like the Base, `Introduced` collection.
+
+All NFTs in the contract have shared metadata except that each NFT has its unique token ID appended to the NFT's name. An admin can set this shared metadata at any time.
+
+The contract does not require the admin to set a limit to the total supply of NFTs. The admin can set claim phases (like in NFT Drop) to apply restrictions on the minting of NFTs, such as a price, mint start and end times, etc.
+
+## Extensions
+
+- [ERC721](/solidity/extensions/erc721)
+- [ERC721Burnable](/solidity/extensions/erc721burnable)
+- [ERC721Supply](/solidity/extensions/erc721supply)
+- [ERC721AQueryable](/solidity/extensions/)
+- [ERC721ClaimPhasesV2](/solidity/extensions/erc721claimphases)
+- [ERC721SharedMetadata](/solidity/extensions/)
+- [Royalty](/solidity/extensions/royalty)
+- [PrimarySale](/solidity/extensions/primarysale)
+- [Permissions](/solidity/extensions/permissions)
+- [PermissionsEnumerable](/solidity/extensions/permissionsenumerable)
+- [ContractMetadata](/solidity/extensions/contractmetadata)
+- [Ownable](/solidity/extensions/ownable)
+- [Gasless](/solidity/extensions/)
