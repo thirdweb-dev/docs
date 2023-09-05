@@ -1,0 +1,39 @@
+---
+title: Loyalty Card
+slug: /pre-built-contracts/loyalty-card
+---
+
+import DeployThisContractButton from "@components/DeployThisContractButton";
+
+# Loyalty Card
+
+<div className="deployContractBtnContainer" style={{ marginTop: -70 }}>
+  <DeployThisContractButton
+    link={"https://thirdweb.com/thirdweb.eth/LoyaltyCard?via=portal"}
+    contractType="loyalty-card"
+  />
+</div>
+
+The Loyalty Card contract is suitable for launching loyalty programs. Each NFT represents a loyalty card, and the NFT's metadata contains the loyalty card's information.
+
+A loyalty card's **metadata can be updated by an admin** of the contract. A loyalty card can be cancelled (i.e. 'burned') by its owner or an approved operator. A loyalty card can be revoked (i.e. 'burned') without its owner's approval, by an admin of the contract. By default, loyalty cards are non-transferrable NFTs.
+
+Loyalty cards can be minted to users via signature minting.
+
+## Extensions
+
+- [ERC721](/solidity/extensions/erc721)
+- [ERC721Supply](/solidity/extensions/erc721supply)
+- [ERC721Mintable](/solidity/extensions/erc721mintable)
+- [ERC721BatchMintable](/solidity/extensions/erc721batchmintable)
+- [ERC721SignatureMintV2](/solidity/extensions/erc721signaturemint)
+- [ERC721LoyaltyCard](/solidity/extensions/)
+- [ERC721UpdatableMetadata](/solidity/extensions/)
+- [Royalty](/solidity/extensions/royalty)
+- [PlatformFee](/solidity/extensions/platformfee)
+- [PrimarySale](/solidity/extensions/primarysale)
+- [Permissions](/solidity/extensions/permissions)
+- [PermissionsEnumerable](/solidity/extensions/permissionsenumerable)
+- [ContractMetadata](/solidity/extensions/contractmetadata)
+- [Ownable](/solidity/extensions/ownable)
+- [Gasless](/solidity/extensions/)
