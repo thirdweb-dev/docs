@@ -1,0 +1,144 @@
+---
+title: Airdrop
+slug: /sdk.erc1155airdrop
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+import DeployThisContractButton from "@components/DeployThisContractButton";
+
+# ERC1155Airdrop
+
+Functionality available for contracts that implement the
+[`ERC1155Airdrop`](/solidity/extensions) extension.
+
+Deploy an `ERC1155Airdrop` contract from the Explore page:
+
+<div className="centered">
+  <DeployThisContractButton
+    link={"https://thirdweb.com/thirdweb.eth/AirdropERC1155?via=portal"}
+    contractType="airdrop-erc1155"
+  />
+</div>
+
+## drop
+
+Airdrop [ERC1155](/soldity/extensions/erc1155) tokens to multiple recipients.
+
+```javascript
+  // Airdrop content array, with recipients and tokenIds
+  const contents = [
+       {
+         recipient: "0xabc...", // first recipient address
+         tokenId: 0,
+         amount: "10" // number of tokens
+       },
+       {
+         recipient: "0x123...", // second recipient address
+         tokenId: 0
+         amount: "20" // number of tokens
+       }
+    ]
+
+  const tokenAddress = "0x..." // Address of the ERC1155 token being airdropped
+  const tokenOwner = "0x..." // Address of the owner of the tokens being airdropped
+
+  const output = await contract.airdrop1155.drop(tokenAddress, tokenOwner, contents);
+
+  // the `output` return value above contains:
+  //     - count of successful and failed drops
+  //     - array containing failed drops, if any
+
+```
+
+### Return Value
+
+The `drop` function returns an array of recipients for who the airdrop failed (empty means all transfers were successful).
+
+### Parameters
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+### tokenAddress
+
+A `string` representing the address of the ERC1155 token being airdropped:
+
+```typescript
+  // highlight-start
+  const tokenAddress = "0x..." // Address of the ERC1155 token being airdropped
+  // highlight-end
+
+  const contents = [
+       {
+         recipient: "0xabc...",
+         tokenId: 0,
+         amount: "10"
+       },
+       {
+         recipient: "0x123...",
+         tokenId: 0
+         amount: "20"
+       }
+    ]
+
+  const tokenOwner = "0x..."
+
+  const output = await contract.airdrop1155.drop(tokenAddress, tokenOwner, contents);
+```
+
+### tokenOwner
+
+A `string` representing the address of the owner of the tokens being airdropped:
+
+```typescript
+  const contents = [
+       {
+         recipient: "0xabc...",
+         tokenId: 0,
+         amount: "10"
+       },
+       {
+         recipient: "0x123...",
+         tokenId: 0
+         amount: "20"
+       }
+    ]
+
+  const tokenAddress = "0x..."
+  // highlight-start
+  const tokenOwner = "0x..." // Address of the owner of the tokens being airdropped
+  // highlight-end
+
+  const output = await contract.airdrop1155.drop(tokenAddress, tokenOwner, contents);
+```
+
+### contents
+
+An `array` of the contents of the airdrop, containing the recipients addresses, tokenIds and amount to airdrop.
+
+```typescript
+
+    // highlight-start
+    const contents = [
+       {
+         recipient: "0xabc...", // first recipient address
+         tokenId: 0,
+         amount: "10" // number of tokens
+       },
+       {
+         recipient: "0x123...", // second recipient address
+         tokenId: 0
+         amount: "20" // number of tokens
+       }
+    ]
+    // highlight-end
+
+    const tokenAddress = "0x..."
+    const tokenOwner = "0x..."
+
+    const output = await contract.airdrop1155.drop(tokenAddress, tokenOwner, contents);
+```
+
+  </div>
+</details>
