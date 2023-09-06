@@ -1,0 +1,41 @@
+---
+title: Airdrop ERC1155 Claimable
+slug: /pre-built-contracts/airdrop-erc1155-claimable
+---
+
+import DeployThisContractButton from "@components/DeployThisContractButton";
+
+# Airdrop ERC1155 Claimable
+
+<div className="deployContractBtnContainer" style={{ marginTop: -70 }}>
+  <DeployThisContractButton
+    link={
+      "https://thirdweb.com/thirdweb.eth/AirdropERC1155Claimable?via=portal"
+    }
+    contractType="airdrop-erc1155-claimable"
+  />
+</div>
+
+The `AirdropERC1155Claimable` contract is suitable to use when you want to airdrop ERC1155 NFTs to a list of recipient addresses, where these recipients are expected to individually claim their own airdrop.
+
+When deploying this contract, you specify:
+
+- The address of the ERC1155 NFTs being airdropped.
+- The tokenIds of the NFTs to airdrop.
+- The amounts of each tokenId to airdrop.
+- The address of the owner of NFTs from whom NFTs will be transferred out in the airdrop.
+- The UNIX timestamp after which the airdrop period will expire.
+- A maximum claimable amount per wallet (claiming the airdrop) for each tokenId.
+- An optional merkle root allowlist for recipients permitted to claim the airdrop, for each tokenId.
+
+On claiming an airdrop, a recipient specifies:
+
+- The address to transfer the claimed airdrop to.
+- The tokenId of the NFT to claim.
+- The total quantity to claim.
+- The proof of inclusion in the merkle root allowlist, if it exists.
+
+## Extensions
+
+- [Ownable](/solidity/extensions/ownable)
+- [Gasless](/solidity/extensions)
