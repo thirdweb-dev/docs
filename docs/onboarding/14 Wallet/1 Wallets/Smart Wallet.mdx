@@ -69,6 +69,53 @@ Smart Wallets can be customized to each application's needs using the [Solidity 
 
 The SmartWallet API is **composable** - you can use in your own [ERC 4337](https://eips.ethereum.org/EIPS/eip-4337) compatible factory contract and you can also use your own bundler or paymaster services.
 
+### Bundler & Paymaster Services
+
+Thirdweb's bundler and paymaster services are used to fund and send transactions. To use these services, you need to setup a billing account on the thirdweb dashboard Settings page.
+
+Smart Wallet is free to use with your own account abstraction infrastructure. To use your own paymaster & bundler,
+pass the `bundlerUrl`, `paymasterUrl` and `paymasterAPI` options to the `SmartWallet`:
+
+```javascript
+class MyPaymaster extends PaymasterAPI {
+  async getPaymasterAndData(
+    userOp: Partial<UserOperationStruct>,
+  ): Promise<string> {
+    // your implementation, must return the signed paymaster data
+  }
+}
+
+const config: SmartWalletConfig = {
+  chain,
+  gasless,
+  factoryAddress,
+  clientId,
+  bundlerUrl: "your-bundler-url",
+  paymasterUrl: "your-paymaster-url",
+  paymasterAPI: new MyPaymaster(),
+};
+```
+
+## Pricing & Billing
+
+To use thirdweb's account abstraction infrastructure, you need to setup a billing account on the thirdweb dashboard Settings page.
+
+**Free Tier**
+
+- Ideal for small teams and individuals who require basic features.
+- **Features:**
+  - **Bundler**: 10% premium on top of network fee based on your usage.
+  - **Paymaster**: 10% premium on top of network fee based on your usage.
+
+Pro Tier
+
+- Ideal for teams that require a higher level of customization and support
+- **Features:**
+  - **Bundler**: 10% premium on top of network fee based on your usage.
+  - **Paymaster**: 10% premium on top of network fee based on your usage.
+
+Find more information on the different billing tiers by visiting thirdweb's pricing page.
+
 ## Templates
 
 Clone these templates to quickly deploy Smart Wallets and connect to them.
