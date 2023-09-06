@@ -1,0 +1,37 @@
+---
+slug: /smart-wallet/infrastructure
+title: Bundler & Paymaster
+---
+
+# Bundler & Paymaster Infrastructure
+
+The thirdweb SDK handles all the heavy lifting of bundling operations and covering gas fees with a turn key infrastructure.
+
+On testnets, the only requirement is to obtain a free client id to get started.
+Once you're ready to deploy on mainnets, you will require an active [billing account](https://thirdweb.com/dashboard/settings).
+You can configure your client id to restrict interactions only with your own contracts or with any contract.
+
+### Using a Custom Bundler & Paymaster
+
+Smart Wallet is free to use with your own account abstraction infrastructure. To use your own paymaster & bundler,
+pass the `bundlerUrl`, `paymasterUrl` and `paymasterAPI` options to the `SmartWallet`:
+
+```javascript
+class MyPaymaster extends PaymasterAPI {
+  async getPaymasterAndData(
+    userOp: Partial<UserOperationStruct>,
+  ): Promise<string> {
+    // your implementation, must return the signed paymaster data
+  }
+}
+
+const config: SmartWalletConfig = {
+  chain,
+  gasless,
+  factoryAddress,
+  clientId,
+  bundlerUrl: "your-bundler-url",
+  paymasterUrl: "your-paymaster-url",
+  paymasterAPI: new MyPaymaster(),
+};
+```

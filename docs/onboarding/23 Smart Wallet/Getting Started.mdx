@@ -1,0 +1,162 @@
+---
+slug: /smart-wallet/getting started
+title: Getting Started
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+import ViewRepoButton from "@components/ViewRepoButton";
+import QuickstartCard from "@components/QuickstartCard";
+
+Use the following code to integrate smart wallets into your apps. This will handle:
+
+- Connecting your users to their smart wallet based of their personal wallet (can be any wallet, including email or local wallets).
+- Automatically deploy the individual account contracts for your users when they do their first onchain transaction.
+- Handle all transaction gas costs via the thirdweb paymaster.
+- Select your deployed account factory and client ID to get a fully functional code snippet.
+
+<Tabs>
+  <TabItem value="TypeScript" label="TypeScript" default>
+    <CodeBlock language="typescript">
+    {`import { LocalWallet, SmartWallet } from "@thirdweb-dev/wallets";
+// First, connect the personal wallet, which can be any wallet (metamask, walletconnect, etc.)
+// Here we're just generating a new local wallet which can be saved later
+const personalWallet = new LocalWallet();
+await personalWallet.generate();
+// Setup the Smart Wallet configuration
+const config = {
+chain: "goerli", // the chain where your smart wallet will be or is deployed
+factoryAddress: "0x...", // your own deployed account factory address
+clientId: "YOUR_CLIENT_ID", // or use secretKey for backend/node scripts
+gasless: true, // enable or disable gasless transactions
+};
+// Then, connect the Smart wallet
+const wallet = new SmartWallet(config);
+await wallet.connect({
+personalWallet,
+});`}
+
+</CodeBlock>
+  </TabItem>
+  <TabItem value="react" label="React">
+    <CodeBlock language="tsx">
+    {`import { ThirdwebProvider, ConnectWallet, smartWallet } from "@thirdweb-dev/react";
+export default function App() {
+return (
+    <ThirdwebProvider
+      clientId="YOUR_CLIENT_ID"
+      activeChain="goerli"
+      supportedWallets={[
+        smartWallet({
+          factoryAddress: "0x...",
+          gasless: true,
+          personalWallets={[...]}
+        })
+      ]}
+    >
+      <ConnectWallet />
+    </ThirdwebProvider>
+  );
+}
+`}
+</CodeBlock>
+  </TabItem>
+  <TabItem value="react-native" label="React Native">
+    <CodeBlock language="typescript">
+    {`import { ThirdwebProvider, ConnectWallet, smartWallet } from "@thirdweb-dev/react-native";
+export default function App() {
+return (
+    <ThirdwebProvider
+      clientId="YOUR_CLIENT_ID"
+      activeChain="goerli"
+      supportedWallets={[
+        smartWallet({
+          factoryAddress: "0x...",
+          gasless: true,
+          personalWallets={[...]}
+        })
+      ]}
+    >
+      <ConnectWallet />
+    </ThirdwebProvider>
+  );
+}`}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="unity" label="Unity">
+    <CodeBlock language="c#">
+    {`using Thirdweb;
+public async void ConnectWallet()
+{
+    // Reference to your Thirdweb SDK
+    var sdk = ThirdwebManager.Instance.SDK;
+    // Configure the connection
+    var connection = new WalletConnection(
+      provider: WalletProvider.SmartWallet,        // The wallet provider you want to connect to (Required)
+      chainId: 1,                                  // The chain you want to connect to (Required)
+      password: "myEpicPassword",                  // If using a local wallet as personal wallet (Optional)
+      email: "email@email.com",                    // If using an email wallet as personal wallet (Optional)
+      personalWallet: WalletProvider.LocalWallet   // The personal wallet you want to use with your Smart Wallet (Optional)
+    );
+    // Connect the wallet
+    string address = await sdk.wallet.Connect(connection);
+}
+    `}
+    </CodeBlock>
+  </TabItem>
+</Tabs>
+
+## Requirements
+
+The following setup is needed to add ERC-4337 smart wallet support to your application:
+
+### 1. Smart Wallet Factory Contract
+
+Deployable via the [explore page](https://thirdweb.com/explore/smart-wallet) or build your own [ERC 4337](https://eips.ethereum.org/EIPS/eip-4337) compatible factory contract using the [Solidity SDK](/solidity/base-contracts/smart-accounts).
+
+Choose the right smart wallet setup for your app. thirdweb offers the following three different kinds of smart wallets:
+
+|                    | [`Account`](/solidity/base-contracts/account) setup                                                                                     | [`DynamicAccount`](/solidity/base-contracts/dynamic-account) setup                                                                                                           | [`ManagedAccount`](/solidity/base-contracts/managed-account) setup                                                                                                                            |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Upgradeability** | Non-upgradeable                                                                                                                         | Account upgrades controlled locally by account admin.                                                                                                                        | Account upgrades controlled centrally by account factory admin.                                                                                                                               |
+| **User persona**   | Developer wants to issue simple smart wallets to their users. They do not anticipate that users wallets will need any feature upgrades. | Developer wants to issue smart wallets to their users. They do anticipate feature upgrades to user wallets but do not want to push upgrades to user wallets without consent. | Developer wants to issue smart wallets to their users. They do anticipate feature upgrades to user wallets, and want to push upgrades to user wallets for seamless/invisible UX for upgrades. |
+
+### 2. An API key
+
+:::info
+You will require an API key to use thirdweb's infrastructure services such as the bundler and paymaster.
+
+The API key will need to have the following settings:
+
+- smart wallet as an enabled service
+- The contracts that the smart wallet will interact with must be added to the "Destination Contracts" list. Learn more [here](/api-keys#smart-wallet-allowed-destination-addresses)
+
+:::
+
+Obtain an API key from the [thirdweb dashboard](https://thirdweb.com/create-api-key).
+
+The API key lets you access thirdweb's bundler and paymaster infrastructure, which is required for the smart wallet to operate and optionally enable [gasless transactions](/glossary/gasless-transactions).
+
+Learn more about creating an API key and restricting which contracts the smart wallet can interact with [here](/api-keys).
+
+## Templates
+
+Clone these templates to quickly deploy Smart Wallets and connect to them.
+
+<div className="row" style={{ marginLeft: 8 }}>
+  <div>
+    <ViewRepoButton
+      name={"js"}
+      text="Node.js Script"
+      link={"https://github.com/thirdweb-example/smart-wallet-script"}
+    />
+  </div>
+  <div style={{ marginLeft: 12 }}>
+    <ViewRepoButton
+      name={"js"}
+      text="React App"
+      link={"https://github.com/thirdweb-example/smart-wallet-react"}
+    />
+  </div>
+</div>
