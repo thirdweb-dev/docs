@@ -57,7 +57,7 @@ function DocSidebarItems({ items, ...props }) {
     },
     {
       title: "Tools",
-      items: ["CLI", "Dashboard", "SDKs"],
+      items: ["CLI", "Dashboard", "SDKs", "Web3 API"],
     },
     {
       title: "SDK References",

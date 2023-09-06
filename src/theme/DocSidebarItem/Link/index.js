@@ -47,6 +47,7 @@ export const iconMapping = {
   Glossary: "/assets/icons/journal-album.svg",
   "RPC Edge": "/assets/product/sdk.png",
   Gateway: "/assets/product/sdk.png",
+  "Web3 API": "/assets/product/sdk.png",
 };
 
 export default function DocSidebarItemLink({
