@@ -194,7 +194,7 @@ public async void ConnectWallet()
   </TabItem>
 </Tabs>
 
-## 4. Using a Template
+### Using a Template
 
 Clone these templates to quickly deploy Smart Wallets and connect to them.
 
@@ -214,3 +214,118 @@ Clone these templates to quickly deploy Smart Wallets and connect to them.
     />
   </div>
 </div>
+
+## 4. Executing gas free transactions with Smart Wallets
+
+Once setup, you can use the thirdweb [TypeScript](/typescript), [React](/react), [React Native](react-native)
+and [Unity SDKs](/unity) to deploy contracts, perform transactions, and manipulate wallets just like you would with any other wallet.
+
+<Tabs>
+  <TabItem value="TypeScript" label="TypeScript" default>
+    <CodeBlock language="typescript">
+      {`import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+// Simply initialize your SDK with the created smart wallet
+const sdk = await ThirdwebSDK.fromWallet(smartWallet, "goerli", {
+  clientId: "YOUR_CLIENT_ID"
+});
+// You can now interact with the blockchain as you would with a regular EOA
+const smartWalletAddress = await sdk.wallet.getAddress();
+// gas free wallet actions
+await sdk.wallet.transfer("0x...", "0.01");
+// gas free contract deployments
+const contractAddress = await sdk.deployer.deployNFTCollection({ 
+  name: "My NFT Collection", 
+  primary_sale_recipient: smartWalletAddress 
+});
+// gas free contract interactions
+const contract = await sdk.getContract(contractAddress);
+await contract.erc721.mint({ 
+  name: "My NFT",
+  description: "My NFT description",
+  image: "https://example.com/image.png",
+});
+`}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="react" label="React">
+    <CodeBlock language="tsx">
+      {`import { useAddress, useContract, useOwnedNFTs, Web3Button } from "@thirdweb-dev/react";
+// The ThirdwebProvider setup above already handles connection to the smart wallet
+// Within the provider, you can use the react SDK hooks to interact with the blockchain
+export default function MyComponent() {
+  // Get the connected smart wallet address
+  const smartWalletAddress = useAddress();
+  // Fetch owned NFTs
+  const { contract } = useContract("0x...");
+  const { data, isLoading } = useOwnedNFTs(contract, smartWalletAddress);
+  // Mint a new NFT
+  return (
+    <Web3Button
+      contractAddress={"0x..."}
+      action={(contract) => contract.erc721.mint({ 
+          name: "My NFT",
+          description: "My NFT description",
+          image: "https://example.com/image.png",
+        })
+      }
+    >
+      Mint NFT
+    </Web3Button>
+  );
+}
+`}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="react-native" label="React Native">
+    <CodeBlock language="typescript">
+      {`import { useAddress, useContract, useOwnedNFTs, Web3Button } from "@thirdweb-dev/react-native";
+// The ThirdwebProvider setup above already handles connection to the smart wallet
+// Within the provider, you can use the react SDK hooks to interact with the blockchain
+export default function MyComponent() {
+  // Get the connected smart wallet address
+  const smartWalletAddress = useAddress();
+  // Fetch owned NFTs
+  const { contract } = useContract("0x...");
+  const { data, isLoading } = useOwnedNFTs(contract, smartWalletAddress);
+  // Mint a new NFT
+  return (
+    <Web3Button
+      contractAddress={"0x..."}
+      action={(contract) => contract.erc721.mint({ 
+          name: "My NFT",
+          description: "My NFT description",
+          image: "https://example.com/image.png",
+        })
+      }
+    >
+      Mint NFT
+    </Web3Button>
+  );
+}
+`}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="unity" label="Unity">
+    <CodeBlock language="c#">
+      {`using Thirdweb;
+public async void MintNFT()
+{
+  // The ThirdwebManger prefab holds the smart wallet connection state
+  var sdk = ThirdwebManager.Instance.SDK;
+// Get the connected smart wallet address
+var smartWalletAddress = await sdk.Wallet.GetAddress();
+// Interact with contracts
+Contract contract = sdk.GetContract("0x...");
+await contract.ERC721.Mint(new NFTMetadata()
+{
+name = "My NFT",
+description = "My NFT description",
+image = "https://example.com/image.png",
+});
+}
+`}
+
+</CodeBlock>
+
+  </TabItem>
+</Tabs>
