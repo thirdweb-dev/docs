@@ -12,17 +12,6 @@ On testnets, the only requirement is to obtain a free client id to get started.
 Once you're ready to deploy on mainnets, you will require an active [billing account](https://thirdweb.com/dashboard/settings).
 You can configure your client id to restrict interactions only with your own contracts or with any contract.
 
-### Pricing & Billing
-
-To use thirdweb's account abstraction infrastructure, you need to setup a billing account on the thirdweb dashboard Settings page.
-
-**Free Tier and Pro Tier:**
-
-- **Features:**
-  - **Bundler: **Transaction bundle calls (non-sponsored calls) are free to use.
-  - **Paymaster:** 10% premium on top of network fee based on your usage.
-    Find more information on the different billing tiers by visiting thirdweb's pricing page.
-
 ### Supported chains
 
 With a thirdweb API key, you get access to bundler and paymaster infrastructure on the following chains:
@@ -100,3 +89,14 @@ const config: SmartWalletConfig = {
   paymasterAPI: new MyPaymaster(),
 };
 ```
+
+## Pricing & Billing
+
+To use thirdweb's account abstraction infrastructure, you need to setup a billing account on the thirdweb dashboard Settings page.
+
+**Pricing**:
+
+- **Bundler**: Transaction bundle calls (non-sponsored calls) are free to use.
+- **Paymaster**: 10% premium on top of network fee based on your usage.
+
+Find more information on the different billing tiers by visiting [thirdweb's pricing page](https://thirdweb.com/pricing).
