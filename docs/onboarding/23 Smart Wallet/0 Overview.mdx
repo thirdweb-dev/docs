@@ -14,13 +14,31 @@ import QuickstartCard from "@components/QuickstartCard";
 
 Everything you need to build [ERC-4337](https://eips.ethereum.org/EIPS/eip-4337) Smart Wallets for your users.
 
-:::info What is a Smart Wallet?
-Learn more about Smart Wallets [here](/smart-wallet/how-it-works).
-:::
+Ethereum has 2 types of accounts to transfer and receive tokens: EOAs (Externally Owned Accounts) and smart contract accounts.
+A smart wallet is a wallet type requiring **no private keys or seed phrases**.
+Smart contract wallets rely on code instead of private keys to secure and recover wallet information.
 
-## Usage
+**A smart contract wallet is a Web3 wallet controlled by a smart contract following the [ERC-4337 specification](https://eips.ethereum.org/EIPS/eip-4337).**
 
-A Smart Wallet is a wallet that is controlled by a smart contract following the [ERC-4337 specification](https://eips.ethereum.org/EIPS/eip-4337).
+## Features
+
+thirdweb’s smart wallets have the following features by default:
+
+- The ability to have multiple owners on the same wallet.
+- Execute transactions (single and batched).
+- Send and receive native tokens to and from the smart wallet.
+- Send and receive [ERC-721](/solidity/extensions/erc721) and [ERC-1155](/solidity/extensions/erc1155) NFTs from the smart wallet.
+- Store contract metadata.
+- Pay for its own gas via a [paymaster](/smart-wallet/how-it-works#paymaster).
+- Assign roles and permissions such as signers and admins.
+
+And more!
+
+Smart Wallets can be deployed via the [explore page](https://thirdweb.com/explore) or customized to each application's needs using the [Solidity SDK](/solidity).
+
+The `SmartWallet` API is **composable** - you can use with your own [ERC 4337](https://eips.ethereum.org/EIPS/eip-4337) compatible factory contract and you can also use your own bundler or paymaster services.
+
+## References
 
 By using the thirdweb SDKs, you can easily create and manage smart wallets for your users:
 
@@ -38,7 +56,7 @@ By using the thirdweb SDKs, you can easily create and manage smart wallets for y
       name="React SDK"
       link="/react/react.smartwallet"
       image="/assets/languages/react.png"
-      description="Using smart wallets with Connect Wallet in the React SDK"
+      description="Using smart wallets with Connect Wallet in a React app."
     />
   </div>
   <div className="col col--4" style={{ padding: 8 }}>
@@ -46,7 +64,7 @@ By using the thirdweb SDKs, you can easily create and manage smart wallets for y
       name="React Native SDK"
       link="/react-native/wallets#smart-wallet"
       image="/assets/languages/react-native.png"
-      description="Using smart wallets with Connect Wallet in the React Native SDK"
+      description="Using smart wallets with Connect Wallet for mobile apps"
     />
   </div>
   <div className="col col--4" style={{ padding: 8 }}>
@@ -54,92 +72,19 @@ By using the thirdweb SDKs, you can easily create and manage smart wallets for y
       name="Unity SDK"
       link="/unity/thirdwebmanager#smart-wallet-options"
       image="/assets/languages/unity.webp"
-      description="Using smart wallets with the Unity SDK"
+      description="Using smart wallets in a game built with Unity"
     />
   </div>
 </div>
-
-## Features
-
-thirdweb’s smart wallets have the following features by default:
-
-- Have multiple owners
-- Execute transactions (single and batched).
-- Send and receive native tokens.
-- Send and receive ERC-721 and ERC-1155 NFTs.
-- Multicall-able.
-- Store contract metadata.
-- Pay for its own gas
-- Hold any assets
-- Assign roles and permissions
-
-And more!
-
-Smart Wallets can be customized to each application's needs using the [Solidity SDK](/solidity).
-
-The `SmartWallet` API is **composable** - you can use in your own [ERC 4337](https://eips.ethereum.org/EIPS/eip-4337) compatible factory contract and you can also use your own bundler or paymaster services.
 
 ## Pricing & Billing
 
 To use thirdweb's account abstraction infrastructure, you need to setup a billing account on the thirdweb dashboard Settings page.
 
-**Free Tier** and **Pro Tier** both are priced the same:
+**Free Tier** and **Pro Tier**:
 
 - **Features:**
-  - **Bundler**: 10% premium on top of network fee based on your usage.
+  - **Bundler**: Transaction bundle calls (non-sponsored calls) are free to use.
   - **Paymaster**: 10% premium on top of network fee based on your usage.
 
 Find more information on the different billing tiers by visiting [thirdweb's pricing page](https://thirdweb.com/pricing).
-
-## Supported chains
-
-With a thirdweb API key, you get access to bundler and paymaster infrastructure on the following chains:
-
-<details>
-  <summary>View supported chains</summary>
-  <div>
-    <ul>
-      <li>
-        <b>Polygon</b>
-      </li>
-      <li>
-        <b>Optimism</b>
-      </li>
-      <li>
-        <b>Base</b>
-      </li>
-      <li>
-        <b>Arbitrum</b>
-      </li>
-      <li>
-        <b>Linea</b>
-      </li>
-      <li>
-        <b>Goerli</b>
-      </li>
-      <li>
-        <b>Sepolia</b>
-      </li>
-      <li>
-        <b>Mumbai</b>
-      </li>
-      <li>
-        <b>Base Goerli</b>
-      </li>
-      <li>
-        <b>Optimism Goerli</b>
-      </li>
-      <li>
-        <b>Arbitrum Goerli</b>
-      </li>
-      <li>
-        <b>Linea Testnet</b>
-      </li>
-      <li>
-        <b>Celo Alfajores Testnet</b>
-      </li>
-    </ul>
-  </div>
-</details>
-
-more chains are added every week, to get support for a specific chain [contact us](https://thirdweb.typeform.com/to/Q93CVgUc?typeform-source=thirdweb-www-git-mariano-ftd-1670.thirdweb-preview.com).
