@@ -1,14 +1,15 @@
 ---
-slug: /glossary/smart-wallet
-title: Smart Wallet
+slug: /smart-wallet/how-it-works
+title: How it Works
 ---
+
+## What is a Smart Wallet?
 
 A Smart Wallet is a wallet that is controlled by a smart contract following the [ERC-4337 specification](https://eips.ethereum.org/EIPS/eip-4337).
 
 Ethereum has 2 types of accounts to transfer and receive tokens: EOAs (Externally Owned Accounts) and Contract Accounts. A smart contract wallet is a wallet managed by a contract account
 instead of an EOA. A smart wallet is a wallet type requiring **no private keys or seed phrases**.
 Smart contract wallets rely on code instead of private keys to secure and recover wallet information.
-Instead, you set _who_ and _under what conditions_, users may access the wallet via smart contracts.
 
 **A smart contract wallet is a type of Web3 wallet powered by smart contracts.**
 
@@ -22,6 +23,23 @@ Benefits of Smart Wallets:
 3. Social & Multi-Sig Recovery
    - Recover a wallet without seed phrases/passwords
    - Nominate a trusted person to recover your wallet in the case of an emergency
+
+## How does it work?
+
+When sending a transaction using a smart wallet, the `execute` method is called on the account contracts
+which sends a `UserOperation` object that defines the purpose of the transaction and includes the relevant data for verification.
+
+The requested `UserOperation` goes to an alt mempool — a waiting area specifically for pending smart account transactions — and waits for bundlers (nodes) to pick up transactions,
+bundle them, and pay the gas, via a paymaster contract, for the transaction to register all `UserOperation` in a block.
+
+To prioritize transactions, bundlers use a similar logic to how miners or validators prioritize transactions in the mempool based on the fee associated with each of them.
+Bundlers earn the combined fee paid within all UserOperation they bundled.
+
+These bundled `UserOperation` are then sent to the `EntryPoint` contract which verifies the `UserOperation` and executes the transaction.
+
+To learn more about how smart wallets work, read our [smart contract deep dive](https://blog.thirdweb.com/smart-contract-deep-dive-building-smart-wallets-for-individuals-and-teams/).
+
+![Smart Wallet Flow](/assets/smart-wallet-architecture.png)
 
 ## Terminology
 
@@ -54,5 +72,5 @@ A bundler is a smart contract that bundles multiple 'UserOperations' into a sing
 
 A paymaster is a smart contract that relays transactions. It provides a service that enables a third party to pay
 the transaction fee on behalf of the user by funding the paymaster in advance. The Paymaster acts as a gas reserve which then
-can be used during the call execution via `EntryPoint`. The thirdweb [Smart Wallet](/wallet/smart-wallet) paymaster is initially paid for by thirdweb. By using an API key,
+can be used during the call execution via the `EntryPoint` contract. The thirdweb [Smart Wallet](/smart-wallet) paymaster is initially paid for by thirdweb. By using an API key,
 the usage is tracked and billed.
