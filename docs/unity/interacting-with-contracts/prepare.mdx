@@ -14,7 +14,11 @@ To gain more granular control over the transaction process, all Contract objects
 
 ```csharp
 string connectedAddress = await ThirdwebManager.Instance.SDK.wallet.GetAddress();
-Transaction transaction = await contract.Prepare(functionName: "claim", from: connectedAddress, args: new object[] { connectedAddress, 0, 1 });
+Transaction transaction = await contract.Prepare(
+    functionName: "claim",
+    from: connectedAddress, // optional, defaults to connected address
+    args: new object[] { connectedAddress, 0, 1 }
+);
 // transaction.SetValue("0.00000000001");
 // transaction.SetGasLimit("100000");
 
@@ -120,9 +124,9 @@ string;
 </div>
 </details>
 
-## WaitForTransactionResult
+## Execute
 
-Waits for the transaction result asynchronously.
+Send the transaction and wait for it to be mined. This is useful for when you want the transaction to be executed, and need the data returned.
 
 ```csharp
 TransactionResult result = await tx.SendAndWaitForTransactionResult();
