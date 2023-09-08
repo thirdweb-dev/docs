@@ -92,6 +92,11 @@ const sidebars = {
           id: "interacting-with-contracts/write",
         },
         {
+          type: "doc",
+          label: "Transaction Builder",
+          id: "interacting-with-contracts/prepare",
+        },
+        {
           type: "category",
           label: "Using Extensions",
           collapsed: false,
