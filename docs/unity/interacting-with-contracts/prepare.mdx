@@ -1,0 +1,144 @@
+---
+title: Transaction Builder
+slug: /contract.write
+hide_title: true
+---
+
+# Transaction Builder
+
+By default, all transactions initiated using the SDK perform every step of the process for a transaction; From preparing and building the transaction all the way to waiting until it has been mined, and the data is available to be read from the blockchain.
+
+To gain more granular control over the transaction process, all Contract objects come with a Prepare function that returns a Transaction object, which can be used to build, fine-tune, and execute the transaction.
+
+## Usage
+
+```csharp
+string connectedAddress = await ThirdwebManager.Instance.SDK.wallet.GetAddress();
+Transaction transaction = await contract.Prepare(functionName: "claim", from: connectedAddress, args: new object[] { connectedAddress, 0, 1 });
+// transaction.SetValue("0.00000000001");
+// transaction.SetGasLimit("100000");
+
+try
+{
+    var data = await transaction.Simulate();
+    Debugger.Instance.Log("[Custom Call] Simulate Successful", "Data: " + data.ToString()");
+}
+catch (System.Exception e)
+{
+    Debugger.Instance.Log("[Custom Call] Simulate Error", e.Message);
+    return;
+}
+
+await transaction.EstimateAndSetGasLimitAsync();
+
+var gasPrice = await transaction.GetGasPrice();
+Debug.Log($"Gas Price: {gasPrice}");
+
+var gasCosts = await transaction.EstimateGasCosts();
+Debug.Log($"Gas Cost: {gasCosts.wei} WEI");
+
+Debugger.Instance.Log("[Custom Call] Transaction Preview", transaction.ToString());
+
+try
+{
+    string transactionResult = await transaction.Send(gasless: false);
+    Debugger.Instance.Log("[Custom Call] Send Successful", "Tx Hash: " + transactionResult);
+}
+catch (System.Exception e)
+{
+    Debugger.Instance.Log("[Custom Call] Send Error", e.ToString());
+}
+}
+```
+
+## EstimateGasCost
+
+Estimate the gas cost for a transaction.
+
+```csharp
+var gasCost = await tx.EstimateGasCosts();
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+Returns the gas cost for this transaction in both `ether` and `wei`.
+
+```csharp
+GasCosts;
+```
+
+</div>
+</details>
+
+## EstimateGasLimit
+
+Estimate the gas limit for a transaction.
+
+```csharp
+var gasLimit = await tx.EstimateGasLimit();
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+Returns the gas limit for this transaction.
+
+```csharp
+BigInteger;
+```
+
+</div>
+</details>
+
+## Send
+
+Send the transaction without waiting for it to be mined. This is useful for when you want the transaction to be executed, but don’t need the data returned.
+
+```csharp
+string txHash = await tx.Send();
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+Returns the transaction hash as a `string`.
+
+```csharp
+string;
+```
+
+</div>
+</details>
+
+## WaitForTransactionResult
+
+Waits for the transaction result asynchronously.
+
+```csharp
+TransactionResult result = await tx.SendAndWaitForTransactionResult();
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+Returns the transaction result as a <see cref="TransactionResult"/> object.
+
+```csharp
+TransactionResult;
+```
+
+</div>
+</details>
