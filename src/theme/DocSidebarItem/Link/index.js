@@ -45,6 +45,7 @@ export const iconMapping = {
   Guides: "/assets/resources/guides.svg",
   CLI: "/assets/product/CLI.png",
   Glossary: "/assets/icons/journal-album.svg",
+  "Web3 API": "/assets/product/sdk.png",
 };
 
 export default function DocSidebarItemLink({
