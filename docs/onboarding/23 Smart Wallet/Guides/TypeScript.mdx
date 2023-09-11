@@ -3,9 +3,9 @@ slug: /smart-wallet/guides/typescript
 title: Using Smart Wallet with the Typescript SDK
 ---
 
-# How to use the Smart Wallet with the Typescript SDK
+# Using Smart Wallet with the Typescript SDK
 
-By using the [wallet SDK](/wallet/smart-wallet) alongside the [TypeScript SDK](/typescript), we can use smart wallets in our applications easily.
+By using the [wallet SDK](/wallet/smart-wallet) alongside the [TypeScript SDK](/typescript), you can use smart wallets in your applications easily.
 
 ## Example Use Cases
 
@@ -25,14 +25,19 @@ First, you need to deploy an account factory. This is a contract that will be us
 
 There are two ways to deploy an account factory:
 
+- Deploy a pre-built account factory from the [explore page](https://thirdweb.com/explore).
+- Deploy a custom account factory using the [Solidity SDK](/solidity).
+
 ### 1.(a) Deploy a Pre-Built Contract
 
 You can deploy a pre-built account factory from the [explore page](https://thirdweb.com/explore).
 Head to the [Account Factory](https://thirdweb.com/thirdweb.eth/AccountFactory) contract page, Select your desired network and click on Deploy Now:
 
+![Deploy Now](../assets/explore.png)
+
 Alternatively, you can deploy [ManagedAccountFactory](https://thirdweb.com/thirdweb.eth/ManagedAccountFactory) or [DynamicAccountFactory](https://thirdweb.com/thirdweb.eth/DynamicAccountFactory) to create upgradable wallets.
 
-**Learn more about the different account factories [here]**(/solidity/base-contracts/smart-accounts).
+Learn more about the different account factories [here](/solidity/base-contracts/smart-accounts).
 
 ### 1.(b) Deploy a Custom Contract
 
@@ -251,3 +256,10 @@ Here, you will see the following output:
 As you can see, upon claiming the token, the smart wallet is deployed. This is because smart account contracts are deployed when the first transaction is initiated.
 
 We have successfully deployed a smart wallet using our factory contract and claimed an ERC20 token!
+
+## Conclusion
+
+In this guide, we have learnt how to use the wallet SDK with the TypeScript SDK to
+create a smart wallet and claim an ERC20 token.
+
+Take a look at the [GitHub Repository](https://github.com/thirdweb-example/smart-wallet-script) for the full source code!
