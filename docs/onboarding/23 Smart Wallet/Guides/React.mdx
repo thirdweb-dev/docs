@@ -276,25 +276,27 @@ const connect = useConnect();
 The final code should look like this:
 
 ```tsx
-import { Mumbai } from "@thirdweb-dev/chains";
+import { Goerli } from "@thirdweb-dev/chains";
 import { useAddress, useConnect } from "@thirdweb-dev/react";
 import { LocalWallet } from "@thirdweb-dev/wallets";
 import { activeChain, smartWalletConfig } from "../main";
 import { useState } from "react";
 
-export const ConnectComponent = () => {
+export const ConnectCompoenent = () => {
   const connect = useConnect();
   const address = useAddress();
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const loadLocalWalletAndConnect = async () => {
     if (!password) {
-      alert("Please enter a password");
+      setError("Please enter a password");
       return;
     }
+    setError("");
     try {
       const personalWallet = new LocalWallet({
-        chain: Mumbai,
+        chain: Goerli,
       });
       await personalWallet.loadOrCreate({
         strategy: "encryptedJson",
@@ -304,7 +306,7 @@ export const ConnectComponent = () => {
         personalWallet: personalWallet,
       });
     } catch (e) {
-      alert((e as any).message);
+      setError((e as any).message);
     }
   };
 
@@ -326,15 +328,18 @@ export const ConnectComponent = () => {
         placeholder="Enter Password"
         onChange={(e) => setPassword(e.target.value)}
       />
+      <br />
+      <br />
       <button className="button" onClick={loadLocalWalletAndConnect}>
         Log in
       </button>
+      <p style={{ color: "red" }}>{error}</p>
     </>
   );
 };
 ```
 
-You can now go ahead and add this component in your App.tsx!
+You can now go ahead and add this component to your `App.tsx` file!
 
 On your homesecreen you will see an input like this:
 
