@@ -127,7 +127,7 @@ add the `clientId`:
 VITE_TEMPLATE_CLIENT_ID="YOUR_CLIENT_ID"
 ```
 
-Open main.tsx and change the `activeChain` variable to the chain that you deployed your contract to.
+Open `main.tsx` and change the `activeChain` variable to the chain that you deployed your contract.
 In this case, it is Mumbai:
 
 ```tsx
@@ -135,7 +135,19 @@ In this case, it is Mumbai:
 const activeChain = "mumbai";
 ```
 
-Now, let's set up our configuration for the smart wallet. In `main.tsx` add the following:
+There are two ways for your users to connect their smart wallets:
+
+- Using the pre-built ConnectWallet component.
+- Using the useConnect hook and a custom UI.
+
+Let's go through both!
+
+## Using ConnectWallet
+
+To use the pre-built UI component to connect your users to your app using smart wallet,
+we need to pass a `smartWallet` as a `supportedWallet` to the `ThirdwebProvider`.
+
+First, let's set up our configuration for the smart wallet. In `main.tsx` add the following:
 
 ```tsx
 export const smartWalletConfig = smartWallet({
@@ -149,7 +161,7 @@ You can change the configuration based on your requirements,
 but for this demo, we will enable gasless transactions and use a local wallet as the personal wallet.
 You can learn more about the configuration [here](https://portal.thirdweb.com/react/react.smartwallet).
 
-Finally, pass the configuration to the provider:
+Pass the configuration to the provider:
 
 ```tsx
 <ThirdwebProvider
@@ -161,9 +173,7 @@ Finally, pass the configuration to the provider:
 </ThirdwebProvider>
 ```
 
-## Using ConnectWallet
-
-To use the pre-build UI component to connect your users to your app using smart wallet, import the `ConnectWallet` component from the React package and add it to your app:
+Now, import the `ConnectWallet` component from the React package and add it to your app inside `App.tsx`:
 
 ```tsx
 import { ConnectWallet } from "@thirdweb/react";
