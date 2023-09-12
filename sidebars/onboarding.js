@@ -256,6 +256,11 @@ const sidebars = {
       id: "3 EVM SDK/1 How it works",
     },
     {
+      type: "doc",
+      label: "Getting Started",
+      id: "3 EVM SDK/2 Getting Started",
+    },
+    {
       type: "category",
       label: "SDK References",
       items: [
