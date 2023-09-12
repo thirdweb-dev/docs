@@ -19,14 +19,12 @@ Before you begin, ensure you have the following:
 
 - [ ] Docker
 - [ ] PostgreSQL
-- [ ] Wallet with funds
-- [ ] thirdweb secret key
 
 ## Part 1: Wallet Configuration
 
-To use web3 API, you will need to initiate it with an admin wallet using one of the following options:
+To use web3 API, you will need to initiate it with a backend wallet using one of the following options:
 
-### Backend Wallet
+### Secret Key
 
 1. Setup a `.env` file at the root of your project’s repository
 2. Set the following variables in your `.env` file:
@@ -86,40 +84,33 @@ While in beta, Web3 API only offers self-hosted options. To use Web3 API, you wi
 To host your own server with Docker:
 
 1. [Install Docker](https://docs.docker.com/get-docker/)
-2. Add the following variables to your `.env` file at the root of your repository:
 
-   ```
-
-   # DEFAULT DOCKER
-
-   POSTGRES_HOST=host.docker.internal
-   POSTGRES_DATABASE_NAME=postgres
-   POSTGRES_USER=postgres
-   POSTGRES_PASSWORD=postgres
-   ```
-
-3. To obtain the Postgres Docker Image, navigate to the root of your project and run the following command in your command line:
+2. To obtain the Postgres Docker Image, navigate to the root of your project and run the following command in your command line:
 
    ```python
    docker run --env-file ./.env -p 5432:5432 --name my-local-postgres -d postgres
    ```
 
-4. Afterwards, to get the Web3 API Docker Image, navigate to the root of your project and run the following command in your command line:
+3. Afterwards, to get the Web3 API Docker Image, navigate to the root of your project and run the following command in your command line:
 
    ```
-   docker run --env-file ./.env -p 3005:3005 --name web3-api thirdweb/web3-api:nightly
+   docker run --env-file ./.env -p 3005:3005 --name web3-api thirdweb/web3-api:latest
    ```
 
-5. To authenticate, open `localhost:3005` in your browser.
-6. Select the `Authorize` option on the dashboard.
+   :::info
+   For different versions, please see our [Docker Hub](https://hub.docker.com/r/thirdweb/web3-api) page.
+   :::
+
+4. To authenticate, open `localhost:3005` in your browser.
+5. Select the `Authorize` option on the dashboard.
 
    ![Screenshot of how to authorize via Swagger](./assets/authorize-api.png)
 
-7. Pass in your corresponding secret key created from the thirdweb dashboard and select Authorize.
+6. Pass in your corresponding secret key created from the thirdweb dashboard and select Authorize.
 
    ![Screenshot of passing in Bearer auth field](./assets/authorize-bearer.png)
 
-8. You are now ready to begin developing using APIs. To see a demonstration of endpoints, please visit the `Get Started` tutorial.
+7. You are now ready to begin developing using APIs. To see a demonstration of endpoints, please visit the `Get Started` tutorial.
 
 ### Authorization Header
 
