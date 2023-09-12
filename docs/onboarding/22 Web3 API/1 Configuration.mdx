@@ -32,7 +32,7 @@ To use web3 API, you will need to initiate it with an admin wallet using one of 
 2. Set the following variables in your `.env` file:
 
    ````json
-   WALLET_PRIVATE_KEY=<YOUR_PRIVATE_KEY>
+   POSTGRES_CONNECTION_URL=<YOUR_CONNECTION_URL>
    THIRDWEB_SDK_SECRET_KEY=<YOUR_SECRET_KEY>
    ```
    ````
@@ -53,8 +53,6 @@ Web3-API supports AWS KMS for signing & sending transactions over any EVM chain.
       AWS_SECRET_ACCESS_KEY=<aws_secret_access_key>
    AWS_REGION=<aws_region>
 
-   # Required for AWS KMS Admin Wallet
-   AWS_KMS_KEY_ID=<kms_key_id>
    ```
 
 ### Google KMS
@@ -79,7 +77,6 @@ Web3-API supports Google KMS for signing & sending transactions over any EVM cha
    GOOGLE_APPLICATION_PROJECT_ID=<google_project_id>
    GOOGLE_KMS_KEY_RING_ID=<key_ring_id>
    GOOGLE_KMS_LOCATION_ID=<location_of_key_ring>
-   GOOGLE_KMS_CRYPTO_KEY_ID=<kms_key_id> # If created on Google Console
    ```
 
 ## Part 2: Server Configuration
