@@ -12,7 +12,7 @@ Storage powers various functionalities within thirdweb products, including smart
 
 :::
 
-## Uploading Data
+## Uploading Data To IPFS
 
 Uploading data to IPFS or decentralized storage is a process that involves:
 
@@ -22,8 +22,11 @@ Uploading data to IPFS or decentralized storage is a process that involves:
 
 Learn how to upload to IPFS using Storage in the Upload Files to IPFS guide.
 
-## Accessing Data
+## Accessing Data Through IPFS Gateway
 
-Accessing data from IPFS requires an IPFS Gateway, which allows retrieval of data from the IPFS protocol on web browsers and other HTTP clients.
+To read data from IPFS, you need an [IPFS Gateway](https://docs.ipfs.tech/concepts/ipfs-gateway/). This allows you to access data from the IPFS protocol on browsers and other HTTP clients,
+such as when building an application using the Contract [SDK](https://portal.thirdweb.com/sdks).
 
-Learn more about gateways from the Gateway documentation.
+![Screenshot of Gateway diagram](./assets/gateway.png)
+
+When a user requests data from the network, the request is sent to the gateway. The gateway then retrieves the data from the decentralized storage network and returns it to the user.
