@@ -5,21 +5,30 @@ title: Overview
 
 import SupportedLanguagesSection from "@components/SupportedLanguagesSection";
 
-# SDK
+The Contract SDK serves as a comprehensive interface for interacting with contracts on any EVM-compatible blockchain network. Designed to be highly versatile, it seamlessly integrates with web applications, mobile apps, gaming platforms, and automated scripts, providing a unified toolkit for contract interaction.
 
-The SDK covers all aspects of the web3 development stack, including connecting to user&rsquo;s wallets,
-interacting with the blockchain and smart contracts, decentralized storage, authentication, and more;
-enabling you to build scalable and performant web3 applications on any EVM-compatible blockchain.
+It saves you the hassle of handling complex, repetitive logic, but it also frees you up to focus on your specific application's unique features and functionalities.
 
-Out of the box, infrastructure is provided for everything required to create decentralized applications, including
-connection to the blockchain ([RPC](/glossary/rpc)), decentralized storage ([IPFS](/glossary/ipfs) + pinning services),
-and tools to create powerful user experiences; such as [gasless transactions](/glossary/gasless-transactions), [wallet](/wallet) connection components, FIAT on-ramps, data APIs, and more.
+## Features
 
-The SDK is fully composable, meaning you can provide your own
-configuration for any component of your application and customize the SDK to your needs. In addition, each SDK is
-completely [open-source](https://github.com/orgs/thirdweb-dev/repositories) for you to verify and audit what&rsquo;s happening under the hood.
+- **Extension-Driven Framework**: The SDK uses a contract-driven approach, automatically recognizing and enabling functionality based on common standards that your contract implements like ERC20, ERC721, and ERC1155. The full list of extensions can be found in the [Solidity documentation](https://www.notion.so/Solidity-SDK-cc236c86e6874cdc87808001b13283b8?pvs=21).
+- **Multi-Lingual Support**: Offers SDKs for Unity, TypeScript, React, Python, and GO.
+- **Any EVM Compatibility**: Designed to operate with any EVM-compatible network.
+- **Cross-Platform Integration**: Suitable for web, mobile, and gaming applications, as well as automated scripting.
+- **High-Level Abstractions**: Simplifies complex contract interactions into easy-to-use APIs.
+- **Security**: Incorporates the latest security practices for safe and secure contract interaction.
+- **Flexibility and No Vendor Lock-in**:
 
-Depending on your use case, we support a variety of languages and frameworks to help build your apps and games.
+## Use Cases
+
+- **Decentralized Apps**: Easily integrate smart contracts into your DApps for added functionality.
+- **Game Development**: Incorporate token-based or blockchain mechanics into games.
+- **Enterprise Solutions**: Enhance your business logic with secure and transparent contract execution.
+- **Automated Scripts**: Create automated tasks that interact with contracts, such as minting tokens or updating records.
+
+By choosing the Contract SDK, developers gain a scalable, secure, and straightforward avenue for integrating smart contract functionalities across multiple platforms and languages.
+
+## Supported Languages
 
 <SupportedLanguagesSection
   languages={["React", "React Native", "TypeScript", "Python", "Go", "Unity"]}

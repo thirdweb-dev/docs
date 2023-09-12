@@ -1,38 +1,26 @@
 ---
 slug: /sdk/how-it-works
-title: Contract-driven development
+title: Architecture
 ---
 
-# SDK Architecture
+# Architecture
 
-The SDK covers the full spectrum of decentralized application development, from the blockchain connection to the user interface.
-To enable customization and flexibility, the SDK is architected to be modular and composable,
-allowing you to provide any custom configurations or integrations with other services and tools to replace or enhance the default functionality.
+The Contract SDK streamlines decentralized application development by managing everything from blockchain connections to user interfaces. The design is modular and highly composable, offering a mix of default settings and customization options to suit your project's unique requirements best.
 
-## Contract-driven Framework
+## Extension-Driven Framework
 
-When using the SDK to interact with smart contracts, the SDK uses a **contract-driven** framework; meaning the SDK detects common standards and patterns
-such as ERC20, ERC721, ERC1155, permissions, and more, by resolving the smart contract [ABI](https://docs.soliditylang.org/en/v0.8.19/abi-spec.html) and
-extracting the standards the contract implements; known as [extensions](/solidity).
+At the core of the SDK is an extension-driven, contract-centric architecture. This allows the SDK to automatically identify and enable functionalities based on common contract standards such as ERC20, ERC721, and ERC1155. This is achieved by resolving the smart contract's ABI and recognizing the implemented standards, also known as extensions.
 
-Each detected extension unlocks functionality in the SDK for you to use; enabling sets of methods and components
-to be used in the language of your choice to interact directly with the smart contract.
+Each identified extension activates specific sets of methods and components, enabling you to interact with the smart contract effortlessly in the programming language of your choice.
 
-Our ecosystem of tools such as our [dashboard](/dashboard) and [import](https://thirdweb.com/dashboard/contracts) feature make using smart contracts simpler and more efficient.
-Connecting to a smart contract just requires the contract address, (no ABI), and are resolved from our on-chain registry of smart contracts automatically. Each contract&rsquo;s information
-is automatically cached by the SDK, so your operations to read and write data to the smart contract are fast and efficient.
+## Seamless Onboarding and Efficiency
 
-## Batteries Included
+With our suite of tools, including a comprehensive dashboard and import feature, getting started is straightforward. All you need to connect to a smart contract is the contract's address; the SDK automatically resolves the ABI from our on-chain registry. For optimized performance, each contract's details are cached, speeding up your read and write operations.
 
-Out of the box, infrastructure to power the essential components of decentralized applications is included in the SDK.
-Connection to the blockchain via RPC, IPFS pinning service and gateways, elegant wallet onboarding flow, gasless relayers, FIAT on-ramps,
-and more are pre-configured by default, with easy configuration to customize to your needs.
+## Infrastructure
 
-All of our offerings work together seamlessly, allowing you to build performant decentralized applications without sacrificing
-your developer experience.
+The SDK comes pre-configured with essential infrastructure elements for decentralized applications. These include blockchain RPC connections, IPFS pinning services, wallet onboarding flows, gasless relayers, FIAT on-ramps, and more. While these defaults are designed to give you a running start, they can also be customized to fit the particular needs of your project.
 
-## No Vendor Lock-in
+## Flexibility and No Vendor Lock-In
 
-All aspects of the SDK are modular and composable, allowing you to customize any part of our tooling to your needs, or integrate
-with other services for specific use cases. Whether you want to provide your own RPC, use a different wallet connection flow,
-provide your own decentralized storage solution, or use a different gasless relayer, you can do so with ease.
+Our platform's modular and composable nature allows you to customize or replace any aspect of our tools. The SDK allows easy modification and integration if you prefer to use your own RPC, have a different wallet connection flow, or wish to employ another decentralized storage solution. This flexibility ensures you're never locked into specific tools or services, offering the freedom to tailor your development experience.
