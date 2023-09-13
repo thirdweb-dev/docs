@@ -85,11 +85,6 @@ const sidebars = {
     },
     {
       type: "link",
-      label: "UI Components",
-      href: "/react/react.connectwallet",
-    },
-    {
-      type: "link",
       label: "Solana SDK",
       href: "/solana",
     },
