@@ -31,6 +31,7 @@ export const iconMapping = {
   "Wallet SDK": "/assets/product/wallet.png",
   "Smart Wallet": "/assets/wallets/smart-wallet.svg",
   "Email Wallet": "/assets/wallets/paper.png",
+  "Signature Minting": "/assets/product/sdk.png",
   GamingKit: "/assets/solutions/gaming.png",
   CommerceKit: "/assets/solutions/commerce.png",
   "Connect Wallet": "/assets/product/connect-wallet.png",

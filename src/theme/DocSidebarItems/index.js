@@ -73,7 +73,13 @@ function DocSidebarItems({ items, ...props }) {
     },
     {
       title: "Solutions",
-      items: ["CommerceKit", "GamingKit", "Minting", "Digital Collectibles"],
+      items: [
+        "Signature Minting",
+        "CommerceKit",
+        "GamingKit",
+        "Minting",
+        "Digital Collectibles",
+      ],
     },
     {
       title: "Resources",
