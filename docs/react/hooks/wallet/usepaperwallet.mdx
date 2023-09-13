@@ -35,7 +35,7 @@ function App() {
     <button
       onClick={() =>
         connectWithPaperWallet({
-          paperClientId: "<YOUR_PAPER_SDK_CLIENT_ID>",
+          clientId: "<YOUR_CLIENT_ID>",
           email: "<USER_EMAIL>", // optional - directly show OTP screen
         })
       }
@@ -49,10 +49,13 @@ function App() {
 ## Configuration
 
 <details>
-  <summary>paperClientId </summary>
+  <summary>clientId </summary>
   <div>
 
-Paper SDK requires a clientId for instantiation. You can create a `clientId` for your app on [paper.xyz](https://paper.xyz/product/wallet)
+The paper wallet requires a `clientId`. You can create a `clientId` by visiting the [Dashboard](https://thirdweb.com/create-api-key).
+To learn more about API keys, visit the [API key documentation](/api-keys).
+
+Must be a `string`.
 
 </div>
 </details>
@@ -81,7 +84,7 @@ function App() {
     <button
       onClick={() =>
         connectWithPaperWallet({
-          paperClientId: "<YOUR_PAPER_SDK_CLIENT_ID>",
+          clientId: "<YOUR_CLIENT_ID>",
           chainId: Polygon.chainId,
         })
       }
@@ -127,7 +130,7 @@ function App() {
     <button
       onClick={() =>
         connectWithPaperWallet({
-          paperClientId: "<YOUR_PAPER_SDK_CLIENT_ID>",
+          clientId: "<YOUR_CLIENT_ID>",
           email: "user@example.com",
         })
       }

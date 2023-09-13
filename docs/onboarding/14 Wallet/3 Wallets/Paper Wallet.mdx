@@ -18,7 +18,7 @@ import { Ethereum } from "@thirdweb-dev/chains";
 
 const wallet = new PaperWallet({
   chain: Ethereum, //  chain to connect to
-  paperClientId: "your_paper_client_id", // Paper SDK client ID
+  clientId: "your_client_id", // client ID
 });
 
 wallet.connect();
@@ -39,10 +39,11 @@ Find more information on the different billing tiers by visiting [thirdweb's pri
 Provide a configuration object when instantiating the `PaperWallet` class.
 
 <details>
-  <summary>paperClientId (required)</summary>
+  <summary>clientId (required)</summary>
   <div>
 
-Paper SDK requires a clientId for instantiation. You can create a `clientId` for your app on [paper.xyz](https://paper.xyz/product/wallet)
+The paper wallet requires a `clientId`. You can create a `clientId` by visiting the [Dashboard](https://thirdweb.com/create-api-key).
+To learn more about API keys, visit the [API key documentation](/api-keys).
 
 Must be a `string`.
 
@@ -56,17 +57,6 @@ Must be a `string`.
 The chain to connect to by default.
 
 Must be a `Chain` object, from the [`@thirdweb-dev/chains`](https://www.npmjs.com/package/@thirdweb-dev/chains) package.
-
-</div>
-</details>
-
-<details>
-  <summary>clientId (recommended)</summary>
-  <div>
-
-Provide `clientId` to use the thirdweb RPCs for given `chains`
-
-You can create a client ID for your application from [thirdweb dashboard](https://thirdweb.com/create-api-key).
 
 </div>
 </details>
