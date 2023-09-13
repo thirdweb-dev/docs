@@ -17,36 +17,52 @@ To get started using the Contract SDK to interact with contracts, there are two 
 
 ## 1. Create a New Project
 
-To create a new project, use the thirdweb `create` command to setup the project and install the required dependencies:
+To create a new project, use the thirdweb `create` command to setup a front-end or scripting project and install the required dependencies:
 
 <Tabs>
-  <TabItem value="TypeScript" label="TypeScript" default>
-    <CodeBlock language="bash">{``}</CodeBlock>
+  <TabItem value="next" label="Next.js" default>
+    <CodeBlock language="bash">{`npx thirdweb create --next`}</CodeBlock>
   </TabItem>
-  <TabItem value="react" label="React">
-    <CodeBlock language="bash">{``}</CodeBlock>
+  <TabItem value="vite" label="Vite" default>
+    <CodeBlock language="bash">{`npx thirdweb create --vite`}</CodeBlock>
   </TabItem>
-  <TabItem value="react-native" label="React Native">
-    <CodeBlock language="bash">{``}</CodeBlock>
+  <TabItem value="react-app" label="React App" default>
+    <CodeBlock language="bash">{`npx thirdweb create --cra`}</CodeBlock>
   </TabItem>
-  <TabItem value="unity" label="Unity">
-    <CodeBlock language="bash">{``}</CodeBlock>
+  <TabItem value="react-native" label="React Native" default>
+    <CodeBlock language="bash">{`npx thirdweb create --reactNative`}</CodeBlock>
   </TabItem>
-  <TabItem value="python" label="Python">
-    <CodeBlock language="bash">{``}</CodeBlock>
+  <TabItem value="node" label="Node" default>
+    <CodeBlock language="bash">{`npx thirdweb create --node`}</CodeBlock>
   </TabItem>
-  <TabItem value="go" label="GO">
-    <CodeBlock language="bash">{``}</CodeBlock>
+  <TabItem value="express" label="Express" default>
+    <CodeBlock language="bash">{`npx thirdweb create --express`}</CodeBlock>
   </TabItem>
 </Tabs>
 
 ## 2. Add to an Existing Project
 
-To add to an existing project, install the relevant package(s) and import into the desired files:
+To add to an existing project, install the relevant package(s) and import into the desired files. For example, to install the React & TypeScript SDKs youd run the following command:
 
-install commands
+<Tabs>
+  <TabItem value="npm" label="npm" default>
+    <CodeBlock language="bash">{`npm i @thirdweb-dev/react @thirdweb-dev/sdk`}</CodeBlock>
+  </TabItem>
+  <TabItem value="yarn" label="yarn">
+    <CodeBlock language="bash">{`yarn add @thirdweb-dev/react @thirdweb-dev/sdk`}</CodeBlock>
+  </TabItem>
+  <TabItem value="pnpm" label="pnpm">
+    <CodeBlock language="bash">{`pnpm i @thirdweb-dev/react @thirdweb-dev/sdk`}</CodeBlock>
+  </TabItem>
+</Tabs>
 
-For example, if I am working in React and I want to create a contract instance, I will use the `useContract` hook, which I need to install from the React SDK:
+Then, you can import the releavnt hooks and functions, e.g. the `useContract` hook, which I need to install from the React SDK:
+
+```tsx
+import { useContract } from "@thirdweb-dev/react";
+```
+
+For more information on how to get started using each of the SDKs, see the [full references](#full-reference).
 
 ## Full Reference
 
