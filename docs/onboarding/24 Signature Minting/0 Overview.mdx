@@ -5,3 +5,57 @@ hide_title: true
 ---
 
 # Signature Minting
+
+Signature Minting, also known as "on-demand minting," allows a contract administrator to grant users the ability to mint tokens from a contract that implements one of the extensions: [`ERC721SignatureMint`](/solidity/extensions/erc721signaturemint), [`ERC1155SignatureMint`](/solidity/extensions/erc1155signaturemint) or [`ERC20SignatureMint`](/solidity/extensions/erc20signaturemint). This action requires a cryptographic signature and is limited to wallets assigned the **`MINTER`** role.
+
+This allows you to conditionally generate signatures based on some condition/criteria, or allow a user to mint tokens with admin or user-specified metadata.
+
+## Features
+
+- **Ownership Verification**: By requiring a signature, the system can ensure that the entity trying to mint a token has the right to do so.
+- **Data Integrity**: The cryptographic signature ensures that if the transaction data is altered, the signature becomes invalid.
+- **Enhanced Security**: Only **`MINTER`**-designated wallets can generate signatures, and only entities with the correct signature can mint tokens.
+- **Smart Contract Control**: By incorporating signature verification within the smart contract, you can add additional security logic around the minting process.
+- **Reduced Risk of Human Error**: Automated systems that require cryptographic signatures for minting are generally less prone to human error than manual methods.
+- **Custom metadata:** In the case of minting NFTs with signature minting, you can allow users to add custom artwork for their NFT metadata.
+- **Whitelisting:** Decide on a case-by-case basis whether a user can claim and what their claim conditions are.
+
+## Use Cases
+
+Signature minting facilitates a range of use cases including, but not limited to:
+
+- [Allowing NFT holders to mint for free](https://blog.thirdweb.com/guides/signature-drop/)
+- [Creating a community-made NFT collection](https://blog.thirdweb.com/guides/mint-nft-unique-code/)
+- [Restricted mints to users who are GitHub contributors](https://blog.thirdweb.com/guides/allow-github-contributors-to-mint-an-nft/)
+- [Restricted mints to Discord members](https://github.com/thirdweb-example/community-rewards)
+- Allowing users to add custom artwork for their NFTs metadata
+- Marking NFT metadata with user-specific or off-chain information
+
+## Signature Minting in the Solidity SDK
+
+### Base Contracts
+
+- [ERC721SignatureMint](/solidity/base-contracts/erc721signaturemint)
+- [ERC1155SignatureMint](/solidity/base-contracts/erc1155signaturemint)
+- [ERC20SignatureMint](/solidity/base-contracts/erc20signaturemint)
+
+### Extensions
+
+Add signature minting to your smart contract by using the following extensions:
+
+- [ERC721SignatureMint](/solidity/extensions/erc721signaturemint)
+- [ERC1155SignatureMint](/solidity/extensions/erc1155signaturemint)
+- [ERC20SignatureMint](/solidity/extensions/erc20signaturemint)
+
+## Pre-Built Contracts Implementing Signature Minting
+
+- [SigntureDrop](/pre-built-contracts/signature-drop)
+
+Example use cases that the thirdweb pre-built contracts solve:
+
+1. **Self-Minting**: For example, a user can mint their Twitter profile picture as an NFT on their own contract.
+2. **Audience Minting**:
+   - **Pre-defined Content**: The admin pre-determines the nature of tokens, such as in a 10k NFT drop.
+   - **Dynamic Content**: Tokens are not pre-defined, enabling real-time customization like a course completion certificate with the participant's name.
+
+By implementing Signature Minting, you are adopting a scalable, secure, and versatile mechanism for minting digital assets.
