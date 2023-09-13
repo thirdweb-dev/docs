@@ -1,0 +1,39 @@
+---
+slug: /embedded-wallet/architecture
+title: Architecture
+hide_title: true
+---
+
+# Architecture
+
+## Is the embedded wallet global?
+
+No, embedded wallets are scoped to your app only. If a user uses the same email to sign in to a different app, that app will manage a different wallet entirely. However, the user is able to get a global view of all their application-scoped Paper wallets by logging into the My Wallets page.
+
+Benefits:
+
+- Each app has access to wallets created on their app only and cannot manage wallets from other apps.
+- Users only see tokens sent/purchased from your app.
+- Some behind-the-scenes information can be shared to improve the user experience, such as saved payment methods and KYC verification provided to Paper. Apps can never view this information (see Security & Privacy FAQ).
+
+![App Scopes](./assets/app-scoped.png)
+
+## What is Paper's ability to scale?
+
+Paper can create up to 100 wallets/second by default, and can support higher limits (up to 3,000 wallets/second) upon request.
+
+## Interopability
+
+Your users will be able to connect to any web3 dApp that supports WalletConnect by logging into withpaper.com/wallet. An example of this would be listing on OpenSea.
+
+## How is the private key managed?
+
+The private key is sharded into three pieces. The first piece is stored on the customer’s device, the second piece is stored in Amazon’s KMS and encrypted by the customer’s email/social auth, and the third piece is stored on Paper. At anytime, there needs to be 2/3 pieces for the private key to be reconstructed.
+
+Paper is non-custodial because we only have access to the third piece stored on Paper’s servers, and we cannot access the other two shards without the user logging into your application.
+
+Our security architecture has been audited by HackerOne and we have an ongoing bounty program to ensure vulnerabilities are being covered.
+
+## What happens if Paper or my database gets breached?
+
+Using MPC technology, your customers’ assets are safe even in the event that Paper or you are compromised. This is because the attacker will only be able to access 1 of the 3 shards, and that is not enough to reconstruct the private key

@@ -1,0 +1,47 @@
+---
+slug: /embedded-wallet/getting-started
+title: Getting Started
+hide_title: true
+---
+
+# Getting Started
+
+Make sure that you are developing on a [secure origin](https://www.chromium.org/Home/chromium-security/prefer-secure-origins-for-powerful-new-features/), which includes localhost and any site on https://. Paper uses cryptography libraries that are unsupported on http://
+
+## Can the embedded wallet be used outside my app?
+
+Yes! Your application's embedded wallets are able to use the My Wallets page to sign in to their wallet, view their NFTs, and connect to web3 apps via WalletConnect.
+
+## Which blockchains are supported?
+
+Ethereum, Sepolia, Goerli
+Polygon, Mumbai
+Optimisim Goerli
+Binance Smart Chain and Testnet
+Avalanche
+Arbitrum, Arbitrum-Nova and Artbitrum Goerli
+
+## How can my user transfer the NFT from their embedded wallet?
+
+Buyers can visit My Wallets to view and transfer NFTs in their Embedded Wallets. We cover all gas fees related to transferring and offer a way for users to export their private key.
+
+## How will my users recover their account in case they lose access to their auth?
+
+Currently, users will rely on the built-in recovery of their auth method. Here is an example for Google.
+
+Soon, developers will be able to toggle on the option for users to add a back-up auth method in the case the user loses access to their primary auth method & its recovery.
+
+## Is there MFA/2FA for additional security?
+
+Soon, developers will be able to toggle on the option for users to add additional security to their social wallet by adding a user-set password.
+
+Does Paper support my existing auth system?
+This feature is available upon request. Please contact sales@thirdweb.com.
+
+## Can I white-label the wallet?
+
+You can completely white-label the wallet experience and we provide API & SDK endpoints to make this easier. We currently have metadata APIs for NFTs, and a way to pull token balance.
+
+## Do you support transaction signing?
+
+We provide you with the signer through the SDK when the user is logged in to EWS in your application. This will allow you to create a custom signing experience for your app including signing transactions on behalf of users who are online.

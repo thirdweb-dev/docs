@@ -51,7 +51,7 @@ const sidebars = {
     {
       type: "link",
       label: "Email Wallet",
-      href: "/wallet/paper",
+      href: "/embedded-wallet",
     },
     {
       type: "link",
