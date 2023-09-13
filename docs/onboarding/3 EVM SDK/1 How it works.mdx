@@ -5,22 +5,39 @@ title: Architecture
 
 # Architecture
 
-The Contract SDK streamlines decentralized application development by managing everything from blockchain connections to user interfaces. The design is modular and highly composable, offering a mix of default settings and customization options to suit your project's unique requirements best.
+The Contract SDK streamlines decentralized application development by managing everything from
+blockchain connections to user interfaces.
+The design is modular and highly composable,
+offering a mix of default settings and customization options to suit your project's unique requirements best.
 
 ## Extension-Driven Framework
 
-At the core of the SDK is an extension-driven, contract-centric architecture. This allows the SDK to automatically identify and enable functionalities based on common contract standards such as ERC20, ERC721, and ERC1155. This is achieved by resolving the smart contract's ABI and recognizing the implemented standards, also known as extensions.
+The Contract SDK has an **extension-driven**, contract-centric architecture.
+This allows the SDK to automatically identify and enable functionalities based on
+common contract standards such as ERC20, ERC721, and ERC1155.
+This is achieved by resolving the smart contract's ABI and extracting the implemented standards; known as extensions.
 
-Each identified extension activates specific sets of methods and components, enabling you to interact with the smart contract effortlessly in the programming language of your choice.
+Each detected extension unlocks functionality in the SDK for you to use;
+enabling sets of methods and components to be used in the language of your choice to interact directly with the smart contract.
 
-## Seamless Onboarding and Efficiency
+## No ABI Required
 
-With our suite of tools, including a comprehensive dashboard and import feature, getting started is straightforward. All you need to connect to a smart contract is the contract's address; the SDK automatically resolves the ABI from our on-chain registry. For optimized performance, each contract's details are cached, speeding up your read and write operations.
+Our ecosystem of tools such as our [dashboard](/dashboard) and [import](/dashboard/import) feature make using smart contracts simpler and more efficient.
+Connecting to a smart contract just requires the contract address, (no ABI), and are resolved from our on-chain registry of smart contracts automatically.
+Each contract’s information is automatically cached by the SDK,
+so your operations to read and write data to the smart contract are fast and efficient.
 
 ## Infrastructure
 
-The SDK comes pre-configured with essential infrastructure elements for decentralized applications. These include blockchain RPC connections, IPFS pinning services, wallet onboarding flows, gasless relayers, FIAT on-ramps, and more. While these defaults are designed to give you a running start, they can also be customized to fit the particular needs of your project.
+The SDK comes pre-configured with essential infrastructure to create decentralized applications.
+These include blockchain RPC connections, IPFS pinning services, wallet onboarding flows,
+gasless relayers, FIAT on-ramps, and more.
+These defaults are designed to streamline the developer experience to build permformant and scalable applications,
+they can also be customized to fit a projects requirements.
 
 ## Flexibility and No Vendor Lock-In
 
-Our platform's modular and composable nature allows you to customize or replace any aspect of our tools. The SDK allows easy modification and integration if you prefer to use your own RPC, have a different wallet connection flow, or wish to employ another decentralized storage solution. This flexibility ensures you're never locked into specific tools or services, offering the freedom to tailor your development experience.
+All components of the SDK are modular and customizable,
+offering the flexibility to adapt the tooling to specific needs or to integrate
+with alternative services for unique use cases. This enables seamless changes to RPC providers,
+wallet connection flows, decentralized storage solutions, or gasless relayers as needed.
