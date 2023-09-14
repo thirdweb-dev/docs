@@ -15,7 +15,7 @@ The call will be awaited until the transaction is mined and the transaction rece
 ## Usage
 
 ```csharp
-var data = await contract.Write("functionName");
+TransactionResult result = await contract.Write("functionName");
 ```
 
 ## Configuration
@@ -33,7 +33,7 @@ Optional transaction overrides to change parameters like `value` or `gasLimit`.
 Must be of type `TransactionRequest`
 
 ```csharp
-var data = await contract.Write("functionName", new TransactionRequest() { value = "100000" });
+TransactionResult result = await contract.Write("functionName", new TransactionRequest() { value = "100000", gasLimit = "100000" });
 ```
 
 ### args
@@ -43,5 +43,7 @@ The arguments to the function/variable, in the same order they are on your smart
 If you provide too few or too many arguments, the function will throw an error.
 
 ```csharp
-var data = await contract.Write("functionName", arg1, arg2, ...);
+BigInteger arg1 = 1234;
+string arg2 = "hello world";
+TransactionResult result = await contract.Write("functionName", arg1, arg2, ...);
 ```
