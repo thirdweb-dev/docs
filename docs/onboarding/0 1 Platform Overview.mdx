@@ -40,11 +40,11 @@ Onboard, manage and authenticate users with thirdweb's wallet integrations.
   - [React](/react/connectwallet)
   - [React Native](/react-native/connectwallet)
   - [Unity](/unity/unity.connectwallet)
-- **Wallet SDK**: allows you to build a fully featured wallet solution or integrate an existing wallet provider with thirdweb's Typescript, React, React Native, and Unity SDKs.
+- [**Wallet SDK**](/wallet): allows you to build a fully featured wallet solution or integrate an existing wallet provider with thirdweb's Typescript, React, React Native, and Unity SDKs.
 
 ### 3. Authenticate Users
 
-Auth is a developer SDK that lets you integrate passwordless **web3-native authentication and authorization** into your applications.
+[Auth](/auth) is a developer SDK that lets you integrate passwordless **web3-native authentication and authorization** into your applications.
 
 ## Smart Contracts
 
@@ -72,7 +72,9 @@ A full list of the available contracts can be found [in the pre-built ocntracts 
 
 ### 4. Publish Smart Contracts
 
-Make your smart contract available for others to deploy by publishing it.
+Make your smart contract available for others to deploy by publishing it using the CLI.
+Either use the "direct deploy" or "factory" methods to publish your contract to allow users to deploy either a full smart contract or a proxy respectively.
+For more information, see the [publish documentation](/publish).
 
 ### 5. Interact with Smart Contracts
 
@@ -91,11 +93,18 @@ These features optimize performance and enhance developer experience when buildi
 
 ## Infrastructure
 
+Connect your application to decentralized networks.
+
 ### Storage
 
 - [**Storage SDK**](/storage): Store files from IPFS using the Storage SDK.
-- [**Gateway**](/storage#gateway): retrieve files from IPFS using the Gateway.
+- [**Gateway**](/storage#gateway): Retrieve files from IPFS using the Gateway.
 
 ### RPC Edge
 
 thirdweb's RPC Edge is a high-performance, scalable, and reliable RPC service that provides a connection to any EVM-compatible blockchain.
+
+### Account Abstraction Infrastructure
+
+- [**Bundler**](/smart-wallet/infrastructure): bundle operations and execute transactions with [ERC-4337 smart accounts](/smart-wallet).
+- [**Paymaster**](/smart-wallet/infrastructure): Paymaster is a service that enables sponsored transactions with [ERC-4337 smart accounts](/smart-wallet).
