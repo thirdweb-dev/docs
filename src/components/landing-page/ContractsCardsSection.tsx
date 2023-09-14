@@ -44,13 +44,6 @@ const products: Product[] = [
       "Publish your contracts to be discovered by our community of 70k+ web3 developers",
     link: "/publish",
   },
-  {
-    image: "/assets/product/ui.png",
-    name: "UI Components",
-    description:
-      "Plug and play UI components to easily add web3 functionality to your apps",
-    link: "/ui-components",
-  },
 ];
 
 export default function ContractsSection() {

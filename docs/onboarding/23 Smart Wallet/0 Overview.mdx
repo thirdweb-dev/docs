@@ -1,0 +1,140 @@
+---
+slug: /smart-wallet
+title: Overview
+hide_title: true
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+import ViewRepoButton from "@components/ViewRepoButton";
+import QuickstartCard from "@components/QuickstartCard";
+
+# Smart Wallet
+
+Everything you need to build [ERC-4337](https://eips.ethereum.org/EIPS/eip-4337) Smart Wallets for your users.
+
+Ethereum has 2 types of accounts to transfer and receive tokens: EOAs (Externally Owned Accounts) and smart contract accounts.
+A smart wallet is a wallet type requiring **no private keys or seed phrases**.
+Smart contract wallets rely on code instead of private keys to secure and recover wallet information.
+
+**A smart contract wallet is a Web3 wallet controlled by a smart contract following the [ERC-4337 specification](https://eips.ethereum.org/EIPS/eip-4337).**
+
+## Features
+
+thirdweb’s smart wallets have the following features by default:
+
+- The ability to have multiple owners on the same wallet.
+- Execute transactions (single and batched).
+- Send and receive native tokens to and from the smart wallet.
+- Send and receive [ERC-721](/solidity/extensions/erc721) and [ERC-1155](/solidity/extensions/erc1155) NFTs from the smart wallet.
+- Store contract metadata.
+- Pay for its own gas via a [paymaster](/smart-wallet/how-it-works#paymaster).
+- Assign roles and permissions such as signers and admins.
+
+And more!
+
+Smart Wallets can be deployed via the [explore page](https://thirdweb.com/explore) or customized to each application's needs using the [Solidity SDK](/solidity).
+
+The `SmartWallet` API is **composable** - you can use with your own [ERC 4337](https://eips.ethereum.org/EIPS/eip-4337) compatible factory contract and you can also use your own bundler or paymaster services.
+
+## References
+
+By using the thirdweb SDKs, you can easily create and manage smart wallets for your users:
+
+<div className="row" style={{ marginBottom: 12, padding: 8, paddingTop: 0 }}>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Wallet SDK"
+      link="/wallet/smart-wallet"
+      image="/assets/product/wallet.png"
+      description="Using smart wallets with the Wallet SDK for low level control in JavaScript"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="React SDK"
+      link="/react/react.smartwallet"
+      image="/assets/languages/react.png"
+      description="Using smart wallets with Connect Wallet in a React app."
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="React Native SDK"
+      link="/react-native/wallets#smart-wallet"
+      image="/assets/languages/react-native.png"
+      description="Using smart wallets with Connect Wallet for mobile apps"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Unity SDK"
+      link="/unity/thirdwebmanager#smart-wallet-options"
+      image="/assets/languages/unity.webp"
+      description="Using smart wallets in a game built with Unity"
+    />
+  </div>
+</div>
+
+## Supported chains
+
+<details>
+  <summary>View supported chains</summary>
+  <div>
+    <ul>
+      <li>
+        <b>Polygon</b>
+      </li>
+      <li>
+        <b>Optimism</b>
+      </li>
+      <li>
+        <b>Base</b>
+      </li>
+      <li>
+        <b>Arbitrum</b>
+      </li>
+      <li>
+        <b>Linea</b>
+      </li>
+      <li>
+        <b>Goerli</b>
+      </li>
+      <li>
+        <b>Sepolia</b>
+      </li>
+      <li>
+        <b>Mumbai</b>
+      </li>
+      <li>
+        <b>Base Goerli</b>
+      </li>
+      <li>
+        <b>Optimism Goerli</b>
+      </li>
+      <li>
+        <b>Arbitrum Goerli</b>
+      </li>
+      <li>
+        <b>Linea Testnet</b>
+      </li>
+      <li>
+        <b>Celo Alfajores Testnet</b>
+      </li>
+    </ul>
+  </div>
+</details>
+
+To support a chain not listed, [contact us](https://thirdweb.typeform.com/to/Q93CVgUc?typeform-source=thirdweb-www-git-mariano-ftd-1670.thirdweb-preview.com).
+
+## Pricing & Billing
+
+To use thirdweb's account abstraction infrastructure, you need to setup a billing account on the thirdweb dashboard Settings page.
+
+**Pricing**:
+
+- **Bundler**: Transaction bundle calls (non-sponsored calls) are free to use.
+- **Paymaster**: 10% premium on top of network fee based on your usage.
+
+Find more information on the different billing tiers by visiting [thirdweb's pricing page](https://thirdweb.com/pricing).

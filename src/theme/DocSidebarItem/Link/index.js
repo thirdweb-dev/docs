@@ -40,11 +40,12 @@ export const iconMapping = {
   "UI Components": "/assets/product/ui.png",
   Home: "/assets/icons/home.png",
   "Overview ": "/assets/icons/wrench.png",
-  "API Keys": "/assets/icons/rocket.png",
+  "API Keys": "/assets/resources/key.png",
   Templates: "/assets/resources/sdk-reference.svg",
   Guides: "/assets/resources/guides.svg",
   CLI: "/assets/product/CLI.png",
   Glossary: "/assets/icons/journal-album.svg",
+  "Web3 API": "/assets/product/sdk.png",
 };
 
 export default function DocSidebarItemLink({
@@ -110,9 +111,7 @@ export default function DocSidebarItemLink({
             }
 
             ${
-              (label === "Home" ||
-                label === "Overview " ||
-                label === "API Keys") &&
+              (label === "Home" || label === "Overview ") &&
               styles.invertLightIcon
             }
               
