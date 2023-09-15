@@ -15,9 +15,7 @@ A wallet configurator for [Paper Wallet](/wallet/paper) which allows integrating
 ```tsx
 import { paperWallet } from "@thirdweb-dev/react";
 
-const paperWalletConfig = paperWallet({
-  paperClientId: "PAPER_CLIENT_ID",
-});
+const paperWalletConfig = paperWallet();
 ```
 
 <CustomizeWalletConfigurator
@@ -26,17 +24,6 @@ const paperWalletConfig = paperWallet({
   connectUI="PaperWalletConnectUI"
   selectUI="PaperWalletSelectUI"
 />
-
-<details>
-  <summary>paperClientId  </summary>
-  <div>
-
-Paper SDK requires a paper clientId for instantiation. You can create a paper clientId for your app on [paper.xyz](https://paper.xyz/product/wallet)
-
-Must be a `string`.
-
-</div>
-</details>
 
 <details>
   <summary>advancedOptions (optional)</summary>
@@ -88,14 +75,7 @@ styles: {
 To allow users to connect to this wallet using the [ConnectWallet](/react/react.connectwallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop.
 
 ```tsx
-<ThirdwebProvider
-  clientId="your-client-id"
-  supportedWallets={[
-    paperWallet({
-      paperClientId: "PAPER_CLIENT_ID",
-    }),
-  ]}
->
+<ThirdwebProvider clientId="your-client-id" supportedWallets={[paperWallet()]}>
   <YourApp />
 </ThirdwebProvider>
 ```
@@ -109,9 +89,7 @@ The wallet also needs to be added in [ThirdwebProvider's supportedWallets](/reac
 Calling `connect` opens the Paper Wallet's Modal and prompts the user to log in with their email address.
 
 ```tsx
-const paperWalletConfig = paperWallet({
-  paperClientId: "PAPER_CLIENT_ID",
-});
+const paperWalletConfig = paperWallet(options);
 
 function App() {
   const connect = useConnect();
