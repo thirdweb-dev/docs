@@ -1,0 +1,47 @@
+---
+slug: /signature-minting/how-it-works
+title: How it Works
+hide_title: true
+---
+
+# How it Works
+
+The 'signature minting' mechanism is a way for a contract admin to authorize an external party's request to mint tokens on the admin's contract.
+
+Any wallet with the `ADMIN` role can sign a ['payload' or 'mint request'](#terms) that specifies e.g. what address should the tokens be minted to, what price should be collected in exchange for the minted tokens, the metadata, etc.
+
+Any external party can then present the payload, along with the signature generated from a contract admin to the smart contract that implements a `SignatureMint` extension. Tokens will then be minted according to the information specified in the payload.
+
+## Signature Minting Technical Steps
+
+Contracts that have signature minting enabled have to inherit from the `SignatureMint` extension.
+
+- Deploying a contract, either via Explore or a custom contract, that inherits from one of the `SignatureMint` extensions.
+- An **`ADMIN`** role wallet generates a signed payload that outlines the specifics of the minting request, typalling using the [SDK](typescript/sdk.erc721signaturemint). For details on payload fields, refer to the **[Terms section](#terms)** below.
+- A wallet, typically belonging to a user, invokes the **`mintWithSignature`** function using the supplied payload to mint the token. This is easiest when performed using the (Contract SDK)[/sdk].
+
+## Terms
+
+- `MintRequest` or Payload
+
+The fields in `MintRequest` are what make up a payload or 'mint request'. This is the payload that a contract admin signs off, to be used by an external party to mint tokens on the admin's contract.
+
+When any external party presents a payload to the contract implementing the 'signature minting' extension,
+tokens are minted exactly according to the information specified in the presented `MintRequest`.
+
+```solidity
+struct MintRequest {
+    address to;
+    address royaltyRecipient;
+    uint256 royaltyBps;
+    address primarySaleRecipient;
+    uint256 tokenId;
+    string uri;
+    uint256 quantity;
+    uint256 pricePerToken;
+    address currency;
+    uint128 validityStartTimestamp;
+    uint128 validityEndTimestamp;
+    bytes32 uid;
+}
+```
