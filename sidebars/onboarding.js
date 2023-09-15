@@ -75,12 +75,7 @@ const sidebars = {
     },
     {
       type: "link",
-      label: "Contract SDKs",
-      href: "/sdk",
-    },
-    {
-      type: "link",
-      label: "SDKs",
+      label: "Contract SDK",
       href: "/sdk",
     },
     {
@@ -266,6 +261,11 @@ const sidebars = {
       type: "doc",
       label: "Architecture",
       id: "3 EVM SDK/1 How it works",
+    },
+    {
+      type: "doc",
+      label: "Getting Started",
+      id: "3 EVM SDK/2 Getting Started",
     },
     {
       type: "category",
