@@ -1,0 +1,73 @@
+---
+slug: /sdk/getting-started
+title: Getting Started
+---
+
+import SupportedLanguagesSection from "@components/SupportedLanguagesSection";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+# Getting Started
+
+To get started using the Contract SDK to interact with contracts, there are two options:
+
+1. Create a new project with the [CLI](/cli/create) which automatically sets up the relevant package(s).
+2. Add to an existing project by [installing](/cli/install) the relevant package(s).
+
+## 1. Create a New Project
+
+To create a new project, use the thirdweb [`create`](/cli/create) command to setup a front-end or scripting project and install the required dependencies:
+
+<Tabs>
+  <TabItem value="next" label="Next.js" default>
+    <CodeBlock language="bash">{`npx thirdweb create --next`}</CodeBlock>
+  </TabItem>
+  <TabItem value="vite" label="Vite" default>
+    <CodeBlock language="bash">{`npx thirdweb create --vite`}</CodeBlock>
+  </TabItem>
+  <TabItem value="react-app" label="React App" default>
+    <CodeBlock language="bash">{`npx thirdweb create --cra`}</CodeBlock>
+  </TabItem>
+  <TabItem value="react-native" label="React Native" default>
+    <CodeBlock language="bash">{`npx thirdweb create --reactNative`}</CodeBlock>
+  </TabItem>
+  <TabItem value="node" label="Node" default>
+    <CodeBlock language="bash">{`npx thirdweb create --node`}</CodeBlock>
+  </TabItem>
+  <TabItem value="express" label="Express" default>
+    <CodeBlock language="bash">{`npx thirdweb create --express`}</CodeBlock>
+  </TabItem>
+</Tabs>
+
+## 2. Add to an Existing Project
+
+To add to an existing project, install the relevant package(s) and import into the desired files. For example, to install the [React](/react) and [TypeScript SDKs](/typescript), run the following command:
+
+<Tabs>
+  <TabItem value="npm" label="npm" default>
+    <CodeBlock language="bash">{`npm i @thirdweb-dev/react @thirdweb-dev/sdk`}</CodeBlock>
+  </TabItem>
+  <TabItem value="yarn" label="yarn">
+    <CodeBlock language="bash">{`yarn add @thirdweb-dev/react @thirdweb-dev/sdk`}</CodeBlock>
+  </TabItem>
+  <TabItem value="pnpm" label="pnpm">
+    <CodeBlock language="bash">{`pnpm i @thirdweb-dev/react @thirdweb-dev/sdk`}</CodeBlock>
+  </TabItem>
+</Tabs>
+
+Then, you can import the relevant hooks and functions, e.g. the `useContract` hook, which you need to install from the React SDK:
+
+```tsx
+import { useContract } from "@thirdweb-dev/react";
+```
+
+For more information on how to get started using each of the SDKs, see the [full references](#full-reference).
+
+## Full Reference
+
+How and what can be done with the SDKs depends on the required language. The same base set of functionality is included but consult the full references:
+
+<SupportedLanguagesSection
+  languages={["React", "React Native", "TypeScript", "Python", "Go", "Unity"]}
+/>
