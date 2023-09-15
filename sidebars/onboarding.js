@@ -75,12 +75,7 @@ const sidebars = {
     },
     {
       type: "link",
-      label: "Contract SDKs",
-      href: "/sdk",
-    },
-    {
-      type: "link",
-      label: "SDKs",
+      label: "Contract SDK",
       href: "/sdk",
     },
     {
