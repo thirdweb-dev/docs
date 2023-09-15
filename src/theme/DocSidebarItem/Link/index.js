@@ -46,6 +46,7 @@ export const iconMapping = {
   CLI: "/assets/product/CLI.png",
   Glossary: "/assets/icons/journal-album.svg",
   "Web3 API": "/assets/product/sdk.png",
+  "Bundler & Paymaster": "/assets/wallets/smart-wallet.svg",
 };
 
 export default function DocSidebarItemLink({
