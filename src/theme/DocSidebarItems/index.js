@@ -53,7 +53,7 @@ function DocSidebarItems({ items, ...props }) {
     },
     {
       title: "Infrastructure",
-      items: ["Storage"],
+      items: ["Storage", "Bundler & Paymaster"],
     },
     {
       title: "Tools",
