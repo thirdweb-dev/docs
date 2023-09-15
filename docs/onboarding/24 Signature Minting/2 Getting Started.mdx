@@ -23,7 +23,15 @@ There are three ways to deploy a contract that implements one of the `SignatureM
 
 The following pre-built contract implements the [`ERC721SignatureMint`](/solidity/extensions/erc721signaturemint) extension:
 
-- [SignatureDrop](/pre-built-contracts/signature-drop)
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Signature Drop Pre-Built Contract"
+      link="/pre-built-contracts/signature-drop"
+      image="/assets/product/contracts.png"
+    />
+  </div>
+</div>
 
 To deploy this contract,
 
@@ -35,9 +43,29 @@ To deploy this contract,
 
 The following Solidity SDK base contracts implement the `SignatureMint` extensions:
 
-- [`ERC721SignatureMint`](/solidity/base-contracts/erc721signaturemint)
-- [`ERC1155SignatureMint`](/solidity/base-contracts/erc1155signaturemint)
-- [`ERC20SignatureMint`](/solidity/base-contracts/erc20signaturemint)
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--4" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="ERC721 Signature Mint Base Contract"
+      link="/solidity/base-contracts/erc721signaturemint"
+      image="/assets/product/sdk.png"
+    />
+  </div>
+  <div className="col col--4" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="ERC1155 Signature Mint Base Contract"
+      link="/solidity/base-contracts/erc1155signaturemint"
+      image="/assets/product/sdk.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="ERC20 Signature Mint Base Contract"
+      link="/solidity/base-contracts/erc20signaturemint"
+      image="/assets/product/sdk.png"
+    />
+  </div>
+</div>
 
 To deploy one of these contracts, create a solidity project using the `create` command:
 
@@ -45,10 +73,10 @@ To deploy one of these contracts, create a solidity project using the `create` c
 npx thirdweb create contract
 ```
 
-This will create a Solidity project setup for you to create your contract inside.
+This will create a Solidity project set up, with the thirdweb Solidity SDK installed, for you to create your contract inside.
 
-1. Open the project in a code editor and open the `Contract.sol` file. In this file, name your contract anything of your choosing.
-2. Import one of the `SignatureMint` base contracts and inherit from it. You will need also to pass the information to the constructor:
+1. Open the project in a code editor and open the `Contract.sol` file.
+2. In this file, name your contract and import one of the `SignatureMint` base contracts and inherit from it. You will need also to pass the information to the constructor:
 
 ```solidity
 // SPDX-License-Identifier: Apache-2.0
@@ -83,7 +111,7 @@ contract MyNFT is ERC721SignatureMint {
 npx thirdweb deploy
 ```
 
-In order to use this command, you will need to authenticate your device with your thirdweb account. If you haven’t authorized your device yet, this command will prompt you to do so.
+To use this command, you will need to authenticate your device with your thirdweb account. If you haven’t authorized your device yet, this command will prompt you to do so.
 
 Once you have authenticated your device, and the contract has built & compiled, a browser window will pop-up prompting you to fill in the constructor parameters for your contract and select the chain to deploy to. Click “Deploy”, which will trigger two transactions to be signed: one to deploy the contract and the second to add the contract to your contract list on the Dashboard so that you can view the contract later.
 
@@ -95,9 +123,29 @@ To create a custom contract that implements one of the `SignatureMint` extension
 
 The following signature minting extensions are available:
 
-- [`ERC721SignatureMint`](/solidity/extensions/erc721signaturemint)
-- [`ERC1155SignatureMint`](/solidity/extensions/erc1155signaturemint)
-- [`ERC20SignatureMint`](/solidity/extensions/erc20signaturemint)
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--4" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="ERC721 Signature Mint Extension"
+      link="/solidity/extensions/erc721signaturemint"
+      image="/assets/product/sdk.png"
+    />
+  </div>
+  <div className="col col--4" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="ERC1155 Signature Mint Extension"
+      link="/solidity/extensions/erc1155signaturemint"
+      image="/assets/product/sdk.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="ERC20 Signature Mint Extension"
+      link="/solidity/extensions/erc20signaturemint"
+      image="/assets/product/sdk.png"
+    />
+  </div>
+</div>
 
 1. Create a solidity project using the `create` command:
 
@@ -105,11 +153,11 @@ The following signature minting extensions are available:
 npx thirdweb create contract
 ```
 
-This will create a Solidity project setup for you to create your contract inside.
+This will create a Solidity project set up for you to create your contract inside.
 
 1. Open the project in a code editor and open the `Contract.sol` file. In this file, name your contract anything of your choosing.
 2. Import one of the `SignatureMint` extensions and inherit from it. You will need also to pass the information to the constructor.
-3. You will need to implements the following functions:
+3. You will need to implement the following functions:
    - `_canSignMintRequest`: This function returns whether a given address is authorized to sign mint requests. In this example, we are only allowing the owner of the contract to sign mint requests.
    - `mintWithSignature`: This function mints tokens according to the provided mint request. In this example, we are only allowing the minting of one token at a time.
 
@@ -207,7 +255,7 @@ npx thirdweb deploy
 
 In order to use this command, you will need to authenticate your device with your thirdweb account. If you haven’t authorized your device yet, this command will prompt you to do so.
 
-Once you have authenticated your device, and the contract has built & compiled, a browser window will pop-up prompting you to fill in the constructor parameters for your contract and select the chain to deploy to. Click “Deploy”, which will trigger two transactions to be signed: one to deploy the contract and the second to add the contract to your contract list on the Dashboard so that you can view the contract later.
+Once you have authenticated your device, and the contract has been built & compiled, a browser window will pop up prompting you to fill in the constructor parameters for your contract and select the chain to deploy to. Click “Deploy”, which will trigger two transactions to be signed: one to deploy the contract and the second to add the contract to your contract list on the Dashboard so that you can view the contract later.
 
 Your contract is now ready to interact with!
 
