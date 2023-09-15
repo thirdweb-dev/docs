@@ -42,7 +42,7 @@ function DocSidebarItems({ items, ...props }) {
     {
       title: "Contracts",
       items: [
-        "Contract SDKs",
+        "Contract SDK",
         "Pre-Built Contracts",
         "Solidity SDK",
         "Deploy",
@@ -57,7 +57,7 @@ function DocSidebarItems({ items, ...props }) {
     },
     {
       title: "Tools",
-      items: ["CLI", "Dashboard", "SDKs", "Web3 API"],
+      items: ["CLI", "Dashboard", "Web3 API"],
     },
     {
       title: "SDK References",
@@ -86,11 +86,15 @@ function DocSidebarItems({ items, ...props }) {
       name.split("/")[1].charAt(0).toUpperCase() + name.split("/")[1].slice(1);
 
     if (formatted === "Sdk") {
-      return "SDK";
+      return "Contract SDK";
     }
 
     if (formatted === "Pre-built-contracts") {
-      return "Explore";
+      return "Pre-Built Contracts";
+    }
+
+    if (formatted === "Web3-api") {
+      return "Web3 API";
     }
 
     if (formatted === "Ui-components") {
@@ -105,8 +109,8 @@ function DocSidebarItems({ items, ...props }) {
       return "CommerceKit";
     }
 
-    if (formatted === "Wallet" || formatted === "Wallets") {
-      return "Wallet";
+    if (formatted === "Wallet") {
+      return "Wallet SDK";
     }
 
     if (formatted === "Typescript") {
