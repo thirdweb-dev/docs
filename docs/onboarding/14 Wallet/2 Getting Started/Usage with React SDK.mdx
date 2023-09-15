@@ -8,11 +8,7 @@ import QuickstartCard from "@components/QuickstartCard";
 
 # Usage with React SDK
 
-thirdweb's [React SDK](/react) offers **100+ hooks** and **UI components** to build web3 apps with ease on **Any EVM-compatible blockchain**.
-
-It allows you to Connect wallets, interact with smart contracts, sign messages, and utilize common standards such as tokens, NFTs, and marketplaces; all with built-in caching, RPC URLs, IPFS gateways, and more.
-
-When you want to use a wallet with React SDK - Instead of importing the wallet from `@thirdweb-dev/wallets` , you need to import its “wallet configurator” function from the `@thirdweb-dev/react` package.
+When you want to use a wallet with React SDK - Instead of importing the wallet from `@thirdweb-dev/wallets`, you need to import its “wallet configurator” function from the `@thirdweb-dev/react` package.
 
 This wallet configurator function contains additional metadata and UI for connecting the wallet which is shown in the [ConnectWallet](/react/react.connectwallet) component's Modal.
 
@@ -111,8 +107,7 @@ import { Goerli } from "@thirdweb-dev/chains";
 import { Signer } from "ethers";
 
 function MyComponent() {
-
-  const [signer, setSigner] = useState<Signer | null>(null); 
+  const [signer, setSigner] = useState<Signer | null>(null);
   // in this example we just generate a random wallet
   useEffect(() => {
     const generateWallet = async () => {
@@ -140,7 +135,6 @@ function MyComponent() {
   );
 }
 ```
-
 
 <br />
 
