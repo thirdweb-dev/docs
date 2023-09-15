@@ -125,6 +125,11 @@ const sidebars = {
     },
     {
       type: "link",
+      label: "Bundler & Paymaster",
+      href: "/smart-wallet/infrastructure",
+    },
+    {
+      type: "link",
       label: "Wallet SDK",
       href: "/wallet",
     },
