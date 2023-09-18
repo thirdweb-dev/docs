@@ -41,6 +41,18 @@ To learn more about how smart wallets work, read our [smart contract deep dive](
 
 ![Smart Wallet Flow](/assets/smart-wallet-architecture.png)
 
+## Types of Account and Account Factory
+
+|                                                     | Simple                     | Dynamic                                  | Managed                                        |
+| --------------------------------------------------- | -------------------------- | ---------------------------------------- | ---------------------------------------------- |
+| Contracts                                           | `AccountFactory` `Account` | `DynamicAccountFactory` `DynamicAccount` | `ManagedAccountFactory` `ManagedAccount`       |
+| ERC-4337 Compatible                                 | ✅                         | ✅                                       | ✅                                             |
+| Can hold native ERC-20, ERC-721 and ERC-1155 Tokens | ✅                         | ✅                                       | ✅                                             |
+| Multi-signer                                        | ✅                         | ✅                                       | ✅                                             |
+| Execute transactions in Batches                     | ✅                         | ✅                                       | ✅                                             |
+| Is the Account Upgradeable                          | ❌                         | ✅                                       | ✅                                             |
+| Who controls upgrades (?)                           | n/a                        | Admin of the account.                    | Admin of the account’s parent account factory. |
+
 ## Terminology
 
 ### UserOperations
