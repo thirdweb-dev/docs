@@ -44,7 +44,45 @@ To learn more about how smart wallets work, read our [smart contract deep dive](
 ## Account Factories
 
 In order to issue smart wallet account contracts for users, an account factory contract must be deployed.
-A factory contract is a contract which clones an implementation contract.
+A factory contract is a contract which clones an implementation contract which defines the functions and logic on the clone.
+
+To create accounts with the factory contract, the `createAccount` function is called. This function calls `_initializeAccount`
+which initializes the account and sets the default admin on the account.
+
+## One Account Per Personal Wallet
+
+The thirdweb Account Factories are designed so that only one account can be created per personal wallet key.
+This means that any one personal wallet can only be a default admin on one account per factory.
+
+This is because, when the account contract is cloned by the factory, the account is craeted deterministically
+via the `cloneDeterministic` function. This function takes a `salt` as a parameter to predict the deployment address. The `salt` is calculated using the
+default admin address. Since the deployment address will be the same if the default admin is the same, if an account
+already exists at that address, the transaction will revert.
+
+```solidity
+/// @notice Deploys a new Account for admin.
+    function createAccount(address _admin, bytes calldata _data) external virtual override returns (address) {
+        address impl = accountImplementation;
+        bytes32 salt = _generateSalt(_admin, _data);
+        address account = Clones.predictDeterministicAddress(impl, salt);
+
+        if (account.code.length > 0) {
+            return account;
+        }
+
+        account = Clones.cloneDeterministic(impl, salt);
+
+        if (msg.sender != entrypoint) {
+            require(allAccounts.add(account), "AccountFactory: account already registered");
+        }
+
+        _initializeAccount(account, _admin, _data);
+
+        emit AccountCreated(account, _admin);
+
+        return account;
+    }
+```
 
 ## Types of Account and Account Factory
 
