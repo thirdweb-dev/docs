@@ -7,6 +7,7 @@ const scope = { ConnectWallet };
 const code = `<ConnectWallet
   theme="dark"
   btnTitle="Connect Wallet"
+  modalSize="wide"
 />`;
 
 export default function ConnectWalletEditor() {
