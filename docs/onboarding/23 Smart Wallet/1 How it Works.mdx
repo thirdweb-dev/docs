@@ -105,6 +105,21 @@ already exists at that address, the transaction will revert.
 
 ## Terminology
 
+### Personal Wallet/Key
+
+This is the default admin on an account or the "key" to an account. It can be any wallet and is used to initialize the account.
+Any one wallet can only be the "key" to one account per factory contract.
+
+This wallet is the primary way to access and interact with the account.
+
+### Account
+
+In the context of smart wallets, the account is the ERC-4337 compatible smart contract which holds all of the assets.
+
+### Smart Wallet
+
+The smart wallet is the combination of your personal wallet "key" plus the account smart contract with all of it's assets.
+
 ### UserOperations
 
 This is the data structure for the transaction that the user wants to perform. It contains the following fields:
