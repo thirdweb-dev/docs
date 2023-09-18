@@ -91,6 +91,10 @@ function DocSidebarItems({ items, ...props }) {
     const formatted =
       name.split("/")[1].charAt(0).toUpperCase() + name.split("/")[1].slice(1);
 
+    if (formatted === "Connect-wallet") {
+      return "Connect Wallet";
+    }
+
     if (formatted === "Sdk") {
       return "Contract SDK";
     }
