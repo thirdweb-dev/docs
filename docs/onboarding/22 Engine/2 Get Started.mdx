@@ -1,22 +1,22 @@
 ---
-slug: /web3-api/get-started
+slug: /engine/get-started
 title: Get Started
 hide_title: true
 ---
 
 :::info
-Web3 API is currently in Open Beta and requires self-hosting. If you need a managed version, please [contact us](https://thirdweb.com/contact-us).
+Engine is currently in Open Beta and requires self-hosting. If you need a managed version, please [contact us](https://thirdweb.com/contact-us).
 :::
 
 # Get Started
 
-Once you have configured your self-hosted server, you can begin development with the Web3 API.
+Once you have configured your self-hosted server, you can begin development with the Engine.
 
-This guide will provide a few examples of how you can use the Web3 API:
+This guide will provide a few examples of how you can use the Engine:
 
 ### Get Balance
 
-To quickly demonstrate how to use Web3 API in your application, let's create a quick JavaScript script that fetches your wallet's balance on a specific network using the `/wallet/{network}/getBalance` endpoint.
+To quickly demonstrate how to use Engine in your application, let's create a quick JavaScript script that fetches your wallet's balance on a specific network using the `/wallet/{network}/getBalance` endpoint.
 
 1. Create a `getBalance.js` at the root of your project’s directory
 2. At the top of your file, let’s create a variable to store our network to pass into our path parameter.
@@ -69,11 +69,12 @@ As an example for a POST method, let's modify our script to deploy an ERC20 Cont
      headers: {
        accept: "application/json",
        "content-type": "application/json",
-       Authorization: `Bearer ${process.env.THIRDWEB_SDK_SECRET_KEY}`,
+       Authorization: `Bearer ${process.env.THIRDWEB_SDK_SECRET_KEY}`, `x-wallet-address: ${process.env.WALLET_ADDRESS}`
+
      },
      body: JSON.stringify({
        name: "HelloWorldCoin",
-       description: "A coin to demonstrate how to use Web3 API",
+       description: "A coin to demonstrate how to use Engine",
        symbol: "HELLO",
        primary_sale_recipient: "0x0000000000000000000000000000000000000000",
      }),
