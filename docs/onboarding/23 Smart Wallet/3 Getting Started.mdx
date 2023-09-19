@@ -23,61 +23,29 @@ Deployable via the [explore page](https://thirdweb.com/explore/smart-wallet) or 
 
 Choose the right smart wallet setup for your app. thirdweb offers the following three different kinds of smart wallets:
 
-|                    | [`Account`](/solidity/base-contracts/account) setup                                                                                     | [`DynamicAccount`](/solidity/base-contracts/dynamic-account) setup                                                                                                           | [`ManagedAccount`](/solidity/base-contracts/managed-account) setup                                                                                                                            |
-| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Upgradeability** | Non-upgradeable                                                                                                                         | Account upgrades controlled locally by account admin.                                                                                                                        | Account upgrades controlled centrally by account factory admin.                                                                                                                               |
-| **User persona**   | Developer wants to issue simple smart wallets to their users. They do not anticipate that users wallets will need any feature upgrades. | Developer wants to issue smart wallets to their users. They do anticipate feature upgrades to user wallets but do not want to push upgrades to user wallets without consent. | Developer wants to issue smart wallets to their users. They do anticipate feature upgrades to user wallets, and want to push upgrades to user wallets for seamless/invisible UX for upgrades. |
-
-### Supported chains
-
-<details>
-  <summary>View supported chains</summary>
-  <div>
-    <ul>
-      <li>
-        <b>Polygon</b>
-      </li>
-      <li>
-        <b>Optimism</b>
-      </li>
-      <li>
-        <b>Base</b>
-      </li>
-      <li>
-        <b>Arbitrum</b>
-      </li>
-      <li>
-        <b>Linea</b>
-      </li>
-      <li>
-        <b>Goerli</b>
-      </li>
-      <li>
-        <b>Sepolia</b>
-      </li>
-      <li>
-        <b>Mumbai</b>
-      </li>
-      <li>
-        <b>Base Goerli</b>
-      </li>
-      <li>
-        <b>Optimism Goerli</b>
-      </li>
-      <li>
-        <b>Arbitrum Goerli</b>
-      </li>
-      <li>
-        <b>Linea Testnet</b>
-      </li>
-      <li>
-        <b>Celo Alfajores Testnet</b>
-      </li>
-    </ul>
+<div className="row" style={{ marginBottom: 12, padding: 8, paddingTop: 0 }}>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Account Factory"
+      link="https://thirdweb.com/thirdweb.eth/AccountFactory"
+      image="/assets/wallets/smart-wallet.svg"
+    />
   </div>
-</details>
-
-To support a chain not listed, [contact us](https://thirdweb.typeform.com/to/Q93CVgUc?typeform-source=thirdweb-www-git-mariano-ftd-1670.thirdweb-preview.com).
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Managed Account Factory"
+      link="https://thirdweb.com/thirdweb.eth/ManagedAccountFactory"
+      image="/assets/wallets/smart-wallet.svg"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Dynamic Account Factory"
+      link="https://thirdweb.com/thirdweb.eth/DynamicAccountFactory"
+      image="/assets/wallets/smart-wallet.svg"
+    />
+  </div>
+</div>
 
 ## 2. An API key
 
@@ -103,29 +71,14 @@ Use the following code to integrate smart wallets into your apps. This will hand
 - Handle all transaction gas costs via the thirdweb paymaster.
 - Select your deployed account factory and client ID to get a fully functional code snippet.
 
-<Tabs>
-  <TabItem value="TypeScript" label="TypeScript" default>
-    <CodeBlock language="typescript">
-    {`import { LocalWallet, SmartWallet } from "@thirdweb-dev/wallets";
-// First, connect the personal wallet, which can be any wallet (metamask, walletconnect, etc.)
-// Here we're just generating a new local wallet which can be saved later
-const personalWallet = new LocalWallet();
-await personalWallet.generate();
-// Setup the Smart Wallet configuration
-const config = {
-chain: "goerli", // the chain where your smart wallet will be or is deployed
-factoryAddress: "0x...", // your own deployed account factory address
-clientId: "YOUR_CLIENT_ID", // or use secretKey for backend/node scripts
-gasless: true, // enable or disable gasless transactions
-};
-// Then, connect the Smart wallet
-const wallet = new SmartWallet(config);
-await wallet.connect({
-personalWallet,
-});`}
+:::info Gasless Transactions
 
-</CodeBlock>
-  </TabItem>
+To setup gasless transactions, set the `gasless` option to `true` in the smart wallet configuration.
+All transactions performed with the smart wallet will then be gasless.
+
+:::
+
+<Tabs>
   <TabItem value="react" label="React">
     <CodeBlock language="tsx">
     {`import { ThirdwebProvider, ConnectWallet, smartWallet } from "@thirdweb-dev/react";
@@ -171,6 +124,28 @@ return (
 }`}
     </CodeBlock>
   </TabItem>
+  <TabItem value="TypeScript" label="TypeScript" default>
+    <CodeBlock language="typescript">
+    {`import { LocalWallet, SmartWallet } from "@thirdweb-dev/wallets";
+// First, connect the personal wallet, which can be any wallet (metamask, walletconnect, etc.)
+// Here we're just generating a new local wallet which can be saved later
+const personalWallet = new LocalWallet();
+await personalWallet.generate();
+// Setup the Smart Wallet configuration
+const config = {
+chain: "goerli", // the chain where your smart wallet will be or is deployed
+factoryAddress: "0x...", // your own deployed account factory address
+clientId: "YOUR_CLIENT_ID", // or use secretKey for backend/node scripts
+gasless: true, // enable or disable gasless transactions
+};
+// Then, connect the Smart wallet
+const wallet = new SmartWallet(config);
+await wallet.connect({
+personalWallet,
+});`}
+
+</CodeBlock>
+  </TabItem>
   <TabItem value="unity" label="Unity">
     <CodeBlock language="c#">
     {`using Thirdweb;
@@ -215,38 +190,12 @@ Clone these templates to quickly deploy Smart Wallets and connect to them.
   </div>
 </div>
 
-## 4. Executing gas free transactions with Smart Wallets
+## 4. Executing Transactions with Smart Wallets
 
 Once setup, you can use the thirdweb [TypeScript](/typescript), [React](/react), [React Native](react-native)
 and [Unity SDKs](/unity) to deploy contracts, perform transactions, and manipulate wallets just like you would with any other wallet.
 
 <Tabs>
-  <TabItem value="TypeScript" label="TypeScript" default>
-    <CodeBlock language="typescript">
-      {`import { ThirdwebSDK } from "@thirdweb-dev/sdk";
-// Simply initialize your SDK with the created smart wallet
-const sdk = await ThirdwebSDK.fromWallet(smartWallet, "goerli", {
-  clientId: "YOUR_CLIENT_ID"
-});
-// You can now interact with the blockchain as you would with a regular EOA
-const smartWalletAddress = await sdk.wallet.getAddress();
-// gas free wallet actions
-await sdk.wallet.transfer("0x...", "0.01");
-// gas free contract deployments
-const contractAddress = await sdk.deployer.deployNFTCollection({ 
-  name: "My NFT Collection", 
-  primary_sale_recipient: smartWalletAddress 
-});
-// gas free contract interactions
-const contract = await sdk.getContract(contractAddress);
-await contract.erc721.mint({ 
-  name: "My NFT",
-  description: "My NFT description",
-  image: "https://example.com/image.png",
-});
-`}
-    </CodeBlock>
-  </TabItem>
   <TabItem value="react" label="React">
     <CodeBlock language="tsx">
       {`import { useAddress, useContract, useOwnedNFTs, Web3Button } from "@thirdweb-dev/react";
@@ -302,6 +251,32 @@ export default function MyComponent() {
     </Web3Button>
   );
 }
+`}
+    </CodeBlock>
+  </TabItem>
+<TabItem value="TypeScript" label="TypeScript" default>
+    <CodeBlock language="typescript">
+      {`import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+// Simply initialize your SDK with the created smart wallet
+const sdk = await ThirdwebSDK.fromWallet(smartWallet, "goerli", {
+  clientId: "YOUR_CLIENT_ID"
+});
+// You can now interact with the blockchain as you would with a regular EOA
+const smartWalletAddress = await sdk.wallet.getAddress();
+// gas free wallet actions
+await sdk.wallet.transfer("0x...", "0.01");
+// gas free contract deployments
+const contractAddress = await sdk.deployer.deployNFTCollection({ 
+  name: "My NFT Collection", 
+  primary_sale_recipient: smartWalletAddress 
+});
+// gas free contract interactions
+const contract = await sdk.getContract(contractAddress);
+await contract.erc721.mint({ 
+  name: "My NFT",
+  description: "My NFT description",
+  image: "https://example.com/image.png",
+});
 `}
     </CodeBlock>
   </TabItem>

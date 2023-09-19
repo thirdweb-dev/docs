@@ -821,6 +821,22 @@
       "source": "/wallet/wallet-connect-v1",
       "destination": "/wallet/wallet-connect-v2",
       "permanent": true
+    },
+    {
+      "source": "/web3-api",
+      "destination": "/engine"
+    },
+    {
+      "source": "/web3-api/configuration",
+      "destination": "/engine/configuration"
+    },
+    {
+      "source": "/web3-api/get-started",
+      "destination": "/engine/get-started"
+    },
+    {
+      "source": "/web3-api/reference",
+      "destination": "/engine/reference"
     }
   ]
 }
