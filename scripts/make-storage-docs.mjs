@@ -4,7 +4,7 @@ import fs from "fs-extra";
 
 const { readdir, createReadStream, writeFile, readFile } = fs;
 
-const outDir = "./docs/storage";
+const outDir = "./docs/storage/reference";
 const packageRoot = "./submodules/js/packages/storage";
 const inDir = packageRoot + "/docs";
 const readmePath = packageRoot + "/README.md";
@@ -41,7 +41,7 @@ async function main() {
         }
         const homeLink = line.match(/\[Home\]\(.\/index\.md\) &gt; (.*)/);
         if (homeLink) {
-          //skip the breadcrumb line alltogether
+          //skip the breadcrumb line altogether
           return;
         }
         // See issue #4. api-documenter expects \| to escape table
@@ -104,5 +104,4 @@ async function copyReadMe() {
   );
 }
 
-// Don't autogenerate Storage docs anymore
-// main();
+main();

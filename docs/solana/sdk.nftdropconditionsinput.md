@@ -13,6 +13,6 @@ displayed_sidebar: solana
 
 ```typescript
 export type NFTDropConditionsInput = z.input<
-  typeof NFTDropUpdateableConditionsInputSchema
+  typeof NFTDropUpdatableConditionsOutputSchema
 >;
 ```

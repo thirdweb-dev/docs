@@ -19,29 +19,34 @@ export const iconMapping = {
   Solidity: "/assets/languages/solidity.png",
   Auth: "/assets/product/auth.png",
   "Solidity SDK": "/assets/product/extensions.png",
-  Explore: "/assets/product/contracts.png",
+  "Pre-Built Contracts": "/assets/product/contracts.png",
   Dashboard: "/assets/product/dashboard.png",
   Deploy: "/assets/product/deploy.png",
   Publish: "/assets/product/publish.png",
   SDK: "/assets/product/sdk.png",
-  "EVM SDK": "/assets/product/sdk.png",
+  "Contract SDK": "/assets/product/sdk.png",
   "Solana SDK": "/assets/product/sdk.png",
   Solana: "/assets/product/sdk.png",
-  Wallet: "/assets/product/wallet.png",
+  "Wallet SDK": "/assets/product/wallet.png",
+  "Smart Wallet": "/assets/wallets/smart-wallet.svg",
+  "Email Wallet": "/assets/wallets/paper.png",
+  "Signature Minting": "/assets/product/sdk.png",
   GamingKit: "/assets/solutions/gaming.png",
   CommerceKit: "/assets/solutions/commerce.png",
+  "Connect Wallet": "/assets/product/connect-wallet.png",
   Minting: "/assets/product/sdk.png",
-  Mobile: "/assets/product/sdk.png",
   "Digital Collectibles": "/assets/product/sdk.png",
   Storage: "/assets/product/storage.png",
   "UI Components": "/assets/product/ui.png",
   Home: "/assets/icons/home.png",
   "Overview ": "/assets/icons/wrench.png",
-  "Getting Started": "/assets/icons/rocket.png",
+  "API Keys": "/assets/resources/key.png",
   Templates: "/assets/resources/sdk-reference.svg",
   Guides: "/assets/resources/guides.svg",
   CLI: "/assets/product/CLI.png",
   Glossary: "/assets/icons/journal-album.svg",
+  Engine: "/assets/product/sdk.png",
+  "Bundler & Paymaster": "/assets/wallets/smart-wallet.svg",
 };
 
 export default function DocSidebarItemLink({
@@ -107,9 +112,7 @@ export default function DocSidebarItemLink({
             }
 
             ${
-              (label === "Home" ||
-                label === "Overview " ||
-                label === "Getting Started") &&
+              (label === "Home" || label === "Overview ") &&
               styles.invertLightIcon
             }
               

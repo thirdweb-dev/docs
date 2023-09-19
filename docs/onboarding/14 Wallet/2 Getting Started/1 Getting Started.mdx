@@ -1,0 +1,216 @@
+---
+slug: /wallet/getting-started
+title: Getting Started
+sidebar_position: 2
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+import QuickstartCard from "@components/QuickstartCard";
+
+To get started, install the [package](https://github.com/thirdweb-dev/js/tree/main/packages/wallets) into your project.
+
+<Tabs>
+  <TabItem value="npm" label="npm">
+    <CodeBlock language="bash">{`npm i @thirdweb-dev/wallets`}</CodeBlock>
+  </TabItem>
+  <TabItem value="yarn" label="yarn">
+    <CodeBlock language="bash">{`yarn add @thirdweb-dev/wallets`}</CodeBlock>
+  </TabItem>
+  <TabItem value="pnpm" label="pnpm">
+    <CodeBlock language="bash">{`pnpm add @thirdweb-dev/wallets`}</CodeBlock>
+  </TabItem>
+</Tabs>
+
+<br />
+
+Now you&rsquo;re ready to use any of our supported wallets.
+
+```js
+// 1. Import the wallet you want to use from the package
+import { CoinbaseWallet } from "@thirdweb-dev/wallets";
+
+// 2. Instantiate the wallet class
+const coinbaseWallet = new CoinbaseWallet();
+
+// 3. Connect to the wallet (prompts the user when required)
+const walletAddress = await coinbaseWallet.connect();
+
+// 4. Use the connected wallet to access information such as the signer
+const signer = await coinbaseWallet.getSigner();
+```
+
+## Methods available on a Wallet Instance
+
+All wallets in wallet SDK extend from the [AbstractWallet](/wallet/interfaces/abstract-wallet) base class,
+and all client-side wallets (web, mobile) extend from [AbstractClientWallet](/wallet/interfaces/abstract-client-wallet) base class. Each wallet may have its own unique methods. Below are the common methods shared by all wallets
+
+<details>
+<summary>getAddress</summary>
+
+Get the address of the currently connected wallet
+
+```ts
+const address = await wallet.getAddress();
+```
+
+</details>
+
+<details>
+<summary>getChainId</summary>
+
+Get the chain ID of the network the wallet is currently connected to
+
+```ts
+const chainId = await wallet.getChainId();
+```
+
+</details>
+
+<details>
+<summary>getSigner</summary>
+
+Get the [signer](https://docs.ethers.org/v5/api/signer/) for the currently connected wallet.
+
+```ts
+const signer = await wallet.getSigner();
+```
+
+</details>
+
+<details>
+<summary>signMessage</summary>
+
+Sign a message with the currently connected wallet. This function must be implemented by the parent class.
+
+```ts
+const signature = await wallet.signMessage("Hello world!");
+```
+
+</details>
+
+<details>
+<summary>verifySignature</summary>
+
+Verify if a signature is valid or not
+
+```ts
+const isValid = await wallet.verifySignature(
+  "Message",
+  "Signature",
+  "wallet_address",
+);
+```
+
+</details>
+
+<details>
+<summary>transfer</summary>
+
+Transfer native or ERC20 tokens from this wallet to another wallet
+
+```javascript
+// for native tokens
+const txResult = await wallet.transfer(recipientAddress, amount);
+
+// for ERC20 tokens
+const txResult = await wallet.transfer(recipientAddress, amount, tokenAddress);
+```
+
+#### recipientAddress
+
+Address of the recipient to send the tokens to
+
+```
+string
+```
+
+#### amount
+
+Amount of tokens to send
+
+```
+string | number
+```
+
+#### Return Value
+
+```
+Promise<TransactionResult>
+```
+
+</details>
+
+<details>
+  <summary> getBalance </summary>
+
+Get the the native token balance or ERC20 token balance of the wallet.
+
+```javascript
+// for native token balance
+const balance = await wallet.getBalance();
+
+// for ERC20 token balance
+const balance = await wallet.getBalance(tokenAddress);
+```
+
+#### tokenAddress
+
+Address of the ERC20 token. If no address is provided, the native token balance is returned.
+
+#### Return Value
+
+```ts
+Promise<{
+  symbol: string;
+  value: BigNumber;
+  name: string;
+  decimals: number;
+  displayValue: string;
+}>;
+```
+
+</details>
+
+## Usage with thirdweb SDKs
+
+<div className="row" style={{ marginBottom: 0, padding: 8, paddingTop: 0 }}>
+  <div className="col col--12" style={{ padding: 8, paddingBottom: 0 }}>
+    <QuickstartCard
+      name="Usage with TypeScript SDK"
+      link="/wallet/usage-with-typescript-sdk"
+      image="/assets/languages/typescript.png"
+    />
+  </div>
+</div>
+
+<div className="row" style={{ marginBottom: 0, padding: 8, paddingTop: 0 }}>
+  <div className="col col--12" style={{ padding: 8, paddingBottom: 0 }}>
+    <QuickstartCard
+      name="Usage with React SDK"
+      link="/wallet/usage-with-react-sdk"
+      image="/assets/languages/react.png"
+    />
+  </div>
+</div>
+
+<div className="row" style={{ marginBottom: 0, padding: 8, paddingTop: 0 }}>
+  <div className="col col--12" style={{ padding: 8, paddingBottom: 0 }}>
+    <QuickstartCard
+      name="Usage with React Native SDK"
+      link="/wallet/usage-with-react-native-sdk"
+      image="/assets/languages/react-native.png"
+    />
+  </div>
+</div>
+
+<div className="row" style={{ marginBottom: 0, padding: 8, paddingTop: 0 }}>
+  <div className="col col--12" style={{ padding: 8, paddingBottom: 0 }}>
+    <QuickstartCard
+      name="Usage with Unity SDK"
+      link="/wallet/usage-with-unity-sdk"
+      image="/assets/languages/unity.webp"
+    />
+  </div>
+</div>

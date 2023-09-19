@@ -1,0 +1,70 @@
+---
+title: useFrameWallet
+slug: /react.useframewallet
+displayed_sidebar: react
+sidebar_position: 16
+---
+
+Hook that prompts users to connect their [Frame Wallet](/wallet/frame) to your app.
+
+```jsx
+import { useFrameWallet } from "@thirdweb-dev/react";
+```
+
+The [frameWallet](/react/react.frame) also needs to be added in [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) if you want the wallet to auto-connect on next page load.
+
+## Usage
+
+Call the function returned by the `useFrameWallet` hook to prompt the user to connect their Frame wallet to your dApp.
+
+You can then use the [`useAddress`](/react/react.useaddress) hook to get the user's address.
+
+```jsx
+import { useFrameWallet } from "@thirdweb-dev/react";
+
+function App() {
+  const connectWithFrameWallet = useFrameWallet();
+
+  return (
+    <button onClick={() => connectWithFrameWallet()}>Connect Frame</button>
+  );
+}
+```
+
+## Configuration
+
+<details>
+  <summary>chainId</summary>
+  <div>
+
+To connect to a specific chain when connecting the wallet,
+pass the `chainId` in a configuration object as shown below.
+
+This will prompt the user to switch to the given network after they connect.
+
+```jsx
+connectWithFrameWallet({
+  // highlight-start
+  chainId: Polygon.chainId,
+  // highlight-end
+});
+```
+
+If the chain is not configured in the user&rsquo;s wallet,
+you must add this chain in `ThirdwebProvider`&rsquo;s [supportedChains](/react/react.thirdwebprovider#supportedChains) prop:
+
+```jsx
+import { Polygon } from "@thirdweb-dev/chains";
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+
+export function YourApp() {
+  return (
+    <ThirdwebProvider supportedChains={[Polygon]} clientId="your-client-id">
+      <App />
+    </ThirdwebProvider>
+  );
+}
+```
+
+</div>
+</details>

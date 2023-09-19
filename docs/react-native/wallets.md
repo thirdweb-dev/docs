@@ -6,30 +6,44 @@ displayed_sidebar: react-native
 
 # Wallets
 
-We have added support for a the following wallets in React Native:
-
-- MetaMask
-- Rainbow
-- Trust
-- Coinbase
+We have added support for several wallets from the [@thirdweb-dev/wallets](https://www.npmjs.com/package/@thirdweb-dev/wallets) package.
 
 Below we'll show how to use them with our `ThirdwebProvider`.
 
 ## Adding the wallets to the `ThirdwebProvider`
 
 ```tsx title="App.tsx"
-import { metamaskWallet, trustWallet } from "@thirdweb-dev/react-native";
+import {
+  metamaskWallet,
+  trustWallet,
+  localWallet,
+  walletConnect,
+} from "@thirdweb-dev/react-native";
 
 const App = () => {
   return (
-    <ThirdwebProvider 
+    <ThirdwebProvider
+      clientId="your-client-id"
+      activeChain="mumbai"
       dAppMeta={{
         name: "Example App",
         description: "This is an example app",
         logoUrl: "https://example.com/logo.png",
         url: "https://example.com",
       }}
-      supportedWallets={[metamaskWallet(), trustWallet()]}>
+      supportedWallets={[
+        metamaskWallet({
+          projectId: "your-wallet-connect-project-id", // optional but recommended for production
+        }),
+        trustWallet({
+          projectId: "your-wallet-connect-project-id", // optional but recommended for production
+        }),
+        localWallet(),
+        walletConnect({
+          projectId: "your-wallet-connect-project-id", // optional but recommended for production
+        }),
+      ]}
+    >
       <AppInner />
     </ThirdwebProvider>
   );
@@ -40,11 +54,70 @@ By default, `supportedWallets` will have `rainbowWallet` and `metamaskWallet` si
 
 ## Configuring wallets
 
+### WalletConnect
+
+Implementation of the WalletConnect protocol. The `dAppMeta` prop passed in the `ThirdwebProvider` above will be used when connecting to the wallets to show your app's information.
+
+```tsx
+import { walletConnect, ThirdwebProvider } from "@thirdweb-dev/react-native";
+import { Ethereum } from "@thirdweb-dev/chains";
+
+const App = () => {
+  const activeChain = Ethereum;
+  return (
+    <ThirdwebProvider
+      clientId="your-client-id"
+      activeChain={activeChain}
+      supportedChains={[activeChain]}
+      supportedWallets={[
+        walletConnect({
+          projectId: "your-wallet-connect-project-id", // optional but we recommend you get your own for production
+        }),
+      ]}
+    >
+      <AppInner />
+    </ThirdwebProvider>
+  );
+};
+```
+
 ### MetaMask, Rainbow and Trust wallets
 
-These wallets are implementations of Wallet Connect V1 and V2. The `dAppMeta` prop passed in the `ThirdwebProvider` above will be used when connecting to the wallets to show your app's information. 
+These wallets are just wrappers around WalletConnect. The `dAppMeta` prop passed in the `ThirdwebProvider` above will be used when connecting to the wallets to show your app's information.
 
-No other configuration is needed for these.
+```tsx
+import {
+  metamaskWallet,
+  rainbowWallet,
+  trustWallet,
+  ThirdwebProvider,
+} from "@thirdweb-dev/react-native";
+import { Ethereum } from "@thirdweb-dev/chains";
+
+const App = () => {
+  const activeChain = Ethereum;
+  return (
+    <ThirdwebProvider
+      clientId="your-client-id"
+      activeChain={activeChain}
+      supportedChains={[activeChain]}
+      supportedWallets={[
+        metamaskWallet({
+          projectId: "your-wallet-connect-project-id", // optional but we recommend you get your own for production
+        }),
+        rainbowWallet({
+          projectId: "your-wallet-connect-project-id", // optional but we recommend you get your own for production
+        }),
+        metamaskWallet({
+          trustWallet: "your-wallet-connect-project-id", // optional but we recommend you get your own for production
+        }),
+      ]}
+    >
+      <AppInner />
+    </ThirdwebProvider>
+  );
+};
+```
 
 ### Coinbase Wallet
 
@@ -58,16 +131,312 @@ import { coinbaseWallet } from "@thirdweb-dev/react-native";
 
 const App = () => {
   return (
-    <ThirdwebProvider 
+    <ThirdwebProvider
+      clientId="your-client-id"
       supportedWallets={[
         coinbaseWallet({
-          callbackURL: new URL('https://youruniversal.link'),
+          callbackURL: new URL("https://youruniversal.link"),
         }),
-      ]}>
+      ]}
+    >
       <AppInner />
     </ThirdwebProvider>
   );
 };
 ```
 
+### Local Wallet
 
+The local wallet works mostly the same as [the web version](https://portal.thirdweb.com/wallet/local-wallet), below we outline the key differences:
+
+#### Configuration
+
+<details>
+  <summary>storage (optional)</summary>
+  <div>
+
+This is the storage used for storing the private key, mnemonic or encrypted JSON. On React Native we need this storage to be encrypted since we store the private key to be able to recover your wallet for reconnections.
+
+You can use any implementation of encrypted storage you want, as long as it conforms to the `AsyncStorage` interface:
+
+```typescript
+export interface AsyncStorage {
+  getItem(key: string): Promise<string | null>;
+  setItem(key: string, value: string): Promise<void>;
+  removeItem(key: string): Promise<void>;
+}
+```
+
+If omitted, it defaults to [Expo Secure Store](https://docs.expo.dev/versions/latest/sdk/securestore/), which stores the private key in your device in encrypted storage. We expose the `createSecureStorage(name: string)` utility function which creates a SecureStore instance that conforms to our `AsyncStorage` interface ([see it in our GitHub](https://github.com/thirdweb-dev/js/blob/main/packages/react-native/src/core/SecureStorage.ts#L37))
+
+Example:
+
+```javascript
+import { createSecureStorage, LocalWallet } from "@thirdweb-dev/react-native";
+
+const walletWithOptions = new LocalWallet(
+  // highlight-start
+  {
+    storage: createSecureStorage("my-wallet"),
+  },
+  // highlight-end
+);
+```
+
+  </div>
+</details>
+
+### Smart Wallet
+
+See our [Smart Wallet documentation](https://portal.thirdweb.com/wallet/smart-wallet) for a more comprehensive description of the mandatory fields of this wallet. Here we'll just describe what's needed to connect your wallet to any dApp.
+
+#### Connect to a dApp
+
+We have added extra configuration parameters to be able to connect to any dApp. Before you can use this feature of Smart Wallet you need to configure your
+app to support the camera usage to be able to scan WalletConnect QR codes:
+
+```
+yarn add react-native-camera && cd ios && pod install
+```
+
+Add the following code to your `android/app/build.gradle` file:
+
+```
+missingDimensionStrategy 'react-native-camera', 'general'
+```
+
+```groovy
+defaultConfig {
+     applicationId "app.id"
+     minSdkVersion rootProject.ext.minSdkVersion
+     targetSdkVersion rootProject.ext.targetSdkVersion
+     missingDimensionStrategy 'react-native-camera', 'general'
+ }
+```
+
+Add the `NSCameraUsageDescription` in your `Info.plist` file to explain why your app needs to use the Camera. Example:
+
+```xml
+<key>NSCameraUsageDescription</key>
+<string>The app uses the camera to scan QR codes</string>
+```
+
+After adding the camera package, you are ready to use the feature!
+
+#### Configuration
+
+The following configuration enables Connect to App behavior in React Native:
+
+<details>
+  <summary>enableConnectApp</summary>
+  <div>
+
+Adds a UI component to the SmartWallet connected dialog to be able to scan a WalletConnect QR code or input a WalletConnect (`wc://`) uri.
+
+Defaults to `false`.
+
+```javascript
+import { Mumbai } from '@thirdweb-dev/chains';
+import { ThirdwebProvider, metamaskWallet, smartWallet } from '@thirdweb-dev/react-native';
+
+...
+
+<ThirdwebProvider
+    clientId="your-client-id"
+    activeChain={Mumbai}
+    supportedWallets={[
+        smartWallet({
+            factoryAddress: "..."
+            gasless: true,
+            personalWallets: [localWallet()],
+            enableConnectApp: true,
+        }),
+        metamaskWallet(),
+]}>
+```
+
+</div>
+</details>
+
+<details>
+  <summary>wcVersion</summary>
+  <div>
+
+You can choose the WalletConnect version to support. Either `'v1'` or `'v2'`.
+
+Defaults to `'v2'`.
+
+**Note** that WalletConnect v1 is no longer maintained and will be [shutdown on June 28th, 2023](https://medium.com/walletconnect/walletconnect-v1-0-sunset-notice-and-migration-schedule-8af9d3720d2e)
+
+</div>
+</details>
+
+<details>
+  <summary>walletConnectV2ProjectId</summary>
+  <div>
+
+The WalletConnect `projectId`. You can get one in the [WalletConnect docs](https://docs.walletconnect.com/2.0/web/sign/installation#1-obtain-project-id).
+
+Defaults to a common `projectId` set by thirdweb. This should be ok for testing but note that if you want to deploy your mobile app it may make sense to create your own as WalletConnect may throttle traffic coming from the same `projectId`.
+
+</div>
+</details>
+
+<details>
+  <summary>walletConnectV2RelayUrl</summary>
+  <div>
+
+Define a custom Relay Server URL. Defaults to "wss://relay.walletconnect.com"
+
+</div>
+</details>
+
+<details>
+  <summary>walletConnectWalletMetadata</summary>
+  <div>
+
+Metadata that will be displayed in the dApp once your SmartWallet is connected to it.
+
+```json
+{
+  name: string; // defaults to: "Thirdweb Smart Wallet",
+  description: string; // defaults to: "Thirdweb Smart Wallet",
+  url: string: // defaults to: "https://thirdweb.com",
+  icons: string[]; // defaults to: ["https://thirdweb.com/favicon.ico"],
+};
+```
+
+</div>
+</details>
+
+<details>
+  <summary>wcStorage</summary>
+  <div>
+
+Synchronous storage needed by WalletConnect V2.
+
+Defaults to synchronous storage implemented with MMKV.
+
+</div>
+</details>
+
+### Email/Phone Number Wallet
+
+We implemented this feature using the Magic SDK.
+
+#### Add Magic's dependencies
+
+The `@magic-sdk` has a few dependencies you need to add to your app before using the SDK in React Native. For convenience you can run:
+
+```json
+yarn add react-native-safe-area-context@4.5.3 react-native-webview react-native-device-info && cd ios && pod install
+```
+
+which will install the following dependencies:
+
+- [react-native-safe-area-context](https://www.npmjs.com/package/react-native-safe-area-context?ref=blog.thirdweb.com)
+  - **Note**: The magic wallet requires the app to be wrapped in a `SafeAreaProvider`. This is something we handle in the SDK so please, if your app already has a `SafeAreaProvider` you can remove it and just wrap your app in our `ThirdwebProvider`, this will take care of the safe area context for you.
+- [react-native-webview](https://www.npmjs.com/package/react-native-webview?ref=blog.thirdweb.com)
+- [react-native-device-info](https://www.npmjs.com/package/react-native-device-info?ref=blog.thirdweb.com)
+
+You also need a [Magic api-key](https://dashboard.magic.link/signup?ref=blog.thirdweb.com) to pass it as part of the wallet config.
+
+#### Using the new wallet
+
+**NOTE**: `magicWallet` has been deprecated starting in version `@thirdweb-dev/react-native@0.2.49` in favor of `magicLink` for consistency with our React SDK.
+
+We suggest you add `magicLink` as the first wallet in your `supportedWallets` list since the UI for it is a TextInput field:
+
+```tsx
+import { Goerli } from '@thirdweb-dev/chains';
+import { ThirdwebProvider, magicLink, metamaskWallet } from '@thirdweb-dev/react-native';
+
+<ThirdwebProvider
+    clientId="your-client-id"
+    activeChain={Goerli}
+    supportedWallets={[
+    magicLink({
+        apiKey: 'magic_api_key',
+    }),
+    metamaskWallet(),
+]}>
+```
+
+## Building your own wallet
+
+With our `@thirdweb-dev/wallets` sdk you can build your own wallets and integrate it into our [ConnectWallet button](https://portal.thirdweb.com/react-native/react-native.connectwallet). You can see how to build one in the [Building a Wallet](https://portal.thirdweb.com/wallet/build-a-wallet) section of our wallets documentation.
+
+### Integrating wallets that support the WalletConnect protocol
+
+We have made it super easy to integrate wallets that support the WalletConnect protocol. We have the abstract class, `WalletConnectBase` that do all the work for you, you only need to set the wallet metadata and you are set to pass the new wallet in our `ThirdwebProvider`'s `supportedWallets` prop.
+
+The following example shows you how to create a `MyWallet` wallet that implements the WalletConnectBase protocol:
+
+```javascript
+import {
+  WCMeta,
+  WalletConnectBase,
+  WalletOptions,
+  WalletConfig,
+} from '@thirdweb-dev/react-native';
+
+export class MyWallet extends WalletConnectBase {
+  static id = 'mywallet' as const; // ID needed to identify your wallet in the SDK.
+  static meta = {
+    name: 'My Wallet', // Name that will show up in our Connect Modal.
+    iconURL:
+      'my-wallet-icon-url-ipfs-or-png', // Icon that will show up in our Connect Modal.
+    links: { // The WalletConnect mobile links.
+      native: 'mywallet://',
+      universal: 'https://mywallet.com',
+    },
+  };
+
+  getMeta(): WCMeta {
+    return MyWallet.meta;
+  }
+}
+
+/**
+ * The WalletConnect projectId.
+ *
+ * We provide a default projectId but recommend you get your own
+ * when launching your app in production.
+ */
+type MyWalletConfig = { projectId?: string };
+
+export const myWallet = (config?: MyWalletConfig): WalletConfig<WalletConnectBase> => {
+  return {
+    id: MyWallet.id,
+    meta: MyWallet.meta,
+    create: (options: WalletOptions) =>
+      new MyWallet({
+        ...options,
+        projectId: config?.projectId,
+        walletId: MyWallet.id,
+      }),
+  };
+};
+```
+
+You can then use your new wallet in the `ThirdwebProvider`'s `supportedWallets` prop:
+
+```javascript
+import { ThirdwebProvider } from "@thirdweb-dev/react-native";
+
+<ThirdwebProvider clientId="your-client-id" supportedWallets={[myWallet()]}>
+  <App />
+</ThirdwebProvider>;
+```
+
+### Built-in wallets
+
+You can look at how the built-in wallets in the `@thirdweb-dev/react-native` package are implemented for reference:
+
+- [Local Wallet](https://github.com/thirdweb-dev/js/blob/main/packages/react-native/src/evm/wallets/wallets/local-wallet.tsx)
+- [Smart Wallet](https://github.com/thirdweb-dev/js/blob/main/packages/react-native/src/evm/wallets/wallets/smart-wallet.ts)
+- [Email/Phone-Number Wallet](https://github.com/thirdweb-dev/js/blob/main/packages/react-native/src/evm/wallets/wallets/magic-wallet.tsx)
+- [MetaMask (WalletConnect)](https://github.com/thirdweb-dev/js/blob/main/packages/react-native/src/evm/wallets/wallets/metamask-wallet.ts)
+- [Rainbow (WalletConnect)](https://github.com/thirdweb-dev/js/blob/main/packages/react-native/src/evm/wallets/wallets/rainbow-wallet.ts)
+- [Trust (WalletConnect)](https://github.com/thirdweb-dev/js/blob/main/packages/react-native/src/evm/wallets/wallets/trust-wallet.ts)
+- [Coinbase](https://github.com/thirdweb-dev/js/blob/main/packages/react-native/src/evm/wallets/wallets/coinbase-wallet.ts)

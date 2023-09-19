@@ -2,6 +2,7 @@
 title: usePaperWalletUserEmail
 slug: /react.usepaperwalletuseremail
 displayed_sidebar: react
+sidebar_position: 10
 ---
 
 Hook for getting the user's email address from connected paper wallet.
@@ -27,7 +28,10 @@ function App() {
   if (emailQuery.isLoading) {
     return <div>Loading Email...</div>;
   } else {
-    return <div>{emailQuery.data}</div>;
+    if (emailQuery.data) {
+      return <div>Logged in as {emailQuery.data}</div>;
+    }
+    return <div>Not logged in</div>;
   }
 }
 ```

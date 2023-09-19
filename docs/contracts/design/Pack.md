@@ -120,7 +120,7 @@ Since packs are ERC1155 tokens, you can publish multiple sets of packs using the
 
 ### Supply of packs
 
-When creating packs, you can specify the numer of reward units to distribute to the opener on opening a pack. And so, when creating a set of packs, the total number of packs in that set is calculated as:
+When creating packs, you can specify the number of reward units to distribute to the opener on opening a pack. And so, when creating a set of packs, the total number of packs in that set is calculated as:
 
 `total_supply_of_packs = (total_reward_units) / (reward_units_to_distribute_per_open)`
 

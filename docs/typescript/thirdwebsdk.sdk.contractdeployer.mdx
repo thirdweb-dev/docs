@@ -60,10 +60,13 @@ An object containing the metadata for the contract to deploy.
   description: "This is a great contract", // Description of your contract
   external_link: "https://example.com", // External link to view contract info on your website
   symbol: "MYCON", // Symbol of the contract tokens
+  image: "https://some-image-here.png", // Image to use for the contract
 
   // Optional Platform fee information
   platform_fee_basis_points: 100,
   platform_fee_recipient: "{{wallet_address}}",
+
+  // Optional Royalty fee information
   fee_recipient: "{{wallet_address}}",
   seller_fee_basis_points: 100,
 

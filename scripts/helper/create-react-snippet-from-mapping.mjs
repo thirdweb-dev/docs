@@ -133,7 +133,7 @@ const reactMapping = {
       getActiveListings: "useActiveListings",
       getAllListings: "useListings",
       getListing: "useListing",
-      setBidBufefrBps: "",
+      setBidBufferBps: "",
       setTimeBufferInsSeconds: "",
       // properties
       auction: "",

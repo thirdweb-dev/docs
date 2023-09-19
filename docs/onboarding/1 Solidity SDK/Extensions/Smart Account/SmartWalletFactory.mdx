@@ -19,7 +19,7 @@ When creating your [Smart Wallet](/glossary/smart-wallet) account factory contra
 This smart contract extension conforms to the `IAccountFactory` interface which is detectable on the dashboard as the `SmartWalletFactory` extension.
 :::
 
-<br/>
+<br />
 
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/smart-wallet/utils/BaseAccountFactory.sol"
@@ -30,9 +30,9 @@ This smart contract extension conforms to the `IAccountFactory` interface which 
 
 The `BaseAccountFactory` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
 
-| Name                                                               | Type                    | Description                                                                                                                                     |
-| ------------------------------------------------------------------ | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| `_initializeAccount`| internal _virtual_ | Called in `createAccount`. Initializes the account contract created in `createAccount`. |
+| Name                 | Type               | Description                                                                             |
+| -------------------- | ------------------ | --------------------------------------------------------------------------------------- |
+| `_initializeAccount` | internal _virtual_ | Called in `createAccount`. Initializes the account contract created in `createAccount`. |
 
 This is an example factory smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality.
 
@@ -78,13 +78,13 @@ function createAccount(address _admin, bytes calldata _data) external virtual ov
 }
 ```
 
-#### _admin
+#### \_admin
 
 The address to be set as default admin role for the contract. Must be of type `address`.
 
-#### _data
+#### \_data
 
-If extra storage variables are required in your account contract, override this function, abi encode the variables, 
+If extra storage variables are required in your account contract, override this function, abi encode the variables,
 pass them to this function as a `bytes` type.
 
 </div>
@@ -108,7 +108,7 @@ function addSigner(address _signer) external {
 }
 ```
 
-#### signer 
+#### signer
 
 The address of the signer to add to the account.
 
@@ -133,7 +133,7 @@ function removeSigner(address _signer) external {
 }
 ```
 
-#### _signer
+#### \_signer
 
 The address of the signer to remove from the account.
 
@@ -153,7 +153,7 @@ function getAddress(address _adminSigner) public view returns (address) {
 }
 ```
 
-#### _adminSigner
+#### \_adminSigner
 
 The admin signer for the account.
 
@@ -212,18 +212,18 @@ function _initializeAccount(
 ) internal virtual;
 ```
 
-#### _account
+#### \_account
 
 The address of the smart account smart contract to initialize.
 
-#### _admin
+#### \_admin
 
 The address to be set as default admin role for the contract. Must be of type `address`.
 
-#### _data
+#### \_data
 
-If extra storage variables are required in your account contract, abi encode the variables, 
-pass them to this function as the `bytes` argument. 
+If extra storage variables are required in your account contract, abi encode the variables,
+pass them to this function as the `bytes` argument.
 
 For example:
 

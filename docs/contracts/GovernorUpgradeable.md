@@ -7,7 +7,7 @@ displayed_sidebar: contracts
 
 # GovernorUpgradeable
 
-_Core of the governance system, designed to be extended though various modules. This contract is abstract and requires several function to be implemented in various modules: - A counting module must implement {quorum}, {*quorumReached}, {\_voteSucceeded} and {\_countVote} - A voting module must implement {\_getVotes} - Additionanly, the {votingPeriod} must also be implemented \_Available since v4.3.*_
+_Core of the governance system, designed to be extended though various modules. This contract is abstract and requires several function to be implemented in various modules: - A counting module must implement {quorum}, {*quorumReached}, {\_voteSucceeded} and {\_countVote} - A voting module must implement {\_getVotes} - Additionally, the {votingPeriod} must also be implemented \_Available since v4.3.*_
 
 ## Methods
 
@@ -241,7 +241,7 @@ function hasVoted(uint256 proposalId, address account) external view returns (bo
 
 module:voting
 
-_Returns weither `account` has cast a vote on `proposalId`._
+_Returns whether `account` has cast a vote on `proposalId`._
 
 #### Parameters
 
@@ -541,7 +541,7 @@ function votingDelay() external view returns (uint256)
 
 module:user-config
 
-_Delay, in number of block, between the proposal is created and the vote starts. This can be increassed to leave time for users to buy voting power, or delegate it, before the voting of a proposal starts._
+_Delay, in number of block, between the proposal is created and the vote starts. This can be increased to leave time for users to buy voting power, or delegate it, before the voting of a proposal starts._
 
 #### Returns
 

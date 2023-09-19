@@ -14,7 +14,6 @@ import "@thirdweb-dev/contracts/extension/Staking20.sol";
 
 The `Staking20` smart contract extension implements ERC20 staking mechanism. With this extension, you can set up a staking contract for holders of your ERC20 tokens. Users can stake their tokens and earn a different set of ERC20 tokens as rewards.
 
-
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/Staking20.sol"
   name="Staking20"
@@ -22,7 +21,7 @@ The `Staking20` smart contract extension implements ERC20 staking mechanism. Wit
 
 ## Usage
 
-This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality. 
+This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality.
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -142,7 +141,6 @@ function getStakeInfo(address staker) external view returns (uint256 tokensStake
 </div>
 </details>
 
-
 <details>
 <summary>setRewardRatio</summary>
 <div>
@@ -157,7 +155,6 @@ function setRewardRatio(uint256 numerator, uint256 denominator) external
 
 </div>
 </details>
-
 
 <details>
 <summary>setTimeUnit</summary>

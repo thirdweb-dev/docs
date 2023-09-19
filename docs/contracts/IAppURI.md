@@ -7,7 +7,7 @@ displayed_sidebar: contracts
 
 # IAppURI
 
-Thirdweb&#39;s `AppURI` is a contract extension for any base contracts. It lets you set a metadata URI for you contract.
+Thirdweb&#39;s `AppURI` is a contract extension for any base contracts. It lets you set a metadata URI for your contract.
 
 ## Methods
 

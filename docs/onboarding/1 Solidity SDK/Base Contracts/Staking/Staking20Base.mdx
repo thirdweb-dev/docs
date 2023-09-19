@@ -43,6 +43,7 @@ import "@thirdweb-dev/contracts/base/Staking20Base.sol";
 
 contract MyContract is Staking20Base {
     constructor(
+        address _defaultAdmin,
         uint256 _timeUnit,
         uint256 _rewardRatioNumerator,
         uint256 _rewardRatioDenominator,
@@ -51,6 +52,7 @@ contract MyContract is Staking20Base {
         address _nativeTokenWrapper
     )
         Staking20Base(
+            _defaultAdmin,
             _timeUnit,
             _rewardRatioNumerator,
             _rewardRatioDenominator,
@@ -67,7 +69,7 @@ contract MyContract is Staking20Base {
 The following functions have been implemented on this contract & are available to be overridden to add custom logic:
 
 <details>
-<summary>tokenURI</summary>
+<summary>_mintRewards</summary>
 <div>
 
 ```solidity

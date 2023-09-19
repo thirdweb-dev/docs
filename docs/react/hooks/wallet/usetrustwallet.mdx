@@ -1,0 +1,81 @@
+---
+title: useTrustWallet
+slug: /react.usetrustwallet
+displayed_sidebar: react
+sidebar_position: 14
+---
+
+Hook that prompts users to connect their Trust wallet to your app.
+
+```jsx
+import { useTrustWallet } from "@thirdweb-dev/react";
+```
+
+The [trustWallet](/react/react.trustWallet) also needs to be added in [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) if you want the wallet to auto-connect on next page load.
+
+## Usage
+
+Call the function returned by the `useTrustWallet` hook to prompt the user to connect their Trust wallet to your dApp.
+
+You can then use the [`useAddress`](/react/react.useaddress) hook to get the user's address.
+
+```jsx
+import { useTrustWallet } from "@thirdweb-dev/react";
+
+function App() {
+  const connectWithTrust = useTrustWallet();
+
+  return <button onClick={() => connectWithTrust()}>Connect Trust</button>;
+}
+```
+
+## Configuration
+
+<details>
+  <summary>chainId</summary>
+  <div>
+
+To connect to a specific chain when connecting the wallet,
+pass the `chainId` in a configuration object as shown below.
+
+This will prompt the user to switch to the given network after they connect.
+
+```jsx
+import { useTrustWallet } from "@thirdweb-dev/react";
+import { Dogechain } from "@thirdweb-dev/chains";
+
+function App() {
+  const connectWithTrust = useTrustWallet();
+
+  return (
+    <button
+      onClick={() =>
+        connectWithTrust({
+          chainId: Dogechain.chainId,
+        })
+      }
+    >
+      Connect Wallet
+    </button>
+  );
+}
+```
+
+If the chain is not configured in the user&rsquo;s wallet,
+you must add this chain in `ThirdwebProvider`&rsquo;s [supportedChains](/react/react.thirdwebprovider#supportedChains) prop:
+
+```jsx
+import { Dogechain } from "@thirdweb-dev/chains";
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+
+export function YourApp() {
+  return (
+    <ThirdwebProvider supportedChains={[Dogechain]} clientId="your-client-id">
+      <App />
+    </ThirdwebProvider>
+  );
+}
+```
+
+</div>
+</details>

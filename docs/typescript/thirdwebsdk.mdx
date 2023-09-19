@@ -76,10 +76,20 @@ Using this method, you can only read data from the blockchain.
 
 ```typescript
 // Read-only mode
-const readOnlySdk = new ThirdwebSDK("ethereum");
+const readOnlySdk = new ThirdwebSDK("goerli", {
+  clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
+  secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
+});
 ```
 
 ## Configuration
+
+### Client ID or Secret Key(required)
+
+To use the Typescript SDK, you need to obtain either the `clientId` or `secretKey` from an API key which you can obtain from the [Dashboard](https://thirdweb.com/dashboard). You can instatiate the SDK in two ways:
+
+- **Client-side**: Use the SDK in the browser or mobile app. In this instance, you would use the `clientId` prop.
+- **Server-side**: Use the SDK in a server environment. In this instance, you would use the `secretKey` prop.
 
 ### Chain (required)
 
@@ -125,7 +135,7 @@ const sdk = new ThirdwebSDK({
   rpc: ["<your-rpc-url-here>"],
 
   // === Information for adding the network to your wallet (how it will appear for first time users) === \\
-  // Information about the chains native currency (i.e. the currency that is used to pay for gas)
+  // Information about the chain's native currency (i.e. the currency that is used to pay for gas)
   nativeCurrency: {
     decimals: 18,
     name: "Consensys ETH",

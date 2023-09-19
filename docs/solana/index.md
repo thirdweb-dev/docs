@@ -37,10 +37,14 @@ The first thing to do to get started with Solana using thirdweb is to deploy a p
 import { ThirdwebSDK } from "@thirdweb-dev/sdk/solana";
 
 // First, we instantiate the SDK and connect to Solana devnet
-const sdk = ThirdwebSDK.fromNetwork("devnet");
+const sdk = ThirdwebSDK.fromNetwork("devnet",
+  {
+    clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
+    secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
+});
 
 // Next, we pass in a keypair to the SDK (you can generate this or use your own)
-// You can also generate one, using Kepair.generate() from @solana/web3.js
+// You can also generate one, using Keypair.generate() from @solana/web3.js
 const keypair = Keypair.fromSecretKey(...)
 sdk.wallet.connect(keypair);
 
@@ -71,5 +75,5 @@ const nft = await program.get(mintAddress);
 You can learn more about thirdweb and the Solana SDK with the following resources:
 
 - [Solana Docs](https://portal.thirdweb.com/solana)
-- [Thirdweb Twitter](https://twitter.com/thirdweb_)
-- [Thirdweb Discord](https://discord.com/invite/thirdweb)
+- [thirdweb Twitter](https://twitter.com/thirdweb)
+- [thirdweb Discord](https://discord.gg/thirdweb)

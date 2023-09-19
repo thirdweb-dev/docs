@@ -10,7 +10,7 @@ const { readdir, createReadStream, writeFile, readFile } = pkg;
 const outDir = "./docs/python";
 const packageRoot = "./submodules/python";
 const inDir = packageRoot + "/docs/docs";
-// This is intentionally not the README dir, because the actualy package README
+// This is intentionally not the README dir, because the actually package README
 // has development environment instructions that we don't want
 const readmePath = inDir + "/index.md";
 
@@ -48,7 +48,7 @@ async function main() {
 
         const homeLink = line.match(/\[Home\]\(.\/index\.md\) &gt; (.*)/);
         if (homeLink) {
-          //skip the breadcrumb line alltogether
+          //skip the breadcrumb line altogether
           return;
         }
         // See issue #4. api-documenter expects \| to escape table

@@ -7,7 +7,7 @@ displayed_sidebar: contracts
 
 # ERC721Base
 
-The `ERC721Base` smart contract implements the ERC721 NFT standard, along with the ERC721A optimization to the standard. It includes the following additions to standard ERC721 logic: - Ability to mint NFTs via the provided `mint` function. - Contract metadata for royalty support on platforms such as OpenSea that use off-chain information to distribute roaylties. - Ownership of the contract, with the ability to restrict certain functions to only be called by the contract&#39;s owner. - Multicall capability to perform multiple actions atomically - EIP 2981 compliance for royalty support on NFT marketplaces.
+The `ERC721Base` smart contract implements the ERC721 NFT standard, along with the ERC721A optimization to the standard. It includes the following additions to standard ERC721 logic: - Ability to mint NFTs via the provided `mint` function. - Contract metadata for royalty support on platforms such as OpenSea that use off-chain information to distribute royalties. - Ownership of the contract, with the ability to restrict certain functions to only be called by the contract&#39;s owner. - Multicall capability to perform multiple actions atomically - EIP 2981 compliance for royalty support on NFT marketplaces.
 
 ## Methods
 
@@ -171,7 +171,7 @@ _See {getBaseURICount}._
 function getDefaultRoyaltyInfo() external view returns (address, uint16)
 ```
 
-Returns the defualt royalty recipient and BPS for this contract&#39;s NFTs.
+Returns the default royalty recipient and BPS for this contract&#39;s NFTs.
 
 #### Returns
 

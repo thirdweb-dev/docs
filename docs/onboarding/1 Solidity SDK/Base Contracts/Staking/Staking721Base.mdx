@@ -43,12 +43,13 @@ import "@thirdweb-dev/contracts/base/Staking721Base.sol";
 
 contract MyContract is Staking721Base {
     constructor(
+        address _defaultAdmin,
         uint256 _timeUnit,
         uint256 _rewardsPerUnitTime,
         address _stakingToken,
         address _rewardToken,
         address _nativeTokenWrapper
-    ) Staking721Base(_timeUnit, _rewardsPerUnitTime, _stakingToken, _rewardToken, _nativeTokenWrapper) {}
+    ) Staking721Base(_defaultAdmin, _timeUnit, _rewardsPerUnitTime, _stakingToken, _rewardToken, _nativeTokenWrapper) {}
 }
 ```
 
@@ -57,7 +58,7 @@ contract MyContract is Staking721Base {
 The following functions have been implemented on this contract & are available to be overridden to add custom logic:
 
 <details>
-<summary>tokenURI</summary>
+<summary>mintRewards</summary>
 <div>
 
 ```solidity
