@@ -28,7 +28,7 @@ const magicLinkConfig = magicLink({
   selectUI="MagicLinkSelectUI"
 />
 
-<br />
+## options
 
 <details>
   <summary>type (optional) </summary>
@@ -182,6 +182,23 @@ const wallet = new MagicLink({
     redirectURI: new URL("/foo", window.location.origin).href,
     providers: ["google", "facebook", "github", "bitbucket"],
   },
+});
+```
+
+</div>
+</details>
+
+<details>
+  <summary>recommended (optional) </summary>
+  <div>
+
+Show this wallet as "recommended" in the [ConnectWallet Modal](/react/react.connectwallet).
+
+```ts
+magicLink({
+  // highlight-start
+  recommended: true,
+  // highlight-end
 });
 ```
 

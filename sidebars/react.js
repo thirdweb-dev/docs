@@ -61,12 +61,12 @@ const sidebars = {
       items: [
         {
           type: "doc",
-          label: "Connect Wallet Button",
+          label: "ConnectWallet",
           id: "ui-components/ConnectWallet",
         },
         {
           type: "doc",
-          label: "Web3 Button",
+          label: "Web3Button",
           id: "ui-components/Web3Button",
         },
         {
