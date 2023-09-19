@@ -27,31 +27,37 @@ function DocSidebarItems({ items, ...props }) {
   const sidebarItems = [
     {
       title: null, // No title for the first section
-      items: ["Home", "Overview ", "API Keys"],
+      items: ["Home", "Overview "],
     },
     {
-      title: "Tools",
-      items:
-        // Tools
-        [
-          "Solidity SDK",
-          "Explore",
-          "EVM SDK",
-          "Solana SDK",
-          "UI Components",
-          "Deploy",
-          "Publish",
-          "Dashboard",
-          "CLI",
-        ],
+      title: "Wallets",
+      items: [
+        "Wallet SDK",
+        "Connect Wallet",
+        "Smart Wallet",
+        "Email Wallet",
+        "Auth",
+      ],
+    },
+    {
+      title: "Contracts",
+      items: [
+        "Contract SDK",
+        "Pre-Built Contracts",
+        "Solidity SDK",
+        "Deploy",
+        "Publish",
+        "Solana SDK",
+        "UI Components",
+      ],
     },
     {
       title: "Infrastructure",
-      items: ["Auth", "Storage", "Wallet"],
+      items: ["Storage", "Bundler & Paymaster"],
     },
     {
-      title: "Solutions",
-      items: ["CommerceKit", "GamingKit", "Minting", "Digital Collectibles"],
+      title: "Tools",
+      items: ["CLI", "Dashboard", "Engine"],
     },
     {
       title: "SDK References",
@@ -66,8 +72,18 @@ function DocSidebarItems({ items, ...props }) {
       ],
     },
     {
+      title: "Solutions",
+      items: [
+        "Signature Minting",
+        "CommerceKit",
+        "GamingKit",
+        "Minting",
+        "Digital Collectibles",
+      ],
+    },
+    {
       title: "Resources",
-      items: ["Templates", "Guides", "Glossary"],
+      items: ["API Keys", "Templates", "Guides", "Glossary"],
     },
   ];
 
@@ -76,11 +92,15 @@ function DocSidebarItems({ items, ...props }) {
       name.split("/")[1].charAt(0).toUpperCase() + name.split("/")[1].slice(1);
 
     if (formatted === "Sdk") {
-      return "SDK";
+      return "Contract SDK";
     }
 
     if (formatted === "Pre-built-contracts") {
-      return "Explore";
+      return "Pre-Built Contracts";
+    }
+
+    if (formatted === "Web3-api") {
+      return "Web3 API";
     }
 
     if (formatted === "Ui-components") {
@@ -95,8 +115,8 @@ function DocSidebarItems({ items, ...props }) {
       return "CommerceKit";
     }
 
-    if (formatted === "Wallet" || formatted === "Wallets") {
-      return "Wallet";
+    if (formatted === "Wallet") {
+      return "Wallet SDK";
     }
 
     if (formatted === "Typescript") {
