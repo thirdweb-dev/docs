@@ -26,7 +26,7 @@ const metamaskConfig = metamaskWallet(options);
   isInstalled="isMetamaskInstalled"
 />
 
-### options
+## options
 
 <details>
   <summary>projectId (recommended) </summary>
@@ -40,6 +40,23 @@ This `projectId` can be obtained at [cloud.walletconnect.com](https://cloud.wall
 metamaskWallet({
   // highlight-start
   projectId: "your-wallet-connect-project-id",
+  // highlight-end
+});
+```
+
+</div>
+</details>
+
+<details>
+  <summary>recommended (optional) </summary>
+  <div>
+
+Show this wallet as "recommended" in the [ConnectWallet Modal](/react/react.connectwallet).
+
+```ts
+metamaskWallet({
+  // highlight-start
+  recommended: true,
   // highlight-end
 });
 ```

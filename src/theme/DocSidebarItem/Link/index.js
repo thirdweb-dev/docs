@@ -45,7 +45,7 @@ export const iconMapping = {
   Guides: "/assets/resources/guides.svg",
   CLI: "/assets/product/CLI.png",
   Glossary: "/assets/icons/journal-album.svg",
-  "Web3 API": "/assets/product/sdk.png",
+  Engine: "/assets/product/sdk.png",
   "Bundler & Paymaster": "/assets/wallets/smart-wallet.svg",
 };
 

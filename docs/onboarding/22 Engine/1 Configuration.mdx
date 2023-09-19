@@ -1,5 +1,5 @@
 ---
-slug: /web3-api/configuration
+slug: /engine/configuration
 title: Configuration
 hide_title: true
 ---
@@ -8,7 +8,7 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
 :::info
-Web3 API is currently in Open Beta and requires self-hosting. If you need a managed version, please [contact us](https://thirdweb.com/contact-us).
+Engine is currently in Open Beta and requires self-hosting. If you need a managed version, please [contact us](https://thirdweb.com/contact-us).
 :::
 
 # Configuration
@@ -22,7 +22,7 @@ Before you begin, ensure you have the following:
 
 ## Part 1: Wallet Configuration
 
-To use web3 API, you will need to initiate it with a backend wallet using one of the following options:
+To use Engine, you will need to initiate it with a backend wallet using one of the following options:
 
 ### Secret Key
 
@@ -36,7 +36,7 @@ To use web3 API, you will need to initiate it with a backend wallet using one of
 
 ### AWS KMS
 
-Web3-API supports AWS KMS for signing & sending transactions over any EVM chain.
+Engine supports AWS KMS for signing & sending transactions over any EVM chain.
 
 1. Setup a managed key through AWS KMS.
    1. Create an IAM user with programmatic access. Follow the instructions in the AWS documentation on **[creating an IAM user in your AWS account](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console)**.
@@ -53,7 +53,7 @@ Web3-API supports AWS KMS for signing & sending transactions over any EVM chain.
 
 ### Google KMS
 
-Web3-API supports Google KMS for signing & sending transactions over any EVM chain.
+Engine supports Google KMS for signing & sending transactions over any EVM chain.
 
 1. Setup a managed key through Google KMS.
    1. Create an encrypted key with Cloud KMS. Learn how to [Create encryption keys with Cloud KMS](https://cloud.google.com/kms/docs/create-encryption-keys#before-you-begin) from the Google Cloud documentation.
@@ -77,7 +77,7 @@ Web3-API supports Google KMS for signing & sending transactions over any EVM cha
 
 ## Part 2: Server Configuration
 
-While in beta, Web3 API only offers self-hosted options. To use Web3 API, you will need to host your own server using a containerization platform such as Docker or Kubernetes.
+While in beta, Engine only offers self-hosted options. To use Engine, you will need to host your own server using a containerization platform such as Docker or Kubernetes.
 
 ### Configure Server Using Docker
 
@@ -91,10 +91,10 @@ To host your own server with Docker:
    docker run --env-file ./.env -p 5432:5432 --name my-local-postgres -d postgres
    ```
 
-3. Afterwards, to get the Web3 API Docker Image, navigate to the root of your project and run the following command in your command line:
+3. Afterwards, to get the Engine Docker Image, navigate to the root of your project and run the following command in your command line:
 
    ```
-   docker run --env-file ./.env -p 3005:3005 --name web3-api thirdweb/web3-api:latest
+   docker run -e .env -p 3005:3005 thirdweb/engine:latest
    ```
 
    :::info
@@ -115,5 +115,13 @@ To host your own server with Docker:
 ### Authorization Header
 
 All Requests need to have `Authorization` header with the value of `Bearer <YOUR_THIRDWEB_SDK_SECRET_KEY>` from the `.env` file.
+
+Write requests to the server will also require a `x-wallet-address: <YOUR_WALLET_ADDRESS>` header to specify which admin wallet to send a transaction with.
+
+Example:
+
+```
+x-wallet-address: 0x3ecdbf3b911d0e9052b64850693888b008e18373
+```
 
 For specific examples of implementation, follow along with our Get Started tutorial.

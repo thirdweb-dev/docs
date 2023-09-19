@@ -1,8 +1,8 @@
 ---
-title: frameWallet
-slug: /react.frame
+title: phantomWallet
+slug: /react.phantom
 displayed_sidebar: react
-sidebar_position: 11
+sidebar_position: 12
 ---
 
 import Tabs from "@theme/Tabs";
@@ -10,23 +10,23 @@ import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 import { CustomizeWalletConfigurator } from "@components/build-wallet/CustomizeWalletConfigurator";
 
-A wallet configurator for [Frame Wallet](/wallet/frame) which allows integrating the wallet with React
+A wallet configurator for [Phantom Wallet](/wallet/phantom) which allows integrating the wallet with React
 
 ```tsx
-import { frameWallet } from "@thirdweb-dev/react";
+import { phantomWallet } from "@thirdweb-dev/react";
 
-const frameWalletConfig = frameWallet(options);
+const phantomConfig = phantomWallet(options);
 ```
 
 <CustomizeWalletConfigurator
-  config="frameWalletConfig"
-  configurator="frameWallet"
-  connectUI="FrameWalletConnectUI"
-  selectUI="FrameWalletSelectUI"
-  isInstalled="isFrameWalletInstalled"
+  config="phantomConfig"
+  configurator="phantomWallet"
+  connectUI="PhantomConnectUI"
+  selectUI="PhantomSelectUI"
+  isInstalled="isPhantomInstalled"
 />
 
-## Options
+## options
 
 <details>
   <summary>recommended (optional) </summary>
@@ -35,7 +35,7 @@ const frameWalletConfig = frameWallet(options);
 Show this wallet as "recommended" in the [ConnectWallet Modal](/react/react.connectwallet).
 
 ```ts
-frameWallet({
+phantomWallet({
   // highlight-start
   recommended: true,
   // highlight-end
@@ -50,7 +50,10 @@ frameWallet({
 To allow users to connect to this wallet using the [ConnectWallet](/react/react.connectwallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop.
 
 ```tsx
-<ThirdwebProvider supportedWallets={[frameWallet()]} clientId="your-client-id">
+<ThirdwebProvider
+  supportedWallets={[phantomWallet()]}
+  clientId="your-client-id"
+>
   <YourApp />
 </ThirdwebProvider>
 ```
@@ -62,13 +65,13 @@ you can use the `useConnect` hook to programmatically connect to the wallet with
 The wallet also needs to be added in [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) if you want the wallet to auto-connect on next page load.
 
 ```tsx
-const frameWalletConfig = frameWallet();
+const phantomConfig = phantomWallet();
 
 function App() {
   const connect = useConnect();
 
   const handleConnect = async () => {
-    await connect(frameWalletConfig, connectOptions);
+    await connect(phantomConfig, connectOptions);
   };
 
   return <div> ... </div>;
