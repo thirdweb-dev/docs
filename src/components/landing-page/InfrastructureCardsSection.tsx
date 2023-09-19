@@ -10,25 +10,11 @@ type Product = {
 
 const products: Product[] = [
   {
-    image: "/assets/product/auth.png",
-    name: "Auth",
-    description:
-      "Authenticate users with their wallets. Securely verify a user’s on-chain identity without relying on a centralized database",
-    link: "/auth",
-  },
-  {
     image: "/assets/product/storage.png",
     name: "Storage",
     description:
       "Get fast access to data stored on blockchain with a unified API that works with a storage provider of your choice",
     link: "/storage",
-  },
-  {
-    image: "/assets/product/wallet.png",
-    name: "Wallet",
-    description:
-      "Integrate wallet connection capabilities into web3 applications",
-    link: "/wallet",
   },
 ];
 

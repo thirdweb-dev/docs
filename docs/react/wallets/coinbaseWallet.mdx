@@ -15,7 +15,7 @@ A wallet configurator for [Coinbase Wallet](/wallet/coinbase-wallet) which allow
 ```tsx
 import { coinbaseWallet } from "@thirdweb-dev/react";
 
-const coinbaseConfig = coinbaseWallet();
+const coinbaseConfig = coinbaseWallet(options);
 ```
 
 <CustomizeWalletConfigurator
@@ -26,12 +26,55 @@ const coinbaseConfig = coinbaseWallet();
   isInstalled="isCoinbaseInstalled"
 />
 
+## options
+
+<details>
+  <summary>qrmodal (optional) </summary>
+  <div>
+
+You can choose to show the coinbase's default QR code modal by setting `qrmodal` to `"coinbase"` or show the custom QR code modal by setting `qrmodal` to `"custom"`.
+
+Default is `"custom"`.
+
+```javascript
+coinbaseWallet(
+  // highlight-start
+  {
+    qrmodal: "coinbase",
+  },
+  // highlight-end
+);
+```
+
+</div>
+</details>
+
+<details>
+  <summary>recommended (optional) </summary>
+  <div>
+
+Show this wallet as "recommended" in the [ConnectWallet Modal](/react/react.connectwallet).
+
+```ts
+coinbaseWallet({
+  // highlight-start
+  recommended: true,
+  // highlight-end
+});
+```
+
+</div>
+</details>
+
 ## Usage with `ConnectWallet`
 
 To allow users to connect to this wallet using the [ConnectWallet](/react/react.connectwallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop.
 
 ```tsx
-<ThirdwebProvider supportedWallets={[coinbaseWallet()]}>
+<ThirdwebProvider
+  supportedWallets={[coinbaseWallet()]}
+  clientId="your-client-id"
+>
   <YourApp />
 </ThirdwebProvider>
 ```
@@ -56,7 +99,7 @@ function App() {
 }
 ```
 
-## connectOptions
+### connectOptions
 
 ```ts
 { chainId?: string } | undefined
@@ -76,7 +119,7 @@ import { ThirdwebProvider } from "@thirdweb-dev/react";
 
 export function YourApp() {
   return (
-    <ThirdwebProvider supportedChains={[Polygon]}>
+    <ThirdwebProvider supportedChains={[Polygon]} clientId="your-client-id">
       <App />
     </ThirdwebProvider>
   );

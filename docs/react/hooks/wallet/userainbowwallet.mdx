@@ -2,6 +2,7 @@
 title: useRainbowWallet
 slug: /react.userainbowwallet
 displayed_sidebar: react
+sidebar_position: 13
 ---
 
 Hook that prompts users to connect their Rainbow wallet to your app.
@@ -69,7 +70,7 @@ import { ThirdwebProvider } from "@thirdweb-dev/react";
 
 export function YourApp() {
   return (
-    <ThirdwebProvider supportedChains={[Dogechain]}>
+    <ThirdwebProvider supportedChains={[Dogechain]} clientId="your-client-id">
       <App />
     </ThirdwebProvider>
   );

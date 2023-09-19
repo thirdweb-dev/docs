@@ -15,14 +15,15 @@ import YoutubeEmbed from "@components/YoutubeEmbed";
       Kit to:
     </p>
     <ul>
-      <li>Connect to player's wallets</li>
-      <li>Read and write data to smart contracts</li>
-      <li>Deploy new smart contracts programmatically</li>
+      <li>Connect to any wallet provider</li>
+      <li>Create player accounts</li>
+      <li>Interact with any smart contract</li>
+      <li>Create amazing gasless and frictionless experiences</li>
     </ul>
 
   </div>
 <div className="heroGridImageContainer">
-  <YoutubeEmbed link={"https://www.youtube.com/embed/sEXCE21I2uw"} />
+  <YoutubeEmbed link={"https://www.youtube.com/embed/HZygMkRbLlY"} />
 </div>
 </div>
 
@@ -31,13 +32,13 @@ more engines coming soon.
 
 ## Get Started
 
-Follow our [quickstart guide](/gamingkit/quickstart) to get up and running with GamingKit.
+Follow our [quickstart guide](/unity/getting-started) to get up and running with GamingKit.
 
 <div className="row" style={{ marginBottom: 12 }}>
   <div className="col col--12" style={{ padding: 8 }}>
     <QuickstartCard
       name="Quickstart: Get Started With The Unity SDK"
-      link="/gamingkit/quickstart"
+      link="/unity/getting-started"
       image="/assets/icons/education.png"
     />
   </div>
@@ -46,19 +47,11 @@ Follow our [quickstart guide](/gamingkit/quickstart) to get up and running with 
 Once installed you can connect and interact to your smart contract in just a few lines of code:
 
 ```csharp
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using Thirdweb;
 
-public class Example : MonoBehaviour {
-  void Start() {
-    ThirdwebSDK sdk = new ThirdwebSDK("goerli");
-    string address = "0xb1c42E0C4289E68f1C337Eb0Da6a38C4c9F3f58e";
-    NFTCollection contract = sdk.GetContract(address);
-    List<NFT> nfts = await contract.ERC721.GetAll();
-  }
-}
+ThirdwebSDK sdk = ThirdwebManager.Instance.SDK;
+Contract contract = sdk.GetContract("0xEpicNFTContract");
+List<NFT> nfts = await contract.ERC721.GetAll();
 ```
 
 ### Manually Setup the SDK
@@ -77,34 +70,34 @@ If you're already familiar with Unity, download the latest release of the SDK fr
 
 ## Learn More
 
-Discover what&apos;s possible with the GamingKit:
+Discover how easy it is to integrate GamingKit:
 
 <div className="row" style={{ marginTop: 24 }}>
   <div className="col col--6" style={{ padding: 8 }}>
     <QuickstartCard
-      name="Airdrop Free-To-Own NFTs"
-      link="https://blog.thirdweb.com/guides/airdrop-free-to-own-nfts-for-a-web3-game/"
+      name="Flexible SDK Setup"
+      link="/unity/thirdwebmanager"
       image="/assets/icons/deployment.png"
     />
   </div>
   <div className="col col--6" style={{ padding: 8 }}>
     <QuickstartCard
-      name="Add A Connect Wallet Button"
-      link="https://blog.thirdweb.com/guides/add-a-connect-wallet-button-in-a-unity-game/"
+      name="Connect Wallet Button"
+      link="/unity/connectwallet"
       image="/assets/icons/report.png"
     />
   </div>
   <div className="col col--6" style={{ padding: 8 }}>
     <QuickstartCard
-      name="Create Burn-To-Redeem NFTs"
-      link="https://blog.thirdweb.com/guides/sell-burn-to-redeem-nfts-in-unity/"
+      name="NFT Renderer"
+      link="/unity/nftloader"
       image="/assets/icons/edition-drop.png"
     />
   </div>
   <div className="col col--6" style={{ padding: 8 }}>
     <QuickstartCard
-      name="Sell ERC20 Tokens As In-Game Currency"
-      link="https://blog.thirdweb.com/guides/sell-your-in-game-currency-for-crypto-in-unity/"
+      name="Extensions"
+      link="/unity/extensions"
       image="/assets/icons/gamefi.png"
     />
   </div>

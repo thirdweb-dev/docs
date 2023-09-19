@@ -2,7 +2,7 @@
 title: rainbowWallet
 slug: /react.rainbowWallet
 displayed_sidebar: react
-sidebar_position: 3
+sidebar_position: 12
 ---
 
 import Tabs from "@theme/Tabs";
@@ -17,13 +17,13 @@ Rainbow Wallet is an extension of our WalletConnect wallet which supports WCV2.
 ```tsx
 import { rainbowWallet } from "@thirdweb-dev/react";
 
-const walletConnectConfig = rainbowWallet(options);
+const rainbowWalletConfig = rainbowWallet(options);
 ```
 
 ## options
 
 <details>
-  <summary>projectId (optional) </summary>
+  <summary>projectId (recommended) </summary>
   <div>
 
 Your project's unique identifier that can be obtained at [cloud.walletconnect.com](https://cloud.walletconnect.com).
@@ -46,12 +46,32 @@ rainbowWallet(
 </div>
 </details>
 
+<details>
+  <summary>recommended (optional) </summary>
+  <div>
+
+Show this wallet as "recommended" in the [ConnectWallet Modal](/react/react.connectwallet).
+
+```ts
+rainbowWallet({
+  // highlight-start
+  recommended: true,
+  // highlight-end
+});
+```
+
+</div>
+</details>
+
 ## Usage with `ConnectWallet`
 
 To allow users to connect to this wallet using the [ConnectWallet](/react/react.connectwallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop.
 
 ```tsx
-<ThirdwebProvider supportedWallets={[rainbowWallet()]}>
+<ThirdwebProvider
+  supportedWallets={[rainbowWallet()]}
+  clientId="your-client-id"
+>
   <YourApp />
 </ThirdwebProvider>
 ```
@@ -76,7 +96,7 @@ function App() {
 }
 ```
 
-## connectOptions
+### connectOptions
 
 ```ts
 { chainId?: string } | undefined
@@ -96,7 +116,7 @@ import { ThirdwebProvider } from "@thirdweb-dev/react";
 
 export function YourApp() {
   return (
-    <ThirdwebProvider supportedChains={[Polygon]}>
+    <ThirdwebProvider supportedChains={[Polygon]} clientId="your-client-id">
       <App />
     </ThirdwebProvider>
   );

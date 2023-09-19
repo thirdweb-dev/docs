@@ -48,12 +48,14 @@ import "@thirdweb-dev/contracts/base/ERC721Base.sol";
 contract MyNFT is ERC721Base {
 
 	  constructor(
+        address _defaultAdmin,
         string memory _name,
         string memory _symbol,
         address _royaltyRecipient,
         uint128 _royaltyBps
     )
         ERC721Base(
+            _defaultAdmin,
             _name,
             _symbol,
             _royaltyRecipient,

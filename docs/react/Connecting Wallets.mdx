@@ -14,6 +14,11 @@ displayed_sidebar: react
 | Local Wallet      | [`localWallet`](/react/react.localwallet)       | [`useConnect`](/react/react.useconnect)               | [`LocalWallet`](/wallet/local-wallet)        |
 | Smart Wallet      | [`smartWallet`](/react/react.smartwallet)       | [`useSmartWallet`](/react/react.usesmartwallet)       | [`SmartWallet`](/wallet/smart-wallet)        |
 | Magic Link        | [`magicLink`](/react/react.magiclink)           | [`useMagic`](/react/react.usemagic)                   | [`MagicLink`](/wallet/magic)                 |
+| Rainbow Wallet    | [`rainbowWallet`](/react/react.rainbowWallet)   | [`useRainbowWallet`](/react/react.userainbowwallet)   | [`WalletConnect`](/wallet/wallet-connect-v2) |
+| Zerion Wallet     | [`zerionWallet`](/react/react.zerion)           | [`useConnect`](/react/react.useConnect)               | [`ZerionWallet`](/wallet/zerion-wallet)      |
+| Blocto Wallet     | [`bloctoWallet`](/react/react.blocto)           | [`useBloctoWallet`](/react/react.usebloctowallet)     | [`BloctoWallet`](/wallet/blocto)             |
+| Frame Wallet      | [`frameWallet`](/react/react.frame)             | [`useFrameWallet`](/react/react.useframewallet)       | [`FrameWallet`](/wallet/frame)               |
+| Phantom           | [`phantomWallet`](/react/react.phantom)         | [`useConnect`](/react/react.useconnect)               | [`PhantomWallet`](/wallet/phantom)           |
 
 <br />
 
@@ -26,7 +31,15 @@ There are two ways you can enable user&rsquo;s to connect their wallet with your
 
 To allow users to connect wallet using the [ConnectWallet](/react/react.connectwallet) component, you must first declare which wallets you want to support in [`supportedWallets`](/react/react.thirdwebprovider#supportedwallets-optional) prop of the [`ThirdwebProvider`](/react/react.thirdwebprovider) component,
 
-If no `supportedWallets` prop is passed, the default is to support [`metamaskWallet`](/react/react.metamaskWallet), [`coinbaseWallet`](/react/react.coinbasewallet).
+If no `supportedWallets` prop is passed, the default wallets are:
+
+- [`metamaskWallet`](/react/react.metamaskWallet)
+- [`coinbaseWallet`](/react/react.coinbasewallet)
+- [`walletConnect`](/react/react.walletconnect)
+- [`trustWallet`](/react/react.trustWallet)
+- [`rainbowWallet`](/react/react.rainbowWallet)
+- [`zerionWallet`](/react/react.zerion)
+- [`phantomWallet`](/react/react.phantom)
 
 ```jsx
 import {
@@ -49,14 +62,13 @@ function MyApp() {
           projectId: "YOUR_PROJECT_ID",
         }),
         safeWallet(),
-        paperWallet({
-          clientId: "YOUR_CLIENT_ID",
-        }),
+        paperWallet(),
         magicLink({
           apiKey: "YOUR_MAGIC_API_KEY",
         }),
       ]}
       activeChain="mumbai"
+      clientId="your-client-id"
     >
       <App />
     </ThirdwebProvider>

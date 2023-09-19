@@ -15,9 +15,7 @@ A wallet configurator for [Paper Wallet](/wallet/paper) which allows integrating
 ```tsx
 import { paperWallet } from "@thirdweb-dev/react";
 
-const paperWalletConfig = paperWallet({
-  clientId: "PAPER_CLIENT_ID",
-});
+const paperWalletConfig = paperWallet();
 ```
 
 <CustomizeWalletConfigurator
@@ -26,17 +24,6 @@ const paperWalletConfig = paperWallet({
   connectUI="PaperWalletConnectUI"
   selectUI="PaperWalletSelectUI"
 />
-
-<details>
-  <summary>clientId  </summary>
-  <div>
-
-Paper SDK requires a clientId for instantiation. You can create a clientId for your app on [paper.xyz](https://paper.xyz/product/wallet)
-
-Must be a `string`.
-
-</div>
-</details>
 
 <details>
   <summary>advancedOptions (optional)</summary>
@@ -83,18 +70,29 @@ styles: {
 </div>
 </details>
 
+<details>
+  <summary>recommended (optional) </summary>
+  <div>
+
+Show this wallet as "recommended" in the [ConnectWallet Modal](/react/react.connectwallet).
+
+```ts
+paperWallet({
+  // highlight-start
+  recommended: true,
+  // highlight-end
+});
+```
+
+</div>
+</details>
+
 ## Usage with `ConnectWallet`
 
 To allow users to connect to this wallet using the [ConnectWallet](/react/react.connectwallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop.
 
 ```tsx
-<ThirdwebProvider
-  supportedWallets={[
-    paperWallet({
-      clientId: "PAPER_CLIENT_ID",
-    }),
-  ]}
->
+<ThirdwebProvider clientId="your-client-id" supportedWallets={[paperWallet()]}>
   <YourApp />
 </ThirdwebProvider>
 ```
@@ -108,9 +106,7 @@ The wallet also needs to be added in [ThirdwebProvider's supportedWallets](/reac
 Calling `connect` opens the Paper Wallet's Modal and prompts the user to log in with their email address.
 
 ```tsx
-const paperWalletConfig = paperWallet({
-  clientId: "PAPER_CLIENT_ID",
-});
+const paperWalletConfig = paperWallet(options);
 
 function App() {
   const connect = useConnect();
@@ -165,7 +161,7 @@ import { ThirdwebProvider } from "@thirdweb-dev/react";
 
 export function YourApp() {
   return (
-    <ThirdwebProvider supportedChains={[Polygon]}>
+    <ThirdwebProvider supportedChains={[Polygon]} clientId="your-client-id">
       <App />
     </ThirdwebProvider>
   );

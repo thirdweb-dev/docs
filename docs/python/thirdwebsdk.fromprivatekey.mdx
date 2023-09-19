@@ -13,13 +13,15 @@ Provide the private key and the [chain](#chain) you want to use.
 
 ```python
 from thirdweb import ThirdwebSDK
+from thirdweb.types import SDKOptions
 from dotenv.main import load_dotenv
 import os
 
 load_dotenv()
+secret_key = os.environ['SECRET_KEY']
 private_key = os.environ['PRIVATE_KEY']
 
-sdk = ThirdwebSDK.from_signer(private_key, "mumbai")
+sdk = ThirdwebSDK.from_private_key(private_key, "mumbai", SDKOptions(secret_key=secret_key))
 ```
 
 ## Configuration
@@ -40,7 +42,7 @@ Losing or leaking your private key will result in the loss of your funds.
 ```python
 from thirdweb import ThirdwebSDK
 
-sdk = ThirdwebSDK.from_signer(
+sdk = ThirdwebSDK.from_private_key(
     # highlight-next-line
     "private_key", # DANGER: This is a sensitive value that should be stored securely.
     "mumbai"
@@ -55,9 +57,23 @@ on the `ThirdwebSDK` for more information.
 ```python
 from thirdweb import ThirdwebSDK
 
-sdk = ThirdwebSDK.from_signer(
+sdk = ThirdwebSDK.from_private_key(
     "private_key", # DANGER: This is a sensitive value that should be stored securely.
      # highlight-next-line
     "mumbai",
+)
+```
+
+### options
+
+The optional `SDKOptions` object to pass as configuration. See [configuring sdk options](/python/python.thirdwebsdk#options) on the `ThirdwebSDK` page for more information.
+
+```python
+from thirdweb import ThirdwebSDK
+
+sdk = ThirdwebSDK.from_private_key(
+    "private_key",
+    "mumbai",
+    SDKOptions(secret_key="...")
 )
 ```

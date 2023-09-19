@@ -24,47 +24,97 @@ Our tool suite accelerates your development workflow across the smart contract, 
   alt="platform-overview"
 />
 
-### Smart Contracts
+<hr />
+
+## Wallets
+
+Onboard, manage and authenticate users with thirdweb's wallet integrations.
+
+### 1. Create Wallets
+
+- [ERC-4337 Smart Contract Wallets](/smart-wallet): Create account abstraction wallets that are controlled by a smart contract.
+- [Email and Social Wallets](/wallet/paper): Create wallets using email or social media accounts.
+- [Local Wallets](/wallet/local-wallet): Create low-level, non-custodial wallets that simplify the onboarding process and improve the user experience for web3 apps.
+
+### 2. Connect Wallets
+
+- **Connect Wallet**: a pre-built component that can be easily integrated into your application. Languages include:
+  - [React](/react/connectwallet)
+  - [React Native](/react-native/connectwallet)
+  - [Unity](/unity/unity.connectwallet)
+- [**Wallet SDK**](/wallet): allows you to build a fully featured wallet solution or integrate an existing wallet provider with thirdweb's Typescript, React, React Native, and Unity SDKs.
+
+### 3. Authenticate Users
+
+[Auth](/auth) is a developer SDK that lets you integrate passwordless **web3-native authentication and authorization** into your applications.
+
+<hr />
+
+## Smart Contracts
 
 Smart contracts serve as the foundational building blocks for any decentralized application.
-We conduct audits on our [pre-built contracts](/explore) to ensure the highest quality and security level.
-We also optimize contracts for gas efficiency, minimizing transaction costs.
-By prioritizing these technical considerations, developers can focus on creating exceptional web3 applications with confidence and ease.
+thirdweb is designed to integrate with any contract on any blockchain seamlessly.
 
-thirdweb is designed to integrate with any contract on any blockchain seamlessly. With the [**Solidity SDK**](/solidity), you can quickly build and customize smart contracts while enabling extensions to unlock more functionality.
-Whether you're deploying your smart contract, without using a private key, with the [**Deploy**](/deploy) [CLI](/cli) command, importing an already deployed contract, or exploring pre-built contracts through [**Explore**](https://thirdweb.com/explore),
-it streamlines the first steps of decentralized development.
-Upon deployment, using [**Dashboard**](/dashboard), you can easily manage your smart contract and track its performance through **Data Feeds**.
+### 1. Build Smart Contracts
 
-### Applications
+thirdweb offers two tools to help you build your smart contract, including:
 
-thirdweb offers [software development kits](/sdk) (SDKs) that allow seamless integration with your smart contract when developing applications or games using popular programming languages such as [React](/react), [React Native](/react-native), [TypeScript](/typescript), [Python](/python), [Go](/go), and [Unity](/unity).
+- [**Solidity SDK**](/solidity): build and customize smart contracts and add extensions to unlock extra functionality in your contract and therefore the [SDKs](/sdk).
+- [**Pre-Built Contracts**](/pre-built-contracts): 1 click deploy contracts written by the thirdweb team and cover the most common use cases for smart contracts.
 
-Our SDKs detected the [extensions](/solidity/extensions) or common Ethereum patterns and standards (i.e., [ERC-20](/solidity/extensions/erc20), [ERC-721](/solidity/extensions/erc721), [ERC-1155](/solidity/extensions/erc1155)) used in your smart contract and provide extra functionality to allow you to build your application with ease. For example, if your contract uses the [ERC-721](/solidity/extensions/erc721) extension, our SDKs will provide you with a set of functions to easily interact with your contract's NFTs.
-Additionally, our SDKs enable wallet connectivity and provide specialized sets of functionality for remote procedure call (RPC) URLs, and an IPFS Gateway.
+### 2. Explore Pre-Built Contracts
+
+Explore thirdweb's pre-built contracts and easily deploy your contract from the Dashboard.
+A full list of the available contracts can be found [in the pre-built contracts documentation](/pre-built-contracts).
+
+### 3. Deploy Smart Contracts
+
+- [**Deploy CLI**](/cli): deploy your smart contract without using a private key.
+- [**Deploy using the SDK**](/sdk): deploy your smart contract using the [**TypeScript SDK**](/typescript/sdk.contractdeployer), [**GO SDK**](/go/contract_deployer), [**Python SDK**](/python/python.contractdeployer) or [**Unity SDK**](/unity/contractdeployer) from an application e.g. a script.
+- [**Import Contract**](/import-contract): import an already deployed contract.
+- [**Deploy from Explore**](https://thirdweb.com/explore): explore pre-built contracts and deploy them to your blockchain of choice.
+
+### 4. Publish Smart Contracts
+
+Make your smart contract available for others to deploy by publishing it using the CLI.
+Either use the "direct deploy" or "factory" methods to publish your contract to allow users to deploy either a full smart contract or a proxy respectively.
+For more information, see the [publish documentation](/publish).
+
+### 5. Interact with Smart Contracts
+
+- [**Dashboard**](/dashboard): Upon deploying or importing your contract, using the [Dashboard](/dashboard), you can easily manage your smart contract and track its performance through **Data Feeds**.
+- [**Contract SDK**](/sdk): [software development kits] (SDKs) that allow seamless integration with your smart contract when developing applications or games using popular programming languages include:
+  - [React](/react)
+  - [React Native](/react-native)
+  - [TypeScript](/typescript)
+  - [Python](/python)
+  - [Go](/go)
+  - [Unity](/unity).
+
+Our SDKs and Dashboard detect the [extensions](/solidity/extensions) or common Ethereum patterns and standards (e.g., [ERC-20](/solidity/extensions/erc20), [ERC-721](/solidity/extensions/erc721), [ERC-1155](/solidity/extensions/erc1155)) used in your smart contract and provide extra functionality to allow you to build your application with ease. For example, if your contract uses the [ERC-721](/solidity/extensions/erc721) extension, our SDKs will provide you with a set of functions to easily interact with your contract's NFTs.
 
 These features optimize performance and enhance developer experience when building decentralized applications.
 
-### Infrastructure
+<hr />
 
-thirdweb offers a comprehensive suite of tools and technologies to facilitate the development of user-friendly and accessible decentralized applications. Our infrastructure includes options for fiat on-ramps, [wallet integrations](/wallet), and gasless relayers, providing seamless end-user experiences.
+## Infrastructure
 
-In addition, we provide built-in [storage solutions](/storage) and RPCs to optimize application performance and decentralization. Our indexer and Data Feeds enable easy integration of your contract's data into your application.
+Connect your application to decentralized networks.
 
-Our [Auth SDK](/auth) is designed to support decentralized login and seamless integration with client and server frameworks. This feature allows developers to build secure and user-friendly decentralized applications that can easily be deployed and integrated with other applications.
+### Storage
 
-## Solutions
+- [**Storage SDK**](/storage): Store files from IPFS using the Storage SDK.
+- [**Gateway**](/storage#gateway): Retrieve files from IPFS using the Gateway.
 
-We are committed to providing complete toolkits for developers across various industries,
-including gaming, e-commerce, finance, art, social media, and more. Our solutions toolkits incorporate
-a range of tools and technologies, proprietary and in partnership with industry leaders.
+### RPC Edge
 
-[GamingKit](/gamingkit), developed in partnership with Coinbase, offers a streamlined approach to building blockchain-based games.
-It includes pre-built contracts such as Marketplace, Multiwrap, Packs, Tokens, and more, and a [Unity SDK](/unity) to build your game.
-GamingKit also enables easy fiat on-ramp solutions via Coinbase Pay.
+thirdweb's RPC Edge is a high-performance, scalable, and reliable RPC service that provides a connection to any EVM-compatible blockchain.
 
-Similarly, [CommerceKit](/commercekit), developed in collaboration with Shopify, enables the creation of blockchain-based storefronts that can reward customers with digital assets.
-The toolkit includes features for enabling token-gated commerce, loyalty programs, and easy configuration tools for digital collectible sales/royalty fees.
+### Account Abstraction Infrastructure
 
-Our Minting solution enables creative minting mechanics and managing digital assets created on both EVM Contracts and Solana's programs.
-It includes tools for signature-based minting, releasing collections of unique NFTs, wrapping tokens into newly wrapped NFTs, randomized loot boxes, and more.
+- [**Bundler**](/smart-wallet/infrastructure): bundle operations and execute transactions with [ERC-4337 smart accounts](/smart-wallet).
+- [**Paymaster**](/smart-wallet/infrastructure): Paymaster is a service that enables sponsored transactions with [ERC-4337 smart accounts](/smart-wallet).
+
+### Payments
+
+[Paper Checkouts](https://docs.withpaper.com/reference/checkouts-overview) delivers the easiest NFT checkout experience: a simple premise with deep complexity abstracted away from you and your buyers.
