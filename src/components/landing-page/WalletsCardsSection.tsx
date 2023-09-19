@@ -23,6 +23,20 @@ const products: Product[] = [
     link: "react/react.connectwallet",
   },
   {
+    image: "/assets/wallets/smart-wallet.svg",
+    name: "Smart Wallet",
+    description:
+      "Easily create and connect to ERC-4337 Smart Wallets in your application",
+    link: "/smart-wallet",
+  },
+  {
+    image: "/assets/wallets/paper.png",
+    name: "Email Wallet",
+    description:
+      "Easily create and connect users with social or email wallets in your application",
+    link: "/wallet/paper",
+  },
+  {
     image: "/assets/product/auth.png",
     name: "Auth",
     description:

@@ -27,16 +27,22 @@ function DocSidebarItems({ items, ...props }) {
   const sidebarItems = [
     {
       title: null, // No title for the first section
-      items: ["Home", "Overview ", "API Keys"],
+      items: ["Home", "Overview "],
     },
     {
       title: "Wallets",
-      items: ["Wallet SDK", "Connect Wallet", "Auth"],
+      items: [
+        "Wallet SDK",
+        "Connect Wallet",
+        "Smart Wallet",
+        "Email Wallet",
+        "Auth",
+      ],
     },
     {
       title: "Contracts",
       items: [
-        "Contract SDKs",
+        "Contract SDK",
         "Pre-Built Contracts",
         "Solidity SDK",
         "Deploy",
@@ -47,11 +53,11 @@ function DocSidebarItems({ items, ...props }) {
     },
     {
       title: "Infrastructure",
-      items: ["Storage"],
+      items: ["Storage", "Bundler & Paymaster"],
     },
     {
       title: "Tools",
-      items: ["CLI", "Dashboard"],
+      items: ["CLI", "Dashboard", "Engine"],
     },
     {
       title: "SDK References",
@@ -67,11 +73,17 @@ function DocSidebarItems({ items, ...props }) {
     },
     {
       title: "Solutions",
-      items: ["CommerceKit", "GamingKit", "Minting", "Digital Collectibles"],
+      items: [
+        "Signature Minting",
+        "CommerceKit",
+        "GamingKit",
+        "Minting",
+        "Digital Collectibles",
+      ],
     },
     {
       title: "Resources",
-      items: ["Templates", "Guides", "Glossary"],
+      items: ["API Keys", "Templates", "Guides", "Glossary"],
     },
   ];
 
@@ -80,11 +92,15 @@ function DocSidebarItems({ items, ...props }) {
       name.split("/")[1].charAt(0).toUpperCase() + name.split("/")[1].slice(1);
 
     if (formatted === "Sdk") {
-      return "SDK";
+      return "Contract SDK";
     }
 
     if (formatted === "Pre-built-contracts") {
-      return "Explore";
+      return "Pre-Built Contracts";
+    }
+
+    if (formatted === "Web3-api") {
+      return "Web3 API";
     }
 
     if (formatted === "Ui-components") {
@@ -99,8 +115,8 @@ function DocSidebarItems({ items, ...props }) {
       return "CommerceKit";
     }
 
-    if (formatted === "Wallet" || formatted === "Wallets") {
-      return "Wallet";
+    if (formatted === "Wallet") {
+      return "Wallet SDK";
     }
 
     if (formatted === "Typescript") {

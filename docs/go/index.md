@@ -32,7 +32,7 @@ go get github.com/thirdweb-dev/go-sdk/v2/thirdweb
 
 ## Getting Started
 
-To start using this SDK, you just need to pass in a provider configuration. It's also strongly recommended that you use your thirdweb API keys with the SDK in order to get the best infrastructure performance (across RPCs, IPFS, etc.) - you can learn more about creating and using API keys [here](https://portal.thirdweb.com/api-keys).
+To start using this SDK, you just need to pass in a provider configuration. It's also recommended that you use your thirdweb API keys with the SDK in order to get the best infrastructure performance (across RPCs, IPFS, etc.) - you can learn more about creating and using API keys [here](https://portal.thirdweb.com/api-keys).
 
 ### Instantiating the SDK
 
