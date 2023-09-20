@@ -11,7 +11,7 @@ By using the [wallet SDK](/wallet/smart-wallet) alongside the [React SDK](/react
 
 In react, there are three ways to get started with smart wallets:
 
-- Using the [`ConnectWallet`](#using-connectwallet) component - an out of the box UI to connect your users with any wallet including smart wallet. This uses the Wallet SDK under the hood.
+- Using the [`ConnectWallet`](#using-connectwallet) component - an out-of-the-box UI to connect your users with any wallet including smart wallet. This uses the Wallet SDK under the hood.
 - Using the [`useConnect` hook](#using-useconnect) to connect users and create a custom UI.
 - Using the [`Wallet SDK`](#using-thirdwebsdkprovider) directly for low level control over the smart wallet.
 
@@ -52,7 +52,7 @@ Choose the right smart wallet setup for your app. thirdweb offers the following 
 
 ## 2. Create an API key
 
-To use the smart wallet bundler and paymaster you need to create an API key and a billing account.
+To use the smart wallet bundler and paymaster, you must create an API key and a billing account.
 
 To create an API Key:
 
@@ -62,21 +62,21 @@ To create an API Key:
 ![Create API Key](/assets/dashboard/settings-tab.png)
 
 - Give your API key a name and click **Next**.
-- Make sure that the **Smart Wallets** services are enabled and any addresses that your deployed smart accounts interact with are added to the **Allowed Contract Addresses** section:
+- Make sure that the **Smart Wallets** services are enabled, and any addresses that your deployed smart accounts interact with are added to the **Allowed Contract Addresses** section:
 
 ![Create API Key](/assets/dashboard/create-api-key-combined.png)
 
 - Click **Next** and then add your local host and production/preview domains to the **Set Access Restrictions** section. Click "Create" to create your key.
-- Copy your **Secret Key** and store it in a safe place such as a password manager. You will not be able to see this key again.
+- Copy your **Secret Key** and store it in a safe place like a password manager. You will not be able to see this key again.
 - Click **I Have Stored the Secret Key Securely** and your key will now be visible from the API Keys table.
 - **Note**: to edit your private key at any point, click on the key from the table and then click on the **Edit** button.
 - Copy your **clientId**. Since we are building a front-end application, we will need to use this key to build our application.
 
-To use smart wallet infrastructure on mainnet you will also need to [create an account and add a paymet method](https://thirdweb.com/dashboard/settings/billing).
+To use smart wallet infrastructure on mainnet you will also need to [create an account and add a payment method](https://thirdweb.com/dashboard/settings/billing).
 
-## 3. Create an Apps
+## 3. Create an App
 
-To use smart wallets in a react app you can either:
+To use smart wallets in a React app you can either:
 
 - Use the [create](/cli/create) command to create a new project with the dependencies already installed.
 - Add the dependencies to an existing project.
@@ -89,7 +89,7 @@ Open your terminal and run:
 npx thirdweb create app
 ```
 
-When promted, select/input the following options:
+When prompted, select/input the following options:
 
 - A name for the project
 - `EVM` as the blockchain
@@ -100,13 +100,13 @@ This will create a repository.
 
 ### Add Dependencies to an Existing Project
 
-To add the dependencies to an existing project, run the following commands:
+To add the dependencies to an existing project, run the following command from your terminal:
 
 ```bash
 npx thirdweb install
 ```
 
-This will install the relevant dependencies.
+This will detect the environment you are working in and install the relevant dependencies.
 
 ## 1. Using Connect Wallet
 
