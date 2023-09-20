@@ -2,3 +2,69 @@
 slug: /connect-wallet/how-it-works
 title: How it Works
 ---
+
+import QuickstartCard from "@components/QuickstartCard";
+
+## Pre-Built Component Built Using the Wallet SDK
+
+Connect Wallet component is built using the wallet sdk to make it easy to connect users to front-end applications. Each supported language comes with wallet configurators that can specify the supported wallets in the component.
+
+Connect Wallet acts as the user interface for wallet-related actions such as sending funds, executing transactions, viewing balances, and even creating wallets for users.
+
+## Creating Wallets
+
+The Connect Wallet component allows developers to create three types of wallets for their users optionally:
+
+- **ERC-4337 Smart Wallets**: Create smart contract accounts for your users.
+- **Embedded Wallets**: Authenticate your wallet by creating email or social wallets including Facebook, Twitter, or Google.
+- **Low-level local wallets**: create a “checkout as guest” experience for users.
+
+## Default Wallets
+
+The following wallet providers are added to Connect Wallet if the `supportedWallets` object is not specified.
+
+- MetaMask
+- Coinbase Wallet
+- WalletConnect
+- Trust Wallet
+- Rainbow
+- Zerion Wallet
+- Phantom
+
+## Available Wallet Configurators
+
+These configurators are available out of the box to add to the supported wallets on Connect Wallet
+
+<div className="row" style={{ marginBottom: 12, padding: 8, paddingTop: 0 }}>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="React"
+      link="/react/connecting-wallets"
+      image="/assets/languages/react.png"
+      description="Available Connect Wallet Configurators in React"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="React-Native"
+      link="/react/connecting-wallets"
+      image="/assets/languages/react-native.png"
+      description="Available Connect Wallet Configurators in React-Native"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Unity"
+      link="/unity/connectwallet#supported-wallets"
+      image="/assets/languages/unity.webp"
+      description="Available Connect Wallet Configurators in Unity."
+    />
+  </div>
+</div>
+
+## Terms
+
+- Configurators: Pre-built configuration objects that can be added to the supported wallets object to facilitate connections to various wallet providers. These configurators are built using the Wallet SDK and specify all the settings to provide a simple abstraction layer for application integration.
+- **Custodial Wallets**: Wallets where a third-party service manages the private keys. Users rely on the service to manage their assets securely.
+- **Non-Custodial Wallets**: Wallets where the private keys are solely in the user's possession, giving them full control over their assets.
+- **Self-Custodial Wallets**: Similar to non-custodial wallets, self-custodial wallets allow users full control over their private keys and assets but may offer additional features like backup solutions.

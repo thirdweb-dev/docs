@@ -4,4 +4,67 @@ title: Overview
 hide_title: true
 ---
 
+import QuickstartCard from "@components/QuickstartCard";
+
 # Connect Wallet
+
+The Connect Wallet component is a robust, developer-friendly solution designed to streamline the process of connecting users' wallets to web3 applications and games. With its customizable UI and extensive connector options, this component allows for flexibility in supporting various wallet types including non-custodial, custodial, smart wallets, and email wallets.
+
+## **Features**
+
+- **Connect Wallet Button + Modal**
+  - Simplifies wallet connection across gaming, web, and mobile platforms.
+  - Customize the UI elements to alter the themes, titles, and wallet provider order.
+- **Connectors**
+  - Support for 170+ popular wallet providers and various types of wallets, including non-custodial, custodial, smart wallets, and email wallets.
+  - Build your own UI components or leverage our built-in options.
+  - Gasless and signless wallet experiences are supported.
+  - Native Safe multi-sig functionality.
+- **Multiple Languages Supported**
+  - Connect Wallet component available in React, React-Native, and Unity.
+- **Composability**
+  - Use the **[Wallet SDK](https://portal.thirdweb.com/wallet)** connector to customize the supported wallets in the Connect Wallet component or build your own connectors to integrate into the Connect Wallet component.
+- **Send, Receive & View Transactions**: functionality to send and receive funds & view your transaction history built in. This list of default tokens that can be sent is completely customizable.
+- **Social and Email Wallets:** Web2 user flows, such as sign-in with Google, enabled by using the thirdweb Embedded Wallet
+- **Support for ERC-4337 Smart Wallets**: Create smart wallets for your users and connect to them easily using Connect Wallet.
+- **Customizable:** Ability to customize the theme, the recommended wallets, the displayed token balance, add terms of service links, and a custom welcome screen and branding.
+
+![Connect Wallet](./assets/narrow-wide.png)
+
+## Why use Connect Wallet
+
+- **Development Efficiency**
+  - Save time with ready-to-use UI components, built using the Wallet SDK, for connecting to wallet providers.
+  - Completely customizable to suit your project's needs and brand.
+- **Enhanced User Activation**
+  - Optimize onboarding using invisible wallet experiences with local wallet or web2-like log-ins, such as email or social media with the embedded wallet.
+  - Enable gasless transactions using Smart Wallets combined with any other supported wallets.
+
+## References
+
+<div className="row" style={{ marginBottom: 12, padding: 8, paddingTop: 0 }}>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="React"
+      link="/react/react.connectwallet"
+      image="/assets/languages/react.png"
+      description="Using Connect Wallet in React apps."
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="React-Native"
+      link="/react-native/react-native.connectwallet"
+      image="/assets/languages/react-native.png"
+      description="Using Connect Wallet in mobile apps"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Unity"
+      link="/unity/connectwallet"
+      image="/assets/languages/unity.webp"
+      description="Using Connect Wallet in Unity Games."
+    />
+  </div>
+</div>
