@@ -3,6 +3,9 @@ title: Thirdweb Go SDK
 hide_title: true
 displayed_sidebar: go
 ---
+
+import OpenSourceInfo from "@components/OpenSourceInfo";
+
 <p align="center">
 <br />
 <a href="https://thirdweb.com"><img src="https://github.com/thirdweb-dev/typescript-sdk/blob/main/logo.svg?raw=true" width="200" alt=""/></a>
@@ -12,6 +15,12 @@ displayed_sidebar: go
 <p align="center">
 <a href="https://discord.gg/thirdweb"><img alt="Join our Discord!" src="https://img.shields.io/discord/834227967404146718.svg?color=7289da&label=discord&logo=discord&style=flat"/></a>
 </p>
+
+<OpenSourceInfo
+  repoName="GO SDK"
+  repoUrl="https://github.com/thirdweb-dev/go-sdk"
+  isLibrary={false}
+/>
 
 # Installation
 
@@ -23,7 +32,7 @@ go get github.com/thirdweb-dev/go-sdk/v2/thirdweb
 
 ## Getting Started
 
-To start using this SDK, you just need to pass in a provider configuration. It's also strongly recommended that you use your thirdweb API keys with the SDK in order to get the best infrastructure performance (across RPCs, IPFS, etc.) - you can learn more about creating and using API keys [here](https://portal.thirdweb.com/api-keys).
+To start using this SDK, you just need to pass in a provider configuration. It's also recommended that you use your thirdweb API keys with the SDK in order to get the best infrastructure performance (across RPCs, IPFS, etc.) - you can learn more about creating and using API keys [here](https://portal.thirdweb.com/api-keys).
 
 ### Instantiating the SDK
 

@@ -10,7 +10,8 @@ Get the instance of the `ThirdwebStorage` class being used by the [`ThirdwebProv
 
 Allows you to use the TypeScript SDK functionality of [Storage](/storage) in your React native app.
 
-:::caution API Key
+## API Key
+
 You will require an API key to use thirdweb’s storage services with the SDK. If you haven’t created a key yet you can do so for free from the [**thirdweb dashboard**](https://thirdweb.com/create-api-key).
 
 You can then obtain a `clientId` from the API key which you will need to pass to the [`ThirdwebProvider`](/react/react.thirdwebprovider) component:
@@ -28,8 +29,6 @@ const App = () => {
 ```
 
 Please note that you will also need to get your app's `bundleId` and pass it in the `Allowed Bundle IDs` section when creating your API key. Check [how you can get your app's `bundleId`](https://portal.thirdweb.com/api-keys#react-native).
-
-:::
 
 ## useStorage hook
 

@@ -1,0 +1,234 @@
+---
+slug: /wallet/paper
+title: Paper Wallet
+sidebar_position: 5
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Prompt users to connect to your app using their email with [Paper Wallet](https://docs.withpaper.com/reference/embedded-wallet-service-overview)
+
+## Usage
+
+```javascript
+import { PaperWallet } from "@thirdweb-dev/wallets";
+import { Ethereum } from "@thirdweb-dev/chains";
+
+const wallet = new PaperWallet({
+  chain: Ethereum, //  chain to connect to
+  clientId: "your_client_id", // client ID
+});
+
+wallet.connect();
+```
+
+## Pricing & Billing
+
+**Pricing**
+
+- Free to use email wallet with a user-recovery code.
+- Free up to 10,000 Monthly Active Wallet
+  +$0.02 per incremental Monthly Active Wallet after with a thirdweb managed recovery code.
+
+Find more information on the different billing tiers by visiting [thirdweb's pricing page](https://thirdweb.com/pricing).
+
+## Configuration
+
+Provide a configuration object when instantiating the `PaperWallet` class.
+
+<details>
+  <summary>clientId (required)</summary>
+  <div>
+
+The paper wallet requires a `clientId`. You can create a `clientId` by visiting the [Dashboard](https://thirdweb.com/create-api-key).
+To learn more about API keys, visit the [API key documentation](/api-keys).
+
+Must be a `string`.
+
+</div>
+</details>
+
+<details>
+  <summary>chain (required)</summary>
+  <div>
+
+The chain to connect to by default.
+
+Must be a `Chain` object, from the [`@thirdweb-dev/chains`](https://www.npmjs.com/package/@thirdweb-dev/chains) package.
+
+</div>
+</details>
+
+<details>
+  <summary>chains (optional)</summary>
+  <div>
+
+Provide an array of chains you want to support.
+
+Must be an array of `Chain` objects, from the [`@thirdweb-dev/chains`](https://www.npmjs.com/package/@thirdweb-dev/chains) package.
+
+</div>
+</details>
+
+<details>
+  <summary>advancedOptions (optional)</summary>
+  <div>
+
+Advanced options for Paper SDK.
+
+```ts
+advancedOptions: {
+  recoveryShareManagement?: 'AWS_MANAGED' | 'USER_MANAGED'
+}
+```
+
+`recoveryShareManagement` indicates who should be in charge of managing the user's recovery share. Choosing `"AWS_MANAGED"` is the easiest to get started and is generally what we recommend. For more information, see [managing the user's recovery share](https://docs.withpaper.com/reference/managing-the-users-recovery-share)
+
+</div>
+</details>
+
+<details>
+  <summary>styles (optional)</summary>
+  <div>
+
+customize the UI component of Paper SDK.
+
+```ts
+styles: {
+  // The roundness of buttons.
+  borderRadius?: string,
+  // The background color of the UI components.
+  colorBackground?: string,
+  // The button and link color of the UI components.
+  colorPrimary?: string,
+  // The text color of the UI components.
+  colorText?: string,
+  // The font family of the UI components.
+  fontFamily?: string,
+  // background color of the input fields
+  inputBackgroundColor?: string,
+  // border color of the input fields
+  inputBorderColor?: string,
+}
+```
+
+</div>
+</details>
+
+<details>
+  <summary>walletStorage (optional)</summary>
+  <div>
+
+The wallet needs to store data in persistent storage. By default `localStorage` is used. If you want to use a different storage, you can pass it in the `walletStorage` option.
+
+Must be an object conforming to the `AsyncStorage` interface:
+
+```typescript
+export interface AsyncStorage {
+  getItem(key: string): Promise<string | null>;
+  setItem(key: string, value: string): Promise<void>;
+  removeItem(key: string): Promise<void>;
+}
+```
+
+Example:
+
+```javascript
+import { PaperWallet } from "@thirdweb-dev/wallets";
+
+const wallet = new PaperWallet({
+  // ... other required config
+
+  // highlight-start
+  walletStorage: {
+    getItem: (key) => {
+      // Implement your own storage logic here
+    },
+    removeItem: (key) => {
+      // Implement your own storage logic here
+    },
+    setItem: (key, value) => {
+      // Implement your own storage logic here
+    },
+  },
+  // highlight-end
+});
+```
+
+</div>
+</details>
+
+## Methods
+
+Inherits all the public methods from the [`AbstractClientWallet`](interfaces/abstract-client-wallet) class.
+
+### connect
+
+open the Paper Wallet's Modal and prompt the user to log in with their email address. Once connected, it returns the public wallet address assigned to the user.
+
+```ts
+await wallet.connect();
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+```typescript
+connect(options?: {
+  email?: string,
+  chainId?: number
+}): Promise<string>;
+```
+
+<details>
+  <summary>email (optional)</summary>
+  <div>
+
+If `email` is not provided, the user will be prompted to enter their email address or sign in with a Google account. Once the user enters the email address or signs in with a Google account, an OTP will be sent to the user's email address. Once the user enters the OTP, the wallet will be connected.
+
+If the `email` is provided, the user will be directly shown the OTP screen, the user will not be prompted to enter their email.
+
+</div>
+</details>
+
+<details>
+  <summary>chainId (optional)</summary>
+  <div>
+
+If chainId is provided, the wallet will be connected to the network with the given chainId, else it will be connected to the Ethereum Mainnet.
+
+</div>
+</details>
+
+#### Return Value
+
+Returns a `string` containing the user's assigned public wallet address.
+
+</div>
+</details>
+
+### getEmail
+
+Get the email associated with the currently connected wallet.
+
+```javascript
+const email = await wallet.getEmail();
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### Return Value
+
+Returns a `string` containing the email.
+
+```typescript
+string;
+```
+
+</div>
+</details>

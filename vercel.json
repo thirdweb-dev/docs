@@ -409,6 +409,50 @@
       "permanent": true
     },
     {
+      "source": "/gamingkit/setting-up/installation",
+      "destination": "/unity"
+    },
+    {
+      "source": "/gamingkit/setting-up/instantiating-the-sdk",
+      "destination": "/unity"
+    },
+    {
+      "source": "/gamingkit/setting-up/connect-wallets",
+      "destination": "/unity"
+    },
+    {
+      "source": "/gamingkit/interact-with-contracts/connect-to-a-contract",
+      "destination": "/unity"
+    },
+    {
+      "source": "/gamingkit/interact-with-contracts/read-data",
+      "destination": "/unity"
+    },
+    {
+      "source": "/gamingkit/interact-with-contracts/write-transactions",
+      "destination": "/unity"
+    },
+    {
+      "source": "/gamingkit/interact-with-contracts/deploy-contracts",
+      "destination": "/unity"
+    },
+    {
+      "source": "/gamingkit/wallet-actions/wallet-state",
+      "destination": "/unity"
+    },
+    {
+      "source": "/gamingkit/wallet-actions/fund-wallets",
+      "destination": "/unity"
+    },
+    {
+      "source": "/gamingkit/quickstart",
+      "destination": "/unity"
+    },
+    {
+      "source": "/gaming/learning-path",
+      "destination": "/unity"
+    },
+    {
       "source": "/sdk/connecting-to-a-wallet",
       "destination": "/ui-components/connectwalletbutton"
     },
@@ -777,6 +821,22 @@
       "source": "/wallet/wallet-connect-v1",
       "destination": "/wallet/wallet-connect-v2",
       "permanent": true
+    },
+    {
+      "source": "/web3-api",
+      "destination": "/engine"
+    },
+    {
+      "source": "/web3-api/configuration",
+      "destination": "/engine/configuration"
+    },
+    {
+      "source": "/web3-api/get-started",
+      "destination": "/engine/get-started"
+    },
+    {
+      "source": "/web3-api/reference",
+      "destination": "/engine/reference"
     }
   ]
 }
