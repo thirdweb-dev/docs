@@ -21,21 +21,24 @@ Connect Wallet is an out-of-the-box UI solution for connecting users' wallets to
     - Password
     - No login (session keys) with local wallet
     - "Checkout as guest" with local wallet: proceed without a login
+- **Simplified Developer Experience**: a complete and fully customizable component that can be easily integrated into your application. Infrastructure such as RPCs, storage and account abstraction infrastructure included out of the box - no need to rely on a third-party provider.
 - **Customizable Wallet Configuration**
-  - Support for 170+ popular wallet providers and various types of wallets, including non-custodial, custodial, [smart wallets](/smart-wallet), and embedded (social and email) wallets.
+  - Support for 170+ popular wallet providers and various types of wallets, including non-custodial, custodial, ERC-4337 [smart wallets](/smart-wallet), and embedded (social and email) wallets.
   - Build a custom wallet configurator or leverage our built-in options.
   - Gasless and signless wallet experiences are supported by combining [smart wallet](/smart-wallet) with [local wallet](/wallet/local-wallet).
   - Native [Safe](/wallet/safe) multi-sig functionality.
+- **Support for ERC-4337 smart wallets**: Easily use any wallet as a smart wallet signer by wrapping it in the `smartWallet()` configurator.
+- **Social and Email Wallets:** Web2 user flows, such as sign-in with Google, enabled by using the thirdweb Embedded Wallet.
 - **Customizable Branding**: Customize the button to fit your brand with an updatable logo, welcome screen and theme.
-- **Customizable Theme**: Ability to customize the theme, including displaying a completely custom UI, configuration theme colors, modal or dropdown menu, modal size, the recommended wallets, the displayed token balance, add displaying terms of service links.
+- **Customizable Theme**: Ability to customize the theme, including creating a completely custom UI, configuration theme colors, modal or dropdown menu, modal size, the recommended wallets, the displayed token balance, add displaying terms of service links.
+- **Powerful Hooks**: Provide fine-grained control over how the component looks and behaves.
 - **Faucet Links**: By default, a recommended faucet is linked in the modal to allow your users to easily obtain funds.
 - **Multiple Languages Supported**
   - Connect Wallet component available in [React](/react/react.connectwallet), [React-Native](/react-native/connectwallet), and [Unity](/unity/connectwallet).
 - **Composability**
   - Customize the supported wallets in Connect Wallet or build a custom connector using the [Wallet SDK](/wallet/build-a-wallet) to integrate into Connect Wallet by building a configurator.
 - **Send, Receive & View Transactions**: functionality to send and receive funds & view your transaction history built in. This list of default tokens that can be sent is completely customizable.
-- **Social and Email Wallets:** Web2 user flows, such as sign-in with Google, enabled by using the thirdweb Embedded Wallet
-- **Support for ERC-4337 Smart Wallets**: Create smart wallets for your users and connect to them easily using Connect Wallet.
+- **SIWE (Sign In With Ethereum Support)**: [Auth](/auth) is completely integrated into the button, all you need to do is pass `auth=true` and what message you want the user to sign
 
 ![Connect Wallet](./assets/narrow-wide.png)
 
