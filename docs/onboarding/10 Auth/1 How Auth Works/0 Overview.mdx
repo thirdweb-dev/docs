@@ -15,7 +15,7 @@ Being able to authenticate and authorize users is a critical part of any web app
 
 A common web2 authentication method involves using JSON Web Tokens (JWTs) to send authentication data between clients and servers. A standard JWT flow looks like the following:
 
-![how-auth-works-1](../assets/how-auth-works-1.png)
+![how-auth-works-1](../assets/web2auth-diagram.svg)
 
 Typically, the flow is initiated by a user sending a request to login to an application. This request must contain some data that proves to the server that the user is who they claim to be, which we'll call a **proof-of-identity.** An example of a proof-of-identity is a user sending the server a _username_ and _password_.
 
@@ -55,7 +55,7 @@ This is exactly the pattern specified in the Sign-in with Ethereum ([EIP4361](ht
 
 So with this information, we can update the first the simplified diagram we made above to clarify how Auth works:
 
-![how-auth-works-2](../assets/how-auth-works-2.png)
+![how-auth-works-2](../assets/web3auth-diagram.svg)
 
 ### Authority
 
@@ -67,7 +67,7 @@ However, Auth eliminates this dependence on third-parties by using web3 wallets 
 
 This enables a truly **self-custodied** authentication flow with no external dependencies. With this information, we can now visualized the Auth flow most accurately:
 
-![how-auth-works-3](../assets/how-auth-works-3.png)
+![how-auth-works-3](../assets/auth-diagram.svg)
 
 ## Putting it all together
 
