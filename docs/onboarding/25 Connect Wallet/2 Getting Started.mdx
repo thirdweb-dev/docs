@@ -89,9 +89,14 @@ const YourApp = () => {
 };
 ```
 
+This will render the Connect Wallet component in your application:
+
+![Connect Wallet Component](./assets/connect-wallet-modal.png)
+![Connected](./assets/connect.png)
+
 If you are working in Unity, you will need to add the `ConnectWallet` prefab to your scene. Visit the [Unity documentation for more information](/unity/connectwallet).
 
-## Customize the Supported Wallets
+## 4. Customize the Supported Wallets
 
 To modify the wallet providers your Connect Wallet displays and allows users to connect with in React or React-Native, import the desired configurator from the package, depending on the environment you are working in, and provide an array of wallet configurations to the [`supportedWallets`](/react/react.thirdwebprovider#supportedwallets-optional) object in the `ThirdwebProvider`
 
@@ -118,7 +123,7 @@ const App = () => {
 
 For Unity, from the Inspector window, you can configure the options for the `ConnectWallet` prefab.
 
-## Enable Gasless
+## 5. Enable Gasless
 
 To enable gasless transactions for your users in React or React-Native, you can use [Smart Wallets](/smart-wallet) and enable `glasess=true` in the `ThirdwebProvider`:
 
