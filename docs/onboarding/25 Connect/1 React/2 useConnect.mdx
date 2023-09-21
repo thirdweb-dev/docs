@@ -5,13 +5,25 @@ title: useConnect
 
 ## Connect A Wallet Without the Connect Wallet UI
 
-If you want to create a completely custom user-interface or create a headless connection, the hollowing hooks
-are available to give you fine-grain control over the connection process.
+The [`useConnect`](react/react.useconnect) hook allows you to programmatically connect to the wallet. You will need to build your own UI for connecting the wallet.
 
-TABLE
+```tsx
+import { useConnect, metamaskWallet } from "@thirdweb-dev/react";
 
-### Usage
+const metamask = metamaskWallet();
 
-### Supported Wallets
+function App() {
+  const connect = useConnect();
 
-## Create a Wallet
+  return (
+    <button
+      onClick={async () => {
+        const wallet = await connect(metamask, connectOptions);
+        console.log("connected to ", wallet);
+      }}
+    >
+      Connect to MetaMask
+    </button>
+  );
+}
+```

@@ -2,3 +2,207 @@
 slug: /connect/react-native/connect-wallet
 title: Connect Wallet
 ---
+
+import QuickstartCard from "@components/QuickstartCard";
+
+# Connect Wallet
+
+Connect Wallet is an out-of-the-box UI solution for connecting users' wallets to web3 applications and games.
+With its customizable UI and extensive wallet options,
+this component allows for flexibility in supporting various wallet types including non-custodial,
+custodial, [smart wallets](/smart-wallet), and embedded wallets.
+
+<div className="col col--12" style={{ padding: 8 }}>
+  <QuickstartCard
+    name="Try Out Connect Wallet"
+    link="https://thirdweb.com/dashboard/wallets/connect"
+    image="/assets/product/connect-wallet.png"
+  />
+</div>
+
+## Customizing the Displayed Wallets
+
+[View the Connect Wallet supported and default displayed wallets in React](/connect/supported-wallets).
+
+To customize the displayed wallets, you can pass in a `supportedWallets` prop to the [`ThirdWebProvider`](/react/react.thirdwebprovider) component.
+
+```jsx
+import { ThirdWebProvider } from "@thirdweb-dev/react";
+
+function App() {
+  return (
+    <ThirdWebProvider
+      // highlight-start
+      supportedWallets={["metamaskWallet()", "walletConnect()"]}
+      // highlight-end
+    >
+      <ConnectWallet />
+    </ThirdWebProvider>
+  );
+}
+```
+
+This will display only the MetaMask and WalletConnect wallets in the Connect Wallet modal.
+
+## Configuration Options
+
+The following customization options are available for the Connect Wallet component:
+
+| Prop Name                                                                                          | Type             | Default Value                                            | Options                 | Description                                                        |
+| -------------------------------------------------------------------------------------------------- | ---------------- | -------------------------------------------------------- | ----------------------- | ------------------------------------------------------------------ |
+| [`modalSize`](/react/react.connectwallet#modalsize-optional)                                       | string           | `"wide"` for desktop and `"compact"` for mobile devices. | `"wide"` or `"compact"` | The size of the Connect Wallet modal.                              |
+| [`theme` ](/react/react.connectwallet#theme-optional)                                              | string           | `"dark"`                                                 | `"light"` or `"dark"`   | The theme of the Connect Wallet component. The default is "light". |
+| [`btnTitle`](/react/react.connectwallet#btntitle-optional)                                         | string           | `"Connect Wallet"`                                       | Any string              | The title of the Connect Wallet button.                            |
+| [`modalTitle`](/react/react.connectwallet#modaltitle-optional)                                     | string           | `"Connect"`                                              | Any string              | The title of the Connect Wallet modal.                             |
+| [`className`](/react/react.connectwallet#classname-optional)                                       | string           | N/A                                                      | Any string              | Apply custom CSS styles to the Connect Wallet button.              |
+| [`switchToActiveChain`](/react/react.connectwallet#switchtoactivechain-optional)                   | boolean          | `false`                                                  | `true` or `false`       | Automatically switch to the active chain when connecting a wallet. |
+| [`termsOfServiceUrl`](/react/react.connectwallet#show-terms-of-service-andor-privacy-policy-links) | string           | N/A                                                      | Any string              | The URL to the terms of service page.                              |
+| [`privacyPolicyUrl`](/react/react.connectwallet#show-terms-of-service-andor-privacy-policy-links)  | string           | N/A                                                      | Any string              | The URL to the privacy policy page.                                |
+| [`welcomeScreen`](/react/react.connectwallet#welcomescreen-optional)                               | object           | N/A                                                      | See below               | Customize the welcome screen on wide modal.                        |
+| [`detailsBtn`](/react/react.connectwallet#detailsbtn-optional)                                     | JSX.Element      | N/A                                                      | See below               | Customize the details button.                                      |
+| [`auth`](/react/react.connectwallet#auth-optional)                                                 | object           | N/A                                                      | See below               | Enforce that users must sign in with their wallet.                 |
+| [`dropdownPosition`](/react/react.connectwallet#dropdownposition-optional)                         | DropDownPosition | N/A                                                      | See below               | Specify where should the dropdown menu open.                       |
+
+<details>
+<summary>Customize "Welcome Screen" for wide modal</summary>
+<div>
+
+#### welcomeScreen
+
+On wide modal, a welcome screen is shown on the right side of the modal.
+
+This screen can be customized in two ways:
+
+#### 1. Customize Metadata
+
+```tsx
+<ConnectWallet
+  welcomeScreen={{
+    title: "Your Title",
+    subtitle: "Your Subtitle",
+    img: {
+      src: "https://...",
+      width: 300,
+      height: 50,
+    },
+  }}
+/>
+```
+
+#### 2. Render custom component
+
+```tsx
+<ConnectWallet
+  welcomeScreen={() => {
+    return <YourComponent />;
+  }}
+/>
+```
+
+</div>
+</details>
+
+<details>
+<summary>Details Button</summary>
+<div>
+### detailsBtn
+
+Render a custom button to display connected wallet details
+
+```jsx
+import { ConnectWallet } from "@thirdweb-dev/react";
+
+function App() {
+  return (
+    <ConnectWallet
+      // highlight-start
+      detailsBtn={() => {
+        return <button> .... </button>;
+      }}
+      // highlight-end
+    />
+  );
+}
+```
+
+</div>
+</details>
+
+<details>
+<summary>Authenticate Users</summary>
+<div>
+### auth
+
+Enforce that users must sign in with their wallet using [auth](/auth) after connecting their wallet.
+
+Requires the [`authConfig`](/react/react.thirdwebprovider#authconfig) prop to be set on the [`ThirdWebProvider`](/react/react.thirdwebprovider) component.
+
+```jsx
+import { ConnectWallet } from "@thirdweb-dev/react";
+
+function App() {
+  return (
+    <ConnectWallet
+      // highlight-start
+      auth={{
+        loginOptional: false,
+      }}
+      // highlight-end
+    />
+  );
+}
+```
+
+</div>
+</details>
+
+<details>
+<summary>Modal Dropdown Position</summary>
+<div>
+### dropdownPosition (optional)
+
+Specify where should the dropdown menu open relative to the Connect Wallet Button.
+
+```jsx
+<ConnectWallet
+  dropdownPosition={{
+    side: "bottom", // "top" | "bottom" | "left" | "right";
+    align: "end", // "start" | "center" | "end";
+  }}
+/>
+```
+
+</div>
+</details>
+
+## Advanced Configuration
+
+### Create a Wallet Connection UI
+
+To integrate a wallet with `ConnectWallet`, you need to create a wallet configurator - a function that returns a `WalletConfig` object and add it in `ThirdwebProvider`'s `supportedWallets`.
+
+#### connectUI
+
+To create a custom UI for connecting your wallet, create a `connectUI` function in your wallet configurator.
+
+```tsx
+// optional - render a UI for connecting your wallet
+    connectUI(props) {
+      return <MyWalletConnectionUI {...props} />;
+    },
+```
+
+#### selectUI
+
+To create a custom UI for selecting your wallet in the wallet selection screen in the connect wallet modal, create a `selectUI` function in your wallet configurator.
+
+```tsx
+    // optional - override the default UI for selecting your wallet in the wallet selector screen
+    selectUI(props) {
+      return <MyWalletSelectionUI {...props} />
+    }
+```
+
+## Create your Own Wallet Connector
+
+For more details on how to create your own wallet connector that you can use for Connect Wallet, see the [Create Your Own Wallet Guide](connect/build-a-wallet) guide.
