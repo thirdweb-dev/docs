@@ -67,7 +67,7 @@ The following customization options are available for the Connect Wallet compone
 <summary>Customize "Welcome Screen" for wide modal</summary>
 <div>
 
-#### welcomeScreen
+<h3>welcomeScreen</h3>
 
 On wide modal, a welcome screen is shown on the right side of the modal.
 
@@ -89,7 +89,7 @@ This screen can be customized in two ways:
 />
 ```
 
-#### 2. Render custom component
+<h4> 2. Render custom component</h4>
 
 ```tsx
 <ConnectWallet
@@ -105,7 +105,8 @@ This screen can be customized in two ways:
 <details>
 <summary>Details Button</summary>
 <div>
-### detailsBtn
+
+<h3>detailsBtn</h3>
 
 Render a custom button to display connected wallet details
 
@@ -131,11 +132,18 @@ function App() {
 <details>
 <summary>Authenticate Users</summary>
 <div>
-### auth
+
+<h3>auth</h3>
 
 Enforce that users must sign in with their wallet using [auth](/auth) after connecting their wallet.
 
 Requires the [`authConfig`](/react/react.thirdwebprovider#authconfig) prop to be set on the [`ThirdWebProvider`](/react/react.thirdwebprovider) component.
+
+| Auth Prop Option | Type     | Default Value | Options           | Description                                                              |
+| ---------------- | -------- | ------------- | ----------------- | ------------------------------------------------------------------------ |
+| `loginOptional`  | boolean  | `false`       | `true` or `false` | Allow users to skip signing in with their wallet.                        |
+| `onLogin`        | function | N/A           | N/A               | Callback function that is called when a user signs in with their wallet. |
+| `onLogout`       | function | N/A           | N/A               | Callback function that is called when a user signs out of their wallet.  |
 
 ```jsx
 import { ConnectWallet } from "@thirdweb-dev/react";
@@ -159,7 +167,8 @@ function App() {
 <details>
 <summary>Modal Dropdown Position</summary>
 <div>
-### dropdownPosition (optional)
+
+<h3>dropdownPosition (optional)</h3>
 
 Specify where should the dropdown menu open relative to the Connect Wallet Button.
 
