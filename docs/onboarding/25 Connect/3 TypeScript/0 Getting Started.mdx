@@ -8,6 +8,20 @@ import QuickstartCard from "@components/QuickstartCard";
 
 # Connect Wallets with the Wallet SDK in TypeScript
 
+To get started, install the required dependencie(s) into your TypeScript project.
+
+```bash
+npm install @thirdweb-dev/wallets
+```
+
+Optionally, install the TypeScript SDK to use the wallet with the SDK.
+
+```bash
+npm install @thirdweb-dev/sdk
+```
+
+## Connect Wallets in TypeScript
+
 You can use the Wallet SDK directly in any environment that supports TypeScript.
 The Wallet SDK enables you to connect and create wallets which you can then use in your app to sign transactions as you usually would.
 There are two main instances in which you would use the Wallet SDK directly:
@@ -18,6 +32,8 @@ There are two main instances in which you would use the Wallet SDK directly:
 2. In projects where you need low-level control of the wallet
 
 - Example: Needing to pass custom configuration options such as specifying a custom `execute` method for `smartWallet` e.g. [in this template](https://github.com/thirdweb-example/unilogin/tree/main).
+
+Get started connecting wallets with the [Wallet SDK](/wallet) in TypeScript by following the steps below. You can also then use the wallet to instantiate the [TypeScript SDK](/typescript):
 
 ```ts
 import { MetaMaskWallet } from "@thirdweb-dev/wallets";
@@ -37,6 +53,8 @@ const sdk = ThirdwebSDK.fromWallet(wallet, "ethereum", {
 
 // sdk is now ready to use
 ```
+
+[View the supported wallets in the wallet SDK.](/connect/typescript/supported-wallets)
 
 <br />
 
