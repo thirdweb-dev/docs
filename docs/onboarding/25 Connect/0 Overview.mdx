@@ -4,6 +4,8 @@ title: Overview
 hide_title: true
 ---
 
+import QuickstartCard from "@components/QuickstartCard";
+
 # Connect
 
 thirdweb Connect is a complete toolkit for connecting wallets to applications. Connect provides UI components, hooks, functions and connectors which are all completely customizable, modular and work out-of-the-box, with no setup required.
@@ -27,8 +29,43 @@ thirdweb Connect is a complete toolkit for connecting wallets to applications. C
   - Connect a wallet in a script in TypeScript.
   - Gain low-level control over wallet connections in your app with the ability to have fine-grain control over the configuration options.
 
-TRY IT OUT LINK TO DASHBOARD
+<div className="col col--12" style={{ padding: 8 }}>
+  <QuickstartCard
+    name="Try Out Connect Wallet"
+    link="https://thirdweb.com/dashboard/wallets/connect"
+    image="/assets/product/connect-wallet.png"
+  />
+</div>
 
 ## Getting Started
 
-TILES TO EACH LANG
+<div className="row" style={{ marginBottom: 12, padding: 8, paddingTop: 0 }}>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="TypeScript"
+      link="connect/typescript"
+      image="/assets/languages/typescript.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="React"
+      link="/connect/react"
+      image="/assets/languages/react.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="React Native"
+      link="/connect/react-native"
+      image="/assets/languages/react-native.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Unity"
+      link="connect/unity"
+      image="/assets/languages/unity.webp"
+    />
+  </div>
+</div>
