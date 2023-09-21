@@ -22,12 +22,12 @@ custodial, [smart wallets](/smart-wallet), and embedded wallets.
 
 ## Customizing the Displayed Wallets
 
-[View the Connect Wallet supported and default displayed wallets in React](/connect/supported-wallets).
+[View the Connect Wallet supported and default displayed wallets in React Native](/connect/react-native/supported-wallets).
 
 To customize the displayed wallets, you can pass in a `supportedWallets` prop to the [`ThirdWebProvider`](/react/react.thirdwebprovider) component.
 
 ```jsx
-import { ThirdWebProvider } from "@thirdweb-dev/react";
+import { ThirdWebProvider } from "@thirdweb-dev/react-native";
 
 function App() {
   return (
@@ -110,7 +110,7 @@ This screen can be customized in two ways:
 Render a custom button to display connected wallet details
 
 ```jsx
-import { ConnectWallet } from "@thirdweb-dev/react";
+import { ConnectWallet } from "@thirdweb-dev/react-native";
 
 function App() {
   return (
@@ -138,7 +138,7 @@ Enforce that users must sign in with their wallet using [auth](/auth) after conn
 Requires the [`authConfig`](/react/react.thirdwebprovider#authconfig) prop to be set on the [`ThirdWebProvider`](/react/react.thirdwebprovider) component.
 
 ```jsx
-import { ConnectWallet } from "@thirdweb-dev/react";
+import { ConnectWallet } from "@thirdweb-dev/react-native";
 
 function App() {
   return (
