@@ -3,14 +3,17 @@ slug: /smart-wallet/guides/react
 title: Using Smart Wallet in React
 ---
 
+import QuickstartCard from "@components/QuickstartCard";
+
 # Using Smart Wallet in React
 
 By using the [wallet SDK](/wallet/smart-wallet) alongside the [React SDK](/react), you can use smart wallets in your front-end applications easily.
 
-In react, there are two ways to get started with smart wallets:
+In react, there are three ways to get started with smart wallets:
 
-- Using the [`ConnectWallet`](#using-connectwallet) component - an out of the box UI to connect your users with any wallet including smart wallet.
-- Using the [`useConnect` hook](#using-useconnect) to create a custom UI.
+- Using the [`ConnectWallet`](#using-connectwallet) component - an out-of-the-box UI to connect your users with any wallet including smart wallet. This uses the Wallet SDK under the hood.
+- Using the [`useConnect` hook](#using-useconnect) to connect users and create a custom UI.
+- Using the [`Wallet SDK`](#using-thirdwebsdkprovider) directly for low level control over the smart wallet.
 
 ## Pre-requisites
 
@@ -19,67 +22,37 @@ In react, there are two ways to get started with smart wallets:
 
 ## 1. Deploy an Account Factory
 
-First, you need to deploy an account factory. This is a contract that will be used to issue smart wallets.
+Deployable via the [explore page](https://thirdweb.com/explore/smart-wallet) or build your own [ERC 4337](https://eips.ethereum.org/EIPS/eip-4337) compatible factory contract using the [Solidity SDK](/solidity/base-contracts/smart-accounts).
 
-There are two ways to deploy an account factory:
+Choose the right smart wallet setup for your app. thirdweb offers the following three different kinds of smart wallets:
 
-- Deploy a pre-built account factory from the [explore page](https://thirdweb.com/explore).
-- Deploy a custom account factory using the [Solidity SDK](/solidity).
-
-### 1.(a) Deploy a Pre-Built Contract
-
-You can deploy a pre-built account factory from the [explore page](https://thirdweb.com/explore).
-Head to the [Account Factory](https://thirdweb.com/thirdweb.eth/AccountFactory) contract page, Select your desired network and click on Deploy Now:
-
-![Deploy Now](../assets/explore.png)
-
-Alternatively, you can deploy [ManagedAccountFactory](https://thirdweb.com/thirdweb.eth/ManagedAccountFactory) or [DynamicAccountFactory](https://thirdweb.com/thirdweb.eth/DynamicAccountFactory) to create upgradable wallets.
-
-Learn more about the different account factories [here](/solidity/base-contracts/smart-accounts).
-
-### 1.(b) Deploy a Custom Contract
-
-You can also create a custom account factory by using the Solidity SDK and inheriting from one of the [base factory contracts](/solidity/base-contracts/smart-accounts).
-This is useful if you want to create a custom account factory with custom logic.
-
-For example:
-
-```solidity
-import "@thirdweb-dev/contracts/smart-wallet/non-upgradable/AccountFactory.sol";
-
-contract MyAccountFactory is AccountFactory {
-      constructor(
-        IEntryPoint _entrypoint
-    )
-        AccountFactory(
-            _entrypoint
-        )
-    {}
-
-    function createAccount(
-        address _owner,
-        address _account,
-        bytes calldata _data
-    ) external override returns (address) {
-        // custom logic here
-    }
-}
-```
-
-You can then deploy this contract using the CLI:
-
-```bash
-npx thirdweb deploy
-```
-
-This command will require you to [login](/cli/login) with your thirdweb account.
-
-Once the `AccountFactory` contract is deployed, you will be redirected to the deployed contract dashboard page.
-Copy the address for this contract.
+<div className="row" style={{ marginBottom: 12, padding: 8, paddingTop: 0 }}>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Account Factory"
+      link="https://thirdweb.com/thirdweb.eth/AccountFactory"
+      image="/assets/wallets/smart-wallet.svg"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Managed Account Factory"
+      link="https://thirdweb.com/thirdweb.eth/ManagedAccountFactory"
+      image="/assets/wallets/smart-wallet.svg"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Dynamic Account Factory"
+      link="https://thirdweb.com/thirdweb.eth/DynamicAccountFactory"
+      image="/assets/wallets/smart-wallet.svg"
+    />
+  </div>
+</div>
 
 ## 2. Create an API key
 
-To use the smart wallet bundler and paymaster you need to create an API key and a billing account.
+To use the smart wallet bundler and paymaster, you must create an API key and a billing account.
 
 To create an API Key:
 
@@ -89,65 +62,58 @@ To create an API Key:
 ![Create API Key](/assets/dashboard/settings-tab.png)
 
 - Give your API key a name and click **Next**.
-- Make sure that the **Smart Wallets** services are enabled and any addresses that your deployed smart accounts interact with are added to the **Allowed Contract Addresses** section:
+- Make sure that the **Smart Wallets** services are enabled, and any addresses that your deployed smart accounts interact with are added to the **Allowed Contract Addresses** section:
 
 ![Create API Key](/assets/dashboard/create-api-key-combined.png)
 
-- Click **Next** and then ignore the **Set Access Restrictions** section. If you are using the smart wallet as part of a client side application,
-  you will need to add the domains/ bundle IDs of your application here but since we will be writing a script, we do not need this. Click "Create" to create your key.
-- Copy your **Secret Key** and store it in a safe place such as a password manager. You will not be able to see this key again.
+- Click **Next** and then add your local host and production/preview domains to the **Set Access Restrictions** section. Click "Create" to create your key.
+- Copy your **Secret Key** and store it in a safe place like a password manager. You will not be able to see this key again.
 - Click **I Have Stored the Secret Key Securely** and your key will now be visible from the API Keys table.
 - **Note**: to edit your private key at any point, click on the key from the table and then click on the **Edit** button.
+- Copy your **clientId**. Since we are building a front-end application, we will need to use this key to build our application.
 
-In order to use smart wallets on mainnet you will also need to [create an account and add a paymet method](https://thirdweb.com/dashboard/settings/billing).
+To use smart wallet infrastructure on mainnet you will also need to [create an account and add a payment method](https://thirdweb.com/dashboard/settings/billing).
 
 ## 3. Create an App
 
-To use smart wallets in a react app, we are going to setup our project using the CLI [create](/cli/create) command.
+To use smart wallets in a React app you can either:
+
+- Use the [create](/cli/create) command to create a new project with the dependencies already installed.
+- Add the dependencies to an existing project.
+
+### Create a New Project
+
 Open your terminal and run:
 
 ```bash
 npx thirdweb create app
 ```
 
-When promted, select/input the following options:
+When prompted, select/input the following options:
 
 - A name for the project
 - `EVM` as the blockchain
-- `Vite` as the environment
-- `TypeScript` as the language
+- Select your desired environment e.g. `Next.js`
+- `TypeScript` or `JavaScript` as the language.
 
-This will create a repository. Open this in your code editor.
+This will create a repository.
 
-You will firsty need to pass the `clientId` we created earlier to the `ThirdwebProvider`.
-The template already comes with the client ID so you can create a new `.env` file and
-add the `clientId`:
+### Add Dependencies to an Existing Project
+
+To add the dependencies to an existing project, run the following command from your terminal:
 
 ```bash
-VITE_TEMPLATE_CLIENT_ID="YOUR_CLIENT_ID"
+npx thirdweb install
 ```
 
-Open `main.tsx` and change the `activeChain` variable to the chain that you deployed your contract.
-In this case, it is Mumbai:
+This will detect the environment you are working in and install the relevant dependencies.
 
-```tsx
-// This is the chainId your dApp will work on.
-const activeChain = "mumbai";
-```
+## 1. Using Connect Wallet
 
-There are two ways for your users to connect their smart wallets:
+To use the [Connect Wallet](/react/react.connectwallet) component to connect your users to your app using smart wallet,
+we need to pass a [`smartWallet`](/react/react.smartwallet) as a [`supportedWallet`](/react/react.thirdwebprovider#supportedwallets-optional) to the [`ThirdwebProvider`](/react/react.thirdwebprovider).
 
-- Using the pre-built ConnectWallet component.
-- Using the useConnect hook and a custom UI.
-
-Let's go through both!
-
-## Using ConnectWallet
-
-To use the pre-built UI component to connect your users to your app using smart wallet,
-we need to pass a `smartWallet` as a `supportedWallet` to the `ThirdwebProvider`.
-
-First, let's set up our configuration for the smart wallet. In `main.tsx` add the following:
+To set up our configuration for the smart wallet add the following:
 
 ```tsx
 export const smartWalletConfig = smartWallet({
@@ -158,14 +124,14 @@ export const smartWalletConfig = smartWallet({
 ```
 
 You can change the configuration based on your requirements,
-but for this demo, we will enable gasless transactions and use a local wallet as the personal wallet.
+but for this demo, we will enable **gasless transactions** and use a [local wallet](/wallet/local-wallet) as the personal wallet.
 You can learn more about the configuration [here](https://portal.thirdweb.com/react/react.smartwallet).
 
 Pass the configuration to the provider:
 
 ```tsx
 <ThirdwebProvider
-  clientId={import.meta.env.VITE_TEMPLATE_CLIENT_ID}
+  clientId="<your-client-id>"
   activeChain={activeChain}
   supportedWallets={[smartWalletConfig]}
 >
@@ -173,7 +139,7 @@ Pass the configuration to the provider:
 </ThirdwebProvider>
 ```
 
-Now, import the `ConnectWallet` component from the React package and add it to your app inside `App.tsx`:
+Now, import the `ConnectWallet` component from the React package and add it to your app:
 
 ```tsx
 import { ConnectWallet } from "@thirdweb/react";
@@ -188,184 +154,115 @@ function App() {
 ```
 
 Since we already added Smart Wallet as a supported wallet, it will automatically be used in the `ConnectWallet` component to connect users to your app.
-Clicking on the connect button will show a popup:
+Clicking on the connect button will show the following popup which allows you to create or import a local wallet.
+This is the personal wallet you are using to initialize the smart wallet. For local wallet, you can create a new wallet with a password or import a previously created wallet.
 
 ![Connect Wallet](../assets/connect-wallet.png)
 
-You can now create a new wallet with a password or import a previously created wallet. This will create a smart wallet for you and connect it to the application
+After connecting your personal wallet, a smart wallet is created for you and connected to the application:
 
 ![Connected Smart Wallet](../assets/connected-smart-wallet-react.png)
 
-## Using useConnect
+## 2. Using useConnect
 
-Now let's create our own UI using the `useConnect` hook.
-Create a new file `connect.tsx` inside a `components` folder for us to add the code for our custom component
-and add the following:
+The [useConnect](/react/react.useconnect) hook allows you to programmatically connect your application to the wallet. You will need to build your own UI for connecting the wallet.
 
 ```tsx
-export const ConnectComponent = () => {
-  return <></>;
-};
-```
+import { useConnect, smartWallet } from "@thirdweb-dev/react";
 
-Firstly, we will use the `useAddress` hook to get the address of the connected wallet and check if the user is connected:
+export const smartWalletConfig = smartWallet({
+  factoryAddress: "0x6B1F8bBF4Af9267C0a483Da53BaE1118eadC50C1",
+  gasless: true,
+  personalWallets: [localWallet()],
+});
 
-```tsx
-export const ConnectComponent = () => {
-  const address = useAddress();
-  return address ? (
-    <h3>
-      Connected as:
-      <br /> <a
-        href={`https://thirdweb.com/${activeChain.chainId}/${address}/account`}
-        target="_blank"
-      >
-        {address}
-      </a>
-    </h3>
-  ) : (
-    <></>
-  );
-};
-```
-
-Here, we are checking if there is an address and then rendering the address with a link; otherwise, it returns a fragment.
-Now, let's create the logic of connecting the wallet using a custom UI.
-
-```tsx
-const [password, setPassword] = useState("");
-```
-
-If the address isn't present we can now show an input and button log in. Inside the fragment, add the following:
-
-```tsx
-<>
-  <input
-    className="input"
-    type="password"
-    placeholder="Enter Password"
-    onChange={(e) => setPassword(e.target.value)}
-  />
-  <button className="button" onClick={loadLocalWalletAndConnect}>
-    Log in
-  </button>
-</>
-```
-
-As you can see, we are missing the `loadLocalWalletAndConnect` function, so let's create that:
-
-```tsx
-const loadLocalWalletAndConnect = async () => {
-  if (!password) {
-    alert("Please enter a password");
-    return;
-  }
-  try {
-    const personalWallet = new LocalWallet({
-      chain: Mumbai,
-    });
-    await personalWallet.loadOrCreate({
-      strategy: "encryptedJson",
-      password: password,
-    });
-    await connect(smartWalletConfig, {
-      personalWallet: personalWallet,
-    });
-  } catch (e) {
-    alert((e as any).message);
-  }
-};
-```
-
-This creates an instance of a `LocalWallet` class and uses the `loadOrCreate` function to get the wallet, and finally connects the wallet using the `useConnect` hook.
-
-```tsx
-const connect = useConnect();
-```
-
-The final code should look like this:
-
-```tsx
-import { Goerli } from "@thirdweb-dev/chains";
-import { useAddress, useConnect } from "@thirdweb-dev/react";
-import { LocalWallet } from "@thirdweb-dev/wallets";
-import { activeChain, smartWalletConfig } from "../main";
-import { useState } from "react";
-
-export const ConnectCompoenent = () => {
+function App() {
   const connect = useConnect();
-  const address = useAddress();
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const personalWallet = new LocalWallet({
+    chain: "goerli",
+  });
+  await personalWallet.loadOrCreate({
+    strategy: "encryptedJson",
+    password: password,
+  });
 
-  const loadLocalWalletAndConnect = async () => {
-    if (!password) {
-      setError("Please enter a password");
-      return;
-    }
-    setError("");
-    try {
+  return (
+    <button
+      onClick={async () => {
+        const wallet = await connect(smartWalletConfig, {
+          personalWallet: personalWallet,
+        });
+        console.log("connected to ", wallet);
+      }}
+    >
+      Connect to MetaMask
+    </button>
+  );
+}
+```
+
+## 3. Using ThirdwebSDKProvider
+
+[`ThirdwebSDKProvider`](/react/react.thirdwebsdkprovider) is a lower-level provider that accepts an arbitrary wallet, as a signer, and only handles contract interactions. This means you can use the [Wallet SDK](/wallet) to programmatically connect to any wallet, and pass the connected wallet signer to this provider to execute transactions from the connected wallet.
+
+To use this method, you will need to install the `@thirdweb-dev/wallets` package.
+
+```tsx
+import { ThirdwebSDKProvider } from "@thirdweb-dev/react";
+import { SmartWallet } from "@thirdweb-dev/wallets";
+import { Goerli } from "@thirdweb-dev/chains";
+import { Signer } from "ethers";
+
+function MyComponent() {
+  const [signer, setSigner] = useState<Signer | null>(null);
+
+  const config: WalletOptions<SmartWalletConfig> = {
+    chain: "goerli", // the chain where your smart wallet will be or is deployed
+    factoryAddress: "<your-factory-address>", // your own deployed account factory address
+    clientId: "<your-client-id>", // obtained from the thirdweb dashboard
+    gasless: true,
+  };
+
+  useEffect(() => {
+    const generateWallet = async () => {
       const personalWallet = new LocalWallet({
-        chain: Goerli,
+        chain: "goerli",
       });
       await personalWallet.loadOrCreate({
         strategy: "encryptedJson",
         password: password,
       });
-      await connect(smartWalletConfig, {
+      const smartWallet = new SmartWallet(config);
+      await smartWallet.connect({
         personalWallet: personalWallet,
       });
-    } catch (e) {
-      setError((e as any).message);
-    }
-  };
+      setSigner(await smartWallet.getSigner());
+      console.log("signer", signer);
+    };
+    generateWallet();
+  }, []);
 
-  return address ? (
-    <h3>
-      Connected as:
-      <br /> <a
-        href={`https://thirdweb.com/${activeChain.chainId}/${address}/account`}
-        target="_blank"
-      >
-        {address}
-      </a>
-    </h3>
-  ) : (
-    <>
-      <input
-        className="input"
-        type="password"
-        placeholder="Enter Password"
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <br />
-      <br />
-      <button className="button" onClick={loadLocalWalletAndConnect}>
-        Log in
-      </button>
-      <p style={{ color: "red" }}>{error}</p>
-    </>
+  // The provider will handle maintaining the connected wallet
+  // calling contracts from within the provider with the regular hooks
+  // will execute on behalf of the provided wallet signer
+  return (
+    <ThirdwebSDKProvider
+      activeChain={Goerli}
+      signer={signer}
+      clientId="your-client-id"
+    >
+      <App />
+    </ThirdwebSDKProvider>
   );
-};
+}
 ```
-
-You can now go ahead and add this component to your `App.tsx` file!
-
-On your homesecreen you will see an input like this:
-
-![Password Input](../assets/password-use-connect.png)
-
-Go ahead and fill in your password, and you will see that it shows the address of your smart wallet that has been created!
-
-![Connected Smart Wallet](../assets/smart-wallet-use-connect.png)
-
-And that's it!
 
 ## Conclusion
 
 In this guide, we learned how to connect users to a React app using two methods:
 
-- With a pre-built UI component
-- With a custom UI component
+- With the Connect Wallet component.
+- With a custom UI component via the `useConnect` hook.
+- Low-level control with `ThirdwebSDKProvider` and the Wallet SDK.
 
 Take a look at the [GitHub Repository](https://github.com/thirdweb-example/smart-wallet-react) for the full source code!

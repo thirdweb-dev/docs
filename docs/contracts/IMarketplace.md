@@ -66,7 +66,7 @@ Lets a direct listing creator cancel their listing.
 function closeAuction(uint256 _listingId, address _closeFor) external nonpayable
 ```
 
-Lets any account close an auction on behalf of either the (1) auction&#39;s creator, or (2) winning bidder. For (1): The auction creator is sent the the winning bid amount. For (2): The winning bidder is sent the auctioned NFTs.
+Lets any account close an auction on behalf of either the (1) auction&#39;s creator, or (2) winning bidder. For (1): The auction creator is sent the winning bid amount. For (2): The winning bidder is sent the auctioned NFTs.
 
 #### Parameters
 
@@ -152,7 +152,7 @@ function offer(uint256 _listingId, uint256 _quantityWanted, address _currency, u
 
 Lets someone make an offer to a direct listing, or bid in an auction.
 
-_Each (address, listing ID) pair maps to a single unique offer. So e.g. if a buyer makes makes two offers to the same direct listing, the last offer is counted as the buyer&#39;s offer to that listing._
+_Each (address, listing ID) pair maps to a single unique offer. So e.g. if a buyer makes two offers to the same direct listing, the last offer is counted as the buyer&#39;s offer to that listing._
 
 #### Parameters
 

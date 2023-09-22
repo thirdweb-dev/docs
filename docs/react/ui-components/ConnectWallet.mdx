@@ -37,6 +37,14 @@ function App() {
 
 ## Configuration
 
+### modalSize (optional)
+
+ConnectWallet modal has two sizes - "wide" and "compact"
+
+The default is `"wide"` for desktop and `"compact"` for mobile devices
+
+ConnectWallet Modal is always `"compact"` on mobile and the `modalSize` prop is ignored.
+
 ### theme (optional)
 
 Change the theme of Connect Wallet UI to `"light"` or `"dark"` mode, to match the color theme of your app.
@@ -54,6 +62,25 @@ function App() {
     />
   );
 }
+```
+
+You can also create a custom theme by passing an object. To do this, you can use `darkTheme`
+or `lightTheme` functions to use light / dark theme as base and override it
+
+```tsx
+import { darkTheme, lightTheme } from "@thirdweb-dev/react";
+
+<ConnectWallet
+  // highlight-next-line
+  theme={darkTheme({
+    fontFamily: "Inter, sans-serif",
+    colors: {
+      modalBg: "#000000",
+      accentText: "red",
+      // ... etc
+    },
+  })}
+/>;
 ```
 
 ### btnTitle (optional)
@@ -75,11 +102,43 @@ function App() {
 }
 ```
 
+### Customize "Welcome Screen" for wide modal
+
+On wide modal, a welcome screen is shown on the right side of the modal.
+
+This screen can be customized in two ways
+
+#### 1. customize metadata
+
+```tsx
+<ConnectWallet
+  welcomeScreen={{
+    title: "Your Title",
+    subtitle: "Your Subtitle",
+    img: {
+      src: "https://...",
+      width: 300,
+      height: 50,
+    },
+  }}
+/>
+```
+
+#### 2. Render custom component
+
+```tsx
+<ConnectWallet
+  welcomeScreen={() => {
+    return <YourComponent />;
+  }}
+/>
+```
+
 ### modalTitle (optional)
 
 Change the title of Connect Wallet Modal's title
 
-The default value is `"Choose your wallet"`.
+The default is `"Connect"`.
 
 ```jsx
 import { ConnectWallet } from "@thirdweb-dev/react";
@@ -183,5 +242,26 @@ Specify where should the dropdown menu open relative to the Connect Wallet Butto
     side: "bottom", // "top" | "bottom" | "left" | "right";
     align: "end", // "start" | "center" | "end";
   }}
+/>
+```
+
+### hideTestnetFaucet (optional)
+
+Hide option to request testnet funds for testnets in dropdown
+
+```jsx
+<ConnectWallet
+  hideTestnetFaucet={true}
+/>
+```
+
+### Show "Terms of Service" and/or "Privacy Policy" links
+
+You can show a "Terms of Service" and/or "Privacy Policy" link in the ConnectWallet Modal by passing the `termsOfServiceUrl` and/or `privacyPolicyUrl` props
+
+```tsx
+<ConnectWallet
+  termsOfServiceUrl="https://...."
+  privacyPolicyUrl="https://...."
 />
 ```
