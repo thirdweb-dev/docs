@@ -1,6 +1,6 @@
 ---
 slug: /connect/custom-ui
-title: useConnect
+title: Building a Custom UI
 ---
 
 ## Connect A Wallet Without the Connect Wallet UI (for Supported Wallets)
@@ -28,11 +28,11 @@ function App() {
 }
 ```
 
-### Create a Wallet Connection UI for a Custom Wallet
+## Create a Wallet Connection UI for a Custom Wallet
 
 To integrate a wallet with `ConnectWallet`, you need to create a wallet configurator - a function that returns a `WalletConfig` object and add it in `ThirdwebProvider`'s `supportedWallets`.
 
-#### connectUI
+### connectUI
 
 To create a custom UI for connecting your wallet, create a `connectUI` function in your wallet configurator.
 
@@ -43,7 +43,7 @@ To create a custom UI for connecting your wallet, create a `connectUI` function 
     },
 ```
 
-#### selectUI
+### selectUI
 
 To create a custom UI for selecting your wallet in the wallet selection screen in the connect wallet modal, create a `selectUI` function in your wallet configurator.
 
