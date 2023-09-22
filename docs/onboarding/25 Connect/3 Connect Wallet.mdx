@@ -1,5 +1,5 @@
 ---
-slug: /connect/react-native/connect-wallet
+slug: /connect/connect-wallet
 title: Connect Wallet
 ---
 
@@ -22,12 +22,12 @@ custodial, [smart wallets](/smart-wallet), and embedded wallets.
 
 ## Customizing the Displayed Wallets
 
-[View the Connect Wallet supported and default displayed wallets in Native](/connect/react-native/supported-wallets).
+[View the Connect Wallet supported and default displayed wallets in React](/connect/react/supported-wallets).
 
 To customize the displayed wallets, you can pass in a `supportedWallets` prop to the [`ThirdWebProvider`](/react/react.thirdwebprovider) component.
 
 ```jsx
-import { ThirdWebProvider } from "@thirdweb-dev/react-native";
+import { ThirdWebProvider } from "@thirdweb-dev/react";
 
 function App() {
   return (
@@ -111,7 +111,7 @@ This screen can be customized in two ways:
 Render a custom button to display connected wallet details
 
 ```jsx
-import { ConnectWallet } from "@thirdweb-dev/react-native";
+import { ConnectWallet } from "@thirdweb-dev/react";
 
 function App() {
   return (
@@ -146,7 +146,7 @@ Requires the [`authConfig`](/react/react.thirdwebprovider#authconfig-optional) p
 | `onLogout`       | function | N/A           | N/A               | Callback function that is called when a user signs out of their wallet.  |
 
 ```jsx
-import { ConnectWallet } from "@thirdweb-dev/-native";
+import { ConnectWallet } from "@thirdweb-dev/react";
 
 function App() {
   return (

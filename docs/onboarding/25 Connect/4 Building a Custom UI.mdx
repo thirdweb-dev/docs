@@ -1,0 +1,59 @@
+---
+slug: /connect/custom-ui
+title: useConnect
+---
+
+## Connect A Wallet Without the Connect Wallet UI (for Supported Wallets)
+
+The [`useConnect`](react/react.useconnect) hook allows you to programmatically connect to the wallet. You will need to build your own UI for connecting the wallet.
+
+```tsx
+import { useConnect, metamaskWallet } from "@thirdweb-dev/react-native";
+
+const metamask = metamaskWallet();
+
+function App() {
+  const connect = useConnect();
+
+  return (
+    <button
+      onClick={async () => {
+        const wallet = await connect(metamask, connectOptions);
+        console.log("connected to ", wallet);
+      }}
+    >
+      Connect to MetaMask
+    </button>
+  );
+}
+```
+
+### Create a Wallet Connection UI for a Custom Wallet
+
+To integrate a wallet with `ConnectWallet`, you need to create a wallet configurator - a function that returns a `WalletConfig` object and add it in `ThirdwebProvider`'s `supportedWallets`.
+
+#### connectUI
+
+To create a custom UI for connecting your wallet, create a `connectUI` function in your wallet configurator.
+
+```tsx
+// optional - render a UI for connecting your wallet
+    connectUI(props) {
+      return <MyWalletConnectionUI {...props} />;
+    },
+```
+
+#### selectUI
+
+To create a custom UI for selecting your wallet in the wallet selection screen in the connect wallet modal, create a `selectUI` function in your wallet configurator.
+
+```tsx
+    // optional - override the default UI for selecting your wallet in the wallet selector screen
+    selectUI(props) {
+      return <MyWalletSelectionUI {...props} />
+    }
+```
+
+## Create your Own Wallet Connector
+
+For more details on how to create your own wallet connector that you can use for Connect Wallet, see the [Create Your Own Wallet Guide](connect/build-a-wallet) guide.
