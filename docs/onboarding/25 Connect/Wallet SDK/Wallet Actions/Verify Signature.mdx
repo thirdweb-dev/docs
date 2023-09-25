@@ -8,24 +8,25 @@ import TabItem from "@theme/TabItem";
 import QuickstartCard from "@components/QuickstartCard";
 
 <Tabs>
-  <TabItem value="react" label="React">
-    <div>
-      <p>hello</p>
-    </div>
-  </TabItem>
-  <TabItem value="react-native" label="React-Native">
-    <div>
-      <p>hello</p>
-    </div>
-  </TabItem>
   <TabItem value="typescript" label="TypeScript">
-    <div>
-      <p>hello</p>
-    </div>
-  </TabItem>
-  <TabItem value="unity" label="Unity">
-    <div>
-      <p>hello</p>
-    </div>
+  <div>
+
+<h2>verifySignature</h2>
+
+Verify if a signature is valid or not.
+
+```ts
+const isValid = await wallet.verifySignature(
+  "Message",
+  "Signature",
+  "wallet_address",
+);
+```
+
+### Return Value
+
+Returns a boolean value indicating if the signature is valid or not.
+
+</div>
   </TabItem>
 </Tabs>
