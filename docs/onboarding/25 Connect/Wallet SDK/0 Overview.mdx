@@ -3,6 +3,8 @@ slug: /connect/wallet-sdk
 title: Overview
 ---
 
+import QuickstartCard from "@components/QuickstartCard";
+
 You can use the Wallet SDK directly in any environment that supports TypeScript.
 The Wallet SDK enables you to connect and create wallets which you can then use in your app to sign transactions as you usually would.
 There are two main instances in which you would use the Wallet SDK directly:
@@ -41,3 +43,45 @@ The SDKs provide a set of actions that you can use to interact with the wallet:
 If the wallet you want to use is not supported by the Wallet SDK or Connect Wallet, you can build a connector for it.
 
 To build a connector and add it to Connect Wallet, [follow this guide](/connect/build-a-wallet).
+
+## References
+
+By using the thirdweb SDKs, you can easily connect and execute wallet actions.
+
+<div className="row" style={{ marginBottom: 12, padding: 8, paddingTop: 0 }}>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Wallet SDK"
+      link="/wallet"
+      image="/assets/product/wallet.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="TypeScript SDK"
+      link="/typescript/sdk.userwallet.balance"
+      image="/assets/languages/typescript.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="React SDK"
+      link="/react/connecting-wallets"
+      image="/assets/languages/react.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="React Native SDK"
+      link="/react-native/wallets"
+      image="/assets/languages/react-native.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Unity SDK"
+      link="/unity/wallet/authenticate"
+      image="/assets/languages/unity.webp"
+    />
+  </div>
+</div>

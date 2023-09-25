@@ -1,0 +1,333 @@
+---
+slug: /connect/connect-wallet/getting-started
+title: Getting Started
+---
+
+<Tabs>
+  <TabItem value="react" label="React">
+    <div>
+
+To get started, install the required dependencies into your React project.
+
+<Tabs>
+<TabItem value="existing" label="Existing Projects">
+
+<CodeBlock language="bash">
+  npm install @thirdweb-dev/react @thirdweb-dev/sdk ethers@^5
+</CodeBlock>
+
+<br />
+
+## Additional Configuration
+
+<details>
+  <summary>
+    Create React App
+</summary>
+<div>
+
+Add below packages as dependencies in your package.json
+
+```json
+{
+  ...
+  "dependencies": {
+    ...
+    // highlight-start
+    "url": "latest",
+    "http": "npm:http-browserify",
+    "https": "npm:https-browserify",
+    "zlib": "npm:browserify-zlib",
+    "http-browserify": "latest",
+    "https-browserify": "latest",
+    "browserify-zlib": "latest",
+    "assert": "^2.0.0",
+    "stream": "^0.0.2"
+    // highlight-end
+  }
+}
+```
+
+Install them from NPM using the following command
+
+<Tabs>
+  <TabItem value="npm" label="npm">
+    <CodeBlock language="bash">npm install</CodeBlock>
+  </TabItem>
+  <TabItem value="yarn" label="yarn">
+    <CodeBlock language="bash">yarn</CodeBlock>
+  </TabItem>
+  <TabItem value="pnpm" label="pnpm">
+    <CodeBlock language="bash">pnpm install</CodeBlock>
+  </TabItem>
+</Tabs>
+
+To ignore the sourcemap warnings, create a `.env` file with the following in your root directory:
+
+```text
+GENERATE_SOURCEMAP=false
+```
+
+</div>
+</details>
+
+<details>
+  <summary>
+   Vite
+   </summary>
+    <div>
+
+Install the vite plugins
+
+<Tabs>
+  <TabItem value="npm" label="npm">
+    <CodeBlock language="bash">
+      npm i @vitejs/plugin-react vite-plugin-node-polyfills -D
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="yarn" label="yarn">
+    <CodeBlock language="bash">
+      yarn add @vitejs/plugin-react vite-plugin-node-polyfills -D
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="pnpm" label="pnpm">
+    <CodeBlock language="bash">
+      pnpm add @vitejs/plugin-react vite-plugin-node-polyfills -D
+    </CodeBlock>
+  </TabItem>
+</Tabs>
+
+In the `vite.config.js` file, add the following configuration:
+
+```js
+import react from "@vitejs/plugin-react";
+import { defineConfig } from "vite";
+import { nodePolyfills } from "vite-plugin-node-polyfills";
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react(), nodePolyfills()],
+  define: {
+    "process.env": {},
+  },
+});
+```
+
+</div>
+</details>
+
+<details>
+  <summary>
+   Next.js
+   </summary>
+    <div>
+
+### Pages Router
+
+No additional configuration is required if you are using the [pages router](https://nextjs.org/docs/pages)
+
+<br />
+
+### App Router
+
+If you are using the new [app router](https://nextjs.org/docs/app), and If you import a component such as `ThirdwebProvider` in a server component, Next.js will throw an error saying that the component is not marked with `"use client"` directive.
+
+You will need to create an alias for that component in a separate file with `"use client"` directive on top (before all the imports) and import that instead of using the component directly from `@thirdweb-dev/react` in server components.
+
+#### Example
+
+```tsx
+"use client";
+
+export { ThirdwebProvider } from "@thirdweb-dev/react";
+
+// app/components/ThirdwebProvider.tsx
+```
+
+```tsx
+import { ThirdwebProvider } from "./components/ThirdwebProvider";
+
+export default function Home() {
+  return <ThirdwebProvider> ... </ThirdwebProvider>;
+}
+
+// app/page.tsx
+```
+
+</div>
+</details>
+
+</TabItem>
+<TabItem value="new" label="New Projects">
+
+<CodeBlock language="bash">npx thirdweb create app</CodeBlock>
+
+</TabItem>
+</Tabs>
+
+<br />
+
+:::info API Key
+You will require an API key to use thirdweb's infrastructure services with the SDK. If you haven't created a key yet you can do so for **free** from the [**thirdweb dashboard**](https://thirdweb.com/create-api-key).
+:::
+
+## Wrap your application in ThirdwebProvider
+
+Wrap your application in the [`ThirdwebProvider`](/react/react.thirdwebprovider) component to start using the SDK.
+
+```jsx
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+
+const App = () => {
+  return (
+    <ThirdwebProvider activeChain="ethereum" clientId="your-client-id">
+      <YourApp />
+    </ThirdwebProvider>
+  );
+};
+```
+
+<p style={{ opacity: 0.8, marginTop: -8 }}>
+  <i>
+    Examples of where to set this up: <a href="#cra">Create React App</a> •{" "}
+    <a href="https://github.com/thirdweb-example/next-javascript-starter/blob/main/pages/_app.js">
+      Next.js
+    </a>{" "}
+    • <a href="#vite">Vite</a>
+  </i>
+</p>
+
+<br />
+
+With the provider set up, all of the SDK&rsquo;s hooks and components work out of the box!
+
+Now you can connect to the user&rsquo;s wallet like so:
+
+```jsx
+import { ConnectWallet } from "@thirdweb-dev/react";
+
+const Home = () => {
+  return <ConnectWallet />;
+};
+```
+
+</div>
+  </TabItem>
+  <TabItem value="react-native" label="React Native">
+    <div>
+
+Our SDK uses a [Provider Pattern](https://flexiple.com/react/provider-pattern-with-react-context-api/); meaning any component within the `ThirdwebProvider` will have access to the SDK.
+
+Let's take a look at a typical setup:
+
+## API Key
+
+You will require an API key to use thirdweb’s infrastructure services with the SDK. If you haven’t created a key yet you can do so for free from the [**thirdweb dashboard**](https://thirdweb.com/create-api-key).
+
+## Configure the `ThirdwebProvider`
+
+Specify the network in the `activeChain` prop and specify the wallets to display in the Connect Wallet button by specifying an array to the `ThirdwebProvider` and wrap your application like so:
+
+```tsx title="App.tsx"
+import {
+  ThirdwebProvider,
+  metamaskWallet,
+  trustWallet,
+  coinbaseWallet,
+} from "@thirdweb-dev/react-native";
+
+// provide supported wallets to ThirdwebProvider
+
+function MyApp() {
+  return (
+    <ThirdwebProvider
+      supportedWallets={[metamaskWallet(), trustWallet(), coinbaseWallet()]}
+      clientId="your-client-id"
+    >
+      <App />
+    </ThirdwebProvider>
+  );
+}
+```
+
+Below is an example of where to set this up in your application:
+
+<p>
+  <a href="https://github.com/thirdweb-example/react-native-typescript-starter/blob/main/App.tsx">
+    Create React Native App
+  </a>
+</p>
+
+Finally, we can run our app!
+
+```sh
+yarn android
+```
+
+```sh
+yarn ios
+```
+
+## Using Connect Wallet
+
+```javascript
+import React from "react";
+import { SafeAreaView } from "react-native";
+
+import { ConnectWallet } from "@thirdweb-dev/react-native";
+
+const AppInner = () => {
+  return (
+    <SafeAreaView style={styles.backgroundStyle}>
+      <ConnectWallet />
+    </SafeAreaView>
+  );
+};
+```
+
+</div>
+  </TabItem>
+  <TabItem value="unity" label="Unity">
+    <div>
+    
+The `ConnectWallet` prefab allows users to connect their wallet to your game.
+
+It uses the [ThirdwebManager](/unity/ThirdwebManager) to determine which networks to display as well as the secondary UI related to certain providers such as WalletConnect.
+
+You can set up which wallets you want to support from the Prefab_ConnectWallet Inspector directly.
+
+When a user clicks the button, a dropdown of [supported wallets](#supported-wallets) will appear. The user can then
+select their preferred wallet to connect to the game; once connected, the button will show the user&rsquo;s balance and an option to
+switch networks if multiple networks are set up through the ThirdwebManager.
+
+The prefab is located at: `Assets/Thirdweb/Examples/Prefabs/Prefab_ConnectWallet.prefab`.
+
+![Connect Wallet Button](../assets/connectwallet.png)
+
+## Configuration
+
+From the `Inspector` window, you can configure the options for the `ConnectWallet` prefab.
+
+### Supported Wallets
+
+The list of wallets you want to support.
+Each wallet you provide appears as a button in the dropdown.
+
+Supports `Injected` (window.ethereum), `MetaMask`, `Coinbase`, `WalletConnect`, `MagicLink`, `LocalWallet`, `Paper`, `SmartWallet`, `HyperPlay`.
+
+Some wallet providers may not be supported on some native platforms.
+
+### Custom Callbacks
+
+Custom logic to run whenever an event occurs on the button, including:
+
+- `OnConnected`: Triggered when the user connects their wallet successfully.
+- `OnDisconnected`: Triggered when the user disconnects their wallet successfully.
+- `OnSwitchNetwork`: Triggered when the user switches networks successfully.
+- `OnFailedConnect`: Triggered when the user fails to connect their wallet.
+- `OnFailedDisconnect`: Triggered when an error occurs after attempting to disconnect a wallet.
+- `OnFailedSwitchNetwork`: Triggered when an error occurs after attempting to switch networks.
+
+</div>
+  </TabItem>
+</Tabs>
