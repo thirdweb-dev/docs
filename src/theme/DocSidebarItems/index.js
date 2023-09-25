@@ -53,7 +53,7 @@ function DocSidebarItems({ items, ...props }) {
     },
     {
       title: "Infrastructure",
-      items: ["Storage", "Bundler & Paymaster"],
+      items: ["Storage", "Bundler & Paymaster", "RPC Edge"],
     },
     {
       title: "Tools",
