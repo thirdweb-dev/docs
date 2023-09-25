@@ -41,7 +41,84 @@ To learn more about how smart wallets work, read our [smart contract deep dive](
 
 ![Smart Wallet Flow](/assets/smart-wallet-architecture.png)
 
+## Account Factories
+
+In order to issue smart wallet account contracts for users, an account factory contract must be deployed.
+A factory contract is a contract which clones an implementation contract which defines the functions and logic on the clone.
+
+To create accounts with the factory contract, the `createAccount` function is called. This function calls `_initializeAccount`
+which initializes the account and sets the default admin on the account.
+
+## One Account Per Personal Wallet
+
+The thirdweb Account Factories are designed so that only one account can be created per personal wallet key.
+This means that any one personal wallet can only be a default admin on one account per factory.
+
+This is because, when the account contract is cloned by the factory, the account is craeted deterministically
+via the `cloneDeterministic` function. This function takes a `salt` as a parameter to predict the deployment address. The `salt` is calculated using the
+default admin address. Since the deployment address will be the same if the default admin is the same, if an account
+already exists at that address, the transaction will revert.
+
+```solidity
+/// @notice Deploys a new Account for admin.
+    function createAccount(address _admin, bytes calldata _data) external virtual override returns (address) {
+        address impl = accountImplementation;
+        bytes32 salt = _generateSalt(_admin, _data);
+        address account = Clones.predictDeterministicAddress(impl, salt);
+
+        if (account.code.length > 0) {
+            return account;
+        }
+
+        account = Clones.cloneDeterministic(impl, salt);
+
+        if (msg.sender != entrypoint) {
+            require(allAccounts.add(account), "AccountFactory: account already registered");
+        }
+
+        _initializeAccount(account, _admin, _data);
+
+        emit AccountCreated(account, _admin);
+
+        return account;
+    }
+```
+
+## Types of Account and Account Factory
+
+|                    | [`Simple`](https://thirdweb.com/thirdweb.eth/AccountFactory)                                                                            | [`Dynamic`](https://thirdweb.com/thirdweb.eth/DynamicAccountFactory)                                                                                                         | [`Managed`](https://thirdweb.com/thirdweb.eth/ManagedAccountFactory)                                                                                                                          |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Upgradeability** | Non-upgradeable                                                                                                                         | Account upgrades controlled locally by account admin.                                                                                                                        | Account upgrades controlled centrally by the parent account factory admin.                                                                                                                    |
+| **Expected Usage** | Developer wants to issue simple smart wallets to their users. They do not anticipate that users wallets will need any feature upgrades. | Developer wants to issue smart wallets to their users. They do anticipate feature upgrades to user wallets but do not want to push upgrades to user wallets without consent. | Developer wants to issue smart wallets to their users. They do anticipate feature upgrades to user wallets, and want to push upgrades to user wallets for seamless/invisible UX for upgrades. |
+
+### Account Type Feature Comparison
+
+|                                                     | Simple                     | Dynamic                                  | Managed                                        |
+| --------------------------------------------------- | -------------------------- | ---------------------------------------- | ---------------------------------------------- |
+| Contracts                                           | `AccountFactory` `Account` | `DynamicAccountFactory` `DynamicAccount` | `ManagedAccountFactory` `ManagedAccount`       |
+| ERC-4337 Compatible                                 | ✅                         | ✅                                       | ✅                                             |
+| Can hold native ERC-20, ERC-721 and ERC-1155 Tokens | ✅                         | ✅                                       | ✅                                             |
+| Multi-signer                                        | ✅                         | ✅                                       | ✅                                             |
+| Execute transactions in Batches                     | ✅                         | ✅                                       | ✅                                             |
+| Is the Account Upgradeable                          | ❌                         | ✅                                       | ✅                                             |
+| Who controls upgrades (?)                           | n/a                        | Admin of the account.                    | Admin of the account’s parent account factory. |
+
 ## Terminology
+
+### Personal Wallet/Key
+
+This is the default admin on an account or the "key" to an account. It can be any wallet and is used to initialize the account.
+Any one wallet can only be the "key" to one account per factory contract.
+
+This wallet is the primary way to access and interact with the account.
+
+### Account
+
+In the context of smart wallets, the account is the ERC-4337 compatible smart contract which holds all of the assets.
+
+### Smart Wallet
+
+The smart wallet is the combination of your personal wallet "key" plus the account smart contract with all of it's assets.
 
 ### UserOperations
 
