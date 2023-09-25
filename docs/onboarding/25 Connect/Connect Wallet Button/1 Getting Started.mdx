@@ -3,6 +3,10 @@ slug: /connect/connect-wallet/getting-started
 title: Getting Started
 ---
 
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import QuickstartCard from "@components/QuickstartCard";
+
 <Tabs>
   <TabItem value="react" label="React">
     <div>
@@ -21,9 +25,7 @@ To get started, install the required dependencies into your React project.
 ## Additional Configuration
 
 <details>
-  <summary>
-    Create React App
-</summary>
+  <summary>Create React App</summary>
 <div>
 
 Add below packages as dependencies in your package.json
@@ -215,6 +217,14 @@ const Home = () => {
   </TabItem>
   <TabItem value="react-native" label="React Native">
     <div>
+    
+To get started, let's setup a React Native project with the required dependencies.
+
+```bash
+npx thirdweb install
+```
+
+This will detect your project type and install the thirdweb React Native SDK.
 
 Our SDK uses a [Provider Pattern](https://flexiple.com/react/provider-pattern-with-react-context-api/); meaning any component within the `ThirdwebProvider` will have access to the SDK.
 
@@ -302,7 +312,7 @@ switch networks if multiple networks are set up through the ThirdwebManager.
 
 The prefab is located at: `Assets/Thirdweb/Examples/Prefabs/Prefab_ConnectWallet.prefab`.
 
-![Connect Wallet Button](../assets/connectwallet.png)
+![Connect Wallet Button](../../../unity/assets/connectwallet.png)
 
 ## Configuration
 
