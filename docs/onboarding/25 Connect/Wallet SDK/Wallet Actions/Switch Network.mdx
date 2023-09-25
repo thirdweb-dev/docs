@@ -9,15 +9,88 @@ import QuickstartCard from "@components/QuickstartCard";
 
 <Tabs>
   <TabItem value="react" label="React">
-    <div></div>
+    <div>
+
+## useSwitchChain
+
+Hook for switching to a different network.
+
+```jsx
+import { useSwitchChain } from "@thirdweb-dev/react";
+
+const switchChain = useSwitchChain();
+```
+
+### Usage
+
+```jsx
+import { useSwitchChain } from "@thirdweb-dev/react";
+import { Goerli } from "@thirdweb-dev/chains";
+
+function App() {
+  const switchChain = useSwitchChain();
+  return (
+    <button onClick={() => switchChain(Goerli.chainId)}>
+      Switch to Goerli
+    </button>
+  );
+}
+```
+
+</div>
   </TabItem>
   <TabItem value="react-native" label="React-Native">
-    <div></div>
-  </TabItem>
-  <TabItem value="typescript" label="TypeScript">
-    <div></div>
+    <div>
+
+## useSwitchChain
+
+Hook for switching to a different network.
+
+```jsx
+import { useSwitchChain } from "@thirdweb-dev/react-native";
+
+const switchChain = useSwitchChain();
+```
+
+### Usage
+
+```jsx
+import { useSwitchChain } from "@thirdweb-dev/react-native";
+import { Goerli } from "@thirdweb-dev/chains";
+
+function App() {
+  const switchChain = useSwitchChain();
+  return (
+    <button onClick={() => switchChain(Goerli.chainId)}>
+      Switch to Goerli
+    </button>
+  );
+}
+```
+
+</div>
   </TabItem>
   <TabItem value="unity" label="Unity">
-    <div></div>
+    <div>
+
+## SwitchNetwork
+
+Switch the network that the connected wallet is currently connected to.
+
+### Usage
+
+```csharp
+sdk.wallet.SwitchNetwork(1);
+```
+
+### Configuration
+
+#### chainId
+
+The ID of the network to switch to.
+
+Must be an `int`.
+
+</div>
   </TabItem>
 </Tabs>
