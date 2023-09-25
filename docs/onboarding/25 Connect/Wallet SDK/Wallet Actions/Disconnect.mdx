@@ -9,15 +9,84 @@ import QuickstartCard from "@components/QuickstartCard";
 
 <Tabs>
   <TabItem value="react" label="React">
-    <div></div>
+    <div>
+
+## useDisconnect
+
+Hook for disconnecting the currently connected wallet.
+
+```jsx
+import { useDisconnect } from "@thirdweb-dev/react";
+```
+
+### Usage
+
+```jsx
+import { useDisconnect } from "@thirdweb-dev/react";
+
+function App() {
+  const disconnect = useDisconnect();
+
+  return <button onClick={disconnect}>Disconnect</button>;
+}
+```
+
+</div>
   </TabItem>
   <TabItem value="react-native" label="React-Native">
-    <div></div>
+    <div>
+
+## useDisconnect
+
+Hook for disconnecting the currently connected wallet.
+
+```jsx
+import { useDisconnect } from "@thirdweb-dev/react-native";
+```
+
+### Usage
+
+```jsx
+import { useDisconnect } from "@thirdweb-dev/react-native";
+
+function App() {
+  const disconnect = useDisconnect();
+
+  return <button onClick={disconnect}>Disconnect</button>;
+}
+```
+
+</div>
+
   </TabItem>
   <TabItem value="typescript" label="TypeScript">
-    <div></div>
+    <div>
+
+## Disconnect
+
+Connect any supported [wallet connector](/typescript/supported-wallets) to your app.
+
+```ts
+const walletAddress = await wallet.connect();
+```
+
+</div>
+
   </TabItem>
   <TabItem value="unity" label="Unity">
-    <div></div>
+    <div>
+
+## Disconnect
+
+Disconnect a user&rsquo;s wallet from your game.
+
+### Usage
+
+```csharp
+sdk.wallet.Disconnect();
+```
+
+</div>
+
   </TabItem>
 </Tabs>
