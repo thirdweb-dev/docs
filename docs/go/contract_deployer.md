@@ -7,17 +7,19 @@ displayed_sidebar: go
 
 # Contract Deployments
 
-The contract deployer lets you deploy new contracts to the blockchain using just the thirdweb SDK\. You can access the contract deployer interface as follows:
+The contract deployer lets you deploy new contracts to the blockchain using just the thirdweb SDK. You can access the contract deployer interface as follows:
 
 ```
 import (
 	"github.com/thirdweb-dev/go-sdk/v2/thirdweb"
 )
 
-privateKey = "..."
+privateKey := "..."
+secretKey := "..."
 
 sdk, err := thirdweb.NewThirdwebSDK("mumbai", &thirdweb.SDKOptions{
 	PrivateKey: privateKey,
+	SecretKey: secretKey
 })
 
 // Now you can deploy a contract
@@ -34,13 +36,13 @@ type ContractDeployer struct {
 }
 ```
 
-### func \(\*ContractDeployer\) [DeployEdition](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/contract_deployer.go#L114)
+### func \(\*ContractDeployer\) [DeployEdition](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/contract_deployer.go#L117>)
 
 ```go
 func (deployer *ContractDeployer) DeployEdition(ctx context.Context, metadata *DeployEditionMetadata) (string, error)
 ```
 
-Deploy a new Edition contract\.
+Deploy a new Edition contract.
 
 metadata: the contract metadata
 
@@ -57,13 +59,13 @@ address, err := sdk.Deployer.DeployEdition(
 	})
 ```
 
-### func \(\*ContractDeployer\) [DeployEditionDrop](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/contract_deployer.go#L171)
+### func \(\*ContractDeployer\) [DeployEditionDrop](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/contract_deployer.go#L174>)
 
 ```go
 func (deployer *ContractDeployer) DeployEditionDrop(ctx context.Context, metadata *DeployEditionDropMetadata) (string, error)
 ```
 
-Deploy a new Edition Drop contract\.
+Deploy a new Edition Drop contract.
 
 metadata: the contract metadata
 
@@ -80,13 +82,13 @@ address, err := sdk.Deployer.DeployEditionDrop(
 	})
 ```
 
-### func \(\*ContractDeployer\) [DeployMarketplace](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/contract_deployer.go#L209)
+### func \(\*ContractDeployer\) [DeployMarketplace](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/contract_deployer.go#L212>)
 
 ```go
 func (deployer *ContractDeployer) DeployMarketplace(ctx context.Context, metadata *DeployMarketplaceMetadata) (string, error)
 ```
 
-Deploy a new Marketplace contract\.
+Deploy a new Marketplace contract.
 
 metadata: the contract metadata
 
@@ -103,13 +105,13 @@ address, err := sdk.Deployer.DeployMarketplace(
 	})
 ```
 
-### func \(\*ContractDeployer\) [DeployMultiwrap](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/contract_deployer.go#L190)
+### func \(\*ContractDeployer\) [DeployMultiwrap](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/contract_deployer.go#L193>)
 
 ```go
 func (deployer *ContractDeployer) DeployMultiwrap(ctx context.Context, metadata *DeployMultiwrapMetadata) (string, error)
 ```
 
-Deploy a new Multiwrap contract\.
+Deploy a new Multiwrap contract.
 
 metadata: the contract metadata
 
@@ -126,13 +128,13 @@ address, err := sdk.Deployer.DeployMultiwrap(
 	})
 ```
 
-### func \(\*ContractDeployer\) [DeployNFTCollection](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/contract_deployer.go#L95)
+### func \(\*ContractDeployer\) [DeployNFTCollection](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/contract_deployer.go#L98>)
 
 ```go
 func (deployer *ContractDeployer) DeployNFTCollection(ctx context.Context, metadata *DeployNFTCollectionMetadata) (string, error)
 ```
 
-Deploy a new NFT Collection contract\.
+Deploy a new NFT Collection contract.
 
 metadata: the contract metadata
 
@@ -149,13 +151,13 @@ address, err := sdk.Deployer.DeployNFTCollection(
 	})
 ```
 
-### func \(\*ContractDeployer\) [DeployNFTDrop](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/contract_deployer.go#L152)
+### func \(\*ContractDeployer\) [DeployNFTDrop](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/contract_deployer.go#L155>)
 
 ```go
 func (deployer *ContractDeployer) DeployNFTDrop(ctx context.Context, metadata *DeployNFTDropMetadata) (string, error)
 ```
 
-Deploy a new NFT Drop contract\.
+Deploy a new NFT Drop contract.
 
 metadata: the contract metadata
 
@@ -172,13 +174,13 @@ address, err := sdk.Deployer.DeployNFTDrop(
 	})
 ```
 
-### func \(\*ContractDeployer\) [DeployToken](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/contract_deployer.go#L133)
+### func \(\*ContractDeployer\) [DeployToken](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/contract_deployer.go#L136>)
 
 ```go
 func (deployer *ContractDeployer) DeployToken(ctx context.Context, metadata *DeployTokenMetadata) (string, error)
 ```
 
-Deploy a new Token contract\.
+Deploy a new Token contract.
 
 metadata: the contract metadata
 

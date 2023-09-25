@@ -37,7 +37,7 @@ To add Auth + NextAuth to your application, you'll need to install the `@thirdwe
 npm install next-auth @thirdweb-dev/auth @thirdweb-dev/react ethers@5
 ```
 
-Now, we can configure the `ThirdwebAuthProvider` on our [NextAuth API routes](https://next-auth.js.org/getting-started/example#add-api-route) to add support for wallet based login, in addition to all other existing authentication methods:
+Now, we can configure the `ThirdwebAuthProvider` on our [NextAuth API routes](https://next-auth.js.org/getting-started/example#add-api-route) to add support for wallet based login, in addition to all other existing authentication methods. The `ThirdwebAuthProvider` uses NextAuth's [Credentials Provider](https://next-auth.js.org/configuration/providers/credentials) underneath to enable custom wallet based authentication (for those curious to dig deeper, you can take a look at the [`ThirdwebAuthProvider` implementation](https://github.com/thirdweb-dev/js/blob/b5c6eedb38aa3c52eb97f3d25ad83e38c55afe61/packages/auth/src/next-auth/index.ts#L9)).
 
 ```ts title="pages/api/auth/[...nextauth].ts"
 import {
@@ -46,7 +46,7 @@ import {
 } from "@thirdweb-dev/auth/next-auth";
 import NextAuth from "next-auth";
 
-export default NextAuth({
+export const authOptions: NextAuthOptions = {
   providers: [
     // Add the thirdweb auth provider to the providers configuration
     ThirdwebAuthProvider({
@@ -58,7 +58,9 @@ export default NextAuth({
     // Add the authSession callback to the callbacks configuration
     session: authSession,
   },
-});
+};
+
+export default NextAuth(authOptions);
 ```
 
 Here, we configure the `ThirdwebAuthProvider` with a `domain` coming from `NEXT_PUBLIC_THIRDWEB_AUTH_DOMAIN` environment variable, which we can set in the `.env.local` file as follows:
@@ -68,6 +70,8 @@ NEXT_PUBLIC_THIRDWEB_AUTH_DOMAIN=example.com
 ```
 
 The `domain` is used to prevent phishing attacks when your users login with their wallets - you can learn more about this in the [how auth works documentation](http://localhost:3000/auth/how-auth-works/sign-in-with-wallet#domain).
+
+It's important to note that we created the `authOptions` as a separate object which we exported from the file - we'll use these options later to authenticate the user on the server-side.
 
 Additionally, we pass the `authSession` callback function to the `session` callback of NextAuth. This is used to ensure that we always extract the wallet address of the logged in user to expose it on the session object for the client and server to access. We'll discuss custom usage of this function more in later sections.
 
@@ -84,9 +88,10 @@ export default function MyApp({
   return (
     <SessionProvider session={session}>
       <ThirdwebProvider
+        clientId="your-client-id"
         authConfig={{
           // Here we specify the domain, which should match the domain
-          // conigured on the backend
+          // configured on the backend
           domain: process.env.NEXT_PUBLIC_THIRDWEB_AUTH_DOMAIN || "",
         }}
       >
@@ -144,17 +149,21 @@ Here, we use the `useMetaMask` and `useAddress` to let the user connect their wa
 
 ### Authenticating the user on the server
 
-The `getSession` function can be used to authenticate the user on the server. It will return the active session data if the user is logged in, or `null` if the user is not authenticated.
+NextAuth's [`getServerSession` function](https://next-auth.js.org/configuration/nextjs#getserversession) can be used to authenticate the user on the server. It will return the active session data if the user is logged in, or `null` if the user is not authenticated.
+
+In order to use this function, we need to pass in the incoming request and response objects, as well as the `authOptions` that we previously configured in our next-auth file.
 
 It can be used in any server-side context, including in Next.js API routes, as well as server-side functions like `getServerSideProps` and `getStaticProps`.
 
 If the user is logged in with their wallet (via the `ThirdwebAuthProvider`), then the `session.user.address` value will be exposed to read the wallet address of the logged in user:
 
 ```ts title="pages/api/secret.ts"
-import { getSession } from "next-auth/react";
+import { getServerSession } from "next-auth";
+import { authOptions } from "./auth/[...nextauth]";
 
 export default async (req, res) => {
-  const session = await getSession({ req });
+  // Get the session on the server-side by passing in our previously configured authOptions
+  const session = await getServerSession(req, res, authOptions);
 
   if (!session) {
     res.status(401).json({ message: "Not authorized." });
@@ -173,9 +182,9 @@ export default async (req, res) => {
 
 ### Validating the login request
 
-By default, the Auth API will validate the login request by checking that the user requesting to login succesfully signed a valid [sign-in with wallet](/auth/how-auth-works/sign-in-with-wallet) message. However, this doesn't perform specific checks on the exact contents of the payload, aside from the domain used for anti-phishing.
+By default, the Auth API will validate the login request by checking that the user requesting to login successfully signed a valid [sign-in with wallet](/auth/how-auth-works/sign-in-with-wallet) message. However, this doesn't perform specific checks on the exact contents of the payload, aside from the domain used for anti-phishing.
 
-If you want to add specific checks to enforce the exact data on the login payload signed by users, you can use the `authOptions` configuratio on the `ThirdwebAuthProvider`:
+If you want to add specific checks to enforce the exact data on the login payload signed by users, you can use the `authOptions` configuration on the `ThirdwebAuthProvider`:
 
 ```ts title="pages/api/auth/[...thirdweb].ts"
 export default NextAuth({

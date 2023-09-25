@@ -1,0 +1,55 @@
+---
+slug: /wallet/private-key
+title: Private key
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Connect to your app with a private key.
+
+## Usage
+
+```javascript
+import { PrivateKeyWallet } from "@thirdweb-dev/wallets";
+
+// can be any ethers.js signer
+const privateKey = process.env.PRIVATE_KEY;
+const wallet = new PrivateKeyWallet(privateKey);
+```
+
+## Configuration
+
+<details>
+  <summary>privateKey</summary>
+  <div>
+
+The private key to use for signing transactions.
+
+</div>
+</details>
+
+<details>
+  <summary>chain (optional)</summary>
+  <div>
+
+The chain or rpc url to connect to when querying the blockchain directly through this wallet.
+
+</div>
+</details>
+
+<details>
+  <summary>secretKey (recommended)</summary>
+  <div>
+
+Provide `secretKey` to use the thirdweb RPCs for given `chain`
+
+You can create a secret key from [thirdweb dashboard](https://thirdweb.com/create-api-key).
+
+</div>
+</details>
+
+## Methods
+
+Inherits all the public methods from the [`AbstractWallet`](interfaces/abstract-wallet) class.

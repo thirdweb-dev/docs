@@ -16,12 +16,49 @@ To gain more granular control over the transaction process,
 
 ```typescript
 // Prepare a transaction, but DON'T send it
-const tx = await contract.erc721.claim.prepare(1);
+const quantity = 1;
+const tx = await contract.erc721.claim.prepare(quantity);
 
 // Some example use cases for the transaction
 const gasCost = await tx.estimateGasCost(); // Estimate the gas cost
 const simulatedTx = await tx.simulate(); // Simulate the transaction
 const signedTx = await tx.sign(); // Sign the transaction for later use
+```
+
+## Examples
+
+Sending a transaction without waiting for confirmations, and show a "view on block explorer" UI instead:
+
+```typescript
+// Prepare an ERC20 transfer
+const tx = await contract.erc20.transfer.prepare(receiver, amount);
+
+// Submit the tx, but don't wait for confirmations
+const sentTx = await tx.send();
+const txHash = sentTx.hash;
+// ... show a "view on block explorer" UI with the hash
+```
+
+Encoding two transactions to multicall them into a single transaction:
+
+```typescript
+// Prepare an ERC721 burn and a erc721 mint to be executed in one tx
+const tx1 = await contract.erc721.burn.prepare(tokenId);
+const tx2 = await contract.erc721.mint.prepare(nftMetadata);
+
+// Encode both transactions and execute them via multicall
+// this will only prompt the user for 1 transaction to sign instead of 2
+await contract.call("multicall", [tx1.encode(), tx2.encode()]);
+```
+
+Simulating a deploy transaction to get the deployed contract address before it's deployed:
+
+```typescript
+// Prepare an deploy transaction
+const tx = await sdk.deployer.deployNFTCollection.prepare(contractMetadata);
+
+// Simulate the transaction to get the address without deploying it
+const predictedAddress = await tx.simulate();
 ```
 
 ## encode

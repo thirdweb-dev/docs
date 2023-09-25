@@ -65,6 +65,10 @@
     {
       "flags": ["--dev"],
       "description": "Install the dev version of packages."
+    },
+    {
+      "flags": ["--debug"],
+      "description": "Show debug logs"
     }
   ],
   "build": [
@@ -122,7 +126,8 @@
     {
       "flags": ["--dynamic"],
       "description": "Deploy a dynamic smart contract made up of extensions to blockchains"
-    }
+    },
+    { "flags": ["-k", "--key <string>"], "description": "Optional parameter to use passed in secret key, most useful for continuous integration use cases" }
   ],
   "publish": [
     { "flags": ["-p", "--path <string>"], "description": "Path to project" },
@@ -143,10 +148,18 @@
       "description": "Dry run (skip actually publishing)"
     },
     { "flags": ["-d", "--debug"], "description": "Show debug logs" },
-    { "flags": ["--ci"], "description": "Continuous Integration mode" }
+    { "flags": ["--ci"], "description": "Continuous Integration mode" },
+    { "flags": ["-k", "--key <string>"], "description": "Optional parameter to use passed in secret key, most useful for continuous integration use cases" }
   ],
-  "upload": [],
+  "upload": [{ "flags": ["-k", "--key <string>"], "description": "Optional parameter to use passed in secret key, most useful for continuous integration use cases" }],
   "generate": [
-    { "flags": ["-p", "--path <string>"], "description": "Path to project" }
-  ]
+    { "flags": ["-p", "--path <string>"], "description": "Path to project" },
+    { "flags": ["-k", "--key <string>"], "description": "Optional parameter to use passed in secret key, most useful for continuous integration use cases" }
+  ],
+  "login": [
+    {
+      "flags": ["-n", "--new <string>"], "description": "Login with a new API secret key"
+    }
+  ],
+  "logout": []
 }

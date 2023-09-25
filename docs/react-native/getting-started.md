@@ -10,6 +10,10 @@ Our SDK uses a [Provider Pattern](https://flexiple.com/react/provider-pattern-wi
 
 Let's take a look at a typical setup:
 
+## API Key
+
+You will require an API key to use thirdweb’s infrastructure services with the SDK. If you haven’t created a key yet you can do so for free from the [**thirdweb dashboard**](https://thirdweb.com/create-api-key).
+
 ## Configure the `ThirdwebProvider`
 
 Specify the network your smart contracts are deployed to in the `activeChain` prop and wrap your application like so:
@@ -19,7 +23,7 @@ import { ThirdwebProvider } from "@thirdweb-dev/react-native";
 
 const App = () => {
   return (
-    <ThirdwebProvider activeChain={"mainnet"}>
+    <ThirdwebProvider activeChain={"mainnet"} clientId={"your-client-id"}>
       <AppInner />
     </ThirdwebProvider>
   );
@@ -145,12 +149,12 @@ import {
   trustWallet,
   ThirdwebProvider,
 } from "@thirdweb-dev/react-native";
-import { Ethereum } from "@thirdweb-dev/chains";
 
 const KitchenSinkExample = () => {
   return (
     <ThirdwebProvider
-      activeChain={Ethereum}
+      clientId="your-client-id"
+      activeChain={"ethereum"}
       dAppMeta={{
         name: "Example App",
         description: "This is an example app",

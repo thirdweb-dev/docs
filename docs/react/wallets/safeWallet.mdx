@@ -2,12 +2,13 @@
 title: safeWallet
 slug: /react.safewallet
 displayed_sidebar: react
-sidebar_position: 7
+sidebar_position: 10
 ---
 
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
+import { CustomizeWalletConfigurator } from "@components/build-wallet/CustomizeWalletConfigurator";
 
 A wallet configurator for [Safe Wallet](/wallet/safe) which allows integrating the wallet with React
 
@@ -16,6 +17,15 @@ import { safeWallet } from "@thirdweb-dev/react";
 
 const safeWalletConfig = safeWallet();
 ```
+
+<CustomizeWalletConfigurator
+  config="safeWalletConfig"
+  configurator="safeWallet"
+  connectUI="SafeWalletConnectUI"
+  selectUI="SafeWalletSelectUI"
+/>
+
+## options
 
 <details>
   <summary>personalWallets (optional) </summary>
@@ -30,12 +40,29 @@ import {
   safeWallet,
   metamaskWallet,
   coinbaseWallet,
-  walletConnectV1,
+  walletConnect,
 } from "@thirdweb-dev/react";
 
 safeWallet({
   // this is the default
-  personalWallets: [metamaskWallet(), coinbaseWallet(), walletConnectV1()],
+  personalWallets: [metamaskWallet(), coinbaseWallet(), walletConnect()],
+});
+```
+
+</div>
+</details>
+
+<details>
+  <summary>recommended (optional) </summary>
+  <div>
+
+Show this wallet as "recommended" in the [ConnectWallet Modal](/react/react.connectwallet).
+
+```ts
+paperWallet({
+  // highlight-start
+  recommended: true,
+  // highlight-end
 });
 ```
 
@@ -51,16 +78,17 @@ import {
   safeWallet,
   metamaskWallet,
   coinbaseWallet,
-  walletConnectV1,
+  walletConnect,
 } from "@thirdweb-dev/react";
 
 <ThirdwebProvider
   supportedWallets={[
     safeWallet({
       // this is the default
-      personalWallets: [metamaskWallet(), coinbaseWallet(), walletConnectV1()],
+      personalWallets: [metamaskWallet(), coinbaseWallet(), walletConnect()],
     }),
   ]}
+  clientId="your-client-id"
 >
   <YourApp />
 </ThirdwebProvider>;
@@ -72,7 +100,7 @@ import {
 
 you can use the `useConnect` hook to programmatically connect to the wallet without using the [ConnectWallet](/react/react.connectwallet) component.
 
-Connecting wallet with `useConnect` **does not** require adding wallet to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop
+The wallet also needs to be added in [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) if you want the wallet to auto-connect on next page load.
 
 You need to connect to a personal wallet first, You can use the [useConnect](/react/react.useconnect) hook to connect to a personal wallet first and then connect to the Safe Wallet. Make sure personal wallet is on the same network as the Safe Wallet.
 
@@ -96,7 +124,7 @@ function App() {
 import type { Chain } from "@thirdweb-dev/chains";
 import type { EVMWallet } from "@thirdweb-dev/wallets";
 
-type ConenctOptions = {
+type ConnectOptions = {
   chain: Chain;
   personalWallet: EVMWallet;
   safeAddress: string;

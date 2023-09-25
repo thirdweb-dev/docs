@@ -2,6 +2,7 @@
 title: useSmartWallet
 slug: /react.usesmartwallet
 displayed_sidebar: react
+sidebar_position: 9
 ---
 
 Hook that allows users to connect their [Smart wallet](/wallet/smart-wallet) to your dApp.
@@ -46,7 +47,7 @@ const Home = () => {
       onClick={async () =>
         await connectToSmartWallet({
           factoryAddress: "FACTORY_ADDRESS", // your own deployed account factory address
-          thirdwebApiKey: "API_KEY", // api key obtained from the thirdweb dashboard
+          clientId: "{{client_id}}", // api key obtained from the thirdweb dashboard
           chain: Goerli, // chain that the Smart Wallet contract is deployed to.
           personalWallet: wallet,
           gasless: true, // enable or disable gasless transactions
@@ -59,6 +60,8 @@ const Home = () => {
   );
 };
 ```
+
+The [smartWallet](/react/react.smartWallet) (with all personalWallets configured) need to be added in [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) if you want the wallet to auto-connect on next page load.
 
 ## Configuration
 
@@ -80,19 +83,6 @@ Either a `Chain` object, from the [`@thirdweb-dev/chains`](https://www.npmjs.com
   <div>
 
 The address of the Smart Wallet Factory contract.
-
-Must be a `string`.
-
-</div>
-</details>
-
-<details>
-  <summary>thirdwebApiKey</summary>
-  <div>
-
-Your thirdweb API key can be obtained from the [thirdweb dashboard](https://thirdweb.com/dashboard/api-keys).
-
-If you're using your own bundler and paymaster, you can set this to an empty string.
 
 Must be a `string`.
 

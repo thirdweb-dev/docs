@@ -2,6 +2,7 @@
 title: useConnect
 slug: /react.useconnect
 displayed_sidebar: react
+sidebar_position: 1
 ---
 
 Hook for connecting any supported [wallet config](/react/connecting-wallets) to your app.
@@ -11,6 +12,8 @@ import { useConnect } from "@thirdweb-dev/react";
 
 const connect = useConnect();
 ```
+
+The wallet also needs to be added in [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) if you want the wallet to auto-connect on next page load.
 
 ## Usage
 
@@ -25,7 +28,8 @@ function App() {
   return (
     <button
       onClick={async () => {
-        await connect(metamaskConfig, connectOptions);
+        const wallet = await connect(metamaskConfig, connectOptions);
+        console.log("connected to ", wallet);
       }}
     >
       Connect to MetaMask

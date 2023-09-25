@@ -103,7 +103,7 @@ _Returns the version of the contract._
 function getAllFunctionsOfPlugin(address _pluginAddress) external view returns (bytes4[] registered)
 ```
 
-_View all funtionality as list of function signatures._
+_View all functionality as list of function signatures._
 
 #### Parameters
 
@@ -123,7 +123,7 @@ _View all funtionality as list of function signatures._
 function getAllPlugins() external view returns (struct IPluginMap.Plugin[] registered)
 ```
 
-_View all funtionality existing on the contract._
+_View all functionality existing on the contract._
 
 #### Returns
 
@@ -279,9 +279,9 @@ _Returns `true` if `account` has been granted `role`._
 function hasRoleWithSwitch(bytes32 role, address account) external view returns (bool)
 ```
 
-Checks whether an account has a particular role; role restrictions can be swtiched on and off.
+Checks whether an account has a particular role; role restrictions can be switched on and off.
 
-_Returns `true` if `account` has been granted `role`. Role restrictions can be swtiched on and off: - If address(0) has ROLE, then the ROLE restrictions don&#39;t apply. - If address(0) does not have ROLE, then the ROLE restrictions will apply._
+_Returns `true` if `account` has been granted `role`. Role restrictions can be switched on and off: - If address(0) has ROLE, then the ROLE restrictions don&#39;t apply. - If address(0) does not have ROLE, then the ROLE restrictions will apply._
 
 #### Parameters
 
@@ -302,7 +302,7 @@ _Returns `true` if `account` has been granted `role`. Role restrictions can be s
 function initialize(address _defaultAdmin, string _contractURI, address[] _trustedForwarders, address _platformFeeRecipient, uint16 _platformFeeBps) external nonpayable
 ```
 
-_Initiliazes the contract, like a constructor._
+_Initializes the contract, like a constructor._
 
 #### Parameters
 

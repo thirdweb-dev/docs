@@ -25,7 +25,7 @@ Lazy mints a given amount of NFTs.
 | ---------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | amount           | uint256 | The number of NFTs to lazy mint.                                                                                                                                                             |
 | baseURIForTokens | string  | The base URI for the &#39;n&#39; number of NFTs being lazy minted, where the metadata for each of those NFTs is `${baseURIForTokens}/${tokenId}`.                                            |
-| tier             | string  | The tier for which these tokens are being lazy mitned. Here, `tier` is a unique string label that is used to group together different batches of lazy minted tokens under a common category. |
+| tier             | string  | The tier for which these tokens are being lazy minted. Here, `tier` is a unique string label that is used to group together different batches of lazy minted tokens under a common category. |
 | extraData        | bytes   | Additional bytes data to be used at the discretion of the consumer of the contract.                                                                                                          |
 
 #### Returns

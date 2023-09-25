@@ -8,6 +8,7 @@ sidebar_position: 3
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
+import { CustomizeWalletConfigurator } from "@components/build-wallet/CustomizeWalletConfigurator";
 
 A wallet configurator for [Wallet Connect v2](/wallet/wallet-connect-v2) which allows integrating the wallet with React
 
@@ -17,13 +18,20 @@ import { walletConnect } from "@thirdweb-dev/react";
 const walletConnectConfig = walletConnect(options);
 ```
 
+<CustomizeWalletConfigurator
+  config="walletConnectConfig"
+  configurator="walletConnect"
+  connectUI="WalletConnectConnectUI"
+  selectUI="WalletConnectSelectUI"
+/>
+
 ## options
 
 <details>
-  <summary>projectId (optional) </summary>
+  <summary>projectId (recommended) </summary>
   <div>
 
-Your project's unique identifier that can be obtained at [cloud.walletconnect.com](https://cloud.walletconnect.com).
+Your project's unique identifier that can be obtained at [cloud.walletconnect.com](https://cloud.walletconnect.com). It is highly recommended to use your own project id and only use the default one for testing purposes.
 
 It Enables following functionalities within Web3Modal:
 
@@ -31,7 +39,7 @@ It Enables following functionalities within Web3Modal:
 - optional WalletConnect RPC,
 - support for all wallets from our Explorer and WalletConnect v2 support.
 
-Defaults to `undefined`
+Defaults to thirdweb's common project id.
 
 ```javascript
 import { WalletConnect } from "@thirdweb-dev/wallets";
@@ -52,16 +60,14 @@ const wallet = new WalletConnect(
   <summary>qrModalOptions (optional) </summary>
   <div>
 
-WalletConnect's [options](https://docs.walletconnect.com/2.0/web3modal/options) to customize the QR Code Modal.
-
-### Type
+WalletConnect's [options](https://docs.walletconnect.com/2.0/web/web3modal/html/wagmi/options) to customize the QR Code Modal.
 
 ```typescript
 type QRModalOptions = {
   themeVariables?: {
-    "--w3m-z-index"?: string;
-    "--w3m-accent-color"?: string;
-    "--w3m-accent-fill-color"?: string;
+    "--wcm-z-index"?: string;
+    "--wcm-accent-color"?: string;
+    "--wcm-accent-fill-color"?: string;
     // ... and more
   };
   themeMode?: "dark" | "light";
@@ -126,8 +132,6 @@ When using Web3Modal in standalone mode (without wagmi) you can define array of 
 
 Defaults to `undefined`
 
-### Example
-
 ```javascript
 standaloneChains: [
   "eip155:1",
@@ -179,7 +183,7 @@ Native link represents deeplinking url like `ledgerlive://` and Universal link r
 
 Defaults to `undefined`
 
-```typscript
+```typescript
 desktopWallets: [
   {
     id: string,
@@ -207,8 +211,6 @@ Id's in this case can be: Explorer id's, wallet id's you provided in mobileWalle
 
 Defaults to `undefined`
 
-### Example
-
 ```typescript
 walletImages: {
   rainbow: "/images/rainbow.webp",
@@ -231,8 +233,6 @@ You can find detailed chain data at [chainlist.org](https://chainlist.org/)
 
 Defaults to `undefined`
 
-### Example
-
 ```javascript
 chainImages: {
   1: "/images/ethereum.webp",
@@ -251,8 +251,6 @@ Array of token symbols and their logo mappings.
 
 Defaults to `undefined`
 
-### Example
-
 ```javascript
 tokenImages: {
   ETH: "/images/eth.webp",
@@ -270,8 +268,6 @@ tokenImages: {
 Allows to override default token(s) address for each chain to show custom balances in account view.
 
 Defaults to `undefined`
-
-### Example
 
 ```javascript
 tokenContracts: {
@@ -332,8 +328,6 @@ If you want to completely disable recommended wallets, you can set this option t
 
 Defaults to `undefined`
 
-### Example
-
 ```javascript
 explorerRecommendedWalletIds: [
   "1ae92b26df02f0abca6304df07debccd18262fdf5fe82daa81593582dac9a369",
@@ -359,8 +353,6 @@ You can get / copy these id's from the explorer link mentioned before.
 If you want to exclude all wallets, you can set this option to `"ALL"`, however if `explorerRecommendedWalletIds` are defined, they will still be fetched.
 
 Defaults to `undefined`
-
-### Example
 
 ```javascript
 explorerExcludedWalletIds: [
@@ -399,12 +391,32 @@ Defaults to `undefined`
 </div>
 </details>
 
+<details>
+  <summary>recommended (optional) </summary>
+  <div>
+
+Show this wallet as "recommended" in the [ConnectWallet Modal](/react/react.connectwallet).
+
+```ts
+walletConnect({
+  // highlight-start
+  recommended: true,
+  // highlight-end
+});
+```
+
+</div>
+</details>
+
 ## Usage with `ConnectWallet`
 
 To allow users to connect to this wallet using the [ConnectWallet](/react/react.connectwallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop.
 
 ```tsx
-<ThirdwebProvider supportedWallets={[walletConnect()]}>
+<ThirdwebProvider
+  supportedWallets={[walletConnect()]}
+  clientId="your-client-id"
+>
   <YourApp />
 </ThirdwebProvider>
 ```
@@ -413,7 +425,7 @@ To allow users to connect to this wallet using the [ConnectWallet](/react/react.
 
 you can use the `useConnect` hook to programmatically connect to the wallet without using the [ConnectWallet](/react/react.connectwallet) component.
 
-Connecting wallet with `useConnect` **does not** require adding wallet to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop
+The wallet also needs to be added in [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) if you want the wallet to auto-connect on next page load.
 
 ```tsx
 const walletConnectConfig = walletConnect();
@@ -429,7 +441,7 @@ function App() {
 }
 ```
 
-## connectOptions
+### connectOptions
 
 ```ts
 { chainId?: string } | undefined
@@ -449,7 +461,7 @@ import { ThirdwebProvider } from "@thirdweb-dev/react";
 
 export function YourApp() {
   return (
-    <ThirdwebProvider supportedChains={[Polygon]}>
+    <ThirdwebProvider supportedChains={[Polygon]} clientId="your-client-id">
       <App />
     </ThirdwebProvider>
   );

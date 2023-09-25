@@ -8,6 +8,7 @@ sidebar_position: 6
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
+import { CustomizeWalletConfigurator } from "@components/build-wallet/CustomizeWalletConfigurator";
 
 A wallet configurator for [Local Wallet](/wallet/local-wallet) which allows integrating the wallet with React
 
@@ -17,18 +18,25 @@ import { localWallet } from "@thirdweb-dev/react";
 const localWalletConfig = localWallet(options);
 ```
 
+<CustomizeWalletConfigurator
+  config="localWalletConfig"
+  configurator="localWallet"
+  connectUI="LocalWalletConnectUI"
+  selectUI="LocalWalletSelectUI"
+/>
+
 ## options
 
 <details>
   <summary>persist (optional) </summary>
   <div>
 
-This is only relevant when conencting localWallet with [ConnectWallet](/react/react.connectwallet) component.
+This is only relevant when connecting localWallet with [ConnectWallet](/react/react.connectwallet) component.
 
 Specify whether to persist the wallet in local storage or not. Defaults to `true`
 
 If set to `true`, an encrypted wallet JSON will be stored on localStorage with user's given password.
-The user will need to enter their password again in Connect Wallet Modal when they revisit the site. Beacuse of this, this wallet can not be auto connected.
+The user will need to enter their password again in Connect Wallet Modal when they revisit the site. Because of this, this wallet can not be auto connected.
 
 If set to `false`, wallet will not be stored in local storage, and no password will be required to connect.
 The wallet will be lost when the user leaves or reloads page.
@@ -41,7 +49,7 @@ The wallet will be lost when the user leaves or reloads page.
 To allow users to connect to this wallet using the [ConnectWallet](/react/react.connectwallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop.
 
 ```tsx
-<ThirdwebProvider supportedWallets={[localWallet()]}>
+<ThirdwebProvider supportedWallets={[localWallet()]} clientId="your-client-id">
   <YourApp />
 </ThirdwebProvider>
 ```
@@ -50,7 +58,7 @@ To allow users to connect to this wallet using the [ConnectWallet](/react/react.
 
 you can use the `useConnect` hook to programmatically connect to the wallet without using the [ConnectWallet](/react/react.connectwallet) component.
 
-Connecting wallet with `useConnect` **does not** require adding wallet to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop
+The wallet also needs to be added in [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) if you want the wallet to auto-connect on next page load.
 
 ```tsx
 const localWalletConfig = localWallet();
@@ -66,7 +74,7 @@ function App() {
 }
 ```
 
-## connectOptions
+### connectOptions
 
 ```ts
 { chainId?: string } | undefined
@@ -86,7 +94,7 @@ import { ThirdwebProvider } from "@thirdweb-dev/react";
 
 export function YourApp() {
   return (
-    <ThirdwebProvider supportedChains={[Polygon]}>
+    <ThirdwebProvider supportedChains={[Polygon]} clientId="your-client-id">
       <App />
     </ThirdwebProvider>
   );

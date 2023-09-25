@@ -30,6 +30,11 @@ const sidebars = {
     },
     {
       type: "doc",
+      label: "ThirdwebManager",
+      id: "ThirdwebManager",
+    },
+    {
+      type: "doc",
       label: "ThirdwebSDK",
       id: "thirdwebsdk",
     },
@@ -40,11 +45,6 @@ const sidebars = {
       label: "Prefabs",
       collapsed: false,
       items: [
-        {
-          type: "doc",
-          label: "ThirdwebManager",
-          id: "prefabs/ThirdwebManager",
-        },
         {
           type: "doc",
           label: "Connect Wallet Button",
@@ -90,6 +90,11 @@ const sidebars = {
           type: "doc",
           label: "Initiate Contract Transactions",
           id: "interacting-with-contracts/write",
+        },
+        {
+          type: "doc",
+          label: "Transaction Builder",
+          id: "interacting-with-contracts/prepare",
         },
         {
           type: "category",
@@ -171,6 +176,13 @@ const sidebars = {
       type: "doc",
       label: "Storage",
       id: "storage/storage",
+    },
+
+    // Submit Wallet
+    {
+      type: "doc",
+      label: "Submit Wallet",
+      id: "submit-wallet",
     },
   ],
 };

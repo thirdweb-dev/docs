@@ -7,7 +7,7 @@ displayed_sidebar: contracts
 
 # IERC721Supply
 
-> ERC-721 Non-Fungible Token Standard, optional supplu extension
+> ERC-721 Non-Fungible Token Standard, optional supply extension
 
 _See https://eips.ethereum.org/EIPS/eip-721 Note: the ERC-165 identifier for this interface is 0x780e9d63._
 

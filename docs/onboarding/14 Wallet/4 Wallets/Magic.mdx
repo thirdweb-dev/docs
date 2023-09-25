@@ -1,0 +1,445 @@
+---
+slug: /wallet/magic
+title: Magic Link
+sidebar_position: 9
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Allows users to connect to your app using [Magic Auth](https://magic.link/docs/auth/overview) or [Magic Connect](https://magic.link/docs/connect/overview)
+
+Magic is a developer SDK that integrates with your application to enable passwordless Web3 onboarding (no seed phrases) and authentication using magic links
+
+## Usage
+
+Magic offers two flavors of our SDK: Magic Connect, which provides a plug-and-play experience, and Magic Auth, a customizable white-labeled wallet solution.
+
+<details>
+  <summary> Magic Auth </summary>
+
+<div>
+
+#### Login with Email or Phone Number
+
+With below configuration, users will be able to log in using their email or phone number.
+
+If you want to restrict login via email only - pass `smsLogin:false`. If you want to restrict login via phone number only - pass `emailLogin:false` to the `MagicLink` constructor.
+
+```javascript
+import { MagicLink } from "@thirdweb-dev/wallets";
+
+const wallet = new MagicLink({
+  apiKey: "YOUR_API_KEY",
+  type: "auth",
+});
+
+// connect with email or phone number
+
+await wallet.connect({
+  email: "user@example.com",
+});
+
+// OR
+
+await wallet.connect({
+  phoneNumber: "+123456789",
+});
+```
+
+#### Social Login
+
+```javascript
+import { MagicLink } from "@thirdweb-dev/wallets";
+
+const wallet = new MagicLink({
+  apiKey: "YOUR_API_KEY",
+  type: "auth",
+
+  // specify which Oauth providers to enable
+  // and the URI to redirect to after the oauth flow is complete
+  oauthOptions: {
+    redirectURI: "https://example.com/foobar",
+    providers: ["google", "facebook"],
+  },
+});
+
+// connect with a oauth provider
+await magic.connect({
+  oauthProvider: "google",
+});
+```
+
+</div>
+</details>
+
+<details>
+<summary> Magic Connect </summary>
+
+<div>
+
+```javascript
+import { MagicLink } from "@thirdweb-dev/wallets";
+
+const wallet = new MagicLink({
+  apiKey: "YOUR_API_KEY",
+  type: "connect",
+});
+
+await wallet.connect();
+```
+
+</div>
+</details>
+
+### Configuration
+
+Provide a configuration object when instantiating the `MagicLink` class.
+
+<details>
+  <summary>apiKey (required)</summary>
+  <div>
+
+Your Magic Link apiKey. You can get an API key by signing up for an account on [Magic Link's website](https://magic.link/).
+
+Must be a `string`.
+
+</div>
+</details>
+
+<details>
+  <summary>clientId (recommended)</summary>
+  <div>
+
+Provide `clientId` to use the thirdweb RPCs for given `chains`
+
+You can create a client ID for your application from [thirdweb dashboard](https://thirdweb.com/create-api-key).
+
+</div>
+</details>
+
+<details>
+  <summary>type (optional) </summary>
+  <div>
+
+Whether to use [Magic Auth](https://magic.link/docs/auth/overview) or [Magic Connect](https://magic.link/docs/connect/overview) to connect to the wallet.
+
+Default is `"auth"`.
+
+```ts
+type: "auth" | "connect";
+```
+
+</div>
+</details>
+
+<details>
+  <summary>magicSdkConfiguration (optional)</summary>
+  <div>
+
+Configuration for [Magic Auth](https://magic.link/docs/auth/overview) SDK.
+
+This is only relevant if you are using `type: 'auth'`.
+
+```ts
+{
+  locale?: string;
+  endpoint?: string;
+  testMode?: boolean;
+}
+```
+
+<details>
+  <summary>locale (optional)</summary>
+  <div>
+
+Customize the language of Magic's modal, email and confirmation screen. See [Localization](https://magic.link/docs/auth/more/customization/localization) for more.
+
+</div>
+</details>
+
+<details>
+  <summary>endpoint (optional)</summary>
+  <div>
+
+A URL pointing to the Magic iframe application.
+
+</div>
+</details>
+
+<details>
+  <summary>testMode (optional)</summary>
+  <div>
+
+Enable [testMode](https://magic.link/docs/auth/introduction/test-mode) to assert the desired behavior through the email address so that you don't have to go through the auth flow.
+
+</div>
+</details>
+
+</div>
+</details>
+
+<details>
+  <summary>smsLogin (optional)</summary>
+  <div>
+
+Specify whether you want to allow users to log in with their phone number or not. It is `true` by default
+
+This is only relevant if you are using `type: 'auth'`.
+
+Must be a `boolean`.
+
+</div>
+</details>
+
+<details>
+  <summary>emailLogin (optional)</summary>
+  <div>
+
+Specify whether you want to allow users to log in with their email or not. It is `true` by default
+
+This is only relevant if you are using `type: 'auth'`.
+
+Must be a `boolean`.
+
+</div>
+</details>
+
+<details>
+  <summary>oauthOptions (optional)</summary>
+  <div>
+
+Specify which oauth providers you support in `providers` array.
+
+Specify which URI to redirect to after the oauth flow is complete in `redirectURI` option. If no `redirectURI` is specified, the user will be redirected to the current page.
+
+:::caution
+
+You must pass full URL and not just a relative path. For example, `"https://example.com/foo"` is valid but `"/foo"` is not.
+You can use `new URL("/foo", window.location.origin).href` to get the full URL from a relative path based on the current origin.
+
+:::
+
+This is only relevant if you are using `type: 'auth'`.
+
+You also need to enable the oauth providers for your apiKey from [Magic dashboard](https://dashboard.magic.link/).
+
+#### Type
+
+```ts
+type OauthOptions = {
+  redirectURI?: string;
+  providers: OauthProvider[];
+};
+
+type OauthProvider =
+  | "google"
+  | "facebook"
+  | "apple"
+  | "github"
+  | "bitbucket"
+  | "gitlab"
+  | "linkedin"
+  | "twitter"
+  | "discord"
+  | "twitch"
+  | "microsoft";
+```
+
+#### Example
+
+```ts
+const wallet = new MagicLink({
+  apiKey: "YOUR_API_KEY",
+  type: "auth",
+  // specify which Oauth providers to enable
+  oauthOptions: {
+    redirectURI: new URL("/foo", window.location.origin).href,
+    providers: ["google", "facebook", "github", "bitbucket"],
+  },
+});
+```
+
+</div>
+</details>
+
+<details>
+  <summary>chains (optional)</summary>
+  <div>
+
+Provide an array of chains you want to support.
+
+Must be an array of `Chain` objects, from the [`@thirdweb-dev/chains`](https://www.npmjs.com/package/@thirdweb-dev/chains) package.
+
+</div>
+</details>
+
+<details>
+  <summary>walletStorage (optional)</summary>
+  <div>
+
+The wallet needs to store some data in persistent storage. By default `localStorage` is used. If you want to use a different storage, you can pass it in the `walletStorage` option.
+
+Must be an object conforming to the `AsyncStorage` interface:
+
+```typescript
+export interface AsyncStorage {
+  getItem(key: string): Promise<string | null>;
+  setItem(key: string, value: string): Promise<void>;
+  removeItem(key: string): Promise<void>;
+}
+```
+
+Example:
+
+```javascript
+import { MagicLink } from "@thirdweb-dev/wallets";
+
+const wallet = new MagicLink({
+  // ... other required config
+
+  // highlight-start
+  walletStorage: {
+    getItem: (key) => {
+      // Implement your own storage logic here
+    },
+    removeItem: (key) => {
+      // Implement your own storage logic here
+    },
+    setItem: (key, value) => {
+      // Implement your own storage logic here
+    },
+  },
+  // highlight-end
+});
+```
+
+</div>
+</details>
+
+## Methods
+
+Inherits all the public methods from the [`AbstractClientWallet`](interfaces/abstract-client-wallet) class.
+
+### connect
+
+<details>
+  <summary> Magic Auth </summary>
+
+<div>
+
+There are three ways to call the `connect` function - `email` or `phoneNumber` or `oauthProvider`
+
+<details>
+  <summary> email </summary>
+<div>
+
+This opens the Magic Link's Modal and prompts the user to click on the link sent to their email.
+
+```ts
+await wallet.connect({
+  email: "user@example.com",
+});
+```
+
+</div>
+</details>
+
+<details>
+  <summary> phoneNumber </summary>
+<div>
+
+This opens the Magic Link's Modal and prompts the user to enter the OTP sent to their phone via SMS.
+
+```ts
+await wallet.connect({
+  phoneNumber: "+123456789",
+});
+```
+
+</div>
+</details>
+
+<details>
+  <summary> oauthProvider </summary>
+<div>
+
+This redirects the user to given provider's sign-in page and once the user is authenticated, it redirects the user back to the `redirectURI` provided in `MagicLink` constructor.
+
+```ts
+await magic.connect({
+  oauthProvider: "google",
+});
+```
+
+</div>
+</details>
+
+<br />
+
+#### Additional Configuration
+
+```typescript
+wallet.connect({
+  chainId: 5,
+});
+```
+
+If `chainId` is provided, the wallet will be connected to the network with the given chainId, else it will be connected to the Ethereum Mainnet.
+
+</div>
+
+</details>
+
+<details>
+<summary> Magic Connect </summary>
+
+<div>
+
+You can call the `connect` function without any arguments. Calling `connect` opens the Magic Link's Modal and prompts the user to login via Google or email.
+
+```ts
+await wallet.connect();
+```
+
+<br />
+
+#### Additional Configuration
+
+```typescript
+wallet.connect({
+  chainId: 5,
+});
+```
+
+If `chainId` is provided, the wallet will be connected to the network with the given chainId, else it will be connected to the Ethereum Mainnet.
+
+</div>
+
+</details>
+
+### getMagic
+
+Get Magic Auth SDK instance. Learn more about [Magic Auth SDK](https://magic.link/docs/auth/overview)
+
+you use all methods available in the Magic Auth SDK from the SDK instance. Refer to [Magic Auth API](https://magic.link/docs/auth/api-reference/client-side-sdks/web) for more details.
+
+```javascript
+const magicSDK = await wallet.getMagic();
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### Return Value
+
+Returns the magic auth SDK instance of type `InstanceWithExtensions<SDKBase, OAuthExtension[]>`
+
+```typescript
+InstanceWithExtensions<SDKBase, OAuthExtension[]>;
+```
+
+</div>
+</details>

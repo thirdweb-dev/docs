@@ -14,7 +14,7 @@ The SDK can be initialized in either read-only mode or read-write mode.
 
 - **Read-only mode**: Define the chain you want to use.
 - **Read-write mode**: Define the chain you want to use, _and_ provide a
-  [private key](/sdk.thirdwebsdk.fromprivatekey).
+  [private key](/typescript/sdk.thirdwebsdk.fromprivatekey).
 
 If you are using one of our <code>default chains</code>, provide the name of the chain as a `string`.
 
@@ -60,7 +60,7 @@ Initialize the thirdweb SDK.
 from thirdweb import ThirdwebSDK
 
 # You can create a new instance of the SDK to use by just passing in a network name
-sdk = ThirdwebSDK("mumbai")
+sdk = ThirdwebSDK("mumbai", options=SDKOptions(secret_key=SECRET_KEY))
 ```
 
 <details>
@@ -83,10 +83,12 @@ optional SDK configuration options. Must be an object of type `SDKOption`
 class SDKOptions(object):
     """
     Optional settings to configure the SDK
+    :param secret_key: secret key from your thirdweb api key
     :param read_only_settings: optional read-only RPC settings
     :param gas_settings: gas settings
     """
 
+    secret_key: Optional[str] = None
     read_only_settings: Optional[ReadOnlySettings] = None
     gas_settings: GasSettings = GasSettings()
 

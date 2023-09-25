@@ -14,7 +14,7 @@ Button that executes a function on a smart contract from the connected wallet wh
 It ensures the following criteria before attempting to call the contract function:
 
 1. There is a **connected wallet**
-   (if there is not, it renders a [Connect Wallet Button](/react/react.connectwallet) instead).
+   (if there is not, it renders a [ConnectWallet Button](/react/react.connectwallet) instead).
 2. The connected wallet is on the **correct network**
    as specified in the [ThirdwebProvider](/react/react.thirdwebprovider#active-chain)'s
    `activeChain` prop (if it is not, it renders a switch network button instead).
@@ -31,7 +31,7 @@ Render the `Web3Button` component with two required props to display the button:
 2. `action`: The logic to execute when the button is clicked.
 
 :::info
-If the action you are performing is async, Make sure to return a `Promise` from the `action` function so that SDK knows when the action is complete
+If the action you are performing is async, make sure to return a `Promise` from the `action` function so that the SDK knows when the action is complete
 
 This can be done by either using `async/await` or by directly returning a `Promise`.
 :::
@@ -91,7 +91,7 @@ The logic to execute when the button is clicked.
 The contract instance is available as the first argument of the function
 for you to interact with.
 
-If the action you are performing is async, Make sure to return a `Promise` from the `action` function so that SDK knows when the action is complete
+If the action you are performing is async, make sure to return a `Promise` from the `action` function so that the SDK knows when the action is complete
 
 ```jsx
 import { Web3Button } from "@thirdweb-dev/react";
@@ -111,32 +111,27 @@ function App() {
 }
 ```
 
-<!--
-### accentColor (optional)
+### connectWallet (optional)
 
-The background color of the button.
+Web3Button renders a [ConnectWallet](/react/react.connectwallet) if no wallet is connected. You can pass props for that component by passing a `connectWallet` prop to Web3Button
 
-Can be a color in the form of a hex code, a CSS color name, `transparent`, or `initial`.
-
-The default value is `#000000`.
-
-```jsx
+```tsx
 import { Web3Button } from "@thirdweb-dev/react";
 
-function App() {
-  return (
-    <Web3Button
-      contractAddress="0x..."
-      action={(contract) => console.log(contract)} // Logic to execute when clicked
-      // highlight-next-line
-      accentColor="pink"
-    >
-      Execute Action
-    </Web3Button>
-  );
-}
+<Web3Button
+  // highlight-start
+  connectWallet={{
+    btnTitle: "Connect",
+    modalTitle: "Login",
+    // ... etc
+  }}
+  // highlight-end
+  contractAddress="0x..."
+  action={(contract) => console.log(contract)} // Logic to execute when clicked
+>
+  Execute Action
+</Web3Button>;
 ```
--->
 
 ### theme (optional)
 
@@ -144,21 +139,41 @@ Change the theme of the button to `light` or `dark` mode, to match the theme of 
 
 The default value is `dark`.
 
-```jsx
+```tsx
 import { Web3Button } from "@thirdweb-dev/react";
 
-function App() {
-  return (
-    <Web3Button
-      contractAddress="0x..."
-      action={(contract) => console.log(contract)} // Logic to execute when clicked
-      // highlight-next-line
-      theme="dark"
-    >
-      Execute Action
-    </Web3Button>>
-  );
-}
+<Web3Button
+  // highlight-next-line
+  theme="dark"
+  contractAddress="0x..."
+  action={(contract) => console.log(contract)} // Logic to execute when clicked
+>
+  Execute Action
+</Web3Button>;
+```
+
+You can also create a custom theme by passing an object. To do this, you can use `darkTheme`
+or `lightTheme` functions to use light / dark theme as base and override it
+
+```tsx
+import { darkTheme, lightTheme } from "@thirdweb-dev/react";
+
+<Web3Button
+  // highlight-start
+  theme={darkTheme({
+    fontFamily: "Inter, sans-serif",
+    colors: {
+      modalBg: "#000000",
+      accentText: "red",
+      // ... etc
+    },
+  })}
+  // highlight-end
+  contractAddress="0x..."
+  action={(contract) => console.log(contract)} // Logic to execute when clicked
+>
+  Execute Action
+</Web3Button>;
 ```
 
 ### contractAbi (optional)

@@ -2,6 +2,7 @@
 title: useCoinbaseWallet
 slug: /react.usecoinbasewallet
 displayed_sidebar: react
+sidebar_position: 7
 ---
 
 Hook that prompts users to connect their [Coinbase Wallet](/wallet/coinbase-wallet) to your dApp.
@@ -9,6 +10,8 @@ Hook that prompts users to connect their [Coinbase Wallet](/wallet/coinbase-wall
 ```jsx
 import { useCoinbaseWallet } from "@thirdweb-dev/react";
 ```
+
+The [coinbaseWallet](/react/react.coinbaseWallet) also needs to be added in [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) if you want the wallet to auto-connect on next page load.
 
 ## Usage
 
@@ -72,6 +75,7 @@ export function YourApp() {
     <ThirdwebProvider
       // highlight-next-line
       supportedChains={[Dogechain]}
+      clientId="your-client-id"
     >
       <App />
     </ThirdwebProvider>

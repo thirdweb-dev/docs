@@ -1,0 +1,154 @@
+---
+slug: /smart-wallet/how-it-works
+title: How it Works
+---
+
+## What is a Smart Wallet?
+
+A Smart Wallet is a wallet that is controlled by a smart contract following the [ERC-4337 specification](https://eips.ethereum.org/EIPS/eip-4337).
+
+Ethereum has 2 types of accounts to transfer and receive tokens: EOAs (Externally Owned Accounts) and Contract Accounts. A smart contract wallet is a wallet managed by a contract account
+instead of an EOA. A smart wallet is a wallet type requiring **no private keys or seed phrases**.
+Smart contract wallets rely on code instead of private keys to secure and recover wallet information.
+
+**A smart contract wallet is a type of Web3 wallet powered by smart contracts.**
+
+This smart wallet is unlocked by a 'key' - a personal account. This key can be anything from a [MetaMask](/wallet/metamask) wallet or even a [Local Wallet](/wallet/local-wallet) and is used as a way to 'sign in' to the wallet.
+
+Benefits of Smart Wallets:
+
+1. Optimized transaction efficiency & batch transactions
+   - Combine multiple transactions into a single transaction to save on [gas fees](/glossary/gas)
+2. Improved Security Features
+3. Social & Multi-Sig Recovery
+   - Recover a wallet without seed phrases/passwords
+   - Nominate a trusted person to recover your wallet in the case of an emergency
+
+## How does it work?
+
+When sending a transaction using a smart wallet, the `execute` method is called on the account contracts
+which sends a `UserOperation` object that defines the purpose of the transaction and includes the relevant data for verification.
+
+The requested `UserOperation` goes to an alt mempool — a waiting area specifically for pending smart account transactions — and waits for bundlers (nodes) to pick up transactions,
+bundle them, and pay the gas, via a paymaster contract, for the transaction to register all `UserOperation` in a block.
+
+To prioritize transactions, bundlers use a similar logic to how miners or validators prioritize transactions in the mempool based on the fee associated with each of them.
+Bundlers earn the combined fee paid within all UserOperation they bundled.
+
+These bundled `UserOperation` are then sent to the `EntryPoint` contract which verifies the `UserOperation` and executes the transaction.
+
+To learn more about how smart wallets work, read our [smart contract deep dive](https://blog.thirdweb.com/smart-contract-deep-dive-building-smart-wallets-for-individuals-and-teams/).
+
+![Smart Wallet Flow](/assets/smart-wallet-architecture.png)
+
+## Account Factories
+
+In order to issue smart wallet account contracts for users, an account factory contract must be deployed.
+A factory contract is a contract which clones an implementation contract which defines the functions and logic on the clone.
+
+To create accounts with the factory contract, the `createAccount` function is called. This function calls `_initializeAccount`
+which initializes the account and sets the default admin on the account.
+
+## One Account Per Personal Wallet
+
+The thirdweb Account Factories are designed so that only one account can be created per personal wallet key.
+This means that any one personal wallet can only be a default admin on one account per factory.
+
+This is because, when the account contract is cloned by the factory, the account is craeted deterministically
+via the `cloneDeterministic` function. This function takes a `salt` as a parameter to predict the deployment address. The `salt` is calculated using the
+default admin address. Since the deployment address will be the same if the default admin is the same, if an account
+already exists at that address, the transaction will revert.
+
+```solidity
+/// @notice Deploys a new Account for admin.
+    function createAccount(address _admin, bytes calldata _data) external virtual override returns (address) {
+        address impl = accountImplementation;
+        bytes32 salt = _generateSalt(_admin, _data);
+        address account = Clones.predictDeterministicAddress(impl, salt);
+
+        if (account.code.length > 0) {
+            return account;
+        }
+
+        account = Clones.cloneDeterministic(impl, salt);
+
+        if (msg.sender != entrypoint) {
+            require(allAccounts.add(account), "AccountFactory: account already registered");
+        }
+
+        _initializeAccount(account, _admin, _data);
+
+        emit AccountCreated(account, _admin);
+
+        return account;
+    }
+```
+
+## Types of Account and Account Factory
+
+|                    | [`Simple`](https://thirdweb.com/thirdweb.eth/AccountFactory)                                                                            | [`Dynamic`](https://thirdweb.com/thirdweb.eth/DynamicAccountFactory)                                                                                                         | [`Managed`](https://thirdweb.com/thirdweb.eth/ManagedAccountFactory)                                                                                                                          |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Upgradeability** | Non-upgradeable                                                                                                                         | Account upgrades controlled locally by account admin.                                                                                                                        | Account upgrades controlled centrally by the parent account factory admin.                                                                                                                    |
+| **Expected Usage** | Developer wants to issue simple smart wallets to their users. They do not anticipate that users wallets will need any feature upgrades. | Developer wants to issue smart wallets to their users. They do anticipate feature upgrades to user wallets but do not want to push upgrades to user wallets without consent. | Developer wants to issue smart wallets to their users. They do anticipate feature upgrades to user wallets, and want to push upgrades to user wallets for seamless/invisible UX for upgrades. |
+
+### Account Type Feature Comparison
+
+|                                                     | Simple                     | Dynamic                                  | Managed                                        |
+| --------------------------------------------------- | -------------------------- | ---------------------------------------- | ---------------------------------------------- |
+| Contracts                                           | `AccountFactory` `Account` | `DynamicAccountFactory` `DynamicAccount` | `ManagedAccountFactory` `ManagedAccount`       |
+| ERC-4337 Compatible                                 | ✅                         | ✅                                       | ✅                                             |
+| Can hold native ERC-20, ERC-721 and ERC-1155 Tokens | ✅                         | ✅                                       | ✅                                             |
+| Multi-signer                                        | ✅                         | ✅                                       | ✅                                             |
+| Execute transactions in Batches                     | ✅                         | ✅                                       | ✅                                             |
+| Is the Account Upgradeable                          | ❌                         | ✅                                       | ✅                                             |
+| Who controls upgrades (?)                           | n/a                        | Admin of the account.                    | Admin of the account’s parent account factory. |
+
+## Terminology
+
+### Personal Wallet/Key
+
+This is the default admin on an account or the "key" to an account. It can be any wallet and is used to initialize the account.
+Any one wallet can only be the "key" to one account per factory contract.
+
+This wallet is the primary way to access and interact with the account.
+
+### Account
+
+In the context of smart wallets, the account is the ERC-4337 compatible smart contract which holds all of the assets.
+
+### Smart Wallet
+
+The smart wallet is the combination of your personal wallet "key" plus the account smart contract with all of it's assets.
+
+### UserOperations
+
+This is the data structure for the transaction that the user wants to perform. It contains the following fields:
+
+- `sender`: The account making the operation.
+- `nonce`: Anti-replay parameter; also used as the salt for first-time account creation.
+- `initCode`: The initialization code needed to create the account (needed if and only if the account is not yet on-chain).
+- `callData`: The data to pass to the `sender` during the operation.
+- `callGasLimit`: The amount of gas to allocate for the operation.
+- `verificationGasLimit`: The amount of gas to allocate for the verification step.
+- `preVerificationGas`: The amount of gas to pay for to compensate the bundler for pre-verification execution and calldata.
+- `maxFeePerGas`: Maximum fee per gas (similar to [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559) `max_fee_per_gas`).
+- `maxPriorityFeePerGas`: Maximum priority fee per gas (similar to [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559)).
+- `paymasterAndData`: Address of paymaster sponsoring the transaction, followed by extra data to send to the paymaster (empty for self-sponsored transaction).
+- `signature`: Data passed into the account along with the nonce during the verification step. Should depend on the `chainid` and `EntryPoint` address to prevent replay attacks.
+
+### EntryPoint
+
+The EntryPoint is a singleton contract (a contract that has a predictable address that is the same on every chain).
+It has two methods that are used as entry points to execute bundles of UserOperations: `handleOps` and `handleAggregatedOps`.
+
+### Bundler (relayer)
+
+A bundler is a smart contract that bundles multiple 'UserOperations' into a single bundle, a `handleOps` call, to the `EntryPoint` contract.
+It allows your to send transactions with smart wallet accounts.
+
+### Paymaster
+
+A paymaster is a smart contract that relays transactions. It provides a service that enables a third party to pay
+the transaction fee on behalf of the user by funding the paymaster in advance. The Paymaster acts as a gas reserve which then
+can be used during the call execution via the `EntryPoint` contract. The thirdweb [Smart Wallet](/smart-wallet) paymaster is initially paid for by thirdweb. By using an API key,
+the usage is tracked and billed.

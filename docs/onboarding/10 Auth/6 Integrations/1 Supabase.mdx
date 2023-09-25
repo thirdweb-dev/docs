@@ -78,7 +78,7 @@ Now we have an easy way to access Firebase Auth and Firestore in both client and
 
 ### Configure thirdweb Auth
 
-Finally, to configure thirdweb Auth, we just need to add the `NEXT_PUBLIC_THIRDWEB_AUTH_DOMAIN` evironment variable to the `.env.local` file as follows:
+Finally, to configure thirdweb Auth, we just need to add the `NEXT_PUBLIC_THIRDWEB_AUTH_DOMAIN` environment variable to the `.env.local` file as follows:
 
 ```
 NEXT_PUBLIC_THIRDWEB_AUTH_DOMAIN=<thirdweb-auth-domain>
@@ -100,6 +100,7 @@ export default function MyApp({ Component, pageProps }) {
         // Set this to your domain to prevent signature malleability attacks.
         domain: process.env.NEXT_PUBLIC_THIRDWEB_AUTH_DOMAIN,
       }}
+      clientId="your-client-id"
     >
       <Component {...pageProps} />
     </ThirdwebProvider>
@@ -135,7 +136,7 @@ export default function Home() {
 
 ### Getting the user data on the client-side
 
-Once users login, we'll want a way to identify that they have actually succesfully logged in. To do this, we'll use the `supabase.auth.getUser` and `supabase.auth.getSession` functions to keep track of the logged in user whenever the user's authentication state changes.
+Once users login, we'll want a way to identify that they have actually successfully logged in. To do this, we'll use the `supabase.auth.getUser` and `supabase.auth.getSession` functions to keep track of the logged in user whenever the user's authentication state changes.
 
 We can bundle this functionality into a convenient hook as follows:
 

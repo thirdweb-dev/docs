@@ -50,11 +50,12 @@ import "@thirdweb-dev/contracts/base/ERC1155LazyMint.sol";
 
 contract MyNFT is ERC1155LazyMint {
     constructor(
+        address _defaultAdmin,
         string memory _name,
         string memory _symbol,
         address _royaltyRecipient,
         uint128 _royaltyBps
-    ) ERC1155LazyMint(_name, _symbol, _royaltyRecipient, _royaltyBps) {}
+    ) ERC1155LazyMint(_defaultAdmin, _name, _symbol, _royaltyRecipient, _royaltyBps) {}
 
     function verifyClaim(address _claimer, uint256 _tokenId, uint256 _quantity) public view virtual override {
       // Your custom claim restriction logic
