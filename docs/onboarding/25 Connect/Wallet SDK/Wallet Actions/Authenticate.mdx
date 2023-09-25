@@ -175,7 +175,7 @@ Requires the [`authConfig`](/react/react.thirdwebprovider#authconfig-optional) p
 on the [`ThirdwebProvider`](/react/react.thirdwebprovider).
 
 ```jsx
-import { useLogin } from "@thirdweb-dev/react";
+import { useLogin } from "@thirdweb-dev/react-native";
 ```
 
 <details>
@@ -188,7 +188,7 @@ Call the `login` function to prompt the user to sign in with their wallet.
 The `isLoading` boolean can be used to display a loading state on the UI while the user is signing in.
 
 ```jsx
-import { useLogin } from "@thirdweb-dev/react";
+import { useLogin } from "@thirdweb-dev/react-native";
 
 function App() {
   const { isLoading, login } = useLogin();
@@ -210,7 +210,7 @@ The `login` function accepts an optional `LoginOptions` object as an argument.
 This configuration follows the [EIP-4361](https://eips.ethereum.org/EIPS/eip-4361) Sign in with Ethereum standard.
 
 ```jsx
-import { useLogin, Web3Button } from "@thirdweb-dev/react";
+import { useLogin, Web3Button } from "@thirdweb-dev/react-native";
 
 function App() {
   const { login, isLoading } = useLogin();
@@ -247,7 +247,7 @@ function App() {
 Hook for signing out of a wallet after a user has [logged in](/react/react.uselogin) using [auth](/auth).
 
 ```jsx
-import { useLogout } from "@thirdweb-dev/react";
+import { useLogout } from "@thirdweb-dev/react-native";
 ```
 
 <details>
@@ -260,7 +260,7 @@ Call the `logout` function to have the user sign out.
 The `isLoading` boolean can be used to display a loading state on the UI while the user is signing out.
 
 ```jsx
-import { useLogout } from "@thirdweb-dev/react";
+import { useLogout } from "@thirdweb-dev/react-native";
 
 function App() {
   const { logout, isLoading } = useLogout();
@@ -283,7 +283,7 @@ Hook for retrieving information about the currently signed in user using [auth](
 Useful to get the user's address and session data, or `undefined` if no user is signed in.
 
 ```jsx
-import { useUser } from "@thirdweb-dev/react";
+import { useUser } from "@thirdweb-dev/react-native";
 ```
 
 <details>
@@ -294,7 +294,7 @@ import { useUser } from "@thirdweb-dev/react";
 Call the `useUser` hook to get the information about the currently signed in wallet.
 
 ```jsx
-import { useUser } from "@thirdweb-dev/react";
+import { useUser } from "@thirdweb-dev/react-native";
 
 function App() {
   const { user, isLoggedIn, isLoading } = useUser();
