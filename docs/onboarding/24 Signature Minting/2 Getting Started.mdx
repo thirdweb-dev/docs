@@ -11,23 +11,23 @@ import QuickstartCard from "@components/QuickstartCard";
 Signature Minting is a mechanism that allows users the ability to mint tokens from a contract that implements one of the `SignatureMinting` extensions using a pre-signed payload.
 Creating a payload for users to signature mint with requires a cryptographic signature and is limited to wallets assigned the **`MINTER`** role.
 
-## 1. Deploy a Signature Minting Contract
+## 1. Deploy a signature minting capable contract
 
 There are three ways to deploy a contract that implements one of the `SignatureMint` extensions:
 
 - Using a pre-built contract from Explore.
-- Using one of the Solidity SDK base contracts - a contract that implements the extension that is pre-built and customizable.
+- Create your own using one of the Solidity SDK base contracts - a contract that implements the extension that is pre-built and customizable.
 - Implementing the extension into your own contract using one of the Solidity SDK extensions.
 
 ## 1.(a) Using a Pre-Built Contract
 
-The following pre-built contract implements the [`ERC721SignatureMint`](/solidity/extensions/erc721signaturemint) extension:
+The following pre-built contracts implements the [`ERC721SignatureMint`](/solidity/extensions/erc721signaturemint) extension:
 
 <div className="row" style={{ marginBottom: 24 }}>
   <div className="col col--12" style={{ marginTop: 8 }}>
     <QuickstartCard
-      name="Signature Drop Pre-Built Contract"
-      link="/pre-built-contracts/signature-drop"
+      name="NFT Collection Pre-Built Contract"
+      link="/pre-built-contracts/nft-collection"
       image="/assets/product/contracts.png"
     />
   </div>
@@ -35,11 +35,15 @@ The following pre-built contract implements the [`ERC721SignatureMint`](/solidit
 
 To deploy this contract,
 
-1. Head to the explore page & select the [Signature Drop contract](https://thirdweb.com/thirdweb.eth/SignatureDrop).
+1. Head to the explore page & select the [NFT collection contract](https://thirdweb.com/thirdweb.eth/TokenERC721).
 2. Click “Deploy Now” and fill in the contract parameters with the desired values
 3. Click “Deploy”, which will trigger two transactions to be signed: one to deploy the contract and the second to add the contract to your contract list on the Dashboard so that you can view the contract later.
 
-## 1.(b) Using a Solidity SDK Base Contract
+For ERC1155 NFTs, you can use the pre-built [Edition contract](https://thirdweb.com/TokenERC1155).
+
+For ERC20 Tokens, you can use the pre-built [Token contract](https://thirdweb.com/TokenERC20)
+
+## 1.(b) Create your own using a Solidity SDK Base Contract
 
 The following Solidity SDK base contracts implement the `SignatureMint` extensions:
 
