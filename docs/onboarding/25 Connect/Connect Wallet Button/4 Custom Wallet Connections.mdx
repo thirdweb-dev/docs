@@ -1,19 +1,9 @@
 ---
-slug: /connect/custom-ui
+slug: /connect/connect-wallet/custom-ui
 title: Custom Wallet Connections
 ---
 
-Connecting to wallets can be done in three ways:
-
-- Using the [`Connect Wallet`](/connect/connect-wallet) component.
-- **Using hooks**
-  - create your own user experience
-- **Using the wallet SDK**:
-  - Connect a wallet in a script in TypeScript.
-  - Gain low-level control over wallet connections in your app with the ability to have fine-grain control over the configuration options.
-  - Create custom wallet configurators to add to Connect Wallet.
-
-Once you have connected a wallet using any of these methods, you can use the relevant SDK ([React](/react), [React Native](/react-native), [TypeScript](/typescript) or [Unity](/unity)) to interact with contracts e.g. sending transactions, reading data from contracts.
+Use the SDK to connect wallets to your app but using your own UI components.
 
 ## Available Hooks, Connectors and Configurators
 
@@ -59,15 +49,7 @@ function App() {
 }
 ```
 
-## Using Wallet SDK (for Supported Wallets)
-
-If you want fine-grained control over how your
-
-## Create your Own Wallet Connector
-
-For more details on how to create your own wallet connector that you can use for Connect Wallet, see the [Create Your Own Wallet Guide](connect/build-a-wallet) guide.
-
-## Create a Wallet Connection UI for a Custom Wallet Configurator
+## Create a Wallet Connection UI (for a Custom Wallet Configurator)
 
 To integrate a wallet with `ConnectWallet`, you need to create a wallet configurator - a function that returns a `WalletConfig` object and add it in `ThirdwebProvider`'s `supportedWallets`.
 
@@ -91,14 +73,4 @@ To create a custom UI for selecting your wallet in the wallet selection screen i
     selectUI(props) {
       return <MyWalletSelectionUI {...props} />
     }
-```
-
-## Interacting with Contracts
-
-Once you have connected to a wallet, you can interact with contracts using the [`useContract`](react/react.usecontract) hook.
-
-```tsx
-import { useContract } from "@thirdweb-dev/react";
-
-const contract = useContract("<contract-address>");
 ```

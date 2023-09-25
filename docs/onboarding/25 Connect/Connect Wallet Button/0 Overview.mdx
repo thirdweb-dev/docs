@@ -1,0 +1,60 @@
+---
+slug: /connect/connect-wallet
+title: Overview
+---
+
+import QuickstartCard from "@components/QuickstartCard";
+
+# Connect Wallet
+
+Connect Wallet is an out-of-the-box UI solution for connecting users' wallets to web3 applications and games.
+With its customizable UI and extensive wallet options,
+this component allows for flexibility in supporting various wallet types including non-custodial,
+custodial, [smart wallets](/smart-wallet), and embedded wallets.
+
+<div className="col col--12" style={{ padding: 8 }}>
+  <QuickstartCard
+    name="Try Out Connect Wallet"
+    link="https://thirdweb.com/dashboard/wallets/connect"
+    image="/assets/product/connect-wallet.png"
+  />
+</div>
+
+## Customizations
+
+The following customizations are available for the Connect Wallet component:
+
+| Prop Name                                                              | Description                                                        |
+| ---------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| [Modal Size](/connect/connect-wallet/modal-size)                       | The size of the Connect Wallet modal.                              |
+| [Theme](/connect/connect-wallet/theme)                                 | The theme of the Connect Wallet component. The default is "light". |
+| [Button Title](/connect/connect-wallet/button-title)                   | The title of the Connect Wallet button.                            |
+| [Modal Title](/connect/connect-wallet/modal-title)                     | The title of the Connect Wallet modal.                             |
+| [Custom CSS](/connect/connect-wallet/class-name)                       | Apply custom CSS styles to the Connect Wallet button.              |
+| [Switch To Active Chain](/connect/connect-wallet/switch-chain)         | Automatically switch to the active chain when connecting a wallet. |
+| [Terms Of Service URL](/connect/connect-wallet/terms-of-service)       | The URL to the terms of service page.                              |
+| [Privacy Policy URL](/connect/connect-wallet/privacy-policy)           | The URL to the privacy policy page.                                |
+| [Custom Welcome Screen](/connect/connect-wallet/welcome-screen)        | Customize the welcome screen on wide modal.                        |
+| [Custom Button](/connect/connect-wallet/custom-button)                 | Customize the details button.                                      |
+| [Authorization](/connect/connect-wallet/auth)                          | Enforce that users must sign in with their wallet.                 |
+| [Modal Drop-Down Position](/connect/connect-wallet/drop-down-position) | Specify where should the dropdown menu open.                       |
+| [Displayed Wallet Providers](/connect/connect-wallet/wallet-providers) | Customize the wallets that are displayed.                          |
+
+## Custom Connect Wallet UI
+
+If you want to use the SDK to connect wallets to your app but would like to create a completely custom UI with
+your own buttons and modals, you can use the available Hooks, Connectors Configurators and functions.
+
+[View the Custom Connect Wallet UI documentation.](/connect/connect-wallet/custom-ui).
+
+Build your own wallet connector using the Wallet SDKK and add this wallet to Connect Wallet by following [this guide](/connect/build-a-wallet).
+
+## Interacting with Contracts
+
+Once you have connected to a wallet, you can interact with contracts using the [`useContract`](react/react.usecontract) hook.
+
+```tsx
+import { useContract } from "@thirdweb-dev/react";
+
+const contract = useContract("<contract-address>");
+```
