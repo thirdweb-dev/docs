@@ -1,0 +1,58 @@
+---
+slug: /connect/usage-with-unity-sdk
+title: Unity
+sidebar_position: 6
+---
+
+import QuickstartCard from "@components/QuickstartCard";
+
+# Usage with Unity SDK
+
+## Quick Started
+
+The quickest way to get started is to use the interactive [Connect Wallet component builder](https://thirdweb.com/dashboard/wallets/connect).
+
+[This playground](https://thirdweb.com/dashboard/wallets/connect) allows you to modify the theme, size, and supported wallets of the Connect Wallet component and preview the changes in real time.
+
+You can then copy the code snippet and add it directly to your app.
+
+For details on how to use the Connect Wallet component in an app and set up a project, read the guide below and use your generated code snippet for the `ConnectWallet` component.
+
+<br />
+
+<div className="col col--12" style={{ padding: 8 }}>
+  <QuickstartCard
+    name="Connect Wallet Component Builder"
+    link="https://thirdweb.com/dashboard/wallets/connect"
+    image="/assets/product/connect-wallet.png"
+  />
+</div>
+
+## Guide
+
+The `ConnectWallet` prefab allows users to connect their wallet to your game.
+
+It uses the [ThirdwebManager](/unity/ThirdwebManager) to determine which networks to display as well as the secondary UI related to certain providers such as WalletConnect.
+
+You can set up which wallets you want to support from the Prefab_ConnectWallet Inspector directly.
+
+When a user clicks the button, a dropdown of [supported wallets](#supported-wallets) will appear. The user can then
+select their preferred wallet to connect to the game; once connected, the button will show the user&rsquo;s balance and an option to
+switch networks if multiple networks are set up through the ThirdwebManager.
+
+The prefab is located at: `Assets/Thirdweb/Examples/Prefabs/Prefab_ConnectWallet.prefab`.
+
+<img src="/assets/connect-wallet/unity-connectwallet.png" />
+
+<br />
+<br />
+
+<div className="row" style={{ marginBottom: 0, padding: 8, paddingTop: 0 }}>
+  <div className="col col--12" style={{ padding: 8, paddingBottom: 0 }}>
+    <QuickstartCard
+      name="Learn more about Unity SDK"
+      link="/unity"
+      image="/assets/languages/unity.webp"
+    />
+  </div>
+</div>

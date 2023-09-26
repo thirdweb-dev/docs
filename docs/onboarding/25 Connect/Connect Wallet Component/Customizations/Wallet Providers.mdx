@@ -1,0 +1,38 @@
+---
+slug: /connect/connect-wallet/wallet-providers
+title: Wallet Providers
+---
+
+To modify the displayed wallet providers, you can edit the `supportedWallets` array in the `ThirdwebProvider`:
+
+```tsx
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+
+function App() {
+  return (
+    <ThirdWebProvider
+      // highlight-start
+      supportedWallets={[metamaskWallet(), walletConnect()]}
+      // highlight-end
+    >
+      <ConnectWallet />
+    </ThirdWebProvider>
+  );
+}
+```
+
+You can then render the `ConnectWallet` component which will automatically display the supported wallets:
+
+```tsx
+import { ConnectWallet } from "@thirdweb-dev/react";
+
+// render ConnectWallet button wherever you want
+
+function App() {
+  return (
+    <div>
+      <ConnectWallet />
+    </div>
+  );
+}
+```
