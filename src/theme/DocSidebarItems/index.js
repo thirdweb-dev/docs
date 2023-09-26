@@ -31,13 +31,7 @@ function DocSidebarItems({ items, ...props }) {
     },
     {
       title: "Wallets",
-      items: [
-        "Wallet SDK",
-        "Connect Wallet",
-        "Smart Wallet",
-        "Email Wallet",
-        "Auth",
-      ],
+      items: ["Wallet SDK", "Connect", "Smart Wallet", "Email Wallet", "Auth"],
     },
     {
       title: "Contracts",
@@ -53,7 +47,7 @@ function DocSidebarItems({ items, ...props }) {
     },
     {
       title: "Infrastructure",
-      items: ["Storage", "Bundler & Paymaster"],
+      items: ["Storage", "Bundler & Paymaster", "RPC Edge"],
     },
     {
       title: "Tools",

@@ -1,0 +1,100 @@
+---
+slug: /connect/wallet-actions/recover-address
+title: Recover Address
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import QuickstartCard from "@components/QuickstartCard";
+
+<Tabs>
+  <TabItem value="typescript" label="TypeScript">
+    <div>
+
+## recoverAddress
+
+Recover the signing address from a signed message.
+
+### Usage
+
+After a message has been signed using [sign](/typescript/sdk.userwallet.sign),
+you can then pass the message and the signature to this method to recover the signing address.
+
+```javascript
+// Sign a message
+const message = "Sign this message...";
+const signature = await sdk.wallet.sign(message);
+
+// Now we can recover the signing address
+const address = sdk.wallet.recoverAddress(message, signature);
+```
+
+### Configuration
+
+#### message
+
+The original message that was signed.
+
+```javascript
+const message = "Sign this message...";
+```
+
+#### signature
+
+The signature to recover the address from.
+
+```javascript
+const signature = await sdk.wallet.sign(message);
+```
+
+### Return Value
+
+Returns the wallet address that signed the message.
+
+```typescript
+string;
+```
+
+</div>
+  </TabItem>
+  <TabItem value="unity" label="Unity">
+    <div>
+
+## RecoverAddress
+
+Recover the signing address from a signed message.
+
+## Usage
+
+After a message has been signed using [sign](/unity/wallet/sign),
+you can then pass the message and the signature to this method to recover the signing address.
+
+```csharp
+var data = await sdk.wallet.RecoverAddress("{{message}}", "{{signature}}");
+```
+
+## Configuration
+
+### message
+
+The original message that was signed.
+
+Must be a `string`.
+
+### signature
+
+The signature to recover the address from.
+
+Must be a `string`.
+
+## Return Value
+
+Returns the wallet address that signed the message.
+
+```csharp
+string
+```
+
+</div>
+  </TabItem>
+</Tabs>
