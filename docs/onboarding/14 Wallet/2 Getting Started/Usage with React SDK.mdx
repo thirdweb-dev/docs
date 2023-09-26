@@ -98,51 +98,26 @@ function App() {
 
 ## 3. Using ThirdwebSDKProvider
 
-[ThirdwebSDKProvider](/react/react.thirdwebsdkprovider) is a lower level provider that accepts an arbitrary wallet and only handles contract interaction. This means you can use the Wallet SDK to programmatically connect to any wallet, and pass the connected wallet to this provider to execute transactions from the connected wallet.
+[ThirdwebSDKProvider](/react/react.thirdwebsdkprovider) is a lower level provider that accepts a signer and only handles contract interaction. This means you can use the Wallet SDK to programmatically connect to any wallet, and pass the connected signer to this provider to execute transactions from the connected wallet.
 
 ```tsx
 import { ThirdwebSDKProvider } from "@thirdweb-dev/react";
-import {
-  LocalWallet,
-  SmartWallet,
-  type SmartWalletConfig,
-  type WalletOptions,
-} from "@thirdweb-dev/wallets";
+import { LocalWallet } from "@thirdweb-dev/wallets";
 import { Goerli } from "@thirdweb-dev/chains";
-import type { Signer } from "ethers";
-import { useState, useEffect, useRef } from "react";
+import { Signer } from "ethers";
 
 function MyComponent() {
-  const [signer, setSigner] = useState<Signer | undefined>(undefined);
+  const [signer, setSigner] = useState<Signer | null>(null);
 
-  const config: WalletOptions<SmartWalletConfig> = {
-    chain: Goerli, // the chain where your smart wallet will be or is deployed
-    factoryAddress: "<your-factory-address>", // your own deployed account factory address
-    clientId: "<your-client-id>", // obtained from the thirdweb dashboard
-    gasless: true,
-  };
-
-  const generated = useRef(false);
+  // in this example we just generate a random wallet
   useEffect(() => {
-    if (generated.current) {
-      return;
-    }
-    generated.current = true;
-
     const generateWallet = async () => {
-      const personalWallet = new LocalWallet({
+      const localWallet = new LocalWallet({
         chain: Goerli,
       });
-      await personalWallet.loadOrCreate({
-        strategy: "encryptedJson",
-        password: "<user-password>",
-      });
-      const smartWallet = new SmartWallet(config);
-      await smartWallet.connect({
-        personalWallet: personalWallet,
-      });
-      setSigner(await smartWallet.getSigner());
-      console.log("signer", signer);
+      localWallet.generate();
+      localWallet.connect();
+      setSigner(await localWallet.getSigner());
     };
     generateWallet();
   }, []);
