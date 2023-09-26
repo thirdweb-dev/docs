@@ -47,7 +47,7 @@ You can connect to a wallet in two ways:
 
 Clicking on the `ConnectWallet` button shows wallets in a Modal and shows wallet-specific UI for connecting the wallet when it is selected (This UI is defined in the wallet configurator itself, not in `ConnectWallet` component)
 
-<img src="/assets/connect-wallet/paper-wallet-selection-ui.png" />
+<img src="../assets/compact-dark-social.png" />
 
 #### Example
 
@@ -136,8 +136,8 @@ function MyComponent() {
       const localWallet = new LocalWallet({
         chain: Goerli,
       });
-      localWallet.generate();
-      localWallet.connect();
+      await localWallet.generate();
+      await localWallet.connect();
       setSigner(await localWallet.getSigner());
     };
     generateWallet();

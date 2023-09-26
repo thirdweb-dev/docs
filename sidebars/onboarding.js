@@ -281,7 +281,7 @@ const sidebars = {
             },
             {
               type: "link",
-              href: "/react-native/rect-native.connectwallet",
+              href: "/react-native/react-native.connectwallet",
               label: "React Native",
             },
             {
