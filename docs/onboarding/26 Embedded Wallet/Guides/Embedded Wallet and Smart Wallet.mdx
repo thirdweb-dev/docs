@@ -3,15 +3,49 @@ slug: /embedded-wallet/smart-wallet-and-embedded-wallet
 title: Enable Gasless Transactions with a Web2 User Experience
 ---
 
-By combining Smart Wallet and Embedded Wallet, you can create a truly seamless user experience:
+By combining [Smart Wallet](/smart-wallet) and [Embedded Wallet](/embedded-wallet), you can create a truly seamless user experience:
 
-- Gasless Transactions
+- Gasless transactions
 - Batched transactions
 - Full account recovery for both the embedded wallet “key” and the smart wallet
 - Web2 login experience using email or social.
 
-Let’s create an app that creates smart wallets for our users. These smart wallets will require a “personal wallet” to access and initialize the wallet. For this personal wallet, we will of course use an embedded wallet. From the user's perspective, they will log in with their email or social account. Under the hood, an embedded wallet is created for them, and then a smart wallet is created and initialized using the embedded wallet.
+Let’s create an app that creates smart wallets for our users.
+
+These smart wallets will require a **“personal wallet”** to access and initialize the wallet. For this personal wallet, we will of course use an embedded wallet.
+
+From the user's perspective, they will log in with their email or social account. Under the hood, an embedded wallet is created for them, and then a smart wallet is created and initialized using the embedded wallet.
 
 ## Building an App
 
-The easiest way to add embedded wallets and smart wallets to your app
+The easiest way to add embedded wallets and smart wallets to your app is using the `Connect Wallet` component:
+
+```jsx
+import {
+  ThirdwebProvider,
+  ConnectWallet,
+  embeddedWallet,
+} from "@thirdweb-dev/react";
+
+export default function App() {
+  return (
+    <ThirdwebProvider
+      activeChain="mumbai"
+      clientId="YOUR_CLIENT_ID"
+      supportedWallets={[
+        smartWallet(embeddedWallet(), {
+          factoryAddress: "YOUR_FACTORY_ADDRESS",
+          gasless: true,
+        }),
+      ]}
+    >
+      <ConnectWallet />
+    </ThirdwebProvider>
+  );
+}
+```
+
+This will create an embedded wallet and a smart wallet for the user. The smart wallet will be initialized with the embedded wallet.
+The user will then see the Connect Button which, when clicked, will show the user a modal to connect/create their wallet:
+
+![Connect Wallet Modal](../assets/compact-dark-social.png)
