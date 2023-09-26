@@ -15,35 +15,35 @@ Connecting to wallets can be done in three ways:
 - **Using the [`Connect Wallet`](/connect/connect-wallet) component.**
 - **Using the SDK hooks and functions**
   - [**create your own user experience**](/connect/connect-wallet/custom-ui) with our wallet connection hooks to connect to [supported wallets](/connect/supported-wallets).
-  - [**Using the wallet SDK**](/connect/wallet-sdk):
-    - Connect a wallet in a script in TypeScript.
-    - Gain low-level control over wallet connections in your app with the ability to have fine-grain control over the configuration options.
-    - Create custom wallet configurators to add to Connect Wallet.
+- [**Using the wallet SDK**](/connect/wallet-sdk):
+  - Connect a wallet in a script in TypeScript.
+  - Gain low-level control over wallet connections in your app with the ability to have fine-grain control over the configuration options.
+  - Create custom wallet configurators to add to the Connect Wallet component.
 
 Once you have connected a wallet using any of these methods, you can use the relevant SDK ([React](/react), [React Native](/react-native), [TypeScript](/typescript) or [Unity](/unity)) to interact with contracts e.g. sending transactions, reading data from contracts.
 
 ## Features
 
-- **Connect Wallet**
+- **Connect Wallet Component**
   - Connect to 170+ different wallets including email logins (for better onboarding) and ERC-4337 Smart Wallets.
   - Compatible with any EVM network.
-  - Customize the displayed and recommended wallet providers, the theme, modal, logo and more. See the [connect wallet documentation](/connect/connect-wallet#configuration-options) for full configuration options.
+  - Customize the displayed and recommended wallet providers, the theme, modal, logo and more. See the [connect wallet component documentation](/connect/connect-wallet#configuration-options) for full configuration options.
   - Support for [React](/connect/usage-with-react-sdk), [React Native](/connect/usage-with-react-native-sdk), and [Unity](/connect/usage-with-unity-sdk)
   - Gasless support when using with [Smart Wallets](/react/react.smartwallet).
   - Send and Receive Tokens
   - Integrates with thirdweb SDKs
   - View balance, ENS name and transaction history
 - **SDK Hooks & Functions**
-  - Create your own UI with our wallet connection hooks to connect to [supported wallets](/connect/supported-wallets)
-  - Interact with contracts via the SDKs
+  - Create your own UI with our wallet connection hooks to connect to [supported wallets](/connect/supported-wallets).
+  - Interact with contracts via the SDKs.
 - **[Wallet SDK](https://portal.thirdweb.com/wallet)**
   - Connect a wallet in a script in TypeScript.
   - Gain low-level control over wallet connections in your app with the ability to have fine-grain control over the configuration options.
-  - Create custom wallet configurators to add to Connect Wallet.
+  - Create custom wallet configurators to add to the Connect Wallet component.
 
 <div className="col col--12" style={{ padding: 8 }}>
   <QuickstartCard
-    name="Try Out Connect Wallet"
+    name="Try Out the Connect Wallet Component"
     link="https://thirdweb.com/dashboard/wallets/connect"
     image="/assets/product/connect-wallet.png"
   />
