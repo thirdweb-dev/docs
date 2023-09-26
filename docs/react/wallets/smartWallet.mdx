@@ -13,22 +13,28 @@ import { CustomizeWalletConfigurator } from "@components/build-wallet/CustomizeW
 A wallet configurator for [Smart Wallet](/wallet/smart-wallet) which allows integrating the wallet with React
 
 ```tsx
-import { smartWallet } from "@thirdweb-dev/react";
+import { smartWallet, metamaskWallet } from "@thirdweb-dev/react";
 
-const smartWalletConfig = smartWallet({
+const walletConfig = metamaskWallet(); // or use any other wallet
+
+const smartWalletConfig = smartWallet(walletConfig, {
   factoryAddress: "0x...",
   gasless: true,
 });
 ```
 
-<CustomizeWalletConfigurator
-  config="smartWalletConfig"
-  configurator="smartWallet"
-  connectUI="SmartWalletConnectUI"
-  selectUI="SmartWalletSelectUI"
-/>
-
 <br />
+
+<details>
+  <summary>walletConfig</summary>
+  <div>
+
+Provide a `WalletConfig` object to use as the personal wallet for the Smart Wallet. You can get this object by calling a wallet configurator function such as `metamaskWallet()`
+
+You can see the list of available wallet configurators for React [here](http://localhost:3000/react/connecting-wallets).
+
+</div>
+</details>
 
 <details>
   <summary>factoryAddress</summary>
@@ -55,34 +61,6 @@ Must be a `boolean`.
 </div>
 </details>
 
-<details>
-  <summary>personalWallets (optional) </summary>
-  <div>
-
-An array of personal wallets to show in ConnectWallet Modal for personal wallet selection
-
-This is only relevant when connecting smartWallet with [ConnectWallet](https://portal.thirdweb.com/react/react.connectwallet) component.
-
-```ts
-import {
-  smartWallet,
-  metamaskWallet,
-  coinbaseWallet,
-  walletConnect,
-} from "@thirdweb-dev/react";
-
-smartWallet({
-  // this is the default
-  personalWallets: [metamaskWallet(), coinbaseWallet(), walletConnect()],
-  // ...
-});
-```
-
-Must be of type `WalletConfig[]`
-
-</div>
-</details>
-
 ## Usage with `ConnectWallet`
 
 To allow users to connect to this wallet using the [ConnectWallet](/react/react.connectwallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop.
@@ -95,14 +73,16 @@ import {
   walletConnect,
 } from "@thirdweb-dev/react";
 
+const config = {
+  factoryAddress: "0x...",
+  gasless: true,
+}
+
 <ThirdwebProvider
   supportedWallets={[
-    smartWallet({
-      factoryAddress: "0x...",
-      gasless: true,
-      // this is the default
-      personalWallets: [metamaskWallet(), coinbaseWallet(), walletConnect()],
-    }),
+    smartWallet(metamaskWallet(), config),
+    smartWallet(coinbaseWallet(), config),
+    smartWallet(walletConnect(), config),
   ]}
   clientId="your-client-id"
 >
@@ -121,13 +101,32 @@ The wallet also needs to be added in [ThirdwebProvider's supportedWallets](/reac
 You need to connect to a personal wallet first, You can use the [useConnect](/react/react.useconnect) hook to connect to a personal wallet first and then connect to the Smart Wallet. Make sure personal wallet is on the same network as the Smart Wallet.
 
 ```tsx
-const smartWalletConfig = smartWallet();
+import { useConnect, smartWallet, metamaskWallet } from "@thirdweb-dev/react";
+import { Goerli } from "@thirdweb-dev/chains";
+
+const personalWalletConfig = metamaskWallet(); // or use any other wallet
+
+const smartWalletConfig = smartWallet(personalWalletConfig, {
+  factoryAddress: "0x...",
+  gasless: true,
+});
 
 function App() {
   const connect = useConnect();
 
   const handleConnect = async () => {
-    await connect(smartWalletConfig, connectOptions);
+    // 1. connect the personal wallet first on the network that the smart wallet is deployed to
+    const personalWallet = await connect(personalWalletConfig, {
+      chainId: Goerli.chainId,
+    });
+
+    // 2. connect to smart wallet
+    const smartWallet = await connect(smartWalletConfig, {
+      chainId: Goerli.chainId,
+      personalWallet: personalWallet,
+    });
+
+    console.log("connected to", smartWallet);
   };
 
   return <div> ... </div>;
@@ -141,6 +140,7 @@ import type { EVMWallet } from "@thirdweb-dev/wallets";
 
 type ConenctOptions = {
   personalWallet: EVMWallet;
+  chainId?: number;
 };
 ```
 
@@ -149,6 +149,30 @@ type ConenctOptions = {
 <div>
 
 The instance of a personal wallet that can sign transactions on the Smart Wallet
+
+</div>
+</details>
+
+<details>
+  <summary>chainId </summary>
+<div>
+
+The `chainId` of network that the Smart Wallet is deployed to.
+
+`Chain` object corresponding to this chainId from [@thirdweb-dev/chains](https://www.npmjs.com/package/@thirdweb-dev/chains) package must be specified in [ThirdwebProvider's supportedChains](/react/react.thirdwebprovider#supportedchains-optional) prop as shown below
+
+```tsx
+import { Polygon } from "@thirdweb-dev/chains";
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+
+export function YourApp() {
+  return (
+    <ThirdwebProvider supportedChains={[Polygon]} clientId="your-client-id">
+      <App />
+    </ThirdwebProvider>
+  );
+}
+```
 
 </div>
 </details>

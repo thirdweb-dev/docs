@@ -102,21 +102,47 @@ function App() {
 
 ```tsx
 import { ThirdwebSDKProvider } from "@thirdweb-dev/react";
-import { LocalWallet } from "@thirdweb-dev/wallets";
+import {
+  LocalWallet,
+  SmartWallet,
+  type SmartWalletConfig,
+  type WalletOptions,
+} from "@thirdweb-dev/wallets";
 import { Goerli } from "@thirdweb-dev/chains";
-import { Signer } from "ethers";
+import type { Signer } from "ethers";
+import { useState, useEffect, useRef } from "react";
 
 function MyComponent() {
-  const [signer, setSigner] = useState<Signer | null>(null);
-  // in this example we just generate a random wallet
+  const [signer, setSigner] = useState<Signer | undefined>(undefined);
+
+  const config: WalletOptions<SmartWalletConfig> = {
+    chain: Goerli, // the chain where your smart wallet will be or is deployed
+    factoryAddress: "<your-factory-address>", // your own deployed account factory address
+    clientId: "<your-client-id>", // obtained from the thirdweb dashboard
+    gasless: true,
+  };
+
+  const generated = useRef(false);
   useEffect(() => {
+    if (generated.current) {
+      return;
+    }
+    generated.current = true;
+
     const generateWallet = async () => {
-      const localWallet = new LocalWallet({
+      const personalWallet = new LocalWallet({
         chain: Goerli,
       });
-      localWallet.generate();
-      localWallet.connect();
-      setSigner(await localWallet.getSigner());
+      await personalWallet.loadOrCreate({
+        strategy: "encryptedJson",
+        password: "<user-password>",
+      });
+      const smartWallet = new SmartWallet(config);
+      await smartWallet.connect({
+        personalWallet: personalWallet,
+      });
+      setSigner(await smartWallet.getSigner());
+      console.log("signer", signer);
     };
     generateWallet();
   }, []);
