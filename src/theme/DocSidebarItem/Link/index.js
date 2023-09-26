@@ -33,7 +33,7 @@ export const iconMapping = {
   "Signature Minting": "/assets/product/sdk.png",
   GamingKit: "/assets/solutions/gaming.png",
   CommerceKit: "/assets/solutions/commerce.png",
-  "Connect Wallet": "/assets/product/connect-wallet.png",
+  Connect: "/assets/product/connect-wallet.png",
   Minting: "/assets/product/sdk.png",
   "Digital Collectibles": "/assets/product/sdk.png",
   Storage: "/assets/product/storage.png",

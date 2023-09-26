@@ -1,0 +1,367 @@
+---
+slug: /connect/wallet-actions/auth
+title: Authenticate
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import QuickstartCard from "@components/QuickstartCard";
+
+<Tabs>
+<TabItem value="react" label="React">
+<div>
+
+## useLogin
+
+Hook to prompt the user to sign in with their wallet using [auth](/auth).
+
+Requires the [`authConfig`](/react/react.thirdwebprovider#authconfig-optional) prop to be configured
+on the [`ThirdwebProvider`](/react/react.thirdwebprovider).
+
+```jsx
+import { useLogin } from "@thirdweb-dev/react";
+```
+
+<details>
+  <summary>useLogin</summary>
+  <div>
+  ### Usage
+
+Call the `login` function to prompt the user to sign in with their wallet.
+
+The `isLoading` boolean can be used to display a loading state on the UI while the user is signing in.
+
+```jsx
+import { useLogin } from "@thirdweb-dev/react";
+
+function App() {
+  const { isLoading, login } = useLogin();
+
+  return (
+    <button onClick={() => login()}>
+      {isLoading ? "Loading..." : "Sign in with Ethereum"}
+    </button>
+  );
+}
+```
+
+### Configuration
+
+#### options (optional)
+
+The `login` function accepts an optional `LoginOptions` object as an argument.
+
+This configuration follows the [EIP-4361](https://eips.ethereum.org/EIPS/eip-4361) Sign in with Ethereum standard.
+
+```jsx
+import { useLogin, Web3Button } from "@thirdweb-dev/react";
+
+function App() {
+  const { login, isLoading } = useLogin();
+
+  return (
+    <Web3Button
+      action={() =>
+        login({
+          // highlight-start
+          domain: "https://your-domain.com", // Your dapp domain
+          statement: "My statement", // Text that the user will sign
+          uri: "https://your-domain.com/login", // RFC 3986 URI referring to the resource that is the subject of the signing
+          version: "1.0", // The current version of the message, which MUST be 1 for this specification.
+          chainId: "mainnet", // Chain ID to which the session is bound
+          nonce: "my-nonce", // randomized token typically used to prevent replay attacks
+          expirationTime: new Date(2021, 1, 1), // When this message expires
+          invalidBefore: new Date(2020, 12, 1), // When this message becomes valid
+          resources: ["balance", "history", "info"], // A list of information or references to information the user wishes to have resolved
+          // highlight-end
+        })
+      }
+    >
+      Login
+    </Web3Button>
+  );
+}
+```
+
+</div>
+</details>
+
+## useLogout
+
+Hook for signing out of a wallet after a user has [logged in](/react/react.uselogin) using [auth](/auth).
+
+```jsx
+import { useLogout } from "@thirdweb-dev/react";
+```
+
+<details>
+  <summary>useLogout</summary>
+  <div>
+  ### Usage
+
+Call the `logout` function to have the user sign out.
+
+The `isLoading` boolean can be used to display a loading state on the UI while the user is signing out.
+
+```jsx
+import { useLogout } from "@thirdweb-dev/react";
+
+function App() {
+  const { logout, isLoading } = useLogout();
+
+  return (
+    <button onClick={() => logout()}>
+      {isLoading ? "Logging out..." : "Logout"}
+    </button>
+  );
+}
+```
+
+  </div>
+</details>
+
+## useUser
+
+Hook for retrieving information about the currently signed in user using [auth](/auth).
+
+Useful to get the user's address and session data, or `undefined` if no user is signed in.
+
+```jsx
+import { useUser } from "@thirdweb-dev/react";
+```
+
+<details>
+  <summary>useUser</summary>
+  <div>
+  ### Usage
+
+Call the `useUser` hook to get the information about the currently signed in wallet.
+
+```jsx
+import { useUser } from "@thirdweb-dev/react";
+
+function App() {
+  const { user, isLoggedIn, isLoading } = useUser();
+}
+```
+
+### Return Value
+
+```ts
+{
+    user: {
+      address: string;
+      session?: Json;
+    } | undefined;
+    isLoggedIn: boolean;
+    isLoading: boolean;
+}
+```
+
+  </div>
+</details>
+
+ </div>
+
+</TabItem>
+<TabItem value="react-native" label="React-Native">
+<div>
+
+## useLogin
+
+Hook to prompt the user to sign in with their wallet using [auth](/auth).
+
+Requires the [`authConfig`](/react/react.thirdwebprovider#authconfig-optional) prop to be configured
+on the [`ThirdwebProvider`](/react/react.thirdwebprovider).
+
+```jsx
+import { useLogin } from "@thirdweb-dev/react-native";
+```
+
+<details>
+  <summary>useLogin</summary>
+  <div>
+  ### Usage
+
+Call the `login` function to prompt the user to sign in with their wallet.
+
+The `isLoading` boolean can be used to display a loading state on the UI while the user is signing in.
+
+```jsx
+import { useLogin } from "@thirdweb-dev/react-native";
+
+function App() {
+  const { isLoading, login } = useLogin();
+
+  return (
+    <button onClick={() => login()}>
+      {isLoading ? "Loading..." : "Sign in with Ethereum"}
+    </button>
+  );
+}
+```
+
+### Configuration
+
+#### options (optional)
+
+The `login` function accepts an optional `LoginOptions` object as an argument.
+
+This configuration follows the [EIP-4361](https://eips.ethereum.org/EIPS/eip-4361) Sign in with Ethereum standard.
+
+```jsx
+import { useLogin, Web3Button } from "@thirdweb-dev/react-native";
+
+function App() {
+  const { login, isLoading } = useLogin();
+
+  return (
+    <Web3Button
+      action={() =>
+        login({
+          // highlight-start
+          domain: "https://your-domain.com", // Your dapp domain
+          statement: "My statement", // Text that the user will sign
+          uri: "https://your-domain.com/login", // RFC 3986 URI referring to the resource that is the subject of the signing
+          version: "1.0", // The current version of the message, which MUST be 1 for this specification.
+          chainId: "mainnet", // Chain ID to which the session is bound
+          nonce: "my-nonce", // randomized token typically used to prevent replay attacks
+          expirationTime: new Date(2021, 1, 1), // When this message expires
+          invalidBefore: new Date(2020, 12, 1), // When this message becomes valid
+          resources: ["balance", "history", "info"], // A list of information or references to information the user wishes to have resolved
+          // highlight-end
+        })
+      }
+    >
+      Login
+    </Web3Button>
+  );
+}
+```
+
+</div>
+</details>
+
+## useLogout
+
+Hook for signing out of a wallet after a user has [logged in](/react/react.uselogin) using [auth](/auth).
+
+```jsx
+import { useLogout } from "@thirdweb-dev/react-native";
+```
+
+<details>
+  <summary>useLogout</summary>
+  <div>
+  ### Usage
+
+Call the `logout` function to have the user sign out.
+
+The `isLoading` boolean can be used to display a loading state on the UI while the user is signing out.
+
+```jsx
+import { useLogout } from "@thirdweb-dev/react-native";
+
+function App() {
+  const { logout, isLoading } = useLogout();
+
+  return (
+    <button onClick={() => logout()}>
+      {isLoading ? "Logging out..." : "Logout"}
+    </button>
+  );
+}
+```
+
+  </div>
+</details>
+
+## useUser
+
+Hook for retrieving information about the currently signed in user using [auth](/auth).
+
+Useful to get the user's address and session data, or `undefined` if no user is signed in.
+
+```jsx
+import { useUser } from "@thirdweb-dev/react-native";
+```
+
+<details>
+  <summary>useUser</summary>
+  <div>
+  ### Usage
+
+Call the `useUser` hook to get the information about the currently signed in wallet.
+
+```jsx
+import { useUser } from "@thirdweb-dev/react-native";
+
+function App() {
+  const { user, isLoggedIn, isLoading } = useUser();
+}
+```
+
+### Return Value
+
+```ts
+{
+    user: {
+      address: string;
+      session?: Json;
+    } | undefined;
+    isLoggedIn: boolean;
+    isLoading: boolean;
+}
+```
+
+  </div>
+</details>
+
+</div>
+
+</TabItem>
+<TabItem value="unity" label="Unity">
+<div>
+
+## Usage
+
+```csharp
+var data = await sdk.wallet.Authenticate("domain");
+```
+
+### Configuration
+
+#### domain
+
+The domain you used in your authentication backend.
+
+[Learn more about how auth works](/auth/how-auth-works/sign-in-with-wallet).
+
+Must be a `string`.
+
+#### Return Value
+
+Returns a `LoginPayload` struct containing the following properties:
+
+```csharp
+{
+  string signature;
+  {
+    string domain;
+    string address;
+    string statement;
+    string uri;
+    string version;
+    string chain_id;
+    string nonce;
+    string issued_at;
+    string expiration_time;
+    string invalid_before;
+    List<string> resources;
+  }
+}
+```
+
+</div>
+    </TabItem>
+</Tabs>

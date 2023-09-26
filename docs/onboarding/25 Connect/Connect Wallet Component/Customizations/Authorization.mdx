@@ -1,0 +1,30 @@
+---
+slug: /connect/connect-wallet/auth
+title: Authorization
+---
+
+Enforce that users must sign in with their wallet using [auth](/auth) after connecting their wallet.
+
+Requires the [`authConfig`](/react/react.thirdwebprovider#authconfig-optional) prop to be set on the [`ThirdWebProvider`](/react/react.thirdwebprovider) component.
+
+| Auth Prop Option | Type     | Default Value | Options           | Description                                                              |
+| ---------------- | -------- | ------------- | ----------------- | ------------------------------------------------------------------------ |
+| `loginOptional`  | boolean  | `false`       | `true` or `false` | Allow users to skip signing in with their wallet.                        |
+| `onLogin`        | function | N/A           | N/A               | Callback function that is called when a user signs in with their wallet. |
+| `onLogout`       | function | N/A           | N/A               | Callback function that is called when a user signs out of their wallet.  |
+
+```jsx
+import { ConnectWallet } from "@thirdweb-dev/react";
+
+function App() {
+  return (
+    <ConnectWallet
+      // highlight-start
+      auth={{
+        loginOptional: false,
+      }}
+      // highlight-end
+    />
+  );
+}
+```
