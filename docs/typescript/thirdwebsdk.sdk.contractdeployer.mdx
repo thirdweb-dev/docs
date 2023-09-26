@@ -92,6 +92,39 @@ An object containing the metadata for the contract to deploy.
 </div>
 </details>
 
+## deployPublishedContract
+
+Deploys any published contract
+
+```javascript
+const txResult = await sdk.deployer.deployPublishedContract(
+  "{{publisher_address_or_ens}}",
+  "{{contract_name}}",
+  [param1, param2],
+);
+```
+
+<details>
+
+#### publisher address
+
+address or ENS of the publisher address. ex: deployer.thirdweb.eth
+
+### contract name
+
+the name of the published contract to deploy. ex: TokenERC721
+
+### constructor arguments
+
+array of constructor arguments for the contract.
+
+### version
+
+version of the published contract. defaults to 'latest'.
+
+
+</details>
+
 ## deployProxy
 
 Deploy a proxy contract of a given implementation directly
