@@ -182,7 +182,7 @@ export const smartWalletConfig = smartWallet(personalWalletConfig, {
   gasless: true,
 });
 
-export function LocalSmartUseConnect() {
+function Example() {
   const connect = useConnect();
   const createWalletInstance = useCreateWalletInstance();
 
@@ -192,10 +192,11 @@ export function LocalSmartUseConnect() {
         // 1. create wallet instance of personal wallet
         const personalWallet = createWalletInstance(personalWalletConfig);
 
+        // this step is only required for localWallet(), not any other wallets
         // in this example we are generating a new wallet,
         // but you can also import existing wallet using import() method
         // or use the saved wallet from local storage using load() method
-        await personalWallet.generate(); // this is only required for localWallet(), not any other wallets
+        await personalWallet.generate();
 
         // 2. connect personal wallet
         await personalWallet.connect({
