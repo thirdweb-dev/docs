@@ -116,10 +116,9 @@ we need to pass a [`smartWallet`](/react/react.smartwallet) as a [`supportedWall
 To set up our configuration for the smart wallet add the following:
 
 ```tsx
-export const smartWalletConfig = smartWallet({
+export const smartWalletConfig = smartWallet(localWallet(), {
   factoryAddress: "your-factory-address",
   gasless: true,
-  personalWallets: [localWallet()],
 });
 ```
 
@@ -168,34 +167,52 @@ After connecting your personal wallet, a smart wallet is created for you and con
 The [useConnect](/react/react.useconnect) hook allows you to programmatically connect your application to the wallet. You will need to build your own UI for connecting the wallet.
 
 ```tsx
-import { useConnect, smartWallet } from "@thirdweb-dev/react";
+import {
+  useConnect,
+  smartWallet,
+  localWallet,
+  useCreateWalletInstance,
+} from "@thirdweb-dev/react";
+import { Goerli } from "@thirdweb-dev/chains";
 
-export const smartWalletConfig = smartWallet({
-  factoryAddress: "0x6B1F8bBF4Af9267C0a483Da53BaE1118eadC50C1",
+const personalWalletConfig = localWallet();
+
+export const smartWalletConfig = smartWallet(personalWalletConfig, {
+  factoryAddress: "0xE38fAC32BbA9F1Fe700a5D7f5630236171fa87e4",
   gasless: true,
-  personalWallets: [localWallet()],
 });
 
-function App() {
+function Example() {
   const connect = useConnect();
-  const personalWallet = new LocalWallet({
-    chain: "goerli",
-  });
-  await personalWallet.loadOrCreate({
-    strategy: "encryptedJson",
-    password: password,
-  });
+  const createWalletInstance = useCreateWalletInstance();
 
   return (
     <button
       onClick={async () => {
+        // 1. create wallet instance of personal wallet
+        const personalWallet = createWalletInstance(personalWalletConfig);
+
+        // this step is only required for localWallet(), not any other wallets
+        // in this example we are generating a new wallet,
+        // but you can also import existing wallet using import() method
+        // or use the saved wallet from local storage using load() method
+        await personalWallet.generate();
+
+        // 2. connect personal wallet
+        await personalWallet.connect({
+          chainId: Goerli.chainId,
+        });
+
+        // 3. connect to smart wallet
         const wallet = await connect(smartWalletConfig, {
           personalWallet: personalWallet,
+          chainId: Goerli.chainId,
         });
+
         console.log("connected to ", wallet);
       }}
     >
-      Connect to MetaMask
+      Connect
     </button>
   );
 }
@@ -209,28 +226,40 @@ To use this method, you will need to install the `@thirdweb-dev/wallets` package
 
 ```tsx
 import { ThirdwebSDKProvider } from "@thirdweb-dev/react";
-import { SmartWallet } from "@thirdweb-dev/wallets";
+import {
+  LocalWallet,
+  SmartWallet,
+  type SmartWalletConfig,
+  type WalletOptions,
+} from "@thirdweb-dev/wallets";
 import { Goerli } from "@thirdweb-dev/chains";
-import { Signer } from "ethers";
+import type { Signer } from "ethers";
+import { useState, useEffect, useRef } from "react";
 
 function MyComponent() {
-  const [signer, setSigner] = useState<Signer | null>(null);
+  const [signer, setSigner] = useState<Signer | undefined>(undefined);
 
   const config: WalletOptions<SmartWalletConfig> = {
-    chain: "goerli", // the chain where your smart wallet will be or is deployed
+    chain: Goerli, // the chain where your smart wallet will be or is deployed
     factoryAddress: "<your-factory-address>", // your own deployed account factory address
     clientId: "<your-client-id>", // obtained from the thirdweb dashboard
     gasless: true,
   };
 
+  const generated = useRef(false);
   useEffect(() => {
+    if (generated.current) {
+      return;
+    }
+    generated.current = true;
+
     const generateWallet = async () => {
       const personalWallet = new LocalWallet({
-        chain: "goerli",
+        chain: Goerli,
       });
       await personalWallet.loadOrCreate({
         strategy: "encryptedJson",
-        password: password,
+        password: "<user-password>",
       });
       const smartWallet = new SmartWallet(config);
       await smartWallet.connect({

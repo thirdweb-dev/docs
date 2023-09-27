@@ -81,18 +81,16 @@ All transactions performed with the smart wallet will then be gasless.
 <Tabs>
   <TabItem value="react" label="React">
     <CodeBlock language="tsx">
-    {`import { ThirdwebProvider, ConnectWallet, smartWallet } from "@thirdweb-dev/react";
+    {`import { ThirdwebProvider, ConnectWallet, smartWallet, metamaskWallet } from "@thirdweb-dev/react";
+const config = { factoryAddress: "0x...", gasless: true };
 export default function App() {
 return (
     <ThirdwebProvider
       clientId="YOUR_CLIENT_ID"
       activeChain="goerli"
       supportedWallets={[
-        smartWallet({
-          factoryAddress: "0x...",
-          gasless: true,
-          personalWallets={[...]}
-        })
+        smartWallet(metamaskWallet(), config),
+        smartWallet(coinbaseWallet(), config)
       ]}
     >
       <ConnectWallet />
@@ -211,7 +209,7 @@ export default function MyComponent() {
   return (
     <Web3Button
       contractAddress={"0x..."}
-      action={(contract) => contract.erc721.mint({ 
+      action={(contract) => contract.erc721.mint({
           name: "My NFT",
           description: "My NFT description",
           image: "https://example.com/image.png",
@@ -240,7 +238,7 @@ export default function MyComponent() {
   return (
     <Web3Button
       contractAddress={"0x..."}
-      action={(contract) => contract.erc721.mint({ 
+      action={(contract) => contract.erc721.mint({
           name: "My NFT",
           description: "My NFT description",
           image: "https://example.com/image.png",
@@ -266,13 +264,13 @@ const smartWalletAddress = await sdk.wallet.getAddress();
 // gas free wallet actions
 await sdk.wallet.transfer("0x...", "0.01");
 // gas free contract deployments
-const contractAddress = await sdk.deployer.deployNFTCollection({ 
-  name: "My NFT Collection", 
-  primary_sale_recipient: smartWalletAddress 
+const contractAddress = await sdk.deployer.deployNFTCollection({
+  name: "My NFT Collection",
+  primary_sale_recipient: smartWalletAddress
 });
 // gas free contract interactions
 const contract = await sdk.getContract(contractAddress);
-await contract.erc721.mint({ 
+await contract.erc721.mint({
   name: "My NFT",
   description: "My NFT description",
   image: "https://example.com/image.png",
