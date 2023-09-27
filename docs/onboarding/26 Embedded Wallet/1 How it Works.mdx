@@ -21,7 +21,7 @@ Embedded wallets are scoped to your app. If a user uses the same email to sign i
 
 **A private key is constructed on the user's device after they sign in.**
 
-We use **threshold secret sharing cryptography** to shard each private key to multiple, independent shards: (1) on the user's device, (2) stored in Amazon's KMS and encrypted by a key on a secure hardware security module (HSM) that can only be retrieved by the customer's auth, and (3) encrypted with another key, known by thirdweb, and stored on thirdweb's KMS server. The wallet is accessible with **two of these three** shards.
+We use **threshold secret sharing cryptography** to shard each private key to multiple, independent shards: (1) on the user's device, (2) stored in Amazon's KMS and encrypted by a key on a secure hardware security module (HSM) that can only be retrieved by the customer's auth, and (3) encrypted with a key, known by thirdweb, and stored on thirdweb's KMS server. The wallet only works when **two of these three** shards are present.
 
 Key advantages over standard wallets:
 
