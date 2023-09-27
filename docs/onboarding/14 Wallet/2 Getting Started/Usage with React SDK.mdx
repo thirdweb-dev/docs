@@ -98,7 +98,7 @@ function App() {
 
 ## 3. Using ThirdwebSDKProvider
 
-[ThirdwebSDKProvider](/react/react.thirdwebsdkprovider) is a lower level provider that accepts an arbitrary wallet and only handles contract interaction. This means you can use the Wallet SDK to programmatically connect to any wallet, and pass the connected wallet to this provider to execute transactions from the connected wallet.
+[ThirdwebSDKProvider](/react/react.thirdwebsdkprovider) is a lower level provider that accepts a signer and only handles contract interaction. This means you can use the Wallet SDK to programmatically connect to any wallet, and pass the connected signer to this provider to execute transactions from the connected wallet.
 
 ```tsx
 import { ThirdwebSDKProvider } from "@thirdweb-dev/react";
@@ -108,6 +108,7 @@ import { Signer } from "ethers";
 
 function MyComponent() {
   const [signer, setSigner] = useState<Signer | null>(null);
+
   // in this example we just generate a random wallet
   useEffect(() => {
     const generateWallet = async () => {
