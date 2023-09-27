@@ -10,7 +10,7 @@ import QuickstartCard from "@components/QuickstartCard";
 
 ## Quick Started
 
-The quickest way to get started is to use the interactive [Connect Wallet component builder](https://thirdweb.com/dashboard/wallets/connect).
+The quickest way to get started is to use the interactive [Connect Wallet component builder](https://thirdweb.com/dashboard/wallets/connect). It shows React specifically but most of the components are present in React Native.
 
 [This playground](https://thirdweb.com/dashboard/wallets/connect) allows you to modify the theme, size, and supported wallets of the Connect Wallet component and preview the changes in real time.
 
@@ -34,7 +34,7 @@ When you want to use a wallet with React Native SDK - Instead of importing the w
 
 This wallet configurator function contains additional metadata and UI for connecting the wallet which is shown in the [ConnectWallet](/react-native/react-native.connectwallet) component's Modal.
 
-You can find the list of all wallet configurators for React Native SDK [here](/react-native/wallets)
+You can find the list of all wallet configurators for React Native SDK [here](/react-native/react-native.walletconnect)
 
 You can connect to a wallet in two ways:
 
@@ -62,7 +62,13 @@ import {
 function MyApp() {
   return (
     <ThirdwebProvider
-      supportedWallets={[metamaskWallet(), trustWallet(), coinbaseWallet()]}
+      supportedWallets={[
+        metamaskWallet(),
+        trustWallet(),
+        coinbaseWallet({
+          callbackURL: new URL("your-callback-url"),
+        }),
+      ]}
       clientId="your-client-id"
     >
       <App />
@@ -75,11 +81,7 @@ function MyApp() {
 import { ConnectWallet } from "@thirdweb-dev/react-native";
 
 function App() {
-  return (
-    <div>
-      <ConnectWallet />
-    </div>
-  );
+  return <ConnectWallet />;
 }
 ```
 
@@ -96,14 +98,13 @@ function App() {
   const connect = useConnect();
 
   return (
-    <button
-      onClick={async () => {
+    <Button
+      title="Connect to MetaMask"
+      onPress={async () => {
         const wallet = await connect(metamask, connectOptions);
         console.log("connected to ", wallet);
       }}
-    >
-      Connect to MetaMask
-    </button>
+    />
   );
 }
 ```
