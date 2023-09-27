@@ -30,8 +30,8 @@ const products: Product[] = [
     link: "/smart-wallet",
   },
   {
-    image: "/assets/wallets/paper.png",
-    name: "Email Wallet",
+    image: "/assets/wallets/embedded-wallet.svg",
+    name: "Embedded Wallet",
     description:
       "Easily create and connect users with social or email wallets in your application",
     link: "/wallet/paper",
