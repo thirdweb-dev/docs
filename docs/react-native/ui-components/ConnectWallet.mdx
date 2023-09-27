@@ -133,6 +133,29 @@ function App() {
 }
 ```
 
+### modalTitleIconUrl (optional)
+
+Change the icon of the Connect Wallet Modal's title.
+
+The default is the thirdweb logo.
+
+If you pass an empty url, the icon will be hidden.
+
+It accepts regular image extensions and svgs.
+
+```jsx
+import { ConnectWallet } from "@thirdweb-dev/react-native";
+
+function App() {
+  return (
+    <ConnectWallet
+      // highlight-next-line
+      modalTitleIconUrl="https://path-to-the-icon"
+    />
+  );
+}
+```
+
 ### detailsButton (optional)
 
 Render a custom button to display connected wallet details
