@@ -29,7 +29,7 @@ export const iconMapping = {
   Solana: "/assets/product/sdk.png",
   "Wallet SDK": "/assets/product/wallet.png",
   "Smart Wallet": "/assets/wallets/smart-wallet.svg",
-  "Email Wallet": "/assets/wallets/paper.png",
+  "Embedded Wallet": "/assets/wallets/embedded-wallet.svg",
   "Signature Minting": "/assets/product/sdk.png",
   GamingKit: "/assets/solutions/gaming.png",
   CommerceKit: "/assets/solutions/commerce.png",

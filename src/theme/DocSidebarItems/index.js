@@ -31,7 +31,13 @@ function DocSidebarItems({ items, ...props }) {
     },
     {
       title: "Wallets",
-      items: ["Wallet SDK", "Connect", "Smart Wallet", "Email Wallet", "Auth"],
+      items: [
+        "Wallet SDK",
+        "Connect",
+        "Smart Wallet",
+        "Embedded Wallet",
+        "Auth",
+      ],
     },
     {
       title: "Contracts",
@@ -91,6 +97,10 @@ function DocSidebarItems({ items, ...props }) {
 
     if (formatted === "Pre-built-contracts") {
       return "Pre-Built Contracts";
+    }
+
+    if (formatted === "Embedded-wallet") {
+      return "Embedded Wallet";
     }
 
     if (formatted === "Web3-api") {
