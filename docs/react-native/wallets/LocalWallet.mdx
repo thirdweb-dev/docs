@@ -1,0 +1,85 @@
+---
+title: LocalWallet
+slug: /react-native.localwallet
+displayed_sidebar: react-native
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+import { CustomizeWalletConfiguratorRN } from "@components/build-wallet/CustomizeWalletConfiguratorRN";
+
+A wallet configurator for [Local Wallet](/wallet/local-wallet) which allows integrating the wallet with React
+
+```tsx
+import { localWallet } from "@thirdweb-dev/react-native";
+
+const localWalletConfig = localWallet(options);
+```
+
+<CustomizeWalletConfiguratorRN
+  config="localWalletConfig"
+  configurator="localWallet"
+  connectUI="LocalWalletConnectUI"
+  selectUI="LocalWalletSelectUI"
+/>
+
+## Usage with `ConnectWallet`
+
+To allow users to connect to this wallet using the [ConnectWallet](/react-native/react-native.connectwallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop.
+
+```tsx
+<ThirdwebProvider supportedWallets={[localWallet()]} clientId="your-client-id">
+  <YourApp />
+</ThirdwebProvider>
+```
+
+## Usage with `useConnect`
+
+you can use the `useConnect` hook to programmatically connect to the wallet without using the [ConnectWallet](/react-native/react-native.connectwallet) component.
+
+The wallet also needs to be added in [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) if you want the wallet to auto-connect on next page load.
+
+```tsx
+const localWalletConfig = localWallet();
+
+function App() {
+  const connect = useConnect();
+
+  const handleConnect = async () => {
+    await connect(localWalletConfig, connectOptions);
+  };
+
+  return <App />;
+}
+```
+
+### connectOptions
+
+```ts
+{ chainId?: number } | undefined
+```
+
+<details>
+  <summary>chainId (optional)</summary>
+<div>
+
+If `chainId` is provided, wallet will be connected to network with given `chainId`.
+
+`Chain` object corresponding to this chainId from [@thirdweb-dev/chains](https://www.npmjs.com/package/@thirdweb-dev/chains) package must be specified in [ThirdwebProvider's supportedChains](/react-native/react-native.thirdwebprovider#supportedchains-optional) prop as shown below
+
+```tsx
+import { Polygon } from "@thirdweb-dev/chains";
+import { ThirdwebProvider } from "@thirdweb-dev/react-native";
+
+export function YourApp() {
+  return (
+    <ThirdwebProvider supportedChains={[Polygon]} clientId="your-client-id">
+      <App />
+    </ThirdwebProvider>
+  );
+}
+```
+
+</div>
+</details>

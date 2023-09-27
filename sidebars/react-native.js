@@ -29,9 +29,51 @@ const sidebars = {
       id: "getting-started",
     },
     {
-      type: "doc",
+      type: "category",
       label: "Wallets",
-      id: "wallets",
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          label: "Wallet Connect",
+          id: "wallets/WalletConnect",
+        },
+        {
+          type: "doc",
+          label: "MetaMask",
+          id: "wallets/MetaMask",
+        },
+        {
+          type: "doc",
+          label: "Magic",
+          id: "wallets/Magic",
+        },
+        {
+          type: "doc",
+          label: "Rainbow",
+          id: "wallets/Rainbow",
+        },
+        {
+          type: "doc",
+          label: "Trust",
+          id: "wallets/Trust",
+        },
+        {
+          type: "doc",
+          label: "Coinbase",
+          id: "wallets/Coinbase",
+        },
+        {
+          type: "doc",
+          label: "Local Wallet",
+          id: "wallets/LocalWallet",
+        },
+        {
+          type: "doc",
+          label: "Smart Wallet",
+          id: "wallets/SmartWallet",
+        },
+      ],
     },
     {
       type: "category",
