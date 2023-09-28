@@ -69,8 +69,8 @@ As an example for a POST method, let's modify our script to deploy an ERC20 Cont
      headers: {
        accept: "application/json",
        "content-type": "application/json",
-       Authorization: `Bearer ${<thirdweb_secret_key>}`, `x-wallet-address: ${process.env.WALLET_ADDRESS}`
-
+       Authorization: `Bearer ${<thirdweb_secret_key>}`, 
+       "x-wallet-address": ${process.env.WALLET_ADDRESS}`
      },
      body: JSON.stringify({
        name: "HelloWorldCoin",
