@@ -19,6 +19,7 @@ This section involves the basic blockchain configurations. Adjust the following 
 - `Chain`: The identifier for the default blockchain to use.
 - `Supported Chains`: A list of all blockchains your game /api-keyssupports. For each chain, provide an identifier, a chain ID, and optionally, an RPC override.
 - `Client ID`: Thirdweb [API Key](https://thirdweb.com/api-key). Used for default thirdweb services such as Storage and Account Abstraction.
+- `Bundle ID Override`: Optional override for the bundle ID used by thirdweb services. Defaults to Application Identifier and can be fetched using `Utils.GetBundleId()`.
 - `Initialize On Awake`: Whether the SDK should initialize on awake or not. If not, you can call `ThirdwebManager.Instance.Initialize("chain-identifier")` to initialize it manually.
 - `Show Debug Logs`: Whether to show thirdweb sdk debug logs.
 
@@ -70,9 +71,10 @@ These settings are required to set up a smart wallet. Adjust the following:
 
 This section allows you to provide GameObject prefabs for native wallet providers, which will be instantiated at runtime. Adjust the following:
 
-- `WalletConnect Prefab`: The prefab for WalletConnect's UI/behavior.
-- `Metamask Prefab`: The prefab for Metamask's UI/behavior.
-- `Paper Prefab`: The prefab for Paper's UI/behavior.
+- `WalletConnect Prefab`: The prefab for WalletConnect's customizeable UI/behavior.
+- `Metamask Prefab`: The prefab for Metamask's customizeable UI/behavior.
+- `Paper Prefab`: The prefab for Paper's customizeable UI/behavior.
+- `EmbeddedWallet Prefab`: The prefab for EmbeddedWallet's customizeable UI/behavior.
 
 ## Accessing the SDK
 
