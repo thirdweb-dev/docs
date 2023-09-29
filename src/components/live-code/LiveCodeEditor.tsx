@@ -22,7 +22,7 @@ function LiveCodeEditor({ code, additionalScope, network }: Props) {
 
   return (
     // Default to goerli if no network is provided
-    <ThirdwebProvider activeChain={network || "goerli"}>
+    <ThirdwebProvider activeChain={network || "goerli"} autoConnect={false}>
       <LiveProvider
         code={code}
         scope={{
@@ -59,7 +59,7 @@ function LiveCodeEditor({ code, additionalScope, network }: Props) {
 
 function WrappedLiveCodeEditor(props: Props) {
   return (
-    <ThirdwebProvider activeChain="goerli">
+    <ThirdwebProvider activeChain="goerli" autoConnect={false}>
       <LiveCodeEditor {...props} />
     </ThirdwebProvider>
   );
