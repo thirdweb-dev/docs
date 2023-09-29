@@ -1,5 +1,5 @@
 ---
-title: Connect Wallet Button
+title: ConnectWallet
 slug: /react.connectwallet
 displayed_sidebar: react
 ---
@@ -9,19 +9,35 @@ import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 import ConnectWalletEditor from "@components/live-code/snippets/ConnectWalletEditor";
 
-Button to connect a user&rsquo;s wallet to your app, with support for MetaMask, Coinbase, WalletConnect, Safe Wallet and Embedded Wallet.
+# ConnectWallet
 
-Wallets you provide to the [`ThirdwebProvider`'s supportedWallets](/react/react.thirdwebprovider#supportedWallets)
-prop are shown as options in the ConnectWallet button&rsquo;s Modal.
-If this prop is not provided, the default values are shown (MetaMask, Coinbase Wallet, WalletConnect).
+<div style={{
+  display: 'flex',
+  justifyContent: 'center',
+  marginBottom: '40px',
+}}>
+<img
+  src="/assets/connect-wallet/connect-wallet-hero.webp"
+  style={{
+    maxWidth: "600px",
+}}
+/>
 
-```jsx
-import { ConnectWallet } from "@thirdweb-dev/react";
-```
+</div>
+
+ConnectWallet component renders a button which when clicked opens a modal to allow users to connect to wallets specified in the [`ThirdwebProvider`'s supportedWallets](/react/react.thirdwebprovider#supportedWallets) prop.
+
+If `supportedWallets` is not configured in the `ThirdwebProvider`, the ConnectWallet Modal shows the below shown default wallets:
+
+- [MetaMask](/react/react.metamaskwallet)
+- [Coinbase Wallet](/react/react.coinbasewallet)
+- [WalletConnect](/react/react.walletconnect)
+- [Rainbow](/react/react.rainbowWallet)
+- [Trust Wallet](/react/react.trustWallet)
+- [Zerion Wallet](/react/react.zerion)
+- [Phantom](/react/react.phantom)
 
 ## Usage
-
-Render the `ConnectWallet` component to display the button.
 
 ```jsx
 import { ConnectWallet } from "@thirdweb-dev/react";
@@ -33,82 +49,113 @@ function App() {
 
 ## Live Demo
 
-<ConnectWalletEditor />
+:::info
 
-## Configuration
+Try out ConnectWallet in action on [ConnectWallet Playground!](https://thirdweb.com/dashboard/wallets/connect)
+:::
 
-### modalSize (optional)
+## Props
 
-ConnectWallet modal has two sizes - "wide" and "compact"
+### Appearance
+
+<details id='modalSize' >
+  <summary> modalSize </summary>
+  <div>
+
+ConnectWallet component's Modal has two size variants - "wide" and "compact"
 
 The default is `"wide"` for desktop and `"compact"` for mobile devices
 
-ConnectWallet Modal is always `"compact"` on mobile and the `modalSize` prop is ignored.
+Note that it is always `"compact"` on mobile even if you set it as `"wide"` because of size constraints on mobile devices.
 
-### theme (optional)
+<br />
 
-Change the theme of Connect Wallet UI to `"light"` or `"dark"` mode, to match the color theme of your app.
+#### Wide
 
-The default value is `"dark"`.
+The wide modal shows a Welcome Screen on the right side of the Modal which is fully customize via the `welcomeScreen` prop.
 
-```jsx
-import { ConnectWallet } from "@thirdweb-dev/react";
-
-function App() {
-  return (
-    <ConnectWallet
-      // highlight-next-line
-      theme="dark"
-    />
-  );
-}
+```tsx
+<ConnecWallet modalSize="wide" />
 ```
 
-You can also create a custom theme by passing an object. To do this, you can use `darkTheme`
-or `lightTheme` functions to use light / dark theme as base and override it
+<img src="/assets/connect-wallet/connect-wallet-dark-wide.png" />
+
+<br />
+<br />
+
+#### Compact
+
+```tsx
+<ConnecWallet modalSize="compact" />
+```
+
+<img src="/assets/connect-wallet/connect-wallet-dark-compact.png" />
+
+  </div>
+</details>
+
+<details id='theme'>
+  <summary> theme </summary>
+  <div>
+
+Set the theme to either `"light"` or `"dark"` or pass a custom theme object to completely customize the look and feel of the ConnectWallet Modal.
+
+The default is `"dark"`
+
+```jsx
+<ConnectWallet theme="dark" />
+```
+
+<br />
+
+#### Create a custom theme
+
+Instead of passing an object along with all the required colors, you can use the `darkTheme` or `lightTheme` functions to use light / dark theme as base and override just the parts you want to change.
 
 ```tsx
 import { darkTheme, lightTheme } from "@thirdweb-dev/react";
 
-<ConnectWallet
-  // highlight-next-line
-  theme={darkTheme({
-    fontFamily: "Inter, sans-serif",
-    colors: {
-      modalBg: "#000000",
-      accentText: "red",
-      // ... etc
-    },
-  })}
-/>;
+const customDarkTheme = darkTheme({
+  fontFamily: "Inter, sans-serif",
+  colors: {
+    modalBg: "#000000",
+    accentText: "red",
+    // ... etc
+  },
+});
+
+<ConnectWallet theme={customDarkTheme} />;
 ```
 
-### btnTitle (optional)
+</div>
+</details>
 
-Change the text the button displays while in the disconnected state.
+<details id='btnTitle'>
+  <summary> btnTitle </summary>
+  <div>
 
-The default value is `"Connect Wallet"`.
+Change the text on button when the ConnectWallet button is in the disconnected state.
 
-```jsx
-import { ConnectWallet } from "@thirdweb-dev/react";
+The default is `"Connect Wallet"`
 
-function App() {
-  return (
-    <ConnectWallet
-      // highlight-next-line
-      btnTitle="Connect Wallet"
-    />
-  );
-}
+```tsx
+<ConnectWallet btnTitle="Login" />
 ```
 
-### Customize "Welcome Screen" for wide modal
+  </div>
+</details>
 
-On wide modal, a welcome screen is shown on the right side of the modal.
+<details id='welcomeScreen'>
+  <summary> welcomeScreen </summary>
+  <div>
+
+This prop is only applicable when `modalSize` prop is set to `"wide"`. On "wide" Modal size, a welcome screen is shown on the right side of the modal.
 
 This screen can be customized in two ways
 
-#### 1. customize metadata
+<br />
+
+#### Customize Metadata and Image
 
 ```tsx
 <ConnectWallet
@@ -124,7 +171,9 @@ This screen can be customized in two ways
 />
 ```
 
-#### 2. Render custom component
+<br />
+
+#### Render Custom Component
 
 ```tsx
 <ConnectWallet
@@ -134,126 +183,101 @@ This screen can be customized in two ways
 />
 ```
 
-### modalTitle (optional)
+  </div>
+</details>
 
-Change the title of Connect Wallet Modal's title
+<details id='modalTitle'>
+  <summary> modalTitle </summary>
+  <div>
 
-The default is `"Connect"`.
+Change the title of ConnectWallet Modal
 
-```jsx
-import { ConnectWallet } from "@thirdweb-dev/react";
-
-function App() {
-  return (
-    <ConnectWallet
-      // highlight-next-line
-      modalTitle="Login"
-    />
-  );
-}
-```
-
-### detailsBtn (optional)
-
-Render a custom button to display connected wallet details
+The default is `"Connect"`
 
 ```jsx
-import { ConnectWallet } from "@thirdweb-dev/react";
-
-function App() {
-  return (
-    <ConnectWallet
-      // highlight-start
-      detailsBtn={() => {
-        return <button> .... </button>;
-      }}
-      // highlight-end
-    />
-  );
-}
+<ConnectWallet modalTitle="Login" />
 ```
 
-### auth (optional)
+  </div>
+</details>
 
-Enforce that users must sign in with their wallet using [auth](/auth) after connecting their wallet.
+<details id='detailsBtn'>
+  <summary> detailsBtn </summary>
+  <div>
 
-Requires the [`authConfig`](/react/react.thirdwebprovider#authconfig) prop to be set on the [`ThirdWebProvider`](/react/react.thirdwebprovider) component.
+Render a custom button to display connected wallet details instead of the default one
 
 ```jsx
-import { ConnectWallet } from "@thirdweb-dev/react";
-
-function App() {
-  return (
-    <ConnectWallet
-      // highlight-start
-      auth={{
-        loginOptional: false,
-      }}
-      // highlight-end
-    />
-  );
-}
+<ConnectWallet
+  detailsBtn={() => {
+    return <button> .... </button>;
+  }}
+/>
 ```
 
-### className (optional)
+  </div>
+</details>
 
-Apply custom CSS styles to the button.
+<details id='className'>
+  <summary> className </summary>
 
-:::info
+  <div>
 
-For some specific CSS properties, you may need to apply the
+This class is applied to the ConnectWallet button ( not the modal ). Using this className, you can further customize the button's styles using custom CSS.
+
+For some CSS properties, you may need to use the
 [`!important`](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity#the_!important_exception)
-CSS rule to override the default styles
-
-:::
+to override the default styles
 
 ```jsx
-import { ConnectWallet } from "@thirdweb-dev/react";
-
-function App() {
-  return (
-    <ConnectWallet
-      // highlight-next-line
-      className="my-custom-class"
-    />
-  );
-}
+<ConnectWallet className="my-custom-class" />
 ```
 
-### switchToActiveChain (optional)
+  </div>
+</details>
 
-Specify whether to show a "Switch Network" button after the wallet is connected but it is not connected to the [activeChain](/react/react.thirdwebprovider#activechain-recommended) set in [ThirdwebProvider](react/react.thirdwebprovider) to encourage the user to switch to the correct network in their wallet.
+<details id='dropdownPosition'>
+  <summary> dropdownPosition </summary>
+  <div>
 
-[activeChain](/react/react.thirdwebprovider#activechain-recommended) must be explicitly set in [ThirdwebProvider](react/react.thirdwebprovider) for this to work.
+When user connects the wallet using ConnectWallet Modal, a "Details Button" is rendered. Clicking on this button opens a dropdown which opens in a certain direction relative to the Details button.
 
-By default, it is set to `false`.
-
-```jsx
-<ConnectWallet switchToActiveChain={true} />
-```
-
-### dropdownPosition (optional)
-
-Specify where should the dropdown menu open relative to the Connect Wallet Button.
+`dropdownPosition` prop allows you to customize the direction the dropdown should open relative to the Details button
 
 ```jsx
 <ConnectWallet
   dropdownPosition={{
-    side: "bottom", // "top" | "bottom" | "left" | "right";
+    side: "bottom", //  "top" | "bottom" | "left" | "right";
     align: "end", // "start" | "center" | "end";
   }}
 />
 ```
 
-### hideTestnetFaucet (optional)
+<img src="/assets/connect-wallet/connect-wallet-details-open-dark.png" />
 
-Hide option to request testnet funds for testnets in dropdown
+  </div>
+</details>
+
+<details id='hideTestnetFaucet'>
+  <summary> hideTestnetFaucet </summary>
+  <div>
+
+Hide the "Request Testnet funds" link in ConnectWallet dropdown which is shown when user is connected to a testnet.
+
+Default is `false`
 
 ```jsx
-<ConnectWallet hideTestnetFaucet={true} />
+<ConnectWallet hideTestnetFaucet={false} />
 ```
 
-### Show "Terms of Service" and/or "Privacy Policy" links
+<img src="/assets/connect-wallet/details-open-faucet-dark.png" />
+
+  </div>
+</details>
+
+<details id='terms-of-service'>
+  <summary> termsOfServiceUrl and privacyPolicyUrl </summary>
+  <div>
 
 You can show a "Terms of Service" and/or "Privacy Policy" link in the ConnectWallet Modal by passing the `termsOfServiceUrl` and/or `privacyPolicyUrl` props
 
@@ -264,11 +288,18 @@ You can show a "Terms of Service" and/or "Privacy Policy" link in the ConnectWal
 />
 ```
 
-## supportedTokens (optional)
+<img src="/assets/connect-wallet/tos-privacy-links-dark.png" />
+
+  </div>
+</details>
+
+<details id='supportedTokens'>
+  <summary> supportedTokens </summary>
+  <div>
 
 Customize the tokens shown in the "Send Funds" screen for various networks.
 
-By default, The "Send Funds" screen shows a few popular tokens on for default chains and the native token. For other chains it only shows the native token.
+By default, The "Send Funds" screen shows a few popular tokens for default chains and the native token. For other chains it only shows the native token.
 
 <img src="/assets/wallets/select-token-dark.png" />
 
@@ -290,24 +321,19 @@ import { Base } from "@thirdweb-dev/chains";
         symbol: "DAI",
         icon: "https://assets.coingecko.com/coins/images/9956/small/Badge_Dai.png?1687143508",
       },
-      // ...etc
     ],
   }}
 />;
 ```
 
-<div style={{
-  display: "flex",
-  justifyContent: "center",
-}}>
-<img
-  src="/assets/wallets/select-funds-dai-token-base.png"
-  width="500"
-/>
+<img src="/assets/connect-wallet/custom-token-list-dark.png" />
 
 </div>
+</details>
 
-### displayBalanceToken
+<details id='displayBalanceToken'>
+  <summary> displayBalanceToken </summary>
+  <div>
 
 Display the balance of a token instead of the native token in ConnectWallet details button.
 
@@ -330,3 +356,50 @@ Display the balance of a token instead of the native token in ConnectWallet deta
 />
 
 </div>
+
+  </div>
+</details>
+
+### Functionality
+
+<details id="auth">
+  <summary> auth </summary>
+  <div>
+
+Enforce that users must sign in with their wallet using [auth](/auth) after connecting their wallet.
+
+Requires the [`authConfig`](/react/react.thirdwebprovider#authconfig) prop to be set on the [`ThirdWebProvider`](/react/react.thirdwebprovider) component.
+
+```jsx
+<ConnectWallet
+  auth={{
+    loginOptional: false,
+    onLogin(token) {
+      console.log("user logged in", token);
+    },
+    onLogout() {
+      console.log("user logged out");
+    },
+  }}
+/>
+```
+
+  </div>
+</details>
+
+<details id="switchToActiveChain">
+  <summary> switchToActiveChain </summary>
+  <div>
+
+Specify whether to show a "Switch Network" button after the wallet is connected and it is not connected to the [activeChain](/react/react.thirdwebprovider#activechain-recommended) set in [ThirdwebProvider](react/react.thirdwebprovider) to encourage the user to switch to the correct network in their wallet.
+
+[activeChain](/react/react.thirdwebprovider#activechain-recommended) must be explicitly set in [ThirdwebProvider](react/react.thirdwebprovider) for this to work.
+
+default is `false`.
+
+```jsx
+<ConnectWallet switchToActiveChain={true} />
+```
+
+  </div>
+</details>
