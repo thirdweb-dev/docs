@@ -1,0 +1,61 @@
+---
+slug: /embedded-wallet/auth
+title: Authenticate a User
+---
+
+## Prompt login with a prebuilt modal (Recommended)
+
+Open a prebuilt modal to prompt the user to sign in with email or social login.
+
+```typescript
+import { EmbeddedWallet } from "@thirdweb-dev/wallets";
+
+const embeddedWallet = new EmbeddedWallet();
+await embeddedWallet.connect();
+```
+
+If the user is already logged in, this modal is skipped and the method returns.
+
+This method throws an exception if the user closes the modal.
+
+## Prompt email one-time passcode (OTP) modal (Advanced)
+
+If the user's email is already known, email them a one-time passcode emailed and prompt them to verify it.
+
+```typescript
+import { EmbeddedWallet } from "@thirdweb-dev/wallets";
+
+// regular flow with prestyled modal that directly prompts for email otp
+const embeddedWallet = new EmbeddedWallet();
+await embeddedWallet.connect({
+  loginType: "ui_email_otp",
+  email: "user@example.com",
+});
+```
+
+If the user is already logged in, this modal is skipped and the method returns.
+
+## Login with Google with your own UX (Advanced)
+
+Headless method for login with Google.
+
+```typescript
+import { EmbeddedWallet } from "@thirdweb-dev/wallets";
+
+// headless login with google
+const googleWindow = window.open("", "Login", "width=350, height=500");
+if (!googleWindow) {
+  throw new Error("Failed to open google login window");
+}
+
+// make sure to call this after a user event - button click etc.
+await embeddedWallet.connect({
+  loginType: "headless_google_oauth",
+  // the following are not strictly required but highly recommended
+  // mainly to prevent bowser from blocking pop-ups
+  openedWindow: googleWindow,
+  closeOpenedWindow: (openedWindow) => {
+    openedWindow.close();
+  },
+});
+```
