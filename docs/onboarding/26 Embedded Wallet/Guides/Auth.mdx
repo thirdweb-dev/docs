@@ -42,6 +42,7 @@ Headless method for login with Google.
 ```typescript
 import { EmbeddedWallet } from "@thirdweb-dev/wallets";
 
+const embeddedWallet = new EmbeddedWallet();
 // headless login with google
 const googleWindow = window.open("", "Login", "width=350, height=500");
 if (!googleWindow) {
