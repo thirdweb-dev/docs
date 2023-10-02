@@ -10,44 +10,34 @@ import QuickstartCard from "@components/QuickstartCard";
 
 ## Quick Started
 
-The quickest way to get started is to use the interactive [Connect Wallet component builder](https://thirdweb.com/dashboard/wallets/connect).
+The quickest way to get started is to use the interactive [ConnectWallet playground ](https://thirdweb.com/dashboard/wallets/connect).
 
-[This playground](https://thirdweb.com/dashboard/wallets/connect) allows you to modify the theme, size, and supported wallets of the Connect Wallet component and preview the changes in real time.
-
-You can then copy the code snippet and add it directly to your app.
-
-For details on how to use the Connect Wallet component in an app and set up a project, read the guide below and use your generated code snippet for the `ConnectWallet` component.
+It allows you to customize ConnectWallet component and preview the changes in real time, You can then copy the code snippet and add it directly to your app.
 
 <br />
 
 <div className="col col--12" style={{ padding: 8 }}>
   <QuickstartCard
-    name="Connect Wallet Component Builder"
+    name="Try out ConnectWallet Playground"
     link="https://thirdweb.com/dashboard/wallets/connect"
     image="/assets/product/connect-wallet.png"
   />
 </div>
 
-## Guide
+## Get Started
 
-When you want to use a wallet with React SDK - Instead of importing the wallet from `@thirdweb-dev/wallets`, you need to import its “wallet configurator” function from the `@thirdweb-dev/react` package.
+Refer to [Getting Started with React SDK](/react/getting-started) and set up ThirdwebProvider in your project.
 
-This wallet configurator function contains additional metadata and UI for connecting the wallet which is shown in the [ConnectWallet](/react/react.connectwallet) component's Modal.
-
-You can find the list of all wallet configurators for React SDK [here](/react/connecting-wallets)
+You can find the list of all wallets for React SDK [here](/react/connecting-wallets)
 
 You can connect to a wallet in two ways:
 
-1. using [ConnectWallet](/react/react.connectwallet) component for a prebuilt solution with UI
-2. using [useConnect](/react/react.useconnect) hook to build a custom solution
+1. using [ConnectWallet](/react/react.connectwallet) component for prebuilt UI
+2. using [useConnect](/react/react.useconnect) hook to build a custom UI
 
 ## 1. Using ConnectWallet
 
-[ConnectWallet](/react/react.connectwallet) component allows you to connect to wallets that are specified in [ThirdwebProvider](/react/react.thirdwebprovider#supportedwallets-optional)
-
-Clicking on the `ConnectWallet` button shows wallets in a Modal and shows wallet-specific UI for connecting the wallet when it is selected (This UI is defined in the wallet configurator itself, not in `ConnectWallet` component)
-
-<img src="../assets/compact-dark-social.png" />
+ConnectWallet component renders a button which when clicked opens a modal to allow users to connect to wallets specified in the [ThirdwebProvider's supportedWallets](http://localhost:3000/react/react.thirdwebprovider#supportedWallets) prop.
 
 #### Example
 
@@ -58,8 +48,9 @@ import {
   coinbaseWallet,
   walletConnect,
 } from "@thirdweb-dev/react";
+import { ConnectWallet } from "@thirdweb-dev/react";
 
-// provide supported wallets to ThirdwebProvider
+// wrap your app with ThirdwebProvider and pass supported wallets
 
 function MyApp() {
   return (
@@ -77,12 +68,8 @@ function MyApp() {
     </ThirdwebProvider>
   );
 }
-```
 
-```tsx
-import { ConnectWallet } from "@thirdweb-dev/react";
-
-// render ConnectWallet button wherever you want
+// render ConnectWallet in your app
 
 function App() {
   return (
@@ -95,7 +82,7 @@ function App() {
 
 ## 2. Using useConnect hook
 
-[useConnect](/react/react.useconnect) hook allows you to programmatically connect to the wallet. You will need to build your own UI for connecting the wallet.
+[useConnect](/react/react.useconnect) hook allows you to programmatically connect to the wallet which allows you to create a custom UI for connecting to the wallet.
 
 ```tsx
 import { useConnect, metamaskWallet } from "@thirdweb-dev/react";
@@ -108,7 +95,7 @@ function App() {
   return (
     <button
       onClick={async () => {
-        const wallet = await connect(metamask, connectOptions);
+        const wallet = await connect(metamask);
         console.log("connected to ", wallet);
       }}
     >
@@ -117,56 +104,6 @@ function App() {
   );
 }
 ```
-
-## 3. Using ThirdwebSDKProvider
-
-[ThirdwebSDKProvider](/react/react.thirdwebsdkprovider) is a lower level provider that accepts an arbitrary wallet and only handles contract interaction. This means you can use the Wallet SDK to programmatically connect to any wallet, and pass the connected wallet to this provider to execute transactions from the connected wallet.
-
-```tsx
-import { ThirdwebSDKProvider } from "@thirdweb-dev/react";
-import { LocalWallet } from "@thirdweb-dev/wallets";
-import { Goerli } from "@thirdweb-dev/chains";
-import { Signer } from "ethers";
-
-function MyComponent() {
-  const [signer, setSigner] = useState<Signer | null>(null);
-  // in this example we just generate a random wallet
-  useEffect(() => {
-    const generateWallet = async () => {
-      const localWallet = new LocalWallet({
-        chain: Goerli,
-      });
-      await localWallet.generate();
-      await localWallet.connect();
-      setSigner(await localWallet.getSigner());
-    };
-    generateWallet();
-  }, []);
-
-  // The provider will handle maintaining the connected wallet
-  // calling contracts from within the provider with the regular hooks
-  // will execute on behalf of the provided wallet signer
-  return (
-    <ThirdwebSDKProvider
-      activeChain={Goerli}
-      signer={signer}
-      clientId="your-client-id"
-    >
-      <App />
-    </ThirdwebSDKProvider>
-  );
-}
-```
-
-<br />
-
-:::info
-
-If you are building your own wallet and want to use it with React SDK
-you will need to create a wallet configurator as mentioned in [Build a wallet guide](/wallet/build-a-wallet#3-integrate-with-connect-wallet-button)
-where you can define a custom UI for connecting your wallet that will be shown in the ConnectWallet modal
-
-:::
 
 <br />
 
