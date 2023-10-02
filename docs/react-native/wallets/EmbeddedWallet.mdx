@@ -1,0 +1,38 @@
+---
+title: embeddedWallet
+slug: /react-native.embeddedwallet
+displayed_sidebar: react-native
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+import { CustomizeWalletConfiguratorRN } from "@components/build-wallet/CustomizeWalletConfiguratorRN";
+
+A wallet configurator for [Embedded Wallet](/wallet/embedded-wallet) which allows integrating the wallet with React Native
+
+```tsx
+import { embeddedWallet } from "@thirdweb-dev/react-native";
+
+const embeddedWalletConfig = embeddedWallet();
+```
+
+<CustomizeWalletConfiguratorRN
+  config="embeddedWalletConfig"
+  configurator="embeddedWallet"
+  connectUI="embeddedWalletConnectUI"
+  selectUI="embeddedWalletSelectUI"
+/>
+
+## Usage with `ConnectWallet`
+
+To allow users to connect to this wallet using the [ConnectWallet](/react-native/react-native.connectwallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop.
+
+```tsx
+<ThirdwebProvider
+  clientId="your-client-id"
+  supportedWallets={[embeddedWallet()]}
+>
+  <YourApp />
+</ThirdwebProvider>
+```
