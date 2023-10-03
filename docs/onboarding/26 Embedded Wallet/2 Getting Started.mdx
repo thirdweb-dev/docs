@@ -47,6 +47,7 @@ import {
 export default function App() {
   return (
     <ThirdwebProvider
+      activeChain="goerli"
       clientId="YOUR_CLIENT_ID"
       supportedWallets={[embeddedWallet()]}
     >
@@ -98,7 +99,7 @@ wallet.connect();
 ```
 
 </div>
-  
+
   </TabItem>
   <TabItem value="unity" label="Unity">
     <div>
@@ -124,6 +125,6 @@ public async void ConnectWallet()
 ```
 
 </div>
-  
+
   </TabItem>
 </Tabs>

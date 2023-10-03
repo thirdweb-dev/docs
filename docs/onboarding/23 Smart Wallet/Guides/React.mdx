@@ -64,7 +64,7 @@ To create an API Key:
 - Give your API key a name and click **Next**.
 - Make sure that the **Smart Wallets** services are enabled, and any addresses that your deployed smart accounts interact with are added to the **Allowed Contract Addresses** section:
 
-![Create API Key](/assets/dashboard/create-api-key-combined.png)
+![Create API Key](/assets/dashboard/create-api-key-two-step.png)
 
 - Click **Next** and then add your local host and production/preview domains to the **Set Access Restrictions** section. Click "Create" to create your key.
 - Copy your **Secret Key** and store it in a safe place like a password manager. You will not be able to see this key again.
@@ -111,20 +111,22 @@ This will detect the environment you are working in and install the relevant dep
 ## 1. Using Connect Wallet
 
 To use the [Connect Wallet](/react/react.connectwallet) component to connect your users to your app using smart wallet,
-we need to pass a [`smartWallet`](/react/react.smartwallet) as a [`supportedWallet`](/react/react.thirdwebprovider#supportedwallets-optional) to the [`ThirdwebProvider`](/react/react.thirdwebprovider).
+we need to pass a [`smartWallet`](/react/react.smartwallet) to the [`supportedWallets`](/react/react.thirdwebprovider#supportedwallets-optional) prop in [`ThirdwebProvider`](/react/react.thirdwebprovider).
 
-To set up our configuration for the smart wallet add the following:
+You can change the configuration based on your requirements,
+but for this demo, we will enable **gasless transactions** and use a [localWallet](/react/react.localwallet) as the personal wallet.
+You can learn more about the configuration [here](https://portal.thirdweb.com/react/react.smartwallet).
 
 ```tsx
-export const smartWalletConfig = smartWallet(localWallet(), {
+import { smartWallet, localWallet } from "@thirdweb-dev/react";
+
+const personalWallet = localWallet(); // or any other wallet
+
+export const smartWalletConfig = smartWallet(personalWallet, {
   factoryAddress: "your-factory-address",
   gasless: true,
 });
 ```
-
-You can change the configuration based on your requirements,
-but for this demo, we will enable **gasless transactions** and use a [local wallet](/wallet/local-wallet) as the personal wallet.
-You can learn more about the configuration [here](https://portal.thirdweb.com/react/react.smartwallet).
 
 Pass the configuration to the provider:
 
@@ -152,15 +154,15 @@ function App() {
 }
 ```
 
-Since we already added Smart Wallet as a supported wallet, it will automatically be used in the `ConnectWallet` component to connect users to your app.
-Clicking on the connect button will show the following popup which allows you to create or import a local wallet.
+Clicking on the connect button will show the following Modal which allows you to create or import a local wallet.
+
 This is the personal wallet you are using to initialize the smart wallet. For local wallet, you can create a new wallet with a password or import a previously created wallet.
 
-![Connect Wallet](../assets/connect-wallet.png)
+![Connect Wallet](/assets/connect-wallet/connect-wallet-guest.png)
 
 After connecting your personal wallet, a smart wallet is created for you and connected to the application:
 
-![Connected Smart Wallet](../assets/connected-smart-wallet-react.png)
+![Connected Smart Wallet](/assets/connect-wallet/connect-wallet-smart-dropdown.png)
 
 ## 2. Using useConnect
 
