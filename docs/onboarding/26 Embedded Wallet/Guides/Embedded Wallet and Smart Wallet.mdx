@@ -113,7 +113,7 @@ import {
 export default function App() {
   return (
     <ThirdwebProvider
-      activeChain="mumbai"
+      activeChain="goerli"
       clientId="YOUR_CLIENT_ID"
       supportedWallets={[
         smartWallet(embeddedWallet(), {
@@ -131,8 +131,8 @@ export default function App() {
 This will create an embedded wallet and a smart wallet for the user. The smart wallet will be initialized with the embedded wallet.
 The user will then see the Connect Button which, when clicked, will show the user a modal to connect/create their wallet:
 
-![Connect Wallet Modal](../assets/compact-dark-social.png)
+![Connect Wallet Modal](/assets/connect-wallet/connect-wallet-embedded-compact.png)
 
 When the user connects a wallet by entering their email, they will be able to view & interact with their smart wallet:
 
-![Modal](../assets/with-sw-modal.png)
+![Modal](/assets/connect-wallet/connect-wallet-smart-dropdown.png)

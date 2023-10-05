@@ -35,6 +35,11 @@ const sidebars = {
       items: [
         {
           type: "doc",
+          label: "Embedded Wallet (email)",
+          id: "wallets/EmbeddedWallet",
+        },
+        {
+          type: "doc",
           label: "Wallet Connect",
           id: "wallets/WalletConnect",
         },
