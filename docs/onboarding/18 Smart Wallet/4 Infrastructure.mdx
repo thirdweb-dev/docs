@@ -68,7 +68,20 @@ To support a chain not listed, [contact us](https://thirdweb.typeform.com/to/Q93
 ## Using a Custom Bundler & Paymaster
 
 Smart Wallet is free to use with your own account abstraction infrastructure. To use your own paymaster & bundler,
-pass the `bundlerUrl`, `paymasterUrl` and `paymasterAPI` options to the `SmartWallet`:
+pass the `bundlerUrl`, `paymasterUrl` the `SmartWalletConig` object:
+
+```javascript
+const config: SmartWalletConfig = {
+  chain,
+  gasless,
+  factoryAddress,
+  clientId,
+  bundlerUrl: "your-bundler-url",
+  paymasterUrl: "your-paymaster-url",
+};
+```
+
+You can also provide an entirely custom paymaster logic by extending the `PaymasterAPI` class and passing it to the `paymasterAPI` field.
 
 ```javascript
 class MyPaymaster extends PaymasterAPI {
@@ -85,7 +98,6 @@ const config: SmartWalletConfig = {
   factoryAddress,
   clientId,
   bundlerUrl: "your-bundler-url",
-  paymasterUrl: "your-paymaster-url",
   paymasterAPI: new MyPaymaster(),
 };
 ```

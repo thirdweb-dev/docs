@@ -1,81 +1,105 @@
 ---
 slug: /smart-wallet/permissions
-title: Permissions & Signers
+title: Permissions & Session Keys
 ---
 
 All of the account contracts [[Simple](https://thirdweb.com/thirdweb.eth/AccountFactory), [Dynamic](https://thirdweb.com/thirdweb.eth/DynamicAccountFactory) and [Managed](https://thirdweb.com/thirdweb.eth/ManagedAccountFactory)] share the same permission model. In this section, we'll describe this permission model in detail.
 
 ## Account Permissions
 
-An account recognizes only two types of actors:
+An account recognizes only two types of actors: _Session Keys_ and _Admins_.
 
 ### [1] Admins
 
 Admins have **unrestricted access** to the account; call any functions on the contract, use the contract without going through the ERC-4337 infrastructure (bundlers, EntryPoint, etc.), withdraw the account's native token balance, and so on.
 
-### Assigning Admin Permissions
+#### Assigning Admin Permissions
 
 Existing admins on the account can add new admins, remove existing admins or renounce their own admin status.
 
-This is done by simply calling the `setAdmin` function:
+This can be done by simply calling the `setAdmin` function from your account contract page:
 
 ```solidity
 /// @notice Adds / removes an account as an admin.
 function setAdmin(address account, bool isAdmin) external;
 ```
 
-### [2] Non-admins with permissions (Signers)
+You can also use the Wallet SDK to do it programmatically:
 
-Signers must go through ERC-4337 infrastructure (bundlers, EntryPoint, etc.) to use an account to execute transactions. Signers can use an account under certain restrictions.
+```typescript
+const smartWallet = new SmartWallet(config);
+await smartWallet.addAdmin("0x...");
+```
 
-### Assigning Signer Permissions
+### [2] Session Keys
 
-Each individual signer has their own permissions to use the account. Admins set the permissions for signers.
+Session Keys are additional authorized signers that must go through ERC-4337 infrastructure (bundlers, EntryPoint, etc.) to use an account to execute transactions. Session keys can use an account under certain restrictions.
 
-A signers on an account are managed by the account admin and signers can be restricted to:
+#### Assigning Session Key Permissions
 
-- Only call specific wallets with the account.
-- Transfer a specific native token amount out of account.
-- Only use the account in a specific time window.
+Each individual session key has their own permissions to use the account. Only admins can set the permissions for session keys.
+
+Session keys can be assigned the following permissions:
+
+- Allow interacting with specific contracts with the account.
+- Have a maximum amount of native tokens that can be transferred per transaction.
+- Have access to the account only during a specific time window.
 
 These restrictions are set in the `SignerPermissionsRequest` struct.
 To set the permissions for a given signer, the `setPermissionsForSigner` function is called.
 
-```Solidity
-struct SignerPermissionRequest {
-    address signer;
-    address[] approvedTargets;
-    uint256 nativeTokenLimitPerTransaction;
-    uint128 permissionStartTimestamp;
-    uint128 permissionEndTimestamp;
-    uint128 reqValidityStartTimestamp;
-    uint128 reqValidityEndTimestamp;
-    bytes32 uid;
-}
+The easiest way to manage session keys is using the Wallet SDK:
 
-/// @notice Sets the permissions for a given signer.
-function setPermissionsForSigner(SignerPermissionRequest calldata req, bytes calldata signature) external;
+```typescript
+const smartWallet = new SmartWallet(config);
+
+// create and add a session key with permissions
+await smartWallet.createSessionKey(
+    "0x...", // the session key address
+    {
+        approvedCallTargets: ["0x..."], // the addresses of contracts that the session key can call
+        nativeTokenLimitPerTransaction: 0.1, // the maximum amount of native token (in ETH) that the session key can spend per transaction
+        startDate: new Date(), // the date when the session key becomes active
+        expirationDate = new Date(Date.now() + 24 * 60 * 60 * 1000); // the date when the session key expires
+    }
+);
 ```
 
-The function uses [EIP-712](https://eips.ethereum.org/EIPS/eip-712?ref=portal.thirdweb.com) typed data signatures. That means an admin must fill and sign the `SignerPermissionRequest` payload and pass the payload and produced signature to the function.
-This is so that a bundler can be used to send the transaction while still being able to perform a permissions check.
+From a React application, you can use the `useCreateSessionKey` hook:
+
+```tsx
+const Component = () => {
+    const {
+      mutate: createSessionKey,
+      isLoading,
+      error,
+    } = useCreateSessionKey();
+
+    if (error) {
+      console.error("failed to create session key", error);
+    }
+
+    return (
+      <button
+        disabled={isLoading}
+        onClick={() => createSessionKey(
+          "0x...", // the session key address
+          {
+            approvedCallTargets: ["0x..."], // the addresses of contracts that the session key can call
+            nativeTokenLimitPerTransaction: 0.1, // the maximum amount of native token (in ETH) that the session key can spend per transaction
+            startDate: new Date(), // the date when the session key becomes active
+            expirationDate = new Date(Date.now() + 24 * 60 * 60 * 1000); // the date when the session key expires
+          }
+         )}
+      >
+        Create Session Key
+      </button>
+    );
+};
+```
 
 #### Security note:
 
-A signer cannot have 'catch-all' permissions where they can call any target contract, or transfer any amount of native tokens. This is an important security consideration, since it is common (unfortunately) for private keys to get lost or leaked. In this way, the account encourages usage through purposeful signer keys.
+A session key cannot have 'catch-all' permissions where they can call any target contract, or transfer any amount of native tokens. This is an important security consideration, since it is common (unfortunately) for private keys to get lost or leaked. In this way, the account encourages usage through purposeful session keys.
 
 Even though an account may have 'recovery', having your admin keys leaked means whoever has your admin keys has unrestricted control over the smart wallet.
-
-## Account Factory Permissions
-
-For all three types of account factory (simple, dynamic and managed), the following role exists:
-
-- `DEFAULT_ADMIN_ROLE`: Only a holder of this role is eligible to set the contract metadata of the account factory (i.e. name, description, image and any other metadata to associate with the contract).
-
-**For Simple & Dynamic accounts, there is no permission control on the factory contract.**
-
-For Managed Account Factories, an extra role exists:
-
-- `EXTENSION_ROLE`: Only a holder of this role can perform upgrades to the children account contracts created by the managed account factory.
-
-## SDK Usage

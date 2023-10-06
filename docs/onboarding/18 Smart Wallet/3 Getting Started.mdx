@@ -81,7 +81,7 @@ All transactions performed with the smart wallet will then be gasless.
 <Tabs>
   <TabItem value="react" label="React">
     <CodeBlock language="tsx">
-    {`import { ThirdwebProvider, ConnectWallet, smartWallet, metamaskWallet } from "@thirdweb-dev/react";
+    {`import { ThirdwebProvider, ConnectWallet, smartWallet, metamaskWallet, embeddedWallet } from "@thirdweb-dev/react";
 const config = { factoryAddress: "0x...", gasless: true };
 export default function App() {
 return (
@@ -90,7 +90,7 @@ return (
       activeChain="goerli"
       supportedWallets={[
         smartWallet(metamaskWallet(), config),
-        smartWallet(coinbaseWallet(), config)
+        smartWallet(embeddedWallet(), config)
       ]}
     >
       <ConnectWallet />
@@ -102,18 +102,16 @@ return (
   </TabItem>
   <TabItem value="react-native" label="React Native">
     <CodeBlock language="typescript">
-    {`import { ThirdwebProvider, ConnectWallet, smartWallet } from "@thirdweb-dev/react-native";
+    {`import { ThirdwebProvider, ConnectWallet, smartWallet, metamaskWallet, embeddedWallet } from "@thirdweb-dev/react-native";
+const config = { factoryAddress: "0x...", gasless: true };
 export default function App() {
 return (
     <ThirdwebProvider
       clientId="YOUR_CLIENT_ID"
       activeChain="goerli"
       supportedWallets={[
-        smartWallet({
-          factoryAddress: "0x...",
-          gasless: true,
-          personalWallets={[...]}
-        })
+        smartWallet(metamaskWallet(), config),
+        smartWallet(embeddedWallet(), config)
       ]}
     >
       <ConnectWallet />
