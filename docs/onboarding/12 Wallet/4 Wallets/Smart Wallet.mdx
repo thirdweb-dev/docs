@@ -561,3 +561,122 @@ TransactionResult;
 
 </div>
 </details>
+
+### createSessionKey
+
+Create and add a session key to the Smart Wallet with specific permissions.
+
+```javascript
+// first, connect the Smart wallet
+const wallet = new SmartWallet(config);
+await wallet.connect({
+  personalWallet,
+});
+
+// Then you can add session keys with permissions
+await wallet.createSessionKey(
+  "0x...", // the session key address
+  {
+      approvedCallTargets: ["0x..."], // the addresses of contracts that the session key can call
+      nativeTokenLimitPerTransaction: 0.1, // the maximum amount of native token (in ETH) that the session key can spend per transaction
+      startDate: new Date(), // the date when the session key becomes active
+      expirationDate = new Date(Date.now() + 24 * 60 * 60 * 1000); // the date when the session key expires
+  }
+);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### keyAddress
+
+The address of the session key to add to the Smart Wallet.
+
+#### permissions
+
+The specific permissions to give to the session key. Must be of type `SignerPermissionsInput` from the [`@thirdweb-dev/sdk`](https://www.npmjs.com/package/@thirdweb-dev/sdk) package.
+
+```typescript
+{
+  startDate: Date;
+  expirationDate: Date;
+  nativeTokenLimitPerTransaction: number;
+  approvedCallTargets: string[];
+}
+```
+
+</div>
+</details>
+
+### revokeSessionKey
+
+Revoke a session key from the Smart Wallet.
+
+```javascript
+// first, connect the Smart wallet
+const wallet = new SmartWallet(config);
+await wallet.connect({
+  personalWallet,
+});
+
+// Then you can revoke session keys
+await wallet.revokeSessionKey(
+  "0x...", // the session key address
+);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### keyAddress
+
+The address of the session key to revoke.
+
+</div>
+</details>
+
+### isDeployed
+
+Check if the Smart Wallet is deployed onchain.
+
+```javascript
+// first, connect the Smart wallet
+const wallet = new SmartWallet(config);
+await wallet.connect({
+  personalWallet,
+});
+
+const isDeployed = await wallet.isDeployed();
+console.log("Smart Wallet deployed:", isDeployed); // true or false
+```
+
+### deploy
+
+Force deploy the Smart Wallet onchain. Will throw if already deployed.
+
+```javascript
+// first, connect the Smart wallet
+const wallet = new SmartWallet(config);
+await wallet.connect({
+  personalWallet,
+});
+
+const tx = await wallet.deploy();
+console.log("Smart Wallet deployed:", tx); // the transaction receipt
+```
+
+### deployIfNeeded
+
+Force deploy the Smart Wallet onchain. If already deployed, will do nothing.
+
+```javascript
+// first, connect the Smart wallet
+const wallet = new SmartWallet(config);
+await wallet.connect({
+  personalWallet,
+});
+
+await wallet.deployIfNeeded();
+```
