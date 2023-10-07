@@ -235,6 +235,11 @@ const sidebars = {
         },
         {
           type: "link",
+          href: "/react-native/react-native.embeddedwallet",
+          label: "React Native",
+        },
+        {
+          type: "link",
           href: "/wallet/embedded-wallet",
           label: "Wallet SDK",
         },
