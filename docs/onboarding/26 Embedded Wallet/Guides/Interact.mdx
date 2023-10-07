@@ -38,13 +38,19 @@ const sdk = ThirdwebSDK.fromWallet(wallet, "ethereum", {
 To initialize the React SDK with your wallet, use the [`getSigner`](https://portal.thirdweb.com/connect/wallet-actions/get-signer) method to get the signer and pass it to the [`ThirdwebSDKProvider`](https://portal.thirdweb.com/react/react.thirdwebsdkprovider) which wraps your app:
 
 ```tsx
-import { ThirdwebSDKProvider } from "@thirdweb-dev/react";
-import { EmbeddedWallet } from "@thirdweb-dev/wallet";
+import {
+  ThirdwebSDKProvider,
+  useSigner,
+  embeddedWallet,
+  useConnect,
+} from "@thirdweb-dev/react";
 
 function MyApp() {
-  const wallet = new EmbeddedWallet();
-
-  const signer = wallet.getSigner();
+  const wallet = embeddedWallet();
+  const connect = useConnect();
+  await connect(wallet);
+  // this will only work if the user is already connected to your app with embedded wallet
+  const signer = useSigner();
   return (
     <ThirdwebSDKProvider
       activeChain={"ethereum"}

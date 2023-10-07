@@ -102,15 +102,12 @@ connect(embeddedWalletConfig, connectOptions);
 
 ## Connect Options
 
-When using `useConnect` you can pass custom styles via `connectOptions`
+When using `useConnect` you can pass custom styles for the pre-styled embedded wallet UI via `connectOptions`
 
 ```tsx
 const connectOptions = {
   email?: string;
   chainId?: number;
-  advancedOptions?: {
-    recoveryShareManagement?: 'AWS_MANAGED' | 'USER_MANAGED'
-  },
   styles?: {
     // The roundness of buttons.
     borderRadius?: string,
