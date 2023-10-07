@@ -290,24 +290,3 @@ The secret key is used to access enabled thirdweb services from the backend. It 
 To revoke your API key, click the "Revoke" button. This will invalidate the key and it will no longer be usable.
 
 ![Revoke API Key](/assets/dashboard/revoke-api-key.png)
-
-## Error Codes
-
-| Status Code | Error Code                          | Error Message                                                                                                                                                                                            |
-| ----------- | ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 400         | KEY_CONFLICT                        | Please pass either a client id or a secret key.                                                                                                                                                          |
-| 401         | SECRET_INVALID                      | Incorrect key provided. You can view your active API keys at https://thirdweb.com/dashboard/settings                                                                                                     |
-| 401         | ORIGIN_UNAUTHORIZED                 | Incorrect key provided. You can view your active API keys at https://thirdweb.com/dashboard/settings                                                                                                     |
-| 401         | BUNDLE_UNAUTHORIZED                 | Invalid request: Unauthorized Bundle ID: ${bundleId}. You can view the restrictions on this API key at https://thirdweb.com/create-api-key                                                               |
-| 401         | UNAUTHORIZED                        | The keys are invalid. Please check the secret-key/clientId and try again.                                                                                                                                |
-| 500         | NO_ACCOUNT                          | No error but also no account returned.                                                                                                                                                                   |
-| 500         | FAILED_TO_LOAD_ACCOUNT              | Failed to get account information.                                                                                                                                                                       |
-| 401         | MISSING_ACCOUNT                     | Missing account information.                                                                                                                                                                             |
-| 401         | MISSING_KEY                         | Missing clientId or secretKey.                                                                                                                                                                           |
-| 500         | NO_KEY                              | No error but also no key returned.                                                                                                                                                                       |
-| 500         | FAILED_TO_FETCH_KEY                 | Failed to fetch key metadata. Please check your secret-key/clientId.                                                                                                                                     |
-| 401         | INVALID_KEY                         | Key is invalid. Please check your secret-key/clientId.                                                                                                                                                   |
-| 403         | SERVICE_UNAUTHORIZED                | Invalid request: Unauthorized service: ${serviceConfig.serviceScope}. You can view the restrictions on this API key in your dashboard: https://thirdweb.com/create-api-key                               |
-| 403         | SERVICE_ACTION_UNAUTHORIZED         | Invalid request: Unauthorized action: ${serviceConfig.serviceScope} ${serviceConfig.serviceAction}. You can view the restrictions on this API key in your dashboard: https://thirdweb.com/create-api-key |
-| 403         | SERVICE_TARGET_ADDRESS_UNAUTHORIZED | Invalid request: Unauthorized action: ${serviceConfig.serviceScope} ${serviceConfig.serviceAction}. You can view the restrictions on this API key in your dashboard: https://thirdweb.com/create-api-key |
-| 500         | INTERNAL_SERVER_ERROR               | Invalid request: Unauthorized action: ${serviceConfig.serviceScope} ${serviceConfig.serviceAction}. You can view the restrictions on this API key in your dashboard: https://thirdweb.com/create-api-key |
