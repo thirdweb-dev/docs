@@ -118,18 +118,6 @@ const config = {
     [
       "@docusaurus/plugin-content-docs",
       {
-        id: "solana",
-        path: "docs/solana",
-        routeBasePath: "solana-sdk",
-        sidebarPath: require.resolve("./sidebars/solana.js"),
-        remarkPlugins: [[npm2yarn, { sync: true }]],
-        editUrl: "https://github.com/thirdweb-dev/docs/edit/main",
-        // ... other options
-      },
-    ],
-    [
-      "@docusaurus/plugin-content-docs",
-      {
         id: "contracts",
         path: "docs/contracts",
         routeBasePath: "contracts",
