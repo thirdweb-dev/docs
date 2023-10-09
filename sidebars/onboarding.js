@@ -80,11 +80,6 @@ const sidebars = {
     },
     {
       type: "link",
-      label: "Solana SDK",
-      href: "/solana",
-    },
-    {
-      type: "link",
       label: "Mobile",
       href: "/mobile",
     },
