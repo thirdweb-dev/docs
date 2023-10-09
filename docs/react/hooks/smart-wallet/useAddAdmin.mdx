@@ -15,7 +15,7 @@ const Component = () => {
   }
 
   return (
-    <button disabled={isLoading} onClick={() => addAdmin("0x...")}>
+    <button disabled={isLoading} onClick={() => addAdmin(adminAddress)}>
       Add admin
     </button>
   );
@@ -24,12 +24,11 @@ const Component = () => {
 
 ## Usage
 
-Provide the smart wallet account contract address as the argument.
+Provide the address to add as an admin on the connected smart wallet account to the mutation function returned from the hook.
 
 ```jsx
 import { useAccountAdminsAndSigners } from "@thirdweb-dev/react";
 
-// Your ERC20 token smart contract address
 const adminAddress = "{{admin_address}}";
 
 const Component = () => {
@@ -46,3 +45,16 @@ const Component = () => {
   );
 };
 ```
+
+## Configuration
+
+<details>
+  <summary>address (required)</summary>
+  <div>
+
+### Address
+
+The address to add as an admin on the account as a `string`.
+
+</div>
+</details>

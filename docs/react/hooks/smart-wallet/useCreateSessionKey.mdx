@@ -22,7 +22,7 @@ Hook that allows you to create a session key (or signer) for a smart wallet acco
      <button
        disabled={isLoading}
        onClick={() => createSessionKey(
-         "0x...",
+         keyAddress,
          {
            approvedCallTargets: ["0x..."], // the addresses of contracts that the session key can call
            nativeTokenLimitPerTransaction: 0.1, // the maximum amount of native token (in ETH) that the session key can spend per transaction
@@ -44,8 +44,7 @@ Provide the smart wallet account contract address as the argument.
 ```jsx
 import { useAccountAdminsAndSigners } from "@thirdweb-dev/react";
 
-// Your ERC20 token smart contract address
-const accountAddress = "{{account_address}}";
+const keyAddress = "{{key_address}}";
 
 const Component = () => {
    const {
@@ -62,7 +61,7 @@ const Component = () => {
      <button
        disabled={isLoading}
        onClick={() => createSessionKey(
-         accountAddress,
+         keyAddress,
          {
            approvedCallTargets: ["0x..."], // the addresses of contracts that the session key can call
            nativeTokenLimitPerTransaction: 0.1, // the maximum amount of native token (in ETH) that the session key can spend per transaction
@@ -76,3 +75,60 @@ const Component = () => {
    );
  };
 ```
+
+## Configuration
+
+<details>
+  <summary>address (required)</summary>
+  <div>
+
+### address
+
+The address to add as an admin on the account as a `string`.
+
+</div>
+</details>
+
+<details>
+  <summary>approvedCallTargets</summary>
+  <div>
+
+### approvedCallTargets
+
+An array of addresses that the session key can call as a `string[]`.
+
+</div>
+</details>
+
+<details>
+  <summary>nativeTokenLimitPerTransaction</summary>
+  <div>
+
+### nativeTokenLimitPerTransaction
+
+The maximum amount of native token (in ETH) that the session key can spend per transaction as a `number`.
+
+</div>
+</details>
+
+<details>
+  <summary>startDate</summary>
+  <div>
+
+### startDate
+
+The date when the session key becomes active as a `Date`.
+
+</div>
+</details>
+
+<details>
+  <summary>endDate</summary>
+  <div>
+
+### startDate
+
+The date when the session key expires as a `Date`.
+
+</div>
+</details>

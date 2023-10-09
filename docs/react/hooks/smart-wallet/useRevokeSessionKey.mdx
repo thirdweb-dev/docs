@@ -30,7 +30,7 @@ Provide the smart wallet account contract address as the argument.
 import { useAccountAdminsAndSigners } from "@thirdweb-dev/react";
 
 // Your ERC20 token smart contract address
-const accountAddress = "{{account_address}}";
+const keyAddress = "{{key_address}}";
 
 const Component = () => {
   const { mutate: revokeSessionKey, isLoading, error } = useRevokeSessionKey();
@@ -40,12 +40,22 @@ const Component = () => {
   }
 
   return (
-    <button
-      disabled={isLoading}
-      onClick={() => revokeSessionKey(accountAddress)}
-    >
+    <button disabled={isLoading} onClick={() => revokeSessionKey(keyAddress)}>
       Revoke Session Key
     </button>
   );
 };
 ```
+
+## Configuration
+
+<details>
+    <summary>keyAddress</summary>
+    <div>
+
+### keyAddress
+
+The address to remove as an admin.
+
+</div>
+</details>

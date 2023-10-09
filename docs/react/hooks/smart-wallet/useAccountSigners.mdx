@@ -17,10 +17,13 @@ Provide the smart wallet account contract address as the argument.
 ```jsx
 import { useAccountSigners } from "@thirdweb-dev/react";
 
-// Your ERC20 token smart contract address
 const accountAddress = "{{account_address}}";
 
 function App() {
   const { data: signers, isLoading } = useAccountSigners(accountAddress);
 }
 ```
+
+## Return Value
+
+A response object that includes the `data` property containing an array of all signers of the provided account.
