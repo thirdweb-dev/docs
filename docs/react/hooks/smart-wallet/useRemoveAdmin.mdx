@@ -15,7 +15,7 @@ const Component = () => {
   }
 
   return (
-    <button disabled={isLoading} onClick={() => removeAdmin("0x...")}>
+    <button disabled={isLoading} onClick={() => removeAdmin(adminAddress)}>
       Remove admin
     </button>
   );

@@ -15,7 +15,7 @@ const Component = () => {
   }
 
   return (
-    <button disabled={isLoading} onClick={() => revokeSessionKey("0x...")}>
+    <button disabled={isLoading} onClick={() => revokeSessionKey(keyAddress)}>
       Revoke Session Key
     </button>
   );
