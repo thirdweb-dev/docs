@@ -1,0 +1,26 @@
+---
+title: useAccountAdmins
+slug: /react.useaccountadmins
+displayed_sidebar: react
+---
+
+Get all the admins on a smart wallet account
+
+```jsx
+const { data: accounts, isLoading, error } = useAccountAdmins(contract);
+```
+
+## Usage
+
+Provide the smart wallet account contract address as the argument.
+
+```jsx
+import { useAccountAdmins } from "@thirdweb-dev/react";
+
+// Your ERC20 token smart contract address
+const accountAddress = "{{account_address}}";
+
+function App() {
+  const { data: admins, isLoading } = useAccountAdmins(accountAddress);
+}
+```

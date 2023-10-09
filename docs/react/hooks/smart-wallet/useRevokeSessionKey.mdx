@@ -1,0 +1,51 @@
+---
+title: useRevokeSessionKey
+slug: /react.userevokesessionkey
+displayed_sidebar: react
+---
+
+Revoke a session key (or signer) on the smart wallet account.
+
+```jsx
+const Component = () => {
+  const { mutate: revokeSessionKey, isLoading, error } = useRevokeSessionKey();
+
+  if (error) {
+    console.error("failed to revoke session key", error);
+  }
+
+  return (
+    <button disabled={isLoading} onClick={() => revokeSessionKey("0x...")}>
+      Revoke Session Key
+    </button>
+  );
+};
+```
+
+## Usage
+
+Provide the smart wallet account contract address as the argument.
+
+```jsx
+import { useAccountAdminsAndSigners } from "@thirdweb-dev/react";
+
+// Your ERC20 token smart contract address
+const accountAddress = "{{account_address}}";
+
+const Component = () => {
+  const { mutate: revokeSessionKey, isLoading, error } = useRevokeSessionKey();
+
+  if (error) {
+    console.error("failed to revoke session key", error);
+  }
+
+  return (
+    <button
+      disabled={isLoading}
+      onClick={() => revokeSessionKey(accountAddress)}
+    >
+      Revoke Session Key
+    </button>
+  );
+};
+```

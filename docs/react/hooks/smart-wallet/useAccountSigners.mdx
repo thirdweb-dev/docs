@@ -1,0 +1,26 @@
+---
+title: useAccountSigners
+slug: /react.useaccountsigners
+displayed_sidebar: react
+---
+
+Get all the signers (or session keys) on a smart wallet account.
+
+```javascript
+const { data: accounts, isLoading, error } = useAccountSigners(contract);
+```
+
+## Usage
+
+Provide the smart wallet account contract address as the argument.
+
+```jsx
+import { useAccountSigners } from "@thirdweb-dev/react";
+
+// Your ERC20 token smart contract address
+const accountAddress = "{{account_address}}";
+
+function App() {
+  const { data: signers, isLoading } = useAccountSigners(accountAddress);
+}
+```
