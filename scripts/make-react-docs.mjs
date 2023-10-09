@@ -8,8 +8,6 @@ async function makeDocs({ outDir, inDir }) {
   pkg.ensureDirSync(outDir);
 
   async function generate() {
-    const isSolana = inDir.includes("solana");
-
     const docFiles = await readdir(inDir);
     for (const docFile of docFiles) {
       try {
@@ -79,15 +77,10 @@ async function makeDocs({ outDir, inDir }) {
         const header = [
           "---",
           `slug: /${
-            isSolana
-              ? // If ID is index, then the slug should be /reference
-                `solana/reference/${
-                  id === "index" ? "" : id.replace("react-core", "react")
-                }`
-              : // If ID is index, then the slug should be /reference
-                `reference/${
-                  id === "index" ? "" : id.replace("react-core", "react")
-                }`
+            // If ID is index, then the slug should be /reference
+            `reference/${
+              id === "index" ? "" : id.replace("react-core", "react")
+            }`
           }`,
           `title: ${title}`,
           `hide_title: true`,
