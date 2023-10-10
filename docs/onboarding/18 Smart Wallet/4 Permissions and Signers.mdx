@@ -3,6 +3,9 @@ slug: /smart-wallet/permissions
 title: Permissions & Session Keys
 ---
 
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
 All of the account contracts [[Simple](https://thirdweb.com/thirdweb.eth/AccountFactory), [Dynamic](https://thirdweb.com/thirdweb.eth/DynamicAccountFactory) and [Managed](https://thirdweb.com/thirdweb.eth/ManagedAccountFactory)] share the same permission model. In this section, we'll describe this permission model in detail.
 
 ## Account Permissions
@@ -37,18 +40,22 @@ Session Keys are additional authorized signers that must go through ERC-4337 inf
 
 #### Assigning Session Key Permissions
 
-Each individual session key has their own permissions to use the account. Only admins can set the permissions for session keys.
+Each individual session key has its own permissions to use the account. Only admins can set the permissions for session keys.
 
 Session keys can be assigned the following permissions:
 
-- Allow interacting with specific contracts with the account.
+- Allow interaction with specific contracts with the account.
 - Have a maximum amount of native tokens that can be transferred per transaction.
 - Have access to the account only during a specific time window.
 
 These restrictions are set in the `SignerPermissionsRequest` struct.
 To set the permissions for a given signer, the `setPermissionsForSigner` function is called.
 
-The easiest way to manage session keys is using the Wallet SDK:
+<Tabs>
+<TabItem value="wallet-sdk" label="Wallet SDK">
+<div>
+
+The easiest way to manage session keys is using the Wallet SDK, in TypeScript:
 
 ```typescript
 const smartWallet = new SmartWallet(config);
@@ -64,6 +71,11 @@ await smartWallet.createSessionKey(
     }
 );
 ```
+
+</div>
+</TabItem>
+<TabItem value="react" label="React">
+<div>
 
 From a React application, you can use the `useCreateSessionKey` hook:
 
@@ -97,6 +109,10 @@ const Component = () => {
     );
 };
 ```
+
+</div>
+</TabItem>
+</Tabs>
 
 #### Security note:
 
