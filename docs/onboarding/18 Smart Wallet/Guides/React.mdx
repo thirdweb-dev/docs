@@ -1,6 +1,6 @@
 ---
 slug: /smart-wallet/guides/react
-title: Using Smart Wallet in React
+title: Usage in React
 ---
 
 import QuickstartCard from "@components/QuickstartCard";
@@ -289,6 +289,45 @@ function MyComponent() {
 }
 ```
 
+## Add a Session Key
+
+To add a session key to your smart wallet, you can use the [`useCreateSessionKey`](/react/react.usecreatesessionkey) hook to add a session key to the currently connected smart wallet:
+
+```tsx
+import { useAccountAdminsAndSigners } from "@thirdweb-dev/react";
+
+const keyAddress = "{{key_address}}";
+
+const Component = () => {
+   const {
+     mutate: createSessionKey,
+     isLoading,
+     error,
+   } = useCreateSessionKey();
+
+   if (error) {
+     console.error("failed to create session key", error);
+   }
+
+   return (
+     <button
+       disabled={isLoading}
+       onClick={() => createSessionKey(
+         keyAddress,
+         {
+           approvedCallTargets: ["0x..."], // the addresses of contracts that the session key can call
+           nativeTokenLimitPerTransaction: 0.1, // the maximum amount of native token (in ETH) that the session key can spend per transaction
+           startDate: new Date(), // the date when the session key becomes active
+           expirationDate = new Date(Date.now() + 24 * 60 * 60 * 1000); // the date when the session key expires
+         }
+        )}
+     >
+       Create Session Key
+     </button>
+   );
+ };
+```
+
 ## Conclusion
 
 In this guide, we learned how to connect users to a React app using two methods:
@@ -304,3 +343,4 @@ Take a look at the [GitHub Repository](https://github.com/thirdweb-example/smart
   text="React App"
   link={"https://github.com/thirdweb-example/smart-wallet-react"}
 />
+```
