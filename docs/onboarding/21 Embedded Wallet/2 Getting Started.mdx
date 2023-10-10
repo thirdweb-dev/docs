@@ -23,6 +23,10 @@ See Embedded Wallets in action with our demo app:
 
 ## Installation
 
+<Tabs>
+  <TabItem value="react" label="React">
+    <div>
+
 [Install](/cli/install) the required packages:
 
 ```bash
@@ -30,6 +34,50 @@ npx thirdweb install
 ```
 
 This command will recognize the environment you are working in and install the appropriate packages.
+
+</div>
+  </TabItem>
+  <TabItem value="react-native" label="React Native">
+    <div>
+
+To use the `embeddedWallet` you need to add the following dependencies to your project:
+
+- [Install](/cli/install) the thirdweb package:
+
+  ```bash
+  npx thirdweb install
+  ```
+
+  This command will recognize the environment you are working in and install the appropriate packages.
+
+- "amazon-cognito-identity-js": "^6.3.3"
+
+- react-native-quick-base64
+
+- react-native-quick-crypto
+
+  - There's an open issue on RN > 0.72: https://github.com/margelo/react-native-quick-crypto/issues/186 which you can fix by adding the following to your android/app/build.gradle file:
+
+    ```ts
+    packagingOptions {
+    pickFirst 'lib/x86/libcrypto.so'
+    pickFirst 'lib/x86_64/libcrypto.so'
+    pickFirst 'lib/armeabi-v7a/libcrypto.so'
+    pickFirst 'lib/arm64-v8a/libcrypto.so'
+    }
+    ```
+
+  - When building the iOS app in release mode for RN 0.71 you need to enable the OpenSSL framework in XCode. There are several solutions for this here:
+
+    - https://github.com/margelo/react-native-quick-crypto/issues/121#issuecomment-1369924076
+    - https://github.com/margelo/react-native-quick-crypto/issues/121#issuecomment-1537576444
+
+- react-native-aes-gcm-crypto
+  - This package requires minSdkVersion = 26 on Android
+
+</div>
+</TabItem>
+</Tabs>
 
 ## Connecting & Creating Embedded Wallets in an Application
 
