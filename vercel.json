@@ -10,6 +10,14 @@
       "permanent": true
     },
     {
+      "source": "/solana/:match*",
+      "destination": "https://blog.thirdweb.com/discontinuing-solana-support/"
+    },
+    {
+      "source": "/pre-built-contracts/solana/:match*",
+      "destination": "https://blog.thirdweb.com/discontinuing-solana-support/"
+    },
+    {
       "source": "/learn/recipes/:match*",
       "destination": "/guides",
       "permanent": true

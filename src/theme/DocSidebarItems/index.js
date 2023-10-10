@@ -47,7 +47,6 @@ function DocSidebarItems({ items, ...props }) {
         "Solidity SDK",
         "Deploy",
         "Publish",
-        "Solana SDK",
         "UI Components",
       ],
     },
