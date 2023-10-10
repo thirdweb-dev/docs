@@ -306,17 +306,19 @@ By default, The "Send Funds" screen shows a few popular tokens for default chain
 <br />
 <br />
 
-`supportedTokens` prop allows you to customize this list as shown below
+`supportedTokens` prop allows you to customize this list as shown below.
 
 ```tsx
 import { Base } from "@thirdweb-dev/chains";
 
+// Show "Dai Stablecoin" when connected to the "Base" mainnet
 <ConnectWallet
   supportedTokens={{
-    // Show "Dai Stablecoin" when connected to the "Base" mainnet
+    // use chain id of the network as key and pass an array of tokens to show
+    // you can directly pass the number or import the chain object from @thirdweb-dev/chains to get the chain id
     [Base.chainId]: [
       {
-        address: "0x50c5725949A6F0c72E6C4a641F24049A917DB0Cb",
+        address: "0x50c5725949A6F0c72E6C4a641F24049A917DB0Cb", // token contract address
         name: "Dai Stablecoin",
         symbol: "DAI",
         icon: "https://assets.coingecko.com/coins/images/9956/small/Badge_Dai.png?1687143508",
@@ -338,12 +340,21 @@ import { Base } from "@thirdweb-dev/chains";
 Display the balance of a token instead of the native token in ConnectWallet details button.
 
 ```tsx
+import { Base } from "@thirdweb-dev/chains";
+
+// show Wrapped BTC balance when connected to Ethereum mainnet
+// Show Dai Stablecoin balance when connected to the Base mainnet
+
 <ConnectWallet
+  //  pass an object with chain id as key and token address as value
   displayBalanceToken={{
-    // show Wrapped BTC balance if connected to Ethereum mainnet
-    1: "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+    // 1 is chain id of Ethereum mainnet
+    1: "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599", // contract address of Wrapped BTC token
+
+    // you can also import the chain object from @thirdweb-dev/chains to get the chain id
+    [Base.chainId]: "0x50c5725949A6F0c72E6C4a641F24049A917DB0Cb", // contract address of Dai Stablecoin token
   }}
-/>
+/>;
 ```
 
 <div style={{

@@ -47,7 +47,6 @@ function DocSidebarItems({ items, ...props }) {
         "Solidity SDK",
         "Deploy",
         "Publish",
-        "Solana SDK",
         "UI Components",
       ],
     },
@@ -73,13 +72,7 @@ function DocSidebarItems({ items, ...props }) {
     },
     {
       title: "Solutions",
-      items: [
-        "Signature Minting",
-        "CommerceKit",
-        "GamingKit",
-        "Minting",
-        "Digital Collectibles",
-      ],
+      items: ["Signature Minting"],
     },
     {
       title: "Resources",
@@ -109,14 +102,6 @@ function DocSidebarItems({ items, ...props }) {
 
     if (formatted === "Ui-components") {
       return "UI Components";
-    }
-
-    if (formatted === "Gamingkit") {
-      return "GamingKit";
-    }
-
-    if (formatted === "Commercekit") {
-      return "CommerceKit";
     }
 
     if (formatted === "Wallet") {
