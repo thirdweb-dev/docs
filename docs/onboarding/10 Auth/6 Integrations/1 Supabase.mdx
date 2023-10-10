@@ -69,12 +69,12 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=<supabase-anon-key>
 SUPABASE_SERVICE_ROLE=<supabase-service-role>
 ```
 
-Create a new directory called `lib` and create two helper scripts to initialize Firebase in the browser and server:
+Create a new directory called `lib` and create two helper scripts to initialize Supabase in the browser and server:
 
 - [lib/createSupabase.ts](https://github.com/thirdweb-example/thirdweb-auth-supabase/blob/main/lib/createSupabase.ts)
 - [lib/createSupabaseAdmin.ts](https://github.com/thirdweb-example/thirdweb-auth-supabase/blob/main/lib/createSupabaseAdmin.ts)
 
-Now we have an easy way to access Firebase Auth and Firestore in both client and server environments!
+Now we have an easy way to access Supabase Auth and Firestore in both client and server environments!
 
 ### Configure thirdweb Auth
 
@@ -276,4 +276,4 @@ Importantly, we now have access to the user's address via the `user.user_metadat
 
 So with these steps, we've now setup our Supabase to allow users to sign in with Supabase authentication and then link their wallets to their accounts!
 
-You can now unlock all th functionality of Supabase Auth and Supabase using wallets!
+You can now unlock all the functionality of Supabase Auth and Supabase using wallets!
