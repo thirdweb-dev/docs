@@ -104,13 +104,13 @@ function App() {
 
 <h2 id="custom-ui"> 2. Create a completely custom UI to connect wallets </h2>
 
-Connecting to a wallet involves a few steps:
+Connecting a wallet involves a few steps:
 
 1. Create a wallet instance
 2. Call the `connect` method on the wallet instance
 3. Set the connected wallet instance as "connected wallet"
 
-If you just want to connect the wallet as mentioned above - there's a simple way to do it using the [useConnect](/react/react.useconnect) hook which does all the above steps for you.
+If you just want to connect a wallet as mentioned above - there's a simple way to do it using the [useConnect](/react/react.useconnect) hook which does all the above steps for you.
 
 <details>
   <summary> Using <code>useConnect</code> hook  </summary>
@@ -165,16 +165,20 @@ There are 3 steps to connect your wallet manually:
 
 Make sure to update the `connectionStatus` using [useSetConnectionStatus](/react/react.usesetconnectionstatus) to `"connecting"` before connecting your wallet and `"disconnected"` if the connection fails.
 
+### Example
+
+We will use [localWallet](/react/react.localwallet) as an example because it can not be connected using the `useConnect` hook because it requires additional steps after creating the wallet instance - like generating a random wallet or importing a wallet. We will generate a random wallet in this example.
+
 ```tsx
 import {
   useCreateWalletInstance,
   useSetConnectionStatus,
   useSetConnectedWallet,
   // import the wallet you want to connect
-  metamaskWallet,
+  localWallet,
 } from "@thirdweb-dev/react";
 
-const walletConfig = metamaskWallet();
+const walletConfig = localWallet();
 
 function Example() {
   const createWalletInstance = useCreateWalletInstance();
@@ -184,6 +188,10 @@ function Example() {
   const handleConnect = async () => {
     // 1. create wallet instance
     const wallet = createWalletInstance(walletConfig);
+
+    // perform additional steps that needs to be done before connecting the wallet
+    // here, we will generate a random wallet
+    await wallet.generate();
 
     try {
       setConnectionStatus("connecting");
@@ -215,11 +223,11 @@ Once the wallet is connected, you can use any of 100+ hooks to show connected wa
 
 Here is a list of few hooks that will be useful when creating a custom UI:
 
-| Hook                                                    | Description                                       |
-| ------------------------------------------------------- | ------------------------------------------------- |
-| [useAddress](/react/react.useaddress)                   | getting the currently connected wallet's address. |
-| [useDisconnect](/react/react.usedisconnect)             | disconnect wallet                                 |
-| [useWallet](/react/react.usewallet)                     | get currently connected wallet instance           |
-| [useWalletConfig](/react/react.usewalletconfig)         | get currently connected wallet's config           |
-| [useConnectionStatus](/react/react.useconnectionstatus) | get current status of wallet connection           |
-| [useSigner](/react/react.useconnectionstatus)           | get signer of connected wallet                    |
+| Hook                                                    | Description                            |
+| ------------------------------------------------------- | -------------------------------------- |
+| [useAddress](/react/react.useaddress)                   | get connected wallet's account address |
+| [useDisconnect](/react/react.usedisconnect)             | disconnect the connected wallet        |
+| [useWallet](/react/react.usewallet)                     | get connected wallet instance          |
+| [useWalletConfig](/react/react.usewalletconfig)         | get connected wallet's config          |
+| [useConnectionStatus](/react/react.useconnectionstatus) | get status of wallet connection        |
+| [useSigner](/react/react.usesigner)                     | get signer of connected wallet         |
