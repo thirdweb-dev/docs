@@ -57,6 +57,50 @@ Must be a `boolean`.
 </div>
 </details>
 
+<details>
+  <summary>enableConnectApp</summary>
+  <div>
+
+Whether to turn on or off the ability to connect your SmartWallet to an app using WalletConnect.
+
+- If set to `true`, a new `Connect App` field will show up in the SmartWallet details modal. It allows
+  you to paste a `wc://` link or scan one with your mobile app.
+- If set to `false` (default), the `Connect App` field will not show up.
+
+Must be a `boolean`.
+
+</div>
+</details>
+
+<details>
+  <summary>walletConnectV2ProjectId</summary>
+  <div>
+
+The WalletConnect `projectId`. You can get one in the [WalletConnect portal](https://cloud.walletconnect.com/sign-in).
+
+Defaults to a common `projectId` set by thirdweb. This should be ok for testing but note that if you want to deploy your mobile app it may make sense to create your own as WalletConnect may throttle traffic coming from the same `projectId`.
+
+</div>
+</details>
+
+<details>
+  <summary>walletConnectWalletMetadata</summary>
+  <div>
+
+The metadata the connected app will show when connected to your Smart Wallet:
+
+```ts
+{
+  name: string;
+  description: string;
+  url: string;
+  icons: string[];
+};
+```
+
+</div>
+</details>
+
 ## Usage with `ConnectWallet`
 
 To allow users to connect to this wallet using the [ConnectWallet](/react-native/react-native.connectwallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop.
