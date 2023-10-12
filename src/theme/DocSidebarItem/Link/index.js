@@ -25,8 +25,6 @@ export const iconMapping = {
   Publish: "/assets/product/publish.png",
   SDK: "/assets/product/sdk.png",
   "Contract SDK": "/assets/product/sdk.png",
-  "Solana SDK": "/assets/product/sdk.png",
-  Solana: "/assets/product/sdk.png",
   "Wallet SDK": "/assets/product/wallet.png",
   "Smart Wallet": "/assets/wallets/smart-wallet.svg",
   "Embedded Wallet": "/assets/wallets/embedded-wallet.svg",

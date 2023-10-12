@@ -5,7 +5,6 @@ import FeaturedExample from "../templates/components/FeaturedExample";
 import TemplateCard from "../templates/components/TemplateCard";
 import AllTemplatesContainer from "./AllTemplatesContainer";
 
-const solanaHub = exampleRepos.filter((t) => t.name === "solana-hub")[0];
 const contractHub = exampleRepos.filter((t) => t.name === "contract-hub")[0];
 
 export default function ExamplesContainer() {
@@ -26,21 +25,6 @@ export default function ExamplesContainer() {
           demo: contractHub.homepage,
         }}
         whichFirst={"image"}
-      />
-      {/* Featured Example (Solana TODO) */}
-      <FeaturedExample
-        id={solanaHub.name}
-        title="Solana Showcase"
-        description="Discover the power of our Solana SDK by interacting with real programs and viewing code snippets."
-        image={{
-          light: "/assets/solana_tw.png",
-          dark: "/assets/solana_tw.png",
-        }}
-        links={{
-          github: solanaHub.html_url,
-          demo: solanaHub.homepage,
-        }}
-        whichFirst={"text"}
       />
 
       <h2>Featured Templates</h2>
