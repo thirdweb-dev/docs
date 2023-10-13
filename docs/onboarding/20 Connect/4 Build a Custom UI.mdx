@@ -137,29 +137,3 @@ The following hooks can be used with the connected wallet:
 | [useWalletConfig](/react/react.usewalletconfig)         | get connected wallet's config          |
 | [useConnectionStatus](/react/react.useconnectionstatus) | get status of wallet connection        |
 | [useSigner](/react/react.usesigner)                     | get signer of connected wallet         |
-
-## Create a Wallet Connection UI (in ConnectWallet)
-
-Customize the UI of one of the supported wallets when using the `ConnectWallet` component or add UI for a custom wallet configurator to dd to the `ConnectWallet` component.
-
-### connectUI
-
-To create a custom UI for connecting your wallet, create a `connectUI` function **in your wallet configurator**.
-
-```tsx
-// optional - render a UI for connecting your wallet
-    connectUI(props) {
-      return <MyWalletConnectionUI {...props} />;
-    },
-```
-
-### selectUI
-
-To create a custom UI for selecting your wallet in the wallet selection screen in the connect wallet modal, create a `selectUI` function **in your wallet configurator**.
-
-```tsx
-    // optional - override the default UI for selecting your wallet in the wallet selector screen
-    selectUI(props) {
-      return <MyWalletSelectionUI {...props} />
-    }
-```
