@@ -35,8 +35,13 @@ const sidebars = {
       items: [
         {
           type: "doc",
-          label: "Embedded Wallet (email)",
+          label: "Embedded Wallet",
           id: "wallets/EmbeddedWallet",
+        },
+        {
+          type: "doc",
+          label: "Smart Wallet",
+          id: "wallets/SmartWallet",
         },
         {
           type: "doc",
@@ -72,11 +77,6 @@ const sidebars = {
           type: "doc",
           label: "Local Wallet",
           id: "wallets/LocalWallet",
-        },
-        {
-          type: "doc",
-          label: "Smart Wallet",
-          id: "wallets/SmartWallet",
         },
       ],
     },
@@ -129,6 +129,18 @@ const sidebars = {
       type: "doc",
       label: "Storage",
       id: "storage",
+    },
+    {
+      type: "category",
+      label: "FAQ",
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          label: "How to enable Deep Links?",
+          id: "faq/deeplinks",
+        },
+      ],
     },
   ],
 };
