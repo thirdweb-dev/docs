@@ -30,14 +30,14 @@ const coinbaseConfig = coinbaseWallet(options);
   <summary> callbackURL </summary>
   <div>
 
-Coinbase Wallet Mobile SDK [uses Universal Links](https://developer.apple.com/ios/universal-links/) to communicate between Coinbase Wallet and your application.
-
-See the [Coinbase setup](https://docs.cloud.coinbase.com/wallet-sdk/docs/ios-setup).
+The Coinbase Wallet Mobile SDK uses Universal Links to communicate between Coinbase Wallet and your application.
+We wrote [a short guide](/react-native/faq/deeplinks) to help you enable deep links support in your mobile app or
+you can check the [Coinbase setup](https://docs.cloud.coinbase.com/wallet-sdk/docs/ios-setup).
 
 ```ts
 coinbaseWallet({
   // highlight-start
-  callbackURL: new URL("your-app-id://"),
+  callbackURL: new URL("your.scheme://"),
   // highlight-end
 });
 ```
