@@ -1,0 +1,44 @@
+---
+title: useComethConnect
+slug: /react.usecomethconnect
+displayed_sidebar: react
+sidebar_position: 17
+---
+
+Hook that prompts users to connect their [Cometh Connect](/wallet/cometh) wallet to your app.
+
+```jsx
+import { useComethConnect } from "@thirdweb-dev/react";
+```
+
+The wallet also needs to be added in [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) if you want the wallet to auto-connect on next page load.
+
+To be able to interact with Cometh Connect, you need to create an account and get an apiKey from [cometh dashboard](https://app.cometh.io/dashboard)
+
+You also need to indicate the chain that you are working on. For now, Cometh Connect supports these [networks](https://docs.cometh.io/connect/cometh-connect/supported-networks)
+
+## Usage
+
+```jsx
+import { Polygon } from "@thirdweb-dev/chains";
+import { useComethConnect } from "@thirdweb-dev/react";
+
+
+function App() {
+  const connectWithCometh = useComethConnect();
+
+   const options = {
+      // Place your Cometh Connect API key here.
+      apiKey: "API_KEY",
+      chain: Polygon,
+      //this parameter is optionnal (allows reconnection)
+      walletAddress:"WALLET_ADDRESS"
+    },
+
+  return (
+    <button onClick={() => connectWithCometh(options)}>
+      Connect
+    </button>
+  );
+}
+```
