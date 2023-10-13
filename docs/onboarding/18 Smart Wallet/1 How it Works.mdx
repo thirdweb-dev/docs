@@ -62,7 +62,7 @@ which initializes the account and sets the default admin on the account.
 The thirdweb Account Factories are designed so that only one account can be created per personal wallet key.
 This means that any one personal wallet can only be a default admin on one account per factory.
 
-This is because, when the account contract is cloned by the factory, the account is craeted deterministically
+This is because, when the account contract is cloned by the factory, the account is created deterministically
 via the `cloneDeterministic` function. This function takes a `salt` as a parameter to predict the deployment address. The `salt` is calculated using the
 default admin address. Since the deployment address will be the same if the default admin is the same, if an account
 already exists at that address, the transaction will revert.
