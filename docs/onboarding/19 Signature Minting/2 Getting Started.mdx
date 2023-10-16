@@ -187,7 +187,7 @@ contract ERC721SignatureMint is ERC721Base, SignatureMintERC721 {
         MintRequest calldata _req,
         bytes calldata _signature
     ) external payable virtual override returns (address signer) {
-        require(_req.quantity == 1, "quantiy must be 1");
+        require(_req.quantity == 1, "quantity must be 1");
 
         uint256 tokenIdToMint = nextTokenIdToMint();
 
@@ -265,7 +265,7 @@ Your contract is now ready to interact with!
 
 ## 2. Interacting with a Signature Minting Contract
 
-The easiest way to signature mint tokens from a contract implementing one of the `SigntureMint` extensions is via one of the SDKs:
+The easiest way to signature mint tokens from a contract implementing one of the `SignatureMint` extensions is via one of the SDKs:
 
 ### ERC721SignatureMint
 
