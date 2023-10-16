@@ -8,7 +8,7 @@ The document is written for technical and non-technical readers. To ask further 
 
 ## Background
 
-The [thirdweb](https://thirdweb.com/) `Marketplace` is a market where where people can sell NFTs — [ERC 721](https://eips.ethereum.org/EIPS/eip-721) or [ERC 1155](https://eips.ethereum.org/EIPS/eip-1155) tokens — at a fixed price ( what we'll refer to as a "Direct listing"), or auction them (what we'll refer to as an "Auction listing").
+The [thirdweb](https://thirdweb.com/) `Marketplace` is a market where people can sell NFTs — [ERC 721](https://eips.ethereum.org/EIPS/eip-721) or [ERC 1155](https://eips.ethereum.org/EIPS/eip-1155) tokens — at a fixed price ( what we'll refer to as a "Direct listing"), or auction them (what we'll refer to as an "Auction listing").
 
 ### Direct Listings
 
@@ -137,7 +137,7 @@ To write the feature-rich Marketplace contract without exceeding the code size l
 
 | Type    | Concept     |          |                           |                              |                                   |                                                             |                                                           |                                         |
 | ------- | ----------- | -------- | ------------------------- | ---------------------------- | --------------------------------- | ----------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------- |
-|         | `start time | end time | quantity of tokens listed | currency accepted by listing | reserve price: minimum bid amount | buyout price: price to pay to directly buy the token listed | buy partial amount from the total amount of tokens listed | Type of token listed: ERC721 or ERC1155 |
+|         | start time | end time | quantity of tokens listed | currency accepted by listing | reserve price: minimum bid amount | buyout price: price to pay to directly buy the token listed | buy partial amount from the total amount of tokens listed | Type of token listed: ERC721 or ERC1155 |
 | Direct  | ✅          | ✅       | ✅                        | ✅                           | ❌                                | ✅                                                          | ✅                                                        | ✅                                      |
 | Auction | ✅          | ✅       | ✅                        | ✅                           | ✅                                | ✅                                                          | ❌                                                        | ✅                                      |
 
@@ -181,7 +181,7 @@ struct ListingParameters {
 
 **Example**: Distinct action or data handled.
 
-An auction has the concept of formally being closed whereas a direct listing does not. On auction closing, both the lister and winning bidder call can call `closeAuction` to collect the winning bid, and the auctioned items, respectively. There is no such corollary in the case of direct listings.
+An auction has the concept of formally being closed whereas a direct listing does not. On auction closing, both the lister and winning bidder can call `closeAuction` to collect the winning bid, and the auctioned items, respectively. There is no such corollary in the case of direct listings.
 
 ### EIPs implemented / supported
 
@@ -193,7 +193,7 @@ Marketplace also honors [ERC2981](https://eips.ethereum.org/EIPS/eip-2981) for t
 
 ### Events emitted
 
-All events emitted by the contract, as well as when they're emitted, can be found in the interface of the contract, [here](https://github.com/thirdweb-dev/contracts/blob/main/contracts/interfaces/marketplace/IMarketplace.sol). In general, events are emitted whenever there is a state change in the contract.
+All events emitted by the contract, as well as when they're emitted, can be found in the interface of the contract, [here](https://github.com/thirdweb-dev/contracts/blob/main/contracts/prebuilts/marketplace/IMarketplace.sol). In general, events are emitted whenever there is a state change in the contract.
 
 ### Currency transfers
 

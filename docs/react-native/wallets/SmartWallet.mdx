@@ -1,0 +1,220 @@
+---
+title: SmartWallet
+slug: /react-native.smartwallet
+displayed_sidebar: react-native
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+A wallet configurator for [Smart Wallet](/wallet/smart-wallet) which allows integrating the wallet with React
+
+```tsx
+import { smartWallet, metamaskWallet } from "@thirdweb-dev/react-native";
+
+const walletConfig = metamaskWallet(); // or use any other wallet
+
+const smartWalletConfig = smartWallet(walletConfig, {
+  factoryAddress: "0x...",
+  gasless: true,
+});
+```
+
+<br />
+
+<details>
+  <summary>walletConfig</summary>
+  <div>
+
+Provide a `WalletConfig` object to use as the personal wallet for the Smart Wallet. You can get this object by calling a wallet configurator function such as `metamaskWallet()`
+
+</div>
+</details>
+
+<details>
+  <summary>factoryAddress</summary>
+  <div>
+
+The address of the Smart Wallet Factory contract.
+
+Must be a `string`.
+
+</div>
+</details>
+
+<details>
+  <summary>gasless</summary>
+  <div>
+
+Whether to turn on or off gasless transactions.
+
+- If set to `true`, all gas fees will be paid by a paymaster.
+- If set to `false`, all gas fees will be paid by the Smart Wallet itself (needs to be funded).
+
+Must be a `boolean`.
+
+</div>
+</details>
+
+<details>
+  <summary>enableConnectApp</summary>
+  <div>
+
+Whether to turn on or off the ability to connect your SmartWallet to an app using WalletConnect.
+
+- If set to `true`, a new `Connect App` field will show up in the SmartWallet details modal. It allows
+  you to paste a `wc://` link or scan one with your mobile app.
+- If set to `false` (default), the `Connect App` field will not show up.
+
+Must be a `boolean`.
+
+</div>
+</details>
+
+<details>
+  <summary>walletConnectV2ProjectId</summary>
+  <div>
+
+The WalletConnect `projectId`. You can get one in the [WalletConnect portal](https://cloud.walletconnect.com/sign-in).
+
+Defaults to a common `projectId` set by thirdweb. This should be ok for testing but note that if you want to deploy your mobile app it may make sense to create your own as WalletConnect may throttle traffic coming from the same `projectId`.
+
+</div>
+</details>
+
+<details>
+  <summary>walletConnectWalletMetadata</summary>
+  <div>
+
+The metadata the connected app will show when connected to your Smart Wallet:
+
+```ts
+{
+  name: string;
+  description: string;
+  url: string;
+  icons: string[];
+};
+```
+
+</div>
+</details>
+
+## Usage with `ConnectWallet`
+
+To allow users to connect to this wallet using the [ConnectWallet](/react-native/react-native.connectwallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop.
+
+```tsx
+import {
+  smartWallet,
+  metamaskWallet,
+  coinbaseWallet,
+  walletConnect,
+} from "@thirdweb-dev/react-native";
+
+const config = {
+  factoryAddress: "0x...",
+  gasless: true,
+}
+
+<ThirdwebProvider
+  supportedWallets={[
+    smartWallet(metamaskWallet(), config),
+    smartWallet(coinbaseWallet(), config),
+    smartWallet(walletConnect(), config),
+  ]}
+  clientId="your-client-id"
+>
+  <YourApp />
+</ThirdwebProvider>;
+```
+
+## Usage with `useConnect`
+
+you can use the `useConnect` hook to programmatically connect to the wallet without using the [ConnectWallet](/react-native/react-native.connectwallet) component.
+
+The wallet also needs to be added in [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) if you want the wallet to auto-connect on next page load.
+
+You need to connect to a personal wallet first, You can use the [useConnect](/react/react.useconnect) hook to connect to a personal wallet first and then connect to the Smart Wallet. Make sure personal wallet is on the same network as the Smart Wallet.
+
+```tsx
+import {
+  useConnect,
+  smartWallet,
+  metamaskWallet,
+} from "@thirdweb-dev/react-native";
+import { Goerli } from "@thirdweb-dev/chains";
+
+const personalWalletConfig = metamaskWallet(); // or use any other wallet
+
+const smartWalletConfig = smartWallet(personalWalletConfig, {
+  factoryAddress: "0x...",
+  gasless: true,
+});
+
+function App() {
+  const connect = useConnect();
+
+  const handleConnect = async () => {
+    // 1. connect the personal wallet first on the network that the smart wallet is deployed to
+    const personalWallet = await connect(personalWalletConfig, {
+      chainId: Goerli.chainId,
+    });
+
+    // 2. connect to smart wallet
+    const smartWallet = await connect(smartWalletConfig, {
+      chainId: Goerli.chainId,
+      personalWallet: personalWallet,
+    });
+
+    console.log("connected to", smartWallet);
+  };
+
+  return <div> ... </div>;
+}
+```
+
+### connectOptions
+
+```ts
+import type { EVMWallet } from "@thirdweb-dev/wallets";
+
+type ConenctOptions = {
+  personalWallet: EVMWallet;
+  chainId?: number;
+};
+```
+
+<details>
+  <summary> personalWallet </summary>
+<div>
+
+The instance of a personal wallet that can sign transactions on the Smart Wallet
+
+</div>
+</details>
+
+<details>
+  <summary>chainId </summary>
+<div>
+
+The `chainId` of network that the Smart Wallet is deployed to.
+
+`Chain` object corresponding to this chainId from [@thirdweb-dev/chains](https://www.npmjs.com/package/@thirdweb-dev/chains) package must be specified in [ThirdwebProvider's supportedChains](/react/react.thirdwebprovider#supportedchains-optional) prop as shown below
+
+```tsx
+import { Polygon } from "@thirdweb-dev/chains";
+import { ThirdwebProvider } from "@thirdweb-dev/react-native";
+
+export function YourApp() {
+  return (
+    <ThirdwebProvider supportedChains={[Polygon]} clientId="your-client-id">
+      <App />
+    </ThirdwebProvider>
+  );
+}
+```
+
+</div>
+</details>

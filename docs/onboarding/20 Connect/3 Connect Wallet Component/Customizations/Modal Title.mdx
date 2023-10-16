@@ -1,0 +1,21 @@
+---
+slug: /connect/connect-wallet/modal-title
+title: Modal Title
+---
+
+Change the title of Connect Wallet Modal's title
+
+The default is `"Connect"`.
+
+```jsx
+import { ConnectWallet } from "@thirdweb-dev/react";
+
+function App() {
+  return (
+    <ConnectWallet
+      // highlight-next-line
+      modalTitle="Login"
+    />
+  );
+}
+```

@@ -1,0 +1,94 @@
+---
+slug: /engine/get-started
+title: Get Started
+hide_title: true
+---
+
+:::info
+Engine is currently in Open Beta and requires self-hosting. If you need a managed version, please [contact us](https://thirdweb.com/contact-us).
+:::
+
+# Get Started
+
+Once you have configured your self-hosted server, you can begin development with the Engine.
+
+This guide will provide a few examples of how you can use the Engine:
+
+### Get Balance
+
+To quickly demonstrate how to use Engine in your application, let's create a quick JavaScript script that fetches your wallet's balance on a specific network using the `/wallet/{network}/getBalance` endpoint.
+
+1. Create a `getBalance.js` at the root of your project’s directory
+2. At the top of your file, let’s create a variable to store our network to pass into our path parameter.
+
+   ```
+   const network = "mumbai";
+   ```
+
+3. Configure your HTTP GET request
+
+   ```jsx
+   const options = {
+     method: "GET",
+     headers: {
+       accept: "application/json",
+       "content-type": "application/json",
+       Authorization: `Bearer ${process.env.THIRDWEB_SDK_SECRET_KEY}`,
+     },
+   };
+   ```
+
+4. Now we can use the `fetch()` function to make an HTTP GET request to our `wallet/${network}/getBalance` endpoint and display the result to our console.
+
+   ```
+   fetch(`http://localhost:3005/wallet/${network}/getBalance}`, options)
+     .then((response) => response.json())
+     .then((response) => console.log(response.result.displayValue))
+     .catch((err) => console.error(err));
+   ```
+
+5. Run your script in the command using `node getBalance.js`
+6. In the terminal, you will see the amount of Matic you have in your wallet returned.
+
+### Deploy Contract
+
+As an example for a POST method, let's modify our script to deploy an ERC20 Contract using `/deployer/{network}/prebuilts/token`
+
+1. Create a `deployToken.js` at the root of your project’s directory
+2. At the top of your file, let’s create a variable to store our network to pass into our path parameter.
+
+   ```jsx
+   const network = "mumbai";
+   ```
+
+3. Configure your HTTP POST request body. Modify the `primary_sale_recipient` to your address or the address you want to receive initial funds.
+
+   ```jsx
+   const options = {
+     method: "GET",
+     headers: {
+       accept: "application/json",
+       "content-type": "application/json",
+       Authorization: `Bearer ${<thirdweb_secret_key>}`, 
+       "x-wallet-address": ${process.env.WALLET_ADDRESS}`
+     },
+     body: JSON.stringify({
+       name: "HelloWorldCoin",
+       description: "A coin to demonstrate how to use Engine",
+       symbol: "HELLO",
+       primary_sale_recipient: "0x0000000000000000000000000000000000000000",
+     }),
+   };
+   ```
+
+4. Now we can use the `fetch()` function to make an HTTP GET request to our `/deployer/{network}/prebuilts/token` and return the URL for the deployed contract on the dashboard.
+
+   ```jsx
+   fetch(`http://localhost:3005/deployer/${network}/prebuilts/token`, options)
+     .then((response) => response.json())
+     .then((response) => console.log(`https://thirdweb.com/${network}/${response.result.deployedAddress}`)
+     .catch((err) => console.error(err));
+   ```
+
+5. Run your script in the command using `node deployToken.js`
+6. To find your contract, redirect from the link returned in the command line.

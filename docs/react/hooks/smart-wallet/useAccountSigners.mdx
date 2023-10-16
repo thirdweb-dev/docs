@@ -1,0 +1,29 @@
+---
+title: useAccountSigners
+slug: /react.useaccountsigners
+displayed_sidebar: react
+---
+
+Get all the signers (or session keys) on a smart wallet account.
+
+```javascript
+const { data: accounts, isLoading, error } = useAccountSigners(contract);
+```
+
+## Usage
+
+Provide the smart wallet account contract address as the argument.
+
+```jsx
+import { useAccountSigners } from "@thirdweb-dev/react";
+
+const accountAddress = "{{account_address}}";
+
+function App() {
+  const { data: signers, isLoading } = useAccountSigners(accountAddress);
+}
+```
+
+## Return Value
+
+A response object that includes the `data` property containing an array of all signers of the provided account.

@@ -1,0 +1,91 @@
+---
+slug: /connect/wallet-actions/sign-message
+title: Sign Message
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import QuickstartCard from "@components/QuickstartCard";
+
+<Tabs>
+  <TabItem value="typescript" label="TypeScript">
+    <div>
+
+## sign
+
+Sign any message with the connected wallet.
+
+## Usage
+
+Create a message to be signed and pass it to this method.
+
+This will prompt the user to sign the message from their wallet (or sign it automatically if [initialized with a private key](/typescript/sdk.thirdwebsdk.fromprivatekey)).
+
+Once signed, the signature is returned.
+
+```javascript
+// This is the message to be signed
+const message = "Sign this message...";
+
+// Now we can sign the message with the connected wallet
+const signature = await wallet.sign(message);
+```
+
+### Configuration
+
+#### message
+
+The message to be signed.
+
+```javascript
+const message = "Sign this message...";
+```
+
+### Return Value
+
+Returns a `string` with the signature.
+
+```typescript
+string;
+```
+
+</div>
+  </TabItem>
+  <TabItem value="unity" label="Unity">
+    <div>
+
+## Sign
+
+Sign any message with the connected wallet.
+
+### Usage
+
+Create a message to be signed and pass it to this method.
+
+This will prompt the user to sign the message from their wallet (or sign it automatically if [initialized with a private key](/typescript/sdk.thirdwebsdk.fromprivatekey)).
+
+Once signed, the signature is returned.
+
+```csharp
+var data = await sdk.wallet.Sign("my message");
+```
+
+### Configuration
+
+#### message
+
+The message to be signed.
+
+Must be a `string`.
+
+### Return Value
+
+Returns a `string` with the signature.
+
+```csharp
+string
+```
+
+</div>
+  </TabItem>
+</Tabs>

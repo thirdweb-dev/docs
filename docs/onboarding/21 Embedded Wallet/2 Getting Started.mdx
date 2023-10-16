@@ -1,0 +1,130 @@
+---
+slug: /embedded-wallet/getting-started
+title: Getting Started
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import QuickstartCard from "@components/QuickstartCard";
+
+Once set up, your app will be able to connect and create embedded wallets for users.
+
+## Try the demo
+
+See Embedded Wallets in action with our demo app:
+
+<div className="col col--12" style={{ marginTop: 8 }}>
+  <QuickstartCard
+    name="Embedded Wallet Demo"
+    link="https://github.com/thirdweb-example/catattacknft"
+    image="/assets/wallets/embedded-wallet.svg"
+  />
+</div>
+
+## Installation
+
+[Install](/cli/install) the required packages:
+
+```bash
+npx thirdweb install
+```
+
+This command will recognize the environment you are working in and install the appropriate packages.
+
+## Connecting & Creating Embedded Wallets in an Application
+
+<Tabs>
+  <TabItem value="react" label="React">
+        <div>
+
+```jsx
+import {
+  ThirdwebProvider,
+  ConnectWallet,
+  embeddedWallet,
+} from "@thirdweb-dev/react";
+
+export default function App() {
+  return (
+    <ThirdwebProvider
+      activeChain="goerli"
+      clientId="YOUR_CLIENT_ID"
+      supportedWallets={[embeddedWallet()]}
+    >
+      <ConnectWallet />
+    </ThirdwebProvider>
+  );
+}
+```
+
+</div>
+  </TabItem>
+  <TabItem value="react-native" label="React Native">
+  <div>
+
+```tsx
+import {
+  ThirdwebProvider,
+  ConnectWallet,
+  embeddedWallet,
+} from "@thirdweb-dev/react-native";
+
+export default function App() {
+  return (
+    <ThirdwebProvider
+      clientId="YOUR_CLIENT_ID"
+      supportedWallets={[embeddedWallet()]}
+    >
+      <ConnectWallet />
+    </ThirdwebProvider>
+  );
+}
+```
+
+</div>
+  </TabItem>
+  <TabItem value="typescript" label="TypeScript">
+    <div>
+
+```tsx
+import { EmbeddedWallet } from "@thirdweb-dev/wallets";
+import { Ethereum } from "@thirdweb-dev/chains";
+
+const wallet = new EmbeddedWallet({
+  chain: Ethereum, //  chain to connect to
+  clientId: "YOUR_CLIENT_ID", // Your thirdweb client ID
+});
+
+wallet.connect();
+```
+
+</div>
+
+  </TabItem>
+  <TabItem value="unity" label="Unity">
+    <div>
+
+```c#
+using Thirdweb;
+
+public async void ConnectWallet()
+{
+    // Reference to your Thirdweb SDK
+    var sdk = ThirdwebManager.Instance.SDK;
+
+    // Configure the connection
+    var connection = new WalletConnection(
+      provider: WalletProvider.EmbeddedWallet,          // The wallet provider you want to connect to (Required)
+      chainId: 1,                              // The chain you want to connect to (Required)
+      email: "email@email.com"                 // The email you want to authenticate with (Required)
+    );
+
+    // Connect the wallet
+    string address = await sdk.wallet.Connect(connection);
+}
+```
+
+</div>
+
+  </TabItem>
+</Tabs>

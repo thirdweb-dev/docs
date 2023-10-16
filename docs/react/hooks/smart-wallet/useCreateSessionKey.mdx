@@ -1,0 +1,134 @@
+---
+title: useCreateSessionKey
+slug: /react.usecreatesessionkey
+displayed_sidebar: react
+---
+
+Hook that allows you to create a session key (or signer) for a smart wallet account.
+
+```jsx
+ const Component = () => {
+   const {
+     mutate: createSessionKey,
+     isLoading,
+     error,
+   } = useCreateSessionKey();
+
+   if (error) {
+     console.error("failed to create session key", error);
+   }
+
+   return (
+     <button
+       disabled={isLoading}
+       onClick={() => createSessionKey(
+         keyAddress,
+         {
+           approvedCallTargets: ["0x..."], // the addresses of contracts that the session key can call
+           nativeTokenLimitPerTransaction: 0.1, // the maximum amount of native token (in ETH) that the session key can spend per transaction
+           startDate: new Date(), // the date when the session key becomes active
+           expirationDate = new Date(Date.now() + 24 * 60 * 60 * 1000); // the date when the session key expires
+         }
+        )}
+     >
+       Create Session Key
+     </button>
+   );
+ };
+```
+
+## Usage
+
+Provide the smart wallet account contract address as the argument.
+
+```jsx
+import { useAccountAdminsAndSigners } from "@thirdweb-dev/react";
+
+const keyAddress = "{{key_address}}";
+
+const Component = () => {
+   const {
+     mutate: createSessionKey,
+     isLoading,
+     error,
+   } = useCreateSessionKey();
+
+   if (error) {
+     console.error("failed to create session key", error);
+   }
+
+   return (
+     <button
+       disabled={isLoading}
+       onClick={() => createSessionKey(
+         keyAddress,
+         {
+           approvedCallTargets: ["0x..."], // the addresses of contracts that the session key can call
+           nativeTokenLimitPerTransaction: 0.1, // the maximum amount of native token (in ETH) that the session key can spend per transaction
+           startDate: new Date(), // the date when the session key becomes active
+           expirationDate = new Date(Date.now() + 24 * 60 * 60 * 1000); // the date when the session key expires
+         }
+        )}
+     >
+       Create Session Key
+     </button>
+   );
+ };
+```
+
+## Configuration
+
+<details>
+  <summary>address (required)</summary>
+  <div>
+
+### address
+
+The address to add as an admin on the account as a `string`.
+
+</div>
+</details>
+
+<details>
+  <summary>approvedCallTargets</summary>
+  <div>
+
+### approvedCallTargets
+
+An array of addresses that the session key can call as a `string[]`.
+
+</div>
+</details>
+
+<details>
+  <summary>nativeTokenLimitPerTransaction</summary>
+  <div>
+
+### nativeTokenLimitPerTransaction
+
+The maximum amount of native token (in ETH) that the session key can spend per transaction as a `number`.
+
+</div>
+</details>
+
+<details>
+  <summary>startDate</summary>
+  <div>
+
+### startDate
+
+The date when the session key becomes active as a `Date`.
+
+</div>
+</details>
+
+<details>
+  <summary>endDate</summary>
+  <div>
+
+### startDate
+
+The date when the session key expires as a `Date`.
+
+</div>
+</details>
