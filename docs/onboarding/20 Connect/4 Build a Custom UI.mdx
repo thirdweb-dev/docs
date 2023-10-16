@@ -1,114 +1,20 @@
 ---
-title: Connecting Wallets
-slug: /connecting-wallets
-displayed_sidebar: react
+slug: /connect/connect-wallet/custom-ui
+title: Build a Custom UI
+sidebar_position: 5
 ---
 
-There are two ways you connect user's wallet to your application using thirdweb's React SDK
+Use the SDK to connect wallets to your app but use your own UI either manually or using the `useConnect` hook.
 
-1. Using the [ConnectWallet component](#connect-wallet) for a quick, easy and customizable UI
-2. Create a completely custom UI using [wallet connection hooks](#custom-ui)
-
-<br />
-
-<details>
-  <summary> Supported Wallets  </summary>
-
-<div>
-
-| Wallet Name       | Wallet Configurator                             |
-| ----------------- | ----------------------------------------------- |
-| MetaMask          | [`metamaskWallet`](/react/react.metamaskWallet) |
-| Coinbase Wallet   | [`coinbaseWallet`](/react/react.coinbasewallet) |
-| Wallet Connect v2 | [`walletConnect`](/react/react.walletconnect)   |
-| Safe Wallet       | [`safeWallet`](/react/react.safewallet)         |
-| Paper Wallet      | [`paperWallet`](/react/react.paperwallet)       |
-| Embedded Wallet   | [`embeddedWallet`](/react/react.embeddedwallet) |
-| Local Wallet      | [`localWallet`](/react/react.localwallet)       |
-| Smart Wallet      | [`smartWallet`](/react/react.smartwallet)       |
-| Magic Link        | [`magicLink`](/react/react.magiclink)           |
-| Rainbow Wallet    | [`rainbowWallet`](/react/react.rainbowWallet)   |
-| Zerion Wallet     | [`zerionWallet`](/react/react.zerion)           |
-| Blocto Wallet     | [`bloctoWallet`](/react/react.blocto)           |
-| Frame Wallet      | [`frameWallet`](/react/react.frame)             |
-| Phantom           | [`phantomWallet`](/react/react.phantom)         |
-
-<br />
-
-:::info
-
-Don't see the wallet you are looking for?
-
-You can easily integrate _any_ wallet provider by [Building your own wallet !](/wallet/build-a-wallet)
-
-:::
-
-</div>
-</details>
-
-<h2 id="connect-wallet"> 1. ConnectWallet component </h2>
-
-[ConnectWallet component](/react/react.connectwallet) renders a button which when clicked opens a modal to allow users to connect to wallets specified in the [`ThirdwebProvider`'s supportedWallets](/react/react.thirdwebprovider#supportedWallets) prop.
-
-If `supportedWallets` is not configured in the `ThirdwebProvider`, the ConnectWallet Modal shows the below shown default wallets:
-
-- [MetaMask](/react/react.metamaskwallet)
-- [Coinbase Wallet](/react/react.coinbasewallet)
-- [WalletConnect](/react/react.walletconnect)
-- [Rainbow](/react/react.rainbowWallet)
-- [Trust Wallet](/react/react.trustWallet)
-- [Zerion Wallet](/react/react.zerion)
-- [Phantom](/react/react.phantom)
-
-:::info
-
-Try out ConnectWallet in action on [ConnectWallet Playground!](https://thirdweb.com/dashboard/wallets/connect)
-:::
-
-```jsx
-import {
-  ThirdwebProvider,
-  ConnectWallet,
-  // import the wallets you want
-  metamaskWallet,
-  coinbaseWallet,
-  walletConnect,
-} from "@thirdweb-dev/react";
-
-// wrap your App with ThirdwebProvider and set supportedWallets prop
-
-function Page() {
-  return (
-    <ThirdwebProvider
-      // highlight-next-line
-      supportedWallets={[metamaskWallet(), coinbaseWallet(), walletConnect()]}
-      activeChain="mumbai"
-      clientId="your-client-id"
-    >
-      <App />
-    </ThirdwebProvider>
-  );
-}
-
-// render ConnectWallet component in your App - that's it!
-
-function App() {
-  return (
-    <div>
-      // highlight-next-line
-      <ConnectWallet />
-    </div>
-  );
-}
-```
-
-<h2 id="custom-ui"> 2. Create a completely custom UI to connect wallets </h2>
+## Create a Custom Connection
 
 Connecting a wallet involves a few steps:
 
 1. Create a wallet instance
 2. Call the `connect` method on the wallet instance
 3. Set the connected wallet instance as "connected wallet"
+
+### useConnect
 
 If you just want to connect a wallet as mentioned above - there's a simple way to do it using the [useConnect](/react/react.useconnect) hook which does all the above steps for you.
 
@@ -148,9 +54,9 @@ function Example() {
 </div>
 </details>
 
-<br />
+### Manually connect a wallet
 
-But if you need to create wallet instance and call some methods on the wallet instance before connecting the wallet,
+If you need to create wallet instance and call some methods on the wallet instance before connecting the wallet,
 you can do these steps manually as shown below using the [useCreateWalletInstance](/react/react.usecreatewalletinstance), [useSetConnectionStatus](/react/react.usesetconnectionstatus) and [useSetConnectedWallet](/react/react.usesetconnectedwallet) hooks.
 
 <details>
@@ -219,9 +125,9 @@ function Example() {
 
 <br />
 
-Once the wallet is connected, you can use React SDK's 100+ hooks to show connected wallet's details, send transactions, interact with smart contracts, sign messages and utilize common standards such as tokens, NFTs, marketplaces; all with built-in caching, [RPC URLs](/glossary/rpc), [IPFS gateways](/glossary/ipfs), and more!
+Once the wallet is connected, you can use React SDK's 100+ hooks to show the connected wallet's details, send transactions, interact with smart contracts, sign messages and utilize common standards such as tokens, NFTs, marketplaces; all with built-in caching, [RPC URLs](/glossary/rpc), [IPFS gateways](/glossary/ipfs), and more!
 
-Here is a list of few hooks that will be useful when creating custom UI
+The following hooks can be used with the connected wallet:
 
 | Hook                                                    | Description                            |
 | ------------------------------------------------------- | -------------------------------------- |
@@ -231,3 +137,29 @@ Here is a list of few hooks that will be useful when creating custom UI
 | [useWalletConfig](/react/react.usewalletconfig)         | get connected wallet's config          |
 | [useConnectionStatus](/react/react.useconnectionstatus) | get status of wallet connection        |
 | [useSigner](/react/react.usesigner)                     | get signer of connected wallet         |
+
+## Create a Wallet Connection UI (in ConnectWallet)
+
+Customize the UI of one of the supported wallets when using the `ConnectWallet` component or add UI for a custom wallet configurator to dd to the `ConnectWallet` component.
+
+### connectUI
+
+To create a custom UI for connecting your wallet, create a `connectUI` function **in your wallet configurator**.
+
+```tsx
+// optional - render a UI for connecting your wallet
+    connectUI(props) {
+      return <MyWalletConnectionUI {...props} />;
+    },
+```
+
+### selectUI
+
+To create a custom UI for selecting your wallet in the wallet selection screen in the connect wallet modal, create a `selectUI` function **in your wallet configurator**.
+
+```tsx
+    // optional - override the default UI for selecting your wallet in the wallet selector screen
+    selectUI(props) {
+      return <MyWalletSelectionUI {...props} />
+    }
+```
