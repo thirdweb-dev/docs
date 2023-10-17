@@ -18,3 +18,22 @@ const wallet = new EmbeddedWallet();
 await wallet.connect();
 const recoveryInfo = await wallet.getRecoveryInformation();
 ```
+
+## Connect using recovery code
+
+If the user is an existing user, you can optionally enter a recovery code. This is a code that was generated when they first signed up. It is used to recover their account if they lose access to their device:
+
+```typescript
+import { EmbeddedWallet } from "@thirdweb-dev/wallets";
+
+const embeddedWallet = new EmbeddedWallet();
+
+// make sure to call this after a user event - button click etc.
+await embeddedWallet.connect({
+  loginType: "headless_email_otp_verification",
+  email: "<email-address";
+  otp: "<an-otp>";
+  // highlight-next-line
+  recoveryCode: "<recovery-code>";
+});
+```
