@@ -20,7 +20,7 @@ This method throws an exception if the user closes the modal.
 
 ## Prompt email one-time passcode (OTP) modal (Advanced)
 
-If the user's email is already known, email them a one-time passcode emailed and prompt them to verify it.
+If the user's email is already known, email them a one-time passcode and prompt them to verify it.
 
 ```typescript
 import { EmbeddedWallet } from "@thirdweb-dev/wallets";
@@ -36,6 +36,21 @@ await embeddedWallet.connect({
 If the user is already logged in, this modal is skipped and the method returns.
 
 This method throws an exception if the user closes the modal.
+
+## Prompt email one-time passcode (OTP) with your own UX (Advanced)
+
+Headless method for email OTP login.
+
+```typescript
+import { EmbeddedWallet } from "@thirdweb-dev/wallets";
+
+const embeddedWallet = new EmbeddedWallet();
+
+// make sure to call this after a user event - button click etc.
+await embeddedWallet.connect({
+  loginType: "headless_email_otp",
+});
+```
 
 ## Login with Google with your own UX (Advanced)
 
@@ -61,4 +76,44 @@ await embeddedWallet.connect({
     openedWindow.close();
   },
 });
+```
+
+## Bring your own auth with custom JWT (Advanced)
+
+To log in to your own custom authentication, call `loginWithJwtAuth` with the user's auth JWT after they have authenticated.
+
+```typescript
+import { EmbeddedWallet } from "@thirdweb-dev/wallets";
+
+const embeddedWallet = new EmbeddedWallet();
+await embeddedWallet.loginWithJwtAuth({
+  token: "<token from your auth callback>",
+  authProvider: AuthProvider.CUSTOM_JWT,
+  recoveryCode: "Required if user is an existing user",
+});
+```
+
+## Logout
+
+When a user logs out, they will be prompted to authenticate again. They will not be prompted to provide a recovery password again on this device.
+
+```typescript
+import { EmbeddedWallet } from "@thirdweb-dev/wallets";
+
+const embeddedWallet = new EmbeddedWallet();
+
+await embeddedWallet.logout();
+```
+
+## Get a user's auth and wallet information
+
+Check if a user is logged in and if so, get their auth details, wallet address, and wallet.
+
+```typescript
+import { EmbeddedWallet } from "@thirdweb-dev/wallets";
+
+const embeddedWallet = new EmbeddedWallet();
+
+const auth = await embeddedWallet.getAuth();
+const address = await embeddedWallet.getAddress();
 ```
