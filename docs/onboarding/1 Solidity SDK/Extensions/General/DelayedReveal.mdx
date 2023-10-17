@@ -60,7 +60,7 @@ contract MyContract is ERC721LazyMint, DelayedReveal {
     ) ERC721LazyMint(_name, _symbol, _royaltyRecipient, _royaltyBps) {}
 
     /**
-     *  We override the `lazyMint` function, and use the `_data` paramter for storing encrypted metadata
+     *  We override the `lazyMint` function, and use the `_data` parameter for storing encrypted metadata
      *  for 'delayed reveal' NFTs.
      */
     function lazyMint(

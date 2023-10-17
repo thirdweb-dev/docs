@@ -18,9 +18,9 @@ const products: Product[] = [
   },
   {
     image: "/assets/product/connect-wallet.png",
-    name: "Connect Wallet",
+    name: "Connect",
     description: "Enable users to connect their wallets to web3 apps and games",
-    link: "react/react.connectwallet",
+    link: "/connect",
   },
   {
     image: "/assets/wallets/smart-wallet.svg",

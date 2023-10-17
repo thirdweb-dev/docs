@@ -55,7 +55,7 @@ if (!googleWindow) {
 await embeddedWallet.connect({
   loginType: "headless_google_oauth",
   // the following are not strictly required but highly recommended
-  // mainly to prevent bowser from blocking pop-ups
+  // mainly to prevent browser from blocking pop-ups
   openedWindow: googleWindow,
   closeOpenedWindow: (openedWindow) => {
     openedWindow.close();

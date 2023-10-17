@@ -52,11 +52,11 @@ function DocSidebarItems({ items, ...props }) {
     },
     {
       title: "Infrastructure",
-      items: ["Storage", "Bundler & Paymaster", "RPC Edge"],
+      items: ["Storage", "Engine", "RPC Edge"],
     },
     {
       title: "Tools",
-      items: ["CLI", "Dashboard", "Engine"],
+      items: ["CLI", "Dashboard"],
     },
     {
       title: "SDK References",

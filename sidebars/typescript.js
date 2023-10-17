@@ -72,6 +72,13 @@ const sidebars = {
       id: "thirdwebsdk.sdk.contractverifier",
     },
 
+    // Contract Utils
+    {
+      type: "doc",
+      label: "Contract Utilities",
+      id: "contract-utils",
+    },
+
     // Deterministic Deployments
     {
       type: "doc",
