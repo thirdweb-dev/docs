@@ -41,6 +41,22 @@ This method throws an exception if the user closes the modal.
 
 Headless method for email OTP login.
 
+Use the built in method on the `EmbeddedWallet` class:
+
+```typescript
+import { EmbeddedWallet } from "@thirdweb-dev/wallets";
+
+const embeddedWallet = new EmbeddedWallet();
+// headless email otp login
+await embeddedWallet.sendEmailOtp({
+  email: "example@email.com",
+});
+```
+
+## Headless login with email OTP (Advanced)
+
+Headless method for email OTP login if the email and OTP are already known.
+
 ```typescript
 import { EmbeddedWallet } from "@thirdweb-dev/wallets";
 
@@ -49,7 +65,7 @@ const embeddedWallet = new EmbeddedWallet();
 // make sure to call this after a user event - button click etc.
 await embeddedWallet.connect({
   loginType: "headless_email_otp_verification",
-  email: "<email-address";
+  email: "<email-address>";
   otp: "<an-otp>";
 });
 ```
@@ -66,7 +82,7 @@ const embeddedWallet = new EmbeddedWallet();
 // make sure to call this after a user event - button click etc.
 await embeddedWallet.connect({
   loginType: "headless_email_otp_verification",
-  email: "<email-address";
+  email: "<email-address>";
   otp: "<an-otp>";
   // highlight-next-line
   recoveryCode: "<recovery-code>";
