@@ -1,0 +1,20 @@
+---
+slug: /embedded-wallet/recovery
+title: Retirieve Recovery Information
+---
+
+To retrieve the recovery information for a wallet, you can use the `getRecoveryInfo` method.
+
+```typescript
+const recoveryInfo = await wallet.getRecoveryInformation();
+```
+
+## Usage
+
+```typescript
+import { EmbeddedWallet } from "@thirdweb-dev/wallets";
+
+const wallet = new EmbeddedWallet();
+await wallet.connect();
+const recoveryInfo = await wallet.getRecoveryInformation();
+```
