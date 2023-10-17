@@ -18,16 +18,9 @@ const products: Product[] = [
   },
   {
     image: "/assets/product/sdk.png",
-    name: "Engine",
-    description:
-      "Server-side interface for contracts & wallets, without the complexities of wallet and transaction management",
-    link: "/engine",
-  },
-  {
-    image: "/assets/product/sdk.png",
     name: "RPC Edge",
     description:
-      "Reliable access to querying data and interacting with the blockchain through global edge RPCs",
+      "Remote Procedure Call (RPC) Edge provides reliable access to querying data and interacting with the blockchain through global edge RPCs.",
     link: "/rpc-edge",
   },
 ];
