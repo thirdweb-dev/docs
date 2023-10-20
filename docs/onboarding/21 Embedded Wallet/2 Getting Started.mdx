@@ -72,6 +72,7 @@ import {
 export default function App() {
   return (
     <ThirdwebProvider
+      activeChain="goerli"
       clientId="YOUR_CLIENT_ID"
       supportedWallets={[embeddedWallet()]}
     >
@@ -88,10 +89,9 @@ export default function App() {
 
 ```tsx
 import { EmbeddedWallet } from "@thirdweb-dev/wallets";
-import { Ethereum } from "@thirdweb-dev/chains";
 
 const wallet = new EmbeddedWallet({
-  chain: Ethereum, //  chain to connect to
+  chain: "goerli", //  chain to connect to
   clientId: "YOUR_CLIENT_ID", // Your thirdweb client ID
 });
 
@@ -115,7 +115,7 @@ public async void ConnectWallet()
     // Configure the connection
     var connection = new WalletConnection(
       provider: WalletProvider.EmbeddedWallet,          // The wallet provider you want to connect to (Required)
-      chainId: 1,                              // The chain you want to connect to (Required)
+      chainId: 5,                              // The chain you want to connect to (Required)
       email: "email@email.com"                 // The email you want to authenticate with (Required)
     );
 
