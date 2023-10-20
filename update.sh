@@ -13,12 +13,29 @@ if [ ! -d "./etc" ]; then
   mkdir ./etc
 fi
 pnpm generate-docs
+pnpm typedoc
+rm ./typedoc/index.html
+mv ./typedoc/modules.html ./typedoc/index.html
+mv ./typedoc ../../../../static/reference/sdk
 # React
 cd ../react
 if [ ! -d "./etc" ]; then
   mkdir ./etc
 fi
 pnpm generate-docs
+pnpm typedoc
+rm ./typedoc/index.html
+mv ./typedoc/modules.html ./typedoc/index.html
+mv ./typedoc ../../../../static/reference/react
+# React
+cd ../react-native
+if [ ! -d "./etc" ]; then
+  mkdir ./etc
+fi
+pnpm typedoc
+rm ./typedoc/index.html
+mv ./typedoc/modules.html ./typedoc/index.html
+mv ./typedoc ../../../../static/reference/react-native
 # React Core
 cd ../react-core
 if [ ! -d "./etc" ]; then
@@ -30,9 +47,22 @@ cd ../storage
 if [ ! -d "./etc" ]; then
   mkdir ./etc
 fi
-yarn generate-docs
+pnpm generate-docs
+pnpm typedoc
+rm ./typedoc/index.html
+mv ./typedoc/modules.html ./typedoc/index.html
+mv ./typedoc ../../../../static/reference/storage
+# Wallets
+cd ../wallets
+if [ ! -d "./etc" ]; then
+  mkdir ./etc
+fi
+pnpm typedoc
+rm ./typedoc/index.html
+mv ./typedoc/modules.html ./typedoc/index.html
+mv ./typedoc ../../../../static/reference/wallets
 cd ../../../..
-yarn make-docs
-yarn generate-snippets
-yarn generate-github-examples
-yarn prettier
+# yarn make-docs
+# yarn generate-snippets
+# yarn generate-github-examples
+# yarn prettier
