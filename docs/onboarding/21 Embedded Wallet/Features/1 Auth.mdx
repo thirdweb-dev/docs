@@ -1,0 +1,50 @@
+---
+slug: /embedded-wallet/auth
+title: Authenticate a User
+---
+
+## Prompt login with a prebuilt modal (Recommended)
+
+Open a prebuilt modal to prompt the user to sign in with email or social login.
+
+```typescript
+import {
+  ThirdwebProvider,
+  ConnectWallet,
+  embeddedWallet,
+} from "@thirdweb-dev/react";
+
+export default function App() {
+  return (
+    <ThirdwebProvider
+      activeChain="goerli"
+      clientId="YOUR_CLIENT_ID"
+      supportedWallets={[embeddedWallet()]}
+    >
+      <ConnectWallet />
+    </ThirdwebProvider>
+  );
+}
+```
+
+## Get a user and wallet information
+
+Check if a user is logged in and if so, get their auth details, wallet address, and wallet.
+
+```typescript
+import { EmbeddedWallet } from "@thirdweb-dev/wallets";
+
+const embeddedWallet = new EmbeddedWallet();
+
+const auth = await embeddedWallet.getAuth();
+const address = await embeddedWallet.getAddress();
+```
+
+## Logout
+
+```typescript
+import { EmbeddedWallet } from "@thirdweb-dev/wallets";
+
+const embeddedWallet = new EmbeddedWallet();
+await embeddedWallet.logout();
+```

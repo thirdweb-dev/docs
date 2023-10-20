@@ -1,0 +1,124 @@
+---
+slug: /embedded-wallet/auth-advanced
+title: Login Brand Customizations
+---
+
+These options allow you to create your own branded experiences for the login step.
+
+## Prompt email one-time passcode (OTP) with modal
+
+This assumes you will create the UI to prompt for an email address, but show the pre-built UI for OTP input.
+
+```typescript
+import { EmbeddedWallet } from "@thirdweb-dev/wallets";
+
+// Pre-styled modal that directly prompts for email OTP
+const embeddedWallet = new EmbeddedWallet();
+await embeddedWallet.connect({
+  loginType: "ui_email_otp",
+  email: "user@example.com",
+});
+```
+
+If the user is already logged in, this modal is skipped and the method returns.
+
+This method throws an exception if the user closes the modal.
+
+## Prompt email one-time passcode (OTP) with brand customization
+
+This assumes you provide your own UI for email _and_ OTP input. You can offer a fully branded experience with this approach.
+
+The implementation depends on the recovery share model chosen.
+
+### Automatic recovery share (Default)
+
+Sending the email:
+
+```typescript
+import { EmbeddedWallet } from "@thirdweb-dev/wallets";
+
+const embeddedWallet = new EmbeddedWallet();
+// Calling this function will send an OTP to the email address provided.
+await embeddedWallet.sendEmailOtp({
+  email: "example@email.com",
+});
+```
+
+Verifying the code:
+
+```typescript
+// If valid, user will be logged in
+await embeddedWallet.connect({
+  loginType: "headless_email_otp_verification",
+  email: "example@email.com",
+  otp: "<an-otp>";
+});
+```
+
+### Password recovery share (Free wallet)
+
+Sending the email:
+
+```typescript
+import { EmbeddedWallet } from "@thirdweb-dev/wallets";
+
+const embeddedWallet = new EmbeddedWallet();
+// Calling this function will send an OTP to the email address provided.
+const { isNewDevice } = await embeddedWallet.sendEmailOtp({
+  email: "example@email.com",
+});
+```
+
+Verifying the email:
+
+```typescript
+// If the device is unrecognized, the user needs to be
+// prompted for their encryption key
+if (isNewDevice) {
+  // Open your own UI prompt for the user to enter their encryption key
+  const encryptionKey = await promptUserForEncryptionKey();
+
+  await embeddedWallet.connect({
+    loginType: "headless_email_otp_verification",
+    email: "example@email.com",
+    otp: "<an-otp>",
+    // highlight-next-line
+    encryptionKey,
+  });
+}
+
+// If the device is recognized, simply log in
+else {
+  await embeddedWallet.connect({
+    loginType: "headless_email_otp_verification",
+    email: "example@email.com",
+    otp: "<an-otp>",
+  });
+}
+```
+
+## Prompt Google login with brand customization (Advanced)
+
+This is currently available only with default recovery share (not available with free wallets).
+
+```typescript
+import { EmbeddedWallet } from "@thirdweb-dev/wallets";
+
+const embeddedWallet = new EmbeddedWallet();
+// headless login with google
+const googleWindow = window.open("", "Login", "width=350, height=500");
+if (!googleWindow) {
+  throw new Error("Failed to open google login window");
+}
+
+// make sure to call this after a user event - button click etc.
+await embeddedWallet.connect({
+  loginType: "headless_google_oauth",
+  // the following are not strictly required but highly recommended
+  // mainly to prevent browser from blocking pop-ups
+  openedWindow: googleWindow,
+  closeOpenedWindow: (openedWindow) => {
+    openedWindow.close();
+  },
+});
+```
