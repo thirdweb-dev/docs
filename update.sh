@@ -62,7 +62,7 @@ rm ./typedoc/index.html
 mv ./typedoc/modules.html ./typedoc/index.html
 mv ./typedoc ../../../../static/reference/wallets
 cd ../../../..
-# yarn make-docs
-# yarn generate-snippets
-# yarn generate-github-examples
-# yarn prettier
+yarn make-docs
+yarn generate-snippets
+yarn generate-github-examples
+yarn prettier
