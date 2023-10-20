@@ -31,11 +31,6 @@ if [ ! -d "./etc" ]; then
   mkdir ./etc
 fi
 pnpm generate-docs
-# add pnpm typedoc to all packages
-# remove index.html (we don't want to show readme) 
-# rename modules.html -> index.html
-# add new command to move all typedoc-generated folders and files into "build/<package>/reference"
-# point <package> references to the new `build/<package>/reference/`
 cd ../../../..
 yarn make-docs
 yarn generate-snippets
