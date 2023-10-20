@@ -16,7 +16,7 @@ Let's take a look at what each of these endpoints looks like in more detail, and
 
 ## Payload
 
-![auth-api-0](../assets/auth-api-0.png)
+![auth-api-0](../assets/auth-api-0.svg)
 
 The `/payload` endpoint is the start of the whole Auth flow. It's a `POST` endpoint that expects to receive the address and chainId of the wallet on the frontend (some wallets are chain specific, including smart contract wallets like Safe, hence the chainId option). The purpose of this endpoint is to create the sign-in with wallet message that the client-side wallet should sign in order to login.
 
@@ -24,7 +24,7 @@ The reason we generate this message server-side rather than generating it on the
 
 ## Login
 
-![auth-api-1](../assets/auth-api-1.png)
+![auth-api-1](../assets/auth-api-1.svg)
 
 The `/login` endpoint is the next part of the Auth flow. It's a `POST` endpoint that expects to receive the sign-in with wallet `payload` from the client. The main purpose of this endpoint is to check that the user has made a valid sign-in with wallet request, and to issue them a signed JWT if they have for them to authenticate to other endpoints.
 
@@ -36,7 +36,7 @@ The `/login` endpoint goes through the following high-level steps to accomplish 
 
 ## User
 
-![auth-api-2](../assets/auth-api-2.png)
+![auth-api-2](../assets/auth-api-2.svg)
 
 The `/user` endpoint is a `GET` endpoint that allows the client to periodically check if the user is still logged in, and to get any associated user data that's relevant to the client (like profile data, for example).
 
@@ -49,13 +49,13 @@ It can accomplish this by going through the following high-level steps:
 
 ## Logout
 
-![auth-api-3](../assets/auth-api-3.png)
+![auth-api-3](../assets/auth-api-3.svg)
 
 The `/logout` endpoint is the simplest of all of them. It's goal is simply to invalidate the users JWT and log them out of the application. It accomplishes this by deleting any client-side cookies with the JWT, and optionally invalidating the JWT if a database setup is used.
 
 ## Protected Endpoints
 
-![auth-api-4](../assets/auth-api-4.png)
+![auth-api-4](../assets/auth-api-4.svg)
 
 Now that we've gone over the core flow of Auth, we can take a look at how Auth can be used to protect additional endpoints, which is one of it's most important functions, as this comprises its **authorization** function.
 
