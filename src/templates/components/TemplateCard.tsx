@@ -61,7 +61,6 @@ export default function TemplateCard({ t }: Props) {
 
   function decideIcon(e: ExampleRepo) {
     let icon = "";
-
     const checkForList = [
       {
         check: "hardhat",
@@ -143,98 +142,100 @@ export default function TemplateCard({ t }: Props) {
   }
 
   return (
-    <div
-      className="col col--6"
-      style={{
-        color: "inherit",
-        textDecoration: "none",
-        padding: 8,
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-        height: "auto",
-      }}
-    >
+    t && (
       <div
-        className="tw-card no-hover-effect"
+        className="col col--6"
         style={{
+          color: "inherit",
+          textDecoration: "none",
+          padding: 8,
           display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-evenly",
-          textAlign: "center",
-          height: "100%",
-          width: "100%",
+          flexDirection: "row",
+          alignItems: "center",
+          height: "auto",
         }}
       >
         <div
-          className="card__body"
+          className="tw-card no-hover-effect"
           style={{
             display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            gap: 12,
+            flexDirection: "column",
+            justifyContent: "space-evenly",
+            textAlign: "center",
+            height: "100%",
+            width: "100%",
           }}
         >
-          <img
-            src={decideIcon(t)}
-            style={{ pointerEvents: "none", height: 48 }}
-          />
+          <div
+            className="card__body"
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              gap: 12,
+            }}
+          >
+            <img
+              src={decideIcon(t)}
+              style={{ pointerEvents: "none", height: 48 }}
+            />
 
-          <div className="template-info-container">
-            <h3
-              style={{
-                fontWeight: 600,
-                pointerEvents: "none",
-                marginBottom: 0,
-              }}
-            >
-              {transformName(t.name)}
-            </h3>
+            <div className="template-info-container">
+              <h3
+                style={{
+                  fontWeight: 600,
+                  pointerEvents: "none",
+                  marginBottom: 0,
+                }}
+              >
+                {transformName(t.name)}
+              </h3>
 
-            <p className="template-description">{t.description}</p>
-            {/* <code>{t.name}</code> */}
+              <p className="template-description">{t.description}</p>
+              {/* <code>{t.name}</code> */}
+            </div>
           </div>
-        </div>
 
-        <CodeBlock
-          language={"console"}
-          className="template-code"
-        >{`npx thirdweb create -t ${t.name}`}</CodeBlock>
+          <CodeBlock
+            language={"console"}
+            className="template-code"
+          >{`npx thirdweb create -t ${t.name}`}</CodeBlock>
 
-        <div
-          className="button-container always-row"
-          style={{ width: "100%", marginLeft: 16, marginTop: 8 }}
-        >
-          {t.homepage && (
-            <a
-              className="view-demo-btn"
-              href={t.homepage}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View Demo
-            </a>
-          )}
-          {t.html_url && (
-            <a
-              className="view-code-btn"
-              href={t.html_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-example={"example"} // Generic flag to capture all events
-              data-example-name={t.name}
-              data-example-category={"feature-example"}
-              data-example-url={t.html_url}
-              onClick={() => sendPosthogEvent(t.name)}
-            >
-              View Code
-            </a>
-          )}
-          {/* <CopyTemplateButton
+          <div
+            className="button-container always-row"
+            style={{ width: "100%", marginLeft: 16, marginTop: 8 }}
+          >
+            {t.homepage && (
+              <a
+                className="view-demo-btn"
+                href={t.homepage}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Demo
+              </a>
+            )}
+            {t.html_url && (
+              <a
+                className="view-code-btn"
+                href={t.html_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-example={"example"} // Generic flag to capture all events
+                data-example-name={t.name}
+                data-example-category={"feature-example"}
+                data-example-url={t.html_url}
+                onClick={() => sendPosthogEvent(t.name)}
+              >
+                View Code
+              </a>
+            )}
+            {/* <CopyTemplateButton
             copyText={`npx thirdweb create --template ${t.name}`}
           /> */}
+          </div>
         </div>
       </div>
-    </div>
+    )
   );
 }
