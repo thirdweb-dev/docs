@@ -37,8 +37,6 @@ Available providers:
 - `WalletProvider.Coinbase`: Coinbase Wallet
 - `WalletProvider.MetaMask`: MetaMask
 - `WalletProvider.WalletConnectV1`: WalletConnect
-- `WalletProvider.MagicLink`: Magic.Link
-- `WalletProvider.Paper`: Paper
 - `WalletProvider.LocalWallet`: Local Wallet
 - `WalletProvider.SmartWallet`: Smart Wallet
 - `WalletProvider.Hyperplay`: Hyperplay (connect to their launcher first)
@@ -58,7 +56,7 @@ Must be a `string`.
 
 #### email
 
-Optional email used for MagicLink provider.
+Optional email for default Embedded Wallet email flow.
 
 Must be a `string`.
 
@@ -68,11 +66,21 @@ Optional `WalletProvider` to use with `WalletProvider.SmartWallet` as your main 
 
 Defaults to `WalletProvider.LocalWallet`
 
-### useGoogle
+#### authOptions
 
-Use Google Authentication instead of the regular OTP flow for `WalletProvider.EmbeddedWallet`
+Embedded Wallet Authentication Options.
 
-Must be a `bool`.
+Must be an `AuthOptions` object.
+
+- AuthOptions.authProvider: `AuthProvider` (Choose your type of login flow)
+- AuthOptions.jwtToken: `string` (used only with AuthProvider.CustomJwt)
+- AuthOptions.encryptionKey: `string` (used only with AuthProvider.CustomJwt)
+
+The `AuthProvider` enum has the following options:
+
+- `AuthProvider.Email`: Email authentication (requires passing email)
+- `AuthProvider.Google`: Google authentication (no additional parameters required)
+- `AuthProvider.CustomJwt`: Custom JWT authentication (requires passing JWT token and encryption key)
 
 ## Return Value
 
