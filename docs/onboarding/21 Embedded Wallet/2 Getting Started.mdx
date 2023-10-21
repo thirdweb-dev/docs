@@ -6,6 +6,7 @@ title: Getting Started
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import QuickstartCard from "@components/QuickstartCard";
+import ViewRepoButton from "@components/ViewRepoButton";
 
 Once set up, your app will be able to connect and create embedded wallets for users.
 
@@ -13,15 +14,23 @@ Once set up, your app will be able to connect and create embedded wallets for us
 
 See Embedded Wallets in action with our demo app:
 
-<div className="col col--12" style={{ marginTop: 8 }}>
-  <QuickstartCard
-    name="Embedded Wallet Demo"
-    link="https://github.com/thirdweb-example/catattacknft"
-    image="/assets/wallets/embedded-wallet.svg"
-  />
-</div>
+<QuickstartCard
+  name="CatAttack: Embedded Wallet Demo App"
+  link="https://catattack.thirdweb.com"
+  image="/assets/wallets/embedded-wallet.svg"
+/>
 
-## Installation
+## Starting from a template
+
+Quickly get started with one of our templates:
+
+<QuickstartCard
+  name="Embedded + Smart Wallet Starter Kit"
+  link="https://github.com/thirdweb-example/embedded-smart-wallet"
+  image="/assets/wallets/embedded-wallet.svg"
+/>
+
+## Starting from existing project
 
 [Install](/cli/install) the required packages:
 
@@ -31,7 +40,11 @@ npx thirdweb install
 
 This command will recognize the environment you are working in and install the appropriate packages.
 
-## Connecting & Creating Embedded Wallets in an Application
+## Get your client ID
+
+To use embedded wallets in your applications, you will need a client ID. You can get one for free on [your thirdweb dashboard](https://thirdweb.com/create-api-key).
+
+## Connecting & Creating Embedded Wallets
 
 <Tabs>
   <TabItem value="react" label="React">

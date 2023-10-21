@@ -1,0 +1,68 @@
+---
+slug: /embedded-wallet/use
+title: Using the embedded wallet
+---
+
+## Obtain an instance of the connected wallet
+
+#### In React / React Native
+
+In react, you can access the wallet instance using the `useWallet` hook.
+
+```typescript
+import { useWallet } from "@thirdweb-dev/react";
+
+const embeddedWallet = useWallet("embeddedWallet");
+```
+
+#### In Vanilla JS
+
+In other frameworks, you can create an use your own instance of the wallet.
+
+```typescript
+import { EmbeddedWallet } from "@thirdweb-dev/wallets";
+
+const embeddedWallet = new EmbeddedWallet();
+```
+
+## Get the user wallet address
+
+#### In React / React Native
+
+Simply use the `useAddress()` hook.
+
+```typescript
+import { useAddress } from "@thirdweb-dev/react";
+
+const address = useAddress();
+```
+
+#### In Vanilla JS
+
+```typescript
+const address = await embeddedWallet.getAddress();
+```
+
+## Get the user email
+
+```typescript
+const email = await embeddedWallet.getEmail();
+```
+
+## Get the user's signer
+
+```typescript
+await embeddedWallet.getSigner();
+```
+
+## Transfer funds
+
+```typescript
+await embeddedWallet.transfer("0x...", 0.1); // amount in ETH
+```
+
+## Sign a message
+
+```typescript
+await embeddedWallet.sign("Hello World!");
+```
