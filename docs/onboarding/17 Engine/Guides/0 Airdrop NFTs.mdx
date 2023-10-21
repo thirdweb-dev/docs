@@ -1,5 +1,5 @@
 ---
-slug: /guides/airdrop-nfts
+slug: /guides/engine/airdrop-nfts
 title: Airdrop NFTs
 ---
 
@@ -89,8 +89,8 @@ yarn add @thirdweb-dev/react @thirdweb-dev/sdk ethers@^5
 
 Key details:
 
-- `<ThirdwebProvider>` wraps thirdweb components and React hooks.
-- `<ConnectWallet>` prompts the user to connect a wallet.
+- [`<ThirdwebProvider>`](https://portal.thirdweb.com/react/react.thirdwebprovider) wraps thirdweb components and React hooks.
+- [`<ConnectWallet>`](https://portal.thirdweb.com/react/react.connectwallet) prompts the user to connect a wallet.
 - When connected, the **Claim** button is presented.
 - The **Claim** buton calls `POST /api/claim`.
 
@@ -134,7 +134,7 @@ function ClaimPage() {
 
 _Replace `THIRDWEB_CLIENT_ID`_.
 
-## 2b. Backend: Call Engine to mint an NFT
+## 4. Backend: Call Engine to mint an NFT
 
 Key details:
 
@@ -181,7 +181,7 @@ export async function POST(request: Request) {
 }
 ```
 
-## 3. Update `.env.local` and start the server
+## 5. Start the server
 
 Update `.env.local` with relevant details from previous steps.
 
