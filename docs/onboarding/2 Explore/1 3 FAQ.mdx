@@ -1,0 +1,61 @@
+---
+slug: /explore/faqs
+title: FAQs
+hide_title: true
+---
+
+# FAQs
+
+### Are thirdweb smart contracts audited?
+
+All prebuilt contracts on thirdweb are audited and can be recognized by the green audit badge on the contract page. Audit reports are viewable inside the deploy contract page for each contract.
+
+### Which chains are supported by the pre-built contracts?
+
+To see a list of supported chains, visit our list of [configured chains](https://thirdweb.com/dashboard/infrastructure/rpc-edge).
+
+### Are prebuilt contracts upgradable?
+
+By default, our prebuilt contracts are immutable once deployed. To upgrade the contract, a new contract with the upgraded code needs to be deployed.
+
+However, there is one exception to this rule. The v2.0.0 version of [MarketplaceV3](https://thirdweb.com/thirdweb.eth/MarketplaceV3) contract is upgradeable, allowing updates to the base contract code even after it has been deployed.
+
+### Which contracts allow for updatable NFT metadata?
+
+Now, all drop contracts allow for updatable metadata directly from the explorer page.
+
+### Is there a smart contract I can use to create Open Edition NFTs?
+
+Yes, we have an [Open Edition ERC 721 NFT](https://thirdweb.com/thirdweb.eth/OpenEditionERC721) contract.
+
+### Why are contracts deployed from Explore less expensive in terms of gas compared to alternative methods?
+
+Deploying a contract published on Explore is approximately 10 times less expensive in terms of gas fees compared to deploying a custom contract. This cost reduction is attributed to the fact that the common logic of our pre-built contracts is delegated to a base contract, which reduces the amount of code that needs to be deployed.
+
+### **How do creator royalties work?**
+
+All NFT contracts published by thirdweb support creator royalties. When deploying your contract, you can set the desired royalty percentage for your NFTs when they are traded on a secondary marketplace.
+
+All Marketplace contracts published by thirdweb support NFT contract fees for exchanging NFTs on the marketplace.
+
+However, not all third-party marketplaces support creator royalties. OpenSea recently announced that they will be sunsetting their 'Operator Filter'. More information can be found at this link: [OpenSea Blog - Creator Fees Update](https://opensea.io/blog/articles/creator-fees-update)
+
+Until February 29th, 2024, Opensea will enforce the preferred creator royalty fee on secondary sales. After this date, creator royalties will no longer be enforced on this marketplace.
+
+### How can I split royalties?
+
+You can share royalties or split revenue using a s[plit smart contract](https://thirdweb.com/thirdweb.eth/Split).
+
+The Split contract lets you specify multiple wallet addresses that are recipients of any revenue or royalty split.
+
+You can define the percentage of funds sent to each recipient for the split contract address. For instance, you could designate 0x1 and 0x2 as recipients and configure them to each receive 50% of the funds sent to the split contract address.
+
+The split contract will store the funds, and when any user calls the distribute function, the funds will be distributed to the recipients according to the percentages you define.
+
+### How to add additional addresses to my split contract?
+
+Once a Split contract is deployed, it becomes immutable, meaning it cannot be modified to add additional addresses. However, you can deploy a new Split contract and update your royalty settings to use the new contract address for future transactions.
+
+### Can I make my NFTs non-transferable (Soulbound)?
+
+Yes, please refer to our [Transfer NFTs](https://portal.thirdweb.com/dashboard/permissions#transfer) documentation.
