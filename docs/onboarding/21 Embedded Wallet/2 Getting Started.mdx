@@ -102,13 +102,14 @@ export default function App() {
 
 ```tsx
 import { EmbeddedWallet } from "@thirdweb-dev/wallets";
+import { Goerli } from "@thirdweb-dev/chains";
 
 const wallet = new EmbeddedWallet({
-  chain: "goerli", //  chain to connect to
+  chain: Goerli, //  chain to connect to
   clientId: "YOUR_CLIENT_ID", // Your thirdweb client ID
 });
 
-wallet.connect();
+wallet.connect(options);
 ```
 
 </div>

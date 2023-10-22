@@ -36,8 +36,12 @@ To log in to your own custom authentication, call `loginWithJwtAuth` with the us
 
 ```typescript
 import { EmbeddedWallet } from "@thirdweb-dev/wallets";
+import { Goerli } from "@thirdweb-dev/chains";
 
-const embeddedWallet = new EmbeddedWallet();
+const embeddedWallet = new EmbeddedWallet({
+  chain: Goerli, //  chain to connect to
+  clientId: "YOUR_CLIENT_ID", // Your thirdweb client ID
+});
 await embeddedWallet.loginWithJwtAuth({
   token: "<idToken JWT from your auth callback>",
   authProvider: AuthProvider.CUSTOM_JWT,

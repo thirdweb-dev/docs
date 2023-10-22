@@ -210,6 +210,11 @@ const sidebars = {
         },
         {
           type: "link",
+          href: "/unity/wallet/embeddedwallet",
+          label: "Unity",
+        },
+        {
+          type: "link",
           href: "/wallet/embedded-wallet",
           label: "Wallet SDK",
         },

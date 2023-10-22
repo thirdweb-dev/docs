@@ -27,8 +27,12 @@ In other frameworks, you can create an use your own instance of the wallet.
 
 ```typescript
 import { EmbeddedWallet } from "@thirdweb-dev/wallets";
+import { Goerli } from "@thirdweb-dev/chains";
 
-const embeddedWallet = new EmbeddedWallet();
+const embeddedWallet = new EmbeddedWallet({
+  chain: Goerli, //  chain to connect to
+  clientId: "YOUR_CLIENT_ID", // Your thirdweb client ID
+});
 ```
 
 </TabItem>

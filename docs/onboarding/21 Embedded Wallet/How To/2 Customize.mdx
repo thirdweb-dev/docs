@@ -75,9 +75,12 @@ When not in a React environment, `EmbeddedWallet` can optionally show a connecti
 
 ```js
 import { EmbeddedWallet } from "@thirdweb-dev/wallets";
+import { Goerli } from "@thirdweb-dev/chains";
 
 // customize the iframe UI
 const embeddedWallet = new EmbeddedWallet({
+  clientId: "YOUR_CLIENT_ID",
+  chain: Goerli,
   styles: {
     borderRadius: "10px",
     colorBackground: "#000",
@@ -91,7 +94,6 @@ const embeddedWallet = new EmbeddedWallet({
 
 // connect the embedded wallet using the customized iframe UI
 embeddedWallet.connect({
-  chainId: chainId,
   email: email,
   loginType: "ui_email_otp",
 });
