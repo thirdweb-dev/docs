@@ -477,6 +477,19 @@
     "homepage": "https://embedded-smart-wallet.thirdweb-example.com/"
   },
   {
+    "name": "engine-minting-api",
+    "html_url": "https://github.com/thirdweb-example/engine-minting-api",
+    "description": null,
+    "created_at": "2023-10-19T00:41:52Z",
+    "updated_at": "2023-10-21T18:49:28Z",
+    "clone_url": "https://github.com/thirdweb-example/engine-minting-api.git",
+    "topics": [],
+    "language": "TypeScript",
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": null
+  },
+  {
     "name": "erc-6551",
     "html_url": "https://github.com/thirdweb-example/erc-6551",
     "description": null,
