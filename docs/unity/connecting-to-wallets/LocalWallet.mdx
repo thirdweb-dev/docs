@@ -1,0 +1,63 @@
+---
+slug: /wallet/localwallet
+title: LocalWallet
+---
+
+Loads or generates a local wallet on the user's device.
+This wallet is encrypted with a password and stored in local storage.
+It is meant to be used as a guest wallet, and is not recommended for long-term storage of funds.
+
+## Usage
+
+```csharp
+using Thirdweb;
+
+public async void ConnectWallet()
+{
+    // Reference to your Thirdweb SDK
+    var sdk = ThirdwebManager.Instance.SDK;
+
+    // Configure the connection
+    var connection = new WalletConnection(
+      provider: WalletProvider.LocalWallet,      // The wallet provider you want to connect to (Required)
+      chainId: 1,                                // The chain you want to connect to (Required)
+      password: "myEpicPassword"                 // Used to encrypt your Local Wallet, defaults to device uid (Optional)
+    );
+
+    // Connect the wallet
+    string address = await sdk.wallet.Connect(connection);
+}
+```
+
+## Behavior
+
+### WebGL
+
+Prompts the user to connect their Metamask browser extension.
+
+### Standalone
+
+Instantiates the customizeable `WalletProvider_Metamask` UI prefab, displaying a QR code and deep link button. Scan the QR code with your Metamask mobile app to connect.
+
+### Mobile
+
+Instantiates the customizeable `WalletProvider_Metamask` UI prefab, displaying a QR code and deep link button. Click the deep link button to connect to your Metamask mobile app.
+
+## Miscellaneous
+
+You may export this wallet to a JSON file, which can be imported into other wallets such as the Metamask extension.
+
+```csharp
+// Export the wallet keystore (all platforms)
+string json = await sdk.wallet.Export();
+
+// Get wallet path (native platforms)
+string path = Utils.GetAccountPath();
+
+// Delete local wallet (native platforms)
+bool deleted = Utils.DeleteLocalAccount();
+
+// Explore Utils.cs to discover more
+```
+
+If no password is passed, it defaults to `SystemInfo.deviceUniqueIdentifier`.
