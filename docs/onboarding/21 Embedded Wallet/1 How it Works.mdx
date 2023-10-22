@@ -1,6 +1,6 @@
 ---
 slug: /embedded-wallet/how-it-works
-title: How it Works
+title: How it works
 ---
 
 ## One Embedded Wallet Per App
@@ -40,3 +40,12 @@ The Embedded Wallet private key security architecture has been audited by Hacker
 ### Embedded Wallet Scalability
 
 You can create up to 100 wallets/second by default and can support higher limits (up to 3,000 wallets/second) upon request.
+
+## Free email wallets
+
+By default, thirdweb embedded wallets securely manages away all passwords or codes from the user.
+We also offer an option for users to set a password as the encryption key for the device recovery share.
+For the user, this means that when they authenticate for the first time, they will be prompted to enter a password.
+
+Enable this by selecting "User-managed" when setting up your embedded wallet-enabled API key.
+Any wallets created with this option will be completely free.
