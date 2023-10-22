@@ -3,6 +3,8 @@ slug: /embedded-wallet/smart-wallet-and-embedded-wallet
 title: Enable Gasless Transactions
 ---
 
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
 import QuickstartCard from "@components/QuickstartCard";
 
 By combining [Smart Wallet](/smart-wallet) and [Embedded Wallet](/embedded-wallet), you can create a truly seamless user experience:
@@ -18,9 +20,15 @@ These smart wallets will require a **“personal wallet”** to access and initi
 
 From the user's perspective, they will log in with their email or social account. Under the hood, an embedded wallet is created for them, and then a smart wallet is created and initialized using the embedded wallet.
 
-## Source Code
+![Connect Wallet Modal](/assets/connect-wallet/connect-wallet-embedded-compact.png)
 
-View the full source code on GitHub:
+When the user connects a wallet by entering their email, they will be able to view & interact with their smart wallet:
+
+![Modal](/assets/connect-wallet/connect-wallet-smart-dropdown.png)
+
+## Example Repo
+
+View a fully functioning project on GitHub:
 
 <div className="col col--12" style={{ padding: 8 }}>
   <QuickstartCard
@@ -29,11 +37,6 @@ View the full source code on GitHub:
     image="/assets/github-icon.webp"
   />
 </div>
-
-## Pre-requisites
-
-- [Node.js](https://nodejs.org/en/) installed.
-- [Yarn](https://yarnpkg.com/) or [npm](https://www.npmjs.com/) installed.
 
 ## 1. Deploy an Account Factory
 
@@ -65,43 +68,9 @@ Choose the right smart wallet setup for your app. thirdweb offers the following 
   </div>
 </div>
 
-## 2. Install Dependencies
+## 2. Enable smart wallets in your app
 
-To use smart wallets with embedded wallets in a React app you can either:
-
-- Use the [create](/cli/create) command to create a new project with the dependencies already installed.
-- Add the dependencies to an existing project.
-
-### Create a New Project
-
-Open your terminal and run:
-
-```bash
-npx thirdweb create app
-```
-
-When prompted, select/input the following options:
-
-- A name for the project
-- `EVM` as the blockchain
-- Select your desired environment e.g. `Next.js`
-- `TypeScript` or `JavaScript` as the language.
-
-This will create a repository.
-
-### Add Dependencies to an Existing Project
-
-To add the dependencies to an existing project, run the following command from your terminal:
-
-```bash
-npx thirdweb install
-```
-
-This will detect the environment you are working in and install the relevant dependencies.
-
-## 3. Add Connect Wallet Component
-
-The easiest way to add embedded wallets and smart wallets to your app is using the `Connect Wallet` component:
+To enable smart wallets in your app, you need to add `smartWallet()` to the list of supported wallets in the `ThirdwebProvider`:
 
 ```jsx
 import {
@@ -128,11 +97,8 @@ export default function App() {
 }
 ```
 
-This will create an embedded wallet and a smart wallet for the user. The smart wallet will be initialized with the embedded wallet.
-The user will then see the Connect Button which, when clicked, will show the user a modal to connect/create their wallet:
+This will create an embedded wallet and a smart wallet for the user. The smart wallet will be initialized with the embedded wallet as the owner.
 
-![Connect Wallet Modal](/assets/connect-wallet/connect-wallet-embedded-compact.png)
+Pass your deployed `factoryAddress` to the `smartWallet()` function. This will allow the smart wallet to be be deployed only when the user sends their first transaction.
 
-When the user connects a wallet by entering their email, they will be able to view & interact with their smart wallet:
-
-![Modal](/assets/connect-wallet/connect-wallet-smart-dropdown.png)
+You can sponsor transactions simply by passing `gasless: true` to the `smartWallet()` function. This will allow the smart wallet to send transactions without the user needing to hold any ETH.

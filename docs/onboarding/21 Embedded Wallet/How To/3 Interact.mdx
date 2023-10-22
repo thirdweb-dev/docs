@@ -1,6 +1,6 @@
 ---
 slug: /embedded-wallet/interact
-title: Interact With The Blockchain
+title: Interact with the blockchain
 ---
 
 import Tabs from "@theme/Tabs";
@@ -13,268 +13,51 @@ One connected, embedded wallets can be used alongside the [Contract SDK](/sdk) t
 
 ## Initialize the SDK With Your Wallet
 
-If you are working in [React](/react), [React Native](/react-native) or [Unity](/unity) and have connected your wallet with the **[Connect Wallet Component](/connect/connect-wallet)** you can **skip this step** - your wallet can already be used with the SDKs.
-
 <Tabs>
-    <TabItem value="typescript" label="TypeScript">
+   <TabItem value="react" label="React & React Native">
 
-To initialize the TypeScript SDK with your wallet, use the [`fromWallet`](https://portal.thirdweb.com/typescript/sdk.thirdwebsdk.fromwallet) method:
+The `ThirdwebProvider` handles maintaining the connection state, and allows using all the hooks in the SDK to interact with the blockchain as the connected user.
+
+Here's an example using the `Web3Button` component to claim an NFT on a smart contract:
+
+```tsx
+export default function App() {
+  return (
+    <ThirdwebProvider
+      activeChain="goerli"
+      clientId="YOUR_CLIENT_ID"
+      supportedWallets={[embeddedWallet()]}
+    >
+      <Web3Button
+        contractAddress="0x..."
+        action={(contract) => contract.erc721.claim(1)}
+      >
+        Claim NFT
+      </Web3Button>
+    </ThirdwebProvider>
+  );
+}
+```
+
+</TabItem>
+    <TabItem value="typescript" label="Other Frameworks">
+
+To initialize the Contract SDK with your wallet, use the [`fromWallet`](https://portal.thirdweb.com/typescript/sdk.thirdwebsdk.fromwallet) method:
 
 ```typescript
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 import { EmbeddedWallet } from "@thirdweb-dev/wallet";
 
 const wallet = new EmbeddedWallet();
+await wallet.connect();
 
 const sdk = ThirdwebSDK.fromWallet(wallet, "ethereum", {
   clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
   secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
 });
-```
 
-</TabItem>
-   <TabItem value="react" label="React">
-
-To initialize the React SDK with your wallet, use the [`getSigner`](https://portal.thirdweb.com/connect/wallet-actions/get-signer) method to get the signer and pass it to the [`ThirdwebSDKProvider`](https://portal.thirdweb.com/react/react.thirdwebsdkprovider) which wraps your app:
-
-```tsx
-import {
-  ThirdwebSDKProvider,
-  useSigner,
-  embeddedWallet,
-  useConnect,
-} from "@thirdweb-dev/react";
-
-function MyApp() {
-  const wallet = embeddedWallet();
-  const connect = useConnect();
-  await connect(wallet);
-  // this will only work if the user is already connected to your app with embedded wallet
-  const signer = useSigner();
-  return (
-    <ThirdwebSDKProvider
-      activeChain={"ethereum"}
-      // Example: Use ethers to get the signer from the window.ethereum object
-      signer={signer}
-      clientId="your-client-id"
-    >
-      <App />
-    </ThirdwebSDKProvider>
-  );
-}
-```
-
-</TabItem>
-<TabItem value="react-native" label="React Native">
-
-To initialize the React Native SDK with your wallet, use the [`getSigner`](https://portal.thirdweb.com/connect/wallet-actions/get-signer) method to get the signer and pass it to the [`ThirdwebSDKProvider`](https://portal.thirdweb.com/react/react.thirdwebsdkprovider) which wraps your app:
-
-```tsx
-import { ThirdwebSDKProvider } from "@thirdweb-dev/react";
-import { EmbeddedWallet } from "@thirdweb-dev/wallet";
-
-function MyApp() {
-  const wallet = new EmbeddedWallet();
-
-  const signer = wallet.getSigner();
-  return (
-    <ThirdwebSDKProvider
-      activeChain={"ethereum"}
-      // Example: Use ethers to get the signer from the window.ethereum object
-      signer={signer}
-      clientId="your-client-id"
-    >
-      <App />
-    </ThirdwebSDKProvider>
-  );
-}
-```
-
-</TabItem>
-</Tabs>
-
-## Execute a Write Function
-
-<Tabs>
-    <TabItem value="typescript" label="TypeScript">
-
-```typescript
 const contract = await sdk.getContract("0x...");
-const data = await contract.call(
-  "myFunctionName", // Name of your function as it is on the smart contract
-  // Arguments to your function, in the same order they are on your smart contract
-  [
-    "arg1", // e.g. Argument 1
-    "arg2", // e.g. Argument 2
-  ],
-);
-```
-
-</TabItem>
-    <TabItem value="react" label="React">
-
-```tsx
-import { useContractWrite, useContract, Web3Button } from "@thirdweb-dev/react";
-
-// Your smart contract address
-const contractAddress = "{{contract_address}}";
-
-function App() {
-  const { contract } = useContract(contractAddress);
-  const { mutateAsync, isLoading, error } = useContractWrite(
-    contract,
-    "setName",
-  );
-
-  return (
-    <Web3Button
-      contractAddress={contractAddress}
-      // Calls the "setName" function on your smart contract with "My Name" as the first argument
-      action={() => mutateAsync({ args: ["My Name"] })}
-    >
-      Send Transaction
-    </Web3Button>
-  );
-}
-```
-
-</TabItem>
-    <TabItem value="react-native" label="React Native">
-
-```tsx
-import {
-  useContractWrite,
-  useContract,
-  Web3Button,
-} from "@thirdweb-dev/react-native";
-
-// Your smart contract address
-const contractAddress = "{{contract_address}}";
-
-function App() {
-  const { contract } = useContract(contractAddress);
-  const { mutateAsync, isLoading, error } = useContractWrite(
-    contract,
-    "setName",
-  );
-
-  return (
-    <Web3Button
-      contractAddress={contractAddress}
-      // Calls the "setName" function on your smart contract with "My Name" as the first argument
-      action={() => mutateAsync({ args: ["My Name"] })}
-    >
-      Send Transaction
-    </Web3Button>
-  );
-}
-```
-
-</TabItem>
-<TabItem value="unity" label="Unity">
-
-```c#
-TransactionResult result = await contract.Write("functionName");
-```
-
-</TabItem>
-</Tabs>
-
-## Get The Signer/Address
-
-<Tabs>
-    <TabItem value="typescript" label="TypeScript">
-
-```typescript
-//Get the wallet signer (Wallet SDK)
-const signer = await wallet.getSigner();
-
-//Get the wallet address (Wallet SDK)
-const address = await wallet.getAddress();
-```
-
-</TabItem>
-    <TabItem value="react" label="React">
-
-```tsx
-import { useSigner, useAddress } from "@thirdweb-dev/react";
-
-//Get the wallet signer
-const signer = useSigner();
-
-//Get the wallet address
-const address = useAddress();
-```
-
-</TabItem>
-    <TabItem value="react-native" label="React Native">
-
-```tsx
-import { useSigner, useAddress } from "@thirdweb-dev/react-native";
-
-//Get the wallet signer
-const signer = useSigner();
-
-//Get the wallet address
-const address = useAddress();
-```
-
-</TabItem>
-</Tabs>
-
-## View The Owned NFTs
-
-<Tabs>
-    <TabItem value="typescript" label="TypeScript">
-
-```typescript
-// Address of the wallet to get the NFTs of
-const contract = await sdk.getContract("0x...");
-const address = wallet.getAddress(); // Optional - Defaults to the connected wallet
-const nfts = await contract.erc721.getOwned(address);
-```
-
-</TabItem>
-    <TabItem value="react" label="React">
-
-```tsx
-import { useOwnedNFTs, useContract, useAddress } from "@thirdweb-dev/react";
-
-// Your smart contract address
-const contractAddress = "{{contract_address}}";
-
-function App() {
-  const address = useAddress();
-  const { contract } = useContract(contractAddress);
-  const { data, isLoading, error } = useOwnedNFTs(contract, address);
-}
-```
-
-</TabItem>
-    <TabItem value="react-native" label="React Native">
-
-```tsx
-import {
-  useOwnedNFTs,
-  useContract,
-  useAddress,
-} from "@thirdweb-dev/react-native";
-
-// Your smart contract address
-const contractAddress = "{{contract_address}}";
-
-function App() {
-  const address = useAddress();
-  const { contract } = useContract(contractAddress);
-  const { data, isLoading, error } = useOwnedNFTs(contract, address);
-}
-```
-
-</TabItem>
-    <TabItem value="unity" label="Unity">
-
-```c#
-var data = await contract.ERC721.GetOwned();
+await contract.erc721.claim(1);
 ```
 
 </TabItem>
