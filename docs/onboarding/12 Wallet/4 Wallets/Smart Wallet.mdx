@@ -680,3 +680,17 @@ await wallet.connect({
 
 await wallet.deployIfNeeded();
 ```
+
+### getPersonalWallet
+
+Get the personal wallet that is connected to the Smart Wallet.
+
+```javascript
+// first, connect the Smart wallet
+const wallet = new SmartWallet(config);
+await wallet.connect({
+  personalWallet,
+});
+
+const personalWallet = wallet.getPersonalWallet();
+```
