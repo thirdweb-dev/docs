@@ -78,6 +78,44 @@ embeddedWallet({
 </div>
 </details>
 
+<details>
+  <summary>custom_auth (optional)</summary>
+  <div>
+
+You can bring your own jwt token to authenticate the user.
+
+```ts
+import { connect, embeddedWallet } from "@thirdweb-dev/react-native";
+
+export const App = () => {
+  <ThirdwebProvider supportedWallets={[embeddedWallet({custom_auth: true})]}>
+    <App />
+  </ ThirdwebProvider>
+}
+
+const AppInner = () => {
+  const connect = useConnect();
+
+  ...
+
+  connect(embeddedWallet(), {
+    loginType: "custom_jwt_auth",
+    encryptionKey: "strong-encryption-key",
+    jwtToken: "your-custom-jwt",
+  });
+}
+```
+
+Whether to show a UI for embedded wallet or not.
+
+- If set to `true`, a UI will not be shown. Devs are responsible for providing the connecting UI.
+- If set to `false` (default), the other options will be used to show a UI.
+
+You need to manually call connect on the wallet to connect to the wallet.
+
+</div>
+</details>
+
 ## Installation
 
 To use the `embeddedWallet` you need to add the following dependencies to your project:
