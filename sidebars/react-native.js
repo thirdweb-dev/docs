@@ -149,12 +149,6 @@ const sidebars = {
         '<a style="text-decorations:none; color:inherit;" href="/reference/react-native/index.html" target="_blank">Full Reference</a>',
       defaultStyle: true,
     },
-    // {
-    //   type: "html",
-    //   value:
-    //     '<a style="text-decorations:none; color:inherit;" href="/reference/react-native/index.html" target="_blank">Full Reference</a>',
-    //   defaultStyle: true,
-    // },
   ],
 };
 
