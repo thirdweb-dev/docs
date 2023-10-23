@@ -32,10 +32,10 @@ function DocSidebarItems({ items, ...props }) {
     {
       title: "Wallets",
       items: [
-        "Wallet SDK",
         "Connect",
         "Smart Wallet",
         "Embedded Wallet",
+        "Wallet SDK",
         "Auth",
       ],
     },
@@ -52,7 +52,7 @@ function DocSidebarItems({ items, ...props }) {
     },
     {
       title: "Infrastructure",
-      items: ["Storage", "Engine", "RPC Edge"],
+      items: ["Engine", "Storage", "RPC Edge"],
     },
     {
       title: "Tools",
