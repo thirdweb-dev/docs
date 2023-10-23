@@ -261,11 +261,6 @@ const sidebars = {
       items: [
         {
           type: "link",
-          href: "/wallet/smart-wallet",
-          label: "Wallet SDK",
-        },
-        {
-          type: "link",
           href: "/react/react.smartwallethooks",
           label: "React",
         },
@@ -273,6 +268,11 @@ const sidebars = {
           type: "link",
           href: "/react-native/react-native.smartwallet",
           label: "React Native",
+        },
+        {
+          type: "link",
+          href: "/wallet/smart-wallet",
+          label: "Wallet SDK",
         },
         {
           type: "link",
