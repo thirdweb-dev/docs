@@ -3,27 +3,31 @@ slug: /engine
 title: Overview
 ---
 
-:::info
-Engine is in open beta and self-hosted. For a cloud-managed Engine, please [contact us](https://thirdweb.com/contact-us).
-:::
+# Overview
 
-Engine provides a server-side interface for contracts & wallets, without the complexities of wallet and transaction management.
+Engine is a backend server with a simple API interface that lets developers create backend wallets and interact with blockchains using familiar HTTP calls to any EVM chain.
 
-It offers APIs for contracts, wallets, gas-less configurations & auth that allows developers to go to market and launch production grade applications with cross-EVM chain support with faster speeds, security, and reliability.
+![Engine overview](./assets/engine-docs-diagram-updated.svg)
 
----
+### Features
 
-Building a decentralized application with a seamless user experience at scale requires setting up a backend infrastructure to create & manage wallets, deploy & interact with contracts, and handle user authentication. Engine removes this friction by eliminating blockchain constraints related to nonce, funds, gas, and key management.
+- **Backend wallets** - Create backend wallets and store their keys securely via a cloud secrets manager like KMS. Then, sign transactions and move funds all using backend calls.
+- **Contracts** - Deploy, read and write any smart contract.
+- **Smart wallets** - Create smart wallets for users and create session keys for backend wallets to manage assets inside these accounts
+- **Sponsor gas** - Use Engine to sponsor gas for any transactions.
+- **Analytics (coming soon)** - Monitor your blockchain transactions and funds flow.
 
-![Diagram showing relationship of engine](./assets/web3-api-arch.svg)
+### Benefits
 
-## Features
+- **Scalability** - To achieve high reliability during bursty traffic, blockchain calls are parallelized with smart retries. Engine protects your transactions against stuck nonces, gas spikes, and network instability.
+- **Ease of use** - Engine abstracts blockchain complexities around nonce, gas, signers, private key security and others. It enables any developer to quickly build sophisticated web3 applications with a low barrier of entry.
+- **Security -** Engine allows developers to back up private keys to the cloud, revoke access to backend wallets, and monitor flow of funds (coming soon).
 
-- **Backend wallets:** Create backend wallets, store their keys securely via a cloud secrets manager like KMS, sign & send any transactions, and move funds at scale with nonce-management.
-- **Smart wallets with shared custody:** Create managed, smart wallets with shared custody between the backend wallets & a user’s EOA wallet.
-- **Contracts:** Deploy, read, and write to any contract across any blockchain.
-- **Auth:** Create permissions to enable users with wallets to directly interact with certain endpoints on Engine.
-- **Sponsored transactions:** Sponsor gas fees for any transactions through Engine.
+### Use Cases
+
+- **Minting API** - Use Engine to set up your own minting API, which allows you to provide free NFTs to users or sell NFTs using credit cards or cryptocurrency.
+- **User Accounts** - Use Engine to deploy embedded (email) wallets for users using pre-built smart wallet contracts. Additionally, utilize backend wallets to create a gas-less and managed experience.
+- **Chain API** - Use Engine to provide developers with an easy to use API interface to develop on your chain
 
 ## Beta Feedback
 

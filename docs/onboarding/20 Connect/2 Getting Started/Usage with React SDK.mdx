@@ -1,14 +1,14 @@
 ---
 slug: /connect/usage-with-react-sdk
 title: React
-sidebar_position: 4
+sidebar_position: 1
 ---
 
 import QuickstartCard from "@components/QuickstartCard";
 
 # Usage with React SDK
 
-## Quick Started
+## Quick Start
 
 The quickest way to get started is to use the interactive [Connect Wallet component builder](https://thirdweb.com/dashboard/wallets/connect).
 
@@ -46,8 +46,6 @@ You can connect to a wallet in two ways:
 [ConnectWallet](/react/react.connectwallet) component allows you to connect to wallets that are specified in [ThirdwebProvider](/react/react.thirdwebprovider#supportedwallets-optional)
 
 Clicking on the `ConnectWallet` button shows wallets in a Modal and shows wallet-specific UI for connecting the wallet when it is selected (This UI is defined in the wallet configurator itself, not in `ConnectWallet` component)
-
-<img src="../assets/compact-dark-social.png" />
 
 #### Example
 
@@ -95,7 +93,7 @@ function App() {
 
 ## 2. Using useConnect hook
 
-[useConnect](/react/react.useconnect) hook allows you to programmatically connect to the wallet. You will need to build your own UI for connecting the wallet.
+[useConnect](/react/react.useconnect) hook allows you to programmatically connect to any wallet. With this you can build your own UI for connecting the wallet.
 
 ```tsx
 import { useConnect, metamaskWallet } from "@thirdweb-dev/react";
@@ -118,7 +116,7 @@ function App() {
 }
 ```
 
-## 3. Using ThirdwebSDKProvider
+## 3. Using ThirdwebSDKProvider (advanced)
 
 [ThirdwebSDKProvider](/react/react.thirdwebsdkprovider) is a lower level provider that accepts an arbitrary wallet and only handles contract interaction. This means you can use the Wallet SDK to programmatically connect to any wallet, and pass the connected wallet to this provider to execute transactions from the connected wallet.
 
