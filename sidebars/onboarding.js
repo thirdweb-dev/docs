@@ -210,6 +210,11 @@ const sidebars = {
         },
         {
           type: "link",
+          href: "/unity/wallet/embeddedwallet",
+          label: "Unity",
+        },
+        {
+          type: "link",
           href: "/wallet/embedded-wallet",
           label: "Wallet SDK",
         },
@@ -256,11 +261,6 @@ const sidebars = {
       items: [
         {
           type: "link",
-          href: "/wallet/smart-wallet",
-          label: "Wallet SDK",
-        },
-        {
-          type: "link",
           href: "/react/react.smartwallethooks",
           label: "React",
         },
@@ -271,7 +271,12 @@ const sidebars = {
         },
         {
           type: "link",
-          href: "/unity/thirdwebmanager#smart-wallet-options",
+          href: "/wallet/smart-wallet",
+          label: "Wallet SDK",
+        },
+        {
+          type: "link",
+          href: "/unity/wallet/smartwallet",
           label: "Unity",
         },
       ],

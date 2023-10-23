@@ -1,12 +1,37 @@
 ---
 slug: /connect/usage-with-unity-sdk
 title: Unity
-sidebar_position: 6
+sidebar_position: 4
 ---
 
 import QuickstartCard from "@components/QuickstartCard";
 
 # Usage with Unity SDK
+
+## 1. Using the `ThirdwebManager` prefab
+
+Adding the [ThirdwebManager](/unity/ThirdwebManager) to your scene will handle the initialization of the SDK and maintain the connection to the wallet.
+
+```csharp
+using Thirdweb;
+
+public async void ConnectWallet()
+{
+    // Reference to your Thirdweb SDK
+    var sdk = ThirdwebManager.Instance.SDK;
+
+    // Configure the connection
+    var connection = new WalletConnection(
+      provider: WalletProvider.Metamask,       // The wallet provider you want to connect to (Required)
+      chainId: 1                               // The chain you want to connect to (Required)
+    );
+
+    // Connect the wallet
+    string address = await sdk.wallet.Connect(connection);
+}
+```
+
+## 2. Using the `ConnectWallet` prefab
 
 The `ConnectWallet` prefab allows users to connect their wallet to your game.
 
