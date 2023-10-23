@@ -1,0 +1,107 @@
+---
+slug: /embedded-wallet/customize
+title: Customize the UI
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import QuickstartCard from "@components/QuickstartCard";
+
+When using Embedded Wallet with the `ConnectWallet` component, you can customize the UI of the modal & button.
+
+`embeddedWalletConfig` contains the default config for metadata and UI. you can optionally choose to override the defaults to customize the look and feel.
+
+## Build a Custom UI
+
+the `ConnectWallet` component allows for overriding:
+
+- The name, icon and upsell links for the wallet
+- The selection UI - the UI before the users selects the wallet
+- The connection UI - the UI after the user selects the wallet
+
+<Tabs>
+  <TabItem value="react" label="React & React Native">
+  
+  <div>
+
+```js
+import { embeddedWallet } from "@thirdweb-dev/react";
+
+const embeddedWalletConfig = embeddedWallet();
+
+// change the name
+embeddedWalletConfig.meta.name = "...";
+// change the icon
+embeddedWalletConfig.meta.iconURL = "...";
+// override connection UI
+embeddedWalletConfig.connectUI = embeddedWalletConnectUI; // your react component
+// custom selection UI
+embeddedWalletConfig.selectUI = embeddedWalletSelectUI; // your react component
+```
+
+You can then pass the customized `embeddedWalletConfig` to the `ThirdwebProvider` component in `supportedWallets`. You can then use it with `ConnectWallet` component or `useConnect` hook as shown below
+
+```tsx
+import {
+  ThirdwebProvider,
+  useConnect,
+  embeddedWallet,
+} from "@thirdweb-dev/react";
+
+// add to ThirdwebProvider
+<ThirdwebProvider
+  supportedWallets={[embeddedWalletConfig]}
+  clientId="your-client-id"
+>
+  <App />
+</ThirdwebProvider>
+
+// then use the ConnectWallet component
+<ConnectWallet />
+
+// or use it with useConnect hook
+const connect = useConnect();
+connect(embeddedWalletConfig, connectOptions);
+```
+
+</div>
+
+</TabItem>
+    <TabItem value="typescript" label="Other Frameworks">
+    
+    <div>
+
+When not in a React environment, `EmbeddedWallet` can optionally show a connection UI in an iframe that can be styled.
+
+```js
+import { EmbeddedWallet } from "@thirdweb-dev/wallets";
+import { Goerli } from "@thirdweb-dev/chains";
+
+// customize the iframe UI
+const embeddedWallet = new EmbeddedWallet({
+  clientId: "YOUR_CLIENT_ID",
+  chain: Goerli,
+  styles: {
+    borderRadius: "10px",
+    colorBackground: "#000",
+    colorPrimary: "#f00",
+    colorText: "#fff",
+    fontFamily: "sans-serif",
+    inputBackgroundColor: "#f00",
+    inputBorderColor: "#f00",
+  },
+});
+
+// connect the embedded wallet using the customized iframe UI
+embeddedWallet.connect({
+  email: email,
+  loginType: "ui_email_otp",
+});
+```
+
+Note that in this case, you are responsible for maintaining the connection state by holding on to the `embeddedWallet` instance and its underlying signer.
+
+</div>
+
+</TabItem>
+</Tabs>
