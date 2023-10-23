@@ -16,11 +16,6 @@ In react, there are three ways to get started with smart wallets:
 - **Option 2** - Using the [`useConnect` hook](#using-useconnect) to connect users and create a custom UI.
 - **Option 3** - Using the [`Wallet SDK`](#using-thirdwebsdkprovider) directly for level control and full customization of the connection logic.
 
-## Pre-requisites
-
-- [Node.js](https://nodejs.org/en/) installed.
-- [Yarn](https://yarnpkg.com/) or [npm](https://www.npmjs.com/) installed.
-
 ## 1. Deploy an Account Factory
 
 Deployable via the [explore page](https://thirdweb.com/explore/smart-wallet) or build your own [ERC 4337](https://eips.ethereum.org/EIPS/eip-4337) compatible factory contract using the [Solidity SDK](/solidity/base-contracts/smart-accounts).
@@ -51,6 +46,8 @@ Choose the right smart wallet setup for your app. thirdweb offers the following 
   </div>
 </div>
 
+Read about the differences between the three smart wallet types [here](/smart-wallet/how-it-works#smart-wallet-factories).
+
 ## 2. Create an API key
 
 To use the smart wallet bundler and paymaster, you must create an API key and a billing account.
@@ -79,8 +76,10 @@ To use smart wallet infrastructure on mainnet you will also need to [create an a
 
 To use smart wallets in a React app you can either:
 
-- Use the [create](/cli/create) command to create a new project with the dependencies already installed.
-- Add the dependencies to an existing project.
+- Use [npx thirdweb create](/cli/create) command to create a new project with the dependencies already installed.
+- Add the dependencies to an existing project using `npx thirdweb install` or your favorite package manager.
+
+In this guide, we'll create a new project.
 
 ### Create a New Project
 
@@ -95,21 +94,13 @@ When prompted, select/input the following options:
 - A name for the project
 - `EVM` as the blockchain
 - Select your desired environment e.g. `Next.js`
-- `TypeScript` or `JavaScript` as the language.
+- `TypeScript` as the language.
 
 This will create a repository.
 
-### Add Dependencies to an Existing Project
+## 4. Build your connection UI
 
-To add the dependencies to an existing project, run the following command from your terminal:
-
-```bash
-npx thirdweb install
-```
-
-This will detect the environment you are working in and install the relevant dependencies.
-
-## 1. Using Connect Wallet
+### 4.(a) Using Connect Wallet
 
 To use the [Connect Wallet](/react/react.connectwallet) component to connect your users to your app using smart wallet,
 we need to pass a [`smartWallet`](/react/react.smartwallet) to the [`supportedWallets`](/react/react.thirdwebprovider#supportedwallets-optional) prop in [`ThirdwebProvider`](/react/react.thirdwebprovider).
@@ -165,7 +156,7 @@ After connecting your personal wallet, a smart wallet is created for you and con
 
 ![Connected Smart Wallet](/assets/connect-wallet/connect-wallet-smart-dropdown.png)
 
-## 2. Using useConnect
+### 4.(b) Using the `useConnect` hook
 
 The [useConnect](/react/react.useconnect) hook allows you to programmatically connect your application to the wallet. You will need to build your own UI for connecting the wallet.
 
@@ -221,75 +212,41 @@ function Example() {
 }
 ```
 
-## 3. Using ThirdwebSDKProvider
+## 5. Use the Smart Wallet
 
-[`ThirdwebSDKProvider`](/react/react.thirdwebsdkprovider) is a lower-level provider that accepts an arbitrary wallet, as a signer, and only handles contract interactions. This means you can use the [Wallet SDK](/wallet) to programmatically connect to any wallet, and pass the connected wallet signer to this provider to execute transactions from the connected wallet.
+Now that you have connected your smart wallet to your app, you can use it to send transactions and interact with smart contracts.
 
-To use this method, you will need to install the `@thirdweb-dev/wallets` package.
+### 5.(a) Claim an NFT and fetch owned NFTs
+
+Deploy a NFT Drop contract from the [explore page](https://thirdweb.com/explore/nft-drop) or build your own [ERC 721](https://eips.ethereum.org/EIPS/eip-721) compatible contract using the [Solidity SDK](/solidity/base-contracts/erc721).
+
+To claim an NFT, we will use the [useContract](/react/react.usecontract) hook to fetch the contract and the [Web3Button](/react/react.web3button) component to send the transaction.
 
 ```tsx
-import { ThirdwebSDKProvider } from "@thirdweb-dev/react";
-import {
-  LocalWallet,
-  SmartWallet,
-  type SmartWalletConfig,
-  type WalletOptions,
-} from "@thirdweb-dev/wallets";
-import { Goerli } from "@thirdweb-dev/chains";
-import type { Signer } from "ethers";
-import { useState, useEffect, useRef } from "react";
-
-function MyComponent() {
-  const [signer, setSigner] = useState<Signer | undefined>(undefined);
-
-  const config: WalletOptions<SmartWalletConfig> = {
-    chain: Goerli, // the chain where your smart wallet will be or is deployed
-    factoryAddress: "<your-factory-address>", // your own deployed account factory address
-    clientId: "<your-client-id>", // obtained from the thirdweb dashboard
-    gasless: true,
-  };
-
-  const generated = useRef(false);
-  useEffect(() => {
-    if (generated.current) {
-      return;
-    }
-    generated.current = true;
-
-    const generateWallet = async () => {
-      const personalWallet = new LocalWallet({
-        chain: Goerli,
-      });
-      await personalWallet.loadOrCreate({
-        strategy: "encryptedJson",
-        password: "<user-password>",
-      });
-      const smartWallet = new SmartWallet(config);
-      await smartWallet.connect({
-        personalWallet: personalWallet,
-      });
-      setSigner(await smartWallet.getSigner());
-      console.log("signer", signer);
-    };
-    generateWallet();
-  }, []);
-
-  // The provider will handle maintaining the connected wallet
-  // calling contracts from within the provider with the regular hooks
-  // will execute on behalf of the provided wallet signer
+import { useAddress, useContract, useOwnedNFTs, Web3Button } from "@thirdweb-dev/react";
+// The ThirdwebProvider setup above already handles connection to the smart wallet
+// Within the provider, you can use the react SDK hooks to interact with the blockchain
+export default function MyComponent() {
+  // Get the connected smart wallet address
+  const smartWalletAddress = useAddress();
+  // Fetch owned NFTs
+  const { contract } = useContract("0x..."); // your nft drop contract
+  const { data, isLoading } = useOwnedNFTs(contract, smartWalletAddress);
+  // Mint a new NFT
   return (
-    <ThirdwebSDKProvider
-      activeChain={Goerli}
-      signer={signer}
-      clientId="your-client-id"
+    <Web3Button
+      contractAddress={"0x..."}
+      action={(contract) => contract.erc721.claim(1)
+      }
     >
-      <App />
-    </ThirdwebSDKProvider>
+      Mint NFT
+    </Web3Button>
   );
 }
+`;
 ```
 
-## Add a Session Key
+## 6. Bonus: Add a Session Key
 
 To add a session key to your smart wallet, you can use the [`useCreateSessionKey`](/react/react.usecreatesessionkey) hook to add a session key to the currently connected smart wallet:
 
@@ -315,7 +272,7 @@ const Component = () => {
        onClick={() => createSessionKey(
          keyAddress,
          {
-           approvedCallTargets: ["0x..."], // the addresses of contracts that the session key can call
+           approvedCallTargets: ["0x..."], // the addresses of allowed contracts or '*' for any
            nativeTokenLimitPerTransaction: 0.1, // the maximum amount of native token (in ETH) that the session key can spend per transaction
            startDate: new Date(), // the date when the session key becomes active
            expirationDate = new Date(Date.now() + 24 * 60 * 60 * 1000); // the date when the session key expires

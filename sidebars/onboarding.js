@@ -276,7 +276,7 @@ const sidebars = {
         },
         {
           type: "link",
-          href: "/unity/thirdwebmanager#smart-wallet-options",
+          href: "/unity/wallet/smartwallet",
           label: "Unity",
         },
       ],
