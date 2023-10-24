@@ -22,7 +22,24 @@ To get started, you'll need to set up a few environment variables.
 
 - _`ADMIN_WALLET_ADDRESS`_: This is the initial admin wallet address that allows you to connect to your Engine from the Dashboard for setup.
 
-## Running the Server
+## Running PostgreSQL
+
+Use `docker` to run a Postgres Instance which Engine needs to run. Follow the below steps:
+
+1. Create a `.env` file and add the below Env vars to it.
+
+```js
+POSTGRES_USER = postgres;
+POSTGRES_PASSWORD = postgres;
+```
+
+2. Run the below command:
+
+```bash
+docker run -e .env -p 5432:5432 postgres:latest
+```
+
+## Running the Engine Server
 
 Now, let's fire up your Engine Instance! You can do this using Docker with a simple command:
 
@@ -36,6 +53,8 @@ docker run \
 ```
 
 Just replace `<your-api-secret-key>`, `<your-connection-url>`, and `<your-admin-wallet-address>` with the values you obtained earlier.
+
+> NOTE: Make sure to change the host details on postgres connection url to `host.docker.internal` from `localhost`
 
 ## Create an Access Token
 
@@ -61,7 +80,7 @@ To execute any on-chain transaction request, Engine needs to have a backend-wall
 4. `Create` or `Import` backend wallet using the respective buttons.
 5. Now you have successfully created/imported a backend wallet. Do not forget to fund your backend wallet.
 
-## Using the Server
+## Using the Engine Server
 
 Now that your Engine Instance is running, let's learn how to interact with it. Engine expects the below headers to part of the HTTP request :
 
