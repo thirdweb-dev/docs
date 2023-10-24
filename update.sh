@@ -1,3 +1,14 @@
+typedoc() {
+  pnpm typedoc
+  rm ./typedoc/index.html
+  mv ./typedoc/modules.html ./typedoc/index.html
+  cd ./typedoc
+  find . -type f -name "*.html" -exec sed -i '' -e "s/href=\"\([a-zA-Z]\)/href=\"\/$1\/\1/g" -e "s/src=\"\([a-zA-Z]\)/src=\"\/$1\/\1/g" {} \;
+  cd ..
+  rm -rf "../../../../static/reference/$1/*"
+  mv ./typedoc/* "../../../../static/reference/$1/"
+}
+
 git submodule init
 git submodule update --remote
 git submodule foreach git checkout main
@@ -13,29 +24,20 @@ if [ ! -d "./etc" ]; then
   mkdir ./etc
 fi
 pnpm generate-docs
-pnpm typedoc
-rm ./typedoc/index.html
-mv ./typedoc/modules.html ./typedoc/index.html
-mv ./typedoc ../../../../static/reference/sdk
+typedoc sdk
 # React
 cd ../react
 if [ ! -d "./etc" ]; then
   mkdir ./etc
 fi
 pnpm generate-docs
-pnpm typedoc
-rm ./typedoc/index.html
-mv ./typedoc/modules.html ./typedoc/index.html
-mv ./typedoc ../../../../static/reference/react
-# React
+typedoc react
+# React-Native
 cd ../react-native
 if [ ! -d "./etc" ]; then
   mkdir ./etc
 fi
-pnpm typedoc
-rm ./typedoc/index.html
-mv ./typedoc/modules.html ./typedoc/index.html
-mv ./typedoc ../../../../static/reference/react-native
+typedoc react-native
 # React Core
 cd ../react-core
 if [ ! -d "./etc" ]; then
@@ -48,19 +50,13 @@ if [ ! -d "./etc" ]; then
   mkdir ./etc
 fi
 pnpm generate-docs
-pnpm typedoc
-rm ./typedoc/index.html
-mv ./typedoc/modules.html ./typedoc/index.html
-mv ./typedoc ../../../../static/reference/storage
+typedoc storage
 # Wallets
 cd ../wallets
 if [ ! -d "./etc" ]; then
   mkdir ./etc
 fi
-pnpm typedoc
-rm ./typedoc/index.html
-mv ./typedoc/modules.html ./typedoc/index.html
-mv ./typedoc ../../../../static/reference/wallets
+typedoc wallets
 cd ../../../..
 yarn make-docs
 yarn generate-snippets
