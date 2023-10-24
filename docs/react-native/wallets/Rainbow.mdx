@@ -1,0 +1,68 @@
+---
+title: Rainbow
+slug: /react-native.rainbow
+displayed_sidebar: react-native
+---
+
+Implementation of the WalletConnect protocol. The `dAppMeta` prop passed in the `ThirdwebProvider` above will be used when connecting to the wallets to show your app's information.
+
+```tsx
+import { rainbowWallet, ThirdwebProvider } from "@thirdweb-dev/react-native";
+import { Ethereum } from "@thirdweb-dev/chains";
+
+const App = () => {
+  const activeChain = Ethereum;
+  return (
+    <ThirdwebProvider
+      clientId="your-client-id"
+      activeChain={activeChain}
+      supportedChains={[activeChain]}
+      supportedWallets={[
+        rainbowWallet({
+          projectId: "your-wallet-connect-project-id", // optional but we recommend you get your own for production
+        }),
+      ]}
+    >
+      <AppInner />
+    </ThirdwebProvider>
+  );
+};
+```
+
+## options
+
+<details>
+  <summary>projectId</summary>
+  <div>
+
+The WalletConnect `projectId`. You can get one in the [WalletConnect portal](https://cloud.walletconnect.com/sign-in).
+
+Defaults to a common `projectId` set by thirdweb. This should be ok for testing but note that if you want to deploy your mobile app it may make sense to create your own as WalletConnect may throttle traffic coming from the same `projectId`.
+
+```ts
+rainbowWallet({
+  // highlight-start
+  projectId: "wc-projectId",
+  // highlight-end
+});
+```
+
+</div>
+</details>
+
+<details>
+  <summary>recommended (optional) </summary>
+  <div>
+
+Show this wallet as "recommended" in the ConnectWallet Modal.
+
+```ts
+rainbowWallet({
+  // highlight-start
+  recommended: true,
+  // highlight-end
+});
+```
+
+</div>
+</details>

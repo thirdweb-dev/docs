@@ -46,7 +46,6 @@
       "description": "Explicitly tell the CLI to bootstrap the app using pnpm."
     },
     { "flags": ["--framework"], "description": "The preferred framework." },
-    { "flags": ["--solana"], "description": "Initialize as a Solana project." },
     { "flags": ["--evm"], "description": "Initialize as an Ethereum project." },
     {
       "flags": ["--template"],
@@ -127,7 +126,10 @@
       "flags": ["--dynamic"],
       "description": "Deploy a dynamic smart contract made up of extensions to blockchains"
     },
-    { "flags": ["-k", "--key <string>"], "description": "Optional parameter to use passed in secret key, most useful for continuous integration use cases" }
+    {
+      "flags": ["-k", "--key <string>"],
+      "description": "Optional parameter to use passed in secret key, most useful for continuous integration use cases"
+    }
   ],
   "publish": [
     { "flags": ["-p", "--path <string>"], "description": "Path to project" },
@@ -149,16 +151,28 @@
     },
     { "flags": ["-d", "--debug"], "description": "Show debug logs" },
     { "flags": ["--ci"], "description": "Continuous Integration mode" },
-    { "flags": ["-k", "--key <string>"], "description": "Optional parameter to use passed in secret key, most useful for continuous integration use cases" }
+    {
+      "flags": ["-k", "--key <string>"],
+      "description": "Optional parameter to use passed in secret key, most useful for continuous integration use cases"
+    }
   ],
-  "upload": [{ "flags": ["-k", "--key <string>"], "description": "Optional parameter to use passed in secret key, most useful for continuous integration use cases" }],
+  "upload": [
+    {
+      "flags": ["-k", "--key <string>"],
+      "description": "Optional parameter to use passed in secret key, most useful for continuous integration use cases"
+    }
+  ],
   "generate": [
     { "flags": ["-p", "--path <string>"], "description": "Path to project" },
-    { "flags": ["-k", "--key <string>"], "description": "Optional parameter to use passed in secret key, most useful for continuous integration use cases" }
+    {
+      "flags": ["-k", "--key <string>"],
+      "description": "Optional parameter to use passed in secret key, most useful for continuous integration use cases"
+    }
   ],
   "login": [
     {
-      "flags": ["-n", "--new <string>"], "description": "Login with a new API secret key"
+      "flags": ["-n", "--new <string>"],
+      "description": "Login with a new API secret key"
     }
   ],
   "logout": []

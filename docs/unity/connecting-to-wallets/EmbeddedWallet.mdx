@@ -1,0 +1,63 @@
+---
+slug: /wallet/embeddedwallet
+title: EmbeddedWallet
+---
+
+Creates or logs in to a wallet using thirdweb's own Embedded Wallet service.
+Set your client ID in your [ThirdwebManager](/unity/thirdwebmanager), enable the Embedded Wallet service, and enjoy multiple seamless cross-platform persistent login flows.
+
+## Usage
+
+```csharp
+using Thirdweb;
+
+public async void ConnectWallet()
+{
+    // Reference to your Thirdweb SDK
+    var sdk = ThirdwebManager.Instance.SDK;
+
+    // Configure the connection
+    var connection = new WalletConnection(
+        provider: WalletProvider.EmbeddedWallet,      // The wallet provider you want to connect to (Required)
+        chainId: 1,                                   // The chain you want to connect to (Required)
+        email: "email@email.com",                     // If using the Email OTP login flow, you must provide the user's email (Optional)
+        authOptions: new AuthOptions(                 // Login flow you want to use for your Embedded Wallet (Optional)
+            authProvider: AuthProvider.EmailOTP,      // EmailOTP, Google, or CustomJWT (Required)
+            jwtToken: null,                           // If using the Custom JWT login flow, you must provide a JWT token (Optional)
+            encryptionKey: null                       // If using the Custom JWT login flow, you must provide an encryption key (Optional)
+        )
+    );
+
+    // Connect the wallet
+    string address = await sdk.wallet.Connect(connection);
+}
+```
+
+On mobile, it is recommended to set a custom scheme for your app to enable Google login flows on Android and iOS.
+To do so, see the [ThirdwebManager](/unity/thirdwebmanager) - `ThirdwebConfig` and update it with your custom scheme (such as `myapp://`)
+You may allowlist that scheme in your API key Embedded Wallet settings.
+
+## Behavior
+
+### WebGL
+
+If using Email OTP flow, displays a modal where you can input your OTP code.
+If using Google OAuth2 flow, opens a popup where you can login with your Google account. If successful, the popup will close and the wallet will connect.
+If using Custom JWT flow, attempts to connect directly after verifying the JWT token and encryption key.
+
+### Standalone
+
+If using Email OTP flow, displays a modal where you can input your OTP code.
+If using Google OAuth2 flow, opens the default browser where you can login with your Google account. Connects after the login flow is complete.
+If using Custom JWT flow, attempts to connect directly after verifying the JWT token and encryption key.
+
+### Mobile
+
+If using Email OTP flow, displays a modal where you can input your OTP code.
+If using Google OAuth2 flow, interacts with native in-app browser/authentication implementations to login with your Google account. Redirects back to the app through a deep link after the login flow is complete.
+If using Custom JWT flow, attempts to connect directly after verifying the JWT token and encryption key.
+
+## Miscellaneous
+
+You may customize the `WalletProvider_EmbeddedWallet` prefab to fit your app's design.
+This prefab is used for the Email OTP flow.

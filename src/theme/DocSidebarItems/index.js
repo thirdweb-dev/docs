@@ -32,10 +32,10 @@ function DocSidebarItems({ items, ...props }) {
     {
       title: "Wallets",
       items: [
-        "Wallet SDK",
-        "Connect Wallet",
+        "Connect",
         "Smart Wallet",
-        "Email Wallet",
+        "Embedded Wallet",
+        "Wallet SDK",
         "Auth",
       ],
     },
@@ -47,17 +47,16 @@ function DocSidebarItems({ items, ...props }) {
         "Solidity SDK",
         "Deploy",
         "Publish",
-        "Solana SDK",
         "UI Components",
       ],
     },
     {
       title: "Infrastructure",
-      items: ["Storage", "Bundler & Paymaster", "RPC Edge"],
+      items: ["Engine", "Storage", "RPC Edge"],
     },
     {
       title: "Tools",
-      items: ["CLI", "Dashboard", "Engine"],
+      items: ["CLI", "Dashboard"],
     },
     {
       title: "SDK References",
@@ -73,13 +72,7 @@ function DocSidebarItems({ items, ...props }) {
     },
     {
       title: "Solutions",
-      items: [
-        "Signature Minting",
-        "CommerceKit",
-        "GamingKit",
-        "Minting",
-        "Digital Collectibles",
-      ],
+      items: ["Signature Minting"],
     },
     {
       title: "Resources",
@@ -99,20 +92,16 @@ function DocSidebarItems({ items, ...props }) {
       return "Pre-Built Contracts";
     }
 
+    if (formatted === "Embedded-wallet") {
+      return "Embedded Wallet";
+    }
+
     if (formatted === "Web3-api") {
       return "Web3 API";
     }
 
     if (formatted === "Ui-components") {
       return "UI Components";
-    }
-
-    if (formatted === "Gamingkit") {
-      return "GamingKit";
-    }
-
-    if (formatted === "Commercekit") {
-      return "CommerceKit";
     }
 
     if (formatted === "Wallet") {

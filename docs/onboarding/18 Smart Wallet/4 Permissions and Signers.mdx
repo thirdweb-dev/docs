@@ -1,0 +1,134 @@
+---
+slug: /smart-wallet/permissions
+title: Permissions & Session Keys
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+All of the account contracts [[Simple](https://thirdweb.com/thirdweb.eth/AccountFactory), [Dynamic](https://thirdweb.com/thirdweb.eth/DynamicAccountFactory) and [Managed](https://thirdweb.com/thirdweb.eth/ManagedAccountFactory)] share the same permission model. In this section, we'll describe this permission model in detail.
+
+## Account Permissions
+
+An account recognizes only two types of actors: _Session Keys_ and _Admins_.
+
+### 1. Admins
+
+Admins have **unrestricted access** to the account; call any functions on the contract, use the contract without going through the ERC-4337 infrastructure (bundlers, EntryPoint, etc.), withdraw the account's native token balance, and so on.
+
+#### Assigning Admin Permissions
+
+Existing admins on the account can add new admins, remove existing admins or renounce their own admin status.
+
+<Tabs>
+<TabItem value="react" label="React">
+
+In React, you can use the `useAddAdmin` hook to add a new admin:
+
+```tsx
+const { mutate: addAdmin } = useAddAdmin();
+const { mutate: removeAdmin } = useRemoveAdmin();
+
+const onClickAdd = () => {
+  addAdmin("0x...");
+};
+
+const onClickRemove = () => {
+  removeAdmin("0x...");
+};
+```
+
+</TabItem>
+<TabItem value="wallet-sdk" label="Wallet SDK">
+
+You can also use the Wallet SDK to add a new admin:
+
+```typescript
+const smartWallet = new SmartWallet(config);
+
+await smartWallet.addAdmin("0x...");
+await smartWallet.removeAdmin("0x...");
+```
+
+</TabItem>
+</Tabs>
+
+### 2. Session Keys
+
+Session Keys are additional authorized signers that must go through ERC-4337 infrastructure (bundlers, EntryPoint, etc.) to use an account to execute transactions. Session keys can use an account under certain restrictions.
+
+#### Assigning Session Key Permissions
+
+Each individual session key has its own permissions to use the account. Only admins can set the permissions for session keys.
+
+Session keys can be assigned the following permissions:
+
+- Allow interaction with specific contracts with the account.
+- Have a maximum amount of native tokens that can be transferred per transaction.
+- Have access to the account only during a specific time window.
+
+These restrictions are set in the `SignerPermissionsRequest` struct.
+To set the permissions for a given signer, the `setPermissionsForSigner` function is called.
+
+<Tabs>
+  <TabItem value="react" label="React">
+<div>
+
+From a React application, you can use the `useCreateSessionKey` hook:
+
+```tsx
+const Component = () => {
+    const {
+      mutate: createSessionKey,
+      isLoading,
+      error,
+    } = useCreateSessionKey();
+
+    if (error) {
+      console.error("failed to create session key", error);
+    }
+
+    return (
+      <button
+        disabled={isLoading}
+        onClick={() => createSessionKey(
+          "0x...", // the session key address
+          {
+            approvedCallTargets: ["0x..."], // the addresses of allowed contracts, or '*' for any contract
+            nativeTokenLimitPerTransaction: 0.1, // the maximum amount of native token (in ETH) that the session key can spend per transaction
+            startDate: new Date(), // the date when the session key becomes active
+            expirationDate = new Date(Date.now() + 24 * 60 * 60 * 1000); // the date when the session key expires
+          }
+         )}
+      >
+        Create Session Key
+      </button>
+    );
+};
+```
+
+</div>
+</TabItem>
+<TabItem value="wallet-sdk" label="Wallet SDK">
+<div>
+
+The easiest way to manage session keys is using the Wallet SDK, in TypeScript:
+
+```typescript
+const smartWallet = new SmartWallet(config);
+
+// create and add a session key with permissions
+await smartWallet.createSessionKey(
+    "0x...", // the session key address
+    {
+        approvedCallTargets: ["0x..."], // the addresses of allowed contracts, or '*' for any contract
+        nativeTokenLimitPerTransaction: 0.1, // the maximum amount of native token (in ETH) that the session key can spend per transaction
+        startDate: new Date(), // the date when the session key becomes active
+        expirationDate = new Date(Date.now() + 24 * 60 * 60 * 1000); // the date when the session key expires
+    }
+);
+```
+
+</div>  
+</TabItem>
+</Tabs>

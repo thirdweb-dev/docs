@@ -1,0 +1,60 @@
+---
+title: useRemoveAdmin
+slug: /react.useremoveadmin
+displayed_sidebar: react
+---
+
+Remove an admin on the smart wallet account. This action has to be performed by an admin on the account.
+
+```jsx
+const Component = () => {
+  const { mutate: removeAdmin, isLoading, error } = useRemoveAdmin();
+
+  if (error) {
+    console.error("failed to remove admin", error);
+  }
+
+  return (
+    <button disabled={isLoading} onClick={() => removeAdmin(adminAddress)}>
+      Remove admin
+    </button>
+  );
+};
+```
+
+## Usage
+
+Provide the smart wallet account contract address as the argument.
+
+```jsx
+import { useAccountAdminsAndSigners } from "@thirdweb-dev/react";
+
+const adminAddress = "{{admin_address}}";
+
+const Component = () => {
+  const { mutate: removeAdmin, isLoading, error } = useRemoveAdmin();
+
+  if (error) {
+    console.error("failed to remove admin", error);
+  }
+
+  return (
+    <button disabled={isLoading} onClick={() => removeAdmin(adminAddress)}>
+      Remove admin
+    </button>
+  );
+};
+```
+
+## Configuration
+
+<details>
+    <summary>adminAddress</summary>
+    <div>
+
+### adminAddress
+
+The address to remove as an admin.
+
+</div>
+</details>

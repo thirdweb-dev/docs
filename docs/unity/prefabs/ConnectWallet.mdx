@@ -19,16 +19,22 @@ The prefab is located at: `Assets/Thirdweb/Examples/Prefabs/Prefab_ConnectWallet
 
 ## Configuration
 
-From the `Inspector` window, you can configure the options for the `ConnectWallet` prefab.
+From the `Inspector` window, you can configure the options for the `ConnectWallet` prefab. The UI will update in Play mode, and it is fully customizable.
+
+![Connect Wallet Inspector](../assets/connectwalletinspector.png)
 
 ### Supported Wallets
 
 The list of wallets you want to support.
 Each wallet you provide appears as a button in the dropdown.
 
-Supports `Injected` (window.ethereum), `MetaMask`, `Coinbase`, `WalletConnect`, `MagicLink`, `LocalWallet`, `Paper`, `SmartWallet`, `HyperPlay`.
+Supports `EmbeddedWallet`, `MetaMask`, `Coinbase`, `WalletConnect`, `MagicLink`, `LocalWallet`, `Paper`, `SmartWallet`, `HyperPlay`, `Injected` (window.ethereum).
 
 Some wallet providers may not be supported on some native platforms.
+
+### Personal Wallet
+
+When using Smart Wallets, you can set the EOA Wallet Provider that you'd like to initiate them with. Defaults to `LocalWallet`.
 
 ### Custom Callbacks
 

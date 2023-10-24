@@ -1,0 +1,61 @@
+---
+slug: /connect/usage-with-unity-sdk
+title: Unity
+sidebar_position: 4
+---
+
+import QuickstartCard from "@components/QuickstartCard";
+
+# Usage with Unity SDK
+
+## 1. Using the `ThirdwebManager` prefab
+
+Adding the [ThirdwebManager](/unity/ThirdwebManager) to your scene will handle the initialization of the SDK and maintain the connection to the wallet.
+
+```csharp
+using Thirdweb;
+
+public async void ConnectWallet()
+{
+    // Reference to your Thirdweb SDK
+    var sdk = ThirdwebManager.Instance.SDK;
+
+    // Configure the connection
+    var connection = new WalletConnection(
+      provider: WalletProvider.Metamask,       // The wallet provider you want to connect to (Required)
+      chainId: 1                               // The chain you want to connect to (Required)
+    );
+
+    // Connect the wallet
+    string address = await sdk.wallet.Connect(connection);
+}
+```
+
+## 2. Using the `ConnectWallet` prefab
+
+The `ConnectWallet` prefab allows users to connect their wallet to your game.
+
+It uses the [ThirdwebManager](/unity/ThirdwebManager) to determine which networks to display as well as the secondary UI related to certain providers such as WalletConnect.
+
+You can set up which wallets you want to support from the Prefab_ConnectWallet Inspector directly.
+
+When a user clicks the button, a dropdown of [supported wallets](#supported-wallets) will appear. The user can then
+select their preferred wallet to connect to the game; once connected, the button will show the user&rsquo;s balance and an option to
+switch networks if multiple networks are set up through the ThirdwebManager.
+
+The prefab is located at: `Assets/Thirdweb/Examples/Prefabs/Prefab_ConnectWallet.prefab`.
+
+<img src="/assets/connect-wallet/unity-connectwallet.png" />
+
+<br />
+<br />
+
+<div className="row" style={{ marginBottom: 0, padding: 8, paddingTop: 0 }}>
+  <div className="col col--12" style={{ padding: 8, paddingBottom: 0 }}>
+    <QuickstartCard
+      name="Learn more about Unity SDK"
+      link="/unity"
+      image="/assets/languages/unity.webp"
+    />
+  </div>
+</div>

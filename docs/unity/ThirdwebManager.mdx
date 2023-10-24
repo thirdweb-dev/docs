@@ -16,15 +16,17 @@ Configure `ThirdwebManager` through the Unity Inspector window. Here are the sec
 
 This section involves the basic blockchain configurations. Adjust the following settings:
 
-- `Chain`: The identifier for the default blockchain to use.
-- `Supported Chains`: A list of all blockchains your game /api-keyssupports. For each chain, provide an identifier, a chain ID, and optionally, an RPC override.
+- `Active Chain`: The identifier for the default blockchain to use.
+- `Supported Chains`: A list of all blockchains your game supports. For each chain, provide an identifier, a chain ID, and optionally, an RPC override.
 - `Client ID`: Thirdweb [API Key](https://thirdweb.com/api-key). Used for default thirdweb services such as Storage and Account Abstraction.
+- `Bundle ID Override`: Optional override for the bundle ID used by thirdweb services. Defaults to Application Identifier and can be fetched using `Utils.GetBundleId()`.
 - `Initialize On Awake`: Whether the SDK should initialize on awake or not. If not, you can call `ThirdwebManager.Instance.Initialize("chain-identifier")` to initialize it manually.
 - `Show Debug Logs`: Whether to show thirdweb sdk debug logs.
+- `Thirdweb Config`: SciptableObject for additional Thirdweb configuration. Generated automatically. Mainly used to set custom schemes for google login.
 
 ### App Metadata
 
-This section lets you define how your app appears in wallet providers like Metamask, WalletConnect, and MagicLink. Modify the following fields:
+This section lets you define how your app appears in wallet providers like Metamask, WalletConnect, etc. Modify the following fields:
 
 - `App Name`: The name of your application.
 - `App Description`: A brief description of your app.
@@ -45,17 +47,12 @@ In this section, configure settings for OpenZeppelin Defender, a service that ha
 - `Forwarder Address`: The address of your forwarder contract.
 - `Forwarder Domain Override` and `Forwarder Version Override`: Optional settings if you want to override the defaults for OpenZeppelin Defender.
 
-### Magic Link Options
-
-If you want to support MagicLink as a wallet provider, specify your API key here:
-
-- `Magic Link API Key`: Your API key for MagicLink.
-
 ### Wallet Connect Options
 
 Here, provide your project ID for WalletConnect:
 
 - `WalletConnect Project ID`: Your project ID for WalletConnect.
+- `WalletConnect Explorer RecommendedWallet Ids`: Wallets to show in the WalletConnect Modal in WebGL (https://walletconnect.com/explorer)
 
 ### Smart Wallet Options
 
@@ -70,9 +67,9 @@ These settings are required to set up a smart wallet. Adjust the following:
 
 This section allows you to provide GameObject prefabs for native wallet providers, which will be instantiated at runtime. Adjust the following:
 
-- `WalletConnect Prefab`: The prefab for WalletConnect's UI/behavior.
-- `Metamask Prefab`: The prefab for Metamask's UI/behavior.
-- `Paper Prefab`: The prefab for Paper's UI/behavior.
+- `WalletConnect Prefab`: The prefab for WalletConnect's customizeable UI/behavior.
+- `Metamask Prefab`: The prefab for Metamask's customizeable UI/behavior.
+- `EmbeddedWallet Prefab`: The prefab for EmbeddedWallet's customizeable UI/behavior.
 
 ## Accessing the SDK
 

@@ -1,0 +1,360 @@
+---
+slug: /signature-minting/getting-started
+title: Getting Started
+hide_title: true
+---
+
+import QuickstartCard from "@components/QuickstartCard";
+
+# Getting Started
+
+Signature Minting is a mechanism that allows users the ability to mint tokens from a contract that implements one of the `SignatureMinting` extensions using a pre-signed payload.
+Creating a payload for users to signature mint with requires a cryptographic signature and is limited to wallets assigned the **`MINTER`** role.
+
+## 1. Deploy a signature minting capable contract
+
+There are three ways to deploy a contract that implements one of the `SignatureMint` extensions:
+
+- Using a pre-built contract from Explore.
+- Create your own using one of the Solidity SDK base contracts - a contract that implements the extension that is pre-built and customizable.
+- Implementing the extension into your own contract using one of the Solidity SDK extensions.
+
+## 1.(a) Using a Pre-Built Contract
+
+The following pre-built contracts implements the [`ERC721SignatureMint`](/solidity/extensions/erc721signaturemint) extension:
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="NFT Collection Pre-Built Contract"
+      link="/pre-built-contracts/nft-collection"
+      image="/assets/product/contracts.png"
+    />
+  </div>
+</div>
+
+To deploy this contract,
+
+1. Head to the explore page & select the [NFT collection contract](https://thirdweb.com/thirdweb.eth/TokenERC721).
+2. Click “Deploy Now” and fill in the contract parameters with the desired values
+3. Click “Deploy”, which will trigger two transactions to be signed: one to deploy the contract and the second to add the contract to your contract list on the Dashboard so that you can view the contract later.
+
+For ERC1155 NFTs, you can use the pre-built [Edition contract](https://thirdweb.com/TokenERC1155).
+
+For ERC20 Tokens, you can use the pre-built [Token contract](https://thirdweb.com/TokenERC20)
+
+## 1.(b) Create your own using a Solidity SDK Base Contract
+
+The following Solidity SDK base contracts implement the `SignatureMint` extensions:
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--4" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="ERC721 Signature Mint Base Contract"
+      link="/solidity/base-contracts/erc721signaturemint"
+      image="/assets/product/sdk.png"
+    />
+  </div>
+  <div className="col col--4" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="ERC1155 Signature Mint Base Contract"
+      link="/solidity/base-contracts/erc1155signaturemint"
+      image="/assets/product/sdk.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="ERC20 Signature Mint Base Contract"
+      link="/solidity/base-contracts/erc20signaturemint"
+      image="/assets/product/sdk.png"
+    />
+  </div>
+</div>
+
+To deploy one of these contracts, create a solidity project using the `create` command:
+
+```bash
+npx thirdweb create contract
+```
+
+This will create a Solidity project set up, with the thirdweb Solidity SDK installed, for you to create your contract inside.
+
+1. Open the project in a code editor and open the `Contract.sol` file.
+2. In this file, name your contract and import one of the `SignatureMint` base contracts and inherit from it. You will need also to pass the information to the constructor:
+
+```solidity
+// SPDX-License-Identifier: Apache-2.0
+pragma solidity ^0.8.0;
+
+import "@thirdweb-dev/contracts/base/ERC721SignatureMint.sol";
+
+contract MyNFT is ERC721SignatureMint {
+    constructor(
+        address _defaultAdmin,
+        string memory _name,
+        string memory _symbol,
+        address _royaltyRecipient,
+        uint128 _royaltyBps,
+        address _primarySaleRecipient
+    )
+        ERC721SignatureMint(
+            _defaultAdmin,
+            _name,
+            _symbol,
+            _royaltyRecipient,
+            _royaltyBps,
+            _primarySaleRecipient
+        )
+    {}
+}
+```
+
+1. Deploy your contract using the `deploy` command:
+
+```bash
+npx thirdweb deploy
+```
+
+To use this command, you will need to authenticate your device with your thirdweb account. If you haven’t authorized your device yet, this command will prompt you to do so.
+
+Once you have authenticated your device, and the contract has built & compiled, a browser window will pop-up prompting you to fill in the constructor parameters for your contract and select the chain to deploy to. Click “Deploy”, which will trigger two transactions to be signed: one to deploy the contract and the second to add the contract to your contract list on the Dashboard so that you can view the contract later.
+
+Your contract is now ready to interact with!
+
+## 1.(c) Implement Signature Minting into Your Own Contract
+
+To create a custom contract that implements one of the `SignatureMint` extensions you can use the Solidity SDK.
+
+The following signature minting extensions are available:
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--4" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="ERC721 Signature Mint Extension"
+      link="/solidity/extensions/erc721signaturemint"
+      image="/assets/product/sdk.png"
+    />
+  </div>
+  <div className="col col--4" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="ERC1155 Signature Mint Extension"
+      link="/solidity/extensions/erc1155signaturemint"
+      image="/assets/product/sdk.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="ERC20 Signature Mint Extension"
+      link="/solidity/extensions/erc20signaturemint"
+      image="/assets/product/sdk.png"
+    />
+  </div>
+</div>
+
+1. Create a solidity project using the `create` command:
+
+```bash
+npx thirdweb create contract
+```
+
+This will create a Solidity project set up for you to create your contract inside.
+
+1. Open the project in a code editor and open the `Contract.sol` file. In this file, name your contract anything of your choosing.
+2. Import one of the `SignatureMint` extensions and inherit from it. You will need also to pass the information to the constructor.
+3. You will need to implement the following functions:
+   - `_canSignMintRequest`: This function returns whether a given address is authorized to sign mint requests. In this example, we are only allowing the owner of the contract to sign mint requests.
+   - `mintWithSignature`: This function mints tokens according to the provided mint request. In this example, we are only allowing the minting of one token at a time.
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@thirdweb-dev/contracts/base/ERC721Base.sol";
+import "@thirdweb-dev/contracts/extension/SignatureMintERC721.sol";
+import "@thirdweb-dev/contracts/lib/CurrencyTransferLib.sol";
+
+contract ERC721SignatureMint is ERC721Base, SignatureMintERC721 {
+    constructor(
+        address _defaultAdmin,
+        string memory _name,
+        string memory _symbol,
+        address _royaltyRecipient,
+        uint128 _royaltyBps
+    ) ERC721Base(_defaultAdmin, _name, _symbol, _royaltyRecipient, _royaltyBps) {}
+
+    /// @dev Mints tokens according to the provided mint request.
+    function mintWithSignature(
+        MintRequest calldata _req,
+        bytes calldata _signature
+    ) external payable virtual override returns (address signer) {
+        require(_req.quantity == 1, "quantity must be 1");
+
+        uint256 tokenIdToMint = nextTokenIdToMint();
+
+        // Verify and process payload.
+        signer = _processRequest(_req, _signature);
+
+        address receiver = _req.to;
+
+        // Collect price
+        _collectPriceOnClaim(
+            _req.primarySaleRecipient,
+            _req.quantity,
+            _req.currency,
+            _req.pricePerToken
+        );
+
+        // Mint tokens.
+        _setTokenURI(tokenIdToMint, _req.uri);
+        _safeMint(receiver, _req.quantity);
+
+        emit TokensMintedWithSignature(signer, receiver, tokenIdToMint, _req);
+    }
+
+    /// @dev Returns whether a given address is authorized to sign mint requests.
+    function _canSignMintRequest(address _signer)
+        internal
+        view
+        virtual
+        override
+        returns (bool)
+    {
+        return _signer == owner();
+    }
+
+    /// @dev Collects and distributes the primary sale value of tokens being claimed.
+    function _collectPriceOnClaim(
+        address _primarySaleRecipient,
+        uint256 _quantityToClaim,
+        address _currency,
+        uint256 _pricePerToken
+    ) internal virtual {
+        if (_pricePerToken == 0) {
+            return;
+        }
+
+        uint256 totalPrice = (_quantityToClaim * _pricePerToken) / 1 ether;
+        require(totalPrice > 0, "quantity too low");
+
+        if (_currency == CurrencyTransferLib.NATIVE_TOKEN) {
+            require(msg.value == totalPrice, "Must send total price.");
+        }
+
+        address saleRecipient = _primarySaleRecipient;
+        CurrencyTransferLib.transferCurrency(
+            _currency,
+            msg.sender,
+            saleRecipient,
+            totalPrice
+        );
+    }
+}
+```
+
+1. Deploy your contract using the `deploy` command:
+
+```solidity
+npx thirdweb deploy
+```
+
+In order to use this command, you will need to authenticate your device with your thirdweb account. If you haven’t authorized your device yet, this command will prompt you to do so.
+
+Once you have authenticated your device, and the contract has been built & compiled, a browser window will pop up prompting you to fill in the constructor parameters for your contract and select the chain to deploy to. Click “Deploy”, which will trigger two transactions to be signed: one to deploy the contract and the second to add the contract to your contract list on the Dashboard so that you can view the contract later.
+
+Your contract is now ready to interact with!
+
+## 2. Interacting with a Signature Minting Contract
+
+The easiest way to signature mint tokens from a contract implementing one of the `SignatureMint` extensions is via one of the SDKs:
+
+### ERC721SignatureMint
+
+<div className="row" style={{ marginBottom: 12 }}>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="TypeScript"
+      link="/typescript/sdk.erc721signaturemint"
+      image="/assets/languages/typescript.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Python"
+      link="/python/python.erc721signaturemint"
+      image="/assets/languages/python.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Go"
+      link="/go/erc721_signature_minting"
+      image="/assets/languages/go.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Unity"
+      link="/unity/erc721signaturemint"
+      image="/assets/languages/unity.webp"
+    />
+  </div>
+</div>
+
+### ERC1155SignatureMint
+
+<div className="row" style={{ marginBottom: 12 }}>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="TypeScript"
+      link="/typescript/sdk.erc1155signaturemint"
+      image="/assets/languages/typescript.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Python"
+      link="/python/python.erc1155signaturemint"
+      image="/assets/languages/python.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Go"
+      link="/go/erc1155_signature_minting"
+      image="/assets/languages/go.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Unity"
+      link="/unity/erc1155signaturemint"
+      image="/assets/languages/unity.webp"
+    />
+  </div>
+</div>
+
+### ERC20SignatureMint
+
+<div className="row" style={{ marginBottom: 12 }}>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="TypeScript"
+      link="/typescript/sdk.erc20signaturemint"
+      image="/assets/languages/typescript.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Python"
+      link="/python/python.erc20signaturemint"
+      image="/assets/languages/python.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Unity"
+      link="/unity/erc20signaturemint"
+      image="/assets/languages/unity.webp"
+    />
+  </div>
+</div>

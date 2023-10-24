@@ -1,0 +1,144 @@
+---
+slug: /embedded-wallet/getting-started
+title: Getting started
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import QuickstartCard from "@components/QuickstartCard";
+import ViewRepoButton from "@components/ViewRepoButton";
+
+Once set up, your app will be able to connect and create embedded wallets for users.
+
+## Try the demo
+
+See Embedded Wallets in action with our demo app:
+
+<QuickstartCard
+  name="CatAttack: Embedded Wallet Demo App"
+  link="https://catattack.thirdweb.com"
+  image="/assets/wallets/embedded-wallet.svg"
+/>
+
+## Starting from a template
+
+Quickly get started with one of our templates:
+
+<QuickstartCard
+  name="Embedded + Smart Wallet Starter Kit"
+  link="https://github.com/thirdweb-example/embedded-smart-wallet"
+  image="/assets/wallets/embedded-wallet.svg"
+/>
+
+## Starting from existing project
+
+[Install](/cli/install) the required packages:
+
+```bash
+npx thirdweb install
+```
+
+This command will recognize the environment you are working in and install the appropriate packages.
+
+## Get your client ID
+
+To use embedded wallets in your applications, you will need a client ID. You can get one for free on [your thirdweb dashboard](https://thirdweb.com/create-api-key).
+
+## Connecting & Creating Embedded Wallets
+
+<Tabs>
+  <TabItem value="react" label="React">
+        <div>
+
+```jsx
+import {
+  ThirdwebProvider,
+  ConnectWallet,
+  embeddedWallet,
+} from "@thirdweb-dev/react";
+
+export default function App() {
+  return (
+    <ThirdwebProvider
+      activeChain="goerli"
+      clientId="YOUR_CLIENT_ID"
+      supportedWallets={[embeddedWallet()]}
+    >
+      <ConnectWallet />
+    </ThirdwebProvider>
+  );
+}
+```
+
+</div>
+  </TabItem>
+  <TabItem value="react-native" label="React Native">
+  <div>
+
+```tsx
+import {
+  ThirdwebProvider,
+  ConnectWallet,
+  embeddedWallet,
+} from "@thirdweb-dev/react-native";
+
+export default function App() {
+  return (
+    <ThirdwebProvider
+      activeChain="goerli"
+      clientId="YOUR_CLIENT_ID"
+      supportedWallets={[embeddedWallet()]}
+    >
+      <ConnectWallet />
+    </ThirdwebProvider>
+  );
+}
+```
+
+</div>
+  </TabItem>
+  <TabItem value="typescript" label="TypeScript">
+    <div>
+
+```tsx
+import { EmbeddedWallet } from "@thirdweb-dev/wallets";
+import { Goerli } from "@thirdweb-dev/chains";
+
+const wallet = new EmbeddedWallet({
+  chain: Goerli, //  chain to connect to
+  clientId: "YOUR_CLIENT_ID", // Your thirdweb client ID
+});
+
+wallet.connect(options);
+```
+
+</div>
+
+  </TabItem>
+  <TabItem value="unity" label="Unity">
+    <div>
+
+```c#
+using Thirdweb;
+
+public async void ConnectWallet()
+{
+    // Reference to your Thirdweb SDK
+    var sdk = ThirdwebManager.Instance.SDK;
+
+    // Configure the connection
+    var connection = new WalletConnection(
+      provider: WalletProvider.EmbeddedWallet,          // The wallet provider you want to connect to (Required)
+      chainId: 5,                              // The chain you want to connect to (Required)
+      email: "email@email.com"                 // The email you want to authenticate with (Required)
+    );
+
+    // Connect the wallet
+    string address = await sdk.wallet.Connect(connection);
+}
+```
+
+</div>
+
+  </TabItem>
+</Tabs>

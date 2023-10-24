@@ -1,0 +1,46 @@
+---
+slug: /connect/usage-with-typescript-sdk
+title: TypeScript
+sidebar_position: 3
+---
+
+import QuickstartCard from "@components/QuickstartCard";
+
+# Usage with TypeScript SDK
+
+You can connect to any wallet instance and use it with the Contract SDK to perform transactions:
+
+```ts
+import { MetaMaskWallet } from "@thirdweb-dev/wallets";
+import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+
+// Instantiate the wallet you want to use
+const wallet = new MetaMaskWallet();
+
+// connect wallet
+await wallet.connect();
+
+// Instantiate the SDK using the wallet
+const sdk = ThirdwebSDK.fromWallet(wallet, "ethereum", {
+  clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
+  secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
+});
+
+// sdk is now ready to use
+const contract = await sdk.getContract("0x...");
+await contract.erc721.mint({
+  name: "My NFT",
+});
+```
+
+<br />
+
+<div className="row" style={{ marginBottom: 0, padding: 8, paddingTop: 0 }}>
+  <div className="col col--12" style={{ padding: 8, paddingBottom: 0 }}>
+    <QuickstartCard
+      name="Learn more about TypeScript SDK"
+      link="/typescript"
+      image="/assets/languages/typescript.png"
+    />
+  </div>
+</div>
