@@ -1,0 +1,118 @@
+---
+slug: /engine/get-started
+title: Get Started
+---
+
+Engine is self-hosted with minimal configuration.
+
+## Setup
+
+### Requirements
+
+- Docker
+- Postgres DB
+- A secret key from the [API Keys page](https://thirdweb.com/dashboard/settings/api-keys)
+
+
+### Start the server
+
+Run the Docker container:
+
+```bash
+docker run \
+  -e ADMIN_WALLET_ADDRESS="<admin_wallet_address>" \
+  -e POSTGRES_CONNECTION_URL="<postgres_connection_url>" \
+  -p 3005:3005 \
+  thirdweb/engine:latest
+```
+
+Provide the following environment variables:
+
+| Variable Name | Description |
+| - | - |
+| `admin_wallet_address` | The initial admin wallet address that will configure Engine from the thirdweb dashboard. This wallet address must be the user that created `THIRDWEB_API_SECRET_KEY`. |
+| `postgres_connection_url` | Postgres connection string: `postgresql://[user[:password]@][host][:port][/dbname][?param1=value1&...]` |
+
+### Configuration
+
+1. Navigate to the [Engine dashboard page](https://thirdweb.com/dashboard/engine).
+1. Add your publicly accessible Engine URL.
+1. Configure Engine fields.
+    1. thirdweb secret key
+    1. [Wallet type](/engine/backend-wallets)
+
+Engine is now configured and ready to use.
+
+## Using Engine
+
+### Create a session token
+
+The Engine API requires a session token to authenticate requests.
+
+1. Navigate to the [Engine dashboard page](https://thirdweb.com/dashboard/engine).
+1. On the **Permissions** tab, select **Add** to create a session token.
+1. Provide the session token in the `Authorization` header when calling the Engine API:
+    - `Authorization: Bearer {session_token}`
+
+Read more: [Authentication](/engine/authentication)
+
+### Add a backend wallet
+
+Engine uses your backend wallets to interact with the blockchain.
+To create your first backend wallet:
+
+1. Navigate to the [Engine dashboard page](https://thirdweb.com/dashboard/engine).
+1. On the **Overview** tab, select **Create** to create a wallet.
+
+A local wallet is generated. Once gas funds are transferred to it, the backend wallet is able to send blockchain transactions.
+
+See [Backend Wallets](/engine/backend-wallets) for more wallet options and configuration.
+
+### Send a blockchain transaction
+
+Call the blockchain with a backend wallet with one API call.
+
+Here's an example of deploying a [thirdweb NFT drop contract](https://thirdweb.com/thirdweb.eth/DropERC721):
+
+```ts
+const resp = await fetch(`${engine_url}/deploy/{chain}/prebuilts/nft-drop`, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${session_token}`,
+    "x-backend-wallet-address": BACKEND_WALLET_ADDRESS,
+  },
+  body: JSON.stringify({
+    "contractMetadata": {
+      "name": "thirdweb Engine example",
+      "symbol": "eng",
+      "primary_sale_recipient": "0x3EcDBF3B911d0e9052b64850693888b008e18373"
+    }
+  }),
+})
+
+// queueId is a reference to the transaction queued by Engine.
+const { queueId } = await resp.json();
+```
+
+Engine can enable your application to airdrop NFTs, send funds between wallets, update on-chain game state, and more.
+
+### Wait for a transaction to complete
+
+To trigger an action when a transaction completes, use [webhooks](/engine/webhooks) to call an endpoint on your backend server.
+
+Alternatively, query or poll the following endpoint:
+
+```ts
+const resp = await fetch(`${engine_url}/transaction/status/${queueId}`, {
+  method: "GET",
+  headers: {
+    Authorization: `Bearer ${session_token}`,
+  },
+})
+
+// status can be: processed, queued, sent, errored, mined, cancelled, retried
+const { status } = await resp.json();
+const isComplete = ["mined", "errored", "cancelled"].includes(status);
+```
+

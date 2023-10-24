@@ -17,8 +17,6 @@ A [local wallet](https://portal.thirdweb.com/wallet/local-wallet) is a wallet cr
 
 An [AWS KMS Wallet](https://portal.thirdweb.com/wallet/aws-kms) is a wallet securely stored in your AWS account.
 
-### Setup
-
 1. [Create an IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console) with programmatic access.
 1. [Grant the following KMS permissions](https://docs.aws.amazon.com/kms/latest/developerguide/control-access.html) to this user.
     - `kms:CreateKey`
@@ -29,7 +27,7 @@ An [AWS KMS Wallet](https://portal.thirdweb.com/wallet/aws-kms) is a wallet secu
 
 The IAM user credentials are required by Engine to create, import, and transact with AWS KMS wallets.
 
-### KMS key settings
+#### KMS key settings
 
 If creating AWS KMS wallets with Engine, skip this step.
 
@@ -39,8 +37,6 @@ To import an existing KMS key, ensure your [KMS key is created](https://docs.aws
   - Key usage: `Sign and verify`
 
 ## Google Cloud KMS wallet
-
-### Setup
 
 1. [Enable Google KMS API](https://cloud.google.com/kms/docs/create-encryption-keys#before-you-begin) for your Google project.
 1. [Create a Service Account](https://cloud.google.com/iam/docs/service-accounts-create).
