@@ -4,6 +4,7 @@ git submodule foreach git checkout main
 git submodule foreach git pull origin main
 yarn
 # go into js package and build
+# test
 cd ./submodules/js
 pnpm install
 pnpm build
