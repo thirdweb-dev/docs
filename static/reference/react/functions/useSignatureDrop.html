@@ -13,7 +13,7 @@
 <div class="tsd-page-title">
 <ul class="tsd-breadcrumb">
 <li><a href="../modules.html">@thirdweb-dev/react</a></li>
-<li><a href="react/useSignatureDrop.html">useSignatureDrop</a></li></ul>
+<li><a href="useSignatureDrop.html">useSignatureDrop</a></li></ul>
 <h1 class="deprecated">Function useSignatureDrop</h1></div>
 <section class="tsd-panel">
 <ul class="tsd-signatures">
@@ -34,7 +34,7 @@
 <h4>Example</h4><pre><code class="language-javascript"><span class="hl-4">import</span><span class="hl-1"> { </span><span class="hl-5">useContract</span><span class="hl-1"> } </span><span class="hl-4">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@thirdweb-dev/react&#39;</span><br/><br/><span class="hl-4">export</span><span class="hl-1"> </span><span class="hl-4">default</span><span class="hl-1"> </span><span class="hl-3">function</span><span class="hl-1"> </span><span class="hl-0">Component</span><span class="hl-1">() {</span><br/><span class="hl-1">  </span><span class="hl-3">const</span><span class="hl-1"> { </span><span class="hl-10">contract</span><span class="hl-1"> } = </span><span class="hl-0">useContract</span><span class="hl-1">(</span><span class="hl-2">&quot;&lt;YOUR-CONTRACT-ADDRESS&gt;&quot;</span><span class="hl-1">, </span><span class="hl-2">&quot;signature-drop&quot;</span><span class="hl-1">)</span><br/><br/><span class="hl-1">  </span><span class="hl-12">// Now you can use the Signature drop contract in the rest of the component</span><br/><br/><span class="hl-1">  </span><span class="hl-12">// For example, this function will let the connected wallet claim a new NFT</span><br/><span class="hl-1">  </span><span class="hl-3">async</span><span class="hl-1"> </span><span class="hl-3">function</span><span class="hl-1"> </span><span class="hl-0">claim</span><span class="hl-1">(</span><span class="hl-5">quantity</span><span class="hl-1">) {</span><br/><span class="hl-1">    </span><span class="hl-4">await</span><span class="hl-1"> </span><span class="hl-5">contract</span><span class="hl-1">.</span><span class="hl-0">claim</span><span class="hl-1">(</span><span class="hl-5">quantity</span><span class="hl-1">)</span><br/><span class="hl-1">  }</span><br/><br/><span class="hl-1">  ...</span><br/><span class="hl-1">}</span>
 </code><button>Copy</button></pre>
 
-<h4>Deprecated</h4><p>This hook is deprecated and will be removed in a future major version. You should use <a href="react/useContract.html" class="tsd-kind-function">useContract</a> instead.</p>
+<h4>Deprecated</h4><p>This hook is deprecated and will be removed in a future major version. You should use <a href="useContract.html" class="tsd-kind-function">useContract</a> instead.</p>
 <pre><code class="language-diff"><span class="hl-2">- const signatureDrop = useSignatureDrop(&quot;0x1234...&quot;);</span><br/><span class="hl-13">+ const signatureDrop = useContract(&quot;0x1234...&quot;, &quot;signature-drop&quot;).contract;</span>
 </code><button>Copy</button></pre>
 </div><aside class="tsd-sources">
