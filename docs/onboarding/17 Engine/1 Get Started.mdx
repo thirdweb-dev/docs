@@ -9,14 +9,14 @@ Engine is self-hosted with minimal configuration.
 
 ### Requirements
 
-- Docker
+- [Docker](https://docs.docker.com/get-docker/)
 - Postgres DB
-- A secret key from the [API Keys page](https://thirdweb.com/dashboard/settings/api-keys)
+- A thirdweb secret key from the [API Keys page](https://thirdweb.com/dashboard/settings/api-keys)
 
 
 ### Start the server
 
-Run the Docker container:
+Download and run the Docker container:
 
 ```bash
 docker run \
@@ -28,14 +28,21 @@ docker run \
 
 Provide the following environment variables:
 
-| Variable Name | Description |
+| Variable | Description |
 | - | - |
-| `admin_wallet_address` | The initial admin wallet address that will configure Engine from the thirdweb dashboard. This wallet address must be the user that created `THIRDWEB_API_SECRET_KEY`. |
+| `admin_wallet_address` | The wallet address that will configure Engine from the thirdweb dashboard. |
 | `postgres_connection_url` | Postgres connection string: `postgresql://[user[:password]@][host][:port][/dbname][?param1=value1&...]` |
+
+:::info
+
+Make sure your Engine instance port (default: `3005`) is publicly accessible. A valid auth token is required to configure or manage Engine.
+
+:::
 
 ### Configuration
 
 1. Navigate to the [Engine dashboard page](https://thirdweb.com/dashboard/engine).
+1. Sign in with the `<admin_wallet_address>` wallet.
 1. Add your publicly accessible Engine URL.
 1. Configure Engine fields.
     1. thirdweb secret key
@@ -47,47 +54,109 @@ Engine is now configured and ready to use.
 
 ### Create an access token
 
-The Engine API requires a access token to authenticate requests.
+The Engine API requires a access token to authenticate requests. To create an access token:
 
 1. Navigate to the [Engine dashboard page](https://thirdweb.com/dashboard/engine).
 1. Select the **Permissions** tab.
 1. Under **Access Tokens**, select **Create Access Token**.
-1. Provide the access token in the `Authorization` header when calling the Engine API:
-    - `Authorization: Bearer {access_token}`
+1. Provide an access token in the `Authorization` header when calling the Engine API:
+    - `Authorization: Bearer <access_token>`
 
-Read more: [Authentication](/engine/authentication)
+See [Authentication](/engine/authentication) for advanced configuration.
 
 ### Add a backend wallet
 
-Engine uses your backend wallets to interact with the blockchain.
-To create your first backend wallet:
+Engine uses your backend wallets to interact with the blockchain. To create a backend wallet:
 
 1. Navigate to the [Engine dashboard page](https://thirdweb.com/dashboard/engine).
-1. On the **Overview** tab, select **Create** to create a wallet.
+1. Navigate to the **Overview** tab.
+1. Under **Backend Wallets**, select **Create**.
 
-A local wallet is generated. Once gas funds are transferred to it, the backend wallet is able to send blockchain transactions.
+A local wallet is generated, and the encrypted private key is stored in your database.
 
-See [Backend Wallets](/engine/backend-wallets) for more wallet options and configuration.
+See [Backend Wallets](/engine/backend-wallets) for details on other wallet configuration or importing wallets.
 
-### Send a blockchain transaction
+:::tip
 
-Call the blockchain with a backend wallet with one API call.
+Send gas funds to this backend wallet in order to call contract write methods.
 
-Here's an example of deploying a [thirdweb NFT drop contract](https://thirdweb.com/thirdweb.eth/DropERC721):
+:::
+
+### Send blockchain transactions
+
+Call the blockchain with a backend wallet with one API call. Here are some examples.
+
+#### Get a wallet's balance
 
 ```ts
-const resp = await fetch(`${engine_url}/deploy/{chain}/prebuilts/nft-drop`, {
+const resp = await fetch("<engine_url>/backend-wallet/<chain>/<backend_wallet_address>/get-balance", {
+  headers: {
+    Authorization: "Bearer <access_token>",
+  },
+})
+
+const { result } = await resp.json();
+console.log("Balance:", result.value)
+```
+
+#### Call a contract read method
+
+This code example does not require gas funds and returns the function result.
+
+```ts
+const resp = await fetch("<engine_url>/contract/<chain>/<contract_address>/read?function_name=balanceOf&args=0x3EcDBF3B911d0e9052b64850693888b008e18373", {
+  headers: {
+    Authorization: "Bearer <access_token>",
+  },
+})
+
+const { result } = await resp.json();
+console.log("ERC-20 balance:", result)
+```
+
+#### Call a contract write method
+
+This code example calls a write method on a contract. It requires gas funds and returns a `queueId` to query for  the result.
+
+```ts
+const resp = await fetch("<engine_url>/contract/<chain>/<contract_address>/write", {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
-    Authorization: `Bearer ${access_token}`,
-    "x-backend-wallet-address": BACKEND_WALLET_ADDRESS,
+    Authorization: "Bearer <access_token>",
+    "x-backend-wallet-address": "<backend_wallet_address>",
   },
   body: JSON.stringify({
-    "contractMetadata": {
-      "name": "thirdweb Engine example",
-      "symbol": "eng",
-      "primary_sale_recipient": "0x3EcDBF3B911d0e9052b64850693888b008e18373"
+    function_name: "transferFrom",
+    args: [
+      "0x1946267d81Fb8aDeeEa28e6B98bcD446c8248473",
+      "0x3EcDBF3B911d0e9052b64850693888b008e18373",
+      "0"
+    ]
+  }),
+})
+
+// queueId is a reference to the transaction queued by Engine.
+const { queueId } = await resp.json();
+```
+
+#### Deploy a contract
+
+This code example deploys a [thirdweb NFT drop contract](https://thirdweb.com/thirdweb.eth/DropERC721). It requires gas funds and returns a `queueId` to query for  the result.
+
+```ts
+const resp = await fetch("<engine_url>/deploy/<chain>/prebuilts/nft-drop", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: "Bearer <access_token>",
+    "x-backend-wallet-address": "<backend_wallet_address>",
+  },
+  body: JSON.stringify({
+    contractMetadata: {
+      name: "thirdweb Engine example",
+      symbol: "eng",
+      primary_sale_recipient: "0x3EcDBF3B911d0e9052b64850693888b008e18373"
     }
   }),
 })
@@ -100,15 +169,15 @@ Engine can enable your application to airdrop NFTs, send funds between wallets, 
 
 ### Wait for a transaction to complete
 
-To trigger an action when a transaction completes, use [webhooks](/engine/webhooks) to call an endpoint on your backend server.
+Trigger an action when transactions complete by configuring [webhooks](/engine/webhooks) to call your backend server.
 
-Alternatively, query or poll the following endpoint:
+Alternatively, query or poll the `transaction/status/<queue_id>` endpoint:
 
 ```ts
-const resp = await fetch(`${engine_url}/transaction/status/${queueId}`, {
+const resp = await fetch("<engine_url>/transaction/status/<queue_id>", {
   method: "GET",
   headers: {
-    Authorization: `Bearer ${access_token}`,
+    Authorization: "Bearer <access_token>",
   },
 })
 
