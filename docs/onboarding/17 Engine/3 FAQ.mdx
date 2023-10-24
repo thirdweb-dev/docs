@@ -3,7 +3,21 @@ slug: /engine/faq
 title: FAQ
 ---
 
-### How do I wait until my transaction completes?
+## About Engine
+
+#### Does Engine work with all thirdweb smart contracts?
+
+Yes. Engine has intuitive interfaces to deploy prebuilt contracts, manage smart wallets, run a marketplace, and more.
+
+#### Does Engine work with my non-thirdweb smart contracts?
+
+Yes. Engine can read and write to any EVM contract with low-level API calls, including providing raw calldata. ERC-721 and ERC-1155 APIs can also be used for [contracts imported to thirdweb](https://support.thirdweb.com/smart-contracts/rtHYyzspnPaHmmANmJQz1k/importing-non-thirdweb-contracts-into-the-dashboard/hELLjgTc8TWrMdMEQkm2Es).
+
+## Using Engine
+
+#### How do I wait until a transaction completes?
+
+APIs that call contract write methods (i.e. transactions sent from your backend wallets) enqueue an async job and return a corresponding `queueId`.
 
 On the backend, use [webhooks](/engine/webhooks) to be notified when a transaction event occurs.
 
@@ -18,19 +32,42 @@ socket.onmessage = (event) => {
 };
 ```
 
-### What is the `tx_overrides` argument?
+#### How do I override gas settings?
 
-`tx_overrides` is an optional body argument of some endpoints to override the gas and `value` field of the transaction.
+The `tx_overrides` body argument to `POST /contract/<chain>/<contract_address>/write` allows overriding gas values:
 
-Default values if ommitted:
-- gas: estimated from contract simulation
-- `value`: 0 (no funds sent)
+```json
+{
+  function_name: "...",
+  args: [ ... ],
+  tx_overrides: {
+    gasLimit: 150000,
+    gasPrice: 22000000000, // 22 gwei in wei
+  }
+}
+```
 
-### How do I customize the RPC URLs?
+#### How do I call a payable contract method?
+
+The `tx_overrides` body argument to `POST /contract/<chain>/<contract_address>/write` allows setting the `msg.value`:
+
+```json
+{
+  function_name: "...",
+  args: [ ... ],
+  tx_overrides: {
+    value: 1000000000000000, // 0.001 ETH in wei
+  }
+}
+```
+
+#### How do I customize RPC URLs?
 
 Set the `CHAIN_OVERRIDES` environment variable to the path to a JSON file or internet-accessible URL. The default value is `./chain-overrides.json` if found. See <a href="https://github.com/thirdweb-dev/engine/blob/main/chain-overrides.example.json" target="_blank">the example format</a>.
 
-### Why is Engine unable to connect to my Postgres DB?
+## Troubleshooting
+
+#### Why is Engine unable to connect to my Postgres DB?
 
 Here are some common troubleshooting tips:
 
@@ -41,17 +78,13 @@ Here are some common troubleshooting tips:
 - Ensure the database name exists on the Postgres DB.
 
 <!--
-### What is the benefit of the managed service instead of self-hosted?
+#### What are the differences between Engine and other backend SDKs?
 
 ### What are the benefits of using Engine over other parts of the stack?
 
-### What are the main differences between Engine and other backend SDKs?
-
 ### What are the benefits of using Engine instead of the Unity SDK?
 
-### Does Engine work with all thirdweb smart contracts?
 
-### Does Engine work with my non-thirdweb smart contracts?
 
 ### What are the best practices for storing private keys while using Engine?
 -->
