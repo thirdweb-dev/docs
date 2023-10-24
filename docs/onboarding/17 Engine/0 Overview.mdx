@@ -3,25 +3,55 @@ slug: /engine
 title: Overview
 ---
 
-# Overview
-
-Engine is a backend server with a simple API interface that lets developers create backend wallets and interact with blockchains using familiar HTTP calls to any EVM chain.
+Engine is a self-hosted server that interacts with the blockchain with your backend wallets.
 
 ![Engine overview](./assets/engine-docs-diagram-updated.svg)
 
 ## Features
 
-- **Backend wallets** - Create backend wallets and store their keys securely via a cloud secrets manager like KMS. Then, sign transactions and move funds all using backend calls.
-- **Contracts** - Deploy, read and write any smart contract.
-- **Smart wallets** - Create smart wallets for users and create session keys for backend wallets to manage assets inside these accounts
-- **Sponsor gas** - Use Engine to sponsor gas for any transactions.
-- **Analytics (coming soon)** - Monitor your blockchain transactions and funds flow.
+### Backend wallets
+
+Create and manage backend wallets securely. Use local wallets to get started quickly or securely generate wallets in KMS without exposing the private key.
+
+### Authentication
+
+Create time-bound access tokens with scoped permissions. Grant or revoke programmatic access to your team as needed without worrying about private keys being compromised.
+
+### Contracts
+
+Deploy, read, and write any smart contract. Engine offers low-level contract calls as well as intuitive interfaces for common needs like transferring ERC-20 tokens.
+
+### Smart wallets
+
+Create and manage smart wallets for your users. Create session keys for scoped permissions.
+
+### Gasless transactions
+
+Attract a broader audience by sponsoring gas for your users. Enable users to buy, transfer, and sell NFTs with no additional friction.
+
+### Webhooks
+
+Get notified when transactions are completed to build powerful automation from blockchain activity.
+
+### Analytics
+
+View transaction history insights, event logs for each transaction, a ledger of backend wallet funds, and more.
+
+> Advanced analytics are coming in Q4 2024.
 
 ## Benefits
 
-- **Scalability** - To achieve high reliability during bursty traffic, blockchain calls are parallelized with smart retries. Engine protects your transactions against stuck nonces, gas spikes, and network instability.
-- **Ease of use** - Engine abstracts blockchain complexities around nonce, gas, signers, private key security and others. It enables any developer to quickly build sophisticated web3 applications with a low barrier of entry.
-- **Security -** Engine allows developers to back up private keys to the cloud, revoke access to backend wallets, and monitor flow of funds (coming soon).
+### Scalability
+
+To achieve high reliability during bursty traffic, blockchain calls are parallelized with smart retries. Engine protects your transactions against stuck nonces, gas spikes, and network instability.
+
+### Ease of use
+
+Engine manages complexities around wallet nonces, gas estimation, securing private keys, and more. This means developers can focus on their application's features and not web3 infrastructure.
+
+### Security
+
+Engine allows generating and managing KMS wallets where the private key is never accessed. Combined with scoped authentication tokens and fund monitoring, businesses visibility and control of their wallet assets.
 
 ## Use Cases
 

@@ -45,14 +45,15 @@ Engine is now configured and ready to use.
 
 ## Using Engine
 
-### Create a session token
+### Create an access token
 
-The Engine API requires a session token to authenticate requests.
+The Engine API requires a access token to authenticate requests.
 
 1. Navigate to the [Engine dashboard page](https://thirdweb.com/dashboard/engine).
-1. On the **Permissions** tab, select **Add** to create a session token.
-1. Provide the session token in the `Authorization` header when calling the Engine API:
-    - `Authorization: Bearer {session_token}`
+1. Select the **Permissions** tab.
+1. Under **Access Tokens**, select **Create Access Token**.
+1. Provide the access token in the `Authorization` header when calling the Engine API:
+    - `Authorization: Bearer {access_token}`
 
 Read more: [Authentication](/engine/authentication)
 
@@ -79,7 +80,7 @@ const resp = await fetch(`${engine_url}/deploy/{chain}/prebuilts/nft-drop`, {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
-    Authorization: `Bearer ${session_token}`,
+    Authorization: `Bearer ${access_token}`,
     "x-backend-wallet-address": BACKEND_WALLET_ADDRESS,
   },
   body: JSON.stringify({
@@ -107,7 +108,7 @@ Alternatively, query or poll the following endpoint:
 const resp = await fetch(`${engine_url}/transaction/status/${queueId}`, {
   method: "GET",
   headers: {
-    Authorization: `Bearer ${session_token}`,
+    Authorization: `Bearer ${access_token}`,
   },
 })
 
