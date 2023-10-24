@@ -21,11 +21,11 @@ An [AWS KMS Wallet](https://portal.thirdweb.com/wallet/aws-kms) is a wallet secu
 
 1. [Create an IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console) with programmatic access.
 1. [Grant the following KMS permissions](https://docs.aws.amazon.com/kms/latest/developerguide/control-access.html) to this user.
-    - `kms:CreateKey`
-    - `kms:GetPublicKey`
-    - `kms:Sign`
-    - `kms:CreateAlias`
-    - `kms:Verify`
+   - `kms:CreateKey`
+   - `kms:GetPublicKey`
+   - `kms:Sign`
+   - `kms:CreateAlias`
+   - `kms:Verify`
 
 The IAM user credentials are required by Engine to create, import, and transact with AWS KMS wallets.
 
@@ -34,9 +34,10 @@ The IAM user credentials are required by Engine to create, import, and transact 
 If creating AWS KMS wallets with Engine, skip this step.
 
 To import an existing KMS key, ensure your [KMS key is created](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) with the following settings:
-  - Key type: `Asymmetric`
-  - Key spec: `ECC_SECG_P256K1`
-  - Key usage: `Sign and verify`
+
+- Key type: `Asymmetric`
+- Key spec: `ECC_SECG_P256K1`
+- Key usage: `Sign and verify`
 
 ## Google Cloud KMS wallet
 
@@ -45,16 +46,16 @@ To import an existing KMS key, ensure your [KMS key is created](https://docs.aws
 1. [Enable Google KMS API](https://cloud.google.com/kms/docs/create-encryption-keys#before-you-begin) for your Google project.
 1. [Create a Service Account](https://cloud.google.com/iam/docs/service-accounts-create).
 1. Navigate to **IAM & Admin > IAM**. Find the service account and select **Edit Principal** to add the following roles:
-    - Cloud KMS Admin
-    - Cloud KMS CryptoKey Signer/Verifier
+   - Cloud KMS Admin
+   - Cloud KMS CryptoKey Signer/Verifier
 1. Select the created service account and navigate to the **Keys** tab.
 1. Select **Add Key**
 1. Select **Create new key**
 1. Select **JSON** to download the JSON file. This file authenticates Google Cloud KMS.
 1. [Create a keyring](https://cloud.google.com/kms/docs/create-key-ring) in Google KMS.
-    - Optional: Create a key in the keyring or call `POST /wallet/create`.
+   - Optional: Create a key in the keyring or call `POST /wallet/create`.
 
-## Create a wallet  
+## Create a wallet
 
 > For AWS or Google Cloud KMS wallets, you must provide your credentials.
 
