@@ -1,6 +1,6 @@
 ---
 slug: /wallet/smart-wallet
-title: Smart Wallet ( Wallet SDK Reference)
+title: Smart Wallet
 sidebar_position: 4
 ---
 
@@ -679,4 +679,18 @@ await wallet.connect({
 });
 
 await wallet.deployIfNeeded();
+```
+
+### getPersonalWallet
+
+Get the personal wallet that is connected to the Smart Wallet.
+
+```javascript
+// first, connect the Smart wallet
+const wallet = new SmartWallet(config);
+await wallet.connect({
+  personalWallet,
+});
+
+const personalWallet = wallet.getPersonalWallet();
 ```

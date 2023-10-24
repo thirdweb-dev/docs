@@ -13,7 +13,7 @@ This interface is currently support by the Edition and Edition Drop contracts. Y
 type ERC1155Standard struct {}
 ```
 
-### func \(\*ERC1155Standard\) [Balance](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc1155_standard.go#L93>)
+### func \(\*ERC1155Standard\) [Balance](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc1155_standard.go#L93)
 
 ```go
 func (erc1155 *ERC1155Standard) Balance(ctx context.Context, tokenId int) (int, error)
@@ -25,7 +25,7 @@ tokenId: the token ID of a specific token to check the balance of
 
 returns: the number of NFTs of the specified token ID owned by the connected wallet
 
-### func \(\*ERC1155Standard\) [BalanceOf](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc1155_standard.go#L108>)
+### func \(\*ERC1155Standard\) [BalanceOf](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc1155_standard.go#L108)
 
 ```go
 func (erc1155 *ERC1155Standard) BalanceOf(ctx context.Context, address string, tokenId int) (int, error)
@@ -45,7 +45,7 @@ tokenId := 0
 balance, err := contract.BalanceOf(context.Background(), address, tokenId)
 ```
 
-### func \(\*ERC1155Standard\) [Burn](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc1155_standard.go#L157>)
+### func \(\*ERC1155Standard\) [Burn](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc1155_standard.go#L157)
 
 ```go
 func (erc1155 *ERC1155Standard) Burn(ctx context.Context, tokenId int, amount int) (*types.Transaction, error)
@@ -67,7 +67,7 @@ amount := 1
 tx, err := contract.Burn(context.Background(), tokenId, amount)
 ```
 
-### func \(\*ERC1155Standard\) [Get](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc1155_standard.go#L40>)
+### func \(\*ERC1155Standard\) [Get](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc1155_standard.go#L40)
 
 ```go
 func (erc1155 *ERC1155Standard) Get(ctx context.Context, tokenId int) (*EditionMetadata, error)
@@ -87,7 +87,7 @@ nft, err := contract.Get(context.Background(), 0)
 	name := nft.Metadata.Name
 ```
 
-### func \(\*ERC1155Standard\) [GetAll](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc1155_standard.go#L53>)
+### func \(\*ERC1155Standard\) [GetAll](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc1155_standard.go#L53)
 
 ```go
 func (erc1155 *ERC1155Standard) GetAll(ctx context.Context) ([]*EditionMetadata, error)
@@ -105,7 +105,7 @@ supplyOne := nfts[0].Supply
 nameOne := nfts[0].Metadata.Name
 ```
 
-### func \(\*ERC1155Standard\) [GetOwned](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc1155_standard.go#L75>)
+### func \(\*ERC1155Standard\) [GetOwned](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc1155_standard.go#L75)
 
 ```go
 func (erc1155 *ERC1155Standard) GetOwned(ctx context.Context, address string) ([]*EditionMetadataOwner, error)
@@ -125,7 +125,7 @@ nfts, err := contract.GetOwned(context.Background(), owner)
 name := nfts[0].Metadata.Name
 ```
 
-### func \(\*ERC1155Standard\) [GetTotalCount](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc1155_standard.go#L60>)
+### func \(\*ERC1155Standard\) [GetTotalCount](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc1155_standard.go#L60)
 
 ```go
 func (erc1155 *ERC1155Standard) GetTotalCount(ctx context.Context) (int, error)
@@ -135,7 +135,7 @@ Get the total number of NFTs on this contract.
 
 returns: the total number of NFTs on this contract
 
-### func \(\*ERC1155Standard\) [IsApproved](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc1155_standard.go#L119>)
+### func \(\*ERC1155Standard\) [IsApproved](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc1155_standard.go#L119)
 
 ```go
 func (erc1155 *ERC1155Standard) IsApproved(ctx context.Context, address string, operator string) (bool, error)
@@ -149,7 +149,7 @@ operator: the address of the operator to check
 
 returns: true if the operator is approved for all operations of the assets, otherwise false
 
-### func \(\*ERC1155Standard\) [SetApprovalForAll](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc1155_standard.go#L170>)
+### func \(\*ERC1155Standard\) [SetApprovalForAll](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc1155_standard.go#L170)
 
 ```go
 func (erc1155 *ERC1155Standard) SetApprovalForAll(ctx context.Context, operator string, approved bool) (*types.Transaction, error)
@@ -165,7 +165,7 @@ approved: true if the operator is approved for all operations of the assets, oth
 
 returns: the transaction receipt of the approval
 
-### func \(\*ERC1155Standard\) [TotalSupply](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc1155_standard.go#L84>)
+### func \(\*ERC1155Standard\) [TotalSupply](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc1155_standard.go#L84)
 
 ```go
 func (erc1155 *ERC1155Standard) TotalSupply(ctx context.Context, tokenId int) (int, error)
@@ -177,7 +177,7 @@ tokenId: the token ID to check the total supply of
 
 returns: the supply of NFTs on the specified token ID
 
-### func \(\*ERC1155Standard\) [Transfer](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc1155_standard.go#L140>)
+### func \(\*ERC1155Standard\) [Transfer](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc1155_standard.go#L140)
 
 ```go
 func (erc1155 *ERC1155Standard) Transfer(ctx context.Context, to string, tokenId int, amount int) (*types.Transaction, error)

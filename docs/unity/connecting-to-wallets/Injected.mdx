@@ -1,0 +1,41 @@
+---
+slug: /wallet/injected
+title: Injected
+---
+
+Prompt users to connect to their default browser wallet (window.ethereum).
+
+## Usage
+
+```csharp
+using Thirdweb;
+
+public async void ConnectWallet()
+{
+    // Reference to your Thirdweb SDK
+    var sdk = ThirdwebManager.Instance.SDK;
+
+    // Configure the connection
+    var connection = new WalletConnection(
+      provider: WalletProvider.Injected,       // The wallet provider you want to connect to (Required)
+      chainId: 1                               // The chain you want to connect to (Required)
+    );
+
+    // Connect the wallet
+    string address = await sdk.wallet.Connect(connection);
+}
+```
+
+## Behavior
+
+### WebGL
+
+Prompts the user to connect to their default browser wallet (window.ethereum).
+
+### Standalone
+
+Not supported.
+
+### Mobile
+
+Not supported.

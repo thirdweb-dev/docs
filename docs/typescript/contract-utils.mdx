@@ -1,0 +1,63 @@
+---
+title: Contract Utilities
+slug: /contract-utils
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+Utilities to fetch and parse contract ABI and sources from any imported contracts.
+
+## Getting the ABI of a contract
+
+You can obtain the ABI of any contract with the following code:
+
+```ts
+const sdk = new ThirdwebSDK(chain, {
+  // pass your cliendId or secretKey...
+});
+
+const contract = await sdk.getContract("0x...");
+const ABI = contract.abi;
+```
+
+## Getting all functions and events definitions from a contract
+
+Get parsed function and event definitions from a contract:
+
+```ts
+const sdk = new ThirdwebSDK(chain, {
+  // pass your cliendId or secretKey...
+});
+
+const contract = await sdk.getContract("0x...");
+const functions = await c.publishedMetadata.extractFunctions();
+const events = await c.publishedMetadata.extractEvents();
+```
+
+## Getting the sources of a contract
+
+To get the source code of a deployed contract:
+
+```ts
+const sdk = new ThirdwebSDK(chain, {
+  // pass your cliendId or secretKey...
+});
+
+const contract = await sdk.getContract("0x...");
+const sources = await contract.publishedMetadata.extractSources();
+```
+
+## Getting the implementation address of a Proxy
+
+Resolve the implementation address and bytecode of a given proxy contract
+
+```ts
+const sdk = new ThirdwebSDK(chain, {
+  // pass your cliendId or secretKey...
+});
+
+const { address, bytecode } = await resolveImplementation(
+  "0x...", // the proxy address
+  sdk.getProvider(),
+);
+console.log("Implementation address", address);
+```

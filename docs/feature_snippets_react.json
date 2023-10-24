@@ -1812,6 +1812,17 @@
       }
     },
     {
+      "name": "useBuyDirectListing",
+      "summary": "Hook for buying a direct listing on a Marketplace V3 contract\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": ""
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.usebuydirectlisting"
+      }
+    },
+    {
       "name": "useValidDirectListings",
       "summary": "Get all valid direct listings\n\n",
       "remarks": null,
