@@ -82,7 +82,7 @@ type SmartContract struct {
 }
 ```
 
-### func \(\*SmartContract\) [Call](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/smart_contract.go#L155>)
+### func \(\*SmartContract\) [Call](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/smart_contract.go#L155)
 
 ```go
 func (c *SmartContract) Call(ctx context.Context, method string, args ...interface{}) (interface{}, error)
@@ -105,7 +105,7 @@ balance, err := contract.Call("balanceOf", "{{wallet_address}}")
 tx, err := contract.Call(context.Background(), "mintTo", "{{wallet_address}}", "ipfs://...")
 ```
 
-## type [SnapshotClaim](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/snapshots.go#L18-L22>)
+## type [SnapshotClaim](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/snapshots.go#L18-L22)
 
 ```go
 type SnapshotClaim struct {
@@ -115,7 +115,7 @@ type SnapshotClaim struct {
 }
 ```
 
-## type [SnapshotEntry](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/types.go#L593-L598>)
+## type [SnapshotEntry](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/types.go#L593-L598)
 
 ```go
 type SnapshotEntry struct {
@@ -126,7 +126,7 @@ type SnapshotEntry struct {
 }
 ```
 
-## type [SnapshotEntryWithProof](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/types.go#L571-L577>)
+## type [SnapshotEntryWithProof](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/types.go#L571-L577)
 
 ```go
 type SnapshotEntryWithProof struct {
@@ -138,7 +138,7 @@ type SnapshotEntryWithProof struct {
 }
 ```
 
-## type [SnapshotInfo](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/snapshots.go#L24-L27>)
+## type [SnapshotInfo](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/snapshots.go#L24-L27)
 
 ```go
 type SnapshotInfo struct {
@@ -147,7 +147,7 @@ type SnapshotInfo struct {
 }
 ```
 
-## type [SnapshotInfos](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/snapshots.go#L29-L33>)
+## type [SnapshotInfos](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/snapshots.go#L29-L33)
 
 ```go
 type SnapshotInfos struct {
@@ -157,7 +157,7 @@ type SnapshotInfos struct {
 }
 ```
 
-## type [SnapshotInput](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/snapshots.go#L13-L16>)
+## type [SnapshotInput](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/snapshots.go#L13-L16)
 
 ```go
 type SnapshotInput struct {

@@ -8,7 +8,7 @@ import QuickstartCard from "@components/QuickstartCard";
 
 # Usage with TypeScript SDK
 
-You can initialize the SDK using a wallet instance as shown below:
+You can connect to any wallet instance and use it with the Contract SDK to perform transactions:
 
 ```ts
 import { MetaMaskWallet } from "@thirdweb-dev/wallets";
@@ -27,6 +27,10 @@ const sdk = ThirdwebSDK.fromWallet(wallet, "ethereum", {
 });
 
 // sdk is now ready to use
+const contract = await sdk.getContract("0x...");
+await contract.erc721.mint({
+  name: "My NFT",
+});
 ```
 
 <br />

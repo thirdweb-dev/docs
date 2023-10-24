@@ -10,7 +10,7 @@ You can initialize the SDK on your desired chain through the `ThirdwebManager` M
 
 ## Usage
 
-### Using ThirdwebManager
+### Using ThirdwebManager (Recommended)
 
 The `ThirdwebManager` MonoBehaviour provides a convenient and customizable way to instantiate and manage the `ThirdwebSDK`. By attaching this script to a GameObject in your initial scene and using `DontDestroyOnLoad()`, the SDK remains instantiated throughout your game's lifecycle.
 
@@ -22,7 +22,7 @@ Once `ThirdwebManager` is set up and the game starts, it will instantiate the `T
 ThirdwebSDK sdk = ThirdwebManager.Instance.SDK;
 ```
 
-### Manual Instantiation
+### Manual Instantiation (Not Recommended)
 
 Provide the name of a default chain, or your own custom RPC URL of any EVM-compatible blockchain to instantiate the SDK.
 

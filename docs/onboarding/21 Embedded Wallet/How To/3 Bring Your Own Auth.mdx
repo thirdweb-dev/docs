@@ -1,0 +1,50 @@
+---
+slug: /embedded-wallet/custom-auth
+title: Use your own auth (Advanced)
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import QuickstartCard from "@components/QuickstartCard";
+
+By default, the embedded wallet service handles two things: auth, and spinning up crypto wallets tied to the auth. We require
+valid authentication to ensure a wallet is created for the right person.
+
+If you already have your own auth and only want to spin up wallets, we offer a simple way to hook up any **OpenID Connect ("OIDC") compatible** auth to create embedded wallets.
+
+This is currently available for enterprise customers only.
+
+## How it works
+
+- An OIDC auth system has a public-private keypair, where the private key is used to sign auth tokens
+- The public key is uploaded to a public URL in JWKS format. The standard location is `https://{domain}.com/.well-known/jwks.json`
+- When a user logs in, a JWT token called the idToken is generated and signed by the private key. The OIDC spec provides an interface for fields that are used in this token.
+- We use the public key to verify that the JWT was signed correctly, and proceed to generate a wallet based on the `sub` (user identifier) value of the idToken.
+
+## Configuration Setup
+
+When setting up your API key, choose "Custom Auth" and provide us with the following values:
+
+- The URL of the JWKS file (public key)
+  - This is used to verify the token was signed by you.
+- The `aud` value of the idToken
+  - This is used to verify that thirdweb is the intended user of the token
+
+## Authenticating a user
+
+To log in to your own custom authentication, call `loginWithJwtAuth` with the user's auth JWT after they have authenticated.
+
+```typescript
+import { EmbeddedWallet } from "@thirdweb-dev/wallets";
+import { Goerli } from "@thirdweb-dev/chains";
+
+const embeddedWallet = new EmbeddedWallet({
+  chain: Goerli, //  chain to connect to
+  clientId: "YOUR_CLIENT_ID", // Your thirdweb client ID
+});
+await embeddedWallet.loginWithJwtAuth({
+  token: "<idToken JWT from your auth callback>",
+  authProvider: AuthProvider.CUSTOM_JWT,
+  encryptionKey: "Required if user is an existing user",
+});
+```
