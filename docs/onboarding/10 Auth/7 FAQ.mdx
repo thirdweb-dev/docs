@@ -1,0 +1,21 @@
+---
+slug: /auth/faqs
+title: FAQs
+hide_title: true
+---
+
+# FAQs
+
+### How long does the JWT last until it expires?
+
+By default, the JWTs issued by the server are valid for 3 days (259200 seconds), after which the user will have to login again. However, this duration can be changed by modifying the `authOptions.tokenDurationInSeconds` configuration.
+
+Learn how to change the token validity duration for both [Next](https://portal.thirdweb.com/auth/server-frameworks/next#changing-the-token-validity-duration) and [Express](https://portal.thirdweb.com/auth/server-frameworks/express#changing-the-token-validity-duration) in our documentation.
+
+### Is it possible to use Auth without an `authUrl` in the `authConfig` using the React SDK?
+
+Yes, it is possible to use Auth without an `authUrl` in the `authConfig` using the React SDK. The `authUrl` property in the `authConfig` object is used to specify the backend URL of the authentication endpoints. However, if you don't need to communicate with a backend for authentication purposes, you can omit this property. In that case, Auth will use default authentication mechanisms such as cookies.
+
+### Can I token gate my website using Auth?
+
+Yes, you can token gate your website using Auth. Token gating allows you to restrict access to certain pages or content on your website based on the ownership of a specific token, such as an NFT or a crypto token. By connecting their crypto wallet and verifying ownership of the required token, users can unlock exclusive content or features.
