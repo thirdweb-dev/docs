@@ -10,13 +10,13 @@ To get real-time updates on transactions, listen to Engine via websockets.
 ## Open a websocket connection
 
 Replace the following values:
-- `ENGINE_URL`: The host (and optional port) where Engine is hosted.
-- `QUEUE_ID`: The queue ID in the response of a transaction request.
-- `SESSION_TOKEN`: The session token (or thirdweb secret key).
+- `<engine_url>`: The host (and optional port) where Engine is hosted.
+- `<queue_id>`: The queue ID in the response of a transaction request.
+- `<session_token>`: The session token (or thirdweb secret key).
 
 ```js
 const socket = new WebSocket(
-    "wss://ENGINE_URL/transaction/status/QUEUE_ID?token=SESSION_TOKEN",
+    "wss://<engine_url>/transaction/status/<queue_id>?token=<session_token>",
 );
 
 socket.onopen = (event) => console.log("opened");

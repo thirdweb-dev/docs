@@ -4,12 +4,13 @@ title: Airdrop NFTs
 ---
 
 import QuickstartCard from "@components/QuickstartCard";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
 
-See how Engine enables a brand to airdrop NFTs at scale to their superfans. (The developer only pays gas!)
+See how Engine enables a brand to airdrop NFTs at scale to their superfans. The developer only pays gas!
 
-:::info
-This guide references Polygon Mumbai testnet and NextJS but is applicable for any EVM chain and full-stack framework.
-:::
+> This guide references Polygon Mumbai testnet and NextJS but is applicable for any EVM chain and full-stack framework.
 
 ## Source Code
 
@@ -25,7 +26,7 @@ View the full source code on GitHub:
 
 ## Prerequisites
 
-- An Engine instance deployed to `ENGINE_URL`.
+- An Engine instance deployed to `<engine_url>`.
 - A Client ID and Secret Key from the [API Keys page](https://thirdweb.com/dashboard/settings/api-keys).
 
 ## 1. Create a backend wallet
@@ -34,56 +35,74 @@ Create a backend wallet with Engine.
 
 ```bash
 curl -X POST \
-  -H "Authorization: Bearer THIRDWEB_SECRET_KEY" \
-  "ENGINE_URL/backend-wallet/create"
+  -H "Authorization: Bearer <thirdweb_secret_key>" \
+  "<engine_url>/backend-wallet/create"
 ```
 
-_Replace `ENGINE_URL` and `THIRDWEB_SECRET_KEY`._
+_Replace `<engine_url>` and `<thirdweb_secret_key>`._
 
-This endpoint returns a wallet address `BACKEND_WALLET_ADDRESS`.
+This endpoint returns a wallet address `<backend_wallet_address>`.
 
 ## 2. Deploy an NFT contract
 
-:::info
-You will need gas (MATIC on Mumbai) for this step. Send 0.1 MATIC or [claim MATIC from a faucet](https://mumbaifaucet.com/) to your backend wallet address.
+> MATIC on Mumbai is required for this step. Send 0.1 MATIC or [claim MATIC for free from a faucet](https://mumbaifaucet.com/) to your backend wallet address.
 
-This is a freely available testnet currency. No real funds are required.
-:::
-
-Deploy a [thirdweb Edition contract](https://thirdweb.com/thirdweb.eth/TokenERC1155) with Engine. This contract is an ERC-1155 token that allows minting a token to multiple users.
+Deploy a [thirdweb Edition contract](https://thirdweb.com/thirdweb.eth/TokenERC1155), an ERC-1155 contract that allows minting a token to multiple users.
 
 ```bash
 curl -X POST \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer THIRDWEB_SECRET_KEY" \
-  -H "x-backend-wallet-address: BACKEND_WALLET_ADDRESS" \
+  -H "Authorization: Bearer <thirdweb_secret_key>" \
+  -H "x-backend-wallet-address: <backend_wallet_address>" \
   -d '{
     "contractMetadata": {
       "name": "Acme Inc. Loyalty Card",
       "symbol": "ACME",
-      "primary_sale_recipient": "BACKEND_WALLET_ADDRESS"
+      "primary_sale_recipient": "<backend_wallet_address>"
     }
   }' \
-  "ENGINE_URL/deploy/mumbai/prebuilts/edition"
+  "<engine_url>/deploy/mumbai/prebuilts/edition"
 ```
 
-_Replace `ENGINE_URL`, `BACKEND_WALLET_ADDRESS`, and `THIRDWEB_SECRET_KEY`._
+_Replace `<engine_url>`, `<backend_wallet_address>`, and `<thirdweb_secret_key>`._
 
-An NFT contract will be deployed to `NFT_CONTRACT_ADDRESS` after a brief moment.
+The NFT contract will be deployed after a brief moment.
 
 ## 2. Create a NextJS app
 
 Clone a NextJS app template.
 
-```bash
-yarn create next-app
-```
+<Tabs>
+  <TabItem value="npm" label="npm" default>
+    <CodeBlock language="bash">{`npx create-next-app@latest`}</CodeBlock>
+  </TabItem>
+  <TabItem value="yarn" label="yarn">
+    <CodeBlock language="bash">{`yarn create next-app`}</CodeBlock>
+  </TabItem>
+  <TabItem value="pnpm" label="pnpm">
+    <CodeBlock language="bash">{`pnpm create next-app`}</CodeBlock>
+  </TabItem>
+  <TabItem value="bun" label="bun">
+    <CodeBlock language="bash">{`bunx create-next-app`}</CodeBlock>
+  </TabItem>
+</Tabs>
 
 Install the thirdweb React (frontend) and Typescript (backend) SDKs.
 
-```bash
-yarn add @thirdweb-dev/react @thirdweb-dev/sdk ethers@^5
-```
+<Tabs>
+  <TabItem value="npm" label="npm" default>
+    <CodeBlock language="bash">{`npm i @thirdweb-dev/react @thirdweb-dev/sdk ethers@^5`}</CodeBlock>
+  </TabItem>
+  <TabItem value="yarn" label="yarn">
+    <CodeBlock language="bash">{`yarn add @thirdweb-dev/react @thirdweb-dev/sdk ethers@^5`}</CodeBlock>
+  </TabItem>
+  <TabItem value="pnpm" label="pnpm">
+    <CodeBlock language="bash">{`pnpm i @thirdweb-dev/react @thirdweb-dev/sdk ethers@^5`}</CodeBlock>
+  </TabItem>
+  <TabItem value="bun" label="bun">
+    <CodeBlock language="bash">{`bun i @thirdweb-dev/react @thirdweb-dev/sdk ethers@^5`}</CodeBlock>
+  </TabItem>
+</Tabs>
 
 ## 3. Frontend: Add Connect Wallet and Claim buttons
 
@@ -103,7 +122,7 @@ import {
 
 export default function Home() {
   return (
-    <ThirdwebProvider activeChain="mumbai" clientId={THIRDWEB_CLIENT_ID}>
+    <ThirdwebProvider activeChain="mumbai" clientId={<thirdweb_client_id>}>
       <ClaimPage />
     </ThirdwebProvider>
   );
@@ -132,7 +151,7 @@ function ClaimPage() {
 }
 ```
 
-_Replace `THIRDWEB_CLIENT_ID`_.
+_Replace `<thirdweb_client_id>`_.
 
 ## 4. Backend: Call Engine to mint an NFT
 
@@ -195,9 +214,20 @@ NFT_CONTRACT_ADDRESS=0x...
 
 Start the server.
 
-```bash
-yarn dev
-```
+<Tabs>
+  <TabItem value="npm" label="npm" default>
+    <CodeBlock language="bash">{`npm run dev`}</CodeBlock>
+  </TabItem>
+  <TabItem value="yarn" label="yarn">
+    <CodeBlock language="bash">{`yarn dev`}</CodeBlock>
+  </TabItem>
+  <TabItem value="pnpm" label="pnpm">
+    <CodeBlock language="bash">{`pnpm dev`}</CodeBlock>
+  </TabItem>
+  <TabItem value="bun" label="bun">
+    <CodeBlock language="bash">{`bun dev`}</CodeBlock>
+  </TabItem>
+</Tabs>
 
 The server is hosted on `http://localhost:3000`.
 

@@ -94,7 +94,7 @@ import { isValidSignature, isExpired } from "./webhookHelper";
 const app = express();
 const port = 3000;
 
-const WEBHOOK_SECRET = "YOUR_WEBHOOK_AUTH_TOKEN"; // Replace with your secret
+const WEBHOOK_SECRET = "<your_webhook_auth_secret>";
 
 app.use(bodyParser.text());
 
