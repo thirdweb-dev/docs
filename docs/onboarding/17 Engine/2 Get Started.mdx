@@ -3,85 +3,261 @@ slug: /engine/get-started
 title: Get Started
 ---
 
-Once you have configured your self-hosted server, you can begin development with the Engine.
+Welcome to thirdweb Engine Getting Started! In this section, we'll walk you through the basic steps to set up and get started with using your local Engine Instance.
 
-This guide will provide a few examples of how you can use the Engine:
+## Prerequisites
 
-### Get Balance
+Before you begin, ensure you have the following:
 
-To quickly demonstrate how to use Engine in your application, let's create a quick JavaScript script that fetches your wallet's balance on a specific network using the `/wallet/{network}/getBalance` endpoint.
+- [ ] Docker
+- [ ] PostgreSQL
 
-1. Create a `getBalance.js` at the root of your project’s directory
+## Setting up Environment Variables
+
+To get started, you'll need to set up a few environment variables.
+
+- _`THIRDWEB_API_SECRET_KEY`_: First, you'll need to create an **API KEY** on the [Dashboard](https://thirdweb.com/dashboard/settings/api-keys) and copy the _`SecretKey`_ provided.
+
+- _`POSTGRES_CONNECTION_URL`_: This is a connection string for your Postgres database. You can think of it as the address where your Engine will store data.
+
+- _`ADMIN_WALLET_ADDRESS`_: This is the initial admin wallet address that allows you to connect to your Engine from the Dashboard for setup.
+
+## Running the Server
+
+Now, let's fire up your Engine Instance! You can do this using Docker with a simple command:
+
+```bash
+docker run \
+    -e THIRDWEB_API_SECRET_KEY="<your-api-secret-key>" \
+    -e POSTGRES_CONNECTION_URL="<your-connection-url>" \
+    -e ADMIN_WALLET_ADDRESS="<your-admin-wallet-address>" \
+    -p 3005:3005 \
+    thirdweb/engine:latest
+```
+
+Just replace `<your-api-secret-key>`, `<your-connection-url>`, and `<your-admin-wallet-address>` with the values you obtained earlier.
+
+## Create an Access Token
+
+Sign-in to [Dashboard](https://thirdweb.com/dashboard/engine) with the `Admin Wallet Address`, as that wallet has the admin rights to create/revoke `Access Tokens`.
+
+To create an `Access Token`, follow the below steps:
+
+1. Goto [Engine Dashboad](https://thirdweb.com/dashboard/engine)
+2. Add your Engine Instance
+3. Goto `Permissions` Tab
+4. Now create a new token with or without expiry. For this example, we will create one with expiration.
+5. Copy the `Acces Token`. Will be needed in future steps.
+
+## Create/Import Backend Wallet
+
+To execute any on-chain transaction request, Engine needs to have a backend-wallet. A backend wallet can be created/imported into Engine. Engine by supports LocalWallet, AWS KMS & Google KMS and defaults to `LocalWallet`.
+
+> NOTE: We recommend `LocalWallet` for non-production mode only!
+
+1. Goto [Engine Dashboad](https://thirdweb.com/dashboard/engine)
+2. Add your Engine Instance
+3. Open the `Overview` tab
+4. `Create` or `Import` backend wallet using the respective buttons.
+5. Now you have successfully created/imported a backend wallet. Do not forget to fund your backend wallet.
+
+## Using the Server
+
+Now that your Engine Instance is running, let's learn how to interact with it. Engine expects the below headers to part of the HTTP request :
+
+- **Authentication:** For every action that requires administrative privileges, you'll need an authentication token. Use the `Access Token` created in the above step:
+
+  ```
+  Authorization: Bearer <engine_access_token>
+  ```
+
+- **Specifying Admin Wallet:** When making changes to the server, you'll also need to specify which admin wallet to use for transactions. Use the following format to set this header:
+
+  ```
+  x-backend-wallet-address: 0x3ecdbf3b911d0e9052b64850693888b008e18373
+  ```
+
+### Get Wallet Balance
+
+To quickly demonstrate how to use Engine in your application, let's create a quick Typescript script that fetches your wallet's balance on a specific network.
+
+1. Create a `getBalance.ts` at the root of your project’s directory
 2. At the top of your file, let’s create a variable to store our network to pass into our path parameter.
 
-   ```
-   const network = "mumbai";
-   ```
+```
+const chain = "mumbai";
+```
 
 3. Configure your HTTP GET request
 
-   ```jsx
-   const options = {
-     method: "GET",
-     headers: {
-       accept: "application/json",
-       "content-type": "application/json",
-       Authorization: `Bearer ${process.env.THIRDWEB_SDK_SECRET_KEY}`,
-     },
-   };
-   ```
+```ts
+const options: RequestInit = {
+  method: "GET",
+  headers: {
+    accept: "application/json",
+    "content-type": "application/json",
+    Authorization: `Bearer <engine-access-token>`,
+  },
+};
+```
 
-4. Now we can use the `fetch()` function to make an HTTP GET request to our `wallet/${network}/getBalance` endpoint and display the result to our console.
+4. Now we can use the `fetch()` function to make an HTTP GET request to our `/backend-wallet/${chain}/${wallet_address}/get-balance` endpoint and display the result to our console.
 
-   ```
-   fetch(`http://localhost:3005/wallet/${network}/getBalance}`, options)
-     .then((response) => response.json())
-     .then((response) => console.log(response.result.displayValue))
-     .catch((err) => console.error(err));
-   ```
+```ts
+const response = await fetch(
+  `http://localhost:3005/backend-wallet/${chain}/${wallet_address}/get-balance}`,
+  options,
+);
+```
 
-5. Run your script in the command using `node getBalance.js`
+5. Run your script in the command using `ts-node getBalance.ts`
+
+```ts
+# getBalance.ts
+
+const main = async () => {
+  try {
+    const chain = "mumbai";
+    const wallet_address = "<created_imported_backend_wallet_address>";
+    const options: RequestInit = {
+      method: "GET",
+      headers: {
+        accept: "application/json",
+        "content-type": "application/json",
+        Authorization: `Bearer <engine_access_token>`,
+      },
+    };
+    const response = await fetch(
+      `http://localhost:3005/backend-wallet/${chain}/${wallet_address}/get-balance`,
+      options
+    );
+    const responseData = await response.json();
+    const { result } = responseData;
+    console.log(
+      `Wallet ${wallet_address} Balance on Chain: ${chain}, ${JSON.stringify(
+        result
+      )}`
+    );
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+main();
+
+```
+
+Replace `<created_imported_backend_wallet_address>` and `<engine_access_token>`.
+
 6. In the terminal, you will see the amount of Matic you have in your wallet returned.
 
 ### Deploy Contract
 
-As an example for a POST method, let's modify our script to deploy an ERC20 Contract using `/deployer/{network}/prebuilts/token`
+As an example for a POST method, let's modify our script to deploy an ERC20 Contract using `/deploy/{chain}/prebuilts/token`
 
-1. Create a `deployToken.js` at the root of your project’s directory
+1. Create a `deployToken.ts` at the root of your project’s directory
 2. At the top of your file, let’s create a variable to store our network to pass into our path parameter.
 
-   ```jsx
-   const network = "mumbai";
+   ```ts
+   const chain = "mumbai";
    ```
 
 3. Configure your HTTP POST request body. Modify the `primary_sale_recipient` to your address or the address you want to receive initial funds.
 
-   ```jsx
+   ```ts
    const options = {
-     method: "GET",
+     method: "POST",
      headers: {
        accept: "application/json",
        "content-type": "application/json",
        Authorization: `Bearer ${<thirdweb_secret_key>}`,
-       "x-wallet-address": ${process.env.WALLET_ADDRESS}`
+       "x-backend-wallet-address": <created_imported_backend_wallet_address>`
      },
      body: JSON.stringify({
+      contractMetadata: {
        name: "HelloWorldCoin",
        description: "A coin to demonstrate how to use Engine",
        symbol: "HELLO",
-       primary_sale_recipient: "0x0000000000000000000000000000000000000000",
+       primary_sale_recipient: "0x0000000000000000000000000000000000000000"
+      }
      }),
+     mode: "cors",
+     redirect: "follow",
    };
    ```
 
-4. Now we can use the `fetch()` function to make an HTTP GET request to our `/deployer/{network}/prebuilts/token` and return the URL for the deployed contract on the dashboard.
+4. Now we can use the `fetch()` function to make an HTTP GET request to our `/deploy/{chain}/prebuilts/token` and return the URL for the deployed contract on the dashboard.
 
-   ```jsx
-   fetch(`http://localhost:3005/deployer/${network}/prebuilts/token`, options)
-     .then((response) => response.json())
-     .then((response) => console.log(`https://thirdweb.com/${network}/${response.result.deployedAddress}`)
-     .catch((err) => console.error(err));
-   ```
+```ts
+const response = await fetch(
+  `http://localhost:3005/deployer/${chain}/prebuilts/token`,
+  options,
+);
+const responseData = await response.json();
+const { result } = responseData;
+console.log(
+  `New Token Contract, Address ${result.deployedAddress} Transaction Queued with queuId: ${result.queueId}`,
+);
+```
 
-5. Run your script in the command using `node deployToken.js`
+5. Run your script in the command using `node deployToken.ts`
+
+```ts
+# deployToken.ts
+
+const main = async () => {
+  try {
+    const chain = "mumbai";
+    const options: RequestInit = {
+      method: "POST",
+      headers: {
+        accept: "application/json",
+        "content-type": "application/json",
+        Authorization: `Bearer <engine_access_token>`,
+        "x-backend-wallet-address": `<your_engine_backend_wallet_address>`,
+      },
+      body: JSON.stringify({
+        contractMetadata: {
+          name: "HelloWorldCoin",
+          description: "A coin to demonstrate how to use Engine",
+          symbol: "HELLO",
+          primary_sale_recipient: "0x0000000000000000000000000000000000000000",
+        },
+      }),
+      mode: "cors",
+      redirect: "follow",
+    };
+
+    const response = await fetch(
+      `http://localhost:3005/deploy/${chain}/prebuilts/token`,
+      options
+    );
+
+    const rawResponseData = await response.json();
+    const { result } = rawResponseData;
+
+    console.log(
+      `New Token Contract, Address ${result.deployedAddress} Transaction Queued with queuId: ${result.queueId}`
+    );
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+main();
+
+```
+
 6. To find your contract, redirect from the link returned in the command line.
+
+## Docker Hub Details
+
+You can find Engine on Docker Hub, making it easy to deploy and manage. Here are the details and links:
+
+- **Docker Hub Repository**: You can find the official thirdweb Engine repository on [Docker Hub](https://hub.docker.com/r/thirdweb/engine/tags).
+
+- **Pull the Latest Image**: To get the latest version of the Engine image, use the following Docker command:
+
+  ```bash
+  docker pull thirdweb/engine:latest
+  ```

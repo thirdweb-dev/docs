@@ -3,120 +3,137 @@ slug: /engine/configuration
 title: Configuration
 ---
 
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
+In this section, we will go over the different type Engine configurations which can be done.
 
-Visual learner? [Watch our video tutorial](https://www.youtube.com/watch?v=NEhgvKojvqE) on how to configure a self-hosted version with Docker, instead.
+## Backend Wallet
 
-## Prerequisites
+Engine performs blockchain actions using backend wallets that you own and manage.
+There are multiple options for securing backend wallets.
 
-Before you begin, ensure you have the following:
+### Local wallet
 
-- [ ] Docker
-- [ ] PostgreSQL
+A [local wallet](https://portal.thirdweb.com/wallet/local-wallet) is a wallet created or imported from a private key. Ensure your private key is backed up before transacting with a local wallet in a production environment. By default, Engine uses `LocalWallet`.
 
-## Part 1: Wallet Configuration
+> Local wallets private keys are stored encrypted in Engine's database. For security reasons, private keys cannot be exported.
 
-To use Engine, you will need to initiate it with a backend wallet using one of the following options:
+> NOTE: For Production use we suggest to use one of the below KMS Wallet Configuration.
 
-### Secret Key
+### AWS KMS wallet
 
-1. Setup a `.env` file at the root of your project’s repository
-2. Set the following variables in your `.env` file:
+Thirdweb Engine supports AWS KMS for signing & sending transactions over any EVM chain. This is a section on how to set up AWS KMS.
 
-   ```
-   POSTGRES_CONNECTION_URL=<YOUR_CONNECTION_URL>
-   THIRDWEB_API_SECRET_KEY=<YOUR_SECRET_KEY>
-   ```
+#### Steps to set up AWS KMS
 
-### AWS KMS
-
-Engine supports AWS KMS for signing & sending transactions over any EVM chain.
-
-1. Setup a managed key through AWS KMS.
-   1. Create an IAM user with programmatic access. Follow the instructions in the AWS documentation on **[creating an IAM user in your AWS account](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console)**.
-   2. Enable Create, Get, and Read permissions for your KMS. Learn more about **[authentication and access control for AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/control-access.html)** in the AWS documentation.
-   3. Create a KMS key by following the instructions in the AWS documentation on how to [create keys](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html).
-2. Setup a `.env` file at the root of your repository and set the following variables in this file.
-
-   ```json
-   # Required for AWS Auth
-   AWS_ACCESS_KEY_ID=<aws_access_key_id>
-   AWS_SECRET_ACCESS_KEY=<aws_secret_access_key>
-   AWS_REGION=<aws_region>
-   ```
-
-### Google KMS
-
-Engine supports Google KMS for signing & sending transactions over any EVM chain.
-
-1. Setup a managed key through Google KMS.
-   1. Create an encrypted key with Cloud KMS. Learn how to [Create encryption keys with Cloud KMS](https://cloud.google.com/kms/docs/create-encryption-keys#before-you-begin) from the Google Cloud documentation.
-   2. Create a Service Account. Learn how to [Create service accounts](https://cloud.google.com/iam/docs/service-accounts-create) in the Google Cloud documentation.
-   3. Create a key with this service account.
-   4. Download the JSON file. The JSON file details will be used to authenticate with Google KMS.
-   5. Add the following permissions to your service account: `Cloud KMS Admin` and `Cloud KMS CryptoKey Signer/Verifier`
-2. Setup a `.env` file at the root of your repository
-3. Set the following variables in your `.env` file:
-
-   ```json
-   # Required for Google Auth
-   GOOGLE_APPLICATION_CREDENTIAL_EMAIL=<client_email_from_download_service_account_json>
-   GOOGLE_APPLICATION_CREDENTIAL_PRIVATE_KEY=<private_key_from_download_service_account_json>
-
-   # Required for Google KMS
-   GOOGLE_APPLICATION_PROJECT_ID=<google_project_id>
-   GOOGLE_KMS_KEY_RING_ID=<key_ring_id>
-   GOOGLE_KMS_LOCATION_ID=<location_of_key_ring>
-   ```
-
-## Part 2: Server Configuration
-
-While in beta, Engine only offers self-hosted options. To use Engine, you will need to host your own server using a containerization platform such as Docker or Kubernetes.
-
-### Configure Server Using Docker
-
-To host your own server with Docker:
-
-1. [Install Docker](https://docs.docker.com/get-docker/)
-
-2. To obtain the Postgres Docker Image, navigate to the root of your project and run the following command in your command line:
-
-   ```python
-   docker run --env-file ./.env -p 5432:5432 --name my-local-postgres -d postgres
-   ```
-
-3. Afterwards, to get the Engine Docker Image, navigate to the root of your project and run the following command in your command line:
-
-   ```
-   docker run --env-file .env -p 3005:3005 thirdweb/engine:v0.0.3
-   ```
-
-   :::info
-   For different versions, please see our [Docker Hub](https://hub.docker.com/r/thirdweb/web3-api) page.
-   :::
-
-4. To authenticate, open `localhost:3005` in your browser.
-5. Select the `Authorize` option on the dashboard.
-
-   ![Screenshot of how to authorize via Swagger](./assets/authorize-api.png)
-
-6. Pass in your corresponding secret key created from the thirdweb dashboard and select Authorize.
-
-   ![Screenshot of passing in Bearer auth field](./assets/authorize-bearer.png)
-
-7. You are now ready to begin developing using APIs. To see a demonstration of endpoints, please visit the `Get Started` tutorial.
-
-### Authorization Header
-
-All Requests need to have `Authorization` header with the value of `Bearer <YOUR_THIRDWEB_SDK_SECRET_KEY>` from the `.env` file.
-
-Write requests to the server will also require a `x-wallet-address: <YOUR_WALLET_ADDRESS>` header to specify which admin wallet to send a transaction with.
-
-Example:
+1. Create IAM user with programmatic access, see [here](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console) for more details.
+2. Add create, get, read permission to KMS, see [here](https://docs.aws.amazon.com/kms/latest/developerguide/control-access.html) for more details.
 
 ```
-x-wallet-address: 0x3ecdbf3b911d0e9052b64850693888b008e18373
+Minimum Permissions Required:
+---------------------------
+kms:CreateKey
+kms:GetPublicKey
+kms:Sign
+kms:CreateAlias
+kms:Verify
 ```
 
-For specific examples of implementation, follow along with our Get Started tutorial.
+3. Create an AWS KMS key, see [here](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) for more details. or, you can use the `/wallet/create` to create a key.
+
+NOTE:
+
+If you are creating the key yourself on AWS KMS Console, then please select the below config to create a key with sign permission.
+
+```
+Key Type: Asymmetric
+Key Spec: ECC_SECG_P256K1
+Key Usage: Sign and verify
+```
+
+Once you create the key above, you can use `/wallet/add` and send details on the end-point to create the wallet
+
+#### Configure Engine for AWS KMS
+
+Follow the below steps:
+
+1. Goto [Engine Dashboad](https://thirdweb.com/dashboard/engine)
+2. Add your Engine Instance
+3. Goto `Configurations` Tab
+4. Now select `AWS KMS` tab
+5. Enter the below details
+
+```
+- AWS Access Key ID
+- AWS Secret Access Key
+- AWS Region
+```
+
+Now you can Create or Import AWS KMS Wallets using the `/backend-wallet/create` or `/backend-wallet/import` endpoints.
+
+##### For Engine Version below `v0.0.3`, use the below:
+
+Set the below environment variables to use AWS KMS:
+
+```
+# Required for AWS Auth
+AWS_ACCESS_KEY_ID=<aws_access_key_id>
+AWS_SECRET_ACCESS_KEY=<aws_secret_access_key>
+AWS_REGION=<aws_region>
+```
+
+### Google Cloud KMS wallet
+
+Thirdweb Engine supports Google KMS for signing & sending transactions over any EVM chain. This is a section on how to set up Google KMS for Engine.
+
+#### Steps to set up Google KMS
+
+1. Enable Google KMS API for your Google project, see [here](https://cloud.google.com/kms/docs/create-encryption-keys#before-you-begin) for more details.
+2. Create a Service Account (here)[https://cloud.google.com/iam/docs/service-accounts-create]
+3. Go to IAM & Admin -> IAM. Select the service account created in step 2 and click `Edit Principal` to add the below roles.
+
+```
+Minimum Roles:
+
+Cloud KMS Admin
+Cloud KMS CryptoKey Signer/Verifier
+```
+
+4. Click on the created Service-Account and go to `Keys` tab.
+5. Click `Add Key` -> Create new Key -> select `JSON` & download the JSON file. This JSON file details will be used to authenticate google auth while using Google Cloud KMS.
+6. Create a keyring in Google KMS, see [here](https://cloud.google.com/kms/docs/create-key-ring) for more details.
+
+Optional: Create a key in the keyring, see [here](https://cloud.google.com/kms/docs/create-key) for more details. or, you can use the `/wallet/create` to create a key in the keyring.
+
+#### Set up with Google KMS
+
+Follow the below steps:
+
+1. Goto [Engine Dashboad](https://thirdweb.com/dashboard/engine)
+2. Add your Engine Instance
+3. Goto `Configurations` Tab
+4. Now select `GCP KMS` tab
+5. Enter the below details
+
+```
+- GCP Application Project ID
+- GCP KMS Location ID
+- GCP KMS Key Ring ID
+- GCP Application Credential Emails (from service-account.json file)
+- GCP Application Credential Pribate Key (from service-account.json file)
+```
+
+Now you can `Create` or Import GCP KMS Wallets using the `/backend-wallet/create` or `/backend-wallet/import` endpoints.
+
+##### For Engine Version below `v0.0.3`, use the below:
+
+Set the below environment variables to use GCP KMS:
+
+```
+# Required for Google Auth
+GOOGLE_APPLICATION_CREDENTIAL_EMAIL=<client_email_from_download_service_account_json>
+GOOGLE_APPLICATION_CREDENTIAL_PRIVATE_KEY=<private_key_from_download_service_account_json>
+
+# Required for Google Cloud KMS
+GOOGLE_APPLICATION_PROJECT_ID=<google_project_id>
+GOOGLE_KMS_KEY_RING_ID=<key_ring_id>
+GOOGLE_KMS_LOCATION_ID=<location_of_key_ring>
+```
