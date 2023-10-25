@@ -1,4 +1,184 @@
 {
+  "AccountPermissions": [
+    {
+      "name": "approveTargetForSigner",
+      "summary": "Approve an address as a call target for a given signer on the account\n\n",
+      "remarks": "\n\nApproves an address as a call target for a given signer on the account.\n\n",
+      "examples": {
+        "javascript": "const tx = await contract.account.approveTargetForSigner(signer, target);\nconst receipt = tx.receipt();"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.promise"
+      }
+    },
+    {
+      "name": "disapproveTargetForSigner",
+      "summary": "Disapprove an address as a call target for a given signer on the account\n\n",
+      "remarks": "\n\nDisapprove an address as a call target for a given signer on the account.\n\n",
+      "examples": {
+        "javascript": "const tx = await contract.account.disapproveTargetForSigner(signer, target);\nconst receipt = tx.receipt();"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.promise"
+      }
+    },
+    {
+      "name": "grantAdminPermissions",
+      "summary": "Grant an address admin access to the account.\n\n",
+      "remarks": "\n\nGrants an address admin access to the account. The admin will have complete authority over the account.\n\n",
+      "examples": {
+        "javascript": "const tx = await contract.account.grantAdminAccess(signer);\nconst receipt = tx.receipt();"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.promise"
+      }
+    },
+    {
+      "name": "grantPermissions",
+      "summary": "Grant a signer permissions to use the account.\n\n",
+      "remarks": "\n\nGrants a signer permissions to use the account.\n\n",
+      "examples": {
+        "javascript": "const tx = await contract.account.grantPermissions(signer, permissions);\nconst receipt = tx.receipt();"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.date"
+      }
+    },
+    {
+      "name": "resetAllPermissions",
+      "summary": "Set the account's entire snapshot of permissions.\n\n",
+      "remarks": "\n\nSets the account's entire snapshot of permissions.\n\n",
+      "examples": {
+        "javascript": "const tx = await contract.account.setAccess(permissionSnapshot);\nconst receipt = tx.receipt();"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.date"
+      }
+    },
+    {
+      "name": "revokeAccess",
+      "summary": "Revoke a scoped access address to the account\n\n",
+      "remarks": "\n\nRevokes an address' access to the account.\n\n",
+      "examples": {
+        "javascript": "const tx = await contract.account.revokeAccess(signer);\nconst receipt = tx.receipt();"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.promise"
+      }
+    },
+    {
+      "name": "revokeAdminPermissions",
+      "summary": "Revoke an address' admin access to the account.\n\n",
+      "remarks": "\n\nRevokes an address' admin access to the account.\n\n",
+      "examples": {
+        "javascript": "const tx = await contract.account.revokeAdminAccess(signer);\nconst receipt = tx.receipt();"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.promise"
+      }
+    },
+    {
+      "name": "updatePermissions",
+      "summary": "Update the permissions of a signer for using the account.\n\n",
+      "remarks": "\n\nUpdates the permissions of a signer for using the account.\n\n",
+      "examples": {
+        "javascript": "const tx = await contract.account.updateAccess(signer, restrictions);\nconst receipt = tx.receipt();"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.date"
+      }
+    },
+    {
+      "name": "getAllAdmins",
+      "summary": "Get all admins of the account.\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const allAdmins = await contract.account.getAllAdmins();"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.account.getalladmins"
+      }
+    },
+    {
+      "name": "getAllAdminsAndSigners",
+      "summary": "Get all admins and non-admin signers with permissions to use the account.\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const allAdminsAndSigners = await contract.account.getAllAdminsAndSigners();"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.account.getalladminsandsigners"
+      }
+    },
+    {
+      "name": "getAllSigners",
+      "summary": "Get all (non-admin) signers with permissions to use the account.\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const allSigners = await contract.account.getAllSigners();"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.account.getallsigners"
+      }
+    },
+    {
+      "name": "isAdmin",
+      "summary": "Get whether a signer is an admin on the account.\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const isAdmin = await contract.account.isAdmin(signer);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.account.isadmin"
+      }
+    },
+    {
+      "name": "isSigner",
+      "summary": "Get whether a signer has permissions to use the account.\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const isAdmin = await contract.account.isSigner(signer);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.account.issigner"
+      }
+    }
+  ],
+  "AccountFactory": [
+    {
+      "name": "getAllAccounts",
+      "summary": "Get all accounts\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const allAccounts = await contract.accountFactory.getAllAccounts();"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.accountfactory.getallaccounts"
+      }
+    },
+    {
+      "name": "getAssociatedAccounts",
+      "summary": "Get all accounts on which the given signer has authority\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const allAccounts = await contract.accountFactory.getAssociatedAccounts(admin);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.accountfactory.getassociatedaccounts"
+      }
+    },
+    {
+      "name": "predictAccountAddress",
+      "summary": "Get the deterministic address of the account that will be created\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const accountAddress = await contract.accountFactory.predictAccountAddress(admin);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.accountfactory.predictaccountaddress"
+      }
+    }
+  ],
   "AppURI": [
     {
       "name": "set",
@@ -942,7 +1122,7 @@
       "summary": "Mint Many unique NFTs\n\n",
       "remarks": "\n\nMint many unique NFTs at once to a specified wallet.\n\n",
       "examples": {
-        "javascript": "// Address of the wallet you want to mint the NFT to\nconst walletAddress = \"{{wallet_address}}\";\n\n// Custom metadata of the NFTs you want to mint.\nconst metadatas = [{\n  name: \"Cool NFT #1\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"), // This can be an image url or file\n}, {\n  name: \"Cool NFT #2\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/other/image.png\"),\n}];\n\nconst tx = await contract.mint.batch.to(walletAddress, metadatas);\nconst receipt = tx[0].receipt; // same transaction receipt for all minted NFTs\nconst firstTokenId = tx[0].id; // token id of the first minted NFT\nconst firstNFT = await tx[0].data(); // (optional) fetch details of the first minted NFT"
+        "typescript": "// Address of the wallet you want to mint the NFT to\nconst walletAddress = \"{{wallet_address}}\";\n\n// Custom metadata of the NFTs you want to mint.\nconst metadatas = [{\n  name: \"Cool NFT #1\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"), // This can be an image url or file\n}, {\n  name: \"Cool NFT #2\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/other/image.png\"),\n}];\n\nconst tx = await contract.mint.batch.to(walletAddress, metadatas);\nconst receipt = tx[0].receipt; // same transaction receipt for all minted NFTs\nconst firstTokenId = tx[0].id; // token id of the first minted NFT\nconst firstNFT = await tx[0].data(); // (optional) fetch details of the first minted NFT"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/typescript/sdk.objectinputtype"
@@ -1431,6 +1611,30 @@
       }
     }
   ],
+  "ERC721LoyaltyCard": [
+    {
+      "name": "cancel",
+      "summary": "Cancel loyalty card NFTs\n\n",
+      "remarks": "\n\nCancel loyalty card NFTs held by the connected wallet\n\n",
+      "examples": {
+        "javascript": "// The token ID of the loyalty card you want to cancel\nconst tokenId = 0;\n\nconst result = await contract.erc721.cancel(tokenId);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.bignumberish"
+      }
+    },
+    {
+      "name": "revoke",
+      "summary": "Revoke loyalty card NFTs\n\n",
+      "remarks": "\n\nRevoke loyalty card NFTs held by some owner.\n\n",
+      "examples": {
+        "javascript": "// The token ID of the loyalty card you want to revoke\nconst tokenId = 0;\n\nconst result = await contract.erc721.revoke(tokenId);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.bignumberish"
+      }
+    }
+  ],
   "ERC721ClaimCustom": [
     {
       "name": "claim",
@@ -1768,11 +1972,22 @@
   ],
   "ERC721BatchMintable": [
     {
+      "name": "mintBatch",
+      "summary": "Mint many NFTs\n\n",
+      "remarks": "\n\nMint many unique NFTs at once to the connected wallet\n\n",
+      "examples": {
+        "typescript": "// Custom metadata of the NFTs you want to mint.\nconst metadatas = [{\n  name: \"Cool NFT #1\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"), // This can be an image url or file\n}, {\n  name: \"Cool NFT #2\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/other/image.png\"),\n}];\n\nconst tx = await contract.erc721.mintBatch(metadatas);\nconst receipt = tx[0].receipt; // same transaction receipt for all minted NFTs\nconst firstTokenId = tx[0].id; // token id of the first minted NFT\nconst firstNFT = await tx[0].data(); // (optional) fetch details of the first minted NFT"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.objectinputtype"
+      }
+    },
+    {
       "name": "mintBatchTo",
       "summary": "Mint many NFTs to a specific wallet\n\n",
       "remarks": "\n\nMint many unique NFTs at once to a specified wallet.\n\n",
       "examples": {
-        "javascript": "// Address of the wallet you want to mint the NFT to\nconst walletAddress = \"{{wallet_address}}\";\n\n// Custom metadata of the NFTs you want to mint.\nconst metadatas = [{\n  name: \"Cool NFT #1\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"), // This can be an image url or file\n}, {\n  name: \"Cool NFT #2\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/other/image.png\"),\n}];\n\nconst tx = await contract.erc721.mintBatchTo(walletAddress, metadatas);\nconst receipt = tx[0].receipt; // same transaction receipt for all minted NFTs\nconst firstTokenId = tx[0].id; // token id of the first minted NFT\nconst firstNFT = await tx[0].data(); // (optional) fetch details of the first minted NFT"
+        "typescript": "// Address of the wallet you want to mint the NFT to\nconst walletAddress = \"{{wallet_address}}\";\n\n// Custom metadata of the NFTs you want to mint.\nconst metadatas = [{\n  name: \"Cool NFT #1\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"), // This can be an image url or file\n}, {\n  name: \"Cool NFT #2\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/other/image.png\"),\n}];\n\nconst tx = await contract.erc721.mintBatchTo(walletAddress, metadatas);\nconst receipt = tx[0].receipt; // same transaction receipt for all minted NFTs\nconst firstTokenId = tx[0].id; // token id of the first minted NFT\nconst firstNFT = await tx[0].data(); // (optional) fetch details of the first minted NFT"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/typescript/sdk.objectinputtype"
@@ -1855,7 +2070,7 @@
       "summary": "Set shared metadata for all NFTs\n\n",
       "remarks": "\n\nSet shared metadata for all NFTs in the collection. (Open Edition)\n\n",
       "examples": {
-        "javascript": "// define the metadata\nconst metadata = {\n name: \"Shared Metadata\",\n description: \"Every NFT in this collection will share this metadata.\"\n};\n\n\nconst tx = contract.erc721.sharedMetadata.set(metadata);"
+        "javascript": "// defiine the metadata\nconst metadata = {\n name: \"Shared Metadata\",\n description: \"Every NFT in this collection will share this metadata.\"\n};\n\n\nconst tx = contract.erc721.sharedMetadata.set(metadata);"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/typescript/sdk.erc721sharedmetadata"
@@ -1868,7 +2083,7 @@
       "summary": "Mint with signature\n\n",
       "remarks": "\n\nGenerate dynamic NFTs with your own signature, and let others mint them using that signature.\n\n",
       "examples": {
-        "javascript": "// see how to craft a payload to sign in the `contract.erc721.signature.generate()` documentation\nconst signedPayload = contract.erc721.signature().generate(payload);\n\n// now anyone can mint the NFT\nconst tx = contract.erc721.signature.mint(signedPayload);\nconst receipt = tx.receipt; // the mint transaction receipt\nconst mintedId = tx.id; // the id of the NFT minted"
+        "javascript": "// see how to craft a payload to sign in the `contract.erc721.signature.generate()` documentation\nconst signedPayload = await contract.erc721.signature.generate(payload);\n\n// now anyone can mint the NFT\nconst tx = await contract.erc721.signature.mint(signedPayload);\nconst receipt = tx.receipt; // the mint transaction receipt\nconst mintedId = tx.id; // the id of the NFT minted"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/typescript/sdk.erc721withquantitysignaturemintable"
@@ -1881,10 +2096,23 @@
       "summary": "Mint with signature\n\n",
       "remarks": "\n\nGenerate dynamic NFTs with your own signature, and let others mint them using that signature.\n\n",
       "examples": {
-        "javascript": "// see how to craft a payload to sign in the `contract.erc721.signature.generate()` documentation\nconst signedPayload = contract.erc721.signature().generate(payload);\n\n// now anyone can mint the NFT\nconst tx = contract.erc721.signature.mint(signedPayload);\nconst receipt = tx.receipt; // the mint transaction receipt\nconst mintedId = tx.id; // the id of the NFT minted"
+        "javascript": "// see how to craft a payload to sign in the `contract.erc721.signature.generate()` documentation\nconst signedPayload = await contract.erc721.signature.generate(payload);\n\n// now anyone can mint the NFT\nconst tx = await contract.erc721.signature.mint(signedPayload);\nconst receipt = tx.receipt; // the mint transaction receipt\nconst mintedId = tx.id; // the id of the NFT minted"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/typescript/sdk.erc721withquantitysignaturemintable"
+      }
+    }
+  ],
+  "ERC721UpdatableMetadata": [
+    {
+      "name": "update",
+      "summary": "Update the metadata of an NFT\n\n",
+      "remarks": "\n\nUpdate the metadata of an NFT\n\n",
+      "examples": {
+        "javascript": "// The token ID of the NFT whose metadata you want to update\nconst tokenId = 0;\n// The new metadata\nconst metadata = { name: \"My NFT\", description: \"My NFT description\"\"}\n\nawait contract.erc721.update(tokenId, metadata);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.bignumberish"
       }
     }
   ],
@@ -2392,164 +2620,6 @@
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3offers.gettotalcount"
-      }
-    }
-  ],
-  "SmartWallet": [
-    {
-      "name": "approveTargetForSigner",
-      "summary": "Approve an address as a call target for a given signer on the smart wallet.\n\n",
-      "remarks": "\n\nApproves an address as a call target for a given signer on the smart wallet.\n\n",
-      "examples": {
-        "javascript": "const tx = await contract.smartWallet.approveTargetForSigner(signer, target);\nconst receipt = tx.receipt();"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.promise"
-      }
-    },
-    {
-      "name": "disapproveTargetForSigner",
-      "summary": "Disapprove an address as a call target for a given signer on the smart wallet.\n\n",
-      "remarks": "\n\nDisapprove an address as a call target for a given signer on the smart wallet.\n\n",
-      "examples": {
-        "javascript": "const tx = await contract.smartWallet.disapproveTargetForSigner(signer, target);\nconst receipt = tx.receipt();"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.promise"
-      }
-    },
-    {
-      "name": "grantAccess",
-      "summary": "Grant an address access to the smart wallet with certain restrictions.\n\n",
-      "remarks": "\n\nGrants an address access to the smart wallet with certain restrictions.\n\n",
-      "examples": {
-        "javascript": "const tx = await contract.smartWallet.grantAccess(signer, restrictions);\nconst receipt = tx.receipt();"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.date"
-      }
-    },
-    {
-      "name": "grantAdminAccess",
-      "summary": "Grant an address admin access to the smart wallet.\n\n",
-      "remarks": "\n\nGrants an address admin access to the smart wallet. The admin will have complete authority over the smart wallet.\n\n",
-      "examples": {
-        "javascript": "const tx = await contract.smartWallet.grantAdminAccess(signer);\nconst receipt = tx.receipt();"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.promise"
-      }
-    },
-    {
-      "name": "revokeAccess",
-      "summary": "Revoke an address' access to the smart wallet.\n\n",
-      "remarks": "\n\nRevokes an address' access to the smart wallet.\n\n",
-      "examples": {
-        "javascript": "const tx = await contract.smartWallet.revokeAccess(signer);\nconst receipt = tx.receipt();"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.promise"
-      }
-    },
-    {
-      "name": "revokeAdminAccess",
-      "summary": "Revoke an address' admin access to the smart wallet.\n\n",
-      "remarks": "\n\nRevokes an address' admin access to the smart wallet.\n\n",
-      "examples": {
-        "javascript": "const tx = await contract.smartWallet.revokeAdminAccess(signer);\nconst receipt = tx.receipt();"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.promise"
-      }
-    },
-    {
-      "name": "updateAccess",
-      "summary": "Update an address' access to the smart wallet.\n\n",
-      "remarks": "\n\nUpdates an address' access to the smart wallet.\n\n",
-      "examples": {
-        "javascript": "const tx = await contract.smartWallet.updateAccess(signer, restrictions);\nconst receipt = tx.receipt();"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.date"
-      }
-    },
-    {
-      "name": "getAccessRestrictions",
-      "summary": "Get the restrictions under which a given signer can use the smart wallet.\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const restrictionsForSigner = await contract.smartWallet.getAccessRestrictions(signer);"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.smartwallet.getaccessrestrictions"
-      }
-    },
-    {
-      "name": "getFactoryAddress",
-      "summary": "Get the address of the EIP-4337 factory contract which deployed the smart wallet\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const factoryAddress = await contract.smartWallet.getFactoryAddress();"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.smartwallet.getfactoryaddress"
-      }
-    },
-    {
-      "name": "getSignersWithRestrictions",
-      "summary": "Get all signers (admin or non-admin) of the smart wallet, along with their access restrictions.\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const allSigners = await contract.smartWallet.getSignersWithRestrictions();"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.smartwallet.getsignerswithrestrictions"
-      }
-    }
-  ],
-  "SmartWalletFactory": [
-    {
-      "name": "getAllWallets",
-      "summary": "Get all wallets\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const allWallets = await contract.smartWalletFactory.getAllWallets();"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.smartwalletfactory.getallwallets"
-      }
-    },
-    {
-      "name": "getAssociatedSigners",
-      "summary": "Get all signers who have authority on the given smart wallet\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const allSigners = await contract.smartWalletFactory.getAssociatedSigners(admin);"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.smartwalletfactory.getassociatedsigners"
-      }
-    },
-    {
-      "name": "getAssociatedWallets",
-      "summary": "Get all wallets on which the given signer has authority\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const allWallets = await contract.smartWalletFactory.getAssociatedWallets(admin);"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.smartwalletfactory.getassociatedwallets"
-      }
-    },
-    {
-      "name": "predictWalletAddress",
-      "summary": "Get the deterministic address of the smart wallet that will be created\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const walletAddress = await contract.smartWalletFactory.predictWalletAddress(admin);"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/typescript/sdk.smartwalletfactory.predictwalletaddress"
       }
     }
   ]
