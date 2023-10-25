@@ -3,32 +3,60 @@ slug: /engine
 title: Overview
 ---
 
-# Overview
-
-Engine is a backend server with a simple API interface that lets developers create backend wallets and interact with blockchains using familiar HTTP calls to any EVM chain.
+Engine is a self-hosted server that connects your application to any EVM blockchain through backend wallets. Your backend calls authenticated APIs to execute contract methods, manage smart wallets, handle wallet funds, and more. Wallet security, authentication, automatic retries, and nonce management are built-in.
 
 ![Engine overview](./assets/engine-docs-diagram-updated.svg)
 
-### Features
+## Features
 
-- **Backend wallets** - Create backend wallets and store their keys securely via a cloud secrets manager like KMS. Then, sign transactions and move funds all using backend calls.
-- **Contracts** - Deploy, read and write any smart contract.
-- **Smart wallets** - Create smart wallets for users and create session keys for backend wallets to manage assets inside these accounts
-- **Sponsor gas** - Use Engine to sponsor gas for any transactions.
-- **Analytics (coming soon)** - Monitor your blockchain transactions and funds flow.
+**Backend wallets**
 
-### Benefits
+Create and manage backend wallets securely. Use [local wallets](/wallet/local-wallet) to get started quickly, or generate wallets securely backed by AWS KMS or Google KMS without ever exposing the private key.
 
-- **Scalability** - To achieve high reliability during bursty traffic, blockchain calls are parallelized with smart retries. Engine protects your transactions against stuck nonces, gas spikes, and network instability.
-- **Ease of use** - Engine abstracts blockchain complexities around nonce, gas, signers, private key security and others. It enables any developer to quickly build sophisticated web3 applications with a low barrier of entry.
-- **Security -** Engine allows developers to back up private keys to the cloud, revoke access to backend wallets, and monitor flow of funds (coming soon).
+> Backend wallets are owned by your application and never accessed by thirdweb.
 
-### Use Cases
+**Authentication**
+
+Generate access tokens with scoped permissions and expirations. Grant or revoke programmatic access to your team as needed without worrying about private keys being compromised.
+
+**Contracts**
+
+Deploy, read, and write any smart contract. Engine offers low-level contract calls as well as intuitive APIs for common actions like transferring ERC-20 tokens.
+
+**Smart wallets**
+
+Create and manage smart wallets for your users. Create session keys for scoped permissions.
+
+**Gasless transactions**
+
+Attract a broader audience by sponsoring gas for your users. Enable users to buy, transfer, and sell NFTs with no additional friction.
+
+**Webhooks**
+
+Get notified when transactions complete to build powerful automation from blockchain activity. Send emails, print shipping labels, or charge customers based on your unique needs.
+
+**Advanced analytics**
+
+View transaction history trends, event logs for each transaction, a ledger of backend wallet funds, and more.
+
+> Advanced analytics are coming in Q4 2023.
+
+## Benefits
+
+**Scalability**
+
+To achieve high reliability during bursty traffic, blockchain calls are parallelized with smart retries. Engine protects your transactions against stuck nonces, gas spikes, and network instability.
+
+**Ease of use**
+
+Engine manages complexities around wallet nonces, gas estimation, securing private keys, and more. This means developers can focus on their application's features and not web3 infrastructure.
+
+**Security**
+
+Engine allows generating and managing KMS wallets where the private key is never accessed. Combined with scoped authentication tokens and fund monitoring, businesses visibility and control of their wallet assets.
+
+## Use Cases
 
 - **Minting API** - Use Engine to set up your own minting API, which allows you to provide free NFTs to users or sell NFTs using credit cards or cryptocurrency.
 - **User Accounts** - Use Engine to deploy embedded (email) wallets for users using pre-built smart wallet contracts. Additionally, utilize backend wallets to create a gas-less and managed experience.
-- **Chain API** - Use Engine to provide developers with an easy to use API interface to develop on your chain
 
-## Beta Feedback
-
-If you experience any bugs or have any feedback, please [report it to our support team](https://discord.gg/thirdweb) via Discord.
