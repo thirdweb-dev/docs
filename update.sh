@@ -4,9 +4,9 @@ typedoc() {
   mv ./typedoc/modules.html ./typedoc/index.html
   cd ./typedoc
   # add 'package/' to all href and src to make them relative. Avoid href="http://..." and src="http://..."
-  find . -type f -name "index.html" -exec sed -i '' -e "s/href=\"\([a-gi-zA-GI-Z][a-zA-Z]\)/href=\"$1\/\1/g" -e "s/src=\"\([a-gi-zA-GI-Z][a-zA-Z]\)/src=\"$1\/\1/g" {} \;
+  find . -type f -name "index.html" -exec sed -i '' -e "s/href=\"\([a-gi-zA-GI-Z][a-zA-Z]\)/href=\"$1\/\1/g" -e "s/src=\"\([a-gi-zA-GI-Z][a-zA-Z]\)/src=\"$1\/\1/g" -e "s/data-base=\"\.\{1,2\}\"/data-base=\"$1\"/g" {} \;
   # replace href="modules.html" with href="index.html"
-  find . -type f -name "*.html" -exec sed -i '' -e "s/href=\"$1\/modules.html\"/href=\"$1\/index.html\"/g" -e "s/data-base=\"\.\{1,2\}\"/data-base=\"$1\"/g" {} \;
+  find . -type f -name "*.html" -exec sed -i '' -e "s/href=\"$1\/modules.html\"/href=\"$1\/index.html\"/g" {} \;
   cd ..
   rm -rf "../../../../static/reference/$1/"
   mkdir "../../../../static/reference/$1/"
@@ -27,14 +27,14 @@ cd ./packages/sdk
 if [ ! -d "./etc" ]; then
   mkdir ./etc
 fi
-pnpm generate-docs
+# pnpm generate-docs
 typedoc sdk
 # React
 cd ../react
 if [ ! -d "./etc" ]; then
   mkdir ./etc
 fi
-pnpm generate-docs
+# pnpm generate-docs
 typedoc react
 # React-Native
 cd ../react-native
@@ -47,13 +47,13 @@ cd ../react-core
 if [ ! -d "./etc" ]; then
   mkdir ./etc
 fi
-pnpm generate-docs
+# pnpm generate-docs
 # Storage
 cd ../storage
 if [ ! -d "./etc" ]; then
   mkdir ./etc
 fi
-pnpm generate-docs
+# pnpm generate-docs
 typedoc storage
 # Wallets
 cd ../wallets
