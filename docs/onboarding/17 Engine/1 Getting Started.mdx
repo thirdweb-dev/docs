@@ -1,6 +1,6 @@
 ---
-slug: /engine/get-started
-title: Get Started
+slug: /engine/getting-started
+title: Getting Started
 ---
 
 Engine is self-hosted with minimal configuration.
@@ -19,13 +19,13 @@ A Postgres DB instance is required to run Engine. [AWS RDS](https://aws.amazon.c
 Or run Postgres locally to get started quickly:
 
 ```bash
-docker run \
-  -e POSTGRES_PASSWORD="<db_password>" \
-  -p 5432:5432 \
-  postgres
+docker run -p 5432:5432 -d postgres
 ```
 
-Your machine will run a local Postgres database at the URL `postgresql://postgres:<db_password>@localhost:5432/postgres?sslmode=disable`.
+This step provides a local Postgres DB URL for the next step:
+```
+POSTGRES_CONNECTION_URL=postgresql://postgres:postgres@host.docker.internal:5432/postgres?sslmode=disable
+```
 
 ### Start the Engine server
 
@@ -36,7 +36,10 @@ docker run \
   -e THIRDWEB_API_SECRET_KEY="<thirdweb_secret_key>" \
   -e ADMIN_WALLET_ADDRESS="<admin_wallet_address>" \
   -e POSTGRES_CONNECTION_URL="<postgres_connection_url>" \
+  -e ENABLE_HTTPS=true \
   -p 3005:3005 \
+  --pull=always \
+  --cpus="0.5" \
   thirdweb/engine:latest
 ```
 
@@ -47,20 +50,42 @@ Provide the following environment variables:
 | `THIRDWEB_SECRET_KEY` | A thirdweb secret key created on the [API Keys page](https://thirdweb.com/dashboard/settings/api-keys).
 | `ADMIN_WALLET_ADDRESS` | The wallet address that will configure Engine from the thirdweb dashboard. |
 | `POSTGRES_CONNECTION_URL` | Postgres connection string: `postgresql://[user[:password]@][host][:port][/dbname][?param1=value1&...]` |
+| `ENABLE_HTTPS` | Self-sign a certificate to serve API requests on HTTPS. Set to `true` if running Engine locally to manage it from the [thirdweb dashboard](https://thirdweb.com/dashboard/engine). (Default: `false`) |
 
-:::info
+Your server is running when this log line appears:
 
-Make sure your Engine instance port (default: `3005`) is publicly accessible. A valid auth token is required to configure or manage Engine.
+```bash
+Server listening on: 0.0.0.0:3005
+```
+
+:::tip
+
+Here's a few pointers:
+- `ENABLE_HTTPS=true` is only required when running Engine locally. Remove this line for production use.
+- Make sure your Engine instance port (default: `3005`) is publicly accessible. All configuration and API requests require authentication.
 
 :::
 
-### Configuration
+### Dashboard management
+
+Manage your Engine instance from the thirdweb dashboard:
+
+1. Navigate to [https://localhost:3005/json](https://localhost:3005/json).
+    - The "Your connection is not private" page will appear.
+    - Select **Show advanced** and select **Proceed to localhost (unsafe)**. 
+    - A JSON file will be rendered. This one-time step is required to allow your browser to connect to your local Engine instance.
 
 1. Navigate to the [Engine dashboard page](https://thirdweb.com/dashboard/engine).
 1. Sign in with the `<admin_wallet_address>` wallet.
+1. Select **Set Engine instance URL to get started.**.
 1. Add your publicly accessible Engine URL.
+    - If Engine is running locally, provide the URL `https://localhost:3005`.
 
-Engine is now configured and ready to use.
+The dashboard is organized in tabs:
+- **Overview**: Manage backend wallets and transactions.
+- **Explorer**: Interactively call API methods.
+- **Configuration**: Manage backend wallet and webhook settings.
+- **Permissions**: Manage admins and access tokens.
 
 ## Using Engine
 
