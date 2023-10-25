@@ -332,7 +332,7 @@
     "html_url": "https://github.com/thirdweb-example/dao",
     "description": "Build a DAO using thirdweb's vote, token, and edition drop contracts.",
     "created_at": "2022-05-17T11:42:42Z",
-    "updated_at": "2023-10-02T14:07:35Z",
+    "updated_at": "2023-10-25T06:07:56Z",
     "clone_url": "https://github.com/thirdweb-example/dao.git",
     "topics": [
       "edition-drop",
@@ -340,7 +340,7 @@
       "vote"
     ],
     "language": "JavaScript",
-    "stargazers_count": 24,
+    "stargazers_count": 25,
     "is_template": false,
     "homepage": "https://dao.thirdweb-example.com"
   },
@@ -427,11 +427,11 @@
     "html_url": "https://github.com/thirdweb-example/dynamic-pricing",
     "description": "Set a dynamic pricing for your Signature Drop collection NFTs",
     "created_at": "2022-11-01T16:14:54Z",
-    "updated_at": "2023-10-04T09:50:32Z",
+    "updated_at": "2023-10-25T06:09:01Z",
     "clone_url": "https://github.com/thirdweb-example/dynamic-pricing.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 2,
+    "stargazers_count": 3,
     "is_template": false,
     "homepage": null
   },
