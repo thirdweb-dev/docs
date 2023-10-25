@@ -1,0 +1,46 @@
+---
+slug: /connect/architecture
+title: Architecture
+---
+
+The Connect Wallet component and the Wallet SDK allow you to create and connect wallets to your app.
+It allows you to easily integrate existing wallet providers with thirdweb's
+[Typescript](/wallet/usage-with-typescript-sdk),
+[React](/wallet/usage-with-react-sdk),
+[React Native](/wallet/usage-with-react-native-sdk), and
+[Unity](/wallet/usage-with-unity-sdk) SDKs or [create your own custom wallet connectors](/connect/build-a-wallet).
+
+If you are working in [React](/react), [React Native](/react-native), or [Unity](/unity), you can use the `ConnectWallet` component to
+connect & create wallets. The [`ConnectWallet`](/connect/connect-wallet) component is a pre-built component that uses the Wallet SDK
+under the hood. If you'd like to connect wallets in a back-end environment, or if you'd like full control of how
+wallets are created or handled, you can use the Wallet SDK directly.
+
+## Connect Wallet Component
+
+If you are in a [React](/wallet/usage-with-react-sdk), [React Native](/wallet/usage-with-react-native-sdk), or [Unity](/wallet/usage-with-unity) environment, you can use the `ConnectWallet` component to connect & create wallets.
+This component is a pre-built component that uses the Wallet SDK under the hood and works out of the box!
+
+`ConnectWallet` has a customizable UI and allows you to connect to any of the supported wallets in the Wallet SDK. Read the [`ConnectWallet`](/react/react.connectwallet) documentation to learn more.
+
+## SDK Hooks and Functions
+
+The React, React Native, Unity, TypeScript and Wallet SDKs all include functionality that enables you to perform actions such as connecting, disconnecting and funding wallets.
+This gives you finer-grained control over how wallets are handled in your app.
+
+You would use these hooks and functions in the following scenarios:
+
+1. You want to create your own Connect Wallet user interface.
+2. You want to use a wallet instance directly in your app. Examples include disconnecting a wallet or getting the signer from a wallet.
+
+## Using the Wallet SDK Directly
+
+You can use the Wallet SDK directly in any environment that supports TypeScript. The Connect Wallet component is built using the Wallet SDK.
+The Wallet SDK enables you to connect and create wallets which you can then use in your app to sign transactions as you usually would.
+There are two main instances in which you would use the Wallet SDK directly:
+
+1. Connecting wallets in a back-end environment such as Node.js script to sign transactions without passing a private key.
+   Instead, a browser popup would be initiated to sign the transaction.
+
+2. In projects where you need low-level control of the wallet
+
+- Example: Needing to pass custom configuration options such as specifying a custom `execute` method for `smartWallet` e.g. [in this template](https://github.com/thirdweb-example/unilogin/tree/main).

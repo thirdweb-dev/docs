@@ -1,0 +1,43 @@
+---
+slug: /sdk/how-it-works
+title: Architecture
+---
+
+# Architecture
+
+The Contract SDK streamlines decentralized application development by managing everything from
+blockchain connections to user interfaces.
+The design is modular and highly composable,
+offering a mix of default settings and customization options to suit your project's unique requirements best.
+
+## Extension-Driven Framework
+
+The Contract SDK has an **extension-driven**, contract-centric architecture.
+This allows the SDK to automatically identify and enable functionalities based on
+common contract standards such as ERC20, ERC721, and ERC1155.
+This is achieved by resolving the smart contract's ABI and extracting the implemented standards; known as extensions.
+
+**Each detected extension unlocks functionality in the SDK for you to use**;
+enabling sets of methods and components to be used in the language of your choice to interact directly with the smart contract.
+
+## No ABI Required
+
+Our ecosystem of tools such as our [dashboard](/dashboard) and [import](/dashboard/import) feature make using smart contracts simpler and more efficient.
+Connecting to a smart contract just requires the contract address, (no ABI), and is resolved from our on-chain registry of smart contracts automatically.
+Each contract’s information is automatically cached by the SDK,
+so your operations to read and write data to the smart contract are fast and efficient.
+
+## Infrastructure
+
+The SDK comes **pre-configured with essential infrastructure** to create decentralized applications.
+These include blockchain RPC connections, IPFS pinning services, wallet onboarding flows,
+gasless relayers, FIAT on-ramps, and more.
+These defaults are designed to streamline the developer experience to build performant and scalable applications,
+they can also be customized to fit the requirements of a project.
+
+## Flexibility and No Vendor Lock-In
+
+All components of the SDK are **modular and customizable**,
+offering the flexibility to adapt the tooling to specific needs or to integrate
+with alternative services for unique use cases. This enables custom RPC providers,
+wallet connection flows, decentralized storage solutions, or gasless relayers as needed.

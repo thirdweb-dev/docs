@@ -1,0 +1,63 @@
+---
+title: Overview
+slug: /cli
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+import QuickstartCard from "@components/QuickstartCard";
+import OpenSourceInfo from "@components/OpenSourceInfo";
+
+# CLI
+
+The CLI provides tools to create, build, and deploy projects using thirdweb tools and infrastructure. Using the CLI, you can
+create new projects with the SDK configured, build, publish and deploy smart contracts, generate types while developing, upload files to IPFS, and more.
+
+<OpenSourceInfo
+  repoName="CLI"
+  repoUrl="https://github.com/thirdweb-dev/js/tree/main/packages/cli"
+  isLibrary={false}
+/>
+
+## Installation
+
+:::caution
+If you are on windows, please avoid using powershell it has some known issues that we are actively working on, please use git bash instead or the windows command prompt.
+:::
+
+Install the CLI package globally to use the commands anywhere on your system.
+
+_Note: If you do not wish to install it globally, you can prefix each command with `npx`. i.e. `npx thirdweb <command>`_.
+
+<Tabs>
+  <TabItem value="npm" label="npm" default>
+    <CodeBlock language="bash">{`npm i -g thirdweb`}</CodeBlock>
+  </TabItem>
+  <TabItem value="yarn" label="yarn">
+    <CodeBlock language="bash">{`yarn global add thirdweb`}</CodeBlock>
+  </TabItem>
+  <TabItem value="pnpm" label="pnpm">
+    <CodeBlock language="bash">{`pnpm install -g thirdweb`}</CodeBlock>
+  </TabItem>
+</Tabs>
+
+Once installed, you can view the full list of available commands by running:
+
+```bash
+thirdweb
+```
+
+## Available Commands
+
+| Name of command             | Description                                                                                    |
+| --------------------------- | ---------------------------------------------------------------------------------------------- |
+| [`create`](/cli/create)     | Create a web3 app from any of our official templates.                                          |
+| [`install`](/cli/install)   | Add thirdweb&rsquo;s packages to your existing project.                                        |
+| [`build`](/cli/build)       | Compile contract and detect thirdweb contract extensions.                                      |
+| [`generate`](/cli/generate) | Fetch contract ABIs to generate types and improve performance in the SDK.                      |
+| [`upload`](/cli/upload)     | Upload any file or directory to decentralized storage (IPFS).                                  |
+| [`deploy`](/deploy)         | Deploy your (or your team&rsquo;s) contracts securely to blockchains.                          |
+| [`publish`](/publish)       | Publish your protocol so other devs can deploy them and unlock SDKs, dashboards and analytics. |
+| [`login`](/cli/login)       | Authenticate with the thirdweb CLI using your API secret key or replace an existing API key.   |
+| [`logout`](/cli/logout)     | Logout of the thirdweb CLI, effectively removing your API secret key from your machine.        |

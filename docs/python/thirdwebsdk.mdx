@@ -1,0 +1,441 @@
+---
+title: ThirdwebSDK
+slug: /python.thirdwebsdk
+displayed_sidebar: python
+---
+
+The `ThirdwebSDK` is the entry point to all functionality of the Python SDK.
+
+You initialize the SDK on your desired chain and use the instance to access the different methods and properties of the SDK.
+
+## Usage
+
+The SDK can be initialized in either read-only mode or read-write mode.
+
+- **Read-only mode**: Define the chain you want to use.
+- **Read-write mode**: Define the chain you want to use, _and_ provide a
+  [private key](/typescript/sdk.thirdwebsdk.fromprivatekey).
+
+If you are using one of our <code>default chains</code>, provide the name of the chain as a `string`.
+
+For non-default chains, see [configuring chains](#provider) or [custom chains](#custom-evm-chains).
+
+<details>
+  <summary>View default chains</summary>
+  <div>
+    <ul>
+      <li>
+        <b>Ethereum</b>: <code>"ethereum"</code>
+      </li>
+      <li>
+        <b>Goerli</b>: <code>"goerli"</code>
+      </li>
+      <li>
+        <b>Rinkeby</b>: <code>"rinkeby"</code>
+      </li>
+      <li>
+        <b>Polygon</b>: <code>"polygon"</code>
+      </li>
+      <li>
+        <b>Mumbai</b>: <code>"mumbai"</code>
+      </li>
+      <li>
+        <b>Arbitrum One</b>: <code>"arbitrum"</code>
+      </li>
+      <li>
+        <b>Fantom Opera</b>: <code>"fantom"</code>
+      </li>
+      <li>
+        <b>Localhost</b>: <code>"localhost"</code>
+      </li>
+    </ul>
+  </div>
+</details>
+
+Using this method, you can **only read data** from the blockchain.
+
+Initialize the thirdweb SDK.
+
+```python
+from thirdweb import ThirdwebSDK
+
+# You can create a new instance of the SDK to use by just passing in a network name
+sdk = ThirdwebSDK("mumbai", options=SDKOptions(secret_key=SECRET_KEY))
+```
+
+<details>
+<summary>Configuration</summary>
+<div>
+
+#### provider
+
+The web3 provider instance to use for getting on-chain data. Must be of type `str`.
+
+#### signer (optional)
+
+A `LocalAccount` object representing the signer to use for sending transactions
+
+#### options (optional)
+
+optional SDK configuration options. Must be an object of type `SDKOption`
+
+```python
+class SDKOptions(object):
+    """
+    Optional settings to configure the SDK
+    :param secret_key: secret key from your thirdweb api key
+    :param read_only_settings: optional read-only RPC settings
+    :param gas_settings: gas settings
+    """
+
+    secret_key: Optional[str] = None
+    read_only_settings: Optional[ReadOnlySettings] = None
+    gas_settings: GasSettings = GasSettings()
+
+class ReadOnlySettings(object):
+    """
+    The read-only RPC settings for the SDK.
+    :param rpc_url: URL of the RPC
+    :param chain_id: optional chain ID to use for the RPC
+    """
+
+    rpc_url: str = ""
+    chain_id: Optional[ChainId] = None
+
+class GasSettings(object):
+    """
+    The gas settings for the SDK.
+    :param max_price_in_gwei: maximum gas price in gwei, defaults to 300
+    :param speed: gas speed to use, defaults to "fastest"
+    """
+
+    max_price_in_gwei: int = 300
+    speed: GasSpeed = GasSpeed.FASTEST
+
+class GasSpeed(Enum):
+    STANDARD = "standard"
+    FAST = "fast"
+    FASTEST = "fastest"
+```
+
+#### storage (optional)
+
+The IPFS storage instance, a `LocalAccount` object, to use for storing data
+
+</div>
+</details>
+
+## Custom EVM Chains
+
+Alternatively, if you want to use your own custom RPC URL to connect to **any EVM chain**, you can pass in the RPC URL directly as follows:
+This will initialize the SDK as **read-only**.
+
+```python
+from thirdweb import ThirdwebSDK
+
+# Set your RPC_URL
+RPC_URL = "https://rpc-mainnet.matic.network"
+
+# And now you can instantiate the SDK with it
+sdk = ThirdwebSDK(RPC_URL)
+```
+
+### gas_settings
+
+The gas settings to use when sending transactions.
+
+- `max_price_in_gwei`: Maximum gas fee to pay for a transaction. Defaults to `300`.
+- `speed`: The [priority](https://www.youtube.com/watch?v=gsfJywNxpi4) level to set for a transaction.
+  Either "STANDARD", "FAST", or "FASTEST". Defaults to `FASTEST`.
+
+```python
+from thirdweb import ThirdwebSDK
+from thirdweb.types.sdk import SDKOptions, GasSettings, GasSpeed
+
+options = SDKOptions(gas_settings = GasSettings(speed = GasSpeed.STANDARD))
+
+sdk = ThirdwebSDK(options)
+```
+
+## get_contract
+
+Returns a custom contract SDK instance
+
+```python
+address = "0x..."
+contract = sdk.get_contract(address)
+```
+
+<details>
+<summary>Configuration</summary>
+<div>
+
+#### address
+
+The address of the custom contract. Must be of type `str`
+
+### Return Value
+
+A `CustomContract` object representing the custom contract SDK instance
+
+```python
+class CustomContract(BaseContract[Any]):
+    def __init__(
+        self,
+        provider: Web3,
+        address: str,
+        abi: str,
+        storage: IpfsStorage,
+        signer: Optional[LocalAccount] = None,
+        options: SDKOptions = SDKOptions(),
+    ):
+```
+
+</div>
+</details>
+
+## get_contract_from_abi
+
+Returns a custom contract SDK instance given the contract ABI
+
+```python
+address = "0x..."
+abi = "my_abi_here"
+contract = sdk.get_contract_from_abi(address, abi)
+```
+
+<details>
+<summary>Configuration</summary>
+<div>
+
+#### address
+
+The address of the custom contract. Must be of type `str`.
+
+#### abi
+
+The abi of the custom contract. Must be of type `str`.
+
+### Return Value
+
+A `CustomContract` object representing the custom contract SDK instance
+
+```python
+class CustomContract(BaseContract[Any]):
+    def __init__(
+        self,
+        provider: Web3,
+        address: str,
+        abi: str,
+        storage: IpfsStorage,
+        signer: Optional[LocalAccount] = None,
+        options: SDKOptions = SDKOptions(),
+    ):
+```
+
+</div>
+</details>
+
+## update_provider
+
+Update the provider instance used by the SDK.
+
+```python
+provider = "goerli"
+sdk.update_provider(provider)
+```
+
+<details>
+<summary>Configuration</summary>
+<div>
+
+#### provider
+
+The web3 provider instance to use for getting on-chain data. Must be of type `str` and be one of the default chains.
+
+</div>
+</details>
+
+## update_signer
+
+Update the signer instance used by the SDK.
+
+```python
+sdk.update_signer(signer)
+```
+
+<details>
+<summary>Configuration</summary>
+<div>
+
+#### signer
+
+The new signer to use for sending transactions. Must be of type `LocalAccount`.
+
+</div>
+</details>
+
+## Prebuilt Contracts
+
+Deploy any of our prebuilt contracts using the Python SDK:
+
+<details>
+  <summary>NFT Collection</summary>
+  <div>
+
+## get_nft_collection
+
+Returns an NFT Collection contract SDK instance
+
+```python
+nft_collection_contract = sdk.get_nft_collection(address)
+```
+
+#### address
+
+The address of the NFT Collection contract
+
+### Return Value
+
+The NFT Collection contract SDK instance.
+
+</div>
+</details>
+
+<details>
+  <summary>Edition</summary>
+  <div>
+
+## get_edition
+
+Returns an Edition contract SDK instance
+
+```python
+edition_contract = sdk.get_edition(address)
+```
+
+#### address
+
+The address of the Edition contract
+
+### Return Value
+
+The Edition contract SDK instance.
+
+</div>
+</details>
+
+<details>
+  <summary>Token</summary>
+  <div>
+
+## get_token
+
+Returns a Token contract SDK instance
+
+```python
+token_contract = sdk.get_token(address)
+```
+
+#### address
+
+The address of the Token contract
+
+### Return Value
+
+The Token contract SDK instance.
+
+</div>
+</details>
+
+<details>
+  <summary>Marketplace</summary>
+  <div>
+
+## get_marketplace
+
+Returns a Marketplace contract SDK instance
+
+```python
+marketplace_contract = sdk.get_marketplace(address)
+```
+
+#### address
+
+The address of the Marketplace contract
+
+### Return Value
+
+The Marketplace contract SDK instance.
+
+</div>
+</details>
+
+<details>
+  <summary>NFT Drop</summary>
+  <div>
+
+## get_nft_drop
+
+Returns an NFT Drop contract SDK instance
+
+```python
+nft_drop_contract = sdk.get_nft_drop(address)
+```
+
+#### address
+
+The address of the NFT Drop contract
+
+### Return Value
+
+The NFT Drop contract SDK instance.
+
+</div>
+</details>
+
+<details>
+  <summary>Edition Drop</summary>
+  <div>
+
+## get_edition_drop
+
+Returns an Edition Drop contract SDK instance
+
+```python
+edition_drop_contract = sdk.get_edition_drop(address)
+```
+
+#### address
+
+The address of the Edition Drop contract
+
+### Return Value
+
+The Edition Drop contract SDK instance.
+
+</div>
+</details>
+
+<details>
+  <summary>Multiwrap</summary>
+  <div>
+
+## get_edition
+
+Returns an Multiwrap contract SDK instance
+
+```python
+multiwrap_contract = sdk.get_multiwrap(address)
+```
+
+#### address
+
+The address of the Multiwrap contract
+
+### Return Value
+
+The Multiwrap contract SDK instance.
+
+</div>
+</details>

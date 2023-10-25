@@ -10,45 +10,24 @@ import GettingStartedLiveEditor from "@components/live-code/snippets/GettingStar
 Before getting started, you'll need to
 [download and install the Unity Hub and Unity Editor](https://learn.unity.com/tutorial/install-the-unity-hub-and-editor).
 
+:::info API Key
+We recommend using an API key to use thirdweb’s default infrastructure services with the SDK such as RPC, Storage and Account Abstraction. If you haven’t created a key yet you can do so for free from the [**thirdweb dashboard**](https://thirdweb.com/create-api-key).
+:::
+
 Import the thirdweb SDK, by downloading the `.unitypackage` file for the version of the SDK
-you want to use (_usually you&rsquo;ll want the latest version_) from the
-[Releases page](https://github.com/thirdweb-dev/unity-sdk/releases) on the GitHub repository:
+you want to use (_usually you’ll want the latest version_) from the
+[Releases page](https://github.com/thirdweb-dev/unity-sdk/releases) on the GitHub repository.
 
-![Download Unity Package](./assets/unitypackage.png)
+Drag and drop the package into your Unity project. Feel free to deselect common packages like Newtonsoft if you already have them.
 
-Add the package to your Unity project by clicking `Assets` > `Import Package` > `Custom Package` like so:
+Play around in our example `Scene_Prefabs` to test out the SDK!
+![Scene_Prefabs](./assets/scene_prefabs.png)
 
-![Import Custom Package.png](./assets/import2.png)
+Now you’re ready to use the SDK. In your `Project` window, navigate to `Thirdweb` > `Core` > `Prefabs` > `ThirdwebManager` drag it into your scene. This [ThirdwebManager](./ThirdwebManager) acts as a singleton manager class for your Thirdweb SDK, providing a convenient interface for setting up and controlling SDK parameters directly from the Unity inspector.
 
-Select the `.unitypackage` file you just downloaded from GitHub to open the `Import Unity Package` menu.
+Alternatively, use our handy quickstart installer! Accessible from the top level `Tools > Thirdweb` menu.
+![ThirdwebManager Quickstart](./assets/thirdweb-unity-sdk-setup.png)
 
-Leave the default files selected, and click `Import`:
+All the configurable parameters are annotated with tooltips, just hover over them in the inspector to understand their purpose. After you have set up your [ThirdwebManager](./ThirdwebManager) according to your needs, you can access the SDK from any script using `ThirdwebManager.Instance.SDK`.
 
-![Click Import Button](./assets/import3.png)
-
-In your `Project` window now, you'll be able to see all of the resources that were imported:
-
-![Project Window](./assets/project.png)
-
-Now you&rsquo;re ready to use the SDK. Use any of the prefabs, scenes, or scripts that come within the `Examples` folder,
-or create your own script and instantiate the SDK to get started.
-
-```csharp
-using UnityEngine;
-
-// Import the Thirdweb SDK namespace
-using Thirdweb;
-
-public class ThirdwebSDKDemos : MonoBehaviour
-{
-    // Create a Thirdweb SDK instance for to use throughout this class
-    private ThirdwebSDK sdk;
-
-    void Start()
-    {
-        // When the app starts, set up the Thirdweb SDK
-        // Here, we're setting up a read-only instance on the "goerli" test network.
-        sdk = new ThirdwebSDK("goerli");
-    }
-}
-```
+For help building your first scene, check out the Unity SDK [Build Settings](https://github.com/thirdweb-dev/unity-sdk#build)

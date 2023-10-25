@@ -19,10 +19,19 @@ you can use the generic `call` method to call any function on the smart contract
 const data = await contract.call(
   "myFunctionName", // Name of your function as it is on the smart contract
   // Arguments to your function, in the same order they are on your smart contract
-  "arg1", // e.g. Argument 1
-  "arg2", // e.g. Argument 2
+  [
+    "arg1", // e.g. Argument 1
+    "arg2", // e.g. Argument 2
+  ],
 );
 ```
+
+:::tip Generate
+
+If you have cached the ABI of your smart contract using [`thirdweb generate`](/cli/generate),
+the `functionName` and `args` parameters are strongly typed according to your smart contract&rsquo;s ABI.
+
+:::
 
 ## Configuration
 
@@ -47,8 +56,10 @@ If you provide too few or too many arguments, the function will throw an error.
 const data = await contract.call(
   "myFunctionName", // Name of your function as it is on the smart contract
   // highlight-start
-  "arg1", // e.g. Argument 1
-  "arg2", // e.g. Argument 2
+  [
+    "arg1", // e.g. Argument 1
+    "arg2", // e.g. Argument 2
+  ],
   // highlight-end
 );
 ```
@@ -60,8 +71,10 @@ Optionally override the default transaction options by providing an overrides ob
 ```javascript
 const data = await contract.call(
   "myFunctionName", // Name of your function as it is on the smart contract
-  "arg1", // e.g. Argument 1
-  "arg2", // e.g. Argument 2
+  [
+    "arg1", // e.g. Argument 1
+    "arg2", // e.g. Argument 2
+  ],
   // highlight-start
   {
     gasLimit: 1000000, // override default gas limit

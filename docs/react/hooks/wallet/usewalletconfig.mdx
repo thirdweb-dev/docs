@@ -1,0 +1,43 @@
+---
+title: useWalletConfig
+slug: /react.usewalletconfig
+displayed_sidebar: react
+---
+
+Hook to get the `WalletConfig` object of the currently connected wallet.
+
+This is useful to get metadata about the connected wallet, such as the wallet name, logo, id etc.
+
+```jsx
+import { useWalletConfig } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+```jsx
+import { useWalletConfig } from "@thirdweb-dev/react";
+
+function App() {
+  const walletConfig = useWalletConfig();
+
+  const walletName = walletConfig?.meta.name;
+  const walletLogo = walletConfig?.meta.iconURL;
+}
+```
+
+## Return Value
+
+<details>
+<summary>walletConfig</summary>
+<div>
+
+Returns a walletConfig of type `WalletConfig` , or `undefined` if no wallet is connected.
+
+[Learn more about wallets](/wallet).
+
+```typescript
+walletConfig | undefined;
+```
+
+</div>
+</details>

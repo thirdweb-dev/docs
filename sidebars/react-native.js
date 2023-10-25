@@ -30,6 +30,58 @@ const sidebars = {
     },
     {
       type: "category",
+      label: "Wallets",
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          label: "Embedded Wallet",
+          id: "wallets/EmbeddedWallet",
+        },
+        {
+          type: "doc",
+          label: "Smart Wallet",
+          id: "wallets/SmartWallet",
+        },
+        {
+          type: "doc",
+          label: "Wallet Connect",
+          id: "wallets/WalletConnect",
+        },
+        {
+          type: "doc",
+          label: "MetaMask",
+          id: "wallets/MetaMask",
+        },
+        {
+          type: "doc",
+          label: "Magic",
+          id: "wallets/Magic",
+        },
+        {
+          type: "doc",
+          label: "Rainbow",
+          id: "wallets/Rainbow",
+        },
+        {
+          type: "doc",
+          label: "Trust",
+          id: "wallets/Trust",
+        },
+        {
+          type: "doc",
+          label: "Coinbase",
+          id: "wallets/Coinbase",
+        },
+        {
+          type: "doc",
+          label: "Local Wallet",
+          id: "wallets/LocalWallet",
+        },
+      ],
+    },
+    {
+      type: "category",
       label: "UI Components",
       collapsed: false,
       items: [
@@ -49,6 +101,53 @@ const sidebars = {
       type: "doc",
       label: "Available Hooks",
       id: "available-hooks",
+    },
+    // === Auth === \\
+    {
+      type: "category",
+      label: "Auth",
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          label: "useLogin",
+          id: "auth/uselogin",
+        },
+        {
+          type: "doc",
+          label: "useLogout",
+          id: "auth/uselogout",
+        },
+        {
+          type: "doc",
+          label: "useUser",
+          id: "auth/useuser",
+        },
+      ],
+    },
+    {
+      type: "doc",
+      label: "Storage",
+      id: "storage",
+    },
+    {
+      type: "category",
+      label: "FAQ",
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          label: "How to enable Deep Links?",
+          id: "faq/deeplinks",
+        },
+      ],
+    },
+    // Full Reference
+    {
+      type: "html",
+      value:
+        '<a style="text-decorations:none; color:inherit;" href="/reference/react-native/index.html" target="_blank">Full Reference</a>',
+      defaultStyle: true,
     },
   ],
 };

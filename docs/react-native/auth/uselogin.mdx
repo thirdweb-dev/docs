@@ -1,0 +1,75 @@
+---
+title: useLogin
+slug: /react-native.uselogin
+displayed_sidebar: react-native
+---
+
+Hook to prompt the user to sign in with their wallet using [Auth](/auth).
+
+Requires the [`authConfig`](/react/react.thirdwebprovider#authconfig-optional) prop to be configured
+on the [`ThirdwebProvider`](/react/react.thirdwebprovider).
+
+```jsx
+import { useLogin } from "@thirdweb-dev/react-native";
+```
+
+## Usage
+
+Call the `login` function to prompt the user to sign in with their wallet.
+
+The `isLoading` boolean can be used to display a loading state on the UI while the user is signing in.
+
+```jsx
+import { useLogin } from "@thirdweb-dev/react-native";
+
+function App() {
+  const { isLoading, login } = useLogin();
+
+  return (
+    <Button
+      title={isLoading ? "Loading..." : "Sign in with Ethereum"}
+      onPress={() => {
+        const token = login();
+      }}
+    />
+  );
+}
+```
+
+## Configuration
+
+### options (optional)
+
+The `login` function accepts an optional `LoginOptions` object as an argument.
+
+This configuration follows the [EIP-4361](https://eips.ethereum.org/EIPS/eip-4361) Sign in with Ethereum standard.
+
+```jsx
+import { useLogin, Web3Button } from "@thirdweb-dev/react-native";
+
+function App() {
+  const { login, isLoading } = useLogin();
+
+  return (
+    <Web3Button
+      action={() =>
+        login({
+          // highlight-start
+          domain: "https://your-domain.com", // Your dapp domain
+          statement: "My statement", // Text that the user will sign
+          uri: "https://your-domain.com/login", // RFC 3986 URI referring to the resource that is the subject of the signing
+          version: "1.0", // The current version of the message, which MUST be 1 for this specification.
+          chainId: "mainnet", // Chain ID to which the session is bound
+          nonce: "my-nonce", // randomized token typically used to prevent replay attacks
+          expirationTime: new Date(2021, 1, 1), // When this message expires
+          invalidBefore: new Date(2020, 12, 1), // When this message becomes valid
+          resources: ["balance", "history", "info"], // A list of information or references to information the user wishes to have resolved
+          // highlight-end
+        })
+      }
+    >
+      Login
+    </Web3Button>
+  );
+}
+```

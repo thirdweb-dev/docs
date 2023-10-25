@@ -1,0 +1,298 @@
+---
+title: Standard
+slug: /python.erc721
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+# ERC721
+
+Functionality available for contracts that implement the [`ERC721`](/solidity/extensions/erc721) extension.
+
+## balance
+
+Get the NFT balance of the **connected wallet** (number of NFTs in this contract owned by the connected wallet).
+
+```python
+ balance = contract.erc721.balance()
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+### Return Value
+
+Returns an `int` representing the number of NFTs owned by the connected wallet.
+
+</div>
+</details>
+
+## balance_of
+
+Get a wallet&rsquos NFT balance (number of NFTs in this contract owned by the wallet).
+
+```python
+ wallet_address = "{{wallet_address}}"
+ balance = contract.erc721.balance_of(wallet_address)
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### wallet_address
+
+The wallet address to check the balance for.
+
+Must be a `string`.
+
+```python
+ balance = contract.erc721.balance_of(
+  # highlight-next-line
+  "{{wallet_address}}",
+)
+```
+
+### Return Value
+
+Returns an `int` representing the number of NFTs owned by the wallet.
+
+</div>
+</details>
+
+## get
+
+Get the metadata for an NFT in this contract using it&rsquos token ID.
+
+Metadata is fetched from the `uri` property of the NFT.
+
+If the metadata is hosted on IPFS, the metadata is fetched and made available as an object.
+The object&rsquos `image` property will be a URL that is available through the thirdweb IPFS gateway.
+
+```python
+ token_id = 0
+ nft = contract.erc721.get(token_id)
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### token_id
+
+The token ID of the NFT to get the metadata for.
+
+Must be an `int`.
+
+```python
+ nft = contract.erc721.get(
+  # highlight-next-line
+  "{{token_id}}",
+)
+```
+
+### Return Value
+
+Returns an `NFT` object containing the NFT metadata.
+
+```python
+class NFTMetadataOwner:
+    metadata: NFTMetadata
+    owner: str
+```
+
+</div>
+</details>
+
+## is_approved
+
+Get whether this wallet has approved transfers from the given operator.
+
+This means that the operator can transfer NFTs on behalf of this wallet.
+
+```python
+ is_approved = contract.erc721.is_approved(
+  # Address of the wallet to check
+  "{{wallet_address}}",
+  # Address of the operator to check
+  "{{wallet_address}}",
+)
+```
+
+<details>
+<summary>Configuration</summary>
+<div>
+
+#### owner
+
+The wallet address that owns the NFT.
+
+Must be a `string`.
+
+```python
+ is_approved = contract.erc721.is_approved(
+  # highlight-next-line
+  "{{wallet_address}}",
+  "{{wallet_address}}",
+)
+```
+
+#### operator
+
+The wallet address of the operator to check (i.e. the wallet that does/does not have approval).
+
+Must be a `string`.
+
+```python
+ is_approved = contract.erc721.is_approved(
+  "{{wallet_address}}",
+  # highlight-next-line
+  "{{wallet_address}}",
+)
+```
+
+</div>
+</details>
+
+## owner_of
+
+Get the wallet address of the owner of an NFT.
+
+```python
+ owner = contract.erc721.owner_of("{{token_id}}")
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### token_id
+
+The token ID of the NFT to get the owner of.
+
+Must be an `int`.
+
+### Return Value
+
+Returns a `string` representing the wallet address of the owner of the NFT.
+
+</div>
+</details>
+
+## set_approval_for_token
+
+Give another address approval (or remove approval) to transfer a specific one of your NFTs from this collection.
+
+:::warning Warning
+
+Proceed with caution. Only approve addresses you trust.
+
+:::
+
+```python
+# Approve the wallet address
+ contract.erc721.set_approval_for_token(
+  "{{wallet_address}}", # The wallet address to approve
+  "{{token_id}}", # The token ID of the NFT to allow them to transfer
+)
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### operator
+
+The wallet address to approve.
+
+Must be a `string`.
+
+#### token_id
+
+The token ID of the NFT to allow the operator to transfer.
+
+Must be an `int`.
+
+</div>
+</details>
+
+## set_approval_for_all
+
+Give another address approval (or remove approval) to transfer any of your NFTs from this collection.
+
+:::warning Warning
+
+Proceed with caution. Only approve addresses you trust.
+
+:::
+
+```python
+ contract.erc721.set_approval_for_all(
+  "{{wallet_address}}", # The wallet address to approve
+  true, # Whether to approve (true) or remove approval (false)
+)
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### operator
+
+The wallet address to approve.
+
+Must be a `string`.
+
+#### approved
+
+Whether to approve (true) or remove approval (false).
+
+Must be a `bool`.
+
+</div>
+</details>
+
+## transfer
+
+Transfer an NFT from the **connected wallet** to another wallet.
+
+```python
+ wallet_address = "{{wallet_address}}"
+ token_id = 0
+ contract.erc721.transfer(wallet_address, token_id)
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### wallet_address
+
+The wallet address to transfer the NFT to.
+
+Must be a `string`.
+
+```python
+ contract.erc721.transfer(
+  # highlight-next-line
+  "{{wallet_address}}",
+  "{{token_id}}",
+)
+```
+
+#### token_id
+
+The token ID of the NFT to transfer.
+
+Must be an `int`.
+
+```python
+ contract.erc721.transfer(
+  "{{wallet_address}}",
+  # highlight-next-line
+  "{{token_id}}",
+)
+```
+
+</div>
+</details>

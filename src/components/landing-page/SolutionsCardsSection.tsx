@@ -11,24 +11,10 @@ type Product = {
 const products: Product[] = [
   {
     image: "/assets/product/sdk.png",
-    name: "CommerceKit",
+    name: "Mobile",
     description:
-      "An all-in-one toolkit to build web3 commerce apps. Add powerful web3 features to your Shopify storefront enabling tokengated commerce, NFT loyalty programs, digital collectible sales, and more.",
-    link: "https://thirdweb.com/solutions/commerce",
-  },
-  {
-    image: "/assets/product/sdk.png",
-    name: "GamingKit",
-    description:
-      "Everything you need to build web3 games. Build a stronger community around your game by giving players ownership of in-game assets",
-    link: "https://thirdweb.com/solutions/gaming",
-  },
-  {
-    image: "/assets/product/sdk.png",
-    name: "Minting",
-    description:
-      "A set of tools that allow creators and developers to launch new NFT collections in a configurable, secure and scalable way at zero cost to the creator.  ",
-    link: "https://thirdweb.com/solutions/minting",
+      "A set of developer tools and SDK’s that make it easy to integrate web3 features into iOS and Android applications.",
+    link: "/mobile",
   },
 ];
 

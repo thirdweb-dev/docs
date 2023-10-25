@@ -1,0 +1,124 @@
+---
+title: useMagic
+slug: /react.usemagic
+displayed_sidebar: react
+---
+
+import QuickstartCard from "@components/QuickstartCard";
+
+Hook that allows users to use their email address to sign in with your dApp using [Magic.Link](https://magic.link/).
+
+Under the hood, a wallet is created for the user and they are connected to it. This wallet is then used to sign transactions and messages automatically.
+
+```jsx
+import { useMagic } from "@thirdweb-dev/react/evm/connectors/magic";
+```
+
+## Usage
+
+Sign up for [Magic.Link](https://magic.link/), create a new `Magic Auth` application and copy your
+`PUBLISHABLE API KEY`.
+
+Configure your [`ThirdwebProvider`](/react/react.thirdwebprovider#walletconnectors)'s
+`walletConnectors` prop to include the Magic Link connector:
+
+```jsx
+import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
+import { MagicConnector } from "@thirdweb-dev/react/evm/connectors/magic";
+
+function MyApp() {
+  const magicLinkConnector = new MagicConnector({
+    options: {
+      // Place your Magic.Link API key here.
+      apiKey: "pk_live_XXXXXXXXXXXXXXXX",
+      rpcUrls: {
+        // Use your own RPC or one from the @thirdweb-dev/chains package.
+        [ChainId.Mumbai]: "https://rpc-mumbai.maticvigil.com",
+      },
+    },
+  });
+
+  return (
+    <ThirdwebProvider
+      // Configure the chain you want to use
+      activeChain={"mumbai"}
+      // Configure the connectors you want to use, including your gnosisSafeConnector
+      walletConnectors={[magicLinkConnector]}
+    >
+      <Component {...pageProps} />
+    </ThirdwebProvider>
+  );
+}
+```
+
+Now you can use the `useMagic` hook to sign in with Magic.Link:
+
+```jsx
+import { useState } from "react";
+import { useMagic } from "@thirdweb-dev/react/evm/connectors/magic";
+
+const Home = () => {
+  // Hook to connect with Magic Link
+  const connectWithMagic = useMagic();
+
+  // State to hold the email address the user entered.
+  const [email, setEmail] = useState("");
+
+  return (
+    <>
+      <input type="email" onChange={(e) => setEmail(e.target.value)} />
+      <button onClick={() => connectWithMagic({ email })}>Login</button>
+    </>
+  );
+};
+```
+
+Then use the [`useAddress`](/react/react.useaddress) hook to determine if the user is logged in:
+
+```jsx
+import { useState } from "react";
+import { useMagic } from "@thirdweb-dev/react/evm/connectors/magic";
+// highlight-next-line
+import { useAddress } from "@thirdweb-dev/react";
+
+const Home = () => {
+  // Hook to connect with Magic Link
+  const connectWithMagic = useMagic();
+  // highlight-start
+  // Hook to get the user's address (if they are connected)
+  const address = useAddress();
+  // highlight-end
+  // State to hold the email address the user entered.
+  const [email, setEmail] = useState("");
+
+  // highlight-start
+  // If address exists, this means the user is connected with Magic Link.
+  if (address) {
+    return <h1>Welcome!</h1>;
+  }
+  // highlight-end
+
+  return (
+    <>
+      <input type="email" onChange={(e) => setEmail(e.target.value)} />
+      <button onClick={() => connectWithMagic({ email })}>Login</button>
+    </>
+  );
+};
+```
+
+## Full Example
+
+A [template repository](https://github.com/thirdweb-example/magic-link)
+is available for you to use, which includes the full setup for connecting user&rsquo;s
+to your dApp with Magic.Link.
+
+<div className="row" style={{ marginBottom: 24, padding: 8, flexWrap: "wrap" }}>
+  <div className="col col--12" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Template: Magic Link Wallet Connection"
+      link="https://github.com/thirdweb-example/magic-link"
+      image="/assets/icons/education.png"
+    />
+  </div>
+</div>

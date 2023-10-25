@@ -35,15 +35,212 @@ function App() {
 
 ## Configuration
 
-### theme
+### theme (optional)
 
 You can pass a custom `theme` object that will control the colors of the button
 or pass one of our default themes: `light` or `dark`.
+
+The default value is `"dark"`.
 
 ```jsx
 import { ConnectWallet } from "@thirdweb-dev/react-native";
 
 function App() {
-  return <ConnectWallet theme="light" />;
+  return (
+    <ConnectWallet
+      // highlight-next-line
+      theme="dark"
+    />
+  );
 }
+```
+
+You could also define custom background and text color for the button:
+
+```jsx
+import { ConnectWallet, lightTheme } from "@thirdweb-dev/react-native";
+
+function App() {
+  return (
+    <ConnectWallet
+      // highlight-next-line
+      theme={lightTheme({
+        buttonBackgroundColor: 'black'
+        buttonTextColor: 'white'
+      })}
+    />
+  );
+}
+```
+
+Or you can fully customize the theme:
+
+```jsx
+import { ConnectWallet, darkTheme } from "@thirdweb-dev/react-native";
+
+const darkThemeCustom = darkTheme();
+
+function App() {
+  return (
+    <ConnectWallet
+      theme={{
+        ...darkThemeCustom,
+        colors: {
+          ...darkThemeCustom.colors,
+          backgroundHighlight: "blue",
+        },
+      }}
+    />
+  );
+}
+```
+
+### buttonTitle (optional)
+
+Change the text the button displays while in the disconnected state.
+
+The default value is `"Connect Wallet"`.
+
+```jsx
+import { ConnectWallet } from "@thirdweb-dev/react-native";
+
+function App() {
+  return (
+    <ConnectWallet
+      // highlight-next-line
+      buttonTitle="Connect Wallet"
+    />
+  );
+}
+```
+
+### modalTitle (optional)
+
+Change the title of Connect Wallet Modal's title
+
+The default is `"Connect"`.
+
+```jsx
+import { ConnectWallet } from "@thirdweb-dev/react-native";
+
+function App() {
+  return (
+    <ConnectWallet
+      // highlight-next-line
+      modalTitle="Login"
+    />
+  );
+}
+```
+
+### modalTitleIconUrl (optional)
+
+Change the icon of the Connect Wallet Modal's title.
+
+The default is the thirdweb logo.
+
+If you pass an empty url, the icon will be hidden.
+
+It accepts regular image extensions and svgs.
+
+```jsx
+import { ConnectWallet } from "@thirdweb-dev/react-native";
+
+function App() {
+  return (
+    <ConnectWallet
+      // highlight-next-line
+      modalTitleIconUrl="https://path-to-the-icon"
+    />
+  );
+}
+```
+
+### detailsButton (optional)
+
+Render a custom button to display connected wallet details
+
+```jsx
+import { ConnectWallet } from "@thirdweb-dev/react-native";
+
+function App() {
+  return (
+    <ConnectWallet
+      // highlight-start
+      detailsButton={() => {
+        return <Button title="My Button" />;
+      }}
+      // highlight-end
+    />
+  );
+}
+```
+
+### switchToActiveChain (optional)
+
+Specify whether to show a "Switch Network" button after the wallet is connected but it is not connected to the [activeChain](/react/react.thirdwebprovider#activechain-recommended) set in [ThirdwebProvider](react/react.thirdwebprovider) to encourage the user to switch to the correct network in their wallet.
+
+[activeChain](/react/react.thirdwebprovider#activechain-recommended) must be explicitly set in [ThirdwebProvider](react/react.thirdwebprovider) for this to work.
+
+By default, it is set to `false`.
+
+```jsx
+<ConnectWallet switchToActiveChain={true} />
+```
+
+### hideTestnetFaucet (optional)
+
+Hide option to request testnet funds for testnets in dropdown
+
+```jsx
+<ConnectWallet hideTestnetFaucet={true} />
+```
+
+### Show "Terms of Service" and/or "Privacy Policy" links
+
+You can show a "Terms of Service" and/or "Privacy Policy" link in the ConnectWallet Modal by passing the `termsOfServiceUrl` and/or `privacyPolicyUrl` props
+
+```tsx
+<ConnectWallet
+  termsOfServiceUrl="https://...."
+  privacyPolicyUrl="https://...."
+/>
+```
+
+## supportedTokens (optional)
+
+Customize the tokens shown in the "Send Funds" screen for various networks.
+
+By default, The "Send Funds" screen shows a few popular tokens on for default chains and the native token. For other chains it only shows the native token.
+
+```tsx
+import { Base } from "@thirdweb-dev/chains";
+
+<ConnectWallet
+  supportedTokens={{
+    // Show "Dai Stablecoin" when connected to the "Base" mainnet
+    [Base.chainId]: [
+      {
+        address: "0x50c5725949A6F0c72E6C4a641F24049A917DB0Cb",
+        name: "Dai Stablecoin",
+        symbol: "DAI",
+        icon: "https://assets.coingecko.com/coins/images/9956/small/Badge_Dai.png?1687143508",
+      },
+      // ...etc
+    ],
+  }}
+/>;
+```
+
+### displayBalanceToken
+
+Display the balance of a token instead of the native token in ConnectWallet details button.
+
+```tsx
+<ConnectWallet
+  displayBalanceToken={{
+    // show Wrapped BTC balance if connected to Ethereum mainnet
+    1: "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+  }}
+/>
 ```

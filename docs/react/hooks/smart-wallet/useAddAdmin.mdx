@@ -1,0 +1,60 @@
+---
+title: useAddAdmin
+slug: /react.useaddadmin
+displayed_sidebar: react
+---
+
+Add an admin on the smart wallet account.
+
+```jsx
+const Component = () => {
+  const { mutate: addAdmin, isLoading, error } = useAddAdmin();
+
+  if (error) {
+    console.error("failed to add admin", error);
+  }
+
+  return (
+    <button disabled={isLoading} onClick={() => addAdmin(adminAddress)}>
+      Add admin
+    </button>
+  );
+};
+```
+
+## Usage
+
+Provide the address to add as an admin on the connected smart wallet account to the mutation function returned from the hook.
+
+```jsx
+import { useAccountAdminsAndSigners } from "@thirdweb-dev/react";
+
+const adminAddress = "{{admin_address}}";
+
+const Component = () => {
+  const { mutate: addAdmin, isLoading, error } = useAddAdmin();
+
+  if (error) {
+    console.error("failed to add admin", error);
+  }
+
+  return (
+    <button disabled={isLoading} onClick={() => addAdmin(adminAddress)}>
+      Add admin
+    </button>
+  );
+};
+```
+
+## Configuration
+
+<details>
+  <summary>address (required)</summary>
+  <div>
+
+### Address
+
+The address to add as an admin on the account as a `string`.
+
+</div>
+</details>

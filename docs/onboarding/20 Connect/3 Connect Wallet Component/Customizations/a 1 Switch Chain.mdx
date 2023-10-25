@@ -1,0 +1,14 @@
+---
+slug: /connect/connect-wallet/switch-chain
+title: Automatic Chain Switching
+---
+
+Specify whether to show a "Switch Network" button after the wallet is connected but it is not connected to the [activeChain](/react/react.thirdwebprovider#activechain-recommended) set in [ThirdwebProvider](react/react.thirdwebprovider) to encourage the user to switch to the correct network in their wallet.
+
+[activeChain](/react/react.thirdwebprovider#activechain-recommended) must be explicitly set in [ThirdwebProvider](react/react.thirdwebprovider) for this to work.
+
+By default, it is set to `false`.
+
+```jsx
+<ConnectWallet switchToActiveChain={true} />
+```

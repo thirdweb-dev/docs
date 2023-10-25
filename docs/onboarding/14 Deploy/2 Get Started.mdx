@@ -1,0 +1,39 @@
+---
+slug: /deploy/getting-started
+title: Getting Started
+---
+
+import CLI from "/docs/cli.json";
+import CLIOptions from "@components/CLIOptions";
+
+# Deploy
+
+Use the [CLI](/cli) to deploy your contracts directly to **Any EVM compatible chain** using the [dashboard](/dashboard).
+
+```bash
+npx thirdweb deploy
+```
+
+## Usage
+
+Running this command will:
+
+- Detect the framework (Hardhat, Foundry or Truffle).
+- **Compile** all the contracts in the current directory using your project settings.
+- Allow you to select which contract(s) you want to deploy.
+- Upload your contract metadata to IPFS, making sure it matches exactly the encoded IPFS hash in the compiled bytecode.
+- Detect the [extensions](/solidity/extensions) on your contract.
+- Open the deploy flow in the [dashboard](https://thirdweb.com/dashboard) for you to connect a wallet, input the contract parameters
+  and select a chain to deploy to, without needing to hardcode private keys!
+
+```bash
+npx thirdweb [options]
+```
+
+## Options
+
+<div>
+  {CLI.deploy.map(({ flags, description }) => (
+    <CLIOptions flags={flags} description={description} />
+  ))}
+</div>

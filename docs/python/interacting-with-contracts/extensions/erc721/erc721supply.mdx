@@ -1,0 +1,105 @@
+---
+title: Get All
+slug: /python.erc721supply
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+# ERC721Supply
+
+Functionality available for contracts that implement the
+[`ERC721`](/solidity/extensions/erc721) and
+[`ERC721Supply](/solidity/extensions/erc721Supply)
+extensions.
+
+## get_all
+
+Get the metadata and current owner of all NFTs in the contract.
+
+By default, returns the first `100` NFTs (in order of token ID). Use [`query_params`](#query_params-optional) to paginate the results.
+
+```python
+nfts = contract.erc721.get_all()
+print(nfts)
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### query_params (optional)
+
+Provide an optional object to configure the query. Useful for paginating the results.
+
+```python
+const query_params = {
+  # The number of NFTs to return
+  count: 100, # Default is 100
+  # The index to start from
+  start: 0, # Default is 0
+}
+
+const nfts = await contract.erc721.getAll(query_params)
+```
+
+`query_params` has to be of type `QueryAllParams`.
+
+```python
+class QueryAllParams:
+    start: int = 0
+    count: int = 100
+```
+
+### Return Value
+
+Returns a list of `NFTMetadataOwner` objects.
+
+```python
+class NFTMetadataOwner:
+    metadata: NFTMetadata
+    owner: str
+```
+
+</div>
+</details>
+
+## get_total_count
+
+Get the total number of NFTs minted in this contract.
+
+Unlike [`totalCirculatingSupply`](#total_supply), this includes NFTs that have been burned.
+
+```python
+total_count = contract.erc721.get_total_count()
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+Returns an `int`.
+
+</div>
+</details>
+
+## total_supply
+
+Get the total number of NFTs that are currently in circulation.
+
+i.e. the number of NFTs that have been minted and not burned.
+
+```python
+total_supply = contract.erc721.total_supply()
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+Returns an `int`.
+
+</div>
+</details>

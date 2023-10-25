@@ -1,0 +1,383 @@
+---
+title: magicLink
+slug: /react.magiclink
+displayed_sidebar: react
+sidebar_position: 9
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+import { CustomizeWalletConfigurator } from "@components/build-wallet/CustomizeWalletConfigurator";
+
+A wallet configurator for [Magic Wallet](/wallet/magic) which allows integrating the wallet with React
+
+```tsx
+import { magicLink } from "@thirdweb-dev/react";
+
+const magicLinkConfig = magicLink({
+  apiKey: "MAGIC_API_KEY,
+  type: 'auth' // or 'connect'
+});
+```
+
+<CustomizeWalletConfigurator
+  config="magicLinkConfig"
+  configurator="magicLink"
+  connectUI="MagicLinkConnectUI"
+  selectUI="MagicLinkSelectUI"
+/>
+
+## options
+
+<details>
+  <summary>type (optional) </summary>
+  <div>
+
+Whether to use [Magic Auth](https://magic.link/docs/auth/overview) or [Magic Connect](https://magic.link/docs/connect/overview) to connect to the wallet.
+
+Default is `"auth"`.
+
+```ts
+type: "auth" | "connect";
+```
+
+</div>
+</details>
+
+<details>
+  <summary>apiKey (required) </summary>
+  <div>
+
+Your Magic Link apiKey.
+
+You can get an API key by signing up for an account on [Magic Link's website](https://magic.link/).
+
+Must be a `string`.
+
+</div>
+</details>
+
+<details>
+  <summary>magicSdkConfiguration (optional)</summary>
+  <div>
+
+Configuration for [Magic Auth](https://magic.link/docs/auth/overview) SDK.
+
+This is only relevant if you are using `type: 'auth'` in your config.
+
+```ts
+{
+  locale?: string;
+  endpoint?: string;
+  testMode?: boolean;
+}
+```
+
+<details>
+  <summary>locale (optional)</summary>
+  <div>
+
+Customize the language of Magic's modal, email and confirmation screen. See [Localization](https://magic.link/docs/auth/more/customization/localization) for more.
+
+</div>
+</details>
+
+<details>
+  <summary>endpoint (optional)</summary>
+  <div>
+
+A URL pointing to the Magic iframe application.
+
+</div>
+</details>
+
+<details>
+  <summary>testMode (optional)</summary>
+  <div>
+
+Enable [testMode](https://magic.link/docs/auth/introduction/test-mode) to assert the desired behavior through the email address you provide to `loginWithMagicLink` without having to go through the auth flow.
+
+</div>
+</details>
+
+</div>
+</details>
+
+<details>
+  <summary>smsLogin (optional)</summary>
+  <div>
+
+Specify whether you want to allow users to login with their phone number or not. It is `true` by default
+
+This is only relevant if you are using `type: 'auth'`.
+
+Must be a `boolean`.
+
+</div>
+</details>
+
+<details>
+  <summary>emailLogin (optional)</summary>
+  <div>
+
+Specify whether you want to allow users to login with their email or not. It is `true` by default
+
+This is only relevant if you are using `type: 'auth'`.
+
+Must be a `boolean`.
+
+</div>
+</details>
+
+<details>
+  <summary>oauthOptions (optional)</summary>
+  <div>
+
+Specify which oauth providers you support in `providers` array.
+
+Specify which URI to redirect to after the oauth flow is complete in `redirectURI` option. If no `redirectURI` is specified, the user will be redirected to the current page.
+
+:::caution
+
+You must pass full URL and not just a relative path. For example, `"https://example.com/foo"` is valid but `"/foo"` is not.
+You can use `new URL("/foo", window.location.origin).href` to get the full URL from a relative path based on the current origin.
+
+:::
+
+This is only relevant if you are using `type: 'auth'`.
+
+You also need to enable the oauth providers for your apiKey from [Magic dashboard](https://dashboard.magic.link/).
+
+#### Type
+
+```ts
+type OauthOptions = {
+  redirectURI?: string;
+  providers: OauthProvider[];
+};
+
+type OauthProvider =
+  | "google"
+  | "facebook"
+  | "apple"
+  | "github"
+  | "bitbucket"
+  | "gitlab"
+  | "linkedin"
+  | "twitter"
+  | "discord"
+  | "twitch"
+  | "microsoft";
+```
+
+#### Example
+
+```ts
+const wallet = new MagicLink({
+  apiKey: "YOUR_API_KEY",
+  type: "auth",
+  // specify which Oauth providers to enable
+  oauthOptions: {
+    redirectURI: new URL("/foo", window.location.origin).href,
+    providers: ["google", "facebook", "github", "bitbucket"],
+  },
+});
+```
+
+</div>
+</details>
+
+<details>
+  <summary>recommended (optional) </summary>
+  <div>
+
+Show this wallet as "recommended" in the [ConnectWallet Modal](/react/react.connectwallet).
+
+```ts
+magicLink({
+  // highlight-start
+  recommended: true,
+  // highlight-end
+});
+```
+
+</div>
+</details>
+
+## Usage with `ConnectWallet`
+
+To allow users to connect to this wallet using the [ConnectWallet](/react/react.connectwallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop.
+
+```tsx
+<ThirdwebProvider
+  supportedWallets={[
+    magicLink({
+      apiKey: "MAGIC_API_KEY",
+    }),
+  ]}
+  clientId="your-client-id"
+>
+  <YourApp />
+</ThirdwebProvider>
+```
+
+## Usage with `useConnect`
+
+you can use the `useConnect` hook to programmatically connect to the wallet without using the [ConnectWallet](/react/react.connectwallet) component.
+
+The wallet also needs to be added in [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) if you want the wallet to auto-connect on next page load.
+
+Calling `connect` opens the Magic's Modal and prompts the user to either enter an OTP sent to their phoneNumber or click on the link sent to their email.
+
+```tsx
+const magicLinkConfig = magicLink({
+  apiKey: "MAGIC_API_KEY",
+});
+
+function App() {
+  const connect = useConnect();
+
+  const handleConnect = async () => {
+    await connect(magicLinkConfig, connectOptions);
+  };
+
+  return <div> ... </div>;
+}
+```
+
+### connectOptions
+
+<details>
+
+<summary> Magic Auth </summary>
+
+<div>
+
+```ts
+{
+  // one of these is required
+  email?: string;
+  phoneNumber?: string;
+  oauthProvider?: OauthProvider;
+
+  chainId?: number;
+}
+```
+
+There are three ways to call the `connect` function - `email` or `phoneNumber` or `oauthProvider`
+
+<details>
+  <summary> email </summary>
+<div>
+
+This opens the Magic Link's Modal and prompts the user to click on the link sent to their email.
+
+```ts
+connect({
+  email: "user@example.com",
+});
+```
+
+</div>
+</details>
+
+<details>
+  <summary> phoneNumber </summary>
+<div>
+
+This opens the Magic Link's Modal and prompts the user to enter the OTP sent to their phone via SMS.
+
+```ts
+connect({
+  phoneNumber: "+123456789",
+});
+```
+
+</div>
+</details>
+
+<details>
+  <summary> oauthProvider </summary>
+<div>
+
+This redirects the user to given provider's sign-in page and once the user is authenticated, it redirects the user back to the `redirectURI` provided in `magicLink` function.
+
+```ts
+connect({
+  oauthProvider: "google",
+});
+```
+
+</div>
+</details>
+
+<br />
+
+<details>
+  <summary>chainId (optional) </summary>
+<div>
+
+If `chainId` is provided, wallet will be connected and immediately switch to network with given `chainId`.
+
+`Chain` object corresponding to this chainId from [@thirdweb-dev/chains](https://www.npmjs.com/package/@thirdweb-dev/chains) package must be specified in [ThirdwebProvider's supportedChains](/react/react.thirdwebprovider#supportedchains-optional) prop as shown below
+
+```tsx
+import { Polygon } from "@thirdweb-dev/chains";
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+
+export function YourApp() {
+  return (
+    <ThirdwebProvider supportedChains={[Polygon]} clientId="your-client-id">
+      <App />
+    </ThirdwebProvider>
+  );
+}
+```
+
+</div>
+</details>
+
+</div>
+
+</details>
+
+<details>
+
+<summary> Magic Connect </summary>
+
+<div>
+
+```ts
+{
+  chainId?: number;
+}
+```
+
+<details>
+  <summary>chainId (optional) </summary>
+<div>
+
+If `chainId` is provided, wallet will be connected and immediately switch to network with given `chainId`.
+
+`Chain` object corresponding to this chainId from [@thirdweb-dev/chains](https://www.npmjs.com/package/@thirdweb-dev/chains) package must be specified in [ThirdwebProvider's supportedChains](/react/react.thirdwebprovider#supportedchains-optional) prop as shown below
+
+```tsx
+import { Polygon } from "@thirdweb-dev/chains";
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+
+export function YourApp() {
+  return (
+    <ThirdwebProvider supportedChains={[Polygon]} clientId="your-client-id">
+      <App />
+    </ThirdwebProvider>
+  );
+}
+```
+
+</div>
+</details>
+
+</div>
+
+</details>

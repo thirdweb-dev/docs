@@ -1,0 +1,62 @@
+---
+title: Burn
+slug: /python.erc1155burnable
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+# ERC1155Burnable
+
+Functionality available for contracts that implement the
+[`ERC1155Enumerable`](/solidity/extensions/erc1155numerable) and
+[`ERC1155Burnable`](/solidity/extensions/erc1155burnable)
+extensions.
+
+Allows you to burn NFTs (transfer them to a null address) to take them out of circulation.
+
+## burn
+
+Burn the specified NFTs from the **connected wallet**.
+
+```python
+# The token ID to burn NFTs of
+token_id = 0
+# The amount of the NFT you want to burn
+amount = 2
+
+tx_result = contract.erc1155.burn(token_id, amount)
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### token_id
+
+The token ID of the NFT(s) you want to burn.
+
+Must be an `int`.
+
+```python
+tx_result = contract.erc1155.burn(
+  # highlight-next-line
+  "{{token_id}}",
+  "{{amount}}",
+)
+```
+
+#### amount
+
+The amount of the NFT you want to burn of the specified token ID.
+
+Must be an `int`.
+
+```python
+tx_result = contract.erc1155.burn(
+  "{{token_id}}",
+  # highlight-next-line
+  "{{amount}}",
+)
+```
+
+</div>
+</details>

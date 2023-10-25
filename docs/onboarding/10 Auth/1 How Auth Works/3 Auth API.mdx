@@ -1,0 +1,77 @@
+---
+slug: /auth/how-auth-works/auth-api
+title: Auth API
+---
+
+So now that we understand the high-level of how Auth works and the specifics of the building blocks that make it possible, let's put all of that information together to understand the specific of how the Auth API works. Note that although we're going to explain the basics of all the API endpoints underlying Auth, you won't need to understand how this all works in order to use Auth in your applications, as all of this is handled for you under the hood.
+
+The Auth API is a set of REST endpoints that all server-side plugins of the Auth SDK implement. They enable wallet-based authentication and authorization for any API that they are added to. There are four key endpoints that the Auth API provides:
+
+- `POST - /payload`
+- `POST - /login`
+- `GET - /user`
+- `POST - /logout`
+
+Let's take a look at what each of these endpoints looks like in more detail, and the flow of how they all work together.
+
+## Payload
+
+![auth-api-0](../assets/auth-api-0.svg)
+
+The `/payload` endpoint is the start of the whole Auth flow. It's a `POST` endpoint that expects to receive the address and chainId of the wallet on the frontend (some wallets are chain specific, including smart contract wallets like Safe, hence the chainId option). The purpose of this endpoint is to create the sign-in with wallet message that the client-side wallet should sign in order to login.
+
+The reason we generate this message server-side rather than generating it on the client is to ensure that we are always using server-time while generating and validating the message (since the message has timestamps for when the payload is valid). Once the client receives the `payload` from this endpoint, the client-side wallet can sign it and send the signed payload to the `login` endpoint to proceed with the Auth flow.
+
+## Login
+
+![auth-api-1](../assets/auth-api-1.svg)
+
+The `/login` endpoint is the next part of the Auth flow. It's a `POST` endpoint that expects to receive the sign-in with wallet `payload` from the client. The main purpose of this endpoint is to check that the user has made a valid sign-in with wallet request, and to issue them a signed JWT if they have for them to authenticate to other endpoints.
+
+The `/login` endpoint goes through the following high-level steps to accomplish this:
+
+1. Check that the sign-in with wallet request is valid, secure, and hasn't expired, as specified in the [sign-in with wallet section](/auth/how-auth-works/sign-in-with-wallet).
+2. Generate a signed JWT for the user to authenticate to other endpoints, as specified in the [JWT section](/auth/how-auth-works/json-web-tokens).
+3. Return the signed JWT to the client in both the response and the cookies, for compatibility across browser and non-browser clients.
+
+## User
+
+![auth-api-2](../assets/auth-api-2.svg)
+
+The `/user` endpoint is a `GET` endpoint that allows the client to periodically check if the user is still logged in, and to get any associated user data that's relevant to the client (like profile data, for example).
+
+It can accomplish this by going through the following high-level steps:
+
+1. Check that the user has sent a valid JWT in the request cookies or headers, as specified in the [JWT section](/auth/how-auth-works/json-web-tokens).
+2. If the user hasn't sent a valid JWT, return `null`
+3. Populate any session data stored on the JWT into the user object and any external user-associated data into the user object (like data from a database)
+4. Return the user object to the client
+
+## Logout
+
+![auth-api-3](../assets/auth-api-3.svg)
+
+The `/logout` endpoint is the simplest of all of them. It's goal is simply to invalidate the users JWT and log them out of the application. It accomplishes this by deleting any client-side cookies with the JWT, and optionally invalidating the JWT if a database setup is used.
+
+## Protected Endpoints
+
+![auth-api-4](../assets/auth-api-4.svg)
+
+Now that we've gone over the core flow of Auth, we can take a look at how Auth can be used to protect additional endpoints, which is one of it's most important functions, as this comprises its **authorization** function.
+
+Authorizing the user on an endpoint involves the following simple process:
+
+1. Obtain the identity of the authenticated user by a method similar to the `/user` endpoint (ie. by reading it off the JWT, if any is present)
+2. Grant permission to the user based on their identity
+
+In every Auth plugin, this is handled by a simple helper function that you can add to your endpoints so you don't have to worry about the details of the process yourself.
+
+## Switching Accounts
+
+There's one additional endpoint which we didn't cover above in the core flow of Auth - that's the `POST - /switch-account` endpoint.
+
+The purpose of this endpoint is to support the more advanced flow of enabling multiple accounts to be logged in with Auth at one time, and to enable the client-side user to switch which account they want to actively perform actions with (similar to a typical OAuth flow where you can swap between multiple logged-in accounts).
+
+The way Auth maintains multiplied logged in accounts at once is by storing the JWT for each logged in wallet in a separate cookie on the browser. In order to determine which of these cookies should be used with each request, the Auth API sends an additionally cookie that stores the "active account" that the user wants to perform actions with. Then, when the user wants to switch accounts, they can make a request to this `/switch-account` endpoint to update the active account cookie.
+
+If you're using the thirdweb React SDK on the client-side, switching accounts is automatically handled for you when user's switch between logged in wallets.

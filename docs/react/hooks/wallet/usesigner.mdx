@@ -2,6 +2,7 @@
 title: useSigner
 slug: /react.usesigner
 displayed_sidebar: react
+sidebar_position: 5
 ---
 
 Hook for getting the current signer of the connected wallet, if one is available.
@@ -24,9 +25,6 @@ If no wallet is connected, returns `undefined`.
 
 ```jsx
 import { useSigner, Web3Button } from "@thirdweb-dev/react";
-
-// Your smart contract address
-const contractAddress = "{{contract_address}}";
 
 function App() {
   const signer = useSigner();

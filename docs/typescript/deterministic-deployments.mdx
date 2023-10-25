@@ -1,0 +1,212 @@
+---
+title: Overview
+slug: /deterministic-deployments
+hide_title: true
+---
+
+import ViewRepoButton from "@components/ViewRepoButton";
+
+# Deterministic Deployments With CREATE2
+
+Thirdweb SDK provides utility functions for deploying a contract deterministically.
+This allows predictable addresses on any EVM chain, as long as same salt is used for deploying the contract.
+
+The deployment transaction will go through a Create2 factory, which will in turn deploy the contract with the given bytecode and salt. This ensures that the contract address is deterministic (same on many chains), and can be predicted in advance.
+
+While the addresses are deterministic, it can't be ensured that those will be same on all chains. The address is dependent on the Create2 factory address, which is dependent on some chain specific factors such as EIP155 enforcement, base fee, etc.
+
+However, using these utility functions, you can predict the address where the contract will be deployed.
+
+> **IMPORTANT**: _Please note that the contract is deployed by a Create2 factory contract. Hence, the value of `msg.sender`, if used in the constructor, will be the Create2 factory address instead of the wallet address used for sending the transaction._
+
+## Demo scripts
+
+Clone these templates to quickly setup a deterministic deploy script.
+
+<div className="row" style={{ marginLeft: 8 }}>
+  <div>
+    <ViewRepoButton
+      name={"js"}
+      text="Deterministic Deploy Script"
+      link={"https://github.com/thirdweb-example/deterministic-deploy-demo"}
+    />
+  </div>
+</div>
+
+## Deterministic Deployment Of Published contracts
+
+Deploy any [published](/publish) contract by its name. By default, the publisher is thirdweb.
+
+_Note: the contract must be published as a direct-deploy contract. [See how to publish a contract](/publish)._
+
+```javascript
+import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+
+const sdk = ThirdwebSDK.fromPrivateKey(`private key here`, "goerli", {
+  clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
+  secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
+});
+
+const contractName = "MyContract"; // Name of the published contract that you want to deploy
+const constructorArgs = []; // Input args for constructor
+
+// Optional params -- specify values if you wish to override defaults
+const publisherAddress // Defaults to thirdweb publisher
+const contractVersion // Defaults to latest published version
+const salt = await sdk.wallet.getAddress(); // Recommended to use signer address for salt
+
+const deployedContractAddress =
+  await sdk.deployer.deployPublishedContractDeterministic(
+    contractName,
+    constructorArgs,
+    publisherAddress,
+    contractVersion,
+    salt,
+  );
+```
+
+## Predict Address of Published Contract
+
+Predict Create2 address of a [published](/publish) contract. By default, the publisher is thirdweb.
+
+_Note: the contract must be published as a direct-deploy contract. [See how to publish a contract](/publish)._
+
+```javascript
+import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+
+const sdk = ThirdwebSDK.fromPrivateKey(`private key here`, "goerli", {
+  clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
+  secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
+});
+
+const contractName = "MyContract"; // Name of the published contract that you want to deploy
+const constructorArgs = []; // Input args for constructor
+
+// Optional params -- specify values if you wish to override defaults
+const publisherAddress // Defaults to thirdweb publisher
+const contractVersion // Defaults to latest published version
+const salt = await sdk.wallet.getAddress(); // Recommended to use signer address for salt
+
+const predictedAddress =
+  await sdk.deployer.predictAddressDeterministic(
+    contractName,
+    constructorArgs,
+    publisherAddress,
+    contractVersion,
+    salt,
+  );
+```
+
+## Deterministic Deployment With Bytecode & ABI
+
+Direct deploy a contract at a deterministic address, using Create2 method. Address depends on the Create2 factory address and salt.
+
+```javascript
+import { ThirdwebSDK, directDeployDeterministic } from "@thirdweb-dev/sdk";
+
+const bytecode = ""; // contract bytecode here
+const abi = ""; // contract abi here
+const salt = ""; // Specify a salt for Create2 - if not provided, bytecode-hash will be used
+const constructorArgs = []; // input args for constructor
+
+const sdk = ThirdwebSDK.fromPrivateKey(`private key here`, "goerli", {
+  clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
+  secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
+});
+
+const signer = await sdk.getSigner();
+
+const deployedContractAddress = await directDeployDeterministic(
+  bytecode,
+  abi,
+  signer,
+  constructorArgs,
+  salt,
+);
+```
+
+## Deterministic Deployment With URI
+
+Direct deploy a contract at a deterministic address, using Create2 method. Address depends on the Create2 factory address and salt.
+URI is generated when publishing / deploying with thirdweb CLI.
+
+```javascript
+import {
+  ThirdwebSDK,
+  directDeployDeterministicWithUri,
+} from "@thirdweb-dev/sdk";
+
+const publishMetadataUri = "ipfs://..."; // URI generated when publishing / deploying with thirdweb CLI
+const salt = ""; // Specify a salt for Create2 - if not provided, bytecode-hash will be used
+const constructorArgs = []; // input args for constructor
+
+const sdk = ThirdwebSDK.fromPrivateKey(`private key here`, "goerli", {
+  clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
+  secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
+});
+
+const signer = await sdk.getSigner();
+
+const deployedContractAddress = await directDeployDeterministicWithUri(
+  publishMetadataUri,
+  signer,
+  sdk.storage,
+  constructorArgs,
+  salt,
+);
+```
+
+## Predict Deterministic Address With Bytecode & ABI
+
+Predict address of the contract in advance. Address depends on the Create2 factory address and salt.
+
+```javascript
+import { ThirdwebSDK, predictAddressDeterministic } from "@thirdweb-dev/sdk";
+
+const bytecode = ""; // contract bytecode here
+const abi = ""; // contract abi here
+const salt = ""; // Specify a salt for Create2 - if not provided, bytecode-hash will be used
+const constructorArgs = []; // input args for constructor
+
+const sdk = new ThirdwebSDK("goerli", {
+  clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
+  secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
+});
+
+const address = await predictAddressDeterministic(
+  bytecode,
+  abi,
+  sdk.getProvider(),
+  constructorArgs,
+  salt,
+);
+```
+
+## Predict Deterministic Address With URI
+
+Predict address of the contract in advance. Address depends on the Create2 factory address and salt.
+URI is generated when publishing / deploying with thirdweb CLI.
+
+```javascript
+import {
+  ThirdwebSDK,
+  predictAddressDeterministicWithUri,
+} from "@thirdweb-dev/sdk";
+
+const publishMetadataUri = "ipfs://..."; // URI generated when publishing / deploying with thirdweb CLI
+const salt = ""; // Specify a salt for Create2 - if not provided, bytecode-hash will be used
+const constructorArgs = []; // input args for constructor
+
+const sdk = new ThirdwebSDK("goerli", {
+  clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
+  secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
+});
+
+const address = await predictAddressDeterministicWithUri(
+  publishMetadataUri,
+  sdk.getProvider(),
+  sdk.storage,
+  constructorArgs,
+  salt,
+);
+```

@@ -1,0 +1,295 @@
+---
+slug: /auth/server-frameworks/next
+title: Next
+---
+
+import QuickstartCard from "@components/QuickstartCard";
+
+This page will focus mainly on integrating Auth on the server-side with [Next.js](https://nextjs.org) by implementing the [Auth API](/auth/how-auth-works/auth-api).
+
+:::info
+
+To learn more about how to implement Auth on the client-side with Next.js (which you will likely need after implementing the server-side), see the Auth [React page](/auth/client-frameworks/react) as Next uses React for the frontend:
+
+<div>
+  <div className="col col--12" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Auth & React"
+      link="/auth/client-frameworks/react"
+      image="/assets/languages/react.png"
+      description="For client-side integration with Next.js, see the Auth & React page."
+    />
+  </div>
+</div>
+
+:::
+
+:::tip
+
+If you want to interact with a working version of the Auth + Next integration that we'll be building in this guide, you can checkout the following GitHub repository, or clone it with the command below:
+
+```
+npx thirdweb create app --template thirdweb-auth-next
+```
+
+<div>
+  <div className="col col--12" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="thirdweb-auth-next"
+      link="https://github.com/thirdweb-example/thirdweb-auth-next"
+      image="/assets/languages/nextjs.png"
+    />
+  </div>
+</div>
+
+:::
+
+## Getting Started
+
+:::info
+
+The `@thirdweb-dev/auth/next` entrypoint is currently built for Next.js apps using the `pages` directory. If you are using the beta `app` directory implemented in Next.js 13, the package may not work as expected in all cases.
+
+:::
+
+To add support for Auth to your Next backend, you'll need to install the `@thirdweb-dev/auth` package (as well as any other packages you'll need for your [wallet configuration](/auth/wallet-configuration), we'll need the `ethers` package for this example as we'll be using the `PrivateKeyWallet`):
+
+```bash npm2yarn
+npm install @thirdweb-dev/auth ethers@5
+```
+
+Now we can setup our Next.js server by using the `@thirdweb-dev/auth/next` entrypoint. First, we need to setup our [Auth API](/auth/how-auth-works/auth-api) by creating a new file called `pages/api/auth/[...thirdweb].ts`:
+
+```ts title="pages/api/auth/[...thirdweb].ts"
+import { ThirdwebAuth } from "@thirdweb-dev/auth/next";
+import { PrivateKeyWallet } from "@thirdweb-dev/auth/evm";
+
+export const { ThirdwebAuthHandler, getUser } = ThirdwebAuth({
+  domain: "example.com",
+  wallet: new PrivateKeyWallet(process.env.THIRDWEB_AUTH_PRIVATE_KEY || ""),
+});
+
+export default ThirdwebAuthHandler();
+```
+
+Here, we first configure our `ThirdwebAuth` instance with the `domain` of our app used for anti-phishing, as well as the admin wallet used to issue and verify JWTs. In this case, we use the `PrivateKeyWallet` from the `@thirdweb-dev/auth/evm` entrypoint, but there are a number of other supported wallet setups, which you can learn more about on the wallet configuration page:
+
+<div>
+  <div className="col col--12" style={{ padding: 8, marginBottom: 12 }}>
+    <QuickstartCard
+      name="Wallet Configuration"
+      link="/auth/wallet-configuration"
+      image="/assets/icons/edition.png"
+      description="Learn more about how to configure your wallet for Auth."
+    />
+  </div>
+</div>
+
+Finally, we export the `ThirdwebAuthHandler` which sets up all the `/api/auth/*` routes for us automatically. This is all the setup we need to setup a full Auth API on our Next.js backend!
+
+## Usage
+
+### Authenticating the user on the server
+
+The `getUser` function can be used to authenticate the user on the server. It will return the user's address if the user is authenticated, or `null` if the user is not authenticated. It can be used in any server-side context, including in Next.js API routes, as well as server-side functions like `getServerSideProps` and `getStaticProps`:
+
+```ts title="pages/api/secrets.ts"
+import { getUser } from "./auth/[...thirdweb]";
+import { NextApiRequest, NextApiResponse } from "next";
+
+export default async (req: NextApiRequest, res: NextApiResponse) => {
+  // Get the user off the request
+  const user = await getUser(req);
+
+  // Check if the user is authenticated
+  if (!user) {
+    return res.status(401).json({
+      message: "Not authorized.",
+    });
+  }
+
+  // Return a protected resource to the authenticated user
+  return res.status(200).json({
+    message: `This is a secret for ${user.address}.`,
+  });
+};
+```
+
+### Validating the login request
+
+By default, the Auth API will validate the login request by checking that the user requesting to login successfully signed a valid [sign-in with wallet](/auth/how-auth-works/sign-in-with-wallet) message. However, this doesn't perform specific checks on the exact contents of the payload, aside from the domain used for anti-phishing.
+
+If you want to add specific checks to enforce the exact data on the login payload signed by users, you can use the `authOptions` configuration:
+
+```ts title="pages/api/auth/[...thirdweb].ts"
+export const { ThirdwebAuthHandler, getUser } = ThirdwebAuth({
+  ... // other config
+  authOptions: {
+    // Enforce that the user's login message has these exact values
+    statement: "I agree to the terms of service",
+    uri: "https://frontend.example.com",
+    resources: ["https://terms-of-service.example.com"],
+    version: "1",
+    chainId: "1",
+  },
+});
+```
+
+Note that when you enforce these checks on the server-side, you'll also want to pass in the proper parameters to the `login` function on your client-side application to ensure that the login payload gets the correct format. You can see an [example of how to do this in the React section](/auth/client-frameworks/react#customizing-the-login-message).
+
+**Prevent replay attacks**
+
+Since the sign-in with wallet payload is used to login to your server, it's important to prevent third parties from being able to reuse old login payloads to falsely authenticate as other users. This reuse of old login payloads is called a replay attack.
+
+Luckily, all sign-in with wallet payloads include a `nonce` field which is a random string generated when the request was created. If you are using a database, or have somewhere to store nonces, you can ensure that each nonce is only used once:
+
+```ts title="pages/api/auth/[...thirdweb].ts"
+export const { ThirdwebAuthHandler, getUser } = ThirdwebAuth({
+  ... // other config
+  authOptions: {
+    validateNonce: async (nonce: string) => {
+      // Check in database or storage if nonce exists
+      const nonceExists = await dbExample.nonceExists(nonce);
+      if (nonceExists) {
+        throw new Error("Nonce has already been used!");
+      }
+
+      // Otherwise save nonce in database or storage for later validation
+      await dbExample.saveNonce(nonce);
+    }
+  },
+});
+```
+
+### Changing the token validity duration
+
+By default, the JWTs issued by the server are valid for 3 days (259200 seconds), after which the user will have to login again. If you want to change this duration, you can use the `authOptions.tokenDurationInSeconds` configuration:
+
+```ts title="pages/api/auth/[...thirdweb].ts"
+export const { ThirdwebAuthHandler, getUser } = ThirdwebAuth({
+  ... // other config
+  authOptions: {
+    tokenDurationInSeconds: 60 * 60 * 24 * 7, // 1 week
+  },
+});
+```
+
+### Changing the token refresh interval
+
+As discussed above, each JWT has a validity duration for which it is valid, and once that duration passes, the JWT will no longer be accepted by the backend. In this case, the user would have to login again. However, for users who login frequently, having to re-login every few days would be an inconvenience.
+
+This is where the refresh token flow comes in - for users who come back to your website frequently, they can get their valid JWTs refreshed to have an extended validity duration.
+
+The `refreshIntervalInSeconds` option allows you to configure how long after a JWT has initially been issued must pass before the token can be refreshed. Ideally, you don't want the token to be refresh too frequently because you'll received an unnecessary amount of requests to your API, but you want it to be refreshed frequently enough to increase convenience for frequently returning users. The default value for the `refreshIntervalInSeconds` value is 3 hours (10800 seconds), meaning users who come back to your site after 3 hours of initially logging in will get their tokens refreshed.
+
+```ts title="pages/api/auth/[...thirdweb].ts"
+export const { ThirdwebAuthHandler, getUser } = ThirdwebAuth({
+  ... // other config
+  authOptions: {
+    refreshIntervalInSeconds: 60 * 60, // 1 hour
+  },
+});
+```
+
+### Customizing cookie settings
+
+The Auth API will set a cookie on the user's browser with the issued JWT token (learn more about cookie settings from the [Mozilla cookie reference](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#define_where_cookies_are_sent)). This cookie is set to be `httpOnly` and `secure` (only sent over HTTPS), which is necessary for security purposes - and is also set to use the `domain` of your API, with a `path` of `/`, and `SameSite=None`.
+
+If you want to overwrite these, settings, you can with the `cookieOptions` configuration. For example, you may want to set your domain to be less specific - like if you have your api on `api.example.com` and a client on `client.example.com`, you may want to set your domain to `.example.com`, or you want want to set your `SameSite` setting to `strict` if your API and client are on the same domain:
+
+```ts title="pages/api/auth/[...thirdweb].ts"
+export const { ThirdwebAuthHandler, getUser } = ThirdwebAuth({
+  ... // other config
+  cookieOptions: {
+    domain: ".example.com",
+    path: "/api",
+    sameSite: "strict" // or "lax" or "none"
+  },
+});
+```
+
+### Saving users in your database
+
+We can use the `callbacks.onLogin` function to remember users in a database whenever they login, enabling a traditional database enabled authentication flow:
+
+```ts title="pages/api/auth/[...thirdweb].ts"
+export const { ThirdwebAuthHandler, getUser } = ThirdwebAuth({
+  ... // other config
+  callbacks: {
+    onLogin: async (user: User) => {
+      // Create a new user entry if the user doesn't exist
+      if (!await dbExample.userExists(user.address)) {
+        await dbExample.createUser({ address: user.address });
+      }
+    },
+  }
+});
+```
+
+### Enhancing session data
+
+When the server issues a JWT, the default JWT claims are added to the token (as elaborated in the [how auth works section](/auth/how-auth-works/json-web-tokens)). However, you may want to add additional data to the JWT claims to serve as session data that will persist on the token, such as certain user level permissions or access information. You can do this by returning data from the `callbacks.onLogin` callback function which treats your return value as session data to store onto the JWT.
+
+```ts title="pages/api/auth/[...thirdweb].ts"
+export const { ThirdwebAuthHandler, getUser } = ThirdwebAuth({
+  ... // other config
+  callbacks: {
+    onLogin: async (address: string) => {
+      // You can populate data from your database or other sources
+      const role = await dbExample.getUserRole(address);
+
+      // Add arbitrary session data
+      const session = {
+        permissions: ["admin", role],
+      };
+
+      return session;
+    },
+  }
+});
+```
+
+### Enhancing user data
+
+Alternatively, you can populate data about a user every time user data is requested from the `/user` endpoint or `getUser` function. This data is not session-wide as it is not stored on the JWT, so it isn't persisted an can change between requests. It can be useful for populating data that is not stored on the JWT, such as user profile information. We can do this by returning data from the `callbacks.onUser` callback function.
+
+```ts title="pages/api/auth/[...thirdweb].ts"
+import type { User } from "@thirdweb/auth/next";
+
+export const { ThirdwebAuthHandler, getUser } = ThirdwebAuth({
+  ... // other config
+  callbacks: {
+    onUser: async (user: User) => {
+      // You can populate data from your database or other sources
+      const data = await dbExample.getUserData(user.address);
+
+      return data;
+    },
+  }
+});
+```
+
+## Configuration
+
+| Name                                   | Required | Default  | Description                                                                                                                                                                                                                                                                                                  |
+| -------------------------------------- | -------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `domain`                               | ✅       | -        | The domain of your app, used for anti-phishing. See the [sign-in with wallet](/auth/how-auth-works/sign-in-with-wallet) overview for more details.                                                                                                                                                           |
+| `wallet`                               | ✅       | -        | The wallet used to issue and verify JWTs. See the [wallet configuration](/auth/wallet-configuration) page for more details.                                                                                                                                                                                  |
+| `authOptions`                          | ❌       | -        | Configuration used to validate login requests and JWTs                                                                                                                                                                                                                                                       |
+| `authOptions.statement`                | ❌       | -        | The required statement used on the login payload. See the [sign-in with wallet](/auth/how-auth-works/sign-in-with-wallet) overview for more details.                                                                                                                                                         |
+| `authOptions.uri`                      | ❌       | -        | The required URI used on the login payload. See the [sign-in with wallet](/auth/how-auth-works/sign-in-with-wallet) overview for more details.                                                                                                                                                               |
+| `authOptions.version`                  | ❌       | `1`      | The required version used on the login payload. See the [sign-in with wallet](/auth/how-auth-works/sign-in-with-wallet) overview for more details.                                                                                                                                                           |
+| `authOptions.chainId`                  | ❌       | -        | The required chain ID used on the login payload. If set, smart contract wallets on other chains won't be able to login. See the [sign-in with wallet](/auth/how-auth-works/sign-in-with-wallet) overview for more details.                                                                                   |
+| `authOptions.resources`                | ❌       | -        | The required resources used on the login payload. See the [sign-in with wallet](/auth/how-auth-works/sign-in-with-wallet) overview for more details.                                                                                                                                                         |
+| `authOptions.validateNonce`            | ❌       | -        | A function to check if the nonce on a login payload is valid, used to prevent replay attacks.                                                                                                                                                                                                                |
+| `authOptions.validateTokenId`          | ❌       | -        | A function to check if the JWT uid is still valid, used to logout users when using a setup with a database.                                                                                                                                                                                                  |
+| `authOptions.tokenDurationInSeconds`   | ❌       | `259200` | The number of seconds that each JWT is valid for. Defaults to 259200 (3 days).                                                                                                                                                                                                                               |
+| `authOptions.refreshIntervalInSeconds` | ❌       | `10800`  | The number of seconds that needs to pass before a valid JWT can be refreshed. Defaults to 10800 (3 hours).                                                                                                                                                                                                   |
+| `cookieOptions`                        | ❌       | -        | Configuration used for all cookies set by the server                                                                                                                                                                                                                                                         |
+| `cookieOptions.domain`                 | ❌       | -        | The domain value set on all cookies. See [Mozilla cookie reference](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#define_where_cookies_are_sent) for more information.                                                                                                                           |
+| `cookieOptions.path`                   | ❌       | `/`      | The path value set on all cookies. See [Mozilla cookie reference](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#define_where_cookies_are_sent) for more information.                                                                                                                             |
+| `cookieOptions.sameSite`               | ❌       | `none`   | The sameSite value set on all cookies. See [Mozilla cookie reference](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#samesite) for more information.                                                                                                                                              |
+| `callbacks`                            | ❌       | -        | Callback functions that let you add additional data and side-effects to the Auth flow. Especially useful when integrating databases.                                                                                                                                                                         |
+| `callbacks.login.onLogin`              | ❌       | -        | Callback function that gets called whenever the user logs in. Can be used purely as a side-effect, or can additionally return data from the function to store in the user's session (on the JWT).                                                                                                            |
+| `callbacks.user.onUser`                | ❌       | -        | Callback function that gets called whenever the user data is requested by the client or another endpoint. Can be used purely as a side-effect, or can additionally return data to be populated onto the user object (not session-wide, but request-specific data that can change, like profile information). |
+| `callbacks.logout.onLogout`            | ❌       | -        | Side-effect function that gets called whenever a user logs out.                                                                                                                                                                                                                                              |

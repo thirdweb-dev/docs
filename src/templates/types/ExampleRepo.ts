@@ -8,7 +8,7 @@ type ExampleRepo = {
   clone_url: string;
   topics: string[];
   language: string;
-  stargazers_count: string;
+  stargazers_count: number;
   is_template: boolean;
 };
 

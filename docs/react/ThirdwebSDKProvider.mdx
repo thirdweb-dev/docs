@@ -16,13 +16,18 @@ prop to inform the SDK of the wallet you want to use, among other configuration 
 
 ## Usage
 
-If you are using one of our <code>default chains</code>, provide the name of the chain as a `string` to the `activeChain` prop.
+If you are using one of our <a href='#default-chains'> default chains </a>, provide the name of the chain as a `string` to the `activeChain` prop.
 
-For non-default chains, see [configuring active chains](#active-chain) or [custom chains](#custom-chains).
+For non-default chains, see [configuring active chains](#activechain-recommended) or [custom chains](#custom-evm-chains).
 
 You&rsquo;ll likely want to provide a `signer` to enable the initiation of transactions.
 
-<details>
+<details
+  id="default-chains"
+  style={{
+    scrollMarginTop: "100px",
+  }}
+>
   <summary>View default chains</summary>
   <div>
     <ul>
@@ -85,8 +90,9 @@ function MyApp() {
       activeChain={"ethereum"}
       // Example: Use ethers to get the signer from the window.ethereum object
       signer={new ethers.providers.Web3Provider(window.ethereum).getSigner()}
+      clientId="your-client-id"
     >
-      <Component {...pageProps} />
+      <App />
     </ThirdwebSDKProvider>
   );
 }
@@ -121,8 +127,30 @@ function MyApp() {
       // Example: Use ethers to get the signer from the window.ethereum object
       signer={new ethers.providers.Web3Provider(window.ethereum).getSigner()}
       // highlight-end
+      clientId="your-client-id"
     >
-      <Component {...pageProps} />
+      <App />
+    </ThirdwebSDKProvider>
+  );
+}
+```
+
+### clientId (recommended)
+
+The `clientId` prop is required to use the thirdweb infrastructure services with the SDK. You can get a client ID by creating an API key on [thirdweb dashboard](https://thirdweb.com/create-api-key).
+
+```jsx
+function MyApp() {
+  return (
+    <ThirdwebSDKProvider
+      activeChain={"ethereum"}
+      // Example: Use ethers to get the signer from the window.ethereum object
+      signer={new ethers.providers.Web3Provider(window.ethereum).getSigner()}
+      // highlight-start
+      clientId="your-client-id"
+      // highlight-end
+    >
+      <App />
     </ThirdwebSDKProvider>
   );
 }
@@ -136,7 +164,7 @@ There are 700+ chains available in the [`@thirdweb-dev/chains`](https://github.c
 Import the chain you want to use from the package and pass it to the `activeChain` prop.
 If your chain is not included, see [configuring custom chains](#custom-chains).
 
-:::tip Install Package
+:::info Install Package
 
 Install the `@thirdweb-dev/chains` package to use non-default chains.
 
@@ -183,7 +211,7 @@ const App = () => {
         rpc: ["<your-rpc-url-here>"],
 
         // === Information for adding the network to your wallet (how it will appear for first time users) === \\
-        // Information about the chains native currency (i.e. the currency that is used to pay for gas)
+        // Information about the chain's native currency (i.e. the currency that is used to pay for gas)
         nativeCurrency: {
           decimals: 18,
           name: "Consensys ETH",
@@ -282,10 +310,11 @@ const App = () => {
 
 The configuration object for setting up [Auth](/auth); allowing users to sign in with their wallet.
 
-| Property  | Type   | Description                                                                                                                                                                |
-| --------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `authUrl` | string | The backend URL of the authentication endpoints. For example, if your endpoints are at `/api/auth/login`, `/api/auth/logout`, etc. then this should be set to `/api/auth`. |
-| `domain`  | string | The frontend domain used to generate the login payload. This domain should match the domain used on your auth backend.                                                     |
+| Property        | Type           | Description                                                                                                                                                                |
+| --------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `authUrl`       | string         | The backend URL of the authentication endpoints. For example, if your endpoints are at `/api/auth/login`, `/api/auth/logout`, etc. then this should be set to `/api/auth`. |
+| `domain`        | string         | The frontend domain used to generate the login payload. This domain should match the domain used on your auth backend.                                                     |
+| `secureStorage` | ISecureStorage | Secure storage to use when working with JWT tokens. ** By default auth uses cookies so no need to set this unless you want to specifically use JWT tokens **               |
 
 ```jsx
 import { ThirdwebSDKProvider } from "@thirdweb-dev/react";
@@ -322,7 +351,7 @@ function MyApp() {
       sdkOptions={{
         readonlySettings: {
           rpcUrl: "<rpc-url>", // force read calls to go through your own RPC url
-          chainId: 1, // reduce RPC calls by sepcifying your chain ID
+          chainId: 1, // reduce RPC calls by specifying your chain ID
         },
         gasSettings: {
           maxPriceInGwei: 123, // Maximum gas price for transactions (default 300 gwei)
@@ -342,7 +371,6 @@ function MyApp() {
         },
         infuraApiKey: "<infura-api-key>", // your Infura API key
         alchemyApiKey: "<alchemy-api-key>", // your Alchemy API key
-        thirdwebApiKey: "<thirdweb-api-key>", // your thirdweb API key
       }}
       // highlight-end
     >
@@ -358,7 +386,7 @@ Override the default [Storage](/storage) interface used by the SDK.
 
 Allows you to create an instance of `ThirdwebStorage` with your own customized config, and pass it to the SDK.
 
-:::tip Storage
+:::info Storage
 
 This requires the `@thirdweb-dev/storage` package to be installed.
 

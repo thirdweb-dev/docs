@@ -1,0 +1,159 @@
+---
+slug: /wallet/interfaces/abstract-client-wallet
+title: Abstract Client Wallet
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+import ViewRepoButton from "@components/ViewRepoButton";
+
+The base class for all client-side wallets (web, mobile) in the Wallet SDK. It extends [`AbstractWallet`](/wallet/interfaces/abstract-wallet) and adds client side specific logic.
+
+A client side wallet delegates the wallet-specific connection logic to a Connector.
+
+This wallet is not meant to be used directly, but instead be extended to [build your own wallet](/wallet/build-a-wallet).
+
+<ViewRepoButton
+  name={"js"}
+  text="View on GitHub"
+  link={
+    "https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/base.ts"
+  }
+/>
+
+## Usage
+
+```javascript
+export class MyFrontendWallet extends AbstractClientWallet {
+  async getConnector(): Promise<Connector> {
+    // your implementation
+  }
+}
+```
+
+## Public Methods
+
+The wallet inherits all the public methods from the [AbstractWallet](/interfaces/abstract-wallet) class. In addition to the following ones:
+
+### connect
+
+Prompt the user to connect their wallet to your app.
+
+```javascript
+const address = await wallet.connect();
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### Return Value
+
+Returns a `string` containing the wallet address, or throws an error if the connection failed.
+
+```typescript
+string;
+```
+
+</div>
+</details>
+
+### disconnect
+
+Disconnect the currently connected wallet from your app.
+
+```javascript
+await wallet.disconnect();
+```
+
+### autoConnect
+
+Attempts to connect to the wallet without asking the user explicitly. Only possible if the user has already connected to the wallet to your app before.
+
+```javascript
+const address = await wallet.autoConnect();
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### Return Value
+
+Returns a `string` containing the wallet address, or `undefined` if the connection failed.
+
+```typescript
+string | undefined;
+```
+
+</div>
+</details>
+
+### getMeta
+
+Get metadata about the wallet, such as the `name` and `iconURL`.
+
+```javascript
+const metadata = wallet.getMeta();
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### Return Value
+
+```typescript
+{
+  name: string;
+  iconURL: string;
+}
+```
+
+</div>
+</details>
+
+### switchChain
+
+Switch the currently connected wallet to a different chain.
+
+```javascript
+await wallet.switchChain(1);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### chainId
+
+The chain ID to switch to.
+
+Must be a `number`.
+
+</div>
+</details>
+
+### getPersonalWallet
+
+Get the connected personal wallet. Useful for wallets that have an underlying personal wallet, such as SmartWallet or Safe.
+
+```javascript
+const connectedPersonalWallet = wallet.getPersonalWallet();
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### Return Value
+
+Returns an `EVMWallet` or `undefined if there is no connected wallet.
+
+```typescript
+EVMWallet | undefined;
+```
+
+</div>
+</details>

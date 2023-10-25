@@ -1,0 +1,88 @@
+---
+title: Generate
+slug: /cli/generate
+---
+
+import CLI from "/docs/cli.json";
+import CLIOptions from "@components/CLIOptions";
+
+# Generate
+
+Detects all contract addresses in your project, then fetches and stores each smart contract&rsquo;s ABI in memory (inside `node_modules`);
+improving the performance of the SDK when using functions such as [`getContract`](/typescript/sdk.thirdwebsdk.smartcontract) and
+[`useContract`](/react/react.usecontract).
+
+Once the ABIs are cached locally, the SDK becomes **strongly typed** when interacting with your smart contracts.
+Providing you with Intellisense and type-checking when using functions such as
+[`contract.call`](/typescript/sdk.smartcontract.call), in the [TypeScript SDK](/typescript),
+or [`useContractRead`](/react/react.usecontractread), and [`useContractWrite`](/react/react.usecontractwrite)
+in the [React SDK](/react).
+
+```bash
+npx thirdweb generate
+```
+
+## Configuration
+
+After the first generation, a `thirdweb.json` file is created at the root of your project containing configuration for the command:
+
+```json
+// An example thirdweb.json file
+{
+  "chainIds": [80001],
+  "contracts": [
+    {
+      "address": "0x5523B2CB564579aAf2947B8d08e2187ff35aE4b2",
+      "chainId": 80001
+    }
+  ]
+}
+```
+
+To add additional contracts to the generation process, add a new object into the `contracts` array in the `thirdweb.json` file:
+
+```json
+{
+  "chainIds": [80001],
+  "contracts": [
+    {
+      "address": "0x5523B2CB564579aAf2947B8d08e2187ff35aE4b2",
+      "chainId": 80001
+    },
+    // highlight-start
+    {
+      "address": "some-other-contract-address",
+      "chainId": 80001
+    }
+    // highlight-end
+  ]
+}
+```
+
+### postinstall Script
+
+A [`postinstall`](https://docs.npmjs.com/cli/v9/using-npm/scripts#pre--post-scripts) script is also created that performs the `generate` command
+after your dependencies are installed; enabling the same ABI caching process and performance improvements in your deployment environments.
+
+You can view and customize the script inside of your `package.json`.
+
+## Usage
+
+The command recursively checks all files in your project for valid smart contract addresses and fetches the ABIs for each contract.
+The ABIs are then stored locally in the projects `node_modules/@thirdweb-dev/generated-abis` directory.
+
+Functions that require the fetching of a smart contract such as `getContract` and `useContract` will now use the cached ABIs instead of
+fetching them each time the function is called. This improves the performance of your application and allows the SDK to become strongly
+typed when interacting with your smart contracts.
+
+```bash
+npx thirdweb generate [options]
+```
+
+## Options
+
+<div>
+  {CLI.generate.map(({ flags, description }) => (
+    <CLIOptions flags={flags} description={description} />
+  ))}
+</div>

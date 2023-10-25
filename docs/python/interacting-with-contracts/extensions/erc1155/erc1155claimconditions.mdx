@@ -1,0 +1,203 @@
+---
+title: Claim / Claim Conditions
+slug: /python.erc1155claimconditions
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+Functionality available for contracts that implement the
+[`IDropSinglePhase`](/contracts/IDropSinglePhase) interface or the
+[`Drop1155`](/contracts/DropERC1155) contract.
+
+Enables wallets to claim (mint) NFTs from the contract under specific conditions.
+
+## claim
+
+Claim a specified number of tokens to the **connected wallet**.
+
+```python
+token_id = 0
+quantity = 1
+
+tx = contract.erc1155.claim(token_id, quantity)
+receipt = tx.receipt
+claimed_token_id = tx.id
+claimed_nft = tx.data()
+```
+
+<details>
+<summary>Configuration</summary>
+<div>
+
+#### token_id (required)
+
+The token ID of the NFT you want to claim.
+
+Must be an `int`.
+
+#### quantity (required)
+
+The number of tokens to claim.
+
+Must be an `int`.
+
+</div>
+</details>
+
+## claim_to
+
+The same as [`claim`](#claim), but allows specifying the recipient
+address rather than using the connected wallet.
+
+```python
+address = "0x7fDae677aA6f94Edff9872C4b91D26407709c790"
+token_id = 0
+quantity = 1
+
+tx = contract.erc1155.claim_to(address, token_id, quantity)
+receipt = tx.receipt
+claimed_token_id = tx.id
+claimed_nft = tx.data()
+```
+
+<details>
+<summary>Configuration</summary>
+<div>
+
+#### recipient (required)
+
+The wallet address to receive the claimed tokens.
+
+Must be a `string`.
+
+#### token_id (required)
+
+The token ID of the NFT you want to claim.
+
+Must be an `int`.
+
+#### quantity (required)
+
+The number of tokens to claim.
+
+Must be a `int`.
+
+</div>
+</details>
+
+## get_active
+
+Retrieve the currently active claim phase for a specific token ID, if any.
+
+```python
+ active_phase =  contract.erc1155.claim_conditions.get_active(
+  "{{token_id}}",
+)
+```
+
+<details>
+<summary>Configuration</summary>
+<div>
+
+#### token_id (required)
+
+The token ID of the NFT you want to get the claim conditions for.
+
+Must be an `int`.
+
+### Return Value
+
+If there is no active claim phase, returns `undefined`.
+
+If a claim condition is active, returns a `ClaimCondition` object containing the following properties:
+
+```typescript
+{
+  maxClaimableSupply: string
+  startTime: Date
+  price: BigNumber
+  currencyAddress: string
+  maxClaimablePerWallet: string
+  waitInSeconds: BigNumber
+  merkleRootHash: string | number[]
+  availableSupply: string
+  currentMintSupply: string
+  currencyMetadata: {
+      symbol: string
+      value: BigNumber
+      name: string
+      decimals: number
+      displayValue: string
+  }
+  metadata?: {
+      [x: string]: unknown
+      name?: string | undefined
+  } | undefined
+  snapshot?: {
+      price?: string | undefined
+      currencyAddress?: string | undefined
+      address: string
+      maxClaimable: string
+  }[] | null | undefined
+}
+```
+
+</div>
+</details>
+
+## get_all
+
+Get all the claim phases configured for a specific token ID.
+
+```python
+ claimPhases =  contract.erc1155.claimConditions.get_all(
+  "{{token_id}}",
+)
+```
+
+<details>
+<summary>Configuration</summary>
+<div>
+
+#### token_id (required)
+
+The token ID of the NFT you want to get the claim conditions for.
+
+Must be an `int`.
+
+### Return Value
+
+Returns a list of `ClaimCondition` objects.
+
+```python
+{
+  maxClaimableSupply: string
+  startTime: Date
+  price: BigNumber
+  currencyAddress: string
+  maxClaimablePerWallet: string
+  waitInSeconds: BigNumber
+  merkleRootHash: string | number[]
+  availableSupply: string
+  currentMintSupply: string
+  currencyMetadata: {
+      symbol: string
+      value: BigNumber
+      name: string
+      decimals: number
+      displayValue: string
+  }
+  metadata?: {
+      [x: string]: unknown
+      name?: string | undefined
+  } | undefined
+  snapshot?: {
+      price?: string | undefined
+      currencyAddress?: string | undefined
+      address: string
+      maxClaimable: string
+  }[] | null | undefined
+}[]
+```
+
+</div>
+</details>

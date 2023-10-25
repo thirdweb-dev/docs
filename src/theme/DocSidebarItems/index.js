@@ -10,12 +10,7 @@ import styles from "../DocSidebarItem/Link/styles.module.css";
 // TODO this triggers whole sidebar re-renders on navigation
 function DocSidebarItems({ items, ...props }) {
   // Category logic (i.e. "Build contracts", etc.)
-  const showCategoryPages = [
-    "/platform-overview",
-    "/deploy",
-    "/templates",
-    "/cli",
-  ];
+  const showCategoryPages = ["/platform-overview", "/templates", "/api-keys"];
   const checkIfShowCategoryPages = (item) => {
     // check if starts with
     return (
@@ -32,30 +27,36 @@ function DocSidebarItems({ items, ...props }) {
   const sidebarItems = [
     {
       title: null, // No title for the first section
-      items: ["Home", "Overview ", "Getting Started"],
+      items: ["Home", "Overview "],
     },
     {
-      title: "Tools",
-      items:
-        // Tools
-        [
-          "Solidity SDK",
-          "Explore",
-          "EVM SDK",
-          "Solana SDK",
-          "UI Components",
-          "Deploy",
-          "Publish",
-          "Dashboard",
-        ],
+      title: "Wallets",
+      items: [
+        "Connect",
+        "Smart Wallet",
+        "Embedded Wallet",
+        "Wallet SDK",
+        "Auth",
+      ],
+    },
+    {
+      title: "Contracts",
+      items: [
+        "Contract SDK",
+        "Pre-Built Contracts",
+        "Solidity SDK",
+        "Deploy",
+        "Publish",
+        "UI Components",
+      ],
     },
     {
       title: "Infrastructure",
-      items: ["Auth", "Storage"],
+      items: ["Engine", "Storage", "RPC Edge"],
     },
     {
-      title: "Solutions",
-      items: ["CommerceKit", "GamingKit"],
+      title: "Tools",
+      items: ["CLI", "Dashboard"],
     },
     {
       title: "SDK References",
@@ -70,13 +71,12 @@ function DocSidebarItems({ items, ...props }) {
       ],
     },
     {
+      title: "Solutions",
+      items: ["Signature Minting"],
+    },
+    {
       title: "Resources",
-      items: [
-        "Templates",
-        "Guides",
-        "CLI", // Should we have this here?
-        "Glossary",
-      ],
+      items: ["API Keys", "Templates", "Guides", "Glossary"],
     },
   ];
 
@@ -85,19 +85,27 @@ function DocSidebarItems({ items, ...props }) {
       name.split("/")[1].charAt(0).toUpperCase() + name.split("/")[1].slice(1);
 
     if (formatted === "Sdk") {
-      return "SDK";
+      return "Contract SDK";
+    }
+
+    if (formatted === "Pre-built-contracts") {
+      return "Pre-Built Contracts";
+    }
+
+    if (formatted === "Embedded-wallet") {
+      return "Embedded Wallet";
+    }
+
+    if (formatted === "Web3-api") {
+      return "Web3 API";
     }
 
     if (formatted === "Ui-components") {
       return "UI Components";
     }
 
-    if (formatted === "Solidity SDK") {
-      return "Solidity SDK";
-    }
-
-    if (formatted === "Gamingkit") {
-      return "GamingKit";
+    if (formatted === "Wallet") {
+      return "Wallet SDK";
     }
 
     if (formatted === "Typescript") {
@@ -108,17 +116,17 @@ function DocSidebarItems({ items, ...props }) {
       return "Solidity";
     }
 
-    // If not the word pre-built, split by dash and capitalize each word
-    if (formatted !== "Pre-built-contracts") {
-      return formatted
-        .split("-")
-        .map((word) => {
-          return word.charAt(0).toUpperCase() + word.slice(1);
-        })
-        .join(" ");
-    } else {
-      return "Prebuilt Contracts";
+    if (formatted === "Cli") {
+      return "CLI";
     }
+
+    // If not the word pre-built, split by dash and capitalize each word
+    return formatted
+      .split("-")
+      .map((word) => {
+        return word.charAt(0).toUpperCase() + word.slice(1);
+      })
+      .join(" ");
   };
 
   if (showCategories) {

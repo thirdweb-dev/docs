@@ -1,0 +1,115 @@
+---
+title: Overview
+slug: /storage
+---
+
+# Storage - TypeScript
+
+:::caution
+We now require you to authenticate using your [API key](/api-keys) which you can obtain from the [Dashboard](https://thirdweb.com/create-api-key).
+:::
+
+The [`ThirdwebSDK`](/typescript/sdk.thirdwebsdk) class includes [storage](/storage)
+**out of the box**, available by using `sdk.storage`:
+
+- [`sdk.storage.download`](/typescript/sdk.storage.download)
+- [`sdk.storage.downloadJSON`](/typescript/sdk.storage.downloadjson)
+- [`sdk.storage.resolveScheme`](/typescript/sdk.storage.resolvescheme)
+- [`sdk.storage.upload`](/typescript/sdk.storage.upload)
+- [`sdk.storage.uploadBatch`](/typescript/sdk.storage.uploadbatch)
+
+## The `@thirdweb-dev/storage` Package
+
+Storage is also available as it&rsquo;s own package, separate from the `@thirdweb-dev/sdk` package.
+
+This is useful if you want to use storage without the rest of the SDK.
+
+```bash npm2yarn
+npm install @thirdweb-dev/storage
+```
+
+Once installed, import and instantiate the `ThirdwebStorage` class:
+
+```typescript
+import { ThirdwebStorage } from "@thirdweb-dev/storage";
+
+const storage = new ThirdwebStorage({
+  secretKey: "YOUR_SECRET_KEY", // You can get one from dashboard settings
+});
+```
+
+### Configuration
+
+Customize the behavior of the `ThirdwebStorage` class by passing in a custom `ThirdwebStorageConfig` object.
+
+<details>
+    <summary>gatewayUrls</summary>
+    <div>
+
+Provide your own IPFS gateway URLs to use to retrieve files from IPFS.
+
+When calling [`download`](/typescript/sdk.storage.download) or [`downloadJSON`](/typescript/sdk.storage.downloadjson),
+the SDK will try to download the file from the first gateway URL in the list. If that fails, it will try the next URL in the list, and so on.
+
+```typescript
+const storage = new ThirdwebStorage({
+  gatewayUrls: ["my-own-gateway.com", "some-other-gateway.com"],
+});
+```
+
+The default value provides three gateways for IPFS:
+
+```typescript
+{
+  "ipfs://": [
+    "https://gateway.ipfscdn.io/ipfs/",
+    "https://cloudflare-ipfs.com/ipfs/",
+    "https://ipfs.io/ipfs/",
+  ],
+}
+```
+
+</div>
+</details>
+
+<details>
+    <summary>downloader</summary>
+    <div>
+
+Provide your own implementation of how to handle downloading from all schemes specified in the `gatewayUrls` configuration.
+
+```typescript
+// Can instantiate the downloader with the default gateway URLs
+const downloader = new StorageDownloader();
+const storage = new ThirdwebStorage({ downloader });
+```
+
+</div>
+</details>
+
+<details>
+    <summary>uploader</summary>
+    <div>
+  
+Specify the default upload behavior.
+
+```typescript
+// Instantiate the uploader with default configuration
+const uploader = new StorageUploader();
+const storage = new ThirdwebStorage({ uploader });
+```
+
+Optionally, provide configuration:
+
+```typescript
+const options = {
+  // Upload objects with resolvable URLs
+  uploadWithGatewayUrl: true,
+};
+
+const uploader = new StorageUploader(options);
+const storage = new ThirdwebStorage({ uploader });
+```
+
+</div>
+</details>

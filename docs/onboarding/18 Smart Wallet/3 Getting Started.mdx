@@ -1,0 +1,311 @@
+---
+slug: /smart-wallet/getting started
+title: Getting Started
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+import ViewRepoButton from "@components/ViewRepoButton";
+import QuickstartCard from "@components/QuickstartCard";
+
+Getting started to add ERC-4337 smart wallet support to your application easily.
+
+Once set, your application will:
+
+- Let users **connect to their smart wallet** using any personal wallet, including email and local wallets for easy onboarding.
+- Automatically **deploy individual account contracts** for your users when they do their first on-chain transaction.
+- **Handle all transaction gas costs** via the thirdweb paymaster.
+
+## 1. Deploy a smart wallet factory contract
+
+Deployable via the [explore page](https://thirdweb.com/explore/smart-wallet) or build your own [ERC 4337](https://eips.ethereum.org/EIPS/eip-4337) compatible factory contract using the [Solidity SDK](/solidity/base-contracts/smart-accounts).
+
+Choose the right smart wallet setup for your app. thirdweb offers the following three different kinds of smart wallets:
+
+<div className="row" style={{ marginBottom: 12, padding: 8, paddingTop: 0 }}>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Account Factory"
+      link="https://thirdweb.com/thirdweb.eth/AccountFactory"
+      image="/assets/wallets/smart-wallet.svg"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Managed Account Factory"
+      link="https://thirdweb.com/thirdweb.eth/ManagedAccountFactory"
+      image="/assets/wallets/smart-wallet.svg"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Dynamic Account Factory"
+      link="https://thirdweb.com/thirdweb.eth/DynamicAccountFactory"
+      image="/assets/wallets/smart-wallet.svg"
+    />
+  </div>
+</div>
+
+Read about the differences between the three smart wallet types [here](/smart-wallet/how-it-works#smart-wallet-factories).
+
+## 2. Get a free API key
+
+You will require an API key to use thirdweb's infrastructure services such as the bundler and paymaster.
+
+Obtain an API key from the [thirdweb dashboard Settings page](https://thirdweb.com/create-api-key).
+
+The API key lets you access thirdweb's bundler and paymaster infrastructure, which is required for the smart wallet to operate and optionally enable [gasless transactions](/glossary/gasless-transactions).
+
+The API key will need to have the following settings:
+
+- smart wallet as an enabled service
+- The contracts that the smart wallet will interact with must be added to the "Destination Contracts" list. Learn more [here](/api-keys#smart-wallet-allowed-destination-addresses)
+
+Learn more about creating an API key and restricting which contracts the smart wallet can interact with [here](/api-keys).
+
+## 3. Connect smart wallets in your application
+
+Use the following code to integrate smart wallets into your apps. This will:
+
+- Connect your users to their smart wallet based on their personal wallet (can be any wallet, including email or local wallets).
+- Automatically deploy the individual account contracts for your users when they do their first on-chain transaction.
+- Handle all transaction gas costs via the thirdweb paymaster.
+- Select your deployed account factory and client ID to get use the thirdweb infrastructure.
+
+:::info Gasless Transactions
+
+To setup gasless transactions, set the `gasless` option to `true` in the smart wallet configuration.
+All transactions performed with the smart wallet will then be gasless.
+
+:::
+
+<Tabs>
+  <TabItem value="react" label="React" default>
+    <CodeBlock language="tsx">
+    {`import { ThirdwebProvider, ConnectWallet, smartWallet, embeddedWallet } from "@thirdweb-dev/react";
+export default function App() {
+return (
+    <ThirdwebProvider
+      clientId="YOUR_CLIENT_ID"
+      activeChain="goerli"
+      supportedWallets={[
+        smartWallet(
+          embeddedWallet(), // any personal wallet
+          { 
+            factoryAddress: "0x...", // your deployed factory address
+            gasless: true // enable or disable gasless transactions
+        })
+      ]}
+    >
+      <ConnectWallet />
+    </ThirdwebProvider>
+  );
+}
+`}
+</CodeBlock>
+  </TabItem>
+  <TabItem value="react-native" label="React Native">
+    <CodeBlock language="tsx">
+    {`import { ThirdwebProvider, ConnectWallet, smartWallet, embeddedWallet } from "@thirdweb-dev/react-native";
+export default function App() {
+return (
+    <ThirdwebProvider
+      clientId="YOUR_CLIENT_ID"
+      activeChain="goerli"
+      supportedWallets={[
+        smartWallet(
+          embeddedWallet(), // any personal wallet
+          { 
+            factoryAddress: "0x...", // your deployed factory address
+            gasless: true // enable or disable gasless transactions
+        })
+      ]}
+    >
+      <ConnectWallet />
+    </ThirdwebProvider>
+  );
+}`}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="TypeScript" label="TypeScript">
+    <CodeBlock language="typescript">
+    {`import { LocalWallet, SmartWallet } from "@thirdweb-dev/wallets";
+// First, connect the personal wallet, which can be any wallet (metamask, walletconnect, etc.)
+// Here we're just generating a new local wallet which can be saved later
+const personalWallet = new LocalWallet();
+await personalWallet.generate();
+// Setup the Smart Wallet configuration
+const config = {
+  chain: "goerli", // the chain where your smart wallet will be or is deployed
+  factoryAddress: "0x...", // your own deployed account factory address
+  clientId: "YOUR_CLIENT_ID", // or use secretKey for backend/node scripts
+  gasless: true, // enable or disable gasless transactions
+};
+// Then, connect the Smart wallet
+const wallet = new SmartWallet(config);
+  await wallet.connect({
+  personalWallet,
+});`}
+
+</CodeBlock>
+  </TabItem>
+  <TabItem value="unity" label="Unity">
+    <CodeBlock language="csharp">
+    {`using Thirdweb;
+public async void ConnectWallet()
+{
+    // Reference to your Thirdweb SDK
+    var sdk = ThirdwebManager.Instance.SDK;
+    // Configure the connection
+    var connection = new WalletConnection(
+      provider: WalletProvider.SmartWallet,        // The wallet provider you want to connect to (Required)
+      chainId: 1,                                  // The chain you want to connect to (Required)
+      password: "myEpicPassword",                  // If using a local wallet as personal wallet (Optional)
+      email: "email@email.com",                    // If using an email wallet as personal wallet (Optional)
+      personalWallet: WalletProvider.LocalWallet   // The personal wallet you want to use with your Smart Wallet (Optional)
+    );
+    // Connect the wallet
+    string address = await sdk.wallet.Connect(connection);
+}
+    `}
+    </CodeBlock>
+  </TabItem>
+</Tabs>
+
+### Using a Template
+
+Clone these templates to deploy Smart Wallets and connect to them quickly.
+
+<div className="row" style={{ marginLeft: 8 }}>
+  <div>
+    <ViewRepoButton
+      name={"js"}
+      text="Node.js Script"
+      link={"https://github.com/thirdweb-example/smart-wallet-script"}
+    />
+  </div>
+  <div style={{ marginLeft: 12 }}>
+    <ViewRepoButton
+      name={"js"}
+      text="React App"
+      link={"https://github.com/thirdweb-example/smart-wallet-react"}
+    />
+  </div>
+</div>
+
+## 4. Executing Transactions with Smart Wallets
+
+Once setup, you can use the thirdweb [TypeScript](/typescript), [React](/react), [React Native](react-native)
+and [Unity SDKs](/unity) to deploy contracts, perform transactions, and manipulate wallets like any other wallet.
+
+<Tabs>
+  <TabItem value="react" label="React">
+    <CodeBlock language="tsx">
+      {`import { useAddress, useContract, useOwnedNFTs, Web3Button } from "@thirdweb-dev/react";
+// The ThirdwebProvider setup above already handles connection to the smart wallet
+// Within the provider, you can use the react SDK hooks to interact with the blockchain
+export default function MyComponent() {
+  // Get the connected smart wallet address
+  const smartWalletAddress = useAddress();
+  // Fetch owned NFTs
+  const { contract } = useContract("0x...");
+  const { data, isLoading } = useOwnedNFTs(contract, smartWalletAddress);
+  // Mint a new NFT
+  return (
+    <Web3Button
+      contractAddress={"0x..."}
+      action={(contract) => contract.erc721.mint({
+          name: "My NFT",
+          description: "My NFT description",
+          image: "https://example.com/image.png",
+        })
+      }
+    >
+      Mint NFT
+    </Web3Button>
+  );
+}
+`}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="react-native" label="React Native">
+    <CodeBlock language="tsx">
+      {`import { useAddress, useContract, useOwnedNFTs, Web3Button } from "@thirdweb-dev/react-native";
+// The ThirdwebProvider setup above already handles connection to the smart wallet
+// Within the provider, you can use the react SDK hooks to interact with the blockchain
+export default function MyComponent() {
+  // Get the connected smart wallet address
+  const smartWalletAddress = useAddress();
+  // Fetch owned NFTs
+  const { contract } = useContract("0x...");
+  const { data, isLoading } = useOwnedNFTs(contract, smartWalletAddress);
+  // Mint a new NFT
+  return (
+    <Web3Button
+      contractAddress={"0x..."}
+      action={(contract) => contract.erc721.mint({
+          name: "My NFT",
+          description: "My NFT description",
+          image: "https://example.com/image.png",
+        })
+      }
+    >
+      Mint NFT
+    </Web3Button>
+  );
+}
+`}
+    </CodeBlock>
+  </TabItem>
+<TabItem value="TypeScript" label="TypeScript" default>
+    <CodeBlock language="typescript">
+      {`import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+// Simply initialize your SDK with the created smart wallet
+const sdk = await ThirdwebSDK.fromWallet(smartWallet, "goerli", {
+  clientId: "YOUR_CLIENT_ID"
+});
+// You can now interact with the blockchain as you would with a regular EOA
+const smartWalletAddress = await sdk.wallet.getAddress();
+// gas free wallet actions
+await sdk.wallet.transfer("0x...", "0.01");
+// gas free contract deployments
+const contractAddress = await sdk.deployer.deployNFTCollection({
+  name: "My NFT Collection",
+  primary_sale_recipient: smartWalletAddress
+});
+// gas free contract interactions
+const contract = await sdk.getContract(contractAddress);
+await contract.erc721.mint({
+  name: "My NFT",
+  description: "My NFT description",
+  image: "https://example.com/image.png",
+});
+`}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="unity" label="Unity">
+    <CodeBlock language="csharp">
+      {`using Thirdweb;
+public async void MintNFT()
+{
+  // The ThirdwebManger prefab holds the smart wallet connection state
+  var sdk = ThirdwebManager.Instance.SDK;
+  // Get the connected smart wallet address
+  var smartWalletAddress = await sdk.Wallet.GetAddress();
+  // Interact with contracts
+  Contract contract = sdk.GetContract("0x...");
+  await contract.ERC721.Mint(new NFTMetadata()
+    {
+      name = "My NFT",
+      description = "My NFT description",
+      image = "https://example.com/image.png",
+    }
+  );
+}
+`}
+
+</CodeBlock>
+
+  </TabItem>
+</Tabs>

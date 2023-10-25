@@ -28,7 +28,7 @@ const contractAddress = "{{contract_address}}";
 
 function App() {
   const { contract } = useContract(contractAddress);
-  const { mutate: claimNft, isLoading, error } = useClaimNFT(contract);
+  const { mutateAsync, isLoading, error } = useClaimNFT(contract);
 
   return (
     <Web3Button
@@ -56,7 +56,7 @@ function App() {
 
 The wallet address to mint the NFT(s) to.
 
-Use the [`useAddress`](/react/react.useAddress) hook to get the currently connected wallet address.
+Use the [`useAddress`](/react/react.useaddress) hook to get the currently connected wallet address.
 
 ```jsx
 import {

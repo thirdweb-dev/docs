@@ -477,7 +477,7 @@ _Atomically increases the allowance granted to `spender` by the caller. This is 
 function initialize(address _defaultAdmin, string _name, string _symbol, string _contractURI, address[] _trustedForwarders, address _primarySaleRecipient, address _platformFeeRecipient, uint256 _platformFeeBps) external nonpayable
 ```
 
-_Initiliazes the contract, like a constructor._
+_Initializes the contract, like a constructor._
 
 #### Parameters
 
@@ -638,7 +638,7 @@ _See {IERC20Permit-permit}._
 function primarySaleRecipient() external view returns (address)
 ```
 
-_The adress that receives all primary sales value._
+_The address that receives all primary sales value._
 
 #### Returns
 

@@ -125,10 +125,10 @@ function mintWithSignature(
 ) external payable
 ```
 
-| Parameters  | Type                             | Description                                     |
-| ----------- | -------------------------------- | ----------------------------------------------- |
-| \_req       | ISignatureMintERC721.MintRequest | Mint request in the format specified above.     |
-| \_signature | bytes                            | Contact owner’s signature for the mint request. |
+| Parameters  | Type                             | Description                                      |
+| ----------- | -------------------------------- | ------------------------------------------------ |
+| \_req       | ISignatureMintERC721.MintRequest | Mint request in the format specified above.      |
+| \_signature | bytes                            | Contract owner’s signature for the mint request. |
 
 ### Setting claim conditions
 
@@ -219,7 +219,7 @@ function claim(
 | Parameters       | Type           | Description                                                                                           |
 | ---------------- | -------------- | ----------------------------------------------------------------------------------------------------- |
 | \_receiver       | address        | Mint request in the format specified above.                                                           |
-| \_quantity       | uint256        | Contact owner’s signature for the mint request.                                                       |
+| \_quantity       | uint256        | Contract owner’s signature for the mint request.                                                      |
 | \_currency       | address        | The currency in which the price must be paid.                                                         |
 | \_pricePerToken  | uint256        | The price required to pay per token claimed.                                                          |
 | \_allowlistProof | AllowlistProof | The proof of the claimer's inclusion in the merkle root allowlist of the claim conditions that apply. |

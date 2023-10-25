@@ -5,7 +5,7 @@ const lightCodeTheme = require("prism-react-renderer/themes/vsLight");
 const darkCodeTheme = require("prism-react-renderer/themes/oceanicNext");
 
 const npm2yarn = require("@docusaurus/remark-plugin-npm2yarn");
-const disableCachePlugin = require("./plugins/disable-cache-plugin");
+// const disableCachePlugin = require("./plugins/disable-cache-plugin");
 const path = require("path");
 
 const baseUrl = process.env.BASE_URL || "/";
@@ -18,10 +18,10 @@ const config = {
   tagline: "Get started with thirdweb by diving into our developer portal.",
   url: "https://portal.thirdweb.com",
   baseUrl,
-  onBrokenLinks: "throw",
+  onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
-  organizationName: "thidweb-dev", // Usually your GitHub org/user name.
+  organizationName: "thirdweb-dev", // Usually your GitHub org/user name.
   projectName: "docs", // Usually your repo name.
   trailingSlash: false,
   webpack: {
@@ -66,7 +66,7 @@ const config = {
     ],
   ],
   plugins: [
-    disableCachePlugin,
+    // disableCachePlugin,
     "docusaurus-node-polyfills",
     [
       "ideal-image",
@@ -110,30 +110,6 @@ const config = {
         path: "docs/react-native",
         routeBasePath: "react-native",
         sidebarPath: require.resolve("./sidebars/react-native.js"),
-        remarkPlugins: [[npm2yarn, { sync: true }]],
-        editUrl: "https://github.com/thirdweb-dev/docs/edit/main",
-        // ... other options
-      },
-    ],
-    [
-      "@docusaurus/plugin-content-docs",
-      {
-        id: "storage",
-        path: "docs/storage",
-        routeBasePath: "storage-sdk",
-        sidebarPath: require.resolve("./sidebars/storage.js"),
-        remarkPlugins: [[npm2yarn, { sync: true }]],
-        editUrl: "https://github.com/thirdweb-dev/docs/edit/main",
-        // ... other options
-      },
-    ],
-    [
-      "@docusaurus/plugin-content-docs",
-      {
-        id: "solana",
-        path: "docs/solana",
-        routeBasePath: "solana-sdk",
-        sidebarPath: require.resolve("./sidebars/solana.js"),
         remarkPlugins: [[npm2yarn, { sync: true }]],
         editUrl: "https://github.com/thirdweb-dev/docs/edit/main",
         // ... other options

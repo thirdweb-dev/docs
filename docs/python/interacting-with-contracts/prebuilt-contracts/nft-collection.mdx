@@ -1,0 +1,296 @@
+---
+title: NFT Collection
+slug: /python.nftcollection
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+When using the [NFT Collection](https://thirdweb.com/thirdweb.eth/TokenERC721) smart contract, additional top-level functionality is available to use.
+
+To access the top-level functionality, use the `get_nft_collection` method when creating the contract instance:
+
+```python
+contract = python.get_nft_collection(
+  "{{contract_address}}",
+)
+```
+
+The extensions that the NFT collection contract supports are listed below.
+
+- [ERC721](/python/python.erc721)
+- [ERC721Burnable](/python/python.erc721burnable)
+- [ERC721Supply](/python/python.erc721supply)
+- [ERC721Enumerable](/python/python.erc721enumerable)
+- [ERC721Mintable](/python/python.erc721mintable)
+- [ERC721BatchMintable](/python/python.erc721batchmintable)
+- [ERC721SignatureMint](/python/python.erc721signaturemint)
+- [Royalty](/python/python.contractroyalty)
+- [PlatformFee](/python/python.platformfee)
+- [PrimarySale](/python/python.contractprimarysale)
+- [Permissions](/python/python.permissions)
+- [ContractMetadata](/python/python.contractmetadata)
+- [Ownable](/python/python.ownable)
+- [Gasless](/python/python.gasless)
+
+## get_owned
+
+Get the token IDs owned by a specific address.
+
+```python
+address = "0x..."
+owned_nfts = contract.get_owned(address)
+```
+
+<details>
+<summary>Configuration</summary>
+<div>
+
+#### address
+
+the address to get the metadata for. Must be of type `str`.
+
+### Return Value
+
+Returns a list of the `NFTMetadataOwner` metadata objects of all tokens owned by the address
+
+```python
+class NFTMetadataOwner:
+    metadata: NFTMetadata
+    owner: str
+```
+
+</div>
+</details>
+
+## get_owned_token_ids
+
+Get the token IDs owned by a specific address
+
+```python
+address = "0x..."
+owned_token_ids = contract.get_owned_token_ids(address)
+```
+
+<details>
+<summary>Configuration</summary>
+<div>
+
+#### address
+
+The address to get the token IDs for. Must be of type `str`.
+
+### Return Value
+
+A list of the owned token IDs.
+
+```python
+List[int]
+```
+
+</div>
+</details>
+
+## mint
+
+Mint a new NFT to the **connected wallet**
+
+```python
+from thirdweb.types.nft import NFTMetadataInput
+
+# You can customize the metadata to your needs
+metadata = NFTMetadataInput.from_json({
+    "name": "Cool NFT",
+    "description": "This is a cool NFT",
+    "image": open("path/to/file.jpg", "rb")
+})
+
+tx = contract.mint(metadata)
+receipt = tx.receipt
+token_id = tx.id
+nft = tx.data()
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### metadata
+
+Either provide a `string` that points to [valid metadata object](https://docs.opensea.io/docs/metadata-standards#metadata-structure)
+or an `NFTMetadataInput` object containing the metadata.
+
+```python
+class NFTMetadataInput:
+    name: str
+    description: Optional[str] = None
+    image: Optional[str] = None
+    external_url: Optional[str] = None
+    animation_url: Optional[str] = None
+    background_color: Optional[str] = None
+    properties: Optional[Dict[str, Any]] = None
+    attributes: Optional[Dict[str, Any]] = None
+```
+
+The `image` property can be an IPFS URI, a URL, or a `File` object.
+
+If a file is provided for the image, it will also be uploaded and pinned to IPFS before minting.
+
+_Using a string_:
+
+```python
+# Option 1: Provide a string that points to valid metadata object
+metadata = "https://example.com/metadata.json"
+```
+
+_Using an object_:
+
+```python
+from thirdweb.types.nft import NFTMetadataInput
+# Option 2: Provide a metadata object, which will be uploaded and pinned to IPFS for you.
+metadata = NFTMetadataInput.from_json(
+  "name": "Cool NFT #1",
+  "description": "This is a cool NFT",
+  "image": "https://example.com/image.png", # URL, IPFS URI, or File object
+  # ... Any other metadata you want to include
+)
+```
+
+Provide the metadata to the `mint` function:
+
+```python
+# Either the string or the object can be provided to the mint function
+tx = contract.mint(metadata)
+```
+
+</div>
+</details>
+
+## mint_to
+
+The same as [`mint`](#mint), but allows you to specify the address of the wallet that will receive the NFT rather than using
+the connected wallet address.
+
+```python
+from thirdweb.types.nft import NFTMetadataInput
+
+# Note that you can customize this metadata however you like
+metadata = NFTMetadataInput.from_json({
+    "name": "Cool NFT",
+    "description": "This is a cool NFT",
+    "image": open("path/to/file.jpg", "rb"),
+})
+
+# You can pass in any address here to mint the NFT to
+tx = contract..mint_to("0x7fDae677aA6f94Edff9872C4b91D26407709c790", metadata)
+receipt = tx.receipt
+token_id = tx.id
+nft = tx.data()
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### wallet_address
+
+The address of the wallet you want to mint the NFT to.
+
+```python
+from thirdweb.types.nft import NFTMetadataInput
+
+# highlight-next-line
+wallet_address = "{{wallet_address}}"
+
+metadata = NFTMetadataInput.from_json(
+  # ...
+)
+
+tx = contract.mint_to(wallet_address, metadata)
+```
+
+#### metadata
+
+See [`metadata`](#metadata) configuration above.
+
+</div>
+</details>
+
+## mint_batch
+
+Mint multiple NFTs in a single transaction to the **connected wallet**.
+
+```python
+from thirdweb.types.nft import NFTMetadataInput
+
+ tx = contract.mint_batch([
+  NFTMetadataInput.from_json(
+    "name": "Cool NFT #1",
+    "description": "This is a cool NFT",
+    "image": "https://example.com/image.png", // URL, IPFS URI, or File object
+  ),
+  NFTMetadataInput.from_json(
+    "name": "Cool NFT #2",
+    "description": "This is a cool NFT",
+    "image": "https://example.com/image.png", // URL, IPFS URI, or File object
+  ),
+])
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### metadatas
+
+A list of strings that point to, or `NFTMetadataInput` objects containing
+[valid metadata properties](https://docs.opensea.io/docs/metadata-standards#metadata-structure).
+
+```python
+List[Union(NFTMetadataInput, str)]
+```
+
+See [`mint`](#mint) for more details on the properties available.
+
+</div>
+</details>
+
+## mint_batch_to
+
+The same as [`mint_batch`](#mint_batch), but allows you to specify the address
+of the wallet that will receive the NFTs rather than using the connected wallet address.
+
+```python
+from thirdweb.types.nft import NFTMetadataInput
+
+ tx = contract.mint_batch_to("{{wallet_address}}", [
+  NFTMetadataInput.from_json(
+    "name": "Cool NFT #1",
+    "description": "This is a cool NFT",
+    "image": "https://example.com/image.png", // URL, IPFS URI, or File object
+  ),
+  NFTMetadataInput.from_json(
+    "name": "Cool NFT #2",
+    "description": "This is a cool NFT",
+    "image": "https://example.com/image.png", // URL, IPFS URI, or File object
+  ),
+])
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### wallet_address
+
+The address of the wallet you want to mint the NFTs to.
+
+Must be a `string`.
+
+#### metadatas
+
+A list of strings that point to, or `NFTMetadataInput` objects containing
+[valid metadata properties](https://docs.opensea.io/docs/metadata-standards#metadata-structure).
+
+See [`mint`](#mint) for more details on the properties available.
+
+</div>
+</details>

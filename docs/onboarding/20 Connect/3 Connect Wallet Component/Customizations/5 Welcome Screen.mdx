@@ -1,0 +1,34 @@
+---
+slug: /connect/connect-wallet/welcome-screen
+title: Welcome Screen (wide screen)
+---
+
+On wide modal, a welcome screen is shown on the right side of the modal. Use this space to show your branding or even build intersting functionality.
+
+This screen can be customized in two ways
+
+#### 1. Preset metadata
+
+```tsx
+<ConnectWallet
+  welcomeScreen={{
+    title: "Your Title",
+    subtitle: "Your Subtitle",
+    img: {
+      src: "https://...",
+      width: 300,
+      height: 50,
+    },
+  }}
+/>
+```
+
+#### 2. Render your own component
+
+```tsx
+<ConnectWallet
+  welcomeScreen={() => {
+    return <YourComponent />;
+  }}
+/>
+```

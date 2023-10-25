@@ -66,6 +66,24 @@ const signature = await contract.erc20.signature.generate({
 });
 ```
 
+#### uid (optional)
+
+A unique identifier for the payload, used to prevent replay attacks and other types of exploits. Note that the input value gets hashed in the actual payload that gets generated.
+
+The smart contract enforces on-chain that no uid gets used more than once, which means you can deterministically generate the uid to prevent specific exploits.
+
+For example, below we use the `uid` field to ensure that the user can request multiple payloads and send them to the blockchain all at once:
+
+```javascript
+const balance = await contract.balance();
+const signature = await contract.erc20.signature.generate({
+  quantity: "{{quantity}}",
+  to: "{{wallet_address}}",
+  // highlight-next-line
+  uid: `${walletAddress}-${balance}`,
+});
+```
+
 #### currencyAddress (optional)
 
 The address of the currency to pay for minting the tokens (use the [`price`](#price-optional) field to specify the price).

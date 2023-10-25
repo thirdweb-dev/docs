@@ -1,0 +1,152 @@
+---
+title: Batch Mint
+slug: /python.erc1155batchmintable
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+# ERC1155BatchMintable
+
+Functionality available for contracts that implement the
+[`ERC1155Enumerable`](/solidity/extensions/erc1155enumerable),
+[`ERC1155Mintable`](/solidity/extensions/erc1155mintable), and
+[`Multicall`](/solidity/extensions/multicall)
+extensions.
+
+Allows you to mint multiple NFTs at once to a wallet address.
+
+By default, the NFT metadata is uploaded and pinned to IPFS before minting.
+You can override this default behavior by providing a string as the `metadata` property
+that points to valid metadata object.
+
+## mint_batch
+
+Mint many different NFTs with limited supplies to the **connected wallet**.
+
+```python
+from thirdweb.types.nft import NFTMetadataInput, EditionMetadataInput
+
+# Note that you can customize this metadata however you like
+metadatas_with_supply = [
+    EditionMetadataInput(
+        NFTMetadataInput.from_json({
+            "name": "Cool NFT",
+            "description": "This is a cool NFT",
+            "image": open("path/to/file.jpg", "rb"),
+        }),
+        100
+    ),
+    EditionMetadataInput(
+        NFTMetadataInput.from_json({
+            "name": "Cooler NFT",
+            "description": "This is a cooler NFT",
+            "image": open("path/to/file.jpg", "rb"),
+        }),
+        100
+    )
+]
+
+# You can pass in any address here to mint the NFT to
+txs = contract.erc1155.mint_batch(metadatas_with_supply)
+receipt = txs[0].receipt
+token_id = txs[0].id
+nft = txs[0].data()
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### metadata_with_supply
+
+A list of `EditionMetadataInput` objects that contain the metadata and supply of each NFT you want to mint.
+
+The `supply` property is the number of this NFT you want to mint.
+Must be an `int`.
+
+The `metadata` object must be an `NFTMetadataInput` object and follow the [metadata standards](https://docs.opensea.io/docs/metadata-standards#metadata-structure).
+Alternatively, you can provide a `string`s that points to a valid metadata object
+to override the default behavior of uploading and pinning the metadata to IPFS (shown below).
+
+```python
+# highlight-start
+metadatas = [
+  {
+    metadata: "https://example.com/metadata1.json", // Any URI/URL that points to metadata
+    supply: 50,
+  },
+  {
+    metadata: "ipfs://my-ipfs-hash", // Any URI/URL that points to metadata
+    supply: 100,
+  },
+]
+# highlight-end
+
+tx_result = contract.erc1155.mint_batch(metadatas)
+```
+
+</div>
+</details>
+
+## mint_batch_to
+
+The same as [`mint_batch`](#mint_batch), but allows you to specify the wallet, rather than using the connected one.
+
+```python
+from thirdweb.types.nft import NFTMetadataInput, EditionMetadataInput
+
+# Note that you can customize this metadata however you like
+metadatas_with_supply = [
+    EditionMetadataInput(
+        NFTMetadataInput.from_json({
+            "name": "Cool NFT",
+            "description": "This is a cool NFT",
+            "image": open("path/to/file.jpg", "rb"),
+        }),
+        100
+    ),
+    EditionMetadataInput(
+        NFTMetadataInput.from_json({
+            "name": "Cooler NFT",
+            "description": "This is a cooler NFT",
+            "image": open("path/to/file.jpg", "rb"),
+        }),
+        100
+    )
+]
+
+# You can pass in any address here to mint the NFT to
+txs = contract.erc1155.mint_batch_to("0x7fDae677aA6f94Edff9872C4b91D26407709c790", metadatas_with_supply)
+receipt = txs[0].receipt
+token_id = txs[0].id
+nft = txs[0].data()
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### to_address
+
+The address of the wallet you want to mint the NFT to.
+
+Must be a `string`.
+
+```python
+# Custom metadata and supplies of your NFTs
+const metadata_with_supply = [
+  # ...
+]
+
+tx_result = contract.erc1155.mint_batch_to(
+  # highlight-next-line
+  "{{wallet_address}}",
+  metadata_with_supply,
+)
+```
+
+#### metadata_with_supply
+
+See [`mint_batch`](#mint_batch) for more details.
+
+</div>
+</details>

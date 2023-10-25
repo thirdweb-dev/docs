@@ -34,6 +34,17 @@
       }
     },
     {
+      "name": "useBuyDirectListing",
+      "summary": "Buy a direct listing\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\", \"marketplace-v3\");\n  const {\n    mutate: buyNow,\n    isLoading,\n    error,\n  } = useBuyDirectListing(contract);\n\n  if (error) {\n    console.error(\"failed to buy direct listing\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => buyNow({listingId: 1, quantity: 1, buyer: \"{{address}}\"})}\n    >\n      Buy listing!\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.usebuydirectlisting"
+      }
+    },
+    {
       "name": "useBuyNow",
       "summary": "Buy out an auction listing\n\n",
       "remarks": null,
@@ -53,6 +64,17 @@
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usecancellisting"
+      }
+    },
+    {
+      "name": "useChain",
+      "summary": "Hook for accessing the active Chain the current wallet is connected to\n```javascript\nimport { useChain } from \"@thirdweb-dev/react-core\"\n```\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "import { useChain } from \"@thirdweb-dev/react-core\"\n\nconst App = () => {\n  const chain = useChain()\n\n  return <div>{chain.chainId}</div>\n}"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.usechain"
       }
     },
     {
@@ -145,7 +167,7 @@
     },
     {
       "name": "useEditionDrop",
-      "summary": "Hook for getting an instance of an `EditionDrop` contract. This conract is used to interface with ERC1155 compliant NFTs that can be lazily minted.\n\n",
+      "summary": "Hook for getting an instance of an `EditionDrop` contract. This contract is used to interface with ERC1155 compliant NFTs that can be lazily minted.\n\n",
       "remarks": null,
       "examples": {
         "javascript": "import { useContract } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const { contract } = useContract(\"<YOUR-CONTRACT-ADDRESS>\", \"edition-drop\")\n\n  // Now you can use the edition drop contract in the rest of the component\n\n  // For example, this function will let the connected wallet claim a new NFT\n  async function claim(tokenId, quantity) {\n    await contract.claim(tokenId, quantity)\n  }\n\n  ...\n}"
@@ -254,8 +276,19 @@
       }
     },
     {
+      "name": "useNetwork",
+      "summary": "",
+      "remarks": null,
+      "examples": {
+        "javascript": "import { useNetwork } from \"@thirdweb-dev/react\";\n\nconst App = () => {\n  const [, switchNetwork] = useNetwork();\n  return (\n     // switchNetwork is undefined if the wallet does not support programmatic network switching\n     // 137 is the chainId for Polygon in this example\n    <button onClick={() => switchNetwork(137)}>\n       Switch Network\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.usenetwork"
+      }
+    },
+    {
       "name": "useNetworkMismatch",
-      "summary": "Hook for checking whether the connected wallet is on the correct network specified by the `network` passed to the `<ThirdwebProvider />`.\n```javascript\nimport { useNetworkMistmatch } from \"@thirdweb-dev/react\"\n```\n\n",
+      "summary": "Hook for checking whether the connected wallet is on the correct network specified by the `network` passed to the `<ThirdwebProvider />`.\n```javascript\nimport { useNetworkMismatch } from \"@thirdweb-dev/react\"\n```\n\n",
       "remarks": null,
       "examples": {
         "javascript": "import { useNetworkMismatch } from \"@thirdweb-dev/react\"\n\nconst App = () => {\n  const isMismatched = useNetworkMismatch()\n\n  return <div>{isMismatched}</div>\n}"
@@ -335,7 +368,7 @@
       "summary": "Hook for getting an instance of a `Split` contract. This contract supports fund distribution to multiple parties.\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "import { useContract } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const { contract } = useContract(\"<YOUR-CONTRACT-ADDRESS>\", \"split\")\n\n  // Now you can use the split contract in the rest of the component\n\n  // For example, this function will retrun all the receipients of the split\n  async function getRecipients() {\n    const recipients = await contract.getAllRecipients()\n    return recipients\n  }\n\n  ...\n}"
+        "javascript": "import { useContract } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const { contract } = useContract(\"<YOUR-CONTRACT-ADDRESS>\", \"split\")\n\n  // Now you can use the split contract in the rest of the component\n\n  // For example, this function will return all the recipients of the split\n  async function getRecipients() {\n    const recipients = await contract.getAllRecipients()\n    return recipients\n  }\n\n  ...\n}"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usesplit"
@@ -397,6 +430,17 @@
       }
     },
     {
+      "name": "useWatchTransactions",
+      "summary": "Hook that listens to transactions on a given chain for a given address.\n```javascript\nimport { useWatchTransactions } from \"@thirdweb-dev/react\"\n```\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const transactions = useWatchTransactions({\n address: \"0x1234\",\n network: \"ethereum\",\n});"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.usewatchtransactions"
+      }
+    },
+    {
       "name": "useWinningBid",
       "summary": "Get the winning bid for an auction\n\n",
       "remarks": null,
@@ -405,6 +449,131 @@
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usewinningbid"
+      }
+    }
+  ],
+  "Account": [
+    {
+      "name": "useAccountAdmins",
+      "summary": "Get all admins of account\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const { data: accounts, isLoading, error } = useAccountSigners(contract);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useaccountadmins"
+      }
+    },
+    {
+      "name": "useAccountAdminsAndSigners",
+      "summary": "Get all signers and admins of account\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const { data: accounts, isLoading, error } = useAccountSigners(contract);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useaccountadminsandsigners"
+      }
+    },
+    {
+      "name": "useAccountSigners",
+      "summary": "Get all signers of account\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const { data: accounts, isLoading, error } = useAccountSigners(contract);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useaccountsigners"
+      }
+    },
+    {
+      "name": "useAddAdmin",
+      "summary": "Add an additional admin on the smart wallet\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const Component = () => {\n  const {\n    mutate: addAdmin,\n    isLoading,\n    error,\n  } = useAddAdmin();\n\n  if (error) {\n    console.error(\"failed to add admin\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => addAdmin(\"0x...\")}\n    >\n      Add admin\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useaddadmin"
+      }
+    },
+    {
+      "name": "useCreateSessionKey",
+      "summary": "Create and add a session key for the smart wallet\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const Component = () => {\n  const {\n    mutate: createSessionKey,\n    isLoading,\n    error,\n  } = useCreateSessionKey();\n\n  if (error) {\n    console.error(\"failed to create session key\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => createSessionKey(\n        \"0x...\",\n        {\n          approvedCallTargets: [\"0x...\"], // the addresses of contracts that the session key can call\n          nativeTokenLimitPerTransaction: 0.1, // the maximum amount of native token (in ETH) that the session key can spend per transaction\n          startDate: new Date(), // the date when the session key becomes active\n          expirationDate = new Date(Date.now() + 24 * 60 * 60 * 1000); // the date when the session key expires\n        }\n       )}\n    >\n      Create Session Key\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.usecreatesessionkey"
+      }
+    },
+    {
+      "name": "useRemoveAdmin",
+      "summary": "Add an additional admin on the smart wallet\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const Component = () => {\n  const {\n    mutate: removeAdmin,\n    isLoading,\n    error,\n  } = useRemoveAdmin();\n\n  if (error) {\n    console.error(\"failed to remove admin\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => removeAdmin(\"0x...\")}\n    >\n      Remove admin\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useremoveadmin"
+      }
+    },
+    {
+      "name": "useRevokeSessionKey",
+      "summary": "Revoke a session key on the smart wallet\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const Component = () => {\n  const {\n    mutate: revokeSessionKey,\n    isLoading,\n    error,\n  } = useRevokeSessionKey();\n\n  if (error) {\n    console.error(\"failed to revoke session key\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => revokeSessionKey(\"0x...\")}\n    >\n      Revoke Session Key\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.userevokesessionkey"
+      }
+    }
+  ],
+  "AccountFactory": [
+    {
+      "name": "useAccounts",
+      "summary": "Get all accounts\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const { data: accounts, isLoading, error } = useAccounts(contract);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useaccounts"
+      }
+    },
+    {
+      "name": "useAccountsForAddress",
+      "summary": "Get all accounts associated with the provided address\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const { data: accountsForAddress, isLoading, error } = useAccountsForAddress(contract, \"{{account_address}}\");"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useaccountsforaddress"
+      }
+    },
+    {
+      "name": "useCreateAccount",
+      "summary": "Create a account\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: createAccount,\n    isLoading,\n    error,\n  } = useCreateAccount(contract);\n\n  if (error) {\n    console.error(\"failed to create account\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => createAccount(\"0x...\")}\n    >\n      Create Account\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.usecreateaccount"
+      }
+    },
+    {
+      "name": "useIsAccountDeployed",
+      "summary": "Check if a account has been deployed for the given admin\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const { data: isAccountDeployed, isLoading, error } = useIsAccountDeployed(contract);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useisaccountdeployed"
       }
     }
   ],
@@ -825,6 +994,17 @@
       }
     },
     {
+      "name": "useClaimNFT",
+      "summary": "Claim an NFT to a specific wallet\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: claimNFT,\n    isLoading,\n    error,\n  } = useClaimNFT(contract);\n\n  if (error) {\n    console.error(\"failed to claim nft\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => claimNFT({ to: \"{{wallet_address}}\", quantity: 1 })}\n    >\n      Claim NFT!\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useclaimnft"
+      }
+    },
+    {
       "name": "useResetClaimConditions",
       "summary": "Reset claim conditions\n\n",
       "remarks": null,
@@ -901,6 +1081,17 @@
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useclaimineligibilityreasons"
+      }
+    },
+    {
+      "name": "useClaimNFT",
+      "summary": "Claim an NFT to a specific wallet\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: claimNFT,\n    isLoading,\n    error,\n  } = useClaimNFT(contract);\n\n  if (error) {\n    console.error(\"failed to claim nft\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => claimNFT({ to: \"{{wallet_address}}\", quantity: 1 })}\n    >\n      Claim NFT!\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useclaimnft"
       }
     },
     {
@@ -983,6 +1174,17 @@
       }
     },
     {
+      "name": "useClaimNFT",
+      "summary": "Claim an NFT to a specific wallet\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: claimNFT,\n    isLoading,\n    error,\n  } = useClaimNFT(contract);\n\n  if (error) {\n    console.error(\"failed to claim nft\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => claimNFT({ to: \"{{wallet_address}}\", quantity: 1 })}\n    >\n      Claim NFT!\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useclaimnft"
+      }
+    },
+    {
       "name": "useResetClaimConditions",
       "summary": "Reset claim conditions\n\n",
       "remarks": null,
@@ -1059,6 +1261,17 @@
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useclaimineligibilityreasons"
+      }
+    },
+    {
+      "name": "useClaimNFT",
+      "summary": "Claim an NFT to a specific wallet\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: claimNFT,\n    isLoading,\n    error,\n  } = useClaimNFT(contract);\n\n  if (error) {\n    console.error(\"failed to claim nft\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => claimNFT({ to: \"{{wallet_address}}\", quantity: 1 })}\n    >\n      Claim NFT!\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useclaimnft"
       }
     },
     {
@@ -1141,6 +1354,17 @@
       }
     },
     {
+      "name": "useClaimNFT",
+      "summary": "Claim an NFT to a specific wallet\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: claimNFT,\n    isLoading,\n    error,\n  } = useClaimNFT(contract);\n\n  if (error) {\n    console.error(\"failed to claim nft\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => claimNFT({ to: \"{{wallet_address}}\", quantity: 1 })}\n    >\n      Claim NFT!\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useclaimnft"
+      }
+    },
+    {
       "name": "useResetClaimConditions",
       "summary": "Reset claim conditions\n\n",
       "remarks": null,
@@ -1217,6 +1441,17 @@
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useclaimineligibilityreasons"
+      }
+    },
+    {
+      "name": "useClaimNFT",
+      "summary": "Claim an NFT to a specific wallet\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: claimNFT,\n    isLoading,\n    error,\n  } = useClaimNFT(contract);\n\n  if (error) {\n    console.error(\"failed to claim nft\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => claimNFT({ to: \"{{wallet_address}}\", quantity: 1 })}\n    >\n      Claim NFT!\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useclaimnft"
       }
     },
     {
@@ -1299,6 +1534,17 @@
       }
     },
     {
+      "name": "useClaimNFT",
+      "summary": "Claim an NFT to a specific wallet\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: claimNFT,\n    isLoading,\n    error,\n  } = useClaimNFT(contract);\n\n  if (error) {\n    console.error(\"failed to claim nft\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => claimNFT({ to: \"{{wallet_address}}\", quantity: 1 })}\n    >\n      Claim NFT!\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useclaimnft"
+      }
+    },
+    {
       "name": "useResetClaimConditions",
       "summary": "Reset claim conditions\n\n",
       "remarks": null,
@@ -1375,6 +1621,17 @@
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useclaimineligibilityreasons"
+      }
+    },
+    {
+      "name": "useClaimNFT",
+      "summary": "Claim an NFT to a specific wallet\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: claimNFT,\n    isLoading,\n    error,\n  } = useClaimNFT(contract);\n\n  if (error) {\n    console.error(\"failed to claim nft\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => claimNFT({ to: \"{{wallet_address}}\", quantity: 1 })}\n    >\n      Claim NFT!\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useclaimnft"
       }
     },
     {
@@ -1498,67 +1755,10 @@
       "summary": "Get App URI\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { data: contractMetadata, isLoading, error } = useAppURI(SmartContract;"
+        "javascript": "const { data: contractMetadata, isLoading, error } = useAppURI(contract);"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useappuri"
-      }
-    },
-    {
-      "name": "useSetAppURI",
-      "summary": "Set App URI\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const Component = () => {\n  const {\n    mutate: useSetAppURI,\n    isLoading,\n    error,\n  } = useSetAppURI(SmartContract);\n\n  if (error) {\n    console.error(\"failed to update appURI\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => useSetAppURI({ uri })}\n    >\n      Update App URI\n    </button>\n  );\n};"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/react/react.usesetappuri"
-      }
-    }
-  ],
-  "ContractMetadata": [
-    {
-      "name": "useAppURI",
-      "summary": "Get App URI\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const { data: contractMetadata, isLoading, error } = useAppURI(SmartContract;"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/react/react.useappuri"
-      }
-    },
-    {
-      "name": "useContractMetadata",
-      "summary": "Get the metadata of this contract\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const { data: contractMetadata, isLoading } = useContractMetadata(contract);"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/react/react.usecontractmetadata"
-      }
-    },
-    {
-      "name": "useContractMetadataUpdate",
-      "summary": "Update the metadata of this contract\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: updateContractMetadata,\n    isLoading,\n    error,\n  } = useContractMetadataUpdate(contract);\n\n  if (error) {\n    console.error(\"failed to update contract metadata\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => updateContractMetadata({ name: \"New name\", description: \"New description\" })}\n    >\n      Update contract metadata\n    </button>\n  );\n};"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/react/react.usecontractmetadataupdate"
-      }
-    },
-    {
-      "name": "useSetAppURI",
-      "summary": "Set App URI\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const Component = () => {\n  const {\n    mutate: useSetAppURI,\n    isLoading,\n    error,\n  } = useSetAppURI(SmartContract);\n\n  if (error) {\n    console.error(\"failed to update appURI\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => useSetAppURI({ uri })}\n    >\n      Update App URI\n    </button>\n  );\n};"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/react/react.usesetappuri"
       }
     }
   ],
@@ -1805,41 +2005,6 @@
       }
     }
   ],
-  "ERC1155LazyMintable": [
-    {
-      "name": "useClaimedNFTs",
-      "summary": "Get all claimed NFTs\n\n",
-      "remarks": "\n\nEquivalent to using {@link useNFTs}.\n\n",
-      "examples": {
-        "javascript": "const { data: claimedNFTs, isLoading, error } = useClaimedNFTs(contract, { start: 0, count: 100 });"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/react/react.useclaimednfts"
-      }
-    },
-    {
-      "name": "useLazyMint",
-      "summary": "Lazy mint NFTs\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: lazyMint,\n    isLoading,\n    error,\n  } = useLazyMint(contract);\n\n  if (error) {\n    console.error(\"failed to lazy mint NFT\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => lazyMint({ metadatas: [{ name: \"My NFT!\"}] })}\n    >\n      Lazy mint NFT!\n    </button>\n  );\n};"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/react/react.uselazymint"
-      }
-    },
-    {
-      "name": "useUnclaimedNFTs",
-      "summary": "Get all unclaimed NFTs\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const { data: unclaimedNfts, isLoading, error } = useUnclaimedNFTs(contract, { start: 0, count: 100 });"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/react/react.useunclaimednfts"
-      }
-    }
-  ],
   "ERC721Claimable": [
     {
       "name": "useClaimNFT",
@@ -1863,6 +2028,30 @@
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useclaimnft"
+      }
+    }
+  ],
+  "ContractMetadata": [
+    {
+      "name": "useContractMetadata",
+      "summary": "Get the metadata of this contract\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const { data: contractMetadata, isLoading } = useContractMetadata(contract);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.usecontractmetadata"
+      }
+    },
+    {
+      "name": "useContractMetadataUpdate",
+      "summary": "Update the metadata of this contract\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: updateContractMetadata,\n    isLoading,\n    error,\n  } = useContractMetadataUpdate(contract);\n\n  if (error) {\n    console.error(\"failed to update contract metadata\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => updateContractMetadata({ name: \"New name\", description: \"New description\" })}\n    >\n      Update contract metadata\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.usecontractmetadataupdate"
       }
     }
   ],
@@ -1957,6 +2146,19 @@
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usesetallrolemembers"
+      }
+    }
+  ],
+  "ERC1155LazyMintable": [
+    {
+      "name": "useLazyMint",
+      "summary": "Lazy mint NFTs\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: lazyMint,\n    isLoading,\n    error,\n  } = useLazyMint(contract);\n\n  if (error) {\n    console.error(\"failed to lazy mint NFT\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => lazyMint({ metadatas: [{ name: \"My NFT!\"}] })}\n    >\n      Lazy mint NFT!\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.uselazymint"
       }
     }
   ],
@@ -2075,7 +2277,7 @@
       "summary": "Get all NFTs owned by a specific wallet\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { data: ownedNFTs, isLoading, error } = useOwnedNFTs(contract, \"{{wallet_address}}\");"
+        "javascript": "const { data: ownedNFTs, isLoading, error } = useOwnedNFTs(contract, \"{{wallet_address}}\", { start: 0, count: 100 });"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useownednfts"
@@ -2121,7 +2323,7 @@
       "summary": "Get all NFTs owned by a specific wallet\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { data: ownedNFTs, isLoading, error } = useOwnedNFTs(contract, \"{{wallet_address}}\");"
+        "javascript": "const { data: ownedNFTs, isLoading, error } = useOwnedNFTs(contract, \"{{wallet_address}}\", { start: 0, count: 100 });"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useownednfts"
@@ -2145,7 +2347,7 @@
       "summary": "Get all NFTs owned by a specific wallet\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { data: ownedNFTs, isLoading, error } = useOwnedNFTs(contract, \"{{wallet_address}}\");"
+        "javascript": "const { data: ownedNFTs, isLoading, error } = useOwnedNFTs(contract, \"{{wallet_address}}\", { start: 0, count: 100 });"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useownednfts"
@@ -2243,6 +2445,32 @@
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useupdateroyaltysettings"
+      }
+    }
+  ],
+  "AppUR": [
+    {
+      "name": "useSetAppURI",
+      "summary": "Set App URI\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const Component = () => {\n  const {\n    mutate: useSetAppURI,\n    isLoading,\n    error,\n  } = useSetAppURI(contract);\n\n  if (error) {\n    console.error(\"failed to update appURI\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => useSetAppURI({ uri })}\n    >\n      Update App URI\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.usesetappuri"
+      }
+    }
+  ],
+  "ERC721SharedMetadata": [
+    {
+      "name": "useSharedMetadata",
+      "summary": "Get the shared metadata of an Open Edition NFT contract\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const { data: sharedMetadata, isLoading, error } = useSharedMetadata(contract);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.usesharedmetadata"
       }
     }
   ],

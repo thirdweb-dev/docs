@@ -7,7 +7,7 @@ displayed_sidebar: contracts
 
 # SoulboundERC721A
 
-The `SoulboundERC721A` extension smart contract is meant to be used with ERC721A contracts as its base. It provides the appropriate `before transfer` hook for ERC721A, where it checks whether a given transfer is valid to go through or not. This contract uses the `Permissions` extension, and creates a role &#39;TRANSFER_ROLE&#39;. - If `address(0)` holds the transfer role, then all transfers go through. - Else, a transfer goes through only if either the sender or recipient holds the transfe role.
+The `SoulboundERC721A` extension smart contract is meant to be used with ERC721A contracts as its base. It provides the appropriate `before transfer` hook for ERC721A, where it checks whether a given transfer is valid to go through or not. This contract uses the `Permissions` extension, and creates a role &#39;TRANSFER_ROLE&#39;. - If `address(0)` holds the transfer role, then all transfers go through. - Else, a transfer goes through only if either the sender or recipient holds the transfer role.
 
 ## Methods
 
@@ -150,9 +150,9 @@ _Returns `true` if `account` has been granted `role`._
 function hasRoleWithSwitch(bytes32 role, address account) external view returns (bool)
 ```
 
-Checks whether an account has a particular role; role restrictions can be swtiched on and off.
+Checks whether an account has a particular role; role restrictions can be switched on and off.
 
-_Returns `true` if `account` has been granted `role`. Role restrictions can be swtiched on and off: - If address(0) has ROLE, then the ROLE restrictions don&#39;t apply. - If address(0) does not have ROLE, then the ROLE restrictions will apply._
+_Returns `true` if `account` has been granted `role`. Role restrictions can be switched on and off: - If address(0) has ROLE, then the ROLE restrictions don&#39;t apply. - If address(0) does not have ROLE, then the ROLE restrictions will apply._
 
 #### Parameters
 

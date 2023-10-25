@@ -1,0 +1,147 @@
+---
+slug: /wallet/usage-with-react-native-sdk
+title: Usage with React Native SDK
+sidebar_position: 5
+---
+
+import QuickstartCard from "@components/QuickstartCard";
+
+# Usage with React Native SDK
+
+When you want to use a wallet with React Native SDK - Instead of importing the wallet from `@thirdweb-dev/wallets`, you need to import its “wallet configurator” function from the `@thirdweb-dev/react-native` package.
+
+This wallet configurator function contains additional metadata and UI for connecting the wallet which is shown in the [ConnectWallet](/react-native/react-native.connectwallet) component's Modal.
+
+You can find the list of all wallet configurators for React Native SDK [here](/react-native/wallets)
+
+You can connect to a wallet in two ways:
+
+1. using [ConnectWallet](/react-native/react-native.connectwallet) component for a prebuilt solution with UI
+2. using [useConnect](/react/react.useconnect) hook to build a custom solution
+
+## 1. Using ConnectWallet
+
+[ConnectWallet](/react-native/react-native.connectwallet) component allows you to connect to wallets that are specified in [ThirdwebProvider](/react/react.thirdwebprovider#supportedwallets-optional)
+
+Clicking on the `ConnectWallet` button shows wallets in a Modal and shows wallet-specific UI for connecting the wallet when it is selected (This UI is defined in the wallet configurator itself, not in `ConnectWallet` component)
+
+#### Example
+
+```tsx
+import {
+  ThirdwebProvider,
+  metamaskWallet,
+  trustWallet,
+  coinbaseWallet,
+} from "@thirdweb-dev/react-native";
+
+// provide supported wallets to ThirdwebProvider
+
+function MyApp() {
+  return (
+    <ThirdwebProvider
+      supportedWallets={[metamaskWallet(), trustWallet(), coinbaseWallet()]}
+      clientId="your-client-id"
+    >
+      <App />
+    </ThirdwebProvider>
+  );
+}
+```
+
+```tsx
+import { ConnectWallet } from "@thirdweb-dev/react-native";
+
+function App() {
+  return (
+    <div>
+      <ConnectWallet />
+    </div>
+  );
+}
+```
+
+## 2. Using useConnect hook
+
+[useConnect](/react/react.useconnect) hook allows you to programmatically connect to the wallet. You will need to build your own UI for connecting the wallet.
+
+```tsx
+import { useConnect, metamaskWallet } from "@thirdweb-dev/react-native";
+
+const metamask = metamaskWallet();
+
+function App() {
+  const connect = useConnect();
+
+  return (
+    <button
+      onClick={async () => {
+        const wallet = await connect(metamask, connectOptions);
+        console.log("connected to ", wallet);
+      }}
+    >
+      Connect to MetaMask
+    </button>
+  );
+}
+```
+
+## 3. Using ThirdwebSDKProvider
+
+[ThirdwebSDKProvider](/react/react.thirdwebsdkprovider) is a lower level provider that accepts an arbitrary wallet and only handles contract interaction. This means you can use the Wallet SDK to programmatically connect to any wallet, and pass the connected wallet to this provider to execute transactions from the connected wallet.
+
+```tsx
+import { ThirdwebSDKProvider } from "@thirdweb-dev/react-native";
+import { Goerli } from "@thirdweb-dev/chains";
+import { Signer } from "ethers";
+
+function MyComponent() {
+  const [signer, setSigner] = useState<Signer | null>(null);
+  // in this example we just generate a random wallet
+  useEffect(() => {
+    const generateWallet = async () => {
+      const localWallet = new LocalWallet({
+        chain: Goerli,
+      });
+      localWallet.generate();
+      localWallet.connect();
+      setSigner(await localWallet.getSigner());
+    };
+    generateWallet();
+  }, []);
+
+  // The provider will handle maintaining the connected wallet
+  // calling contracts from within the provider with the regular hooks
+  // will execute on behalf of the provided wallet signer
+  return (
+    <ThirdwebSDKProvider
+      activeChain={Goerli}
+      signer={signer}
+      clientId="your-client-id"
+    >
+      <App />
+    </ThirdwebSDKProvider>
+  );
+}
+```
+
+<br />
+
+:::info
+
+If you are building your own wallet and want to use it with React Native SDK
+you will need to create a wallet configurator as mentioned in [Build a wallet guide](/wallet/build-a-wallet#3-integrate-with-connect-wallet-button)
+where you can define a custom UI for connecting your wallet that will be shown in the ConnectWallet modal
+:::
+
+<br />
+
+<div className="row" style={{ marginBottom: 0, padding: 8, paddingTop: 0 }}>
+  <div className="col col--12" style={{ padding: 8, paddingBottom: 0 }}>
+    <QuickstartCard
+      name="Learn more about React Native SDK"
+      link="/react-native"
+      image="/assets/languages/react-native.png"
+    />
+  </div>
+</div>

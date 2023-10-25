@@ -3,189 +3,118 @@ title: Overview
 slug: /platform-overview
 ---
 
-import QuickstartCard from "@components/QuickstartCard";
 import ThemedImage from "@theme/ThemedImage";
-import Image from "@theme/IdealImage";
 
-# Platform Overview
+# Overview
 
-<div className="heroGrid">
+thirdweb is a comprehensive development framework that empowers you to seamlessly
+build, launch, and manage web3 applications and games across any EVM-compatible blockchain.
 
-<div>
-<p>thirdweb is a development framework that allows you to build web3 functionality into your applications.</p>
+## Architecture
 
-<p> We provide workflows to speed up your development, including:</p>
+Whether you're developing decentralized applications from scratch or enhancing existing ones,
+Our tool suite accelerates your development workflow across the smart contract, application, and infrastructure layers.
 
-1. **Contracts** you can use to build the foundation of your web3 functionality.
-2. **SDKs** to create applications that interact with the blockchain in your favorite languages.
-3. **Dashboards** to manage your contract settings, team permissions, revenue streams, and analytics.
-
-</div>
-
-<div className="heroGridImageContainer">
-  <ThemedImage
-    sources={{
-      light: "/assets/portal-overview-all-light.png",
-      dark: "/assets/portal-overview-all-dark.png",
-    }}
-    className="heroGridImage"
-    alt="thirdweb Core Pillars"
-  />
-</div>
-
-</div>
-
-:::tip Quick Start
-
-Want to start building and see what you can do? Check out the **[Getting Started](/getting-started)** guide.
-
-:::
-
-<hr
-  style={{
-    marginTop: 32,
-    backgroundColor: "var(--ifm-toc-border-color)",
+<ThemedImage
+  sources={{
+    light: "/assets/platform-overview-light.png",
+    dark: "/assets/platform-overview-dark.png",
   }}
+  className="platform-overview"
+  alt="platform-overview"
 />
 
-## Contracts
+<hr />
 
-<div className="heroGrid">
+## Wallets
 
-<div>
-  <p>Deploying smart contracts is the first step of building any web3 application.</p>
+Onboard, manage and authenticate users with thirdweb's wallet integrations.
 
-You can deploy one of our [prebuilt contracts](/pre-built-contracts) for more common use cases (NFTs, tokens, marketplaces),
-or you can build your own smart contract with our [Solidity SDK](/solidity) and ship it with [Deploy](/deploy).
+### 1. Create Wallets
 
-We also offer [prebuilt Solana programs](/pre-built-contracts) for common use cases.
+- [ERC-4337 Smart Contract Wallets](/smart-wallet): Create account abstraction wallets that are controlled by a smart contract.
+- [Embedded (Email and Social) Wallets](/embedded-wallet): Create wallets using email or social media accounts.
+- [Local Wallets](/wallet/local-wallet): Create low-level, non-custodial wallets that simplify the onboarding process and improve the user experience for web3 apps.
 
-<p style={{ marginBottom: 6 }}>Our prebuilt contracts are:</p>
+### 2. Connect Wallets
 
-- Fully **open-source** on GitHub
-- Consistently **audited** by trusted firms
-- **10x cheaper** to deploy than ordinary smart contracts
-- Completely owned by you
+- **Connect Wallet**: a pre-built component that can be easily integrated into your application. Languages include:
+  - [React](/react/connectwallet)
+  - [React Native](/react-native/connectwallet)
+  - [Unity](/unity/unity.connectwallet)
+- [**Wallet SDK**](/wallet): allows you to build a fully featured wallet solution or integrate an existing wallet provider with thirdweb's Typescript, React, React Native, and Unity SDKs.
 
-<div className="row" style={{ marginBottom: 24 }}>
-  <div className="col col--12" style={{ marginTop: 8 }}>
-    <QuickstartCard
-      name="Learn more about contracts"
-      link="/pre-built-contracts"
-      image="/assets/icons/general.png"
-    />
-  </div>
-</div>
+### 3. Authenticate Users
 
-</div>
+[Auth](/auth) is a developer SDK that lets you integrate passwordless **web3-native authentication and authorization** into your applications.
 
-<div className="heroGridImageContainer">
-  <ThemedImage
-    sources={{
-      light: "/assets/platform-overview-contract-light.png",
-      dark: "/assets/platform-overview-contract-dark.png",
-    }}
-    className="heroGridImage"
-    alt="thirdweb contracts"
-  />
-</div>
+<hr />
 
-</div>
+## Smart Contracts
 
-<hr
-  style={{
-    marginTop: 32,
-    backgroundColor: "var(--ifm-toc-border-color)",
-  }}
-/>
+Smart contracts serve as the foundational building blocks for any decentralized application.
+thirdweb is designed to integrate with any contract on any blockchain seamlessly.
 
-## SDKs
+### 1. Build Smart Contracts
 
-<div className="heroGrid">
-  <div>
-    <p>
-      We provide a diverse set of tools to help you build your applications with whatever languages
-      and frameworks you are most comfortable using:
-    </p>
+thirdweb offers two tools to help you build your smart contract, including:
 
-We have **SDKs** to handle interaction with your contracts in multiple languages and offer plug-and-play frontend components to help you
-build elegant user interfaces around your smart contract functionality.
+- [**Solidity SDK**](/solidity): build and customize smart contracts and add extensions to unlock extra functionality in your contract and therefore the [SDKs](/sdk).
+- [**Pre-Built Contracts**](/pre-built-contracts): 1 click deploy contracts written by the thirdweb team and cover the most common use cases for smart contracts.
 
-<div className="row" style={{marginBottom:24}}>
+### 2. Explore Pre-Built Contracts
 
-<div className="col col--12" style={{ marginTop: 8 }}>
-  <QuickstartCard
-    name="Learn more about SDKs"
-    link="/sdk"
-    image="/assets/icons/general.png"
-  />
-</div>
+Explore thirdweb's pre-built contracts and easily deploy your contract from the Dashboard.
+A full list of the available contracts can be found [in the pre-built contracts documentation](/pre-built-contracts).
 
-</div>
+### 3. Deploy Smart Contracts
 
-<p>
+- [**Deploy CLI**](/cli): deploy your smart contract without using a private key.
+- [**Deploy using the SDK**](/sdk): deploy your smart contract using the [**TypeScript SDK**](/typescript/sdk.contractdeployer), [**GO SDK**](/go/contract_deployer), [**Python SDK**](/python/python.contractdeployer) or [**Unity SDK**](/unity/contractdeployer) from an application e.g. a script.
+- [**Import Contract**](/import-contract): import an already deployed contract.
+- [**Deploy from Explore**](https://thirdweb.com/explore): explore pre-built contracts and deploy them to your blockchain of choice.
 
-</p>
-</div>
+### 4. Publish Smart Contracts
 
-<div className="heroGridImageContainer">
-    <ThemedImage
-      sources={{
-        light: "/assets/platform-overview-sdk-light.png",
-        dark: "/assets/platform-overview-sdk-dark.png",
-      }}
-      className="heroGridImage"
-      alt="thirdweb sdk"
-    />
-  </div>
-</div>
+Make your smart contract available for others to deploy by publishing it using the CLI.
+Either use the "direct deploy" or "factory" methods to publish your contract to allow users to deploy either a full smart contract or a proxy respectively.
+For more information, see the [publish documentation](/publish).
 
-<hr
-  style={{
-    marginTop: 32,
-    backgroundColor: "var(--ifm-toc-border-color)",
-  }}
-/>
+### 5. Interact with Smart Contracts
 
-## Dashboard
+- [**Dashboard**](/dashboard): Upon deploying or importing your contract, using the [Dashboard](/dashboard), you can easily manage your smart contract and track its performance through **Data Feeds**.
+- [**Contract SDK**](/sdk): [software development kits] (SDKs) that allow seamless integration with your smart contract when developing applications or games using popular programming languages include:
+  - [React](/react)
+  - [React Native](/react-native)
+  - [TypeScript](/typescript)
+  - [Python](/python)
+  - [Go](/go)
+  - [Unity](/unity).
 
-<div className="heroGrid">
-  
-  <div>
-    <p>
-      Each contract you deploy comes with a <a href='https://thirdweb.com/dashboard'>dashboard</a> to manage your applications.
-    </p>
+Our SDKs and Dashboard detect the [extensions](/solidity/extensions) or common Ethereum patterns and standards (e.g., [ERC-20](/solidity/extensions/erc20), [ERC-721](/solidity/extensions/erc721), [ERC-1155](/solidity/extensions/erc1155)) used in your smart contract and provide extra functionality to allow you to build your application with ease. For example, if your contract uses the [ERC-721](/solidity/extensions/erc721) extension, our SDKs will provide you with a set of functions to easily interact with your contract's NFTs.
 
-This lets you perform common admin operations for your projects without any code, such as:
+These features optimize performance and enhance developer experience when building decentralized applications.
 
-- **Deploying** new smart contracts and **interacting** with current contracts
-- **Configuring** royalty and platform fees or other contract settings
-- Issuing team-wide **permissions** to enable collaboration
-- Gathering **insights** from your smart contract analytics
+<hr />
 
-<div className="row" style={{marginBottom:24}}>
+## Infrastructure
 
-<div className="col col--12" style={{ marginTop: 8 }}>
-  <QuickstartCard
-    name="Learn more about the dashboard"
-    link="/dashboard"
-    image="/assets/icons/general.png"
-  />
-</div>
+Connect your application to decentralized networks.
 
-</div>
+### Storage
 
-</div>
+- [**Storage SDK**](/storage): Store files from IPFS using the Storage SDK.
+- [**Gateway**](/storage#gateway): Retrieve files from IPFS using the Gateway.
 
-<div className="heroGridImageContainer">
-  <ThemedImage
-    sources={{
-      light: "/assets/platform-overview-dashboard-light.png",
-      dark: "/assets/platform-overview-dashboard-dark.png",
-    }}
-    className="heroGridImage"
-    alt="thirdweb dashboard"
-  />
-</div>
+### RPC Edge
 
-</div>
+thirdweb's RPC Edge is a high-performance, scalable, and reliable RPC service that provides a connection to any EVM-compatible blockchain.
+
+### Account Abstraction Infrastructure
+
+- [**Bundler**](/smart-wallet/infrastructure): bundle operations and execute transactions with [ERC-4337 smart accounts](/smart-wallet).
+- [**Paymaster**](/smart-wallet/infrastructure): Paymaster is a service that enables sponsored transactions with [ERC-4337 smart accounts](/smart-wallet).
+
+### Payments
+
+[Paper Checkouts](https://docs.withpaper.com/reference/checkouts-overview) delivers the easiest NFT checkout experience: a simple premise with deep complexity abstracted away from you and your buyers.

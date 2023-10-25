@@ -30,11 +30,13 @@ function App() {
   <summary>Return Value</summary>
   <div>
 
-A `number` representing the current chain id, or `undefined` if the chain id could not be found.
+A `number` representing the current chain id, or `undefined` if the user is not connected to a wallet.
 
 ```ts
 number | undefined;
 ```
+
+For Example, if the user is connected to the Ethereum Mainnet, the return value will be `1`.
 
 </div>
 </details>

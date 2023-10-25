@@ -1,0 +1,260 @@
+---
+title: Mint
+slug: /python.erc1155mintable
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+# ERC1155Mintable
+
+Functionality available for contracts that extend the
+[`ERC1155`](/solidity/extensions/erc1155) and
+[`ERC1155Mintable`](/solidity/extensions/erc1155mintable) extensions.
+
+Allows you to mint new NFTs on the contract.
+
+By default, the NFT metadata is uploaded and pinned to IPFS before minting.
+You can override this default behavior by providing a `string` that points to valid metadata object instead of an object.
+
+## mint
+
+Mint a new NFT to the **connected wallet**.
+
+```python
+from thirdweb.types.nft import NFTMetadataInput, EditionMetadataInput
+
+# Note that you can customize this metadata however you like
+metadata_with_supply = EditionMetadataInput(
+    NFTMetadataInput.from_json({
+        "name": "Cool NFT",
+        "description": "This is a cool NFT",
+        "image": open("path/to/file.jpg", "rb"),
+    }),
+    100
+)
+
+# You can pass in any address here to mint the NFT to
+tx = contract.erc1155.mint(metadata_with_supply)
+receipt = tx.receipt
+token_id = tx.id
+nft = tx.data()
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### metadata_with_supply
+
+A `EditionMetadataInput` object containing a `NFTMetadataInput` object and a `supply` property.
+
+```python
+class EditionMetadataInput:
+    metadata: Union[NFTMetadataInput, str]
+    supply: int
+
+class NFTMetadataInput:
+    name: str
+    description: Optional[str] = None
+    image: Optional[str] = None
+    external_url: Optional[str] = None
+    animation_url: Optional[str] = None
+    background_color: Optional[str] = None
+    properties: Optional[Dict[str, Any]] = None
+```
+
+The metadata object can either be a `string` that points to valid metadata that
+conforms to the [metadata standards](https://docs.opensea.io/docs/metadata-standards#metadata-structure),
+or a `NFTMetadataInput` object that conforms to the same standards.
+
+If you provide an object, the metadata is uploaded and pinned to IPFS before
+the NFT(s) are minted.
+
+```python
+from thirdweb.types.nft import EditionMetadataInput
+
+# Below is an example of using a string rather than an object for metadata
+metadata = "https://example.com/metadata.json" # Any URL or IPFS URI that points to metadata
+
+tx = contract.erc1155.mint(EditionMetadataInput(
+  metadata = metadata,
+  supply = 1000, # The number of this NFT you want to mint
+))
+```
+
+</div>
+</details>
+
+## mint_to
+
+The same as [`mint`](#mint), but allows you to specify the address of the wallet rather than using the connected wallet.
+
+```python
+from thirdweb.types.nft import NFTMetadataInput, EditionMetadataInput
+
+# Note that you can customize this metadata however you like
+metadata_with_supply = EditionMetadataInput(
+    NFTMetadataInput.from_json({
+        "name": "Cool NFT",
+        "description": "This is a cool NFT",
+        "image": open("path/to/file.jpg", "rb"),
+    }),
+    100
+)
+
+# You can pass in any address here to mint the NFT to
+tx = contract.erc1155.mint_to("0x7fDae677aA6f94Edff9872C4b91D26407709c790", metadata_with_supply)
+receipt = tx.receipt
+token_id = tx.id
+nft = tx.data()
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### to
+
+The address of the wallet you want to mint the NFT to.
+
+Must be a `string`.
+
+```python
+from thirdweb.types.nft import NFTMetadataInput, EditionMetadataInput
+
+supply = 100
+metadata_with_supply = EditionMetadataInput(
+    NFTMetadataInput.from_json(
+      # ...
+    ),
+    supply
+)
+
+tx = contract.erc1155.mint_to(
+  # highlight-next-line
+  "{{wallet_address}}",
+  metadata_sith_supply,
+)
+```
+
+#### metadata_with_supply
+
+Same as [`metadata_with_supply`](#metadata_with_supply) in the [`mint`](#mint) method.
+
+</div>
+</details>
+
+## mint_additional_supply
+
+Mint additional quantity of an NFT that already exists on the contract.
+
+```python
+token_id = 0
+additional_supply = 1
+
+tx = contract.erc1155.mint_additional_supply(token_id, additional_supply)
+receipt = tx.receipt
+token_id = tx.id
+nft = tx.data()
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### token_id
+
+The ID of the NFT you want to mint additional supply for.
+
+Must be an `int`.
+
+```python
+tx = contract.erc1155.mint_additional_supply(
+  # highlight-next-line
+  "{{token_id}}",
+  "{{additional_supply}}",
+)
+```
+
+#### additional_supply
+
+How much additional supply you want to mint.
+
+Must be an `int`.
+
+```python
+tx = contract.erc1155.mint_additional_supply(
+  "{{token_id}}",
+  # highlight-next-line
+  "{{additional_supply}}",
+)
+```
+
+</div>
+</details>
+
+## mint_additional_supply_to
+
+The same as [`mint_additional_supply`](#mint_additional_supply), but allows you to specify the address of the wallet rather than using the connected wallet.
+
+```python
+to = "0x7fDae677aA6f94Edff9872C4b91D26407709c790"
+token_id = 0
+additional_supply = 1
+
+tx = contract.erc1155.mint_additional_supply_to(to, token_id, additional_supply)
+receipt = tx.receipt
+token_id = tx.id
+nft = tx.data()
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### to
+
+The address of the wallet you want to mint the NFT to.
+
+Must be a `string`.
+
+```python
+tx = contract.erc1155.mint_additional_supply_to(
+  # highlight-next-line
+  "{{wallet_address}}",
+  "{{token_id}}",
+  "{{additional_supply}}",
+)
+```
+
+#### token_id
+
+The ID of the NFT you want to mint additional supply for.
+
+Must be an `int`.
+
+```python
+tx = contract.erc1155.mint_additional_supply_to(
+  "{{wallet_address}}",
+  # highlight-next-line
+  "{{token_id}}",
+  "{{additional_supply}}",
+)
+```
+
+#### additional_supply
+
+How much additional supply you want to mint.
+
+Must be an `int`.
+
+```python
+tx = contract.erc1155.mint_additional_supply_to(
+  "{{wallet_address}}",
+  "{{token_id}}",
+  # highlight-next-line
+  "{{additional_supply}}",
+)
+```
+
+</div>
+</details>

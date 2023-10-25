@@ -8,7 +8,7 @@ Create a new subscription to listen to all new events on a smart contract.
 ## Usage
 
 ```csharp
-var listener = contract.events.ListenToAll((ContractEvent<object> anyEvent) => Debug.Log("Event occured: " + anyEvent.data));
+var listener = contract.events.ListenToAll((ContractEvent<object> anyEvent) => Debug.Log("Event occurred: " + anyEvent.data));
 ```
 
 ## Configuration

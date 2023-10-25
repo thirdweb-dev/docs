@@ -10,18 +10,25 @@ type Product = {
 
 const products: Product[] = [
   {
-    image: "/assets/product/auth.png",
-    name: "Auth",
-    description:
-      "Authenticate users with their wallets. Securely verify a user’s on-chain identity without relying on a centralized database",
-    link: "/auth",
-  },
-  {
     image: "/assets/product/storage.png",
     name: "Storage",
     description:
       "Get fast access to data stored on blockchain with a unified API that works with a storage provider of your choice",
     link: "/storage",
+  },
+  {
+    image: "/assets/product/sdk.png",
+    name: "Engine",
+    description:
+      "Server-side interface for contracts & wallets, without the complexities of wallet and transaction management",
+    link: "/engine",
+  },
+  {
+    image: "/assets/product/sdk.png",
+    name: "RPC Edge",
+    description:
+      "Reliable access to querying data and interacting with the blockchain through global edge RPCs",
+    link: "/rpc-edge",
   },
 ];
 

@@ -1,0 +1,39 @@
+---
+title: useWallet
+slug: /react.usewallet
+displayed_sidebar: react
+sidebar_position: 3
+---
+
+Hook to get the instance of the currently connected wallet.
+
+```jsx
+import { useWallet } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+```jsx
+import { useWallet } from "@thirdweb-dev/react";
+
+function App() {
+  const walletInstance = useWallet();
+}
+```
+
+## Return Value
+
+<details>
+<summary>walletInstance</summary>
+<div>
+
+Returns a walletInstance of type `WalletInstance` , or `undefined` if no wallet is connected.
+
+[Learn more about wallets](/wallet).
+
+```typescript
+WalletInstance | undefined;
+```
+
+</div>
+</details>

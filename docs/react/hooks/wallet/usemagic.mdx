@@ -2,123 +2,232 @@
 title: useMagic
 slug: /react.usemagic
 displayed_sidebar: react
+sidebar_position: 12
 ---
 
-import QuickstartCard from "@components/QuickstartCard";
-
-Hook that allows users to use their email address to sign in with your dApp using [Magic.Link](https://magic.link/).
-
-Under the hood, a wallet is created for the user and they are connected to it. This wallet is then used to sign transactions and messages automatically.
+Hook that prompts users to connect to your app using [Magic Auth](https://magic.link/docs/auth/overview) or [Magic Connect](https://magic.link/docs/connect/overview)
 
 ```jsx
-import { useMagic } from "@thirdweb-dev/react/evm/connectors/magic";
+import { useMagic } from "@thirdweb-dev/react";
 ```
+
+The [magicLink](/react/react.magicLink) also needs to be added in [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) if you want the wallet to auto-connect on next page load.
+
+:::info Magic apiKey
+
+Magic SDK requires an apiKey for instantiation. You can create a `apiKey` for your app on [magic.link](https://magic.link/)
+
+:::
 
 ## Usage
 
-Sign up for [Magic.Link](https://magic.link/), create a new `Magic Auth` application and copy your
-`PUBLISHABLE API KEY`.
+calling this hook returns a `connect` function.
 
-Configure your [`ThirdwebProvider`](/react/react.thirdwebprovider#walletconnectors)'s
-`walletConnectors` prop to include the Magic Link connector:
+Magic offers two flavors of our SDK: Magic Connect, which provides a plug-and-play experience, and Magic Auth, a customizable white-labeled wallet solution.
+
+```ts
+// in a react component
+const connect = useMagic();
+
+// when you want to connect
+const magicWallet = await connect(connectOptions);
+```
+
+<details>
+<summary> Magic Auth </summary>
+
+There are three ways to call the `connect` function - `email` or `phoneNumber` or `oauthProvider`.
+
+<details>
+  <summary> email </summary>
+<div>
+
+This opens the Magic Link's Modal and prompts the user to click on the link sent to their email.
+
+```ts
+const magicWallet = await connect({
+  apiKey: "YOUR_MAGIC_AUTH_API_KEY",
+  email: "user@example.com",
+});
+```
+
+</div>
+</details>
+
+<details>
+  <summary> phoneNumber </summary>
+<div>
+
+This opens the Magic Link's Modal and prompts the user to enter the OTP sent to their phone via SMS.
+
+```ts
+const magicWallet = await connect({
+  apiKey: "YOUR_MAGIC_AUTH_API_KEY",
+  phoneNumber: "+123456789",
+});
+```
+
+</div>
+</details>
+
+<details>
+  <summary> oauthProvider </summary>
+<div>
+
+This redirects the user to given provider's sign-in page and once the user is authenticated, it redirects the user back to the provided `redirectURI`
+
+```ts
+const magicWallet = await connect({
+  apiKey: "YOUR_MAGIC_AUTH_API_KEY",
+  oauthProvider: "google",
+  oauthOptions: {
+    // URL to redirect the user to after authentication
+    redirectURI: "https://example.com/foo",
+  },
+});
+```
+
+</div>
+</details>
+
+</details>
+
+<details>
+  <summary> Magic Connect </summary>
+<div>
+
+```ts
+const magicWallet = await connect({
+  type: "connect",
+  apiKey: "YOUR_MAGIC_CONNECT_API_KEY",
+});
+```
+
+</div>
+</details>
+
+## connectOptions
+
+<details>
+  <summary>apiKey </summary>
+  <div>
+
+Your Magic Link apiKey. You can get an API key by signing up for an account on [Magic Link's website](https://magic.link/).
+
+Must be a `string`.
+
+</div>
+</details>
+
+<details>
+  <summary>type (optional) </summary>
+  <div>
+
+Whether to use [Magic Auth](https://magic.link/docs/auth/overview) or [Magic Connect](https://magic.link/docs/connect/overview) to connect to the wallet.
+
+Default is `"auth"`.
+
+```ts
+type: "auth" | "connect";
+```
+
+</div>
+</details>
+
+<details>
+  <summary>chainId (optional)</summary>
+  <div>
+
+To connect to a specific chain when connecting the wallet,
+pass the `chainId` in a configuration object as shown below.
+
+```ts
+chainId: number;
+```
 
 ```jsx
-import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
-import { MagicConnector } from "@thirdweb-dev/react/evm/connectors/magic";
+import { useMagic } from "@thirdweb-dev/react";
+import { Polygon } from "@thirdweb-dev/chains";
 
-function MyApp() {
-  const magicLinkConnector = new MagicConnector({
-    options: {
-      // Place your Magic.Link API key here.
-      apiKey: "pk_live_XXXXXXXXXXXXXXXX",
-      rpcUrls: {
-        // Use your own RPC or one from the @thirdweb-dev/chains package.
-        [ChainId.Mumbai]: "https://rpc-mumbai.maticvigil.com",
-      },
-    },
-  });
+function App() {
+  const connectWithMagic = useMagic();
 
   return (
-    <ThirdwebProvider
-      // Configure the chain you want to use
-      activeChain={"mumbai"}
-      // Configure the connectors you want to use, including your gnosisSafeConnector
-      walletConnectors={[magicLinkConnector]}
+    <button
+      onClick={() =>
+        connectWithMagic({
+          apiKey: "YOUR_API_KEY",
+          chainId: Polygon.chainId,
+          email: "user@example.com",
+        })
+      }
     >
-      <Component {...pageProps} />
+      Connect Wallet
+    </button>
+  );
+}
+```
+
+You must add this chain in `ThirdwebProvider`&rsquo;s [supportedChains](/react/react.thirdwebprovider#supportedChains) prop as shown below
+
+```jsx
+import { Polygon } from "@thirdweb-dev/chains";
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+
+export function YourApp() {
+  return (
+    <ThirdwebProvider supportedChains={[Polygon]} clientId="your-client-id">
+      <App />
     </ThirdwebProvider>
   );
 }
 ```
 
-Now you can use the `useMagic` hook to sign in with Magic.Link:
-
-```jsx
-import { useState } from "react";
-import { useMagic } from "@thirdweb-dev/react/evm/connectors/magic";
-
-const Home = () => {
-  // Hook to connect with Magic Link
-  const connectWithMagic = useMagic();
-
-  // State to hold the email address the user entered.
-  const [email, setEmail] = useState("");
-
-  return (
-    <>
-      <input type="email" onChange={(e) => setEmail(e.target.value)} />
-      <button onClick={() => connectWithMagic({ email })}>Login</button>
-    </>
-  );
-};
-```
-
-Then use the [`useAddress`](/react/react.useaddress) hook to determine if the user is logged in:
-
-```jsx
-import { useState } from "react";
-import { useMagic } from "@thirdweb-dev/react/evm/connectors/magic";
-// highlight-next-line
-import { useAddress } from "@thirdweb-dev/react";
-
-const Home = () => {
-  // Hook to connect with Magic Link
-  const connectWithMagic = useMagic();
-  // highlight-start
-  // Hook to get the user's address (if they are connected)
-  const address = useAddress();
-  // highlight-end
-  // State to hold the email address the user entered.
-  const [email, setEmail] = useState("");
-
-  // highlight-start
-  // If address exists, this means the user is connected with Magic Link.
-  if (address) {
-    return <h1>Welcome!</h1>;
-  }
-  // highlight-end
-
-  return (
-    <>
-      <input type="email" onChange={(e) => setEmail(e.target.value)} />
-      <button onClick={() => connectWithMagic({ email })}>Login</button>
-    </>
-  );
-};
-```
-
-## Full Example
-
-A [template repository](https://github.com/thirdweb-example/magic-link)
-is available for you to use, which includes the full setup for connecting user&rsquo;s
-to your dApp with Magic.Link.
-
-<div className="row" style={{ marginBottom: 24, padding: 8, flexWrap: "wrap" }}>
-  <div className="col col--12" style={{ padding: 8 }}>
-    <QuickstartCard
-      name="Template: Magic Link Wallet Connection"
-      link="https://github.com/thirdweb-example/magic-link"
-      image="/assets/icons/education.png"
-    />
-  </div>
 </div>
+</details>
+
+<details>
+  <summary>magicSdkConfiguration (optional)</summary>
+  <div>
+
+This is only relevant if you are using `type: 'auth'` in your config.
+
+Configuration for Magic Auth SDK.
+
+```ts
+{
+  locale?: string;
+  endpoint?: string;
+  testMode?: boolean;
+}
+```
+
+<details>
+  <summary>local (optional)</summary>
+  <div>
+
+Customize the language of Magic's modal, email and confirmation screen. See [Localization](https://magic.link/docs/auth/more/customization/localization) for more.
+
+</div>
+</details>
+
+<details>
+  <summary>endpoint (optional)</summary>
+  <div>
+
+A URL pointing to the Magic iframe application.
+
+</div>
+</details>
+
+<details>
+  <summary>testMode (optional)</summary>
+  <div>
+
+Enable [testMode](https://magic.link/docs/auth/introduction/test-mode) to assert the desired behavior through the email address you provide to `loginWithMagicLink` without having to go through the auth flow.
+
+</div>
+</details>
+
+</div>
+</details>

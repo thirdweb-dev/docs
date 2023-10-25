@@ -1,0 +1,171 @@
+---
+slug: /solidity/base-contracts/managed-account
+title: Managed Account
+---
+
+import ViewContractCodeButton from "@components/ViewContractCodeButton";
+
+# Managed Account
+
+```solidity
+import "@thirdweb-dev/contracts/smart-wallet/managed/ManagedAccount.sol";
+```
+
+This contract inherits from the [`BaseAccount`](/solidity/extensions/base-account) contract.
+
+Like [`DynamicAccount`](/solidity/base-contracts/dynamic-account), the `ManagedAccount` smart wallet is an _upgradeable_ smart contract written in the [dynamic contract pattern](https://github.com/thirdweb-dev/dynamic-contracts).
+
+App developers can issue `ManagedAccount` smart wallets programmatically by deploying a [`ManagedAccountFactory`](/solidity/base-contracts/managed-account-factory) smart contract.
+
+The admin of the [`ManagedAccountFactory`](/solidity/base-contracts/managed-account-factory) contract can push upgrades to all `ManagedAccount` contracts that it creates. This admin does not require any permissions on the `ManagedAccount` smart wallets to do so.
+
+An upgrade to the features of `ManagedAccount` applies to **all** `ManagedAccount` smart wallets created by the factory. This is the right wallet for developers who anticipate **pushing upgrades** to their users’ wallets.
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/smart-wallet/managed/ManagedAccount.sol"
+  name="ManagedAccount"
+/>
+
+<br />
+
+:::info
+
+If you intend to issue accounts programmatically using a custom factory contract, you must do the following:
+
+- Create a new factory contract by extending the [BaseAccountFactory](/solidity/extensions/base-account-factory) extension.
+
+- Override the `_initializeAccount` function on the factory to create a new wallet. ([reference](https://github.com/thirdweb-dev/contracts/blob/main/contracts/smart-wallet/non-upgradeable/AccountFactory.sol#L36))
+
+:::
+
+## Detected Extensions
+
+Once deployed, you can use the features made available by these extensions on the SDK and dashboard:
+
+Click on each feature to learn more about what functions are available.
+
+- [SmartWallet](/solidity/extensions/base-account)
+- [Multicall](/solidity/extensions/multicall)
+
+## Usage
+
+Import the contract and inherit from it. This is an example contract demonstrating one way that you could override the functionality to create a token bound account.
+
+```solidity
+import "@thirdweb-dev/contracts/smart-wallet/managed/ManagedAccount.sol";
+
+contract ManagedTokenBoundAccount is ManagedAccount {
+    constructor(
+        IEntryPoint _entrypoint
+    )
+        ManagedAccount(
+            _entrypoint
+        )
+    {}
+}
+```
+
+## Functions to Override
+
+The following functions have been implemented on this contract & are available to be overridden to add custom logic:
+
+<details>
+<summary>initialize</summary>
+<div>
+
+Initializes the smart contract wallet.
+
+```solidity
+function initialize(address _defaultAdmin, bytes calldata _data) public virtual initializer {
+    factory = msg.sender;
+    _setupRole(DEFAULT_ADMIN_ROLE, _defaultAdmin);
+}
+```
+
+#### \_defaultAdmin
+
+The account admin. Must be of type `address`.
+
+#### \_data
+
+The abi encoded data to initialize the contract with. Must be of type `bytes`.
+
+</div>
+</details>
+
+<details>
+<summary>getImplementationForFunction</summary>
+<div>
+
+Returns the extension implementation address, stored in the router, for the given function.
+
+```solidity
+function getImplementationForFunction(bytes4 _functionSelector) public view virtual override returns (address) {
+    return Router(payable(factory)).getImplementationForFunction(_functionSelector);
+}
+```
+
+#### \_functionSelector
+
+The function selector to get the extension implementation address. Must be of type `bytes4`.
+
+</div>
+</details>
+
+<details>
+<summary>isValidSigner</summary>
+<div>
+
+Returns whether a signer is authorized to perform transactions using the wallet.
+
+```solidity
+function isValidSigner(address _signer) public view virtual returns (bool) {
+    return _hasRole(SIGNER_ROLE, _signer) || _hasRole(DEFAULT_ADMIN_ROLE, _signer);
+}
+```
+
+#### \_signer
+
+The signer to check authorization for. Must be of type `address`.
+
+</div>
+</details>
+
+<details>
+<summary>entryPoint</summary>
+<div>
+
+Returns the entry point contract address.
+
+```solidity
+function entryPoint() public view virtual override returns (IEntryPoint) {
+    return entrypointContract;
+}
+```
+
+</div>
+</details>
+
+<details>
+<summary>_validateSignature</summary>
+<div>
+
+Validates the signature of a user operation.
+
+```solidity
+function _validateSignature(UserOperation calldata userOp, bytes32 userOpHash)
+    internal
+    virtual
+    override
+    returns (uint256 validationData)
+{
+    bytes32 hash = userOpHash.toEthSignedMessageHash();
+    address signer = hash.recover(userOp.signature);
+
+    if (!isValidSigner(signer)) return SIG_VALIDATION_FAILED;
+    return 0;
+}
+```
+
+</div>
+</details>

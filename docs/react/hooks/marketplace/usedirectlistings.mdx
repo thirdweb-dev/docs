@@ -10,6 +10,15 @@ import CodeBlock from "@theme/CodeBlock";
 
 Hook to get all the direct listings from a [Marketplace V3](https://thirdweb.com/thirdweb.eth/MarketplaceV3) contract.
 
+:::info Marketplace
+
+**Note: This hook is only for [Marketplace V3](https://thirdweb.com/thirdweb.eth/MarketplaceV3) contracts.**
+
+For [Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace)
+contracts, use [useListings](/react/react.uselistings) instead.
+
+:::
+
 ```jsx
 import { useDirectListings } from "@thirdweb-dev/react";
 
@@ -66,8 +75,8 @@ function App() {
       offeror: "{{offeror_address}}", // Has offers from this address
       seller: "{{seller_address}}", // Being sold by this address
       start: 0, // Start from this index (pagination)
-      tokenContract: "{{token_contract_address}}", // Only show NFTs from this collection
-      tokenIds: ["{{token_id}}"], // Only show NFTs with these IDs
+      tokenContract: "{{token_contract_address}}", // Only show listings for NFTs from this collection
+      tokenId: "{{token_id}}", // Only show listings with this NFT ID
     },
     // highlight-end
   );

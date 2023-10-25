@@ -1,0 +1,46 @@
+---
+title: useConnectionStatus
+slug: /react.useconnectionstatus
+displayed_sidebar: react
+sidebar_position: 4
+---
+
+Hook for checking whether your app is connected to a wallet.
+
+```jsx
+import { useConnectionStatus } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+```jsx
+import { useConnectionStatus } from "@thirdweb-dev/react";
+
+function App() {
+  const connectionStatus = useConnectionStatus();
+
+  if (connectionStatus === "unknown") return <p> Loading... </p>;
+  if (connectionStatus === "connecting") return <p> Connecting... </p>;
+  if (connectionStatus === "connected") return <p> You are connected </p>;
+  if (connectionStatus === "disconnected")
+    return <p> You are not connected to a wallet </p>;
+}
+```
+
+## Return Value
+
+<details>
+  <summary>Return Value</summary>
+  <div>
+
+- `unknown`: Application has not yet determined connection status.
+- `connecting`: Application is trying to connect to a wallet. Either because of a user action, or when [autoconnect](/react/react.thirdwebprovider#autoconnect-optional) set to `true`.
+- `connected`: Application is connected to a wallet.
+- `disconnected`: Application is not connected to any wallet.
+
+```typescript
+"unknown" | "connecting" | "connected" | "disconnected";
+```
+
+</div>
+</details>

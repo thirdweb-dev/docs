@@ -3,7 +3,7 @@ title: ThirdwebSDK.fromPrivateKey
 slug: /sdk.thirdwebsdk.fromprivatekey
 ---
 
-Instantiate the [`ThirdwebSDK`](/sdk.thirdwebsdk) in read-write mode using a wallet&rsquo;s private key.
+Instantiate the [`ThirdwebSDK`](/typescript/sdk.thirdwebsdk) in read-write mode using a wallet&rsquo;s private key.
 
 All transactions made with this instance of the SDK will be signed using the private key.
 
@@ -14,10 +14,20 @@ Provide the private key as a string and the [chain](#chain) you want to use.
 ```typescript
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
-const sdk = ThirdwebSDK.fromPrivateKey(process.env.PRIVATE_KEY, "ethereum");
+const sdk = ThirdwebSDK.fromPrivateKey(process.env.PRIVATE_KEY, "ethereum", {
+  clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
+  secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
+});
 ```
 
 ## Configuration
+
+### Client ID or Secret Key(required)
+
+To use the Typescript SDK, you need to obtain either the `clientId` or `secretKey` from an API key which you can obtain from the [Dashboard](https://thirdweb.com/dashboard). You can instatiate the SDK in two ways:
+
+- **Client-side**: Use the SDK in the browser or mobile app. In this instance, you would use the `clientId` prop.
+- **Server-side**: Use the SDK in a server environment. In this instance, you would use the `secretKey` prop.
 
 ### privateKey
 
@@ -41,6 +51,10 @@ const sdk = ThirdwebSDK.fromPrivateKey(
   // highlight-next-line
   "your-private-key-here", // DANGER: This is a sensitive value that should be stored securely.
   "ethereum",
+  {
+    clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
+    secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
+  },
 );
 ```
 

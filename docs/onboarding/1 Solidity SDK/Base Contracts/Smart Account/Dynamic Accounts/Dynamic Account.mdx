@@ -1,0 +1,204 @@
+---
+slug: /solidity/base-contracts/dynamic-account
+title: Dynamic Account
+---
+
+import ViewContractCodeButton from "@components/ViewContractCodeButton";
+
+# Dynamic Account
+
+```solidity
+import "@thirdweb-dev/contracts/smart-wallet/dynamic/DynamicAccount.sol";
+```
+
+This contract inherits from the [`BaseAccount`](/solidity/extensions/base-account) contract.
+
+App developers can issue `DynamicAccount` smart wallets programmatically by deploying a [`DynamicAccountFactory`](/solidity/base-contracts/dynamic-account-factory) smart contract.
+
+The difference between `DynamicAccount` smart wallet and [`Account`](/solidity/base-contracts/account) smart wallet is that `DynamicAccount` is an _upgradeable_ smart contract written in the [dynamic contract pattern](https://github.com/thirdweb-dev/dynamic-contracts).
+
+The admin of a given `DynamicAccount` smart wallet is allowed to make upgrades to their **own** smart wallets. This is the right wallet for developers who anticipate providing **opt-in upgrades** to their users’ wallets.
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/smart-wallet/dynamic/DynamicAccount.sol"
+  name="DynamicAccount"
+/>
+
+<br />
+
+:::info
+
+If you intend to issue accounts programmatically using a custom factory contract, you must do the following:
+
+- Create a new factory contract by extending the [BaseAccountFactory](/solidity/extensions/base-account-factory) extension.
+
+- Override the `_initializeAccount` function on the factory to create a new wallet. ([reference](https://github.com/thirdweb-dev/contracts/blob/main/contracts/smart-wallet/non-upgradeable/AccountFactory.sol#L36))
+
+:::
+
+## Detected Extensions
+
+Once deployed, you can use the features made available by these extensions on the SDK and dashboard:
+
+Click on each feature to learn more about what functions are available.
+
+- [SmartWallet](/solidity/extensions/base-account)
+- [Multicall](/solidity/extensions/multicall)
+
+## Usage
+
+Import the contract and inherit from it. This is an example contract demonstrating one way that you could override the functionality to create a token bound account.
+
+```solidity
+import "@thirdweb-dev/contracts/smart-wallet/dynamic/DynamicAccount.sol";
+
+contract DynamicTokenBoundAccount is DynamicAccount {
+    constructor(
+        IEntryPoint _entrypoint,
+        address _defaultExtension
+    )
+        DynamicAccount(
+            _entrypoint,
+            _defaultExtension
+        )
+    {}
+ }
+```
+
+## Functions to Override
+
+The following functions have been implemented on this contract & are available to be overridden to add custom logic:
+
+<details>
+<summary>initialize</summary>
+<div>
+
+Initializes the contract with the provided roles.
+
+```solidity
+function initialize(address _defaultAdmin, bytes calldata) public virtual override initializer {
+    _setupRole(DEFAULT_ADMIN_ROLE, _defaultAdmin);
+    _setupRole(EXTENSION_ADMIN_ROLE, _defaultAdmin);
+}
+```
+
+#### \_defaultAdmin
+
+The address to be set as default admin role for the contract. Must be of type `address`.
+
+#### \_data
+
+If extra storage variables are required in your account contract, override this function, abi encode the variables,
+pass them to this function as the `bytes` argument and then abi-decoded in this function to be set in storage.
+
+For example:
+
+```solidity
+
+function initialize(
+    address _admin,
+    bytes calldata _data
+) public override initializer {
+    super.initialize(_admin);
+    (chainId, tokenContract, tokenId) = abi.decode(
+        _data,
+        (uint256, address, uint256)
+    );
+}
+```
+
+</div>
+</details>
+
+<details>
+<summary>entryPoint</summary>
+<div>
+
+Returns the entry point contract address.
+
+```solidity
+function entryPoint() public view virtual override returns (IEntryPoint) {
+    return entrypointContract;
+}
+```
+
+</div>
+</details>
+
+<details>
+<summary>getImplementationForFunction</summary>
+<div>
+
+Returns the extension implementation address stored in router, for the given function.
+
+```solidity
+function getImplementationForFunction(bytes4 _functionSelector) public view virtual override returns (address) {
+    address impl = getExtensionForFunction(_functionSelector).implementation;
+    return impl != address(0) ? impl : defaultExtension;
+}
+```
+
+#### \_functionSelector
+
+The function selector to get the extension implementation address. Must be of type `bytes4`.
+
+</div>
+</details>
+
+<details>
+<summary>isValidSigner</summary>
+<div>
+
+Returns whether a signer is authorized to perform transactions using the wallet.
+
+```solidity
+function isValidSigner(address _signer) public view virtual returns (bool) {
+    return _hasRole(SIGNER_ROLE, _signer) || _hasRole(DEFAULT_ADMIN_ROLE, _signer);
+}
+```
+
+#### \_signer
+
+The signer to check authorization for. Must be of type `address`.
+
+</div>
+</details>
+
+<details>
+<summary>_canSetExtension</summary>
+<div>
+
+Returns whether a extension can be set in the given execution context.
+
+```solidity
+function _canSetExtension() internal view virtual override returns (bool) {
+    return _hasRole(EXTENSION_ADMIN_ROLE, msg.sender);
+}
+```
+
+</div>
+</details>
+
+<details>
+<summary>_validateSignature</summary>
+<div>
+
+Validates the signature of a user operation.
+
+```solidity
+function _validateSignature(UserOperation calldata userOp, bytes32 userOpHash)
+    internal
+    virtual
+    override
+    returns (uint256 validationData)
+{
+    bytes32 hash = userOpHash.toEthSignedMessageHash();
+    address signer = hash.recover(userOp.signature);
+
+    if (!isValidSigner(signer)) return SIG_VALIDATION_FAILED;
+    return 0;
+}
+```
+
+</div>
+</details>

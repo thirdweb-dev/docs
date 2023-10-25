@@ -19,25 +19,29 @@ export const iconMapping = {
   Solidity: "/assets/languages/solidity.png",
   Auth: "/assets/product/auth.png",
   "Solidity SDK": "/assets/product/extensions.png",
-  Explore: "/assets/product/contracts.png",
+  "Pre-Built Contracts": "/assets/product/contracts.png",
   Dashboard: "/assets/product/dashboard.png",
   Deploy: "/assets/product/deploy.png",
   Publish: "/assets/product/publish.png",
   SDK: "/assets/product/sdk.png",
-  "EVM SDK": "/assets/product/sdk.png",
-  "Solana SDK": "/assets/product/sdk.png",
-  Solana: "/assets/product/sdk.png",
-  GamingKit: "/assets/product/sdk.png",
-  CommerceKit: "/assets/product/sdk.png",
+  "Contract SDK": "/assets/product/sdk.png",
+  "Wallet SDK": "/assets/product/wallet.png",
+  "Smart Wallet": "/assets/wallets/smart-wallet.svg",
+  "Embedded Wallet": "/assets/wallets/embedded-wallet.svg",
+  "Signature Minting": "/assets/product/sdk.png",
+  Connect: "/assets/product/connect-wallet.png",
   Storage: "/assets/product/storage.png",
   "UI Components": "/assets/product/ui.png",
   Home: "/assets/icons/home.png",
   "Overview ": "/assets/icons/wrench.png",
-  "Getting Started": "/assets/icons/rocket.png",
+  "API Keys": "/assets/resources/key.png",
   Templates: "/assets/resources/sdk-reference.svg",
   Guides: "/assets/resources/guides.svg",
-  CLI: "/assets/icons/terminal.svg",
+  CLI: "/assets/product/CLI.png",
   Glossary: "/assets/icons/journal-album.svg",
+  Engine: "/assets/product/sdk.png",
+  "Bundler & Paymaster": "/assets/wallets/smart-wallet.svg",
+  "RPC Edge": "/assets/product/sdk.png",
 };
 
 export default function DocSidebarItemLink({
@@ -52,6 +56,7 @@ export default function DocSidebarItemLink({
   const { href, label, className } = item;
   const isActive = isActiveSidebarItem(item, activePath);
   const isInternalLink = isInternalUrl(href);
+
   return (
     <li
       className={clsx(
@@ -102,9 +107,7 @@ export default function DocSidebarItemLink({
             }
 
             ${
-              (label === "Home" ||
-                label === "Overview " ||
-                label === "Getting Started") &&
+              (label === "Home" || label === "Overview ") &&
               styles.invertLightIcon
             }
               

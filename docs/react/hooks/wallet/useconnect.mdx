@@ -2,53 +2,64 @@
 title: useConnect
 slug: /react.useconnect
 displayed_sidebar: react
+sidebar_position: 1
 ---
 
-Hook for viewing the connection status and what connectors are available to be used
-as defined in the [`ThirdwebProvider`&rsquo;s `walletConnectors` prop](/react/react.thirdwebprovider#walletconnectors).
+Hook for connecting any supported [wallet config](/react/connecting-wallets) to your app.
 
 ```jsx
 import { useConnect } from "@thirdweb-dev/react";
 
-const [{ data }, connect] = useConnect();
+const connect = useConnect();
 ```
+
+The wallet also needs to be added in [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) if you want the wallet to auto-connect on next page load.
 
 ## Usage
 
 ```jsx
-import { useConnect } from "@thirdweb-dev/react";
+import { useConnect, metamaskWallet } from "@thirdweb-dev/react";
+
+const metamaskConfig = metamaskWallet();
 
 function App() {
-  const [{ data }, connect] = useConnect();
+  const connect = useConnect();
+
+  return (
+    <button
+      onClick={async () => {
+        const wallet = await connect(metamaskConfig, connectOptions);
+        console.log("connected to ", wallet);
+      }}
+    >
+      Connect to MetaMask
+    </button>
+  );
 }
 ```
 
-## Return Value
+## Configuration
 
 <details>
-  <summary>Return Value</summary>
+  <summary>walletConfig </summary>
   <div>
 
-The data property contains an object with the following properties:
+The wallet to connect to your app with.
 
-```ts
-{
-  connected: boolean; // Whether the user is connected to this site with their wallet
-  connector: Connector<any, any> | undefined; // The connector that the user is connected with (or undefined)
-  connectors: Connector<any, any>[]; // All the connectors that are available to be used
-}
-```
+Must be of type `WalletConfig`.
 
-The `connect` property is a function that takes a connector as an argument
-and connects the user to your dapp using that connector.
+[Learn more about the available wallet options](/react/connecting-wallets).
 
-```ts
-(connector: Connector<any, any>) =>
-  Promise<{
-    data?: ConnectorData<any> | undefined;
-    error?: Error | undefined;
-  }>;
-```
+</div>
+</details>
+
+<details>
+  <summary>connectOptions </summary>
+  <div>
+
+`connectOptions` depends on the wallet you are connecting.
+
+If you are using typescript, `connect` will automatically infer the type of `connectOptions` based on the `walletConfig` you pass in.
 
 </div>
 </details>
