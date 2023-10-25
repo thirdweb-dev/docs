@@ -19,16 +19,12 @@ A Postgres DB instance is required to run Engine. [AWS RDS](https://aws.amazon.c
 Or run Postgres locally to get started quickly:
 
 ```bash
-docker run \
-  -e POSTGRES_PASSWORD="<db_password>" \
-  -p 5432:5432 \
-  -d \
-  postgres
+docker run -p 5432:5432 -d postgres
 ```
 
 This step provides a local Postgres DB URL for the next step:
 ```
-POSTGRES_CONNECTION_URL=postgresql://postgres:<db_password>@host.docker.internal:5432/postgres?sslmode=disable
+POSTGRES_CONNECTION_URL=postgresql://postgres:postgres@host.docker.internal:5432/postgres?sslmode=disable
 ```
 
 ### Start the Engine server
@@ -56,6 +52,12 @@ Provide the following environment variables:
 | `POSTGRES_CONNECTION_URL` | Postgres connection string: `postgresql://[user[:password]@][host][:port][/dbname][?param1=value1&...]` |
 | `ENABLE_HTTPS` | Self-sign a certificate to serve API requests on HTTPS. Set to `true` if running Engine locally to manage it from the [thirdweb dashboard](https://thirdweb.com/dashboard/engine). (Default: `false`) |
 
+Your server is running when this log line appears:
+
+```bash
+Server listening on: 0.0.0.0:3005
+```
+
 :::tip
 
 Here's a few pointers:
@@ -70,7 +72,8 @@ Manage your Engine instance from the thirdweb dashboard:
 
 1. Navigate to [https://localhost:3005/json](https://localhost:3005/json).
     - The "Your connection is not private" page will appear.
-    - Select **Show advanced** and select **Proceed to localhost (unsafe)**. This one-time step is required to allow your browser to connect to your local Engine instance.
+    - Select **Show advanced** and select **Proceed to localhost (unsafe)**. 
+    - A JSON file will be rendered. This one-time step is required to allow your browser to connect to your local Engine instance.
 
 1. Navigate to the [Engine dashboard page](https://thirdweb.com/dashboard/engine).
 1. Sign in with the `<admin_wallet_address>` wallet.
