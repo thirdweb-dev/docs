@@ -43,35 +43,6 @@ socket.onmessage = (event) => {
 };
 ```
 
-#### How do I override gas settings?
-
-The `tx_overrides` body argument to `POST /contract/<chain>/<contract_address>/write` allows overriding gas values:
-
-```json
-{
-  function_name: "...",
-  args: [ ... ],
-  tx_overrides: {
-    gasLimit: 150000,
-    gasPrice: 22000000000, // 22 gwei in wei
-  }
-}
-```
-
-#### How do I call a payable contract method?
-
-The `tx_overrides` body argument to `POST /contract/<chain>/<contract_address>/write` allows setting the `msg.value`:
-
-```json
-{
-  function_name: "...",
-  args: [ ... ],
-  tx_overrides: {
-    value: 1000000000000000, // 0.001 ETH in wei
-  }
-}
-```
-
 #### How do I customize RPC URLs?
 
 Set the `CHAIN_OVERRIDES` environment variable to the path to a JSON file or internet-accessible URL. The default value is `./chain-overrides.json` if found. See <a href="https://github.com/thirdweb-dev/engine/blob/main/chain-overrides.example.json" target="_blank">the example format</a>.
