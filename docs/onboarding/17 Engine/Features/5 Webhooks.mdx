@@ -9,7 +9,7 @@ Use webhooks for Engine to notify your backend server of crucial transaction or 
 
 ## Supported events
 
-| Event Type               | Description                                                                      |
+| Event                    | Description                                                                      |
 | ------------------------ | -------------------------------------------------------------------------------- |
 | `all_transaction`        | Subscribe to all transaction events (queued, sent, mined, errored, retried).     |
 | `queued_transaction`     | A transaction was queued by Engine.                                              |
@@ -18,7 +18,7 @@ Use webhooks for Engine to notify your backend server of crucial transaction or 
 | `errored_transaction`    | A transaction was errored out.                                                   |
 | `retried_transaction`    | A transaction was retried.                                                       |
 | `cancelled_transaction`  | A transaction was cancelled.                                                     |
-| `backend_wallet_balance` | The backend wallet's balance is below `minWalletBalance`.                        |
+| `backend_wallet_balance` | The backend wallet's balance dropped below `minWalletBalance`.                   |
 
 ## Setup
 
