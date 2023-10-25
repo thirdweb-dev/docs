@@ -5,6 +5,17 @@ title: FAQ
 
 ## About Engine
 
+#### What are the differences between Engine and thirdweb SDKs?
+
+Engine is a server that manages your backend wallets and how they interact with contracts. This difference unlocks capabilities that thirdweb and other web3 SDKs, including:
+- Management of KMS backend wallets
+- Fine-grained access control with access tokens
+- Transaction parallelization to handle higher throughput per wallet
+- Observability and retries on stuck transactions
+- Webhooks on completed transactions to sync on-chain and off-chain activity
+
+Additionally, Engine is built on top of the thirdweb SDK and has the same capabilities.
+
 #### Does Engine work with all thirdweb smart contracts?
 
 Yes. Engine has intuitive interfaces to deploy prebuilt contracts, manage smart wallets, run a marketplace, and more.
@@ -78,7 +89,6 @@ Here are some common troubleshooting tips:
 - Ensure the database name exists on the Postgres DB.
 
 <!--
-#### What are the differences between Engine and other backend SDKs?
 
 ### What are the benefits of using Engine over other parts of the stack?
 
