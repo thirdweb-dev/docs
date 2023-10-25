@@ -8,6 +8,7 @@ title: FAQ
 #### What are the differences between Engine and thirdweb SDKs?
 
 Engine is a server that manages your backend wallets and how they interact with contracts. This difference unlocks capabilities that thirdweb and other web3 SDKs, including:
+
 - Management of KMS backend wallets
 - Fine-grained access control with access tokens
 - Transaction parallelization to handle higher throughput per wallet
@@ -33,6 +34,7 @@ APIs that call contract write methods (i.e. transactions sent from your backend 
 On the backend, use [webhooks](/engine/webhooks) to be notified when a transaction event occurs.
 
 On frontend clients, use websockets:
+
 ```js
 const socket = new WebSocket(
   "wss://<engine_url>/transaction/status/<queue_id>?token=<session_token>",
