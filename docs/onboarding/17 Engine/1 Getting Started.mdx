@@ -19,13 +19,13 @@ A Postgres DB instance is required to run Engine. [AWS RDS](https://aws.amazon.c
 Or run Postgres locally to get started quickly:
 
 ```bash
-docker run -p 5432:5432 -d postgres
+docker run -p 5432:5432 -e POSTGRES_PASSWORD=postgres -d postgres
 ```
 
 This step provides a local Postgres DB URL for the next step:
 
 ```
-POSTGRES_CONNECTION_URL=postgresql://postgres:postgres@host.docker.internal:5432/postgres?sslmode=disable
+POSTGRES_CONNECTION_URL="postgresql://postgres:postgres@host.docker.internal:5432/postgres?sslmode=disable"
 ```
 
 ### Start the Engine server
