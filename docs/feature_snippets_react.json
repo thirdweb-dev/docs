@@ -16,7 +16,7 @@
       "summary": "Get all active listings\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { data: listings, isLoading, error } = useActiveListings(contract, { seller: \"{{wallet_adress}}\", tokenContract: \"0x...\", tokenId: 1, start: 0, count: 100 });"
+        "javascript": "const { data: listings, isLoading, error } = useActiveListings(contract, { seller: \"{{wallet_address}}\", tokenContract: \"0x...\", tokenId: 1, start: 0, count: 100 });"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useactivelistings"

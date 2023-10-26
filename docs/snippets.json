@@ -1483,7 +1483,7 @@
           "javascript": "const listings = await contract.getActiveListings();\nconst priceOfFirstActiveListing = listings[0].price;",
           "python": "listings = contract.get_active_listings()\nprice_of_first = listings[0].price",
           "go": "listings, err := marketplace.GetActiveListings(context.Background(), nil)\n// Price per token of the first listing\nlistings[0].BuyoutCurrencyValuePerToken.DisplayValue\n",
-          "react": "const { data: listings, isLoading, error } = useActiveListings(contract, { seller: \"{{wallet_adress}}\", tokenContract: \"0x...\", tokenId: 1, start: 0, count: 100 });",
+          "react": "const { data: listings, isLoading, error } = useActiveListings(contract, { seller: \"{{wallet_address}}\", tokenContract: \"0x...\", tokenId: 1, start: 0, count: 100 });",
           "unity": "var listings = await contract.GetActiveListings();"
         },
         "reference": {
