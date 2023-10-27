@@ -98,7 +98,7 @@
     "html_url": "https://github.com/thirdweb-example/burn1155-mint721",
     "description": "Similar to the MAYC collection, allow users who hold an NFT from your original NFT Collection to burn an ERC-1155 NFT collection to claim an NFT from your new NFT Collection!",
     "created_at": "2022-09-12T11:18:00Z",
-    "updated_at": "2023-07-28T11:18:16Z",
+    "updated_at": "2023-10-27T05:16:09Z",
     "clone_url": "https://github.com/thirdweb-example/burn1155-mint721.git",
     "topics": [
       "contract-kit",
@@ -107,7 +107,7 @@
       "extensions"
     ],
     "language": "CSS",
-    "stargazers_count": 15,
+    "stargazers_count": 16,
     "is_template": false,
     "homepage": ""
   },
@@ -332,7 +332,7 @@
     "html_url": "https://github.com/thirdweb-example/dao",
     "description": "Build a DAO using thirdweb's vote, token, and edition drop contracts.",
     "created_at": "2022-05-17T11:42:42Z",
-    "updated_at": "2023-10-02T14:07:35Z",
+    "updated_at": "2023-10-25T06:07:56Z",
     "clone_url": "https://github.com/thirdweb-example/dao.git",
     "topics": [
       "edition-drop",
@@ -340,7 +340,7 @@
       "vote"
     ],
     "language": "JavaScript",
-    "stargazers_count": 24,
+    "stargazers_count": 25,
     "is_template": false,
     "homepage": "https://dao.thirdweb-example.com"
   },
@@ -427,11 +427,11 @@
     "html_url": "https://github.com/thirdweb-example/dynamic-pricing",
     "description": "Set a dynamic pricing for your Signature Drop collection NFTs",
     "created_at": "2022-11-01T16:14:54Z",
-    "updated_at": "2023-10-04T09:50:32Z",
+    "updated_at": "2023-10-25T06:09:01Z",
     "clone_url": "https://github.com/thirdweb-example/dynamic-pricing.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 2,
+    "stargazers_count": 3,
     "is_template": false,
     "homepage": null
   },
@@ -468,11 +468,11 @@
     "html_url": "https://github.com/thirdweb-example/embedded-smart-wallet",
     "description": null,
     "created_at": "2023-09-27T16:53:01Z",
-    "updated_at": "2023-10-22T04:23:02Z",
+    "updated_at": "2023-10-27T16:26:42Z",
     "clone_url": "https://github.com/thirdweb-example/embedded-smart-wallet.git",
     "topics": [],
-    "language": "CSS",
-    "stargazers_count": 1,
+    "language": "TypeScript",
+    "stargazers_count": 2,
     "is_template": false,
     "homepage": "https://embedded-smart-wallet.thirdweb-example.com/"
   },
@@ -550,13 +550,13 @@
     "html_url": "https://github.com/thirdweb-example/erc721",
     "description": "Create an NFT minting page using thirdweb's React SDK",
     "created_at": "2022-05-16T01:17:47Z",
-    "updated_at": "2023-10-16T11:08:08Z",
+    "updated_at": "2023-10-27T05:15:44Z",
     "clone_url": "https://github.com/thirdweb-example/erc721.git",
     "topics": [
       "nft-drop"
     ],
     "language": "TypeScript",
-    "stargazers_count": 123,
+    "stargazers_count": 125,
     "is_template": true,
     "homepage": "https://nft-drop.thirdweb-preview.com/"
   },
@@ -927,11 +927,11 @@
     "html_url": "https://github.com/thirdweb-example/loyalty-card",
     "description": null,
     "created_at": "2023-09-04T12:32:00Z",
-    "updated_at": "2023-09-05T17:14:00Z",
+    "updated_at": "2023-10-24T17:51:11Z",
     "clone_url": "https://github.com/thirdweb-example/loyalty-card.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 0,
+    "stargazers_count": 1,
     "is_template": false,
     "homepage": "https://loyalty-card.thirdweb-example.com"
   },
@@ -940,11 +940,11 @@
     "html_url": "https://github.com/thirdweb-example/loyalty-card-youtube",
     "description": "Repository for YouTube tutorial - Create a loyalty program NFT",
     "created_at": "2023-09-26T09:41:12Z",
-    "updated_at": "2023-10-04T15:31:34Z",
+    "updated_at": "2023-10-24T17:52:37Z",
     "clone_url": "https://github.com/thirdweb-example/loyalty-card-youtube.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 5,
+    "stargazers_count": 6,
     "is_template": false,
     "homepage": null
   },
@@ -1119,7 +1119,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-gated-website",
     "description": "Restrict access to content based on the ownership of an NFT",
     "created_at": "2022-04-08T17:59:57Z",
-    "updated_at": "2023-10-09T00:29:29Z",
+    "updated_at": "2023-10-27T05:15:59Z",
     "clone_url": "https://github.com/thirdweb-example/nft-gated-website.git",
     "topics": [
       "auth",
@@ -1130,7 +1130,7 @@
       "wallet-connection"
     ],
     "language": "TypeScript",
-    "stargazers_count": 142,
+    "stargazers_count": 143,
     "is_template": true,
     "homepage": "https://nft-gated-website.thirdweb-example.com"
   },
@@ -1459,7 +1459,7 @@
     "html_url": "https://github.com/thirdweb-example/signature-based-minting",
     "description": "Create a community-made NFT collection with restrictions that you specify using signature based minting in thirdweb's NFT Collection contract.",
     "created_at": "2022-04-07T20:17:43Z",
-    "updated_at": "2023-10-12T20:02:09Z",
+    "updated_at": "2023-10-26T07:49:10Z",
     "clone_url": "https://github.com/thirdweb-example/signature-based-minting.git",
     "topics": [
       "nextjs",
@@ -1468,7 +1468,7 @@
       "typescript"
     ],
     "language": "TypeScript",
-    "stargazers_count": 45,
+    "stargazers_count": 46,
     "is_template": false,
     "homepage": "https://signature-based-minting.thirdweb-example.com"
   },
@@ -1995,6 +1995,19 @@
     "homepage": null
   },
   {
+    "name": "upgradable-metadata-youtube",
+    "html_url": "https://github.com/thirdweb-example/upgradable-metadata-youtube",
+    "description": null,
+    "created_at": "2023-10-27T01:45:23Z",
+    "updated_at": "2023-10-27T18:13:55Z",
+    "clone_url": "https://github.com/thirdweb-example/upgradable-metadata-youtube.git",
+    "topics": [],
+    "language": "TypeScript",
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": null
+  },
+  {
     "name": "vite-javascript-starter",
     "html_url": "https://github.com/thirdweb-example/vite-javascript-starter",
     "description": "thirdweb starter project with Vite & JavaScript",
@@ -2031,6 +2044,19 @@
     "stargazers_count": 5,
     "is_template": true,
     "homepage": "https://vite-typescript-starter.thirdweb-example.com"
+  },
+  {
+    "name": "web3-social-app-youtube",
+    "html_url": "https://github.com/thirdweb-example/web3-social-app-youtube",
+    "description": null,
+    "created_at": "2023-10-24T02:58:34Z",
+    "updated_at": "2023-10-27T01:44:51Z",
+    "clone_url": "https://github.com/thirdweb-example/web3-social-app-youtube.git",
+    "topics": [],
+    "language": "TypeScript",
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": null
   },
   {
     "name": "web3button",

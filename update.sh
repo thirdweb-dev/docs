@@ -1,3 +1,18 @@
+typedoc() {
+  pnpm typedoc
+  rm ./typedoc/index.html
+  mv ./typedoc/modules.html ./typedoc/index.html
+  cd ./typedoc
+  # add 'package/' to all href and src to make them relative. Avoid href="http://..." and src="http://..."
+  find . -type f -name "index.html" -exec sed -i '' -e "s/href=\"\([a-gi-zA-GI-Z][a-zA-Z]\)/href=\"$1\/\1/g" -e "s/src=\"\([a-gi-zA-GI-Z][a-zA-Z]\)/src=\"$1\/\1/g" -e "s/data-base=\"\.\{1,2\}\"/data-base=\"$1\"/g" {} \;
+  # replace href="modules.html" with href="index.html"
+  find . -type f -name "*.html" -exec sed -i '' -e "s/modules.html/index.html/g" {} \;
+  cd ..
+  rm -rf "../../../../static/reference/$1/"
+  mkdir "../../../../static/reference/$1/"
+  mv ./typedoc/* "../../../../static/reference/$1/"
+}
+
 git submodule init
 git submodule update --remote
 git submodule foreach git checkout main
@@ -13,29 +28,20 @@ if [ ! -d "./etc" ]; then
   mkdir ./etc
 fi
 pnpm generate-docs
-pnpm typedoc
-rm ./typedoc/index.html
-mv ./typedoc/modules.html ./typedoc/index.html
-mv ./typedoc ../../../../static/reference/sdk
+typedoc sdk
 # React
 cd ../react
 if [ ! -d "./etc" ]; then
   mkdir ./etc
 fi
 pnpm generate-docs
-pnpm typedoc
-rm ./typedoc/index.html
-mv ./typedoc/modules.html ./typedoc/index.html
-mv ./typedoc ../../../../static/reference/react
-# React
+typedoc react
+# React-Native
 cd ../react-native
 if [ ! -d "./etc" ]; then
   mkdir ./etc
 fi
-pnpm typedoc
-rm ./typedoc/index.html
-mv ./typedoc/modules.html ./typedoc/index.html
-mv ./typedoc ../../../../static/reference/react-native
+typedoc react-native
 # React Core
 cd ../react-core
 if [ ! -d "./etc" ]; then
@@ -48,19 +54,13 @@ if [ ! -d "./etc" ]; then
   mkdir ./etc
 fi
 pnpm generate-docs
-pnpm typedoc
-rm ./typedoc/index.html
-mv ./typedoc/modules.html ./typedoc/index.html
-mv ./typedoc ../../../../static/reference/storage
+typedoc storage
 # Wallets
 cd ../wallets
 if [ ! -d "./etc" ]; then
   mkdir ./etc
 fi
-pnpm typedoc
-rm ./typedoc/index.html
-mv ./typedoc/modules.html ./typedoc/index.html
-mv ./typedoc ../../../../static/reference/wallets
+typedoc wallets
 cd ../../../..
 yarn make-docs
 yarn generate-snippets
