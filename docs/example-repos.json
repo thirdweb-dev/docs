@@ -468,10 +468,10 @@
     "html_url": "https://github.com/thirdweb-example/embedded-smart-wallet",
     "description": null,
     "created_at": "2023-09-27T16:53:01Z",
-    "updated_at": "2023-10-26T04:25:49Z",
+    "updated_at": "2023-10-27T16:26:42Z",
     "clone_url": "https://github.com/thirdweb-example/embedded-smart-wallet.git",
     "topics": [],
-    "language": "CSS",
+    "language": "TypeScript",
     "stargazers_count": 2,
     "is_template": false,
     "homepage": "https://embedded-smart-wallet.thirdweb-example.com/"
@@ -1991,6 +1991,19 @@
     "topics": [],
     "language": "JavaScript",
     "stargazers_count": 5,
+    "is_template": false,
+    "homepage": null
+  },
+  {
+    "name": "upgradable-metadata-youtube",
+    "html_url": "https://github.com/thirdweb-example/upgradable-metadata-youtube",
+    "description": null,
+    "created_at": "2023-10-27T01:45:23Z",
+    "updated_at": "2023-10-27T18:13:55Z",
+    "clone_url": "https://github.com/thirdweb-example/upgradable-metadata-youtube.git",
+    "topics": [],
+    "language": "TypeScript",
+    "stargazers_count": 0,
     "is_template": false,
     "homepage": null
   },
