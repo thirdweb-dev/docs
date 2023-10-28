@@ -29,19 +29,19 @@ Once the factory is set up, deploy accounts for your users.
 
 ```json
 {
-  "admin_address": "0x..." // The user's wallet address to deploy a smart wallet for
+  "adminAddress": "0x..." // The user's wallet address to deploy a smart wallet for
 }
 ```
 
-This adds the `admin_address` as the primary admin that can act on behalf of the newly deployed account.
+This adds the `adminAddress` as the primary admin that can act on behalf of the newly deployed account.
 
-To control the account with a backend wallet, specify the backend wallet in the `admin_address` field.
+To control the account with a backend wallet, specify the backend wallet in the `adminAddress` field.
 
 ## Grant permissions and sessions
 
-Grant & revoke admins on an account with the `/contract/{chain}/{account_address}/account/admins` endpoints.
+Grant & revoke admins on an account with the `/contract/<chain>/<account_address>/account/admins` endpoints.
 
-Grant & revoke sessions on an account which allow specific wallets to interact with specified contracts for a given period of time with the `/contract/{chain}/{account_address}/account/sessions` endpoints.
+Grant & revoke sessions on an account which allow specific wallets to interact with specified contracts for a given period of time with the `/contract/<chain>/<account_address>/account/sessions` endpoints.
 
 ## Transact with an account
 
