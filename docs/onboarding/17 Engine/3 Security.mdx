@@ -1,0 +1,37 @@
+---
+slug: /engine/security
+title: Security
+---
+
+## Best practices
+
+Engine reconstructs signers for your backend wallets to sign and send transactions. Follow best practices to secure access to your wallets and data.
+
+- Securely store **access tokens** and **thirdweb secret keys**.
+- Use **labels** to keep track of your wallets, admins, access tokens.
+- Use access token expirations to grant time-bound access. 
+- Regularly review the **admins** list to remove inactive and former team members.
+
+## Data privacy
+
+thirdweb treats your 
+
+- Engine stores configuration in the provided encrypted in transit and at rest.
+- Backend wallet signers are reconstructed only in memory on your Engine instance, and this data is never sent to thirdweb or other external platforms.
+- thirdweb may collect information including:
+    - Anonymous metrics on usage
+    - Transactions history
+    - (TBD future data to power advanced analytics)
+
+## Responsible disclosure
+
+To report a security vulnerability, please contact security@thirdweb.com.
+
+---
+
+Still have questions?
+- Email us: support@thirdweb.com
+- [Discord](https://discord.gg/thirdweb)
+- [Terms of Service](https://thirdweb.com/tos)
+- [Privacy Policy](https://thirdweb.com/privacy)
+
