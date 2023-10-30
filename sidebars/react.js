@@ -306,12 +306,12 @@ const sidebars = {
     },
 
     // Full Reference
-    // {
-    //   type: "html",
-    //   value:
-    //     '<a style="text-decorations:none; color:inherit;" href="/reference/react/index.html" target="_blank">Full Reference</a>',
-    //   defaultStyle: true,
-    // },
+    {
+      type: "html",
+      value:
+        '<a style="text-decorations:none; color:inherit;" href="/reference/react/index.html" target="_blank">Full Reference</a>',
+      defaultStyle: true,
+    },
     // {
     //   type: "category",
     //   label: "Full Reference",

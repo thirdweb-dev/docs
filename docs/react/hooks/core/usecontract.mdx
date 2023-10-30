@@ -32,6 +32,22 @@ function App() {
 }
 ```
 
+<details>
+  <summary>Custom name for your contract instance</summary>
+  <div>
+  If you want to provide a custom name for your contract instance, follow the example below.
+
+```jsx
+const {
+  contract: yourCustomContractName,
+  isLoading,
+  error,
+} = useContract("{{contract_address}}");
+```
+
+  </div>
+</details>
+
 :::tip Generate
 
 To cache the ABI of the smart contract, use [thirdweb generate](/cli/generate).

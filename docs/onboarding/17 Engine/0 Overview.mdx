@@ -1,33 +1,109 @@
 ---
 slug: /engine
 title: Overview
-hide_title: true
 ---
 
-:::info
-Engine is currently in Open Beta and requires self-hosting. If you need a managed version, please [contact us](https://thirdweb.com/contact-us).
-:::
+> **Engine is a self-hosted server that replaces your web3 infrastructure stack.**
 
-# Overview
+Your application backend calls authenticated APIs to execute transactions, manage smart wallets, handle wallet funds, and more. Get production-ready quickly with out-of-the-box permissions, transaction retries, backend wallet cloud backups, and event webhooks. Battle-tested RPC, IPFS, and account abstraction infrastructure provided by thirdweb is built-in.
 
-Engine provides a server-side interface for contracts & wallets, without the complexities of wallet and transaction management.
+![Engine overview](./assets/engine-docs-diagram-updated.svg)
 
-It offers APIs for contracts, wallets, gas-less configurations & auth that allows developers to go to market and launch production grade applications with cross-EVM chain support with faster speeds, security, and reliability.
+## Features & capabilities
 
----
+**Free & open source**
 
-Building a decentralized application with a seamless user experience at scale requires setting up a backend infrastructure to create & manage wallets, deploy & interact with contracts, and handle user authentication. Engine removes this friction by eliminating blockchain constraints related to nonce, funds, gas, and key management.
+Engine is [open source](https://github.com/thirdweb-dev/engine), and core features will be free, forever. Advanced features for more sophisticated uses cases will be offered in the future.
 
-![Diagram showing relationship of engine](./assets/web3-api-arch.svg)
+**Backend wallets**
 
-## Features
+Manage your multiple backend wallets securely. Get started quickly with [local wallets](/wallet/local-wallet) or generate wallets backed by AWS KMS or Google Cloud KMS without exposing the private key.
 
-- **Backend wallets:** Create backend wallets, store their keys securely via a cloud secrets manager like KMS, sign & send any transactions, and move funds at scale with nonce-management.
-- **Smart wallets with shared custody:** Create managed, smart wallets with shared custody between the backend wallets & a user’s EOA wallet.
-- **Contracts:** Deploy, read, and write to any contract across any blockchain.
-- **Auth:** Create permissions to enable users with wallets to directly interact with certain endpoints on Engine.
-- **Sponsored transactions:** Sponsor gas fees for any transactions through Engine.
+Your backend wallets are never accessed by thirdweb. Learn more about [Security](/engine/security).
 
-## Beta Feedback
+**Dashboard and API authentication**
 
-If you experience any bugs or have any feedback, please [report it to our support team](https://discord.gg/thirdweb) via Discord.
+Control API access with scoped permissions (coming soon) and expirations.
+
+Grant or revoke team member access without worrying about private keys being compromised. No more rotating wallet private keys when your team changes!
+
+**Any contract support**
+
+Read and write to any smart contract with low-level contract calls and intuitive APIs for common actions like transferring ERC-20 tokens and minting ERC-721 NFTs.
+
+Deploy any [published smart contract](https://thirdweb.com/explore) including tokens, NFTs, marketplaces, smart accounts, and more.
+
+**High transaction throughput**
+
+Support traffic spikes with built-in resilience. Blockchain transactions are submitted in parallel with nonces managed behind the scenes. Transactions stuck due to gas spikes or network instability are automatically retried. Monitor and cancel/retry transactions from the API or dashboard.
+
+**Smart wallets**
+
+Provide a seamless UX for your users by creating and managing smart wallets. Use session keys to restrict interactions for specific times or contracts.
+
+**Gasless transactions**
+
+Expand your audience by sponsoring gas for your users, enabling them to buy, transfer, and sell NFTs without added friction.
+
+**Wallet and contract webhooks**
+
+Get notified of wallet and contract events to build powerful automations. Send emails, print shipping labels, or charge customers based on your unique needs.
+
+> Contract events support is coming soon.
+
+**Advanced analytics**
+
+View transaction history trends, event logs for each transaction, a ledger of backend wallet funds, and more.
+
+> Coming soon.
+
+**Any EVM chain support**
+
+Engine supports [all 1000+ EVM chains](https://thirdweb.com/chainlist).
+
+Looking for private subnet support? [Contact us](https://thirdweb.com/contact-us).
+
+## Use cases
+
+**Airdrops at scale**
+
+Need to mint NFTs to users? Engine manages a fleet of backend wallets to call your contract at scale. Gas estimation, nonce management, and smart retries are included. Monitor recent transactions and wallet balances in the dashboard.
+
+See our [Airdrop NFTs guide](/guides/engine/airdrop-nfts).
+
+**Fiat NFT checkouts**
+
+Expand your audience by accepting any fiat or cryptocurrency payment method. Bring your own payment provider, charge the buyer, and deliver an NFT upon payment.
+
+Looking for a simpler solution? See [thirdweb Checkouts](https://thirdweb.com/checkout).
+
+**App accounts with seamless wallet UX**
+
+Deploy and manage prebuilt smart wallet contracts. Your backend wallets can share ownership and handle blockchain interactions behind the scenes.
+
+## Why use Engine?
+
+Engine is beneficial if your app:
+
+- Handles multiple company app wallets.
+- Requires controlled access by multiple team members.
+- Requires transactions to be delivered reliably during traffic bursts and network congestion. 
+- Sends more than one transaction per block (example: 2 Ethereum transactions within 12 seconds).
+- Sponsors gas fees for your users.
+- Deploys smart accounts for each user.
+- Triggers other actions when wallet or contract events occur.
+
+## Why _not_ use Engine?
+
+Engine may not be beneficial if your app:
+
+- Does not have a backend.
+    - Coming soon: Grant user wallets limited-scope access to your backend wallets.
+- Requires users to send transactions from their wallets instead of your backend wallets.
+    - Use the [thirdweb Contract SDK](https://portal.thirdweb.com/sdk).
+
+## Get in touch
+
+Engine is improving every day. To report issues or provide feedback, [join our Discord](https://discord.gg/thirdweb).
+
+For get dedicated support or feature requests, [contact Sales](https://thirdweb.com/contact-us).
