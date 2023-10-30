@@ -78,51 +78,30 @@ embeddedWallet({
 </div>
 </details>
 
-<details>
-  <summary>custom_auth (optional)</summary>
-  <div>
-
-You can bring your own jwt token to authenticate the user.
-
-```ts
-import { connect, embeddedWallet } from "@thirdweb-dev/react-native";
-
-export const App = () => {
-  <ThirdwebProvider supportedWallets={[embeddedWallet({custom_auth: true})]}>
-    <App />
-  </ ThirdwebProvider>
-}
-
-const AppInner = () => {
-  const connect = useConnect();
-
-  ...
-
-  connect(embeddedWallet(), {
-    loginType: "custom_jwt_auth",
-    encryptionKey: "strong-encryption-key",
-    jwtToken: "your-custom-jwt",
-  });
-}
-```
-
-Whether to show a UI for embedded wallet or not.
-
-- If set to `true`, a UI will not be shown. Devs are responsible for providing the connecting UI.
-- If set to `false` (default), the other options will be used to show a UI.
-
-You need to manually call connect on the wallet to connect to the wallet.
-
-</div>
-</details>
-
 ## Installation
 
-To use the `embeddedWallet` you need to add the following dependencies to your project:
+To use the `embeddedWallet` you need to add the following dependencies to your project. Find the
+command to add them all for convenience below.
+
+yarn:
+
+```yarn
+yarn add amazon-cognito-identity-js@6.3.3 react-native-quick-base64 react-native-quick-crypto react-native-aes-gcm-crypto @react-native-community/netinfo react-native-inappbrowser-reborn@3.7.0
+```
+
+npm:
+
+```npm
+npm install amazon-cognito-identity-js@6.3.3 react-native-quick-base64 react-native-quick-crypto react-native-aes-gcm-crypto @react-native-community/netinfo react-native-inappbrowser-reborn@3.7.0
+```
+
+Here are the dependencies added:
 
 - amazon-cognito-identity-js: "^6.3.3"
 - react-native-quick-base64
 - react-native-quick-crypto
+- react-native-aes-gcm-crypto
+  - This package requires minSdkVersion = 26 on Android
 - @react-native-community/netinfo
 - react-native-inappbrowser-reborn: "^3.7.0" (for Google Sign In)
 
@@ -140,9 +119,6 @@ To use the `embeddedWallet` you need to add the following dependencies to your p
   - When building the iOS app in release mode for RN 0.71 you need to enable the OpenSSL framework in XCode. There are several solutions for this here:
     - https://github.com/margelo/react-native-quick-crypto/issues/121#issuecomment-1369924076
     - https://github.com/margelo/react-native-quick-crypto/issues/121#issuecomment-1537576444
-
-- react-native-aes-gcm-crypto
-  - This package requires minSdkVersion = 26 on Android
 
 ## Usage with `ConnectWallet`
 
