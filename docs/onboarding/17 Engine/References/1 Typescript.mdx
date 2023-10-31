@@ -32,21 +32,21 @@ Update configuration, manage backend wallets, and call contracts in Typescript.
 import { Engine } from "@thirdweb-dev/engine";
 
 const engine = new Engine({
-    url: "http://0.0.0.0:3005",
-    accessToken: "<engine_access_token>",
+  url: "http://0.0.0.0:3005",
+  accessToken: "<engine_access_token>",
 });
 
 await engine.erc20.mintTo(
-    // chain
-    "mumbai",
-    // contract address
-    "0x365b83D67D5539C6583b9c0266A548926Bf216F4",
-    // backend wallet address
-    "0x43CAe0d7fe86C713530E679Ce02574743b2Ee9FC",
-    // args matching the API reference
-    {
-        toAddress: "0x43CAe0d7fe86C713530E679Ce02574743b2Ee9FC",
-        amount: "1.0",
-    },
+  // chain
+  "mumbai",
+  // contract address
+  "0x365b83D67D5539C6583b9c0266A548926Bf216F4",
+  // backend wallet address
+  "0x43CAe0d7fe86C713530E679Ce02574743b2Ee9FC",
+  // args matching the API reference
+  {
+    toAddress: "0x43CAe0d7fe86C713530E679Ce02574743b2Ee9FC",
+    amount: "1.0",
+  },
 );
 ```
