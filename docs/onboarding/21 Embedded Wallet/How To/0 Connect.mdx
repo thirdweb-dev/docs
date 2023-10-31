@@ -1,0 +1,148 @@
+---
+slug: /embedded-wallet/connect
+title: Connect Users
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+## Using the connect UI components
+
+If you're building a [React website](/react/react.connectwallet), [React Native app](/react-native/react-native.connectwallet), or [Unity game](/unity/connectwallet) you can use the prebuilt connect UI components to authenticate users and connect their wallets.
+
+<div style={{
+  display: 'flex',
+  justifyContent: 'center',
+  marginBottom: '40px',
+}}>
+<img
+  src="/assets/connect-wallet/connect-wallet-hero.webp"
+  style={{
+    maxWidth: "600px",
+}}
+/>
+
+</div>
+
+<Tabs>
+  <TabItem value="react" label="React">
+        <div>
+
+```jsx
+import {
+  ThirdwebProvider,
+  ConnectWallet,
+  embeddedWallet,
+} from "@thirdweb-dev/react";
+
+export default function App() {
+  return (
+    <ThirdwebProvider
+      activeChain="goerli"
+      clientId="YOUR_CLIENT_ID"
+      supportedWallets={[embeddedWallet()]}
+    >
+      <ConnectWallet />
+    </ThirdwebProvider>
+  );
+}
+```
+
+</div>
+  </TabItem>
+  <TabItem value="react-native" label="React Native">
+  <div>
+
+```tsx
+import {
+  ThirdwebProvider,
+  ConnectWallet,
+  embeddedWallet,
+} from "@thirdweb-dev/react-native";
+
+export default function App() {
+  return (
+    <ThirdwebProvider
+      activeChain="goerli"
+      clientId="YOUR_CLIENT_ID"
+      supportedWallets={[embeddedWallet()]}
+    >
+      <ConnectWallet />
+    </ThirdwebProvider>
+  );
+}
+```
+
+</div>
+  </TabItem>
+  </Tabs>
+
+## Customize the connect UI
+
+### Choosing which authentication methods to support
+
+By default, the connect UI supports Google and email/password authentication. You can customize which authentication methods to support which will be reflected in the UI.
+
+<Tabs>
+  <TabItem value="react" label="React">
+
+```jsx
+<ThirdwebProvider
+  supportedWallets={[
+    embeddedWallet({
+      auth: {
+        options: ["google", "email"],
+      }
+    })
+  ]}
+>
+```
+
+  </TabItem>
+
+  <TabItem value="react-native" label="React Native">
+
+```jsx
+<ThirdwebProvider
+  supportedWallets={[
+    embeddedWallet({
+      auth: {
+        options: ["google", "email"],
+        redirectUrl: "your_app://deeplink" // required for google auth
+      }
+    })
+  ]}
+>
+```
+
+  </TabItem>
+  </Tabs>
+
+### Customize the selection and connection UI
+
+the `ConnectWallet` component allows for overriding:
+
+- The name, icon and upsell links for the wallet
+- The selection UI - the UI before the users selects the wallet
+- The connection UI - the UI after the user selects the wallet
+
+```js
+const embeddedWalletConfig = embeddedWallet();
+
+// change the name
+embeddedWalletConfig.meta.name = "...";
+// change the icon
+embeddedWalletConfig.meta.iconURL = "...";
+// override connection UI
+embeddedWalletConfig.connectUI = embeddedWalletConnectUI; // your react component
+// custom selection UI
+embeddedWalletConfig.selectUI = embeddedWalletSelectUI; // your react component
+```
+
+You can then pass the customized `embeddedWalletConfig` to the `ThirdwebProvider` component in `supportedWallets`. You can then use it with `ConnectWallet` component or `useConnect` hook as shown below
+
+```jsx
+<ThirdwebProvider supportedWallets={[embeddedWalletConfig]}>
+  <ConnectWallet />
+</ThirdwebProvider>
+```

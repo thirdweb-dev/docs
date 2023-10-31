@@ -46,6 +46,8 @@ To use embedded wallets in your applications, you will need a client ID. You can
 
 ## Connecting & Creating Embedded Wallets
 
+Quickest ways to get started with embedded wallets on each platform.
+
 <Tabs>
   <TabItem value="react" label="React">
         <div>
@@ -109,7 +111,10 @@ const wallet = new EmbeddedWallet({
   clientId: "YOUR_CLIENT_ID", // Your thirdweb client ID
 });
 
-wallet.connect(options);
+const authResult = await wallet.authenticate({
+  strategy: "google", // The authentication strategy to use
+});
+const walletAddress = await wallet.connect({ authResult });
 ```
 
 </div>
@@ -142,3 +147,5 @@ public async void ConnectWallet()
 
   </TabItem>
 </Tabs>
+
+For more details and advanced usage, see the reference documentation for each platform.
