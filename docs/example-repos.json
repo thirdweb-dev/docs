@@ -349,11 +349,11 @@
     "html_url": "https://github.com/thirdweb-example/deterministic-deploy-demo",
     "description": null,
     "created_at": "2023-08-22T22:47:25Z",
-    "updated_at": "2023-10-04T09:49:33Z",
+    "updated_at": "2023-10-28T10:27:01Z",
     "clone_url": "https://github.com/thirdweb-example/deterministic-deploy-demo.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 3,
+    "stargazers_count": 4,
     "is_template": false,
     "homepage": null
   },
@@ -408,19 +408,6 @@
     "stargazers_count": 15,
     "is_template": false,
     "homepage": "https://discord-role-granter.thirdweb-example.com/"
-  },
-  {
-    "name": "dynamic-free-mint",
-    "html_url": "https://github.com/thirdweb-example/dynamic-free-mint",
-    "description": null,
-    "created_at": "2022-11-21T19:51:22Z",
-    "updated_at": "2023-07-24T12:10:13Z",
-    "clone_url": "https://github.com/thirdweb-example/dynamic-free-mint.git",
-    "topics": [],
-    "language": "TypeScript",
-    "stargazers_count": 2,
-    "is_template": false,
-    "homepage": null
   },
   {
     "name": "dynamic-pricing",
@@ -550,7 +537,7 @@
     "html_url": "https://github.com/thirdweb-example/erc721",
     "description": "Create an NFT minting page using thirdweb's React SDK",
     "created_at": "2022-05-16T01:17:47Z",
-    "updated_at": "2023-10-27T05:15:44Z",
+    "updated_at": "2023-10-29T19:50:38Z",
     "clone_url": "https://github.com/thirdweb-example/erc721.git",
     "topics": [
       "nft-drop"
@@ -1278,7 +1265,7 @@
     "html_url": "https://github.com/thirdweb-example/play-to-earn-game",
     "description": "Use thirdweb's token, edition drop, and a custom contract using thirdweb deploy to build a Play-to-Earn game!",
     "created_at": "2022-06-22T11:24:30Z",
-    "updated_at": "2023-10-01T07:34:09Z",
+    "updated_at": "2023-10-29T16:55:41Z",
     "clone_url": "https://github.com/thirdweb-example/play-to-earn-game.git",
     "topics": [
       "contract-kit",
@@ -1289,7 +1276,7 @@
       "thirdweb-deploy"
     ],
     "language": "TypeScript",
-    "stargazers_count": 57,
+    "stargazers_count": 58,
     "is_template": false,
     "homepage": "https://play-to-earn.thirdweb-example.com"
   },
@@ -1298,11 +1285,11 @@
     "html_url": "https://github.com/thirdweb-example/pwa-demo",
     "description": null,
     "created_at": "2023-08-25T16:07:25Z",
-    "updated_at": "2023-09-19T11:15:06Z",
+    "updated_at": "2023-10-30T21:13:11Z",
     "clone_url": "https://github.com/thirdweb-example/pwa-demo.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 29,
+    "stargazers_count": 30,
     "is_template": false,
     "homepage": "https://pwa-demo.thirdweb-preview.com"
   },
@@ -1827,11 +1814,11 @@
     "html_url": "https://github.com/thirdweb-example/token-bound-account-app",
     "description": "Create a frontend for users to create erc-6551 smart wallets for their NFTs & claim erc-20 tokens!",
     "created_at": "2023-05-18T23:02:18Z",
-    "updated_at": "2023-10-04T21:40:59Z",
+    "updated_at": "2023-10-30T16:14:02Z",
     "clone_url": "https://github.com/thirdweb-example/token-bound-account-app.git",
     "topics": [],
     "language": "CSS",
-    "stargazers_count": 18,
+    "stargazers_count": 19,
     "is_template": true,
     "homepage": "https://token-bound-account-app.thirdweb-example.com/"
   },
@@ -1957,14 +1944,14 @@
     "html_url": "https://github.com/thirdweb-example/unity-vr",
     "description": "Create VR Games in Unity using GamingKit",
     "created_at": "2022-12-07T06:21:33Z",
-    "updated_at": "2022-12-27T12:28:38Z",
+    "updated_at": "2023-10-29T11:13:25Z",
     "clone_url": "https://github.com/thirdweb-example/unity-vr.git",
     "topics": [
       "gaming",
       "gamingkit"
     ],
     "language": "C#",
-    "stargazers_count": 2,
+    "stargazers_count": 3,
     "is_template": false,
     "homepage": "https://unity-vr.thirdweb-example.com"
   },
@@ -1999,11 +1986,11 @@
     "html_url": "https://github.com/thirdweb-example/upgradable-metadata-youtube",
     "description": null,
     "created_at": "2023-10-27T01:45:23Z",
-    "updated_at": "2023-10-27T18:13:55Z",
+    "updated_at": "2023-10-29T12:44:11Z",
     "clone_url": "https://github.com/thirdweb-example/upgradable-metadata-youtube.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 0,
+    "stargazers_count": 1,
     "is_template": false,
     "homepage": null
   },
