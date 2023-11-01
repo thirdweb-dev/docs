@@ -1,0 +1,126 @@
+---
+slug: /embedded-wallet/custom
+title: Build your own UI
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+## Low level control to authenticate and connect wallets
+
+You have full control with the connection hooks and functions to build your own UI. To use embedded wallets, you first choose a authentication strategy and then connect.
+
+## Setup the ThirdwebProvider
+
+**Only needed for React and React native platforms**
+
+This will ensure that the wallet is available to all components in your app, handle connection states and auto-connection on page load.
+
+```jsx
+import { ThirdwebProvider, embeddedWallet() } from "@thirdweb-dev/react"; // or /react-native
+
+ <ThirdwebProvider
+  clientId="YOUR_CLIENT_ID"
+  supportedWallets={[embeddedWallet()]}
+ >
+  <YourApp />
+</ThirdwebProvider>;
+```
+
+## Authenticate via Google
+
+<Tabs>
+<TabItem value="react" label="React & React Native">
+
+In React and React Native, the `useEmbeddedWallet()` hook handles authentication and connection states.
+
+```tsx
+import { useEmbeddedWallet } from "@thirdweb-dev/react"; // or /react-native
+
+const { connect } = useEmbeddedWallet();
+
+const handleLogin = async () => {
+  await connect({
+    strategy: "google",
+  });
+};
+```
+
+</TabItem>
+
+<TabItem value="typescript" label="Other Frameworks">
+
+In other frameworks, use your own instance of the wallet to authenticate and connect.
+
+```typescript
+import { EmbeddedWallet } from "@thirdweb-dev/wallets";
+import { Goerli } from "@thirdweb-dev/chains";
+
+const embeddedWallet = new EmbeddedWallet({
+  chain: Goerli, //  chain to connect to
+  clientId: "YOUR_CLIENT_ID", // Your thirdweb client ID
+});
+
+const authResult = await embeddedWallet.authenticate({
+  strategy: "google",
+});
+
+const walletAddress = await embeddedWallet.connect({ authResult });
+```
+
+</TabItem>
+</Tabs>
+
+## Authenticate via Email verification
+
+<Tabs>
+<TabItem value="react" label="React & React Native">
+
+```typescript
+import { useEmbeddedWallet, sendVerificationEmail } from "@thirdweb-dev/react"; // or /react-native
+
+const { connect, sendVerificationEmail } = useEmbeddedWallet();
+
+const preLogin = async (email: string) => {
+  // send email verification code
+  await sendVerificationEmail({ email });
+};
+
+const handleLogin = async (email: string, verificationCode: string) => {
+  // verify email and connect
+  await connect({
+    strategy: "email_verification",
+    email,
+    verificationCode,
+  });
+};
+```
+
+</TabItem>
+
+<TabItem value="typescript" label="Other Frameworks">
+
+In other frameworks, use your own instance of the wallet to authenticate and connect.
+
+```typescript
+import { EmbeddedWallet } from "@thirdweb-dev/wallets";
+import { Goerli } from "@thirdweb-dev/chains";
+
+const embeddedWallet = new EmbeddedWallet({
+  chain: Goerli, //  chain to connect to
+  clientId: "YOUR_CLIENT_ID", // Your thirdweb client ID
+});
+
+embeddedWallet.sendVerificationEmail(email);
+
+const authResult = await embeddedWallet.authenticate({
+  strategy: "email_verification",
+  email,
+  verificationCode,
+});
+
+const walletAddress = await embeddedWallet.connect({ authResult });
+```
+
+</TabItem>
+</Tabs>
