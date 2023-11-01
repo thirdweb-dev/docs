@@ -12,17 +12,6 @@
       }
     },
     {
-      "name": "useActiveChain",
-      "summary": "Hook for accessing the active Chain the current wallet is connected to\n```javascript\nimport { useActiveChain } from \"@thirdweb-dev/react-core\"\n```\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "import { useActiveChain } from \"@thirdweb-dev/react-core\"\n\nconst App = () => {\n  const chain = useActiveChain()\n\n  return <div>{chain.chainId}</div>\n}"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/react/react.useactivechain"
-      }
-    },
-    {
       "name": "useActiveListings",
       "summary": "Get all active listings\n\n",
       "remarks": null,
@@ -45,6 +34,17 @@
       }
     },
     {
+      "name": "useBuyDirectListing",
+      "summary": "Buy a direct listing\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\", \"marketplace-v3\");\n  const {\n    mutate: buyNow,\n    isLoading,\n    error,\n  } = useBuyDirectListing(contract);\n\n  if (error) {\n    console.error(\"failed to buy direct listing\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => buyNow({listingId: 1, quantity: 1, buyer: \"{{address}}\"})}\n    >\n      Buy listing!\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.usebuydirectlisting"
+      }
+    },
+    {
       "name": "useBuyNow",
       "summary": "Buy out an auction listing\n\n",
       "remarks": null,
@@ -64,6 +64,17 @@
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usecancellisting"
+      }
+    },
+    {
+      "name": "useChain",
+      "summary": "Hook for accessing the active Chain the current wallet is connected to\n```javascript\nimport { useChain } from \"@thirdweb-dev/react-core\"\n```\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "import { useChain } from \"@thirdweb-dev/react-core\"\n\nconst App = () => {\n  const chain = useChain()\n\n  return <div>{chain.chainId}</div>\n}"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.usechain"
       }
     },
     {
@@ -222,7 +233,7 @@
     },
     {
       "name": "useMakeOffer",
-      "summary": "Make an offer on a direct or auction listing\n\n",
+      "summary": "Nake an offer on a direct or auction listing\n\n",
       "remarks": null,
       "examples": {
         "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: makeOffer,\n    isLoading,\n    error,\n  } = useMakeOffer(contract);\n\n  if (error) {\n    console.error(\"failed to make a bid\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => makeOffer({ listingId: 1, pricePerToken: 0.5, quantity: 1 })}\n    >\n      Bid!\n    </button>\n  );\n};"
@@ -262,6 +273,17 @@
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usemultiwrap"
+      }
+    },
+    {
+      "name": "useNetwork",
+      "summary": "",
+      "remarks": null,
+      "examples": {
+        "javascript": "import { useNetwork } from \"@thirdweb-dev/react\";\n\nconst App = () => {\n  const [, switchNetwork] = useNetwork();\n  return (\n     // switchNetwork is undefined if the wallet does not support programmatic network switching\n     // 137 is the chainId for Polygon in this example\n    <button onClick={() => switchNetwork(137)}>\n       Switch Network\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.usenetwork"
       }
     },
     {
@@ -427,6 +449,131 @@
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usewinningbid"
+      }
+    }
+  ],
+  "Account": [
+    {
+      "name": "useAccountAdmins",
+      "summary": "Get all admins of account\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const { data: accounts, isLoading, error } = useAccountSigners(contract);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useaccountadmins"
+      }
+    },
+    {
+      "name": "useAccountAdminsAndSigners",
+      "summary": "Get all signers and admins of account\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const { data: accounts, isLoading, error } = useAccountSigners(contract);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useaccountadminsandsigners"
+      }
+    },
+    {
+      "name": "useAccountSigners",
+      "summary": "Get all signers of account\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const { data: accounts, isLoading, error } = useAccountSigners(contract);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useaccountsigners"
+      }
+    },
+    {
+      "name": "useAddAdmin",
+      "summary": "Add an additional admin on the smart wallet\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const Component = () => {\n  const {\n    mutate: addAdmin,\n    isLoading,\n    error,\n  } = useAddAdmin();\n\n  if (error) {\n    console.error(\"failed to add admin\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => addAdmin(\"0x...\")}\n    >\n      Add admin\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useaddadmin"
+      }
+    },
+    {
+      "name": "useCreateSessionKey",
+      "summary": "Create and add a session key for the smart wallet\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const Component = () => {\n  const {\n    mutate: createSessionKey,\n    isLoading,\n    error,\n  } = useCreateSessionKey();\n\n  if (error) {\n    console.error(\"failed to create session key\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => createSessionKey(\n        \"0x...\",\n        {\n          approvedCallTargets: [\"0x...\"], // the addresses of contracts that the session key can call\n          nativeTokenLimitPerTransaction: 0.1, // the maximum amount of native token (in ETH) that the session key can spend per transaction\n          startDate: new Date(), // the date when the session key becomes active\n          expirationDate = new Date(Date.now() + 24 * 60 * 60 * 1000); // the date when the session key expires\n        }\n       )}\n    >\n      Create Session Key\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.usecreatesessionkey"
+      }
+    },
+    {
+      "name": "useRemoveAdmin",
+      "summary": "Add an additional admin on the smart wallet\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const Component = () => {\n  const {\n    mutate: removeAdmin,\n    isLoading,\n    error,\n  } = useRemoveAdmin();\n\n  if (error) {\n    console.error(\"failed to remove admin\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => removeAdmin(\"0x...\")}\n    >\n      Remove admin\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useremoveadmin"
+      }
+    },
+    {
+      "name": "useRevokeSessionKey",
+      "summary": "Revoke a session key on the smart wallet\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const Component = () => {\n  const {\n    mutate: revokeSessionKey,\n    isLoading,\n    error,\n  } = useRevokeSessionKey();\n\n  if (error) {\n    console.error(\"failed to revoke session key\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => revokeSessionKey(\"0x...\")}\n    >\n      Revoke Session Key\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.userevokesessionkey"
+      }
+    }
+  ],
+  "AccountFactory": [
+    {
+      "name": "useAccounts",
+      "summary": "Get all accounts\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const { data: accounts, isLoading, error } = useAccounts(contract);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useaccounts"
+      }
+    },
+    {
+      "name": "useAccountsForAddress",
+      "summary": "Get all accounts associated with the provided address\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const { data: accountsForAddress, isLoading, error } = useAccountsForAddress(contract, \"{{account_address}}\");"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useaccountsforaddress"
+      }
+    },
+    {
+      "name": "useCreateAccount",
+      "summary": "Create a account\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: createAccount,\n    isLoading,\n    error,\n  } = useCreateAccount(contract);\n\n  if (error) {\n    console.error(\"failed to create account\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => createAccount(\"0x...\")}\n    >\n      Create Account\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.usecreateaccount"
+      }
+    },
+    {
+      "name": "useIsAccountDeployed",
+      "summary": "Check if a account has been deployed for the given admin\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const { data: isAccountDeployed, isLoading, error } = useIsAccountDeployed(contract);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useisaccountdeployed"
       }
     }
   ],
@@ -2130,7 +2277,7 @@
       "summary": "Get all NFTs owned by a specific wallet\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { data: ownedNFTs, isLoading, error } = useOwnedNFTs(contract, \"{{wallet_address}}\");"
+        "javascript": "const { data: ownedNFTs, isLoading, error } = useOwnedNFTs(contract, \"{{wallet_address}}\", { start: 0, count: 100 });"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useownednfts"
@@ -2176,7 +2323,7 @@
       "summary": "Get all NFTs owned by a specific wallet\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { data: ownedNFTs, isLoading, error } = useOwnedNFTs(contract, \"{{wallet_address}}\");"
+        "javascript": "const { data: ownedNFTs, isLoading, error } = useOwnedNFTs(contract, \"{{wallet_address}}\", { start: 0, count: 100 });"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useownednfts"
@@ -2200,7 +2347,7 @@
       "summary": "Get all NFTs owned by a specific wallet\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { data: ownedNFTs, isLoading, error } = useOwnedNFTs(contract, \"{{wallet_address}}\");"
+        "javascript": "const { data: ownedNFTs, isLoading, error } = useOwnedNFTs(contract, \"{{wallet_address}}\", { start: 0, count: 100 });"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useownednfts"
@@ -2311,6 +2458,19 @@
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usesetappuri"
+      }
+    }
+  ],
+  "ERC721SharedMetadata": [
+    {
+      "name": "useSharedMetadata",
+      "summary": "Get the shared metadata of an Open Edition NFT contract\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const { data: sharedMetadata, isLoading, error } = useSharedMetadata(contract);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.usesharedmetadata"
       }
     }
   ],

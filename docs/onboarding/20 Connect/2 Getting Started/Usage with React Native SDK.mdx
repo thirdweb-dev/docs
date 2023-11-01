@@ -1,7 +1,7 @@
 ---
 slug: /connect/usage-with-react-native-sdk
 title: React Native
-sidebar_position: 5
+sidebar_position: 2
 ---
 
 import QuickstartCard from "@components/QuickstartCard";
@@ -41,7 +41,7 @@ You can connect to a wallet in two ways:
 1. using [ConnectWallet](/react-native/react-native.connectwallet) component for a prebuilt solution with UI
 2. using [useConnect](/react/react.useconnect) hook to build a custom solution
 
-## 1. Using ConectWallet
+## 1. Using ConnectWallet
 
 [ConnectWallet](/react-native/react-native.connectwallet) component allows you to connect to wallets that are specified in [ThirdwebProvider](/react/react.thirdwebprovider#supportedwallets-optional)
 
@@ -109,7 +109,7 @@ function App() {
 }
 ```
 
-## 3. Using ThirdwebSDKProvider
+## 3. Using ThirdwebSDKProvider (advanced)
 
 [ThirdwebSDKProvider](/react/react.thirdwebsdkprovider) is a lower level provider that accepts an arbitrary wallet and only handles contract interaction. This means you can use the Wallet SDK to programmatically connect to any wallet, and pass the connected wallet to this provider to execute transactions from the connected wallet.
 
