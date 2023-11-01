@@ -1,0 +1,22 @@
+.button {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background-color: var(--thirdweb-primary-color);
+  border-radius: 4px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  color: #fff;
+  min-height: 32px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 997px) {
+  .button {
+    margin-right: 45px;
+  }
+}
