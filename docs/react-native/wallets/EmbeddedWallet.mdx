@@ -43,9 +43,9 @@ We wrote [a short guide](/react-native/faq/deeplinks) to help you enable deep li
 ```ts
 embeddedWallet({
   // highlight-start
-  oauthOptions: {
-    providers: ["google"],
-    redirectUrl: "your.scheme://",
+  auth: {
+    options: ["email", "google"],
+    redirectUrl: "deep-link-to-your-app://",
   },
   // highlight-end
 });
@@ -111,7 +111,7 @@ To allow users to connect to this wallet using the [ConnectWallet](/react-native
 
 ## Usage with `useEmbeddedWallet`
 
-you can use the `useEmbeddedWallet` hook to programmatically connect to the wallet without using the [ConnectWallet](/react/react.connectwallet) component.
+You can use the `useEmbeddedWallet` hook to programmatically connect to the wallet without using the [ConnectWallet](/react/react.connectwallet) component.
 
 The wallet also needs to be added in [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) if you want the wallet to auto-connect on next page load.
 
@@ -126,10 +126,11 @@ function App() {
   const handleConnect = async () => {
     await connect({
       strategy: "google",
+      redirectUrl: "deep-link-to-your-app://",
     });
   };
 
-  return <div> ... </div>;
+  return <View> ... </View>;
 }
 ```
 
@@ -153,7 +154,7 @@ function App() {
     });
   };
 
-  return <div> ... </div>;
+  return <View> ... </View>;
 }
 ```
 
@@ -171,8 +172,7 @@ type EmailVerificationAuthParams = {
 // google sign-in
 type GoogleAuthParams = {
   strategy: "google";
-  openedWindow?: Window;
-  closeOpenedWindow?: (window: Window) => void;
+  redirectUrl: string;
 };
 
 // bring your own authentication
