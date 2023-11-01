@@ -15,18 +15,22 @@
 <li><a href="../index.html">@thirdweb-dev/wallets</a></li>
 <li><a href="AuthDetails.html">AuthDetails</a></li></ul>
 <h1>Type alias AuthDetails</h1></div>
-<div class="tsd-signature"><span class="tsd-kind-type-alias">Auth<wbr/>Details</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span><br/><span>    </span><span class="tsd-kind-property">email</span><span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">recoveryCode</span><span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">userWalletId</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span><br/><span class="tsd-signature-symbol">}</span></div>
+<div class="tsd-signature"><span class="tsd-kind-type-alias">Auth<wbr/>Details</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span><br/><span>    </span><span class="tsd-kind-property">backupRecoveryCodes</span><span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">email</span><span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">encryptionKey</span><span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">recoveryShareManagement</span><span class="tsd-signature-symbol">: </span><a href="../enums/RecoveryShareManagement.html" class="tsd-signature-type tsd-kind-enum">RecoveryShareManagement</a><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">userWalletId</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span><br/><span class="tsd-signature-symbol">}</span></div>
 <div class="tsd-type-declaration">
 <h4>Type declaration</h4>
 <ul class="tsd-parameters">
 <li class="tsd-parameter">
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> <span class="tsd-kind-property">backup<wbr/>Recovery<wbr/>Codes</span><span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5></li>
+<li class="tsd-parameter">
 <h5><code class="tsd-tag ts-flagOptional">Optional</code> <span class="tsd-kind-property">email</span><span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span></h5></li>
 <li class="tsd-parameter">
-<h5><code class="tsd-tag ts-flagOptional">Optional</code> <span class="tsd-kind-property">recovery<wbr/>Code</span><span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span></h5></li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> <span class="tsd-kind-property">encryption<wbr/>Key</span><span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span></h5></li>
+<li class="tsd-parameter">
+<h5><span class="tsd-kind-property">recovery<wbr/>Share<wbr/>Management</span><span class="tsd-signature-symbol">: </span><a href="../enums/RecoveryShareManagement.html" class="tsd-signature-type tsd-kind-enum">RecoveryShareManagement</a></h5></li>
 <li class="tsd-parameter">
 <h5><span class="tsd-kind-property">user<wbr/>Wallet<wbr/>Id</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5></li></ul></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/7a6f516/packages/wallets/src/evm/connectors/embedded-wallet/implementations/interfaces/embedded-wallets/embedded-wallets.ts#L25">packages/wallets/src/evm/connectors/embedded-wallet/implementations/interfaces/embedded-wallets/embedded-wallets.ts:25</a></li></ul></aside></div>
+<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/a9d32f3/packages/wallets/src/evm/connectors/embedded-wallet/implementations/interfaces/embedded-wallets/embedded-wallets.ts#L26">packages/wallets/src/evm/connectors/embedded-wallet/implementations/interfaces/embedded-wallets/embedded-wallets.ts:26</a></li></ul></aside></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
@@ -47,7 +51,7 @@
 <ul class="tsd-small-nested-navigation" id="tsd-nav-container" data-base="..">
 <li><a href="../enums/AuthProvider.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-8"></use></svg>AuthProvider</a></li>
 <li><a href="../enums/RecoveryShareManagement.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-8"></use></svg>RecoveryShareManagement</a></li>
-<li><a href="../enums/UserStatus.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-8"></use></svg>UserStatus</a></li>
+<li><a href="../enums/UserWalletStatus.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-8"></use></svg>UserWalletStatus</a></li>
 <li><a href="../classes/AbstractClientWallet.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg>AbstractClientWallet</a></li>
 <li><a href="../classes/AbstractWallet.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg>AbstractWallet</a></li>
 <li><a href="../classes/AddChainError.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg>AddChainError</a></li>
