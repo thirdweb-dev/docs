@@ -26,45 +26,21 @@ const embeddedWalletConfig = embeddedWallet();
 />
 
 <details>
-  <summary>advancedOptions (optional)</summary>
+  <summary>authentication options (optional) </summary>
   <div>
 
-Advanced options for embedded SDK.
+Customize what authentication options to show to your users in the [ConnectWallet Modal](/react/react.connectwallet).
+
+By default, email and Google sign in options are shown.
 
 ```ts
-advancedOptions: {
-  recoveryShareManagement?: 'AWS_MANAGED' | 'USER_MANAGED'
-}
-```
-
-`recoveryShareManagement` indicates who should be in charge of managing the user's recovery share. Choosing `"AWS_MANAGED"` is the easiest to get started and is generally what we recommend. For more information, see [managing the user's recovery share](https://docs.withembedded.com/reference/managing-the-users-recovery-share)
-
-</div>
-</details>
-
-<details>
-  <summary>styles (optional)</summary>
-  <div>
-
-customize the UI component of embedded SDK.
-
-```ts
-styles: {
-  // The roundness of buttons.
-  borderRadius?: string,
-  // The background color of the UI components.
-  colorBackground?: string,
-  // The button and link color of the UI components.
-  colorPrimary?: string,
-  // The text color of the UI components.
-  colorText?: string,
-  // The font family of the UI components.
-  fontFamily?: string,
-  // background color of the input fields
-  inputBackgroundColor?: string,
-  // border color of the input fields
-  inputBorderColor?: string,
-}
+embeddedWallet({
+  // highlight-start
+  auth: {
+    options: ["email", "google"],
+  },
+  // highlight-end
+});
 ```
 
 </div>
@@ -100,132 +76,112 @@ To allow users to connect to this wallet using the [ConnectWallet](/react/react.
 </ThirdwebProvider>
 ```
 
-## Usage with `useConnect`
+## Usage with `useEmbeddedWallet`
 
-you can use the `useConnect` hook to programmatically connect to the wallet without using the [ConnectWallet](/react/react.connectwallet) component.
+you can use the `useEmbeddedWallet` hook to programmatically connect to the wallet without using the [ConnectWallet](/react/react.connectwallet) component.
 
 The wallet also needs to be added in [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) if you want the wallet to auto-connect on next page load.
 
-Calling `connect` opens the embedded Wallet's Modal and prompts the user to log in with their email address.
+The hook will return all the necessary functions you'll need to authenticate and connect to the embedded wallet.
+
+**Connecting with Google sign in:**
 
 ```tsx
-const embeddedWalletConfig = embeddedWallet(options);
-
 function App() {
-  const connect = useConnect();
+  const { connect } = useEmbeddedWallet();
 
   const handleConnect = async () => {
-    await connect(embeddedWalletConfig, connectOptions);
+    await connect({
+      strategy: "google",
+    });
   };
 
   return <div> ... </div>;
 }
 ```
 
-### connectOptions
+**Connecting with email verification:**
+
+```tsx
+function App() {
+  const { connect, sendVerificationEmail } = useEmbeddedWallet();
+
+  const preLogin = async (email: string) => {
+    // send email verification code
+    await sendVerificationEmail({ email });
+  };
+
+  const handleLogin = async (email: string, verificationCode: string) => {
+    // verify email and connect
+    await connect({
+      strategy: "email_verification",
+      email,
+      verificationCode,
+    });
+  };
+
+  return <div> ... </div>;
+}
+```
+
+**Connecting with iframe:**
+
+```tsx
+function App() {
+  const { connect } = useEmbeddedWallet();
+
+  const handleConnect = async () => {
+    await connect({
+      strategy: "iframe",
+    });
+  };
+
+  return <div> ... </div>;
+}
+```
+
+### Available conenction strategies
 
 ```ts
-{
-  email?: string;
-  chainId?: number;
-  advancedOptions?: {
-    recoveryShareManagement?: 'AWS_MANAGED' | 'USER_MANAGED'
-  },
-  styles?: {
-    // The roundness of buttons.
-    borderRadius?: string,
-    // The background color of the UI components.
-    colorBackground?: string,
-    // The button and link color of the UI components.
-    colorPrimary?: string,
-    // The text color of the UI components.
-    colorText?: string,
-    // The font family of the UI components.
-    fontFamily?: string,
-    // background color of the input fields
-    inputBackgroundColor?: string,
-    // border color of the input fields
-    inputBorderColor?: string,
-  }
-} | undefined;
+// email verification
+type EmailVerificationAuthParams = {
+  strategy: "email_verification";
+  email: string;
+  verificationCode: string;
+  recoveryCode?: string;
+};
+
+// google sign-in
+type GoogleAuthParams = {
+  strategy: "google";
+  openedWindow?: Window;
+  closeOpenedWindow?: (window: Window) => void;
+};
+
+// bring your own authentication
+type JwtAuthParams = {
+  strategy: "jwt";
+  jwt: string;
+  encryptionKey?: string;
+};
+
+// open iframe to send and input the verification code only
+type IframeOtpAuthParams = {
+  strategy: "iframe_email_verification";
+  email: string;
+};
+
+// open iframe to enter email and verification code
+type IframeAuthParams = {
+  strategy: "iframe";
+};
 ```
 
 <details>
   <summary>chainId (optional)</summary>
 <div>
 
-If `chainId` is provided, wallet will be connected to network with given `chainId`, else wallet will be connected to Ethereum mainnet by default.
-
-`Chain` object corresponding to this chainId from [@thirdweb-dev/chains](https://www.npmjs.com/package/@thirdweb-dev/chains) package must be specified in [ThirdwebProvider's supportedChains](/react/react.thirdwebprovider#supportedchains-optional) prop as shown below
-
-```tsx
-import { Polygon } from "@thirdweb-dev/chains";
-import { ThirdwebProvider } from "@thirdweb-dev/react";
-
-export function YourApp() {
-  return (
-    <ThirdwebProvider supportedChains={[Polygon]} clientId="your-client-id">
-      <App />
-    </ThirdwebProvider>
-  );
-}
-```
-
-</div>
-</details>
-
-<details>
-  <summary>email (optional)</summary>
-<div>
-
-If `email` is not provided, the user will be prompted to enter their email address or sign in with a Google account. Once the user enters the email address or signs in with a Google account, an OTP will be sent to the user's email address. Once the user enters the OTP, the wallet will be connected.
-
-If the `email` is provided, the user will be directly shown the OTP screen, the user will not be prompted to enter their email.
-
-</div>
-</details>
-
-<details>
-  <summary>advancedOptions (optional)</summary>
-  <div>
-
-Advanced options for embedded SDK.
-
-```ts
-advancedOptions: {
-  recoveryShareManagement?: 'AWS_MANAGED' | 'USER_MANAGED'
-}
-```
-
-`recoveryShareManagement` indicates who should be in charge of managing the user's recovery share. Choosing `"AWS_MANAGED"` is the easiest to get started and is generally what we recommend. For more information, see [managing the user's recovery share](https://docs.withembedded.com/reference/managing-the-users-recovery-share)
-
-</div>
-</details>
-
-<details>
-  <summary>styles (optional)</summary>
-  <div>
-
-customize the UI component of embedded SDK.
-
-```ts
-styles: {
-  // The roundness of buttons.
-  borderRadius?: string,
-  // The background color of the UI components.
-  colorBackground?: string,
-  // The button and link color of the UI components.
-  colorPrimary?: string,
-  // The text color of the UI components.
-  colorText?: string,
-  // The font family of the UI components.
-  fontFamily?: string,
-  // background color of the input fields
-  inputBackgroundColor?: string,
-  // border color of the input fields
-  inputBorderColor?: string,
-}
-```
+If `chainId` is provided, wallet will be connected to network with given `chainId`, else wallet will be connected to the `activeChain` by default.
 
 </div>
 </details>
