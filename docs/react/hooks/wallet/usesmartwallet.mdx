@@ -77,6 +77,24 @@ const onClick = async () => {
 };
 ```
 
+### Predicting the Smart Wallet address
+
+THe `useSmartWallet()` also returns a function to predict a smart wallet address given a personal wallet address before connecting to it.
+
+```tsx
+const { predictAddress } = useSmartWallet(localWallet(), {
+  factoryAddress: "0x...",
+  gasless: true,
+});
+
+const onClick = async () => {
+  const address = await predictAddress({
+    personalWalletAddress: "0x...",
+  });
+  console.log("Predicted Smart Wallet address", address);
+};
+```
+
 ## Connect options
 
 <details>
