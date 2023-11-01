@@ -1,0 +1,130 @@
+---
+title: comethConnect
+slug: /react.cometh
+displayed_sidebar: react
+sidebar_position: 11
+---
+
+A wallet configurator for [MetaMask](/wallet/metamask) which allows integrating the wallet with React
+
+To be able to interact with Cometh Connect, you need to create an account and get an apiKey from [cometh dashboard](https://app.cometh.io/dashboard)
+
+You also need to indicate the chain that you are working on. For now, Cometh Connect supports these [networks](https://docs.cometh.io/connect/cometh-connect/supported-networks)
+
+```tsx
+import { Polygon } from "@thirdweb-dev/chains";
+import { ComethConnect } from "@thirdweb-dev/wallets";
+
+const options = {
+  apiKey: API_KEY,
+  chain: Polygon,
+};
+const wallet = new ComethConnect(options);
+
+wallet.connect();
+```
+
+<CustomizeWalletConfigurator
+  config="bloctoWalletConfig"
+  configurator="bloctoWallet"
+  connectUI="BloctoWalletConnectUI"
+  selectUI="BloctoWalletSelectUI"
+  isInstalled="isBloctoWalletInstalled"
+/>
+
+### options
+
+<details>
+  <summary>clientId (recommended) </summary>
+  <div>
+
+Provide `clientId` to use the thirdweb RPCs for given `chains`
+
+You can create a client ID for your application from [thirdweb dashboard](https://thirdweb.com/create-api-key).
+
+```javascript
+import { Polygon } from "@thirdweb-dev/chains";
+import { ComethConnect } from "@thirdweb-dev/wallets";
+
+const options = {
+  apiKey: API_KEY,
+  chain: Polygon,
+};
+const wallet = new ComethConnect(
+  {
+    clientId: "YOUR_CLIENT_ID",
+  },
+  options,
+);
+```
+
+</div>
+</details>
+
+<details>
+  <summary>walletAddress</summary>
+  <div>
+
+Connect to an existing Cometh Connect smart wallet
+
+This parameter allow you to connect to a user that already created a Cometh Connect smart wallet, see our [`docs`](https://docs.cometh.io/connect/cometh-connect/create-a-wallet#connect-to-an-existing-wallet) for more info.
+
+```javascript
+import { Polygon } from "@thirdweb-dev/chains";
+import { ComethConnect } from "@thirdweb-dev/wallets";
+
+const options = {
+  apiKey: API_KEY,
+  chain: Polygon,
+  walletAddress: walletAddress,
+};
+const wallet = new ComethConnect(options);
+```
+
+</div>
+</details>
+
+## Usage with `Cometh Connect`
+
+To allow users to connect to this wallet using the [ConnectWallet](/react/react.connectwallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop.
+
+Wallet Address is optionnal in the option config.
+
+```tsx
+const options = {
+  apiKey: "bef322c7-2612-4f91-ab1d-65c99c88c758",
+  chain: Gnosis,
+  walletAddress: walletAddress,
+};
+
+<ThirdwebProvider
+  supportedWallets={[comethConnect(options)]}
+  clientId="your-client-id"
+>
+  <YourApp />
+</ThirdwebProvider>;
+```
+
+## Usage with `useConnect`
+
+you can use the `useConnect` hook to programmatically connect to the wallet without using the [ConnectWallet](/react/react.connectwallet) component.
+
+The wallet also needs to be added in [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) if you want the wallet to auto-connect on next page load.
+
+```tsx
+const options = {
+  apiKey: API_KEY,
+  chain: Polygon,
+  walletAddress: walletAddress,
+};
+
+function App() {
+  const connect = useConnect();
+
+  const handleConnect = async () => {
+    await connect(comethConnect(options));
+  };
+
+  return <div> ... </div>;
+}
+```
