@@ -16,7 +16,7 @@ export function ContextBot() {
         ></script>
       </Head>
       <div context-launcher="true" context-bot-id={contextBotId}>
-        <button className={styles.button}>
+        <button className={styles.contextButton}>
           <StarsIcon />
           ASK AI
         </button>
