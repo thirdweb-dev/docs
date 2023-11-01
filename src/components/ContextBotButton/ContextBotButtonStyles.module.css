@@ -4,13 +4,12 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 4px 12px;
-  background-color: var(--thirdweb-primary-color);
-  border-radius: 4px;
-  font-style: normal;
+  padding: 4px 12px !important;
+  background-color: var(--thirdweb-primary-color) !important;
+  border-radius: 4px !important;
   font-weight: 600;
-  font-size: 14px;
-  color: #fff;
-  min-height: 32px;
-  box-sizing: border-box;
+  font-size: 14px !important;
+  color: #fff !important;
+  min-height: 32px !important;
+  box-sizing: border-box !important;
 }
