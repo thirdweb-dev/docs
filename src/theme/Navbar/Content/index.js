@@ -79,11 +79,17 @@ export default function NavbarContent() {
 
             {!searchBarItem && (
               <NavbarSearch>
-                <SearchBar />
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "12px",
+                  }}
+                >
+                  <ContextBot />
+                  <SearchBar />
+                </div>
               </NavbarSearch>
             )}
-
-            <ContextBot />
 
             <a
               className={styles.normalLinks}
