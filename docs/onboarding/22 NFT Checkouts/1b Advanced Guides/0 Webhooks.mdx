@@ -18,7 +18,7 @@ The following webhook events are supported.
 | Event                  | Description                                                                                                                                                                                                                                                                                                  |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `transfer:succeeded`   | The NFT has been delivered to the buyer's wallet.                                                                                                                                                                                                                                                            |
-| `transfer:failed`      | The NFT was unable to be delivered after multiple retries. Paper's engineering team is notified to resolve or refund this transaction.                                                                                                                                                                       |
+| `transfer:failed`      | The NFT was unable to be delivered after multiple retries. A refund will automatically be processed.                                                                                                                                                                                                         |
 | `payment:succeeded`    | A buyer's payment has been successfully completed.                                                                                                                                                                                                                                                           |
 | `payment:failed`       | A buyer's payment attempt has been rejected. Extra data fields may be available with information from our payment processor on the failure reason.                                                                                                                                                           |
 | `payment:refunded`     | A buyer's payment has been refunded because the mint failed multiple attempts. Extra data fields may be available with the reason for the refund.                                                                                                                                                            |
@@ -26,7 +26,7 @@ The following webhook events are supported.
 
 ## Request format
 
-Paper will call your backend with an HTTPS `POST` request:
+thirdweb will call your backend with an HTTPS `POST` request:
 
 ### Headers
 
@@ -66,7 +66,7 @@ X-Paper-Signature: <SIGNATURE_FROM_THIRDWEB>
         }
       ]
     },
-    "title": "My First Paper Checkout",
+    "title": "My First Checkout",
     "transactionHash": "0x076d1b496152efd2a97d0db1d558c681188a1a76a8a2c271a33e4c34cc1fa467",
     "valueInCurrency": "0.05",
     "currency": "ETH",
@@ -147,7 +147,7 @@ Here's a simplified HTTP handler in Next.js:
 ```typescript
 import { createHmac, timingSafeEqual } from "crypto";
 
-const paperWebhookHandler = (req, res) => {
+const thirdwebCheckoutsWebhookHandler = (req, res) => {
   const apiKey = "2483b84a-..."; // Your thirdweb API Secret Key
 
   // Get the provided signature.
@@ -206,4 +206,4 @@ Webhooks are retried every five minutes for up to one hour until a `2xx` respons
 
 ### Can I filter which webhook events are sent?
 
-Currently there is no way to filter which events are sent to your webhook URLs. Paper may add new webhook event types without notice. Please ignore events that you don't need by returning a `2xx` response.
+Currently there is no way to filter which events are sent to your webhook URLs. thirdweb may add new webhook event types without notice. Please ignore events that you don't need by returning a `2xx` response.
