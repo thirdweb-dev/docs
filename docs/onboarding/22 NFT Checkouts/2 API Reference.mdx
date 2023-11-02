@@ -3,140 +3,63 @@ slug: /checkouts/api-reference
 title: API Reference
 ---
 
-The Engine API enables developers to update their configuration, manage backend wallets, and call contracts.
+The Payments API enables all the functionalities needed to create checkouts.
 
 :::info
 
-[View the full API reference.](https://redocly.github.io/redoc/?url=https://demo.web3api.thirdweb.com/json)
+[View the full API reference.](TODO)
 
 :::
 
+### Usage
+
+You must use an API Secret Key to make authenticated calls. These calls should be
+made from your backend.
+
+Provide your API key as a header: `Authorization: Bearer YOUR_API_SECRET_KEY`
+
 ---
 
-API endpoints are organized in sections.
+## API Categories
 
-### Backend Wallet
+### Contract Registration
 
-Create, import, and manage backend wallets.
+Register, edit, and un-register contracts for payments.
 
-[View API reference.](https://redocly.github.io/redoc/?url=https://demo.web3api.thirdweb.com/json#tag/Backend-Wallet)
+[View API reference.](TODO)
 
-### Configuration
+### Shareable Checkout Links
 
-Read and update your Engine configuration.
+Create, edit, and delete shareable checkout links.
 
-[View API reference.](https://redocly.github.io/redoc/?url=https://demo.web3api.thirdweb.com/json#tag/Configuration)
+[View API reference.](TODO)
 
-### Webhooks
+### One-time Checkout Links
 
-Read and update your Engine webhooks.
+Create one-time checkout links.
 
-[View API reference.](https://redocly.github.io/redoc/?url=https://demo.web3api.thirdweb.com/json#tag/Webhooks)
+[View API reference.](TODO)
 
-### Permissions
+### Embedded Checkout Elements
 
-Read and update your Engine admins.
+Create SDK Client Secret used for embedded checkout elements.
 
-[View API reference.](https://redocly.github.io/redoc/?url=https://demo.web3api.thirdweb.com/json#tag/Permissions)
+[View API reference.](TODO)
 
-### Access Tokens
+### Transaction Status
 
-Read and update your Engine access tokens.
+Get the status of a transaction by transaction ID.
 
-[View API reference.](https://redocly.github.io/redoc/?url=https://demo.web3api.thirdweb.com/json#tag/Access-Tokens)
+[View API reference.](TODO)
 
-### Chain
+### Get Estimated Price
 
-Get details about EVM chains.
+Get the estimated price of a checkout, including fees and gas.
 
-[View API reference.](https://redocly.github.io/redoc/?url=https://demo.web3api.thirdweb.com/json#tag/Chain)
+[View API reference.](TODO)
 
-### Contract
+### Transaction Holds
 
-Read and write to contracts.
+Capture or cancel a transaction hold.
 
-[View API reference.](https://redocly.github.io/redoc/?url=https://demo.web3api.thirdweb.com/json#tag/Contract)
-
-### Contract - Events
-
-Get events on a contract.
-
-[View API reference.](https://redocly.github.io/redoc/?url=https://demo.web3api.thirdweb.com/json#tag/Contract-Events)
-
-### Contract - Metadata
-
-Get data about contract methods and events.
-
-[View API reference.](https://redocly.github.io/redoc/?url=https://demo.web3api.thirdweb.com/json#tag/Contract-Metadata)
-
-### Contract - Roles
-
-Get roles assigned to a contract.
-
-[View API reference.](https://redocly.github.io/redoc/?url=https://demo.web3api.thirdweb.com/json#tag/Contract-Roles)
-
-### Contract - Royalties
-
-Get royalty details for a contract.
-
-[View API reference.](https://redocly.github.io/redoc/?url=https://demo.web3api.thirdweb.com/json#tag/Contract-Royalties)
-
-### Deploy
-
-Deploy a contract [published to thirdweb](https://thirdweb.com/explore).
-
-[View API reference.](https://redocly.github.io/redoc/?url=https://demo.web3api.thirdweb.com/json#tag/Deploy)
-
-### Transaction
-
-Get details about transactions sent with Engine. Retry or cancel existing transactions.
-
-[View API reference.](https://redocly.github.io/redoc/?url=https://demo.web3api.thirdweb.com/json#tag/Transaction)
-
-### Account Factory
-
-Manage account factories and deploy smart accounts.
-
-[View API reference.](https://redocly.github.io/redoc/?url=https://demo.web3api.thirdweb.com/json#tag/Account-Factory)
-
-### Account
-
-Manage admins and session keys for smart accounts.
-
-[View API reference.](https://redocly.github.io/redoc/?url=https://demo.web3api.thirdweb.com/json#tag/Account)
-
-### ERC-20
-
-Get details about ERC-20 tokens and manage ERC-20 tokens in your backend wallets.
-
-[View API reference.](https://redocly.github.io/redoc/?url=https://demo.web3api.thirdweb.com/json#tag/ERC20)
-
-### ERC-721
-
-Get details about ERC-721 tokens and manage ERC-721 tokens owned by your backend wallets.
-
-[View API reference.](https://redocly.github.io/redoc/?url=https://demo.web3api.thirdweb.com/json#tag/ERC721)
-
-### ERC-1155
-
-Get details about ERC-1155 tokens and manage ERC-1155 tokens owned by your backend wallets.
-
-[View API reference.](https://redocly.github.io/redoc/?url=https://demo.web3api.thirdweb.com/json#tag/ERC1155)
-
-### Marketplace - Direct Listings
-
-List and manage [marketplace](https://portal.thirdweb.com/pre-built-contracts/marketplace) direct listings.
-
-[View API reference.](https://redocly.github.io/redoc/?url=https://demo.web3api.thirdweb.com/json#tag/Marketplace-DirectListings)
-
-### Marketplace - English Auctions
-
-List and manage [marketplace](https://portal.thirdweb.com/pre-built-contracts/marketplace) auctions.
-
-[View API reference.](https://redocly.github.io/redoc/?url=https://demo.web3api.thirdweb.com/json#tag/Marketplace-EnglishAuctions)
-
-### Marketplace - Offers
-
-List and manage [marketplace](https://portal.thirdweb.com/pre-built-contracts/marketplace) offers.
-
-[View API reference.](https://redocly.github.io/redoc/?url=https://demo.web3api.thirdweb.com/json#tag/Marketplace-Offers)
+[View API reference.](TODO)

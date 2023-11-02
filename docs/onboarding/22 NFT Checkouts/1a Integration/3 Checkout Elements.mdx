@@ -3,52 +3,20 @@ slug: /checkouts/elements
 title: 2c. Embedded Elements
 ---
 
-Use engine to deploy, manage, and transact with smart wallets on behalf of your users.
+Checkout Embedded Elements are modular components that can be embedded directly in your app. This allows you to fully customize the look and feel of the checkouts experience within your application.
 
-## Deploy an account factory
+## Prerequisites
 
-To deploy smart wallet accounts (referred to as "accounts" from here on), deploy an `AccountFactory` contract. This contract handles deploying individual `Account` contracts for your users.
+- Make sure you've [registered your contract](register) for use with checkouts first.
+- You have the user's wallet address
+  - Consider using the Connect Wallet component to create a wallet for users.
 
-**Endpoint:** `POST /deploy/<chain>/deployer.thirdweb.eth/AccountFactory`
+## Integration
 
-**Payload:**
+### Accepting fiat payment options (credit/debit card, Apple Pay, Google Pay)
 
-```json
-{
-  "constructorParams": ["0x5FF137D4b0FDCD49DcA30c7CF57E578a026d2789"]
-}
-```
+Embed CheckoutWithCard in your app.
 
-## Deploy user accounts
+### Accepting crypto payment options (ETH)
 
-Once the factory is set up, deploy accounts for your users.
-
-**Endpoint:** `POST /contract/<chain>/<account_factory_address>/account-factory/create-account`
-
-**Body:**
-
-```json
-{
-  "admin_address": "0x..." // The user's wallet address to deploy a smart wallet for
-}
-```
-
-This adds the `admin_address` as the primary admin that can act on behalf of the newly deployed account.
-
-To control the account with a backend wallet, specify the backend wallet in the `admin_address` field.
-
-## Grant permissions and sessions
-
-Grant & revoke admins on an account with the `/contract/{chain}/{account_address}/account/admins` endpoints.
-
-Grant & revoke sessions on an account which allow specific wallets to interact with specified contracts for a given period of time with the `/contract/{chain}/{account_address}/account/sessions` endpoints.
-
-## Transact with an account
-
-Make write calls with a smart account by calling a write endpoint and specify the `x-backend-wallet-address` and `x-account-address` headers.
-
-The `x-backend-wallet-address` should be set to the engine backend wallet that is an admin over the account.
-
-The `x-account-address` should be set to the deployed account address itself.
-
-Write calls made using these headers will initiate a `UserOperation` sent from the specified account.
+Embed CheckoutWithEth in your app. (TODO: Currently not available on thirdweb)

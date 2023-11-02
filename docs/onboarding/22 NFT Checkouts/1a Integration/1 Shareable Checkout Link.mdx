@@ -3,32 +3,25 @@ slug: /checkouts/shareable-link
 title: 2a. Shareable Checkout Links
 ---
 
-Engine can be managed via the [thirdweb dashboard](https://thirdweb.com/dashboard/engine) or [API](engine/api-reference).
+Shareable Checkout Links are public, reusable URLs that allow buyers to complete a purchase with Paper's prebuilt checkout experience.
 
-## Dashboard access
+## Prerequisites
 
-The wallet address matching the `ADMIN_WALLET_ADDRESS` environment variable is the only user able to manage Engine from the thirdweb dashboard.
+Make sure you've [registered your contract](register) for use with checkouts first.
 
-Granting Engine access to other users (wallet addresses) is coming soon.
+## Use cases
 
-## API access
+- Integrate a functional, prebuilt checkout experience quickly.
+- Open your NFT's public sale to all buyers.
+- Charge your buyers the same price.
+- Request your buyer's details (email, wallet address) during checkout.
 
-Admins are able to create **access tokens** which are long-lived secret credentials that grant access to the Engine API.
+## Create a shareable checkout link
 
-### Creating a access token
+### Dashboard
 
-1. Navigate to the [thirdweb dashboard](https://thirdweb.com/dashboard/engine).
-1. Select the **Permissions** tab.
-1. Under **Access Tokens**, select **Create Access Token**.
+TODO: add when dashboard is complete
 
-:::tip
+### API
 
-A access token is shown only once! Store it in a secure place, and revoke the access token if it is compromised.
-
-:::
-
-### Revoking a access token
-
-1. Navigate to the [thirdweb dashboard](https://thirdweb.com/dashboard/engine).
-1. Select the **Permissions** tab.
-1. Under **Access Tokens**, find the access token to revoke and select **Delete**.
+[See the API Reference for creating a shareable checkout link](TODO)

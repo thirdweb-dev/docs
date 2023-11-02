@@ -3,109 +3,25 @@ slug: /checkouts/one-time-link
 title: 2b. One-time Checkout Links
 ---
 
-Call or deploy contracts from your backend wallet to any EVM blockchain with one API call.
+A one-time Checkout Link is a prebuilt checkout experience that is customized per buyer by providing a fixed price, email, wallet address, quantity, and more.
 
-## Write to a contract
+Each unique link allows at most one purchase and expires after the specified duration.
 
-> This request requires gas funds in the backend wallet.
+## Prerequisites
 
-```ts
-const resp = await fetch(
-  "<engine_url>/contract/<chain>/<contract_address>/write",
-  {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: "Bearer <access_token>",
-      "x-backend-wallet-address": "<backend_wallet_address>",
-    },
-    body: JSON.stringify({
-      function_name: "transferFrom",
-      args: [
-        "0x1946267d81Fb8aDeeEa28e6B98bcD446c8248473",
-        "0x3EcDBF3B911d0e9052b64850693888b008e18373",
-        "0",
-      ],
-    }),
-  },
-);
+Make sure you've [registered your contract](register) for use with checkouts first.
 
-const { result } = await resp.json();
-// queueId is a reference to the transaction queued by Engine.
-console.log("Queue ID:", result.queueId);
-```
+## Use cases
 
-[See API reference.](https://redocly.github.io/redoc/?url=https://demo.web3api.thirdweb.com/json#tag/Contract/operation/write)
+- Gate purchases via an off-chain allowlist. After verifying the buyer's identity on your app, navigate them to the checkout link.
+- Implement dynamic pricing by passing in the price for each checkout. This feature allows you to provide coupon codes, bulk discounts, and loyalty discounts.
+- Restrict the quantity of NFTs your buyers can purchase.
+- Directly email the checkout URL directly to the buyer's inbox.
 
-### Call a payable method
+## Create a one-time checkout link
 
-To call a payable method and send the native currency with your transaction (e.g. ETH on Ethereum), set `tx_overrides.value` in the request body to `POST /contract/<chain>/<contract_address>/write`.
+One-time checkout links can only be created via API.
 
-```json
-{
-  function_name: "...",
-  args: [ ... ],
-  tx_overrides: {
-    value: 1000000000000000, // 0.001 ETH in wei
-  }
-}
-```
+### API
 
-### Override gas settings
-
-> Coming soon.
-
-To override the estimated gas settings for your transaction, set `tx_overrides.gasLimit` and `tx_overrides.gasPrice` in the request body to `POST /contract/<chain>/<contract_address>/write`.
-
-```json
-{
-  function_name: "...",
-  args: [ ... ],
-  tx_overrides: {
-    gasLimit: 150000,
-    gasPrice: 22000000000, // 22 gwei in wei
-  }
-}
-```
-
-## Read from a contract
-
-```ts
-const resp = await fetch(
-  "<engine_url>/contract/<chain>/<contract_address>/read?function_name=balanceOf&args=0x3EcDBF3B911d0e9052b64850693888b008e18373",
-  {
-    headers: {
-      Authorization: "Bearer <access_token>",
-    },
-  },
-);
-
-const { result } = await resp.json();
-console.log("ERC-20 balance:", result);
-```
-
-## Deploy a contract
-
-> This request requires gas funds in the backend wallet.
-
-```ts
-const resp = await fetch("<engine_url>/deploy/<chain>/prebuilts/nft-drop", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-    Authorization: "Bearer <access_token>",
-    "x-backend-wallet-address": "<backend_wallet_address>",
-  },
-  body: JSON.stringify({
-    contractMetadata: {
-      name: "thirdweb Engine example",
-      symbol: "eng",
-      primary_sale_recipient: "0x3EcDBF3B911d0e9052b64850693888b008e18373",
-    },
-  }),
-});
-
-const { result } = await resp.json();
-// queueId is a reference to the transaction queued by Engine.
-console.log("Queue ID:", result.queueId);
-```
+[See the API Reference for creating a one-time checkout link](TODO)
