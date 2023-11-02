@@ -17,6 +17,16 @@ Hide color mode toggle in small viewports
   .normalLinks {
     display: none !important;
   }
+
+  .desktopOnly {
+    display: none !important;
+  }
+}
+
+@media (min-width: 997px) {
+  .mobileOnly {
+    display: none !important;
+  }
 }
 
 .goToAppButton {

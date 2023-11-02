@@ -14,7 +14,7 @@ Engine is self-hosted with minimal configuration.
 
 ### Start the database
 
-A Postgres DB instance is required to run Engine. [AWS RDS](https://aws.amazon.com/rds/postgresql) or [Google Cloud SQL](https://cloud.google.com/sql/docs/postgres) are recommended for production use.
+A Postgres DB instance is required to run Engine. [AWS RDS](https://aws.amazon.com/rds/postgresql)/[Google Cloud SQL](https://cloud.google.com/sql/docs/postgres) is recommended for production use.
 
 Or run Postgres locally to get started quickly:
 
@@ -28,7 +28,7 @@ This step provides a local Postgres DB URL for the next step:
 POSTGRES_CONNECTION_URL="postgresql://postgres:postgres@host.docker.internal:5432/postgres?sslmode=disable"
 ```
 
-### Start the Engine server
+### Start the server
 
 Download and run the Docker container:
 
@@ -56,7 +56,7 @@ Provide the following environment variables:
 Your server is running when this log line appears:
 
 ```bash
-Server listening on: 0.0.0.0:3005
+Server listening on: https://0.0.0.0:3005
 ```
 
 :::tip
@@ -65,69 +65,65 @@ Here's a few pointers:
 
 - `ENABLE_HTTPS=true` is only required when running Engine locally. Remove this line for production use.
 - Make sure your Engine instance port (default: `3005`) is publicly accessible. All configuration and API requests require authentication.
+- The `nightly` Docker image may contain new, undocumented, and possibly breaking changes. We appreciate feedback!
 
 :::
 
-### Dashboard management
+## Use the dashboard
 
-Manage your Engine instance from the thirdweb dashboard:
+### Sign in
+
+To manage your Engine instance from the dashboard:
 
 1. Navigate to [https://localhost:3005/json](https://localhost:3005/json).
 
    - The "Your connection is not private" page will appear.
-   - Select **Show advanced** and select **Proceed to localhost (unsafe)**.
-   - A JSON file will be rendered. This one-time step is required to allow your browser to connect to your local Engine instance.
+   - Select **Show advanced** and select **Proceed to localhost (unsafe)** to render the JSON file.
+   - _This one-time step allows your browser to connect to your local Engine instance._
 
 1. Navigate to the [Engine dashboard page](https://thirdweb.com/dashboard/engine).
 1. Sign in with the `<admin_wallet_address>` wallet.
-1. Select **Set Engine instance URL to get started.**.
+1. Select **Set Engine instance URL to get started.**
 1. Add your publicly accessible Engine URL.
    - If Engine is running locally, provide the URL `https://localhost:3005`.
 
-The dashboard is organized in tabs:
+### Overview
 
-- **Overview**: Manage backend wallets and transactions.
-- **Explorer**: Interactively call API methods.
-- **Configuration**: Manage backend wallet and webhook settings.
-- **Permissions**: Manage admins and access tokens.
+In the **Overview** dashboard section:
 
-## Using Engine
+- View your backend wallets.
+- Create a backend wallet.
+- View recent transactions.
+- Cancel a queued transaction.
 
-### Create an access token
+### Explorer
 
-The Engine API requires a access token to authenticate requests. To create an access token:
+In the **Explorer** dashboard section:
 
-1. Navigate to the [Engine dashboard page](https://thirdweb.com/dashboard/engine).
-1. Select the **Permissions** tab.
-1. Under **Access Tokens**, select **Create Access Token**.
-1. Provide an access token in the `Authorization` header when calling the Engine API:
-   - `Authorization: Bearer <access_token>`
+- Interactively view and call your Engine API.
 
-See [Authentication](/engine/authentication) for advanced configuration.
+### Configuration
 
-### Add a backend wallet
+In the **Configuration** dashboard section:
 
-Engine uses your backend wallets to interact with the blockchain. To create a backend wallet:
+- Change backend wallet types.
+- View webhooks.
+- Add and remove webhooks.
 
-1. Navigate to the [Engine dashboard page](https://thirdweb.com/dashboard/engine).
-1. Navigate to the **Overview** tab.
-1. Under **Backend Wallets**, select **Create**.
+### Permissions
 
-A local wallet is generated, and the encrypted private key is stored in your database.
+In the **Permissions** dashboard section:
 
-See [Backend Wallets](/engine/backend-wallets) for details on other wallet configuration or importing wallets.
+- View admin users.
+- Add and remove admin users.
+- View access tokens.
+- Create and revoke access tokens.
 
-:::tip
+## Use Engine
 
-Send gas funds to this backend wallet in order to call contract write methods.
+Use Engine to manage your backend wallets and call contract methods with one API call. Here's some examples:
 
-:::
-
-### Send blockchain transactions
-
-Call the blockchain with a backend wallet with one API call. Here are some examples.
-
-#### Get a wallet's balance
+### Get a wallet's balance
 
 ```ts
 const resp = await fetch(
@@ -143,13 +139,13 @@ const { result } = await resp.json();
 console.log("Balance:", result.value);
 ```
 
-#### Call a contract read method
+### Read from a contract
 
 This code example does not require gas funds and returns the function result.
 
 ```ts
 const resp = await fetch(
-  "<engine_url>/contract/<chain>/<contract_address>/read?function_name=balanceOf&args=0x3EcDBF3B911d0e9052b64850693888b008e18373",
+  "<engine_url>/contract/<chain>/<contract_address>/read?functionName=balanceOf&args=0x3EcDBF3B911d0e9052b64850693888b008e18373",
   {
     headers: {
       Authorization: "Bearer <access_token>",
@@ -161,7 +157,7 @@ const { result } = await resp.json();
 console.log("ERC-20 balance:", result);
 ```
 
-#### Call a contract write method
+### Write to a contract
 
 This code example calls a write method on a contract. It requires gas funds and returns a `queueId` to query for the result.
 
@@ -176,7 +172,7 @@ const resp = await fetch(
       "x-backend-wallet-address": "<backend_wallet_address>",
     },
     body: JSON.stringify({
-      function_name: "transferFrom",
+      functionName: "transferFrom",
       args: [
         "0x1946267d81Fb8aDeeEa28e6B98bcD446c8248473",
         "0x3EcDBF3B911d0e9052b64850693888b008e18373",
@@ -191,7 +187,7 @@ const { result } = await resp.json();
 console.log("Queue ID:", result.queueId);
 ```
 
-#### Deploy a contract
+### Deploy a contract
 
 This code example deploys a [thirdweb NFT drop contract](https://thirdweb.com/thirdweb.eth/DropERC721). It requires gas funds and returns a `queueId` to query for the result.
 

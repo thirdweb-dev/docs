@@ -156,54 +156,28 @@ After connecting your personal wallet, a smart wallet is created for you and con
 
 ![Connected Smart Wallet](/assets/connect-wallet/connect-wallet-smart-dropdown.png)
 
-### 4.(b) Using the `useConnect` hook
+### 4.(b) Using the `useSmartWallet` hook
 
-The [useConnect](/react/react.useconnect) hook allows you to programmatically connect your application to the wallet. You will need to build your own UI for connecting the wallet.
+The [useSmartWallet](/react/react.usesmartwallet) hook allows you to programmatically connect your application to the wallet. You will need to build your own UI for connecting the wallet.
 
 ```tsx
-import {
-  useConnect,
-  smartWallet,
-  localWallet,
-  useCreateWalletInstance,
-} from "@thirdweb-dev/react";
+import { useSmartWallet, metamaskWallet } from "@thirdweb-dev/react";
 import { Goerli } from "@thirdweb-dev/chains";
 
-const personalWalletConfig = localWallet();
-
-export const smartWalletConfig = smartWallet(personalWalletConfig, {
-  factoryAddress: "0xE38fAC32BbA9F1Fe700a5D7f5630236171fa87e4",
-  gasless: true,
-});
-
 function Example() {
-  const connect = useConnect();
-  const createWalletInstance = useCreateWalletInstance();
+  // here we're using metamask as the personal wallet
+  // can be any other wallet, including localWallet(), embeddedWallet(), etc
+  const { connect } = useSmartWallet(metamaskWallet(), {
+    factoryAddress: "0xE38fAC32BbA9F1Fe700a5D7f5630236171fa87e4",
+    gasless: true,
+  });
 
   return (
     <button
       onClick={async () => {
-        // 1. create wallet instance of personal wallet
-        const personalWallet = createWalletInstance(personalWalletConfig);
-
-        // this step is only required for localWallet(), not any other wallets
-        // in this example we are generating a new wallet,
-        // but you can also import existing wallet using import() method
-        // or use the saved wallet from local storage using load() method
-        await personalWallet.generate();
-
-        // 2. connect personal wallet
-        await personalWallet.connect({
-          chainId: Goerli.chainId,
-        });
-
-        // 3. connect to smart wallet
-        const wallet = await connect(smartWalletConfig, {
-          personalWallet: personalWallet,
-          chainId: Goerli.chainId,
-        });
-
-        console.log("connected to ", wallet);
+        // nothing to do here, all handled internally
+        const walletAddress = await connect();
+        console.log("connected to smart wallet", walletAddress);
       }}
     >
       Connect

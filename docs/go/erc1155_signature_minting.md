@@ -152,7 +152,7 @@ signedPayload, err := contract.Signature.GenerateBatchFromTokenIds(context.Backg
 func (signature *ERC1155SignatureMinting) GenerateFromTokenId(ctx context.Context, payloadToSign *Signature1155PayloadInputWithTokenId) (*SignedPayload1155, error)
 ```
 
-#### Generate a new payload to mint additionaly supply to an existing token ID
+#### Generate a new payload to mint additionally supply to an existing token ID
 
 payloadToSign: the payload containing the data for the signature mint
 
