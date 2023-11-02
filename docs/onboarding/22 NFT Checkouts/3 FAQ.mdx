@@ -3,71 +3,176 @@ slug: /checkouts/faq
 title: FAQ
 ---
 
-## About Engine
+## General
 
-#### What are the differences between Engine and thirdweb SDKs?
+### How much does thirdweb Checkouts cost?
 
-Engine is a server that manages your backend wallets and how they interact with contracts. This difference unlocks capabilities that thirdweb and other web3 SDKs, including:
+There is **no cost to sellers**! Buyers pay a 1% service fee on top of payment processing fees.
 
-- Management of KMS backend wallets
-- Fine-grained access control with access tokens
-- Transaction parallelization to handle higher throughput per wallet
-- Observability and retries on stuck transactions
-- Webhooks on completed transactions to sync on-chain and off-chain activity
+### How long does implementation take?
 
-Additionally, Engine is built on top of the thirdweb SDK and has the same capabilities.
+A full-featured checkout link **takes minutes to set up**:
 
-#### Does Engine work with all thirdweb smart contracts?
+1. [Register your contract](register).
+2. Create a [🔗 Shareable Checkout Link](shareable-link).
+3. Send the link to your customers. Done ✨!
 
-Yes. Engine has intuitive interfaces to deploy prebuilt contracts, manage smart wallets, run a marketplace, and more.
+When you're ready to customize further, you can tinker with styling, SDKs, webhooks, dynamic pricing, and more.
 
-#### Does Engine work with my non-thirdweb smart contracts?
+### How scalable is thirdweb Checkouts? How much load can it handle?
 
-Yes. Engine can read and write to any EVM contract with low-level API calls, including providing raw calldata. ERC-721 and ERC-1155 APIs can also be used for [contracts imported to thirdweb](https://support.thirdweb.com/smart-contracts/rtHYyzspnPaHmmANmJQz1k/importing-non-thirdweb-contracts-into-the-dashboard/hELLjgTc8TWrMdMEQkm2Es).
+Our product is enterprise-ready with a 99.9% uptime. We are battle-tested with enterprises like Balmain, New York Fashion Week, Unilever, deadmau5 and Tilting Point. We can enqueue transactions up to 200 transactions/minute by default, with higher limits upon request.
 
-## Using Engine
+### What platforms are supported?
 
-#### How do I wait until a transaction completes?
+Checkout links can be used anywhere webpages are supported.
 
-APIs that call contract write methods (i.e. transactions sent from your backend wallets) enqueue an async job and return a corresponding `queueId`.
+The Checkout Embedded Elements SDK is supported on Web and Mobile Web.
 
-On the backend, use [webhooks](/engine/webhooks) to be notified when a transaction event occurs.
+## Smart contract support
 
-On frontend clients, use websockets:
+### Which blockchains and currencies are supported?
 
-```js
-const socket = new WebSocket(
-  "wss://<engine_url>/transaction/status/<queue_id>?token=<session_token>",
-);
-socket.onmessage = (event) => {
-  const res = JSON.parse(event.data);
-  console.log("Received data:", JSON.parse(res.result));
-};
-```
+See the [overview](/checkouts) page for a list of supported chains and currencies. We can support any EVM chain upon request. Please contact support@thirdweb.com if the chain or currency you want to sell in is not on our list.
 
-#### How do I customize RPC URLs?
+### Are marketplace contracts supported?
 
-Set the `CHAIN_OVERRIDES` environment variable to the path to a JSON file or internet-accessible URL. The default value is `./chain-overrides.json` if found. See <a href="https://github.com/thirdweb-dev/engine/blob/main/chain-overrides.example.json" target="_blank">the example format</a>.
+Yes! See [Marketplace Sales](TODO) for more details.
 
-## Troubleshooting
+---
 
-#### Why is Engine unable to connect to my Postgres DB?
+TODO: Did not go through the sections below this.
 
-Here are some common troubleshooting tips:
+### Can I sell an NFT that is already minted?
 
-- Ensure the Postgres DB is running in Docker:
-  - In same container, ensure the `host` in the `POSTGRES_CONNECTION_URL` is set to `localhost`.
-  - In different container, ensure the `host` in the `POSTGRES_CONNECTION_URL` is set to `host.docker.internal`.
-- Ensure the Postgres DB connection URL and credentials are correct.
-- Ensure the database name exists on the Postgres DB.
+Yes! You'll need to "wrap" your NFT with a marketplace contract like [thirdweb marketplace](https://portal.thirdweb.com/pre-built-contracts/marketplace) or build your own. This "direct listing" approach works like this:
 
-<!--
+- The seller has an NFT already minted and wants to sell it.
+- The seller approves the marketplace contract to take this NFT from their wallet once a buyer offers a specified amount. The NFT is not moved until a sale is completed.
+- A buyer agrees to pay the specified amount. They pay via your Paper checkout flow.
+- After the buyer's payment is successful, Paper calls the "buy" method with the expected amount in crypto to the marketplace contract. This method transfers the NFT to the buyer's wallet.
 
-### What are the benefits of using Engine over other parts of the stack?
+## Payments
 
-### What are the benefits of using Engine instead of the Unity SDK?
+### Where does Paper send the funds after a customer has paid?
 
+Paper directly calls the smart contract and pays for the mint using the native currency specified in the contract function. If you are looking for FIAT payout, it is available for the enterprise customers. Please [contact sales](mailto:sales@thirdweb.com) .
 
+### What regions does Paper support credit card payments?
 
-### What are the best practices for storing private keys while using Engine?
--->
+Paper uses multiple payment processors and supports credit card payments in most countries (190+) and all 50 US states. Select countries that the US cannot conduct business with are not supported (Cuba, Iran, North Korea, Syria, and the Crimea, Donetsk, and Luhansk Regions). 10+ currencies and languages are supported.
+
+### What fiat payment options are accepted?
+
+Paper accepts: credit/debit cards (Visa, Mastercard, American Express, Discover, UnionPay, JCB, Diners Club), Apple Pay, Google Pay, iDEAL
+
+### What is the price limit for checkouts?
+
+Paper limits checkouts to be priced at $2,000 USD and reserves the right to change this limit based on your checkout's risk profile. For enterprise customers, we can support up to $15,000.
+
+If you need a higher price limit, please fill out [this form.](https://thirdweb.com/contact-us).
+
+### Do you support gasless transactions?
+
+Yes, we support the ability for merchants to cover the gas fees related to transactions. See details [here](https://docs.withpaper.com/reference/send-gasless-transactions).
+
+### If we use the Paper managed contracts, who covers the transaction fees?
+
+Paper covers fees related to operations on [Paper-managed contracts](ref:create-paper-managed-contract).
+
+### When does Paper require identity verification (KYC)?
+
+Paper combines buyer, merchant, payment method, device, and behavioral signals from multiple vendors to compute the riskiness of a purchase. A small portion of buyers (\< 3% and varies by merchant) will be prompted to submit a photo ID and take a webcam selfie. This step is automated and takes under 1 minute.
+
+Reminder: Paper takes on **all** chargeback liability from the developer!
+
+## Testing
+
+### Is there a test credit card?
+
+Yes, please use the following card numbers. The expiry date, CVV, and postal code do not matter.
+
+| Card Number      | Description                          |
+| :--------------- | :----------------------------------- |
+| 4242424242424242 | A "low risk" card.                   |
+| 4000000000009235 | A "high risk" card that prompts KYC. |
+
+### Where can I get testnet funds?
+
+Here are faucets to receive testnet funds:
+
+| Chain             | Currency | Faucet link                                  |
+| :---------------- | :------- | :------------------------------------------- |
+| Mumbai (Polygon)  | MATIC    | [Faucet](https://faucet.polygon.technology/) |
+| Goerli (Ethereum) | ETH      | [Faucet](https://goerlifaucet.com/)          |
+| Sepolia (Etereum) | ETH      | [Faucet](https://sepoliafaucet.com/)         |
+| Goerli (Optimism) | ETH      | [Faucet](https://faucet.paradigm.xyz/)       |
+| SolanaDevnet      | SOL      | [Faucet](https://solfaucet.com)              |
+
+## Customization
+
+### Can I customize the checkout to match my branding?
+
+Yes, customize colors and UI elements to fit your theme for [Shareable Checkout Links](ref:shareable-checkout-links). Or embed [Checkout Elements](ref:checkout-elements) in your app with granular control of colors.
+
+### How do allow my users to redeem utility with their NFT?
+
+NFTs are a great way to gate content! Once the NFT is purchased, you can provide a link to redeem their utility on the post-purchase page and email.
+
+Listen to [webhooks](ref:webhooks) to update your database or send a custom email when the NFT has been transferred.
+
+### How do I customize the emails sent to buyers?
+
+See [Advanced Customizations](ref:advanced-customizations) for more customization of the email after a buyer completes their purchase.
+
+### Are checkouts translated into different languages?
+
+Yes, the checkout is localized to the buyer's browser language, or you can force a specific language. See [Translations](ref:translations) for more details.
+
+### How does checkout support referral codes or discounts?
+
+You can use our dynamic one-time checkout links to generate payment links with discounts or referral codes for customers. For a full guide to how to implement this, refer [here](https://docs.withpaper.com/reference/buyer-allowlists).
+
+### Does Paper support allowlists?
+
+Yep, you can use our dynamic one-time checkout links to generate gated payment links for users who’ve verified their identity on your website. For a full guide to how to implement this, refer [here](https://docs.withpaper.com/reference/buyer-allowlists).
+
+## Wallets
+
+### What if my users don't have a wallet?
+
+Buyers who don't have a wallet can create one with their email or social login. This uses our non-custodial [Embedded Wallet](ref:embedded-wallet-service-overview) product.
+
+### How does my user transfer the NFT from the Embedded Wallet?
+
+Buyers can visit [My Wallets](https://withpaper.com/wallet) to view and transfer NFTs in their Embedded Wallets. We cover all gas fees related to transferring and offer a way for users to export their private key.
+
+_This page does not support transfers for self-custody wallets like MetaMask._
+
+**\*For more questions related to our Embedded Wallets, see our** [Embedded Wallets FAQ](ref:embedded-wallets-faq).
+
+---
+
+## Other
+
+### Does Paper support credit card checkout for functions outside of minting like burning and editing NFTs?
+
+This feature is available upon request. Please contact us at [sales@thirdweb.com](mailto:sales@thirdweb.com).
+
+### What is the customer support level provided to customers?
+
+For developers, we have a Discord forum for questions that is checked on a daily basis. If you are looking for guaranteed support time and SLA, please contact [sales@thirdweb.com](mailto:sales@thirdweb.com).
+
+For customers, we respond to inquiries on our support center and to [support@thirdweb.com](mailto:support@thirdweb.com) within 24 business hours.
+
+### How does Paper handle compliance?
+
+Paper is a registered Money Services Business with FINCen with the registration no. of 31000235368189. We are will in the process of our SOC II certification.
+
+We conduct KYC (know your customer) verification with driver’s license and liveliness check on suspicious customers (\<3% on average and varies by merchant). We also handle dark wallet checks to ensure that flagged wallets and stolen funds are not being used in any of our transactions.
+
+We take on all liabilities & chargeback risks as the Merchant of Record.
+
+### What are the authorization rates?
+
+We have industry leading authorization rates at 92%. We are able to maintain a high authorization by only operating with NFTs, and having a proprietary fraud engine that keeps our fraud rate at \<0.5%.
