@@ -1,0 +1,105 @@
+---
+slug: /embedded-wallet/smart-wallet-and-embedded-wallet
+title: Enable Gasless Transactions
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import QuickstartCard from "@components/QuickstartCard";
+
+By combining [Smart Wallet](/smart-wallet) and [Embedded Wallet](/embedded-wallet), you can create a truly seamless user experience:
+
+- Gasless transactions
+- Batched transactions
+- Full account recovery for both the embedded wallet “key” and the smart wallet
+
+Let’s create an app that creates smart wallets for our users.
+
+These smart wallets will require a **“personal wallet”** to access and initialize the wallet. For this personal wallet, we will of course use an embedded wallet.
+
+From the user's perspective, they will log in with their email or social account. Under the hood, an embedded wallet is created for them, and then a smart wallet is created and initialized using the embedded wallet.
+
+![Connect Wallet Modal](/assets/connect-wallet/connect-wallet-embedded-compact.png)
+
+When the user connects a wallet by entering their email, they will be able to view & interact with their smart wallet:
+
+![Modal](/assets/connect-wallet/connect-wallet-smart-dropdown.png)
+
+## Example Repo
+
+View a fully functioning project on GitHub:
+
+<div className="col col--12" style={{ padding: 8 }}>
+  <QuickstartCard
+    name="Source Code"
+    link="https://github.com/thirdweb-example/embedded-smart-wallet"
+    image="/assets/github-icon.webp"
+  />
+</div>
+
+## 1. Deploy an Account Factory
+
+Deployable via the [explore page](https://thirdweb.com/explore/smart-wallet) or build your own [ERC 4337](https://eips.ethereum.org/EIPS/eip-4337) compatible factory contract using the [Solidity SDK](/solidity/base-contracts/smart-accounts).
+
+Select the appropriate thirdweb smart wallet type for your app:
+
+<div className="row" style={{ marginBottom: 12, padding: 8, paddingTop: 0 }}>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Account Factory"
+      link="https://thirdweb.com/thirdweb.eth/AccountFactory"
+      image="/assets/wallets/smart-wallet.svg"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Managed Account Factory"
+      link="https://thirdweb.com/thirdweb.eth/ManagedAccountFactory"
+      image="/assets/wallets/smart-wallet.svg"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Dynamic Account Factory"
+      link="https://thirdweb.com/thirdweb.eth/DynamicAccountFactory"
+      image="/assets/wallets/smart-wallet.svg"
+    />
+  </div>
+</div>
+
+[Learn more about Smart Wallets](/smart-wallet)
+
+## 2. Enable smart wallets in your app
+
+To enable smart wallets in your app, you need to add `smartWallet()` to the list of supported wallets in the `ThirdwebProvider`:
+
+```jsx
+import {
+  ThirdwebProvider,
+  ConnectWallet,
+  embeddedWallet,
+} from "@thirdweb-dev/react";
+
+export default function App() {
+  return (
+    <ThirdwebProvider
+      activeChain="goerli"
+      clientId="YOUR_CLIENT_ID"
+      supportedWallets={[
+        smartWallet(embeddedWallet(), {
+          factoryAddress: "YOUR_FACTORY_ADDRESS",
+          gasless: true,
+        }),
+      ]}
+    >
+      <ConnectWallet />
+    </ThirdwebProvider>
+  );
+}
+```
+
+This will create an embedded wallet and a smart wallet for the user. The smart wallet will be initialized with the embedded wallet as the owner.
+
+Pass your deployed `factoryAddress` to the `smartWallet()` function. This will allow the smart wallet to be be deployed only when the user sends their first transaction.
+
+You can sponsor transactions simply by passing `gasless: true` to the `smartWallet()` function. This will allow the smart wallet to send transactions without the user needing to hold any ETH.

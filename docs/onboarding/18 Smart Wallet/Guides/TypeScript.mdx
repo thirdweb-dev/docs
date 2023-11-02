@@ -4,6 +4,7 @@ title: Usage in Typescript
 ---
 
 import ViewRepoButton from "@components/ViewRepoButton";
+import QuickstartCard from "@components/QuickstartCard";
 
 # Using Smart Wallet with the Typescript SDK
 
@@ -16,70 +17,37 @@ In this guide, we will be using the wallet SDK to create a Node script but the l
 
 If you are working in a React environment, you are recommended to follow [this guide](/smart-wallet/guides/react).
 
-## Prerequisites
-
-- [Node.js](https://nodejs.org/en/) installed.
-- [Yarn](https://yarnpkg.com/) or [npm](https://www.npmjs.com/) installed.
-
 ## 1. Deploy an Account Factory
 
-First, you need to deploy an account factory. This is a contract that will be used to issue smart wallets.
+Deployable via the [explore page](https://thirdweb.com/explore/smart-wallet) or build your own [ERC 4337](https://eips.ethereum.org/EIPS/eip-4337) compatible factory contract using the [Solidity SDK](/solidity/base-contracts/smart-accounts).
 
-There are two ways to deploy an account factory:
+Choose the right smart wallet setup for your app. thirdweb offers the following three different kinds of smart wallets:
 
-- Deploy a pre-built account factory from the [explore page](https://thirdweb.com/explore).
-- Deploy a custom account factory using the [Solidity SDK](/solidity).
+<div className="row" style={{ marginBottom: 12, padding: 8, paddingTop: 0 }}>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Account Factory"
+      link="https://thirdweb.com/thirdweb.eth/AccountFactory"
+      image="/assets/wallets/smart-wallet.svg"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Managed Account Factory"
+      link="https://thirdweb.com/thirdweb.eth/ManagedAccountFactory"
+      image="/assets/wallets/smart-wallet.svg"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Dynamic Account Factory"
+      link="https://thirdweb.com/thirdweb.eth/DynamicAccountFactory"
+      image="/assets/wallets/smart-wallet.svg"
+    />
+  </div>
+</div>
 
-### 1.(a) Deploy a Pre-Built Contract
-
-You can deploy a pre-built account factory from the [explore page](https://thirdweb.com/explore).
-Head to the [Account Factory](https://thirdweb.com/thirdweb.eth/AccountFactory) contract page, Select your desired network and click on Deploy Now:
-
-![Deploy Now](../assets/explore.png)
-
-Alternatively, you can deploy [ManagedAccountFactory](https://thirdweb.com/thirdweb.eth/ManagedAccountFactory) or [DynamicAccountFactory](https://thirdweb.com/thirdweb.eth/DynamicAccountFactory) to create upgradable wallets.
-
-Learn more about the different account factories [here](/solidity/base-contracts/smart-accounts).
-
-### 1.(b) Deploy a Custom Contract
-
-You can also create a custom account factory by using the Solidity SDK and inheriting from one of the [base factory contracts](/solidity/base-contracts/smart-accounts).
-This is useful if you want to create a custom account factory with custom logic.
-
-For example:
-
-```solidity
-import "@thirdweb-dev/contracts/smart-wallet/non-upgradable/AccountFactory.sol";
-
-contract MyAccountFactory is AccountFactory {
-      constructor(
-        IEntryPoint _entrypoint
-    )
-        AccountFactory(
-            _entrypoint
-        )
-    {}
-
-    function createAccount(
-        address _owner,
-        address _account,
-        bytes calldata _data
-    ) external override returns (address) {
-        // custom logic here
-    }
-}
-```
-
-You can then deploy this contract using the CLI:
-
-```bash
-npx thirdweb deploy
-```
-
-This command will require you to [login](/cli/login) with your thirdweb account.
-
-Once the `AccountFactory` contract is deployed, you will be redirected to the deployed contract dashboard page.
-Copy the address for this contract.
+Read about the differences between the three smart wallet types [here](/smart-wallet/how-it-works#smart-wallet-factories).
 
 ## 2. Create an API key
 
@@ -123,49 +91,38 @@ When promted, select/input the following options:
 - `Node.js` as the environment
 - `TypeScript` as the language
 
-This will create a repository. Open this in your code editor.
+This will create a repository. Open it in your code editor.
 
-Open the `index.ts` file and add the following:
+Create a `.env` file and add the following:
 
-```typescript
-import { config } from "dotenv";
-import { ThirdwebSDK } from "@thirdweb-dev/sdk";
-import { readFileSync } from "fs";
-
-config();
-
-const chain = Goerli;
-const factoryAddress = "0x3c115305ecC8119D9517BB67a5B3D4073Bc9CffF";
-const secretKey = process.env.THIRDWEB_SECRET_KEY as string;
-
-const main = async () => {
-  if (!secretKey) {
-    throw new Error(
-      "No API Key found, get one from https://thirdweb.com/dashboard",
-    );
-  }
-  console.log("Running on", chain.slug, "with factory", factoryAddress);
-};
-
-main();
+```bash
+THIRDWEB_SECRET_KEY=<YOUR_SECRET_KEY>
 ```
 
-Here, we have added `Goerli` as the chain, pasted the factory address and the retrieved the `secretKey` from the `.env` file - make sure you paste the `secretKey` we created earlier here.
+Open the `index.ts` file and delete the starter script, we won't need it.
 
 ### 3.(b) Creating the Personal Wallet Key
 
 This smart wallet is unlocked by a 'key' - a personal account.
 This key can be anything from a [MetaMask wallet](/wallet/metamask) or even a [Local Wallet](/wallet/local-wallet) and is used as a way to 'sign in' to the wallet.
 
+First install the wallets package if you haven't already:
+
+```bash
+yarn add @thirdweb-dev/wallets
+```
+
 To create a personal wallet key, we are going to use the [Local Wallet](/wallet/local-wallet), which we need to import from the `@thirdweb-dev/wallets` package, and store it in an ecrypted JSON file.
 
 ```typescript
+import { LocalWalletNode } from "@thirdweb-dev/wallets/evm/wallets/local-wallet-node";
+
 // Load or create personal wallet
 // here we generate LocalWallet that will be stored in wallet.json
 const personalWallet = new LocalWalletNode();
 await personalWallet.loadOrCreate({
   strategy: "encryptedJson",
-  password: "password",
+  password: "password", // or any password
 });
 const personalWalletAddress = await personalWallet.getAddress();
 console.log("Personal wallet address:", personalWalletAddress);
@@ -186,9 +143,9 @@ Once we have created the config and instantiating the `SmartWallet` class, we ca
 ```typescript
 // Configure the smart wallet
 const config: SmartWalletConfig = {
-  chain,
-  factoryAddress,
-  secretKey,
+  chain: "goerli",
+  factoryAddress: "0x...", // your factory address
+  secretKey: process.env.THIRDWEB_SECRET_KEY as string,
   gasless: true,
 };
 

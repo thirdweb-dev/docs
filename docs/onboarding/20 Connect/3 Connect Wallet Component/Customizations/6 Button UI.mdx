@@ -1,0 +1,22 @@
+---
+slug: /connect/connect-wallet/custom-button
+title: Button UI
+---
+
+Render a custom button to display connected wallet details
+
+```jsx
+import { ConnectWallet } from "@thirdweb-dev/react";
+
+function App() {
+  return (
+    <ConnectWallet
+      // highlight-start
+      detailsBtn={() => {
+        return <button> .... </button>;
+      }}
+      // highlight-end
+    />
+  );
+}
+```

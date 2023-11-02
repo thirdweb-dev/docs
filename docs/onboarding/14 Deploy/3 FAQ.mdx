@@ -1,0 +1,26 @@
+---
+slug: /deploy/faqs
+title: FAQs
+hide_title: true
+---
+
+# FAQs
+
+### Do I need an API Key for deploying a smart contract using `npx thirdweb deploy`?
+
+Yes, you will need to authenticate via CLI in order to deploy contracts using Deploy. Learn how to authenticate via our [CLI Login](http://portal.thirdweb.com/cli/login) documentation.
+
+### I’m running into an error `Error: Unauthorized - You don't have permission to use this service`. How can I resolve this?
+
+If you are running into this issue, please try the following steps:
+
+1. Run `npx thirdweb logout` to logout
+2. Run `npx thirdweb login` to reauthenticate
+3. Disconnect your wallet from the dashboard and connect again.
+4. Update the thirdweb CLI or run `npx thirdweb@latest deploy`
+
+If you are still experiencing difficulties, please [contact our support team through Discord](https://discord.gg/thirdweb).
+
+### I’m getting an error `max code size exceeded`. How can I resolve this?
+
+When deploying a contract, it must adhere to size limitations set by the blockchain. To resolve, you may try compressing your contract in the optimizer settings. If that still does not work, you will need to adjust your contract logic to fit within the maximum code size.

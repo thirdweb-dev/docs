@@ -1,0 +1,242 @@
+---
+slug: /engine/getting-started
+title: Getting Started
+---
+
+Engine is self-hosted with minimal configuration.
+
+## Setup
+
+### Requirements
+
+- [Docker](https://docs.docker.com/get-docker/)
+- A thirdweb secret key from the [API Keys page](https://thirdweb.com/dashboard/settings/api-keys)
+
+### Development
+
+Run Postgres locally:
+
+```bash
+docker run -p 5432:5432 -e POSTGRES_PASSWORD=postgres -d postgres
+```
+
+Run Engine locally:
+
+```bash
+docker run \
+  -e THIRDWEB_API_SECRET_KEY="<thirdweb_secret_key>" \
+  -e ADMIN_WALLET_ADDRESS="<admin_wallet_address>" \
+  -e POSTGRES_CONNECTION_URL="postgresql://postgres:postgres@host.docker.internal:5432/postgres?sslmode=disable" \
+  -e ENABLE_HTTPS=true \
+  -p 3005:3005 \
+  --pull=always \
+  --cpus="0.5" \
+  thirdweb/engine:latest
+```
+
+#### Environment variables
+
+| Variable                  | Description                                                                                                              |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `THIRDWEB_SECRET_KEY`     | A thirdweb secret key created on the [API Keys page](https://thirdweb.com/dashboard/settings/api-keys).                  |
+| `ADMIN_WALLET_ADDRESS`    | The wallet address that will configure Engine from the thirdweb dashboard. You will be able to add other admins later.   |
+| `POSTGRES_CONNECTION_URL` | Postgres connection string: `postgresql://[user[:password]@][host][:port][/dbname][?param1=value1&...]`                  |
+| `ENABLE_HTTPS`            | Self-sign a certificate to serve API requests on HTTPS. Set to `true` if running Engine locally only. (Default: `false`) |
+
+**\*** Required
+
+Your server is running when this log line appears:
+
+```bash
+Server listening on: https://0.0.0.0:3005
+```
+
+### Production
+
+:::tip
+
+Looking for a managed solution?
+[Request a cloud-hosted Engine](https://share.hsforms.com/1k5tu00ueS5OYMaxHK6De-gea58c) from thirdweb.
+
+:::
+
+- Deploy a cloud-hosted Postgres instance with [AWS RDS](https://aws.amazon.com/rds/postgresql) or [Google Cloud SQL](https://cloud.google.com/sql/docs/postgres).
+- Deploy a Engine to the cloud:
+
+  ```bash
+  docker run \
+    -e THIRDWEB_API_SECRET_KEY="<thirdweb_secret_key>" \
+    -e ADMIN_WALLET_ADDRESS="<admin_wallet_address>" \
+    -e POSTGRES_CONNECTION_URL="<postgres_connection_url>" \
+    -p 3005:3005 \
+    --pull=always \
+    --cpus="0.5" \
+    thirdweb/engine:latest
+  ```
+
+- Minimum recommended specs: 1 vCPU, 2 GB memory
+
+## Use the dashboard
+
+### Sign in
+
+To manage your Engine instance from the dashboard:
+
+1. Navigate to [https://localhost:3005/json](https://localhost:3005/json).
+
+   - The "Your connection is not private" page will appear.
+   - Select **Show advanced** and select **Proceed to localhost (unsafe)** to render the JSON file.
+   - _This one-time step allows your browser to connect to your local Engine instance._
+
+1. Navigate to the [Engine dashboard page](https://thirdweb.com/dashboard/engine).
+1. Sign in with the `<admin_wallet_address>` wallet.
+1. Select **Set Engine instance URL to get started.**
+1. Add your publicly accessible Engine URL.
+   - If Engine is running locally, provide the URL `https://localhost:3005`.
+
+### Overview
+
+In the **Overview** dashboard section:
+
+- View your backend wallets.
+- Create a backend wallet.
+- View recent transactions.
+- Cancel a queued transaction.
+
+### Explorer
+
+In the **Explorer** dashboard section:
+
+- Interactively view and call your Engine API.
+
+### Configuration
+
+In the **Configuration** dashboard section:
+
+- Change backend wallet types.
+- View webhooks.
+- Add and remove webhooks.
+
+### Permissions
+
+In the **Permissions** dashboard section:
+
+- View admin users.
+- Add and remove admin users.
+- View access tokens.
+- Create and revoke access tokens.
+
+## Use Engine
+
+Use Engine to manage your backend wallets and call contract methods with one API call. Here's some examples:
+
+### Get a wallet's balance
+
+```ts
+const resp = await fetch(
+  "<engine_url>/backend-wallet/<chain>/<backend_wallet_address>/get-balance",
+  {
+    headers: {
+      Authorization: "Bearer <access_token>",
+    },
+  },
+);
+
+const { result } = await resp.json();
+console.log("Balance:", result.value);
+```
+
+### Read from a contract
+
+This code example does not require gas funds and returns the function result.
+
+```ts
+const resp = await fetch(
+  "<engine_url>/contract/<chain>/<contract_address>/read?functionName=balanceOf&args=0x3EcDBF3B911d0e9052b64850693888b008e18373",
+  {
+    headers: {
+      Authorization: "Bearer <access_token>",
+    },
+  },
+);
+
+const { result } = await resp.json();
+console.log("ERC-20 balance:", result);
+```
+
+### Write to a contract
+
+This code example calls a write method on a contract. It requires gas funds and returns a `queueId` to query for the result.
+
+```ts
+const resp = await fetch(
+  "<engine_url>/contract/<chain>/<contract_address>/write",
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer <access_token>",
+      "x-backend-wallet-address": "<backend_wallet_address>",
+    },
+    body: JSON.stringify({
+      functionName: "transferFrom",
+      args: [
+        "0x1946267d81Fb8aDeeEa28e6B98bcD446c8248473",
+        "0x3EcDBF3B911d0e9052b64850693888b008e18373",
+        "0",
+      ],
+    }),
+  },
+);
+
+const { result } = await resp.json();
+// queueId is a reference to the transaction queued by Engine.
+console.log("Queue ID:", result.queueId);
+```
+
+### Deploy a contract
+
+This code example deploys a [thirdweb NFT drop contract](https://thirdweb.com/thirdweb.eth/DropERC721). It requires gas funds and returns a `queueId` to query for the result.
+
+```ts
+const resp = await fetch("<engine_url>/deploy/<chain>/prebuilts/nft-drop", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: "Bearer <access_token>",
+    "x-backend-wallet-address": "<backend_wallet_address>",
+  },
+  body: JSON.stringify({
+    contractMetadata: {
+      name: "thirdweb Engine example",
+      symbol: "eng",
+      primary_sale_recipient: "0x3EcDBF3B911d0e9052b64850693888b008e18373",
+    },
+  }),
+});
+
+const { result } = await resp.json();
+// queueId is a reference to the transaction queued by Engine.
+console.log("Queue ID:", result.queueId);
+```
+
+Engine can enable your application to airdrop NFTs, send funds between wallets, update on-chain game state, and more.
+
+### Wait for a transaction to complete
+
+Trigger an action when transactions complete by configuring [webhooks](/engine/webhooks) to call your backend server.
+
+Alternatively, query or poll the `transaction/status/<queue_id>` endpoint:
+
+```ts
+const resp = await fetch("<engine_url>/transaction/status/<queue_id>", {
+  method: "GET",
+  headers: {
+    Authorization: "Bearer <access_token>",
+  },
+});
+
+const { result } = await resp.json();
+// status can be: processed, queued, sent, errored, mined, cancelled, retried
+const isComplete = ["mined", "errored", "cancelled"].includes(result.status);
+```

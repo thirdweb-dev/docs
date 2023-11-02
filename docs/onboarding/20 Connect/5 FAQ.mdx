@@ -1,0 +1,23 @@
+---
+slug: /connect/faqs
+title: FAQs
+hide_title: true
+---
+
+# General FAQs
+
+### What is the difference between Embedded Wallet and Connect Wallet**?**
+
+Embedded Wallet is a wallet service that allows you to create an EOA wallet with only your email address or social account. On the other hand, Connect Wallet is a UI component that offers a seamless wallet sign-in flow for users for and kind of wallets (Email, EOA, Smart, Local, etc). It allows for full customizability, personalized user experiences, and easy onboarding for new users. It supports integration with popular connectors and wallets, as well as cross-platform support and compatibility with all EVM chains.
+
+The Embedded Wallet product can be used within our Connect product or by itself, depending on the desired scope of your application. Connect can be used with or without Embedded Wallets as well.
+
+In summary, Embedded Wallet provides a simple wallet experience for users, while Connect Wallet offers a customizable and user-friendly sign-in flow for various types of wallets.
+
+### How can I add a custom wallet to my Connect modal?
+
+To add a custom wallet to your Connect modal, you can refer to the Wallet SDK documentation for [building a custom wallet](https://portal.thirdweb.com/connect/build-a-wallet). Then, the documentation to add your custom wallet to the Connect Wallet UI can be found on the [Build a Custom UI](https://portal.thirdweb.com/connect/connect-wallet/custom-ui) guide.
+
+### Can I remove “New to wallets?” from my Connect modal?
+
+Yes! The Connect Wallet component is fully customizable. To remove the “New to wallets?” element, you can override the entire right side of the Connect modal by passing a function that returns a component to the `welcomeScreen` prop of `ConnectWallet` to remove "New to wallets?”.

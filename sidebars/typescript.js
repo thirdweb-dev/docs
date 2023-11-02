@@ -270,7 +270,13 @@ const sidebars = {
       id: "migration-guide",
     },
 
-    // // Full Reference
+    // Full Reference
+    {
+      type: "html",
+      value:
+        '<a style="text-decorations:none; color:inherit;" href="/reference/sdk/index.html" target="_blank">Full Reference</a>',
+      defaultStyle: true,
+    },
     // {
     //   type: "category",
     //   label: "Full Reference",

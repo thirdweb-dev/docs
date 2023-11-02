@@ -1,0 +1,61 @@
+---
+slug: /wallet/smartwallet
+title: SmartWallet
+---
+
+Deploys a Smart Wallet for the user to interact with your app. The specified personal wallet will be the admin signer.
+For more information about Smart Wallets, see [glossary](/glossary/smart-wallet).
+
+## Usage
+
+```csharp
+using Thirdweb;
+
+public async void ConnectWallet()
+{
+    // Reference to your Thirdweb SDK
+    var sdk = ThirdwebManager.Instance.SDK;
+
+    // Configure the connection
+    var connection = new WalletConnection(
+      provider: WalletProvider.SmartWallet,        // The wallet provider you want to connect to (Required)
+      chainId: 1,                                  // The chain you want to connect to (Required)
+      password: "myEpicPassword",                  // If using a local wallet as personal wallet (Optional)
+      email: "email@email.com",                    // If using a personal wallet login option that requires email (Optional)
+      personalWallet: WalletProvider.LocalWallet   // The personal wallet you want to use with your Smart Wallet (Optional)
+    );
+
+    // Connect the wallet
+    string address = await sdk.wallet.Connect(connection);
+}
+```
+
+## Behavior
+
+### WebGL
+
+Goes through the specified `personalWallet` login flow, then generates or connects a Smart Wallet based on that EOA address.
+
+### Standalone
+
+Goes through the specified `personalWallet` login flow, then generates or connects a Smart Wallet based on that EOA address.
+
+### Mobile
+
+Goes through the specified `personalWallet` login flow, then generates or connects a Smart Wallet based on that EOA address.
+
+## Miscellaneous
+
+The ultimate goal of a Smart Wallet is to be able to sponsor gas fees for your users, while providing a signless and gasless experience.
+
+They also work with any wallet provider as the EOA, but it is recommended to use a signless wallet, like Embedded Wallets, for the best experience.
+
+You would then be able to login to the exact same persistent EOA and smart wallet address across your apps, and even across different platforms.
+
+## Additional Options
+
+Smart wallets, through paymasters, can be seen as a "plugin" to your user wallets, whereby all gas fees can be sponsored onchain.
+To enable this, simply set the `gasless` smart wallet option to true in your [ThirdwebManager](/unity/thirdwebmanager) prefab.
+
+All Smart Wallets are deployed through an [Account Factory](https://thirdweb.com/thirdweb.eth/AccountFactory), which is a contract that deploys Smart Wallets on behalf of your users.
+You would need to set this address in your [ThirdwebManager](/unity/thirdwebmanager) prefab's Smart Wallet settings as well.
