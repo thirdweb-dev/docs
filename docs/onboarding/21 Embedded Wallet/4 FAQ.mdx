@@ -5,18 +5,18 @@ hide_title: true
 ---
 
 # General FAQs
-
+{/* 
 ### What is the difference between Email Wallet (Self-Recovery) & Email Wallet (Managed Recovery)
 
-Email wallet (with managed recovery code) usage is calculated by monthly active wallets (i.e. active as defined by at least 1 user log-in via email or social within the billing period month). For both the Starter and Pro plan, users receive 10,000 free monthly active wallets + charged $0.02 per incremental monthly active wallet after. Note that wallets with self recovery code is completely free to use.
+Email wallet (with managed recovery code) usage is calculated by monthly active wallets (i.e. active as defined by at least 1 user log-in via email or social within the billing period month). For both the Starter and Pro plan, users receive 10,000 free monthly active wallets + charged $0.02 per incremental monthly active wallet after. Note that wallets with self recovery code is completely free to use. */}
 
 ### Which blockchains are supported?
 
 Our thirdweb Embedded Wallet is fully EVM compatible and supports all EVM chains.
 
-### How does wallet recovery work?
+{/* ### How does wallet recovery work?
 
-Recovery is built-in. If the user loses their device, they can sign into a new device and provide the recovery code that was emailed to them to recover their wallet. There is no recovery option if the user loses access to their email.
+Recovery is built-in. If the user loses their device, they can sign into a new device and provide the recovery code that was emailed to them to recover their wallet. There is no recovery option if the user loses access to their email. */}
 
 ### Do I need to build separate flows for embedded wallets and external wallets (e.g. MetaMask)?
 
@@ -30,17 +30,21 @@ Make sure that you are developing on a [secure origin](https://www.chromium.org
 
 If you continue to run into a console error, please contact us with more details.
 
-### How much does EWS cost?
+{/* ### How much does EWS cost?
 
-Email Wallet (Self-Recovery) are free for unlimited wallets. Email Wallet (Managed Recovery) charges based on a monthly active user (MAU) model which is defined as any sign-in/sign-up inside your application. The first 10,000 MAUs are free. After that, we charge $0.02/wallet. For more pricing information, refer to our [pricing page](https://thirdweb.com/pricing). Volume discounts are available for enterprise customers. Please [contact our business team](https://thirdweb.com/contact-us) for more information.
+Email Wallet (Self-Recovery) are free for unlimited wallets. Email Wallet (Managed Recovery) charges based on a monthly active user (MAU) model which is defined as any sign-in/sign-up inside your application. The first 10,000 MAUs are free. After that, we charge $0.02/wallet. For more pricing information, refer to our [pricing page](https://thirdweb.com/pricing). Volume discounts are available for enterprise customers. Please [contact our business team](https://thirdweb.com/contact-us) for more information. */}
 
 ### What is thirdweb’s ability to scale?
 
 thirdweb can create up to 100 wallets/second by default, and can support higher limits (up to 3,000 wallets/second) upon request.
 
-### How can my user create an embedded wallet?
+### Where can users see assets in their embedded wallet
 
-Buyers who don't have a wallet can create one with their email or social login.
+Users can login to their embedded wallet at https://ews.thirdweb.com/wallet and see the assets held in it. Alternatively, they can paste their wallet address into a blockexplorer for the relevant chain. We will be improving this experience soon.
+
+### What login options does thirdweb support?
+
+We support google and email out of the box, and embedded wallets can be configured to work with any Open ID Compatible authentication service. We will be adding out of the box support for more social login options soon.
 
 # Customization FAQs
 
