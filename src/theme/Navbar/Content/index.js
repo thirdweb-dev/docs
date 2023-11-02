@@ -12,6 +12,8 @@ import NavbarLogo from "@theme/Navbar/Logo";
 import NavbarSearch from "@theme/Navbar/Search";
 import DocBreadcrumbs from "../../DocBreadcrumbs";
 import styles from "./styles.module.css";
+import { ContextBot } from "../../../components/ContextBotButton/ContextBotButton";
+import ThirdwebMiniLogo from "@site/static/assets/thirdweb/mini-logo.svg";
 
 function useNavbarItems() {
   // TODO temporary casting until ThemeConfig type is improved
@@ -46,7 +48,16 @@ export default function NavbarContent() {
         // TODO stop hardcoding items?
         <>
           {!mobileSidebar.disabled && <NavbarMobileSidebarToggle />}
-          <NavbarLogo />
+          <div className={styles.desktopOnly}>
+            <NavbarLogo />
+          </div>
+
+          <ThirdwebMiniLogo
+            width={40}
+            height={40}
+            className={styles.mobileOnly}
+          />
+
           <NavbarItems items={leftItems} />
         </>
       }
@@ -65,9 +76,18 @@ export default function NavbarContent() {
           >
             <NavbarItems items={rightItems} />
             <NavbarColorModeToggle className={styles.colorModeToggle} />
+
             {!searchBarItem && (
               <NavbarSearch>
-                <SearchBar />
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "12px",
+                  }}
+                >
+                  <ContextBot />
+                  <SearchBar />
+                </div>
               </NavbarSearch>
             )}
 
@@ -77,14 +97,12 @@ export default function NavbarContent() {
             >
               Support
             </a>
-
             <a
               className={styles.normalLinks}
               href="https://feedback.thirdweb.com/?utm_source=portal"
             >
               Feedback
             </a>
-
             <a
               className={styles.goToAppButton}
               href="https://thirdweb.com/dashboard?utm_source=portal"

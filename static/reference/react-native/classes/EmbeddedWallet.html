@@ -22,7 +22,7 @@
 <ul class="tsd-hierarchy">
 <li><span class="target">EmbeddedWallet</span></li></ul></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/8ea8f6e/packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts#L18">packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts:18</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/789700c/packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts#L17">packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts:17</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -41,7 +41,8 @@
 </div></section>
 <section class="tsd-index-section">
 <h3 class="tsd-index-heading">Methods</h3>
-<div class="tsd-index-list"><a href="EmbeddedWallet.html#getConnector" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Connector</span></a>
+<div class="tsd-index-list"><a href="EmbeddedWallet.html#authenticate" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>authenticate</span></a>
+<a href="EmbeddedWallet.html#getConnector" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Connector</span></a>
 <a href="EmbeddedWallet.html#getEmail" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Email</span></a>
 <a href="EmbeddedWallet.html#initializeConnector" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>initialize<wbr/>Connector</span></a>
 <a href="EmbeddedWallet.html#onChange" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>on<wbr/>Change</span></a>
@@ -49,10 +50,9 @@
 <a href="EmbeddedWallet.html#onDisconnect" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>on<wbr/>Disconnect</span></a>
 <a href="EmbeddedWallet.html#onEmailSent" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>on<wbr/>Email<wbr/>Sent</span></a>
 <a href="EmbeddedWallet.html#removeListeners" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>remove<wbr/>Listeners</span></a>
-<a href="EmbeddedWallet.html#sendEmailOTP" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>send<wbr/>EmailOTP</span></a>
+<a href="EmbeddedWallet.html#sendVerificationEmail" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>send<wbr/>Verification<wbr/>Email</span></a>
 <a href="EmbeddedWallet.html#setupListeners" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>setup<wbr/>Listeners</span></a>
-<a href="EmbeddedWallet.html#socialLogin" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>social<wbr/>Login</span></a>
-<a href="EmbeddedWallet.html#validateEmailOTP" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>validate<wbr/>EmailOTP</span></a>
+<a href="EmbeddedWallet.html#sendVerificationEmail-2" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>send<wbr/>Verification<wbr/>Email</span></a>
 </div></section></div></details></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Constructors</h2>
@@ -72,25 +72,25 @@
   EmbeddedWalletConnectionArgs
 &gt;.constructor</p>
 <ul>
-<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/8ea8f6e/packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts#L32">packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts:32</a></li></ul></aside></li></ul></section></section>
+<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/789700c/packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts#L41">packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts:41</a></li></ul></aside></li></ul></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Properties</h2>
 <section class="tsd-panel tsd-member"><a id="connector" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagOptional">Optional</code> <span>connector</span><a href="#connector" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">connector</span><span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-type ">EmbeddedWalletConnector</span></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/8ea8f6e/packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts#L22">packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts:22</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/789700c/packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts#L21">packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts:21</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member"><a id="options" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>options</span><a href="#options" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">options</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type ">EmbeddedWalletOptions</span></div><aside class="tsd-sources">
 <p>Overrides AbstractClientWallet.options</p>
 <ul>
-<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/8ea8f6e/packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts#L23">packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts:23</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/789700c/packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts#L22">packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts:22</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member"><a id="id" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>id</span><a href="#id" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">id</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;embeddedWallet&quot;</span><span class="tsd-signature-symbol"> = walletIds.embeddedWallet</span></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/8ea8f6e/packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts#L30">packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts:30</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/789700c/packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts#L39">packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts:39</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member"><a id="meta" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>meta</span><a href="#meta" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">meta</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span><br/><span>    </span><span class="tsd-kind-property">iconURL</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">name</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span><br/><span class="tsd-signature-symbol">}</span><span class="tsd-signature-symbol"> = ...</span></div>
@@ -103,9 +103,22 @@
 <h5><span class="tsd-kind-property">name</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5></li></ul></div><aside class="tsd-sources">
 <p>Overrides AbstractClientWallet.meta</p>
 <ul>
-<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/8ea8f6e/packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts#L25">packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts:25</a></li></ul></aside></section></section>
+<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/789700c/packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts#L34">packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts:34</a></li></ul></aside></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Methods</h2>
+<section class="tsd-panel tsd-member"><a id="authenticate" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>authenticate</span><a href="#authenticate" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures">
+<li class="tsd-signature tsd-anchor-link" id="authenticate.authenticate-1"><span class="tsd-kind-call-signature">authenticate</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">params</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type ">AuthResult</span><span class="tsd-signature-symbol">&gt;</span><a href="#authenticate.authenticate-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">params</span>: <span class="tsd-signature-type ">AuthParams</span></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type ">AuthResult</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/789700c/packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts#L75">packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts:75</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="getConnector" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>get<wbr/>Connector</span><a href="#getConnector" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -114,7 +127,7 @@
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type ">EmbeddedWalletConnector</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <p>Overrides AbstractClientWallet.getConnector</p>
 <ul>
-<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/8ea8f6e/packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts#L42">packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts:42</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/789700c/packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts#L51">packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts:51</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="getEmail" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>get<wbr/>Email</span><a href="#getEmail" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -122,15 +135,15 @@
 <li class="tsd-description">
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/8ea8f6e/packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts#L87">packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts:87</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/789700c/packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts#L96">packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts:96</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="initializeConnector" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>initialize<wbr/>Connector</span><a href="#initializeConnector" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
-<li class="tsd-signature tsd-anchor-link" id="initializeConnector.initializeConnector-1"><span class="tsd-kind-call-signature">initialize<wbr/>Connector</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">EmbeddedWalletConnector</span><a href="#initializeConnector.initializeConnector-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="initializeConnector.initializeConnector-1"><span class="tsd-kind-call-signature">initialize<wbr/>Connector</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type ">EmbeddedWalletConnector</span><span class="tsd-signature-symbol">&gt;</span><a href="#initializeConnector.initializeConnector-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">EmbeddedWalletConnector</span></h4><aside class="tsd-sources">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type ">EmbeddedWalletConnector</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/8ea8f6e/packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts#L49">packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts:49</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/789700c/packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts#L58">packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts:58</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="onChange" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>on<wbr/>Change</span><a href="#onChange" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -143,7 +156,7 @@
 <h5><span class="tsd-kind-parameter">payload</span>: <span class="tsd-signature-type">any</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/8ea8f6e/packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts#L79">packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts:79</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/789700c/packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts#L88">packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts:88</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="onConnected" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>on<wbr/>Connected</span><a href="#onConnected" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -151,7 +164,7 @@
 <li class="tsd-description">
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/8ea8f6e/packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts#L71">packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts:71</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/789700c/packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts#L80">packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts:80</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="onDisconnect" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>on<wbr/>Disconnect</span><a href="#onDisconnect" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -159,7 +172,7 @@
 <li class="tsd-description">
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/8ea8f6e/packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts#L75">packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts:75</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/789700c/packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts#L84">packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts:84</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="onEmailSent" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>on<wbr/>Email<wbr/>Sent</span><a href="#onEmailSent" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -175,7 +188,7 @@
 <h5><span class="tsd-kind-property">email</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5></li></ul></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/8ea8f6e/packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts#L91">packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts:91</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/789700c/packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts#L100">packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts:100</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="removeListeners" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>remove<wbr/>Listeners</span><a href="#removeListeners" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -183,11 +196,11 @@
 <li class="tsd-description">
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/8ea8f6e/packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts#L107">packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts:107</a></li></ul></aside></li></ul></section>
-<section class="tsd-panel tsd-member"><a id="sendEmailOTP" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><span>send<wbr/>EmailOTP</span><a href="#sendEmailOTP" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/789700c/packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts#L116">packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts:116</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member"><a id="sendVerificationEmail" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>send<wbr/>Verification<wbr/>Email</span><a href="#sendVerificationEmail" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
-<li class="tsd-signature tsd-anchor-link" id="sendEmailOTP.sendEmailOTP-1"><span class="tsd-kind-call-signature">send<wbr/>EmailOTP</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">email</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type ">SendEmailOtpReturnType</span><span class="tsd-signature-symbol">&gt;</span><a href="#sendEmailOTP.sendEmailOTP-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="sendVerificationEmail.sendVerificationEmail-1"><span class="tsd-kind-call-signature">send<wbr/>Verification<wbr/>Email</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">email</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type ">SendEmailOtpReturnType</span><span class="tsd-signature-symbol">&gt;</span><a href="#sendVerificationEmail.sendVerificationEmail-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -196,7 +209,7 @@
 <h5><span class="tsd-kind-parameter">email</span>: <span class="tsd-signature-type">string</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type ">SendEmailOtpReturnType</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/8ea8f6e/packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts#L63">packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts:63</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/789700c/packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts#L71">packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts:71</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="setupListeners" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>setup<wbr/>Listeners</span><a href="#setupListeners" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -204,33 +217,25 @@
 <li class="tsd-description">
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/8ea8f6e/packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts#L95">packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts:95</a></li></ul></aside></li></ul></section>
-<section class="tsd-panel tsd-member"><a id="socialLogin" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><span>social<wbr/>Login</span><a href="#socialLogin" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/789700c/packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts#L104">packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts:104</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member"><a id="sendVerificationEmail-2" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>send<wbr/>Verification<wbr/>Email</span><a href="#sendVerificationEmail-2" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
-<li class="tsd-signature tsd-anchor-link" id="socialLogin.socialLogin-1"><span class="tsd-kind-call-signature">social<wbr/>Login</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">oauthOption</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{ </span><br/><span>    </span><span class="tsd-kind-property">error</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">success</span><span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">; </span><br/><span class="tsd-signature-symbol">}</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{ </span><br/><span>    </span><span class="tsd-kind-property">error</span><span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">success</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span><br/><span class="tsd-signature-symbol">}</span><span class="tsd-signature-symbol">&gt;</span><a href="#socialLogin.socialLogin-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="sendVerificationEmail-2.sendVerificationEmail-3"><span class="tsd-kind-call-signature">send<wbr/>Verification<wbr/>Email</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">options</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type ">SendEmailOtpReturnType</span><span class="tsd-signature-symbol">&gt;</span><a href="#sendVerificationEmail-2.sendVerificationEmail-3" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
-<h5><span class="tsd-kind-parameter">oauthOption</span>: <span class="tsd-signature-type ">OauthOption</span></h5></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{ </span><br/><span>    </span><span class="tsd-kind-property">error</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">success</span><span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">; </span><br/><span class="tsd-signature-symbol">}</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{ </span><br/><span>    </span><span class="tsd-kind-property">error</span><span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">success</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span><br/><span class="tsd-signature-symbol">}</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<h5><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">{ </span><br/><span>    </span><span class="tsd-kind-property">clientId</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">email</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span><br/><span class="tsd-signature-symbol">}</span></h5>
+<ul class="tsd-parameters">
+<li class="tsd-parameter">
+<h5><span class="tsd-kind-property">client<wbr/>Id</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5></li>
+<li class="tsd-parameter">
+<h5><span class="tsd-kind-property">email</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5></li></ul></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type ">SendEmailOtpReturnType</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/8ea8f6e/packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts#L67">packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts:67</a></li></ul></aside></li></ul></section>
-<section class="tsd-panel tsd-member"><a id="validateEmailOTP" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><span>validate<wbr/>EmailOTP</span><a href="#validateEmailOTP" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<ul class="tsd-signatures">
-<li class="tsd-signature tsd-anchor-link" id="validateEmailOTP.validateEmailOTP-1"><span class="tsd-kind-call-signature">validate<wbr/>EmailOTP</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">otp</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{ </span><br/><span>    </span><span class="tsd-kind-property">error</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">success</span><span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">; </span><br/><span class="tsd-signature-symbol">}</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{ </span><br/><span>    </span><span class="tsd-kind-property">error</span><span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">success</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span><br/><span class="tsd-signature-symbol">}</span><span class="tsd-signature-symbol">&gt;</span><a href="#validateEmailOTP.validateEmailOTP-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
-<li class="tsd-description">
-<div class="tsd-parameters">
-<h4 class="tsd-parameters-title">Parameters</h4>
-<ul class="tsd-parameter-list">
-<li>
-<h5><span class="tsd-kind-parameter">otp</span>: <span class="tsd-signature-type">string</span></h5></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{ </span><br/><span>    </span><span class="tsd-kind-property">error</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">success</span><span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">; </span><br/><span class="tsd-signature-symbol">}</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{ </span><br/><span>    </span><span class="tsd-kind-property">error</span><span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">success</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span><br/><span class="tsd-signature-symbol">}</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
-<ul>
-<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/8ea8f6e/packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts#L59">packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts:59</a></li></ul></aside></li></ul></section></section></div>
+<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/789700c/packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts#L24">packages/react-native/src/evm/wallets/wallets/embedded/EmbeddedWallet.ts:24</a></li></ul></aside></li></ul></section></section></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
@@ -255,6 +260,7 @@
 <li><a href="#options" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>options</span></a></li>
 <li><a href="#id" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>id</span></a></li>
 <li><a href="#meta" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>meta</span></a></li>
+<li><a href="#authenticate" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>authenticate</span></a></li>
 <li><a href="#getConnector" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Connector</span></a></li>
 <li><a href="#getEmail" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Email</span></a></li>
 <li><a href="#initializeConnector" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>initialize<wbr/>Connector</span></a></li>
@@ -263,10 +269,9 @@
 <li><a href="#onDisconnect" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>on<wbr/>Disconnect</span></a></li>
 <li><a href="#onEmailSent" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>on<wbr/>Email<wbr/>Sent</span></a></li>
 <li><a href="#removeListeners" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>remove<wbr/>Listeners</span></a></li>
-<li><a href="#sendEmailOTP" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>send<wbr/>EmailOTP</span></a></li>
+<li><a href="#sendVerificationEmail" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>send<wbr/>Verification<wbr/>Email</span></a></li>
 <li><a href="#setupListeners" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>setup<wbr/>Listeners</span></a></li>
-<li><a href="#socialLogin" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>social<wbr/>Login</span></a></li>
-<li><a href="#validateEmailOTP" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>validate<wbr/>EmailOTP</span></a></li></ul></div></details></div>
+<li><a href="#sendVerificationEmail-2" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>send<wbr/>Verification<wbr/>Email</span></a></li></ul></div></details></div>
 <div class="site-menu">
 <nav class="tsd-navigation"><a href="../index.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1"></use></svg><span>@thirdweb-dev/react-native</span></a>
 <ul class="tsd-small-nested-navigation" id="tsd-nav-container" data-base="..">

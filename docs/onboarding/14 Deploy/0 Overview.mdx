@@ -6,25 +6,26 @@ hide_title: true
 
 # Deploy
 
-Easily deploy **any** contract to **any EVM** compatible chain, using a single command:
+Deploy is a tool to deploy any contract to any EVM compatible chain through one simple command and an easy-to-use interface. Deploy reduces the complexities of deploying a contract by eliminating steps such as hardcoding private keys, managing RPC URLs, or running scripts to deploy your contracts.
+
+Simply run the following command at the root of your contract directory:
 
 ```bash
 npx thirdweb deploy
 ```
 
-No setup, hardcoded private keys, RPC URLs or scripting required!
+## Features
+
+- **Automatically verified contracts** - Contracts deployed using Deploy are automatically verified on [Sourcify](https://sourcify.dev/).
+- **Client-side deployment** - Deploy simplifies contract deployment with an intuitive dashboard. Users can avoid exporting / storing private keys, setting up RPC URLs, copying ABIs, or running scripts.
+- **No additional setup** - There is no need to modify your contract or do any additional setup. Deploy works with any contract, including those created with popular frameworks such as Hardhat and Foundry.
+- **Deploy to any EVM network** - Deploy supports the deployment of a contract to any EVM network.
+- **Dashboard management** - Automatically add your contracts to dashboard to setup constructors, manage and interact with your contract.
+- **Support for browser based wallets** - Deploy a contract using browser-based wallets like MetaMask, Coinbase Wallet, and others. Alternatively, deploy safely with a team using options such as Safe.
 
 ## Why Use Deploy?
 
-Benefits of using Deploy:
+Benefits of using Deploy to deploy your contracts:
 
-- **No setup** or installation is needed.
-- **Increased security**:
-  - No need to export a private key. The deployment is done from the [dashboard](/dashboard) UI from your browser, using a browser wallet.
-  - Support for [Safe](https://safe.global/wallet) so no need to share private keys across your team.
-- No need to set an RPC URL - we handle all the complexities for you!
-- Deploy using a user interface. This allows you to set the constructor arguments at the time of deployment.
-- Automatically uploads and pins the contract metadata to IPFS.
-- Automatically verifies your contract on [Sourcify](https://sourcify.dev/).
-- Automatically adds your contract to the [dashboard](/dashboard) - this step is [gasless](/glossary/gasless-transactions)! This means you can easily manage and interact with your contract.
-- No need to copy your contract ABI when integrating your smart contract into a web3 app.
+- **Increased security -** Deploying a contract via client-side using a browser based wallet reduces security risks such as exporting and storing private keys.
+- **Reduced complexity** - Without any additional setup, contract metadata is automatically pinned to IPFS, contracts are automatically verified, and a dashboard interface is provided to simplify setting up and managing your contract.

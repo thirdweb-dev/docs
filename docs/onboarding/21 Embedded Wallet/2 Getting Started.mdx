@@ -1,6 +1,6 @@
 ---
 slug: /embedded-wallet/getting-started
-title: Getting started
+title: Getting Started
 ---
 
 import Tabs from "@theme/Tabs";
@@ -34,17 +34,38 @@ Quickly get started with one of our templates:
 
 [Install](/cli/install) the required packages:
 
+<Tabs>
+  <TabItem value="cli" label="thirdweb CLI">
+  <div>
+
 ```bash
 npx thirdweb install
 ```
 
 This command will recognize the environment you are working in and install the appropriate packages.
 
+</div>
+</TabItem>
+  <TabItem value="npm" label="npm">
+  <div>
+
+```bash
+npm install @thirdweb-dev/react @thirdweb-dev/chains @thirdweb-dev/sdk ethers@5^
+```
+
+This command will recognize the environment you are working in and install the appropriate packages.
+
+</div>
+</TabItem>
+</Tabs>
+
 ## Get your client ID
 
 To use embedded wallets in your applications, you will need a client ID. You can get one for free on [your thirdweb dashboard](https://thirdweb.com/create-api-key).
 
 ## Connecting & Creating Embedded Wallets
+
+Quickest ways to get started with embedded wallets on each platform.
 
 <Tabs>
   <TabItem value="react" label="React">
@@ -109,7 +130,10 @@ const wallet = new EmbeddedWallet({
   clientId: "YOUR_CLIENT_ID", // Your thirdweb client ID
 });
 
-wallet.connect(options);
+const authResult = await wallet.authenticate({
+  strategy: "google", // The authentication strategy to use
+});
+const walletAddress = await wallet.connect({ authResult });
 ```
 
 </div>
@@ -142,3 +166,5 @@ public async void ConnectWallet()
 
   </TabItem>
 </Tabs>
+
+For more details and advanced usage, see the reference documentation for each platform.

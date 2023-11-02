@@ -15,14 +15,30 @@
 <li><a href="../index.html">@thirdweb-dev/wallets</a></li>
 <li><a href="GetUser.html">GetUser</a></li></ul>
 <h1>Type alias GetUser</h1></div>
-<div class="tsd-signature"><span class="tsd-kind-type-alias">Get<wbr/>User</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span><br/><span>    </span><span class="tsd-kind-property">status</span><span class="tsd-signature-symbol">: </span><a href="../enums/UserStatus.html#LOGGED_OUT" class="tsd-signature-type tsd-kind-enum-member">LOGGED_OUT</a><span class="tsd-signature-symbol">; </span><br/><span class="tsd-signature-symbol">}</span><span class="tsd-signature-symbol"> | </span><a href="InitializedUser.html" class="tsd-signature-type tsd-kind-type-alias">InitializedUser</a></div>
+<div class="tsd-signature"><span class="tsd-kind-type-alias">Get<wbr/>User</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span><br/><span>    </span><span class="tsd-kind-property">status</span><span class="tsd-signature-symbol">: </span><a href="../enums/UserWalletStatus.html#LOGGED_OUT" class="tsd-signature-type tsd-kind-enum-member">LOGGED_OUT</a><span class="tsd-signature-symbol">; </span><br/><span class="tsd-signature-symbol">}</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{ </span><br/><span>    </span><span class="tsd-kind-property">authDetails</span><span class="tsd-signature-symbol">: </span><a href="AuthDetails.html" class="tsd-signature-type tsd-kind-type-alias">AuthDetails</a><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">status</span><span class="tsd-signature-symbol">: </span><a href="../enums/UserWalletStatus.html#LOGGED_IN_WALLET_UNINITIALIZED" class="tsd-signature-type tsd-kind-enum-member">LOGGED_IN_WALLET_UNINITIALIZED</a><span class="tsd-signature-symbol">; </span><br/><span class="tsd-signature-symbol">}</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{ </span><br/><span>    </span><span class="tsd-kind-property">authDetails</span><span class="tsd-signature-symbol">: </span><a href="AuthDetails.html" class="tsd-signature-type tsd-kind-type-alias">AuthDetails</a><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">status</span><span class="tsd-signature-symbol">: </span><a href="../enums/UserWalletStatus.html#LOGGED_IN_NEW_DEVICE" class="tsd-signature-type tsd-kind-enum-member">LOGGED_IN_NEW_DEVICE</a><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">walletAddress</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span><br/><span class="tsd-signature-symbol">}</span><span class="tsd-signature-symbol"> | </span><a href="InitializedUser.html" class="tsd-signature-type tsd-kind-type-alias">InitializedUser</a></div>
 <div class="tsd-type-declaration">
 <h4>Type declaration</h4>
 <ul class="tsd-parameters">
 <li class="tsd-parameter">
-<h5><span class="tsd-kind-property">status</span><span class="tsd-signature-symbol">: </span><a href="../enums/UserStatus.html#LOGGED_OUT" class="tsd-signature-type tsd-kind-enum-member">LOGGED_OUT</a></h5></li></ul></div><aside class="tsd-sources">
+<h5><span class="tsd-kind-property">status</span><span class="tsd-signature-symbol">: </span><a href="../enums/UserWalletStatus.html#LOGGED_OUT" class="tsd-signature-type tsd-kind-enum-member">LOGGED_OUT</a></h5></li></ul></div>
+<div class="tsd-type-declaration">
+<h4>Type declaration</h4>
+<ul class="tsd-parameters">
+<li class="tsd-parameter">
+<h5><span class="tsd-kind-property">auth<wbr/>Details</span><span class="tsd-signature-symbol">: </span><a href="AuthDetails.html" class="tsd-signature-type tsd-kind-type-alias">AuthDetails</a></h5></li>
+<li class="tsd-parameter">
+<h5><span class="tsd-kind-property">status</span><span class="tsd-signature-symbol">: </span><a href="../enums/UserWalletStatus.html#LOGGED_IN_WALLET_UNINITIALIZED" class="tsd-signature-type tsd-kind-enum-member">LOGGED_IN_WALLET_UNINITIALIZED</a></h5></li></ul></div>
+<div class="tsd-type-declaration">
+<h4>Type declaration</h4>
+<ul class="tsd-parameters">
+<li class="tsd-parameter">
+<h5><span class="tsd-kind-property">auth<wbr/>Details</span><span class="tsd-signature-symbol">: </span><a href="AuthDetails.html" class="tsd-signature-type tsd-kind-type-alias">AuthDetails</a></h5></li>
+<li class="tsd-parameter">
+<h5><span class="tsd-kind-property">status</span><span class="tsd-signature-symbol">: </span><a href="../enums/UserWalletStatus.html#LOGGED_IN_NEW_DEVICE" class="tsd-signature-type tsd-kind-enum-member">LOGGED_IN_NEW_DEVICE</a></h5></li>
+<li class="tsd-parameter">
+<h5><span class="tsd-kind-property">wallet<wbr/>Address</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5></li></ul></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/8ea8f6e/packages/wallets/src/evm/connectors/embedded-wallet/implementations/interfaces/embedded-wallets/embedded-wallets.ts#L107">packages/wallets/src/evm/connectors/embedded-wallet/implementations/interfaces/embedded-wallets/embedded-wallets.ts:107</a></li></ul></aside></div>
+<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/789700c/packages/wallets/src/evm/connectors/embedded-wallet/implementations/interfaces/embedded-wallets/embedded-wallets.ts#L87">packages/wallets/src/evm/connectors/embedded-wallet/implementations/interfaces/embedded-wallets/embedded-wallets.ts:87</a></li></ul></aside></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
@@ -43,7 +59,7 @@
 <ul class="tsd-small-nested-navigation" id="tsd-nav-container" data-base="..">
 <li><a href="../enums/AuthProvider.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-8"></use></svg>AuthProvider</a></li>
 <li><a href="../enums/RecoveryShareManagement.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-8"></use></svg>RecoveryShareManagement</a></li>
-<li><a href="../enums/UserStatus.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-8"></use></svg>UserStatus</a></li>
+<li><a href="../enums/UserWalletStatus.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-8"></use></svg>UserWalletStatus</a></li>
 <li><a href="../classes/AbstractClientWallet.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg>AbstractClientWallet</a></li>
 <li><a href="../classes/AbstractWallet.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg>AbstractWallet</a></li>
 <li><a href="../classes/AddChainError.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg>AddChainError</a></li>

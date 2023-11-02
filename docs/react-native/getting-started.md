@@ -196,7 +196,24 @@ const KitchenSinkExample = () => {
 
 ### Localizing our UI components
 
-You can pass a `locale` prop to the `ThirdwebProvider` with the strings in the language of your preference. See the list of strings to translate [here](https://github.com/thirdweb-dev/js/blob/main/packages/react-native/src/evm/i18n/types.ts#L5).
+You can pass a `locale` prop to the `ThirdwebProvider` with the strings in the language of your preference. See the list of strings to translate [here](https://github.com/thirdweb-dev/js/blob/main/packages/react-native/src/evm/i18n/en.ts).
+
+We support 'en' (English), 'es' (Spanish) and 'ja' (Japanese) out of the box. The default value is 'en'.
+
+```jsx
+import { ThirdwebProvider } from "@thirdweb-dev/react-native";
+import React from "react";
+
+const App = () => {
+  return (
+    <ThirdwebProvider locale={"ja"}>
+      <AppInner />
+    </ThirdwebProvider>
+  );
+};
+```
+
+You can pass your own strings:
 
 ```jsx
 import { ThirdwebProvider, en } from "@thirdweb-dev/react-native";
