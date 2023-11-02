@@ -12,8 +12,6 @@ Engine makes it effortless for any developer to airdrop NFTs at scale. You only 
 
 > This guide references Polygon Mumbai testnet and NextJS but is applicable for any EVM chain and full-stack framework.
 
-
-
 ## Prerequisites
 
 - An Engine instance
@@ -49,9 +47,7 @@ function ClaimPage() {
     <main>
       <h2>Thank you for being a superfan! ❤️</h2>
       <ConnectWallet />
-      {userWalletAddress && (
-        <button onClick={onClick}>Claim my reward</button>
-      )}
+      {userWalletAddress && <button onClick={onClick}>Claim my reward</button>}
     </main>
   );
 }

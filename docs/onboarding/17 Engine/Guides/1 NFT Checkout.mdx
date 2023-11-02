@@ -64,9 +64,7 @@ function PurchasePage() {
       <ConnectWallet />
 
       {!clientSecret ? (
-        <button onClick={onClick}>
-          Buy with credit card
-        </button>
+        <button onClick={onClick}>Buy with credit card</button>
       ) : (
         <Elements stripe={stripe} options={{ clientSecret }}>
           <CreditCardForm />
@@ -150,7 +148,7 @@ export async function POST(req: NextRequest) {
   const event = stripe.webhooks.constructEvent(
     body,
     signature,
-    "<webhook_secret_key>"
+    "<webhook_secret_key>",
   );
 
   if (event.type === "charge.succeeded") {
@@ -171,11 +169,12 @@ export async function POST(req: NextRequest) {
           metadata: {
             name: "Engine Hackathon 2023",
             description: "Created with thirdweb Engine",
-            image: "ipfs://QmakhKF5oMyxupCZ2RsmcvPRyYTHnQzYeb9mQGv3RM81n1/hat.webp",
+            image:
+              "ipfs://QmakhKF5oMyxupCZ2RsmcvPRyYTHnQzYeb9mQGv3RM81n1/hat.webp",
           },
           supply: "1",
         },
-      }
+      },
     );
   }
 
@@ -195,6 +194,7 @@ The buyer is prompted to provide their credit card.
 ![Initial page load](../assets/nft-checkout-1.png)
 
 They provide their card details.
+
 > _Tip: Stripe testmode accepts `4242 4242 4242 4242` as a valid credit card._
 
 ![Prompted for card details](../assets/nft-checkout-2.png)
@@ -223,5 +223,3 @@ Yes! You provide the payment provider and can accept different currencies (EUR, 
 ### How is thirdweb NFT Checkout different?
 
 [thirdweb Checkout](https://thirdweb.com/checkout) is a full solution that detects fraud, provides chargeback liability, accepts multiple payment methods including cryptocurrency, includes a prebuilt checkout UX, and more.
-
-
