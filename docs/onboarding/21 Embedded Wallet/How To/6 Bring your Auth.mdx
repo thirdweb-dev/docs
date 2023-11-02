@@ -40,10 +40,10 @@ In React and React Native, the `useEmbeddedWallet()` hook handles authentication
 ```typescript
 import { useEmbeddedWallet } from "@thirdweb-dev/react"; // or /react-native
 
-const connect = useEmbeddedWallet();
+const embeddedWallet = useEmbeddedWallet();
 
 const handlePostLogin = async (jwt: string) => {
-  await connect({
+  await embeddedWallet.connect({
     strategy: "jwt",
     jwt,
   });
