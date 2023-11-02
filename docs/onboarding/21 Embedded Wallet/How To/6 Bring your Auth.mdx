@@ -9,9 +9,7 @@ import QuickstartCard from "@components/QuickstartCard";
 
 By default, the embedded wallet service handles two things: auth, and spinning up crypto wallets tied to the auth. We require
 valid authentication to ensure a wallet is created for the right person.
-
 If you already have your own auth and only want to spin up wallets, we offer a simple way to hook up any **OpenID Connect ("OIDC") compatible** auth to create embedded wallets.
-
 This is currently available for enterprise customers only.
 
 ## How it works
@@ -23,7 +21,7 @@ This is currently available for enterprise customers only.
 
 ## Configuration Setup
 
-When setting up your API key, choose "Custom Auth" and provide us with the following values:
+In your API key settings, click edit, look for "Custom Auth" and provide the following values:
 
 - The URL of the JWKS file (public key)
   - This is used to verify the token was signed by you.
@@ -32,7 +30,31 @@ When setting up your API key, choose "Custom Auth" and provide us with the follo
 
 ## Authenticating a user
 
-To log in to your own custom authentication, call `loginWithJwtAuth` with the user's auth JWT after they have authenticated.
+Once you've logged in with your own auth, you can pass the user's JWT to the embedded wallet to authenticate and connect.
+
+<Tabs>
+<TabItem value="react" label="React & React Native">
+
+In React and React Native, the `useEmbeddedWallet()` hook handles authentication and connection states.
+
+```typescript
+import { useEmbeddedWallet } from "@thirdweb-dev/react"; // or /react-native
+
+const connect = useEmbeddedWallet();
+
+const handlePostLogin = async (jwt: string) => {
+  await connect({
+    strategy: "jwt",
+    jwt,
+  });
+};
+```
+
+</TabItem>
+
+<TabItem value="typescript" label="Other Frameworks">
+
+In other frameworks, use your own instance of the wallet to authenticate and connect.
 
 ```typescript
 import { EmbeddedWallet } from "@thirdweb-dev/wallets";
@@ -42,9 +64,14 @@ const embeddedWallet = new EmbeddedWallet({
   chain: Goerli, //  chain to connect to
   clientId: "YOUR_CLIENT_ID", // Your thirdweb client ID
 });
-await embeddedWallet.loginWithJwtAuth({
-  token: "<idToken JWT from your auth callback>",
-  authProvider: AuthProvider.CUSTOM_JWT,
-  encryptionKey: "Required if user is an existing user",
+
+const authResult = await embeddedWallet.authenticate({
+  strategy: "jwt",
+  jwt,
 });
+
+const walletAddress = await embeddedWallet.connect({ authResult });
 ```
+
+</TabItem>
+</Tabs>

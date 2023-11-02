@@ -20,7 +20,7 @@ const resp = await fetch(
       "x-backend-wallet-address": "<backend_wallet_address>",
     },
     body: JSON.stringify({
-      function_name: "transferFrom",
+      functionName: "transferFrom",
       args: [
         "0x1946267d81Fb8aDeeEa28e6B98bcD446c8248473",
         "0x3EcDBF3B911d0e9052b64850693888b008e18373",
@@ -39,13 +39,13 @@ console.log("Queue ID:", result.queueId);
 
 ### Call a payable method
 
-To call a payable method and send the native currency with your transaction (e.g. ETH on Ethereum), set `tx_overrides.value` in the request body to `POST /contract/<chain>/<contract_address>/write`.
+To call a payable method and send the native currency with your transaction (e.g. ETH on Ethereum), set `txOverrides.value` in the request body to `POST /contract/<chain>/<contract_address>/write`.
 
 ```json
 {
-  function_name: "...",
+  functionName: "...",
   args: [ ... ],
-  tx_overrides: {
+  txOverrides: {
     value: 1000000000000000, // 0.001 ETH in wei
   }
 }
@@ -55,13 +55,13 @@ To call a payable method and send the native currency with your transaction (e.g
 
 > Coming soon.
 
-To override the estimated gas settings for your transaction, set `tx_overrides.gasLimit` and `tx_overrides.gasPrice` in the request body to `POST /contract/<chain>/<contract_address>/write`.
+To override the estimated gas settings for your transaction, set `txOverrides.gasLimit` and `txOverrides.gasPrice` in the request body to `POST /contract/<chain>/<contract_address>/write`.
 
 ```json
 {
-  function_name: "...",
+  functionName: "...",
   args: [ ... ],
-  tx_overrides: {
+  txOverrides: {
     gasLimit: 150000,
     gasPrice: 22000000000, // 22 gwei in wei
   }
@@ -72,7 +72,7 @@ To override the estimated gas settings for your transaction, set `tx_overrides.g
 
 ```ts
 const resp = await fetch(
-  "<engine_url>/contract/<chain>/<contract_address>/read?function_name=balanceOf&args=0x3EcDBF3B911d0e9052b64850693888b008e18373",
+  "<engine_url>/contract/<chain>/<contract_address>/read?functionName=balanceOf&args=0x3EcDBF3B911d0e9052b64850693888b008e18373",
   {
     headers: {
       Authorization: "Bearer <access_token>",

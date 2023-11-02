@@ -45,6 +45,14 @@ socket.onmessage = (event) => {
 };
 ```
 
+#### How do I cancel a transaction?
+
+If a transaction is has not yet been mined or failed, cancel the transaction with `POST /transaction/cancel`.
+
+Or to cancel a transaction in the Engine dashboard, select the **Cancel transaction** button next to the status in the **Transactions** table.
+
+![Cancel transaction button](./assets/cancel-transaction-button.png)
+
 #### How do I customize RPC URLs?
 
 Set the `CHAIN_OVERRIDES` environment variable to the path to a JSON file or internet-accessible URL. The default value is `./chain-overrides.json` if found. See <a href="https://github.com/thirdweb-dev/engine/blob/main/chain-overrides.example.json" target="_blank">the example format</a>.

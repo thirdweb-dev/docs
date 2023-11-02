@@ -54,7 +54,7 @@ returns: the transaction receipt of the mint
 func (edition *Edition) MintAdditionalSupply(ctx context.Context, tokenId int, additionalSupply int) (*types.Transaction, error)
 ```
 
-Mint additionaly supply of a token to the connected wallet.
+Mint additionally supply of a token to the connected wallet.
 
 tokenId: token ID to mint additional supply of
 
