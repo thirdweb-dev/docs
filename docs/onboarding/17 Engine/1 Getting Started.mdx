@@ -36,14 +36,14 @@ docker run \
 
 #### Environment variables
 
-| Variable                  | Description                                                                                                                                                                                           |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `THIRDWEB_SECRET_KEY`     | A thirdweb secret key created on the [API Keys page](https://thirdweb.com/dashboard/settings/api-keys).                                                                                               |
-| `ADMIN_WALLET_ADDRESS`    | The wallet address that will configure Engine from the thirdweb dashboard. You will be able to add other admins later.                                                                                                                            |
-| `POSTGRES_CONNECTION_URL` | Postgres connection string: `postgresql://[user[:password]@][host][:port][/dbname][?param1=value1&...]`                                                                                               |
+| Variable                  | Description                                                                                                              |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `THIRDWEB_SECRET_KEY`     | A thirdweb secret key created on the [API Keys page](https://thirdweb.com/dashboard/settings/api-keys).                  |
+| `ADMIN_WALLET_ADDRESS`    | The wallet address that will configure Engine from the thirdweb dashboard. You will be able to add other admins later.   |
+| `POSTGRES_CONNECTION_URL` | Postgres connection string: `postgresql://[user[:password]@][host][:port][/dbname][?param1=value1&...]`                  |
 | `ENABLE_HTTPS`            | Self-sign a certificate to serve API requests on HTTPS. Set to `true` if running Engine locally only. (Default: `false`) |
 
-***** Required
+**\*** Required
 
 Your server is running when this log line appears:
 
@@ -63,16 +63,16 @@ Looking for a managed solution?
 - Deploy a cloud-hosted Postgres instance with [AWS RDS](https://aws.amazon.com/rds/postgresql) or [Google Cloud SQL](https://cloud.google.com/sql/docs/postgres).
 - Deploy a Engine to the cloud:
 
-    ```bash
-    docker run \
-      -e THIRDWEB_API_SECRET_KEY="<thirdweb_secret_key>" \
-      -e ADMIN_WALLET_ADDRESS="<admin_wallet_address>" \
-      -e POSTGRES_CONNECTION_URL="<postgres_connection_url>" \
-      -p 3005:3005 \
-      --pull=always \
-      --cpus="0.5" \
-      thirdweb/engine:latest
-    ```
+  ```bash
+  docker run \
+    -e THIRDWEB_API_SECRET_KEY="<thirdweb_secret_key>" \
+    -e ADMIN_WALLET_ADDRESS="<admin_wallet_address>" \
+    -e POSTGRES_CONNECTION_URL="<postgres_connection_url>" \
+    -p 3005:3005 \
+    --pull=always \
+    --cpus="0.5" \
+    thirdweb/engine:latest
+  ```
 
 - Minimum recommended specs: 1 vCPU, 2 GB memory
 
