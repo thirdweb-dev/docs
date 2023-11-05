@@ -20,13 +20,21 @@ import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 import ethers from "ethers";
 const signer = new ethers.Wallet("{{private_key}}");
 
-const sdk = ThirdwebSDK.fromSigner(signer, {
+const sdk = ThirdwebSDK.fromSigner(signer, "ethereum", {
   clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
-  secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
+  secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings. Do NOT expose your secret key to the client-side
 });
 ```
 
 ## Configuration
+
+### Signer (required)
+
+The `Signer` is an object that represents an Ethereum account. It is used to sign transactions and messages. The SDK uses the `Signer` to sign transactions and messages.
+
+### Network (required)
+
+The network that you want to connect to. This could be a thirdweb's chain slug (`"ethereum"`| `"polygon"`, `"..."`), chain ID (`1`, `137`, `"..."`) or an RPC URL
 
 ### Client ID or Secret Key(required)
 
@@ -35,6 +43,4 @@ To use the Typescript SDK, you need to obtain either the `clientId` or `secretKe
 - **Client-side**: Use the SDK in the browser or mobile app. In this instance, you would use the `clientId` prop.
 - **Server-side**: Use the SDK in a server environment. In this instance, you would use the `secretKey` prop.
 
-### Signer (required)
 
-The `Signer` is an object that represents an Ethereum account. It is used to sign transactions and messages. The SDK uses the `Signer` to sign transactions and messages.
