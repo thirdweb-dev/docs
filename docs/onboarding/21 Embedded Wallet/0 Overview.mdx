@@ -8,12 +8,22 @@ import QuickstartCard from "@components/QuickstartCard";
 
 # Embedded Wallet
 
-Embedded Wallet is a simple yet powerful wallet that enables apps to create, manage, and control their users' wallets. Embedded Wallets are designed to onboard users with little to no web3 familiarity.
-A user signs in with their email address or social account and is provided a functional wallet that your application manages. Afterward, they can purchase NFTs with credit cards, view and transfer NFTs, and send blockchain transactions.
+Embedded wallets are wallets that get spun up for users when they first come into your app. They are designed to help app developers building web3 apps for mainstream audiences build seamless login experiences.
+
+Users can login using their email address, social logins (twitter, apple, discord, etc), or any Open ID Compatible authentication service. Once they authenticate they are provisioned a wallet, which they can then use to perform on-chain actions like minting NFTs and sending transactions.
+
+![Hero image for Embedded wallet that shows default modal with Google and verification modal](./assets/embed-overview.svg)
+
+<div className="col col--12" style={{ padding: 8 }}>
+  <QuickstartCard
+    name="Try it out in a live playground"
+    link="https://thirdweb.com/dashboard/wallets/connect"
+    image="/assets/product/connect-wallet.png"
+  />
+</div>
 
 ## Features
 
-- **Account Recovery:** Users can always access their wallets on other authenticated devices.
 - **Modular, Composable & Customizable:** Email login, social login, and bring-your-own auth.
 - **Enable Gasless Transactions:** When you combine embedded wallets with smart wallets, users do not require crypto to interact with the blockchain.
 - **Security:** No single point of failure. Private keys cannot be reconstructed by thirdweb or any developer without user authentication. The only owner of the wallet is the end user.
@@ -27,16 +37,6 @@ A user signs in with their email address or social account and is provided a fun
 - Allowing users to access their wallets on different devices without additional passwords.
 - Enabling users to connect to WalletConnect-compatible web3 apps. _OpenSea, CollabLand, etc._
 
-![Embedded Wallet](./assets/compact-dark-social.png)
+## Pricing
 
-## Pricing & Billing
-
-**Pricing**
-
-- Free to use email wallet with a user-recovery code.
-- Free up to 10,000 Monthly Active Wallet
-  +$0.02 per incremental Monthly Active Wallet after with a thirdweb managed recovery code.
-
-Custom Auth systems are available upon request. Please contact [sales@thirdweb.com](mailto:sales@thirdweb.com).
-
-Find more information on the different billing tiers by visiting [thirdweb's pricing page](https://thirdweb.com/pricing).
+Embedded wallet is free up to 10,000 Monthly Active Wallet and $0.02 per incremental Monthly Active Wallet beyond that. Find more information on the different billing tiers by visiting [thirdweb's pricing page](https://thirdweb.com/pricing).

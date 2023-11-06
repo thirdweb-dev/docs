@@ -171,13 +171,13 @@
     "html_url": "https://github.com/thirdweb-example/connect-wallet-button",
     "description": "Learn how to use the ConnectWallet Button component from the React SDK!",
     "created_at": "2022-08-23T04:29:36Z",
-    "updated_at": "2023-07-24T05:01:51Z",
+    "updated_at": "2023-10-31T10:13:50Z",
     "clone_url": "https://github.com/thirdweb-example/connect-wallet-button.git",
     "topics": [
       "ui-components"
     ],
     "language": "JavaScript",
-    "stargazers_count": 9,
+    "stargazers_count": 10,
     "is_template": false,
     "homepage": "https://connectwallet.thirdweb-example.com/"
   },
@@ -427,13 +427,13 @@
     "html_url": "https://github.com/thirdweb-example/edition-drop",
     "description": "Starter kit for using the Edition Drop Pre-Built contract",
     "created_at": "2022-07-05T01:19:38Z",
-    "updated_at": "2023-09-02T20:17:30Z",
+    "updated_at": "2023-11-02T12:05:04Z",
     "clone_url": "https://github.com/thirdweb-example/edition-drop.git",
     "topics": [
       "edition-drop"
     ],
     "language": "TypeScript",
-    "stargazers_count": 21,
+    "stargazers_count": 22,
     "is_template": false,
     "homepage": "https://edition-drop.thirdweb-example.com"
   },
@@ -455,13 +455,26 @@
     "html_url": "https://github.com/thirdweb-example/embedded-smart-wallet",
     "description": null,
     "created_at": "2023-09-27T16:53:01Z",
-    "updated_at": "2023-10-27T21:33:18Z",
+    "updated_at": "2023-11-03T01:21:51Z",
     "clone_url": "https://github.com/thirdweb-example/embedded-smart-wallet.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 3,
+    "stargazers_count": 4,
     "is_template": false,
     "homepage": "https://embedded-smart-wallet.thirdweb-example.com/"
+  },
+  {
+    "name": "embedded-wallet-custom-ui",
+    "html_url": "https://github.com/thirdweb-example/embedded-wallet-custom-ui",
+    "description": "Embedded Wallet Custom UI",
+    "created_at": "2023-11-03T21:27:13Z",
+    "updated_at": "2023-11-03T21:37:09Z",
+    "clone_url": "https://github.com/thirdweb-example/embedded-wallet-custom-ui.git",
+    "topics": [],
+    "language": "TypeScript",
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": "https://embedded-wallet-custom-ui.thirdweb-preview.com/"
   },
   {
     "name": "engine-minting-api",
@@ -475,6 +488,32 @@
     "stargazers_count": 0,
     "is_template": false,
     "homepage": null
+  },
+  {
+    "name": "engine-nft-checkout",
+    "html_url": "https://github.com/thirdweb-example/engine-nft-checkout",
+    "description": null,
+    "created_at": "2023-11-01T02:10:57Z",
+    "updated_at": "2023-11-01T05:05:13Z",
+    "clone_url": "https://github.com/thirdweb-example/engine-nft-checkout.git",
+    "topics": [],
+    "language": "TypeScript",
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": null
+  },
+  {
+    "name": "engine-phygital",
+    "html_url": "https://github.com/thirdweb-example/engine-phygital",
+    "description": null,
+    "created_at": "2023-10-31T18:05:34Z",
+    "updated_at": "2023-11-01T08:09:54Z",
+    "clone_url": "https://github.com/thirdweb-example/engine-phygital.git",
+    "topics": [],
+    "language": "TypeScript",
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": "https://engine-phygital.vercel.app"
   },
   {
     "name": "erc-6551",
@@ -537,13 +576,13 @@
     "html_url": "https://github.com/thirdweb-example/erc721",
     "description": "Create an NFT minting page using thirdweb's React SDK",
     "created_at": "2022-05-16T01:17:47Z",
-    "updated_at": "2023-10-29T19:50:38Z",
+    "updated_at": "2023-11-06T01:24:25Z",
     "clone_url": "https://github.com/thirdweb-example/erc721.git",
     "topics": [
       "nft-drop"
     ],
     "language": "TypeScript",
-    "stargazers_count": 125,
+    "stargazers_count": 126,
     "is_template": true,
     "homepage": "https://nft-drop.thirdweb-preview.com/"
   },
@@ -927,11 +966,11 @@
     "html_url": "https://github.com/thirdweb-example/loyalty-card-youtube",
     "description": "Repository for YouTube tutorial - Create a loyalty program NFT",
     "created_at": "2023-09-26T09:41:12Z",
-    "updated_at": "2023-10-24T17:52:37Z",
+    "updated_at": "2023-11-05T22:42:19Z",
     "clone_url": "https://github.com/thirdweb-example/loyalty-card-youtube.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 6,
+    "stargazers_count": 7,
     "is_template": false,
     "homepage": null
   },
@@ -1002,14 +1041,14 @@
     "html_url": "https://github.com/thirdweb-example/marketplace-v3",
     "description": "Create your own NFT marketplace where users can buy and sell NFTs!",
     "created_at": "2023-01-31T03:33:27Z",
-    "updated_at": "2023-10-20T18:48:29Z",
+    "updated_at": "2023-11-05T23:06:23Z",
     "clone_url": "https://github.com/thirdweb-example/marketplace-v3.git",
     "topics": [
       "marketplace",
       "nft-marketplace"
     ],
     "language": "TypeScript",
-    "stargazers_count": 75,
+    "stargazers_count": 77,
     "is_template": false,
     "homepage": "https://marketplace-v3.thirdweb-example.com/"
   },
@@ -1077,11 +1116,11 @@
     "html_url": "https://github.com/thirdweb-example/next-typescript-starter",
     "description": "thirdweb starter project with Next.js & TypeScript",
     "created_at": "2022-03-17T18:18:45Z",
-    "updated_at": "2023-10-19T17:06:36Z",
+    "updated_at": "2023-11-03T07:07:05Z",
     "clone_url": "https://github.com/thirdweb-example/next-typescript-starter.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 63,
+    "stargazers_count": 64,
     "is_template": true,
     "homepage": "https://next-typescript-starter.thirdweb-example.com"
   },
@@ -1090,14 +1129,14 @@
     "html_url": "https://github.com/thirdweb-example/nft-gallery",
     "description": "Create a gallery of NFTs from an NFT Collection",
     "created_at": "2023-01-27T02:51:22Z",
-    "updated_at": "2023-09-25T01:17:15Z",
+    "updated_at": "2023-11-02T04:09:47Z",
     "clone_url": "https://github.com/thirdweb-example/nft-gallery.git",
     "topics": [
       "nft-drop",
       "ui-components"
     ],
     "language": "TypeScript",
-    "stargazers_count": 14,
+    "stargazers_count": 15,
     "is_template": false,
     "homepage": "https://nft-gallery.thirdweb-preview.com/"
   },
@@ -1126,7 +1165,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-staking-app",
     "description": "An NFT Staking contract deployed using thirdweb deploy, where users stake their ERC721 tokens and earn ERC20 tokens in return!",
     "created_at": "2022-05-31T05:09:19Z",
-    "updated_at": "2023-10-20T23:59:38Z",
+    "updated_at": "2023-10-31T11:04:36Z",
     "clone_url": "https://github.com/thirdweb-example/nft-staking-app.git",
     "topics": [
       "erc20",
@@ -1137,7 +1176,7 @@
       "staking"
     ],
     "language": "TypeScript",
-    "stargazers_count": 126,
+    "stargazers_count": 127,
     "is_template": false,
     "homepage": "https://nft-staking-contract.thirdweb-example.com/"
   },
@@ -1252,11 +1291,11 @@
     "html_url": "https://github.com/thirdweb-example/phaser-platformer",
     "description": null,
     "created_at": "2023-01-13T16:58:19Z",
-    "updated_at": "2023-01-31T00:20:59Z",
+    "updated_at": "2023-10-31T01:11:19Z",
     "clone_url": "https://github.com/thirdweb-example/phaser-platformer.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 1,
+    "stargazers_count": 2,
     "is_template": false,
     "homepage": null
   },
@@ -1531,11 +1570,11 @@
     "html_url": "https://github.com/thirdweb-example/smart-wallet-react",
     "description": "Connecting and interacting using smart wallets in a React app",
     "created_at": "2023-05-04T11:41:45Z",
-    "updated_at": "2023-10-20T10:29:54Z",
+    "updated_at": "2023-11-03T01:16:33Z",
     "clone_url": "https://github.com/thirdweb-example/smart-wallet-react.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 12,
+    "stargazers_count": 14,
     "is_template": false,
     "homepage": "https://smart-wallet-react.thirdweb-preview.com/"
   },
@@ -1842,7 +1881,7 @@
     "html_url": "https://github.com/thirdweb-example/token-gated-account",
     "description": "Create token bound smart wallets for your users using the thirdweb Solidity SDK!",
     "created_at": "2023-05-10T18:20:21Z",
-    "updated_at": "2023-07-18T01:08:17Z",
+    "updated_at": "2023-11-05T10:12:17Z",
     "clone_url": "https://github.com/thirdweb-example/token-gated-account.git",
     "topics": [
       "account-abstraction",
@@ -1853,7 +1892,7 @@
       "token-bound-account"
     ],
     "language": "Solidity",
-    "stargazers_count": 4,
+    "stargazers_count": 6,
     "is_template": true,
     "homepage": ""
   },
@@ -1901,13 +1940,13 @@
     "html_url": "https://github.com/thirdweb-example/unity-karting-game",
     "description": "Purchase Vehicle NFTs from an in-game marketplace and start earning ERC20 tokens used to buy upgrades!",
     "created_at": "2022-11-28T07:07:24Z",
-    "updated_at": "2023-09-16T19:50:20Z",
+    "updated_at": "2023-11-02T02:18:58Z",
     "clone_url": "https://github.com/thirdweb-example/unity-karting-game.git",
     "topics": [
       "gaming"
     ],
     "language": "C#",
-    "stargazers_count": 6,
+    "stargazers_count": 7,
     "is_template": false,
     "homepage": "https://unity-karting-game.thirdweb-example.com"
   },

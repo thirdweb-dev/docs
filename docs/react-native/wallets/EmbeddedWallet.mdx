@@ -25,31 +25,7 @@ const embeddedWalletConfig = embeddedWallet();
 />
 
 <details>
-  <summary>email (optional)</summary>
-  <div>
-
-Whether to turn on or off the email login option.
-
-- If set to `true` (default), an email input text field will be shown on the modal.
-- If set to `false`, the email input text field will not be shown on the modal.
-
-````ts
-
-Must be a `boolean`.
-
-```ts
-embeddedWallet({
-  // highlight-start
-  email: true,
-  // highlight-end
-});
-````
-
-</div>
-</details>
-
-<details>
-  <summary>oauthOptions (optional)</summary>
+  <summary>authentication options (optional)</summary>
   <div>
 
 Whether to show the Sign In with different providers.
@@ -67,9 +43,9 @@ We wrote [a short guide](/react-native/faq/deeplinks) to help you enable deep li
 ```ts
 embeddedWallet({
   // highlight-start
-  oauthOptions: {
-    providers: ["google"],
-    redirectUrl: "your.scheme://",
+  auth: {
+    options: ["email", "google"],
+    redirectUrl: "deep-link-to-your-app://",
   },
   // highlight-end
 });
@@ -132,3 +108,86 @@ To allow users to connect to this wallet using the [ConnectWallet](/react-native
   <YourApp />
 </ThirdwebProvider>
 ```
+
+## Usage with `useEmbeddedWallet`
+
+You can use the `useEmbeddedWallet` hook to programmatically connect to the wallet without using the [ConnectWallet](/react/react.connectwallet) component.
+
+The wallet also needs to be added in [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) if you want the wallet to auto-connect on next page load.
+
+The hook will return all the necessary functions you'll need to authenticate and connect to the embedded wallet.
+
+**Connecting with Google sign in:**
+
+```tsx
+function App() {
+  const { connect } = useEmbeddedWallet();
+
+  const handleConnect = async () => {
+    await connect({
+      strategy: "google",
+      redirectUrl: "deep-link-to-your-app://",
+    });
+  };
+
+  return <View> ... </View>;
+}
+```
+
+**Connecting with email verification:**
+
+```tsx
+function App() {
+  const { connect, sendVerificationEmail } = useEmbeddedWallet();
+
+  const preLogin = async (email: string) => {
+    // send email verification code
+    await sendVerificationEmail({ email });
+  };
+
+  const handleLogin = async (email: string, verificationCode: string) => {
+    // verify email and connect
+    await connect({
+      strategy: "email_verification",
+      email,
+      verificationCode,
+    });
+  };
+
+  return <View> ... </View>;
+}
+```
+
+### Available connection strategies
+
+```ts
+// email verification
+type EmailVerificationAuthParams = {
+  strategy: "email_verification";
+  email: string;
+  verificationCode: string;
+  recoveryCode?: string;
+};
+
+// google sign-in
+type GoogleAuthParams = {
+  strategy: "google";
+  redirectUrl: string;
+};
+
+// bring your own authentication
+type JwtAuthParams = {
+  strategy: "jwt";
+  jwt: string;
+  encryptionKey?: string;
+};
+```
+
+<details>
+  <summary>chainId (optional)</summary>
+<div>
+
+If `chainId` is provided, wallet will be connected to network with given `chainId`, else wallet will be connected to the `activeChain` by default.
+
+</div>
+</details>
