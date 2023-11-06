@@ -1,0 +1,97 @@
+---
+slug: /embedded-wallet/interact
+title: Interact with the blockchain
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import QuickstartCard from "@components/QuickstartCard";
+
+One connected, embedded wallets can be used alongside the [Contract SDK](/sdk) to interact with the blockchain.
+
+## Initialize the SDK With Your Wallet
+
+<Tabs>
+   <TabItem value="react" label="React & React Native">
+
+The `ThirdwebProvider` handles maintaining the connection state, and allows using all the hooks in the SDK to interact with the blockchain as the connected user.
+
+Here's an example using the `Web3Button` component to claim an NFT on a smart contract:
+
+```tsx
+export default function App() {
+  return (
+    <ThirdwebProvider
+      activeChain="goerli"
+      clientId="YOUR_CLIENT_ID"
+      supportedWallets={[embeddedWallet()]}
+    >
+      <Web3Button
+        contractAddress="0x..."
+        action={(contract) => contract.erc721.claim(1)}
+      >
+        Claim NFT
+      </Web3Button>
+    </ThirdwebProvider>
+  );
+}
+```
+
+</TabItem>
+    <TabItem value="typescript" label="Other Frameworks">
+
+To initialize the Contract SDK with your wallet, use the [`fromWallet`](https://portal.thirdweb.com/typescript/sdk.thirdwebsdk.fromwallet) method:
+
+```typescript
+import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+import { EmbeddedWallet } from "@thirdweb-dev/wallet";
+
+const wallet = new EmbeddedWallet();
+await wallet.connect();
+
+const sdk = ThirdwebSDK.fromWallet(wallet, "ethereum", {
+  clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
+  secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
+});
+
+const contract = await sdk.getContract("0x...");
+await contract.erc721.claim(1);
+```
+
+</TabItem>
+</Tabs>
+
+## Full Reference
+
+View everything you can do in the Contract SDK once you have connected your wallet:
+
+<div className="row" style={{ marginBottom: 12, padding: 8, paddingTop: 0 }}>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Wallet SDK"
+      link="/wallet"
+      image="/assets/product/wallet.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="React SDK"
+      link="/react"
+      image="/assets/languages/react.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="React Native SDK"
+      link="/react-native"
+      image="/assets/languages/react-native.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Unity SDK"
+      link="/unity"
+      image="/assets/languages/unity.webp"
+    />
+  </div>
+</div>

@@ -1,0 +1,54 @@
+---
+slug: /smart-wallet/faqs
+title: FAQs
+hide_title: true
+---
+
+# FAQs
+
+### Can users have the same smart wallet address on all EVM chains?
+
+Yes, by using our Smart Wallet contracts, it is possible to enable predictable addresses per user across all EVM chains. To do this, ensure that your **account factory** has the same address on every chain. You can accomplish this from the dashboard by enabling "Deterministic address" when deploying the account factory.
+
+### Can I sign transactions with my smart wallet?
+
+Smart contract wallets cannot sign transactions themselves, only the 'owners' of the smart wallet can. The way to achieve this is to follow [EIP-1271](https://eips.ethereum.org/EIPS/eip-1271) which requires to ask the smart contract wallet if the recovered address is indeed an owner.
+
+### How do I sign transactions with my smart wallet?
+
+Transactions are signed by the 'owners' of the smart contract wallet, where the owner is an EOA that acts as we key for the smart contract wallet.
+
+### What are the differences between smart wallet and local wallet?
+
+Smart wallets and local wallets are both types of wallets with different features and functionalities.
+
+Smart wallets are controlled by a smart contract following the ERC-4337 specification. Smart wallets are powered by account abstraction and enable powerful gasless experiences for users. They are managed by a contract account instead of an externally owned account (EOA). For more information on smart wallets, please refer to our [smart wallet overview](https://portal.thirdweb.com/smart-wallet).
+
+Local wallets are a flexible and advanced solution for building fully-featured wallet experiences. They are tied to the user's device and can be exported at a later date. Local wallets offer powerful use cases such as guest mode, invisible wallet experiences, temporary wallets that can be upgraded to EOAs, simple password flow, and more. For more information on local wallets, please refer to our [local wallet overview](https://portal.thirdweb.com/wallet/local-wallet).
+
+### What do smart wallets add when used with Embedded Wallets**?**
+
+Embedded Wallets and Smart Wallet are a powerful combination that allows users to sign in using their email, social media accounts, or custom JWT method (Embedded Wallet), and provides a completely gasless user experience (Smart Wallet).
+
+### What is the difference between Dynamic Account Factory and Managed Account Factory smart wallets?
+
+With `DynamicAccountFactory`, updates are opt-in **for its **`DynamicAccount` smart wallets, while the admin of the `ManagedAccountFactory` contract can push upgrades to all `ManagedAccount` smart wallets that it creates. Examples of each are included on the deploy pages as follows:
+
+- Managed - https://thirdweb.com/thirdweb.eth/ManagedAccountFactory
+- Dynamic - https://thirdweb.com/thirdweb.eth/DynamicAccountFactory
+
+### What is an example use case for Dynamic Account Factory smart wallets? and Managed Account Factory smart wallets?
+
+`DynamicAccountFactory` updates are opt-in **for its **`DynamicAccount` smart wallets, meaning the developer cannot \*\*\*\*push upgrades to its users’ wallets, the users will need to upgrade themselves.
+
+A game with in-game NFT items wants to offer its players the ability to store their NFT items in a staking vault as soon as their wallets receive these NFTs. This would be an upgrade to the smart wallet contract’s `onERC721Received` and `onERC1155Received` transfer hooks.
+
+The game can provide this upgrade as an opt-in upgrade to their players.
+
+### Are smart wallets custodial or non-custodial?
+
+Smart wallets are non-custodial. A smart contract wallet is a type of non-custodial web3 wallet that uses smart contracts to operate and manage assets via an admin wallet that signs on behalf of the smart wallet
+
+### When should I choose smart wallets over Embedded Wallets?
+
+Embedded Wallets and Smart Wallet are powerful when used in combination, but there are certain applications that will benefit more from just one of the wallet options. Smart wallets are powerful for enabling a seamless web3 experience on the backend (i.e. gasless transactions) and Embedded Wallets allow users to create a wallet with just their email, social, or custom Auth logins.

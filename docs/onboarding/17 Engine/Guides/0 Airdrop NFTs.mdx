@@ -1,0 +1,118 @@
+---
+slug: /guides/engine/airdrop-nfts
+title: Airdrop NFTs
+---
+
+import QuickstartCard from "@components/QuickstartCard";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Engine makes it effortless for any developer to airdrop NFTs at scale. You only pay for gas!
+
+> This guide references Polygon Mumbai testnet and NextJS but is applicable for any EVM chain and full-stack framework.
+
+## Prerequisites
+
+- An Engine instance
+- A [backend wallet](/engine/backend-wallets) with [MATIC on Mumbai](https://mumbaifaucet.com/)
+- A deployed NFT contract that can be claimed by the backend wallet
+- A client ID and secret key from the [API Keys page](https://thirdweb.com/dashboard/settings/api-keys)
+
+## Frontend: Add Connect Wallet and Claim buttons
+
+Use [`<ConnectWallet>`](https://portal.thirdweb.com/react/react.connectwallet) to prompt the user for their wallet. The **Claim** button calls `POST /api/claim`.
+
+```tsx
+export default function Home() {
+  return (
+    <ThirdwebProvider activeChain="mumbai" clientId="<thirdweb_client_id>">
+      <ClaimPage />
+    </ThirdwebProvider>
+  );
+}
+
+function ClaimPage() {
+  const userWalletAddress = useAddress();
+
+  const onClick = async () => {
+    await fetch("/api/claim", {
+      method: "POST",
+      body: JSON.stringify({ userWalletAddress }),
+    });
+    alert(`🎉 A reward has been sent to your wallet: ${userWalletAddress}`);
+  };
+
+  return (
+    <main>
+      <h2>Thank you for being a superfan! ❤️</h2>
+      <ConnectWallet />
+      {userWalletAddress && <button onClick={onClick}>Claim my reward</button>}
+    </main>
+  );
+}
+```
+
+_Replace `<thirdweb_client_id>`_.
+
+## Backend: Call Engine to mint an NFT
+
+`POST /api/claim` calls Engine to mint an NFT to the user's wallet.
+
+```tsx
+export async function POST(request: Request) {
+  const { userWalletAddress } = await request.json();
+
+  await fetch(
+    "<engine_url>/contract/mumbai/<nft_contract_address>/erc1155/mint-to",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer <thirdweb_secret_key>",
+        "x-backend-wallet-address": "<backend_wallet_address>",
+      },
+      body: JSON.stringify({
+        receiver: userWalletAddress,
+        metadataWithSupply: {
+          metadata: {
+            name: "Acme Inc. Superfan",
+            description: "Created with thirdweb Engine",
+            image:
+              "ipfs://QmciR3WLJsf2BgzTSjbG5zCxsrEQ8PqsHK7JWGWsDSNo46/nft.png",
+          },
+          supply: "1",
+        },
+      }),
+    },
+  );
+
+  return NextResponse.json({ message: "Success!" });
+}
+```
+
+## Try it out!
+
+Here’s what the user flow looks like.
+
+The app prompts the user to connect their wallet.
+![Initial page load](../assets/airdrop-nfts-1.png)
+![The app prompts the user to connect their wallet.](../assets/airdrop-nfts-2.png)
+
+A user presses claim.
+![A user presses claim.](../assets/airdrop-nfts-3.png)
+
+They'll receive the NFT in their wallet shortly!
+![They'll receive the NFT in their wallet shortly!](../assets/airdrop-nfts-4.png)
+
+## Full code example
+
+The code above is simplified for readability. View the full source code:
+
+<div className="col col--12" style={{ padding: 8 }}>
+  <QuickstartCard
+    name="Airdrop NFTs template"
+    link="https://github.com/thirdweb-example/engine-minting-api"
+    image="/assets/github-icon.webp"
+  />
+</div>

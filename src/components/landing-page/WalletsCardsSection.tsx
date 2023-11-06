@@ -10,17 +10,10 @@ type Product = {
 
 const products: Product[] = [
   {
-    image: "/assets/product/wallet.png",
-    name: "Wallet SDK",
-    description:
-      "Integrate, connect and embed wallets into web3 apps and games",
-    link: "/wallet",
-  },
-  {
     image: "/assets/product/connect-wallet.png",
-    name: "Connect Wallet",
+    name: "Connect",
     description: "Enable users to connect their wallets to web3 apps and games",
-    link: "react/react.connectwallet",
+    link: "/connect",
   },
   {
     image: "/assets/wallets/smart-wallet.svg",
@@ -34,7 +27,14 @@ const products: Product[] = [
     name: "Embedded Wallet",
     description:
       "Easily create and connect users with social or email wallets in your application",
-    link: "/wallet/paper",
+    link: "/embedded-wallet",
+  },
+  {
+    image: "/assets/product/wallet.png",
+    name: "Wallet SDK",
+    description:
+      "Integrate, connect and embed wallets into web3 apps and games",
+    link: "/wallet",
   },
   {
     image: "/assets/product/auth.png",

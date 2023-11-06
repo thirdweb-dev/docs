@@ -400,7 +400,7 @@ TransactionTask;
 
 ## getClaimerProofs
 
-Returns allowlist information and merkle proofs for a given wallet address.
+Returns allowlist information and merkle proofs for a given wallet address. Returns `null` if no proof is found for the given wallet address.
 
 ```javascript
 const claimerProofs = await contract.erc721.claimConditions.getClaimerProofs(

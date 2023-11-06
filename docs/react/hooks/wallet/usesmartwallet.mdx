@@ -7,52 +7,22 @@ sidebar_position: 9
 
 Hook that allows users to connect their [Smart wallet](/wallet/smart-wallet) to your dApp.
 
-Before connecting to Smart wallet, a personal wallet must be connected and should be on the same network which Smart wallet is deployed to
-
-You can connect to a personal wallet using either [useConnect](/react/react.useconnect) hook or wallet specific hook - for example: [useMetamask](/react/react.usemetamask)
-
-From this state, you are ready
-to use the `useSmartWallet` hook in your app:
+The `useSmartWallet()` hook will handle connecting both the personal wallet and the Smart Wallet.
 
 ```tsx
-import { Goerli } from "@thirdweb-dev/chains";
-import { useSmartWallet, useWallet } from "@thirdweb-dev/react";
-import { SmartWallet } from "@thirdweb-dev/wallets";
+import { useSmartWallet } from "@thirdweb-dev/react";
 
 const Home = () => {
-  const connectToSmartWallet = useSmartWallet();
-  const wallet = useWallet();
-  const connectToMetamask = useMetamask(); // using metamask as personal wallet
-
-  if (!wallet) {
-    return (
-      <button
-        onClick={() => {
-          connectToMetamask({
-            chainId: Goerli.chainId,
-          });
-        }}
-      >
-        Connect personal wallet
-      </button>
-    );
-  }
-
-  if (wallet instanceof SmartWallet) {
-    return <div>Smart wallet is connected</div>;
-  }
+  // Here we use metamask as the personal wallet
+  const { connect } = useSmartWallet(metamaskWallet(), {
+    factoryAddress: "0x...",
+    gasless: true,
+  });
 
   return (
     <button
       onClick={async () =>
-        await connectToSmartWallet({
-          factoryAddress: "FACTORY_ADDRESS", // your own deployed account factory address
-          clientId: "{{client_id}}", // api key obtained from the thirdweb dashboard
-          chain: Goerli, // chain that the Smart Wallet contract is deployed to.
-          personalWallet: wallet,
-          gasless: true, // enable or disable gasless transactions
-          // ...
-        })
+        await connect();
       }
     >
       Connect Smart Wallet
@@ -63,17 +33,99 @@ const Home = () => {
 
 The [smartWallet](/react/react.smartWallet) (with all personalWallets configured) need to be added in [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) if you want the wallet to auto-connect on next page load.
 
+### Using [`EmbeddedWallet`](/embedded-wallet) as the personal signer
+
+You can have your users sign in with email or social and then connect their associated Smart Wallet.
+
+```tsx
+const { connect } = useSmartWallet(embeddedWallet(), {
+  factoryAddress: factoryAddress,
+  gasless: true,
+});
+
+const onClick = async () => {
+  await connect({
+    connectPersonalWallet: async (embeddedWallet) => {
+      // login with google and connect the embedded wallet
+      const authResult = await embeddedWallet.authenticate({
+        strategy: "google",
+      });
+      await embeddedWallet.connect({ authResult });
+    },
+  });
+};
+```
+
+### Using [`LocalWallet`](/wallet/local-wallet) as the personal signer
+
+You can generate wallets on device for your users and connect to the associated Smart Wallet.
+
+```tsx
+const { connect } = useSmartWallet(localWallet(), {
+  factoryAddress: "0x...",
+  gasless: true,
+});
+
+const onClick = async () => {
+  await connect({
+    connectPersonalWallet: async (localWallet) => {
+      // Generate and connect s local wallet before using it as the personal signer
+      await localWallet.generate();
+      await localWallet.connect();
+    },
+  });
+};
+```
+
+### Predicting the Smart Wallet address
+
+THe `useSmartWallet()` also returns a function to predict a smart wallet address given a personal wallet address before connecting to it.
+
+```tsx
+const { predictAddress } = useSmartWallet(localWallet(), {
+  factoryAddress: "0x...",
+  gasless: true,
+});
+
+const onClick = async () => {
+  const address = await predictAddress({
+    personalWalletAddress: "0x...",
+  });
+  console.log("Predicted Smart Wallet address", address);
+};
+```
+
+## Connect options
+
+<details>
+  <summary>connectPersonalWallet (optional)</summary>
+  <div>
+
+A function to determine how to connect to the given personal wallet. Gives a created instance of the wallet as an argument.
+
+</div>
+</details>
+
+<details>
+  <summary>accountAddress (optional)</summary>
+  <div>
+
+The specific smart wallet address to connect to.
+
+</div>
+</details>
+
 ## Configuration
 
 ### Mandatory properties
 
 <details>
-  <summary>chain</summary>
+  <summary>personalWallet</summary>
   <div>
 
-The chain that the Smart Wallet contract is deployed to.
+A wallet configuration object from [@thirdweb-dev/react](https://www.npmjs.com/package/@thirdweb-dev/react) package.
 
-Either a `Chain` object, from the [`@thirdweb-dev/chains`](https://www.npmjs.com/package/@thirdweb-dev/chains) package, a chain name, or an RPC URL.
+Ex: `metamaksWallet()`, `coinbaseWallet()`, `walletConnectWallet()`, `embeddedWallet()`, `localWallet()`, etc.
 
 </div>
 </details>
@@ -99,15 +151,6 @@ Whether to turn on or off gasless transactions.
 - If set to `false`, all gas fees will be paid by the Smart Wallet itself (needs to be funded).
 
 Must be a `boolean`.
-
-</div>
-</details>
-
-<details>
-  <summary>personalWallet</summary>
-  <div>
-
-a connected wallet instance of type `WalletInstance` from [@thirdweb-dev/react](https://www.npmjs.com/package/@thirdweb-dev/react) package
 
 </div>
 </details>

@@ -1,0 +1,191 @@
+---
+slug: /engine/webhooks
+title: Webhooks
+---
+
+Use webhooks for Engine to notify your backend server of crucial transaction or backend wallet events.
+
+> `http://localhost:*` is allowed. Otherwise endpoint URLs must use `https`.
+
+## Supported events
+
+| Event                    | Description                                                                  |
+| ------------------------ | ---------------------------------------------------------------------------- |
+| `all_transaction`        | Subscribe to all transaction events (queued, sent, mined, errored, retried). |
+| `queued_transaction`     | A transaction was queued by Engine.                                          |
+| `sent_transaction`       | A transaction was sent to an RPC provider.                                   |
+| `mined_transaction`      | A transaction was mined on the blockchain                                    |
+| `errored_transaction`    | A transaction was errored out.                                               |
+| `retried_transaction`    | A transaction was retried.                                                   |
+| `cancelled_transaction`  | A transaction was cancelled.                                                 |
+| `backend_wallet_balance` | The backend wallet's balance dropped below `minWalletBalance`.               |
+
+## Setup
+
+### Backend wallet balance
+
+Define the `minWalletBalance` (in the blockchain native coin) to maintain in each backend wallet. The default value is value is `2000000000000000 wei` (e.g. 0.002 ETH). A webhook event will be sent if a backend wallet balance falls below this value.
+
+To read or update this value, call `GET/POST /configuration/backend-wallet-balance`.
+
+### Transaction events
+
+Create a webhook by calling `POST /webhooks/create`.
+
+## Webhook verification
+
+To secure your webhook endpoint, verify the request originated from Engine.
+
+### Check the signature
+
+The payload body is signed with the webhook secret and provided in the `X-Engine-Signature` request header.
+
+This code example checks if the signature is valid:
+
+```ts
+const generateSignature = (
+  body: string,
+  timestamp: string,
+  secret: string,
+): string => {
+  const payload = `${timestamp}.${body}`;
+  return crypto.createHmac("sha256", secret).update(payload).digest("hex");
+};
+
+const isValidSignature = (
+  body: string,
+  timestamp: string,
+  signature: string,
+  secret: string,
+): boolean => {
+  const expectedSignature = generateSignature(body, timestamp, secret);
+  return crypto.timingSafeEqual(
+    Buffer.from(expectedSignature),
+    Buffer.from(signature),
+  );
+};
+```
+
+### Check the timestamp
+
+The event timestamp is provided in the `X-Engine-Timestamp` request header.
+
+This code example checks if the event exceeds a given expiration duration:
+
+```ts
+export const isExpired = (
+  timestamp: string,
+  expirationInSeconds: number,
+): boolean => {
+  const currentTime = Math.floor(Date.now() / 1000);
+  return currentTime - parseInt(timestamp) > expirationInSeconds;
+};
+```
+
+### Example webhook endpoint
+
+This NodeJS code example listens for event notifications on the `/webhook` endpoint:
+
+```ts
+import express from "express";
+import bodyParser from "body-parser";
+import { isValidSignature, isExpired } from "./webhookHelper";
+
+const app = express();
+const port = 3000;
+
+const WEBHOOK_SECRET = "<your_webhook_auth_secret>";
+
+app.use(bodyParser.text());
+
+app.post("/webhook", (req, res) => {
+  const signatureFromHeader = req.header("X-Engine-Signature");
+  const timestampFromHeader = req.header("X-Engine-Timestamp");
+
+  if (!signatureFromHeader || !timestampFromHeader) {
+    return res.status(401).send("Missing signature or timestamp header");
+  }
+
+  if (
+    !isValidSignature(
+      req.body,
+      timestampFromHeader,
+      signatureFromHeader,
+      WEBHOOK_SECRET,
+    )
+  ) {
+    return res.status(401).send("Invalid signature");
+  }
+
+  if (isExpired(timestampFromHeader, 300)) {
+    // Assuming expiration time is 5 minutes (300 seconds)
+    return res.status(401).send("Request has expired");
+  }
+
+  // Process the request
+  res.status(200).send("Webhook received!");
+});
+
+app.listen(port, () => {
+  console.log(`Server started on http://localhost:${port}`);
+});
+```
+
+## Payload format
+
+The webhook request to your backend follows this format.
+
+Method: `POST`
+
+Headers:
+
+- `Content-Type`: `application/json`
+- `X-Engine-Signature`: &lt;payload signature&gt;
+- `X-Engine-Timestamp`: &lt;Unix timestamp in seconds&gt;
+
+```json
+{
+  "chainId": 80001,
+  "data": "0xa9059cbb0000000000000000000000003ecdbf3b911d0e9052b64850693888b008e183730000000000000000000000000000000000000000000000000000000000000064",
+  "value": "0x00",
+  "gasLimit": "39580",
+  "nonce": 1786,
+  "maxFeePerGas": "2063100466",
+  "maxPriorityFeePerGas": "1875545856",
+  "fromAddress": "0x3ecdbf3b911d0e9052b64850693888b008e18373",
+  "toAddress": "0x365b83d67d5539c6583b9c0266a548926bf216f4",
+  "gasPrice": "1875545871",
+  "transactionType": 2,
+  "transactionHash": "0xc3ffa42dd4734b017d483e1158a2e936c8a97dd1aa4e4ce11df80ac8e81d2c7e",
+  "signerAddress": null,
+  "accountAddress": null,
+  "target": null,
+  "sender": null,
+  "initCode": null,
+  "callData": null,
+  "callGasLimit": null,
+  "verificationGasLimit": null,
+  "preVerificationGas": null,
+  "paymasterAndData": null,
+  "userOpHash": null,
+  "functionName": "transfer",
+  "functionArgs": "0x3ecdbf3b911d0e9052b64850693888b008e18373,100",
+  "extension": "none",
+  "deployedContractAddress": null,
+  "deployedContractType": null,
+  "queuedAt": "2023-09-29T22:01:31.031Z",
+  "processedAt": "2023-09-29T22:01:38.754Z",
+  "sentAt": "2023-09-29T22:01:41.580Z",
+  "minedAt": "2023-09-29T22:01:44.000Z",
+  "cancelledAt": null,
+  "retryCount": 0,
+  "retryGasValues": false,
+  "retryMaxPriorityFeePerGas": null,
+  "retryMaxFeePerGas": null,
+  "errorMessage": null,
+  "sentAtBlockNumber": 40660021,
+  "blockNumber": 40660026,
+  "queueId": "1411246e-b1c8-4f5d-9a25-8c1f40b54e55",
+  "status": "mined"
+}
+```

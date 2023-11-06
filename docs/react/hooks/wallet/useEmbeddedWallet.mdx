@@ -1,0 +1,99 @@
+---
+title: useEmbeddedWallet
+slug: /react.useembeeddedwallet
+displayed_sidebar: react
+sidebar_position: 10
+---
+
+Hook that prompts users to connect their [EmbeddedWallet](/embedded-wallet) to your app.
+
+```jsx
+import { useEmbeddedWallet } from "@thirdweb-dev/react";
+```
+
+The [embeddedWallet](/react/react.embeddedwallet) also needs to be added in [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) if you want the wallet to auto-connect on next page load.
+
+## Usage
+
+Call the `connect` function returned by the `useEmbeddedWallet` hook to prompt the user to connect their Frame wallet to your dApp.
+
+You can then use the [`useAddress`](/react/react.useaddress) hook to get the user's address anywhere in your app.
+
+```jsx
+import { useEmbeddedWallet } from "@thirdweb-dev/react";
+
+function App() {
+  const { connect } = useEmbeddedWallet();
+
+  const handleLogin = async () => {
+    await connect({
+      strategy: "google",
+    });
+  };
+
+  return <button onClick={handleLogin}>Connect Embedded wallet</button>;
+}
+```
+
+### Connect with email verification
+
+```tsx
+import { useEmbeddedWallet } from "@thirdweb-dev/react";
+
+function App() {
+  const { connect, sendVerificationEmail } = useEmbeddedWallet();
+
+  const preLogin = async (email: string) => {
+    // send email verification code
+    await sendVerificationEmail({ email });
+  };
+
+  const handleLogin = async (email: string, verificationCode: string) => {
+    // verify email and connect
+    await connect({
+      strategy: "email_verification",
+      email,
+      verificationCode,
+    });
+  };
+
+  return <div> ... </div>;
+}
+```
+
+### Available connection strategies
+
+```tsx
+// email verification
+type EmailVerificationAuthParams = {
+  strategy: "email_verification";
+  email: string;
+  verificationCode: string;
+  recoveryCode?: string;
+};
+
+// google sign-in
+type GoogleAuthParams = {
+  strategy: "google";
+  openedWindow?: Window;
+  closeOpenedWindow?: (window: Window) => void;
+};
+
+// bring your own authentication
+type JwtAuthParams = {
+  strategy: "jwt";
+  jwt: string;
+  encryptionKey?: string;
+};
+
+// open iframe to send and input the verification code only
+type IframeOtpAuthParams = {
+  strategy: "iframe_email_verification";
+  email: string;
+};
+
+// open iframe to enter email and verification code
+type IframeAuthParams = {
+  strategy: "iframe";
+};
+```

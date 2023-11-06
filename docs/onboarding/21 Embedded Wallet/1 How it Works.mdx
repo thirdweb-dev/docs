@@ -1,13 +1,13 @@
 ---
 slug: /embedded-wallet/how-it-works
-title: How it Works
+title: How it works
 ---
+
+![App Scopes](./assets/app-scoped.svg)
 
 ## One Embedded Wallet Per App
 
-![App Scopes](./assets/app-scoped.png)
-
-Embedded wallets are scoped to your app. If a user uses the same email to sign in to a different app, that app will manage a different wallet entirely. However, users can get a global view of all their application-scoped Embedded Wallets by logging into the [My Wallets](https://ews.thirdweb.com/wallet) page.
+Embedded wallets are scoped to your app (per API key). If a user uses the same email to sign in to a different app, that app will manage a different wallet entirely. However, users can get a global view of all their application-scoped Embedded Wallets by logging into the [My Wallets](https://ews.thirdweb.com/wallet) page.
 
 **Benefits:**
 
@@ -15,9 +15,11 @@ Embedded wallets are scoped to your app. If a user uses the same email to sign i
 - Users only see tokens sent/purchased from your app.
 - Some behind-the-scenes information can be shared to improve the user experience, such as saved payment methods and KYC verification provided to thirdweb. Apps can never view this information.
 
-## Scaling and Security
+## Scalability
 
-### Sharded Private Keys
+You can create up to 100 wallets/second by default and can support higher limits (up to 3,000 wallets/second) upon request.
+
+## Security
 
 **A private key is constructed on the user's device after they sign in.**
 
@@ -35,8 +37,4 @@ With threshold secret sharing, your customers’ assets are safe even if thirdwe
 
 ### Audits
 
-The Embedded Wallet private key security architecture has been audited by HackerOne, and there is an ongoing bounty program to ensure vulnerabilities are being covered.
-
-### Embedded Wallet Scalability
-
-You can create up to 100 wallets/second by default and can support higher limits (up to 3,000 wallets/second) upon request.
+The Embedded Wallet private key security architecture has been audited by [HackerOne](https://www.hackerone.com/), and there is an ongoing bounty program to ensure vulnerabilities are being covered. [View the Letter of Attestation](./assets/_Thirdweb__Code_Security_Audit_-_Letter_of_Attestation.pdf).

@@ -67,7 +67,7 @@ This helps to mitigate the possibility that a user could be tricked into signing
 
 ### `statement`
 
-This is an arbitrary statement displayed as the user is logging in, an is often used to display a link to an applications terms of service. By default, Auth uses this line to further prevent phishing attacks as it prompts the user to double-check that the domain matchs the current URL of the app that they are on: `Please ensure that the domain above matches the URL of the current website.`
+This is an arbitrary statement displayed as the user is logging in, an is often used to display a link to an applications terms of service. By default, Auth uses this line to further prevent phishing attacks as it prompts the user to double-check that the domain matches the current URL of the app that they are on: `Please ensure that the domain above matches the URL of the current website.`
 
 ### `chainId`
 
@@ -91,7 +91,7 @@ First, we ensure that all the static values on the login payload are correct. Th
 
 ### 2. Check that the payload hasn't already been used
 
-Next, we ensure that the payload hasn't already been used for another login, as that would indicate that there could be a replay attack occuring. This can be accomplished using any data-storage scheme by checking that the `nonce` is not already present in our storage, and if not, we add it to our storage for later validation.
+Next, we ensure that the payload hasn't already been used for another login, as that would indicate that there could be a replay attack occurring. This can be accomplished using any data-storage scheme by checking that the `nonce` is not already present in our storage, and if not, we add it to our storage for later validation.
 
 ### 3. Check that the payload is currently valid
 

@@ -1,0 +1,104 @@
+---
+slug: /embedded-wallet/use
+title: Interact with wallets
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import QuickstartCard from "@components/QuickstartCard";
+
+Once connected, you can interact with the wallet using the `EmbeddedWallet` instance or React hooks.
+
+## Obtain the connected `EmbeddedWallet` instance
+
+<Tabs>
+<TabItem value="react" label="React & React Native">
+
+In react, you can access the wallet instance using the `useWallet` hook.
+
+```typescript
+import { useWallet } from "@thirdweb-dev/react"; // or /react-native
+
+const embeddedWallet = useWallet("embeddedWallet");
+```
+
+</TabItem>
+
+<TabItem value="typescript" label="Other Frameworks">
+
+In other frameworks, you can create an use your own instance of the wallet.
+
+```typescript
+import { EmbeddedWallet } from "@thirdweb-dev/wallets";
+import { Goerli } from "@thirdweb-dev/chains";
+
+const embeddedWallet = new EmbeddedWallet({
+  chain: Goerli, //  chain to connect to
+  clientId: "YOUR_CLIENT_ID", // Your thirdweb client ID
+});
+```
+
+</TabItem>
+</Tabs>
+
+## Get the user email
+
+```typescript
+const email = await embeddedWallet.getEmail();
+```
+
+## Get the user wallet address
+
+<Tabs>
+<TabItem value="react" label="React & React Native">
+
+```typescript
+import { useAddress } from "@thirdweb-dev/react"; // or /react-native
+
+const address = useAddress();
+```
+
+</TabItem>
+
+<TabItem value="typescript" label="Other Frameworks">
+
+```typescript
+const address = await embeddedWallet.getAddress();
+```
+
+</TabItem>
+</Tabs>
+
+## Get the user's signer
+
+<Tabs>
+<TabItem value="react" label="React & React Native">
+
+```typescript
+import { useSigner } from "@thirdweb-dev/react"; // or /react-native
+
+const signer = useSigner();
+```
+
+</TabItem>
+
+<TabItem value="typescript" label="Other Frameworks">
+
+```typescript
+await embeddedWallet.getSigner();
+```
+
+</TabItem>
+</Tabs>
+
+## Transfer funds
+
+```typescript
+await embeddedWallet.transfer("0x...", 0.1); // amount in ETH
+```
+
+## Sign a message
+
+```typescript
+await embeddedWallet.sign("Hello World!");
+```
