@@ -1138,6 +1138,19 @@
     "homepage": "https://next-typescript-starter.thirdweb-example.com"
   },
   {
+    "name": "nft-claiming-app",
+    "html_url": "https://github.com/thirdweb-example/nft-claiming-app",
+    "description": null,
+    "created_at": "2023-11-07T18:36:01Z",
+    "updated_at": "2023-11-07T18:36:15Z",
+    "clone_url": "https://github.com/thirdweb-example/nft-claiming-app.git",
+    "topics": [],
+    "language": "Java",
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": null
+  },
+  {
     "name": "nft-gallery",
     "html_url": "https://github.com/thirdweb-example/nft-gallery",
     "description": "Create a gallery of NFTs from an NFT Collection",
