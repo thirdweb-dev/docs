@@ -24,6 +24,7 @@ Run Engine locally:
 
 ```bash
 docker run \
+  -e ENCRYPTION_PASSWORD="<encryption_password>" \
   -e THIRDWEB_API_SECRET_KEY="<thirdweb_secret_key>" \
   -e ADMIN_WALLET_ADDRESS="<admin_wallet_address>" \
   -e POSTGRES_CONNECTION_URL="postgresql://postgres:postgres@host.docker.internal:5432/postgres?sslmode=disable" \
@@ -36,14 +37,13 @@ docker run \
 
 #### Environment variables
 
-| Variable                  | Description                                                                                                              |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| `THIRDWEB_SECRET_KEY`     | A thirdweb secret key created on the [API Keys page](https://thirdweb.com/dashboard/settings/api-keys).                  |
-| `ADMIN_WALLET_ADDRESS`    | The wallet address that will configure Engine from the thirdweb dashboard. You will be able to add other admins later.   |
-| `POSTGRES_CONNECTION_URL` | Postgres connection string: `postgresql://[user[:password]@][host][:port][/dbname][?param1=value1&...]`                  |
-| `ENABLE_HTTPS`            | Self-sign a certificate to serve API requests on HTTPS. Set to `true` if running Engine locally only. (Default: `false`) |
-
-**\*** Required
+| Variable                  | Description                                                                                                                            |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `ENCRYPTION_PASSWORD`     | Provide a string to encrypt sensitive data stored in DB. Do _not_ change this value or encrypted data will be inaccessible.            |
+| `THIRDWEB_SECRET_KEY`     | A thirdweb secret key created on the [API Keys page](https://thirdweb.com/dashboard/settings/api-keys).                                |
+| `ADMIN_WALLET_ADDRESS`    | The wallet address that will configure Engine from the thirdweb dashboard. You will be able to add other admins later.                 |
+| `POSTGRES_CONNECTION_URL` | Postgres connection string: `postgresql://[user[:password]@][host][:port][/dbname][?param1=value1&...]`                                |
+| `ENABLE_HTTPS`            | Self-sign a certificate to serve API requests on HTTPS. Set to `true` if running Engine locally only. <br/> Optional, default: `false` |
 
 Your server is running when this log line appears:
 
@@ -53,28 +53,14 @@ Server listening on: https://0.0.0.0:3005
 
 ### Production
 
+See [Production Checklist](/engine/production-checklist#cloud-hosting) for self-hosting best practices.
+
 :::tip
 
 Looking for a managed solution?
 [Request a cloud-hosted Engine](https://share.hsforms.com/1k5tu00ueS5OYMaxHK6De-gea58c) from thirdweb.
 
 :::
-
-- Deploy a cloud-hosted Postgres instance with [AWS RDS](https://aws.amazon.com/rds/postgresql) or [Google Cloud SQL](https://cloud.google.com/sql/docs/postgres).
-- Deploy a Engine to the cloud:
-
-  ```bash
-  docker run \
-    -e THIRDWEB_API_SECRET_KEY="<thirdweb_secret_key>" \
-    -e ADMIN_WALLET_ADDRESS="<admin_wallet_address>" \
-    -e POSTGRES_CONNECTION_URL="<postgres_connection_url>" \
-    -p 3005:3005 \
-    --pull=always \
-    --cpus="0.5" \
-    thirdweb/engine:latest
-  ```
-
-- Minimum recommended specs: 1 vCPU, 2 GB memory
 
 ## Use the dashboard
 
