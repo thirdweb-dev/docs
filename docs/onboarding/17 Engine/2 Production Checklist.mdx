@@ -1,0 +1,29 @@
+---
+slug: /engine/production-checklist
+title: Production Checklist
+---
+
+Follow best practices when using Engine in a production environment.
+
+### Security
+
+- Do _not_ set the environment variable `ENABLE_HTTPS=true`.
+- Securely store access tokens and the thirdweb secret key. Rotate these credentials if they are compromised.
+- Use labels to keep track of your wallets, admins, and access tokens.
+- Use access token with expirations to grant time-bound access.
+- Regularly review the admins list to remove inactive and former team members.
+
+### Cloud hosting
+
+- Host Engine Docker on a cloud provider.
+  - Minimum specs: 1 vCPU, 2 GB memory (AWS equivalent: t2.small)
+  - Autoscale the instance count to increase inbound throughput and queuing capacity.
+- Host Postgres DB on a cloud provider.
+  - Examples: [AWS RDS](https://aws.amazon.com/rds/postgresql/), [Google Cloud SQL](https://cloud.google.com/sql/docs/postgres), [Heroku](https://www.heroku.com/postgres), [Supabase](https://supabase.com/docs/guides/database/overview)
+  - Minimum specs: 2 vCPU, 2 GB memory (AWS equivalent: t4g.small)
+
+### Backend wallets
+
+- Recommended: Use a wallet backed by AWS KMS or Google KMS. Wallet access is always recoverable and private keys are never exposed.
+- If using a local wallet: **back up the private key**. Engine cannot recover private keys if the encrypted stored data is lost or corrupted.
+- Ensure your backend wallets have sufficient funds. Consider using [wallet webhooks](/engine/webhooks) to alert when your native coin balance is low.

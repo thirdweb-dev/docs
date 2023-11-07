@@ -1,0 +1,68 @@
+---
+slug: /wallet/okx-wallet
+title: OKX Wallet
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Prompt users to connect to their [OKX wallet](https://www.okx.com/web3).
+
+## Usage
+
+```javascript
+import { OKXWallet } from "@thirdweb-dev/wallets";
+
+const wallet = new OKXWallet();
+
+wallet.connect();
+```
+
+## Configuration
+
+Optionally, provide a configuration object when instantiating the `OKXWallet` class.
+
+<details>
+  <summary>projectId (recommended) </summary>
+  <div>
+
+This is only relevant if you want to use [WalletConnect](https://walletconnect.com/) for connecting to OKX wallet mobile app when MetaMask is not injected.
+
+This `projectId` can be obtained at [cloud.walletconnect.com](https://cloud.walletconnect.com/). It is highly recommended to use your own project id and only use the default one for testing purposes.
+
+```javascript
+import { OKXWallet } from "@thirdweb-dev/wallets";
+
+const wallet = new OKXWallet(
+  // highlight-start
+  {
+    projectId: "YOUR_WALLET_CONNECT_PROJECT_ID",
+  },
+  // highlight-end
+);
+```
+
+</div>
+</details>
+
+<details>
+  <summary>recommended (optional) </summary>
+  <div>
+
+Show this wallet as "recommended" in the [ConnectWallet Modal](/react/react.connectwallet).
+
+```ts
+OKXWallet({
+  // highlight-start
+  recommended: true,
+  // highlight-end
+});
+```
+
+</div>
+</details>
+
+## Methods
+
+Inherits all the public methods from the [`AbstractClientWallet`](interfaces/abstract-client-wallet) class.

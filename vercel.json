@@ -452,6 +452,10 @@
       "destination": "/unity"
     },
     {
+      "source": "/gamingkit",
+      "destination": "/unity"
+    },
+    {
       "source": "/gaming/learning-path",
       "destination": "/unity"
     },

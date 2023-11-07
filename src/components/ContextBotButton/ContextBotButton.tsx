@@ -4,7 +4,19 @@ import Head from "@docusaurus/Head";
 
 const contextBotId = "SV3HwtSN0";
 
+declare global {
+  interface Window {
+    posthog: any;
+  }
+}
+
 export function ContextBot() {
+  const handleClick = () => {
+    if (window.posthog) {
+      window.posthog.capture("ai-bot.click");
+    }
+  };
+
   return (
     <>
       <Head>
@@ -16,7 +28,7 @@ export function ContextBot() {
         ></script>
       </Head>
       <div context-launcher="true" context-bot-id={contextBotId}>
-        <button className={styles.contextButton}>
+        <button className={styles.contextButton} onClick={handleClick}>
           <StarsIcon />
           ASK AI
         </button>
