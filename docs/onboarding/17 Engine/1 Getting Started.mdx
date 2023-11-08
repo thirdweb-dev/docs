@@ -12,31 +12,21 @@ Engine is self-hosted with minimal configuration.
 - [Docker](https://docs.docker.com/get-docker/)
 - A thirdweb secret key from the [API Keys page](https://thirdweb.com/dashboard/settings/api-keys)
 
-### Start the database
+### Development
 
-A Postgres DB instance is required to run Engine. [AWS RDS](https://aws.amazon.com/rds/postgresql)/[Google Cloud SQL](https://cloud.google.com/sql/docs/postgres) is recommended for production use.
-
-Or run Postgres locally to get started quickly:
+Run Postgres locally:
 
 ```bash
 docker run -p 5432:5432 -e POSTGRES_PASSWORD=postgres -d postgres
 ```
 
-This step provides a local Postgres DB URL for the next step:
-
-```
-POSTGRES_CONNECTION_URL="postgresql://postgres:postgres@host.docker.internal:5432/postgres?sslmode=disable"
-```
-
-### Start the server
-
-Download and run the Docker container:
+Run Engine locally:
 
 ```bash
 docker run \
   -e THIRDWEB_API_SECRET_KEY="<thirdweb_secret_key>" \
   -e ADMIN_WALLET_ADDRESS="<admin_wallet_address>" \
-  -e POSTGRES_CONNECTION_URL="<postgres_connection_url>" \
+  -e POSTGRES_CONNECTION_URL="postgresql://postgres:postgres@host.docker.internal:5432/postgres?sslmode=disable" \
   -e ENABLE_HTTPS=true \
   -p 3005:3005 \
   --pull=always \
@@ -44,14 +34,16 @@ docker run \
   thirdweb/engine:latest
 ```
 
-Provide the following environment variables:
+#### Environment variables
 
-| Variable                  | Description                                                                                                                                                                                           |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `THIRDWEB_SECRET_KEY`     | A thirdweb secret key created on the [API Keys page](https://thirdweb.com/dashboard/settings/api-keys).                                                                                               |
-| `ADMIN_WALLET_ADDRESS`    | The wallet address that will configure Engine from the thirdweb dashboard.                                                                                                                            |
-| `POSTGRES_CONNECTION_URL` | Postgres connection string: `postgresql://[user[:password]@][host][:port][/dbname][?param1=value1&...]`                                                                                               |
-| `ENABLE_HTTPS`            | Self-sign a certificate to serve API requests on HTTPS. Set to `true` if running Engine locally to manage it from the [thirdweb dashboard](https://thirdweb.com/dashboard/engine). (Default: `false`) |
+| Variable                  | Description                                                                                                              |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `THIRDWEB_SECRET_KEY`     | A thirdweb secret key created on the [API Keys page](https://thirdweb.com/dashboard/settings/api-keys).                  |
+| `ADMIN_WALLET_ADDRESS`    | The wallet address that will configure Engine from the thirdweb dashboard. You will be able to add other admins later.   |
+| `POSTGRES_CONNECTION_URL` | Postgres connection string: `postgresql://[user[:password]@][host][:port][/dbname][?param1=value1&...]`                  |
+| `ENABLE_HTTPS`            | Self-sign a certificate to serve API requests on HTTPS. Set to `true` if running Engine locally only. (Default: `false`) |
+
+**\*** Required
 
 Your server is running when this log line appears:
 
@@ -59,13 +51,14 @@ Your server is running when this log line appears:
 Server listening on: https://0.0.0.0:3005
 ```
 
+### Production
+
+See [Production Checklist](/engine/production-checklist#cloud-hosting) for self-hosting best practices.
+
 :::tip
 
-Here's a few pointers:
-
-- `ENABLE_HTTPS=true` is only required when running Engine locally. Remove this line for production use.
-- Make sure your Engine instance port (default: `3005`) is publicly accessible. All configuration and API requests require authentication.
-- The `nightly` Docker image may contain new, undocumented, and possibly breaking changes. We appreciate feedback!
+Looking for a managed solution?
+[Request a cloud-hosted Engine](https://share.hsforms.com/1k5tu00ueS5OYMaxHK6De-gea58c) from thirdweb.
 
 :::
 
