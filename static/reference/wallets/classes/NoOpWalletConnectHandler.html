@@ -1,4 +1,4 @@
-<!DOCTYPE html><html class="default" lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>ChainNotConfiguredError | @thirdweb-dev/wallets</title><meta name="description" content="Documentation for @thirdweb-dev/wallets"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="../assets/style.css"/><link rel="stylesheet" href="../assets/highlight.css"/><script defer src="../assets/main.js"></script><script async src="../assets/search.js" id="tsd-search-script"></script><script async src="../assets/navigation.js" id="tsd-nav-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os"</script><header class="tsd-page-toolbar">
+<!DOCTYPE html><html class="default" lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>NoOpWalletConnectHandler | @thirdweb-dev/wallets</title><meta name="description" content="Documentation for @thirdweb-dev/wallets"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="../assets/style.css"/><link rel="stylesheet" href="../assets/highlight.css"/><script defer src="../assets/main.js"></script><script async src="../assets/search.js" id="tsd-search-script"></script><script async src="../assets/navigation.js" id="tsd-nav-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os"</script><header class="tsd-page-toolbar">
 <div class="tsd-toolbar-contents container">
 <div class="table-cell" id="tsd-search" data-base="..">
 <div class="field"><label for="tsd-search-field" class="tsd-widget tsd-toolbar-icon search no-caption"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><use href="#icon-search"></use></svg></label><input type="text" id="tsd-search-field" aria-label="Search"/></div>
@@ -13,16 +13,16 @@
 <div class="tsd-page-title">
 <ul class="tsd-breadcrumb">
 <li><a href="../index.html">@thirdweb-dev/wallets</a></li>
-<li><a href="ChainNotConfiguredError.html">ChainNotConfiguredError</a></li></ul>
-<h1>Class ChainNotConfiguredError</h1></div>
+<li><a href="NoOpWalletConnectHandler.html">NoOpWalletConnectHandler</a></li></ul>
+<h1>Class NoOpWalletConnectHandler</h1></div>
 <section class="tsd-panel tsd-hierarchy">
 <h4>Hierarchy</h4>
 <ul class="tsd-hierarchy">
-<li><span class="tsd-signature-type ">Error</span>
+<li><a href="WalletConnectHandler.html" class="tsd-signature-type tsd-kind-class">WalletConnectHandler</a>
 <ul class="tsd-hierarchy">
-<li><span class="target">ChainNotConfiguredError</span></li></ul></li></ul></section><aside class="tsd-sources">
+<li><span class="target">NoOpWalletConnectHandler</span></li></ul></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/ba49a82/packages/wallets/src/lib/wagmi-core/errors.ts#L78">packages/wallets/src/lib/wagmi-core/errors.ts:78</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/ba49a82/packages/wallets/src/core/WalletConnect/constants.ts#L4">packages/wallets/src/core/WalletConnect/constants.ts:4</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -30,41 +30,117 @@
 <div class="tsd-accordion-details">
 <section class="tsd-index-section">
 <h3 class="tsd-index-heading">Constructors</h3>
-<div class="tsd-index-list"><a href="ChainNotConfiguredError.html#constructor" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-512"></use></svg><span>constructor</span></a>
+<div class="tsd-index-list"><a href="NoOpWalletConnectHandler.html#constructor" class="tsd-index-link tsd-is-inherited"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-512"></use></svg><span>constructor</span></a>
 </div></section>
 <section class="tsd-index-section">
-<h3 class="tsd-index-heading">Properties</h3>
-<div class="tsd-index-list"><a href="ChainNotConfiguredError.html#name" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>name</span></a>
+<h3 class="tsd-index-heading">Methods</h3>
+<div class="tsd-index-list"><a href="NoOpWalletConnectHandler.html#approveEIP155Request" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>approveEIP155<wbr/>Request</span></a>
+<a href="NoOpWalletConnectHandler.html#approveSession" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>approve<wbr/>Session</span></a>
+<a href="NoOpWalletConnectHandler.html#connectApp" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>connect<wbr/>App</span></a>
+<a href="NoOpWalletConnectHandler.html#disconnectSession" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>disconnect<wbr/>Session</span></a>
+<a href="NoOpWalletConnectHandler.html#getActiveSessions" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Active<wbr/>Sessions</span></a>
+<a href="NoOpWalletConnectHandler.html#init" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>init</span></a>
+<a href="NoOpWalletConnectHandler.html#rejectEIP155Request" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>rejectEIP155<wbr/>Request</span></a>
+<a href="NoOpWalletConnectHandler.html#rejectSession" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>reject<wbr/>Session</span></a>
 </div></section></div></details></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Constructors</h2>
-<section class="tsd-panel tsd-member"><a id="constructor" class="tsd-anchor"></a>
+<section class="tsd-panel tsd-member tsd-is-inherited"><a id="constructor" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>constructor</span><a href="#constructor" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-is-inherited">
+<li class="tsd-signature tsd-anchor-link" id="constructor.new_NoOpWalletConnectHandler"><span class="tsd-kind-constructor-signature">new <wbr/>No<wbr/>Op<wbr/>Wallet<wbr/>Connect<wbr/>Handler</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="NoOpWalletConnectHandler.html" class="tsd-signature-type tsd-kind-class">NoOpWalletConnectHandler</a><a href="#constructor.new_NoOpWalletConnectHandler" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<h4 class="tsd-returns-title">Returns <a href="NoOpWalletConnectHandler.html" class="tsd-signature-type tsd-kind-class">NoOpWalletConnectHandler</a></h4><aside class="tsd-sources">
+<p>Inherited from <a href="WalletConnectHandler.html">WalletConnectHandler</a>.<a href="WalletConnectHandler.html#constructor">constructor</a></p></aside></li></ul></section></section>
+<section class="tsd-panel-group tsd-member-group">
+<h2>Methods</h2>
+<section class="tsd-panel tsd-member"><a id="approveEIP155Request" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>approveEIP155<wbr/>Request</span><a href="#approveEIP155Request" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
-<li class="tsd-signature tsd-anchor-link" id="constructor.new_ChainNotConfiguredError"><span class="tsd-kind-constructor-signature">new <wbr/>Chain<wbr/>Not<wbr/>Configured<wbr/>Error</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">__namedParameters</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ChainNotConfiguredError.html" class="tsd-signature-type tsd-kind-class">ChainNotConfiguredError</a><a href="#constructor.new_ChainNotConfiguredError" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="approveEIP155Request.approveEIP155Request-1"><span class="tsd-kind-call-signature">approveEIP155<wbr/>Request</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">wallet</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><a href="#approveEIP155Request.approveEIP155Request-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
-<h5><span class="tsd-kind-parameter">__namedParameters</span>: <span class="tsd-signature-symbol">{ </span><br/><span>    </span><span class="tsd-kind-property">chainId</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">connectorId</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span><br/><span class="tsd-signature-symbol">}</span></h5>
-<ul class="tsd-parameters">
-<li class="tsd-parameter">
-<h5><span class="tsd-kind-property">chain<wbr/>Id</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li>
-<li class="tsd-parameter">
-<h5><span class="tsd-kind-property">connector<wbr/>Id</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5></li></ul></li></ul></div>
-<h4 class="tsd-returns-title">Returns <a href="ChainNotConfiguredError.html" class="tsd-signature-type tsd-kind-class">ChainNotConfiguredError</a></h4><aside class="tsd-sources">
-<p>Overrides Error.constructor</p>
+<h5><span class="tsd-kind-parameter">wallet</span>: <a href="AbstractWallet.html" class="tsd-signature-type tsd-kind-class">AbstractWallet</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<p>Overrides <a href="WalletConnectHandler.html">WalletConnectHandler</a>.<a href="WalletConnectHandler.html#approveEIP155Request">approveEIP155Request</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/ba49a82/packages/wallets/src/lib/wagmi-core/errors.ts#L81">packages/wallets/src/lib/wagmi-core/errors.ts:81</a></li></ul></aside></li></ul></section></section>
-<section class="tsd-panel-group tsd-member-group">
-<h2>Properties</h2>
-<section class="tsd-panel tsd-member"><a id="name" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><span>name</span><a href="#name" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<div class="tsd-signature"><span class="tsd-kind-property">name</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;ChainNotConfigured&quot;</span></div><aside class="tsd-sources">
-<p>Overrides Error.name</p>
+<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/ba49a82/packages/wallets/src/core/WalletConnect/constants.ts#L22">packages/wallets/src/core/WalletConnect/constants.ts:22</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member"><a id="approveSession" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>approve<wbr/>Session</span><a href="#approveSession" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures">
+<li class="tsd-signature tsd-anchor-link" id="approveSession.approveSession-1"><span class="tsd-kind-call-signature">approve<wbr/>Session</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">wallet</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><a href="#approveSession.approveSession-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">wallet</span>: <a href="AbstractWallet.html" class="tsd-signature-type tsd-kind-class">AbstractWallet</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<p>Overrides <a href="WalletConnectHandler.html">WalletConnectHandler</a>.<a href="WalletConnectHandler.html#approveSession">approveSession</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/ba49a82/packages/wallets/src/lib/wagmi-core/errors.ts#L79">packages/wallets/src/lib/wagmi-core/errors.ts:79</a></li></ul></aside></section></section></div>
+<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/ba49a82/packages/wallets/src/core/WalletConnect/constants.ts#L13">packages/wallets/src/core/WalletConnect/constants.ts:13</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member"><a id="connectApp" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>connect<wbr/>App</span><a href="#connectApp" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures">
+<li class="tsd-signature tsd-anchor-link" id="connectApp.connectApp-1"><span class="tsd-kind-call-signature">connect<wbr/>App</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">uri</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><a href="#connectApp.connectApp-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">uri</span>: <span class="tsd-signature-type">string</span></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<p>Overrides <a href="WalletConnectHandler.html">WalletConnectHandler</a>.<a href="WalletConnectHandler.html#connectApp">connectApp</a></p>
+<ul>
+<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/ba49a82/packages/wallets/src/core/WalletConnect/constants.ts#L10">packages/wallets/src/core/WalletConnect/constants.ts:10</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member"><a id="disconnectSession" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>disconnect<wbr/>Session</span><a href="#disconnectSession" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures">
+<li class="tsd-signature tsd-anchor-link" id="disconnectSession.disconnectSession-1"><span class="tsd-kind-call-signature">disconnect<wbr/>Session</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><a href="#disconnectSession.disconnectSession-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<p>Overrides <a href="WalletConnectHandler.html">WalletConnectHandler</a>.<a href="WalletConnectHandler.html#disconnectSession">disconnectSession</a></p>
+<ul>
+<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/ba49a82/packages/wallets/src/core/WalletConnect/constants.ts#L37">packages/wallets/src/core/WalletConnect/constants.ts:37</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member"><a id="getActiveSessions" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>Active<wbr/>Sessions</span><a href="#getActiveSessions" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures">
+<li class="tsd-signature tsd-anchor-link" id="getActiveSessions.getActiveSessions-1"><span class="tsd-kind-call-signature">get<wbr/>Active<wbr/>Sessions</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../types/WCSession.html" class="tsd-signature-type tsd-kind-type-alias">WCSession</a><span class="tsd-signature-symbol">[]</span><a href="#getActiveSessions.getActiveSessions-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<h4 class="tsd-returns-title">Returns <a href="../types/WCSession.html" class="tsd-signature-type tsd-kind-type-alias">WCSession</a><span class="tsd-signature-symbol">[]</span></h4><aside class="tsd-sources">
+<p>Overrides <a href="WalletConnectHandler.html">WalletConnectHandler</a>.<a href="WalletConnectHandler.html#getActiveSessions">getActiveSessions</a></p>
+<ul>
+<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/ba49a82/packages/wallets/src/core/WalletConnect/constants.ts#L32">packages/wallets/src/core/WalletConnect/constants.ts:32</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member"><a id="init" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>init</span><a href="#init" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures">
+<li class="tsd-signature tsd-anchor-link" id="init.init-1"><span class="tsd-kind-call-signature">init</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><a href="#init.init-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<p>Overrides <a href="WalletConnectHandler.html">WalletConnectHandler</a>.<a href="WalletConnectHandler.html#init">init</a></p>
+<ul>
+<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/ba49a82/packages/wallets/src/core/WalletConnect/constants.ts#L5">packages/wallets/src/core/WalletConnect/constants.ts:5</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member"><a id="rejectEIP155Request" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>rejectEIP155<wbr/>Request</span><a href="#rejectEIP155Request" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures">
+<li class="tsd-signature tsd-anchor-link" id="rejectEIP155Request.rejectEIP155Request-1"><span class="tsd-kind-call-signature">rejectEIP155<wbr/>Request</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><a href="#rejectEIP155Request.rejectEIP155Request-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<p>Overrides <a href="WalletConnectHandler.html">WalletConnectHandler</a>.<a href="WalletConnectHandler.html#rejectEIP155Request">rejectEIP155Request</a></p>
+<ul>
+<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/ba49a82/packages/wallets/src/core/WalletConnect/constants.ts#L28">packages/wallets/src/core/WalletConnect/constants.ts:28</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member"><a id="rejectSession" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>reject<wbr/>Session</span><a href="#rejectSession" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures">
+<li class="tsd-signature tsd-anchor-link" id="rejectSession.rejectSession-1"><span class="tsd-kind-call-signature">reject<wbr/>Session</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><a href="#rejectSession.rejectSession-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<p>Overrides <a href="WalletConnectHandler.html">WalletConnectHandler</a>.<a href="WalletConnectHandler.html#rejectSession">rejectSession</a></p>
+<ul>
+<li>Defined in <a href="https://github.com/thirdweb-dev/js/blob/ba49a82/packages/wallets/src/core/WalletConnect/constants.ts#L19">packages/wallets/src/core/WalletConnect/constants.ts:19</a></li></ul></aside></li></ul></section></section></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
@@ -84,8 +160,15 @@
 <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="#icon-chevronDown"></use></svg>On This Page</h3></summary>
 <div class="tsd-accordion-details">
 <ul>
-<li><a href="#constructor" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-512"></use></svg><span>constructor</span></a></li>
-<li><a href="#name" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>name</span></a></li></ul></div></details></div>
+<li><a href="#constructor" class="tsd-is-inherited"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-512"></use></svg><span>constructor</span></a></li>
+<li><a href="#approveEIP155Request" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>approveEIP155<wbr/>Request</span></a></li>
+<li><a href="#approveSession" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>approve<wbr/>Session</span></a></li>
+<li><a href="#connectApp" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>connect<wbr/>App</span></a></li>
+<li><a href="#disconnectSession" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>disconnect<wbr/>Session</span></a></li>
+<li><a href="#getActiveSessions" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Active<wbr/>Sessions</span></a></li>
+<li><a href="#init" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>init</span></a></li>
+<li><a href="#rejectEIP155Request" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>rejectEIP155<wbr/>Request</span></a></li>
+<li><a href="#rejectSession" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>reject<wbr/>Session</span></a></li></ul></div></details></div>
 <div class="site-menu">
 <nav class="tsd-navigation"><a href="../index.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1"></use></svg><span>@thirdweb-dev/wallets</span></a>
 <ul class="tsd-small-nested-navigation" id="tsd-nav-container" data-base="..">
@@ -97,7 +180,7 @@
 <li><a href="AddChainError.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg>AddChainError</a></li>
 <li><a href="AsyncLocalStorage.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg>AsyncLocalStorage</a></li>
 <li><a href="BloctoWallet.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg>BloctoWallet</a></li>
-<li><a href="ChainNotConfiguredError.html" class="current"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg>ChainNotConfiguredError</a></li>
+<li><a href="ChainNotConfiguredError.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg>ChainNotConfiguredError</a></li>
 <li><a href="CoinbaseWallet.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg>CoinbaseWallet</a></li>
 <li><a href="Connector.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg>Connector</a></li>
 <li><a href="CredentialsStorage.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg>CredentialsStorage</a></li>
