@@ -14,7 +14,7 @@ There is **no cost to sellers**! Buyers pay a 1% service fee on top of payment p
 A full-featured checkout link **takes minutes to set up**:
 
 1. [Register your contract](register).
-2. Create a [🔗 Shareable Checkout Link](shareable-link).
+2. Create a [🔗 Checkout Link](checkout-link).
 3. Send the link to your customers. Done ✨!
 
 When you're ready to customize further, you can tinker with styling, SDKs, webhooks, dynamic pricing, and more.
@@ -37,11 +37,7 @@ See the [overview](/checkouts) page for a list of supported chains and currencie
 
 ### Are marketplace contracts supported?
 
-Yes! See [Marketplace Sales](TODO) for more details.
-
----
-
-TODO: Did not go through the sections below this.
+Yes! See [Marketplace Sales](marketplaces) for more details.
 
 ### Can I sell an NFT that is already minted?
 
@@ -49,42 +45,38 @@ Yes! You'll need to "wrap" your NFT with a marketplace contract like [thirdweb m
 
 - The seller has an NFT already minted and wants to sell it.
 - The seller approves the marketplace contract to take this NFT from their wallet once a buyer offers a specified amount. The NFT is not moved until a sale is completed.
-- A buyer agrees to pay the specified amount. They pay via your Paper checkout flow.
-- After the buyer's payment is successful, Paper calls the "buy" method with the expected amount in crypto to the marketplace contract. This method transfers the NFT to the buyer's wallet.
+- A buyer agrees to pay the specified amount. They pay via your Checkout flow.
+- After the buyer's payment is successful, thirdweb calls the "buy" method with the expected amount in crypto to the marketplace contract. This method transfers the NFT to the buyer's wallet.
 
 ## Payments
 
-### Where does Paper send the funds after a customer has paid?
+### Where does thirdweb send the funds after a customer has paid?
 
-Paper directly calls the smart contract and pays for the mint using the native currency specified in the contract function. If you are looking for FIAT payout, it is available for the enterprise customers. Please [contact sales](mailto:sales@thirdweb.com) .
+thirdweb directly calls the smart contract and pays for the mint using the native currency specified in the contract function. If you are looking for FIAT payout, it is available for the enterprise customers. Please [contact sales](mailto:sales@thirdweb.com) .
 
-### What regions does Paper support credit card payments?
+### What regions does thirdweb support credit card payments?
 
-Paper uses multiple payment processors and supports credit card payments in most countries (190+) and all 50 US states. Select countries that the US cannot conduct business with are not supported (Cuba, Iran, North Korea, Syria, and the Crimea, Donetsk, and Luhansk Regions). 10+ currencies and languages are supported.
+thirdweb uses multiple payment processors and supports credit card payments in most countries (190+) and all 50 US states. Select countries that the US cannot conduct business with are not supported (Cuba, Iran, North Korea, Syria, and the Crimea, Donetsk, and Luhansk Regions). 10+ currencies and languages are supported.
 
 ### What fiat payment options are accepted?
 
-Paper accepts: credit/debit cards (Visa, Mastercard, American Express, Discover, UnionPay, JCB, Diners Club), Apple Pay, Google Pay, iDEAL
+thirdweb accepts: credit/debit cards (Visa, Mastercard, American Express, Discover, UnionPay, JCB, Diners Club), Apple Pay, Google Pay, iDEAL
 
 ### What is the price limit for checkouts?
 
-Paper limits checkouts to be priced at $2,000 USD and reserves the right to change this limit based on your checkout's risk profile. For enterprise customers, we can support up to $15,000.
+thirdweb limits checkouts to be priced at $2,000 USD and reserves the right to change this limit based on your checkout's risk profile. For enterprise customers, we can support up to $15,000.
 
 If you need a higher price limit, please fill out [this form.](https://thirdweb.com/contact-us).
 
 ### Do you support gasless transactions?
 
-Yes, we support the ability for merchants to cover the gas fees related to transactions. See details [here](https://docs.withpaper.com/reference/send-gasless-transactions).
+Yes, we support the ability for merchants to cover the gas fees related to transactions. See the guide on [Sponsored Fees](sponsored-fees).
 
-### If we use the Paper managed contracts, who covers the transaction fees?
+### When does thirdweb require identity verification (KYC)?
 
-Paper covers fees related to operations on [Paper-managed contracts](ref:create-paper-managed-contract).
+thirdweb combines buyer, merchant, payment method, device, and behavioral signals from multiple vendors to compute the riskiness of a purchase. A small portion of buyers (\< 3% and varies by merchant) will be prompted to submit a photo ID and take a webcam selfie. This step is automated and takes under 1 minute.
 
-### When does Paper require identity verification (KYC)?
-
-Paper combines buyer, merchant, payment method, device, and behavioral signals from multiple vendors to compute the riskiness of a purchase. A small portion of buyers (\< 3% and varies by merchant) will be prompted to submit a photo ID and take a webcam selfie. This step is automated and takes under 1 minute.
-
-Reminder: Paper takes on **all** chargeback liability from the developer!
+Reminder: thirdweb takes on **all** chargeback liability from the developer!
 
 ## Testing
 
@@ -99,63 +91,61 @@ Yes, please use the following card numbers. The expiry date, CVV, and postal cod
 
 ### Where can I get testnet funds?
 
-Here are faucets to receive testnet funds:
+Here are some faucets to receive testnet funds:
 
-| Chain             | Currency | Faucet link                                  |
-| :---------------- | :------- | :------------------------------------------- |
-| Mumbai (Polygon)  | MATIC    | [Faucet](https://faucet.polygon.technology/) |
-| Goerli (Ethereum) | ETH      | [Faucet](https://goerlifaucet.com/)          |
-| Sepolia (Etereum) | ETH      | [Faucet](https://sepoliafaucet.com/)         |
-| Goerli (Optimism) | ETH      | [Faucet](https://faucet.paradigm.xyz/)       |
-| SolanaDevnet      | SOL      | [Faucet](https://solfaucet.com)              |
+| Chain              | Currency | Faucet link                                  |
+| :----------------- | :------- | :------------------------------------------- |
+| Mumbai (Polygon)   | MATIC    | [Faucet](https://faucet.polygon.technology/) |
+| Sepolia (Ethereum) | ETH      | [Faucet](https://sepoliafaucet.com/)         |
+| Goerli (Optimism)  | ETH      | [Faucet](https://faucet.paradigm.xyz/)       |
 
 ## Customization
 
 ### Can I customize the checkout to match my branding?
 
-Yes, customize colors and UI elements to fit your theme for [Shareable Checkout Links](ref:shareable-checkout-links). Or embed [Checkout Elements](ref:checkout-elements) in your app with granular control of colors.
+Yes, customize colors and UI elements to fit your theme for [Checkout Links](checkout-links). Or embed [Checkout Elements](elements) in your app with granular control of colors.
 
 ### How do allow my users to redeem utility with their NFT?
 
 NFTs are a great way to gate content! Once the NFT is purchased, you can provide a link to redeem their utility on the post-purchase page and email.
 
-Listen to [webhooks](ref:webhooks) to update your database or send a custom email when the NFT has been transferred.
+Listen to [webhooks](webhooks) to update your database or send a custom email when the NFT has been transferred.
+
+---
+
+TODO: Did not go through the sections below this.
 
 ### How do I customize the emails sent to buyers?
 
-See [Advanced Customizations](ref:advanced-customizations) for more customization of the email after a buyer completes their purchase.
+See the [Email Customizations](email-customizations) guide.
 
 ### Are checkouts translated into different languages?
 
-Yes, the checkout is localized to the buyer's browser language, or you can force a specific language. See [Translations](ref:translations) for more details.
+Yes, the checkout is localized to the buyer's browser language, or you can force a specific language. See [Translations](translations) for more details.
 
 ### How does checkout support referral codes or discounts?
 
-You can use our dynamic one-time checkout links to generate payment links with discounts or referral codes for customers. For a full guide to how to implement this, refer [here](https://docs.withpaper.com/reference/buyer-allowlists).
+You can use our dynamic one-time checkout links to generate payment links with discounts or referral codes for customers. For a full guide to how to implement this, refer [here](allowlists).
 
-### Does Paper support allowlists?
+### Does Checkouts support allowlists?
 
-Yep, you can use our dynamic one-time checkout links to generate gated payment links for users who’ve verified their identity on your website. For a full guide to how to implement this, refer [here](https://docs.withpaper.com/reference/buyer-allowlists).
+Yep, you can use our dynamic one-time checkout links to generate gated payment links for users who've verified their identity on your website. For a full guide to how to implement this, refer [here](allowlists).
 
 ## Wallets
 
 ### What if my users don't have a wallet?
 
-Buyers who don't have a wallet can create one with their email or social login. This uses our non-custodial [Embedded Wallet](ref:embedded-wallet-service-overview) product.
+Buyers who don't have a wallet can create one with their email or social login. This uses thirdweb's non-custodial [Embedded Wallet](https://portal.thirdweb.com/embedded-wallet) product.
 
 ### How does my user transfer the NFT from the Embedded Wallet?
 
-Buyers can visit [My Wallets](https://withpaper.com/wallet) to view and transfer NFTs in their Embedded Wallets. We cover all gas fees related to transferring and offer a way for users to export their private key.
-
-_This page does not support transfers for self-custody wallets like MetaMask._
-
-**\*For more questions related to our Embedded Wallets, see our** [Embedded Wallets FAQ](ref:embedded-wallets-faq).
+Buyers can visit [My Wallets](https://ews.thirdweb.com/wallet) to view and transfer NFTs in their Embedded Wallets. We cover all gas fees related to transferring and offer a way for users to export their private key.
 
 ---
 
 ## Other
 
-### Does Paper support credit card checkout for functions outside of minting like burning and editing NFTs?
+### Does Checkouts support credit card payments for functions outside of minting like burning and editing NFTs?
 
 This feature is available upon request. Please contact us at [sales@thirdweb.com](mailto:sales@thirdweb.com).
 
@@ -165,13 +155,13 @@ For developers, we have a Discord forum for questions that is checked on a daily
 
 For customers, we respond to inquiries on our support center and to [support@thirdweb.com](mailto:support@thirdweb.com) within 24 business hours.
 
-### How does Paper handle compliance?
+### How does thirdweb handle compliance?
 
-Paper is a registered Money Services Business with FINCen with the registration no. of 31000235368189. We are will in the process of our SOC II certification.
-
-We conduct KYC (know your customer) verification with driver’s license and liveliness check on suspicious customers (\<3% on average and varies by merchant). We also handle dark wallet checks to ensure that flagged wallets and stolen funds are not being used in any of our transactions.
+We conduct KYC (know your customer) verification with driver's license and liveliness check on suspicious customers (\<3% on average and varies by merchant). We also handle dark wallet checks to ensure that flagged wallets and stolen funds are not being used in any of our transactions.
 
 We take on all liabilities & chargeback risks as the Merchant of Record.
+
+thirdweb is currently in the process of receiving our SOC II certification.
 
 ### What are the authorization rates?
 
