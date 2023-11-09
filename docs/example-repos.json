@@ -589,13 +589,13 @@
     "html_url": "https://github.com/thirdweb-example/erc721",
     "description": "Create an NFT minting page using thirdweb's React SDK",
     "created_at": "2022-05-16T01:17:47Z",
-    "updated_at": "2023-11-07T05:03:47Z",
+    "updated_at": "2023-11-09T13:05:44Z",
     "clone_url": "https://github.com/thirdweb-example/erc721.git",
     "topics": [
       "nft-drop"
     ],
     "language": "TypeScript",
-    "stargazers_count": 127,
+    "stargazers_count": 128,
     "is_template": true,
     "homepage": "https://nft-drop.thirdweb-preview.com/"
   },
@@ -1511,7 +1511,7 @@
     "html_url": "https://github.com/thirdweb-example/signature-based-minting",
     "description": "Create a community-made NFT collection with restrictions that you specify using signature based minting in thirdweb's NFT Collection contract.",
     "created_at": "2022-04-07T20:17:43Z",
-    "updated_at": "2023-10-26T07:49:10Z",
+    "updated_at": "2023-11-09T11:14:25Z",
     "clone_url": "https://github.com/thirdweb-example/signature-based-minting.git",
     "topics": [
       "nextjs",
@@ -1520,7 +1520,7 @@
       "typescript"
     ],
     "language": "TypeScript",
-    "stargazers_count": 46,
+    "stargazers_count": 45,
     "is_template": false,
     "homepage": "https://signature-based-minting.thirdweb-example.com"
   },
