@@ -58,31 +58,43 @@ Must be a `boolean`.
 </details>
 
 <details>
-  <summary>enableConnectApp</summary>
+  <summary>walletConnectReceiver</summary>
   <div>
 
-Whether to turn on or off the ability to connect your SmartWallet to an app using WalletConnect.
+Enables the wallet to be available to listen for WalletConnect events.
 
-- If set to `true`, a new `Connect App` field will show up in the SmartWallet details modal. It allows
-  you to paste a `wc://` link or scan one with your mobile app.
-- If set to `false` (default), the `Connect App` field will not show up.
+Note that to fully support this there needs to be a UI component to handle WalletConnect uris (`wc://`) and pass it to the wallet.
 
-Must be a `boolean` and it has the following dependencies:
+Defaults to `undefined`.
 
-- `"react-native-camera": "^4.2.1"`
-  <br />- Add `missingDimensionStrategy 'react-native-camera', 'general'` in
-  `android/app/build.gradle` under `defaultConfig`
-
-</div>
-</details>
+```
+export type WalletConnectReceiverConfig = {
+  walletConnectReceiver?:
+    | {
+        walletConnectWalletMetadata?: WCMetadata;
+        walletConnectV2ProjectId?: string;
+        walletConnectV2RelayUrl?: string;
+      }
+    | true;
+};
+```
 
 <details>
   <summary>walletConnectV2ProjectId</summary>
   <div>
 
-The WalletConnect `projectId`. You can get one in the [WalletConnect portal](https://cloud.walletconnect.com/sign-in).
+The WalletConnect V2 `projectId`. You can get one in the [WalletConnect portal](https://cloud.walletconnect.com/sign-in).
 
 Defaults to a common `projectId` set by thirdweb. This should be ok for testing but note that if you want to deploy your mobile app it may make sense to create your own as WalletConnect may throttle traffic coming from the same `projectId`.
+
+</div>
+</details>
+
+<details>
+  <summary>walletConnectV2RelayUrl</summary>
+  <div>
+
+Define a custom Relay Server URL. Defaults to "wss://relay.walletconnect.com"
 
 </div>
 </details>
@@ -91,16 +103,19 @@ Defaults to a common `projectId` set by thirdweb. This should be ok for testing 
   <summary>walletConnectWalletMetadata</summary>
   <div>
 
-The metadata the connected app will show when connected to your Smart Wallet:
+Metadata that will be displayed in the dApp once your SmartWallet is connected to it.
 
-```ts
+```json
 {
-  name: string;
-  description: string;
-  url: string;
-  icons: string[];
+  name: string; // defaults to: "Thirdweb Smart Wallet",
+  description: string; // defaults to: "Thirdweb Smart Wallet",
+  url: string: // defaults to: "https://thirdweb.com",
+  icons: string[]; // defaults to: ["https://thirdweb.com/favicon.ico"],
 };
 ```
+
+</div>
+</details>
 
 </div>
 </details>
