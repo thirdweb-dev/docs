@@ -11,11 +11,15 @@ Deploy smart contracts from the connected wallet.
 Deploy one of thirdweb&rsquo;s [prebuilt contracts](https://portal.thirdweb.com/pre-built-contracts).
 
 ```javascript
-const txResult = await sdk.deployer.deployBuiltInContract("{{contract-type}}", {
-  name: "My Contract",
-  primary_sale_recipient: "{{wallet_address}}",
-  voting_token_address: "{{wallet_address}}", // Only used for Vote
-});
+const txResult = await sdk.deployer.deployBuiltInContract(
+  "{{contract-type}}",
+  {
+    name: "My Contract",
+    primary_sale_recipient: "{{wallet_address}}",
+    voting_token_address: "{{wallet_address}}", // Only used for Vote
+  },
+  version,
+);
 ```
 
 <details>
@@ -26,7 +30,7 @@ const txResult = await sdk.deployer.deployBuiltInContract("{{contract-type}}", {
 
 The name of the contract to deploy.
 
-Must be one of the following string values:
+Must be one of the following `string` values:
 
 ```typescript
 "nft-drop" |
@@ -88,6 +92,11 @@ An object containing the metadata for the contract to deploy.
   trusted_forwarders: ["{{wallet_address}}"],
 };
 ```
+
+### version (optional)
+
+A `string` that needs to match the version displayed in the contract's publish page - or "latest" for the latest version. 
+Defaults to "latest" if not specified.
 
 </div>
 </details>
