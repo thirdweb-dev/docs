@@ -1,0 +1,107 @@
+---
+slug: /guides/engine/smart-wallets
+title: Smart Wallets
+---
+
+You can use Engine to deploy smart wallets for your users and execute onchain actions on their behalf.
+
+### Prerequisites
+
+- A running Engine instance
+- A [backend wallet](/engine/backend-wallets) with funds on your chain of choice.
+
+## 1. Deploy an account factory
+
+First, you'll need to deploy an `AccountFactory` contract in order to deploy accounts for users.
+
+You can do this from your Engine admin dashboard with the following request:
+
+**Endpoint:** `POST /deploy/<chain>/deployer.thirdweb.eth/AccountFactory`
+
+**Payload:**
+
+```json
+{
+  "constructorParams": ["0x5FF137D4b0FDCD49DcA30c7CF57E578a026d2789"]
+}
+```
+
+This contract is used to deploy smart accounts for your users.
+
+## 2. Deploy an account for a user
+
+When a new user signs into your application, you'll want to deploy a smart account on their behalf.
+
+You can do this using your account factory with the following call to engine:
+
+```tsx
+import { Engine } from "@thirdweb-dev/engine";
+
+export async function handler(req, res) {
+  // your api handler logic...
+
+  const engine = new Engine({
+    url: "http://localhost:3005",
+    accessToken: "<your-engine-auth-token>",
+  });
+
+  const {
+    result: { deployedAddress },
+  } = await engine.accountFactory.createAccount(
+    "mumbai",
+    "<your-account-factory-address>",
+    "<your-backend-wallet-address>",
+    {
+      // You can deploy & manage the smart wallet for your user
+      adminAddress: "<your-backend-wallet-address>",
+    },
+  );
+}
+```
+
+The resulting `deployedAddress` gives you the address of the deployed smart account.
+
+## 3. Execute a transaction for the user
+
+Once a user's smart account is deployed, you can execute transactions for the smart account by passing the smart account to the `x-account-address` header as follows.
+
+```tsx
+import { Engine } from "@thirdweb-dev/engine";
+
+export async function handler(req, res) {
+  // your api handler code here...
+
+  const engine = new Engine({
+    url: "http://localhost:3005",
+    accessToken: "<your-engine-auth-token>",
+  });
+
+  await engine.erc721.claim(
+    "mumbai",
+    "<your-nft-drop-address>",
+    "<your-backend-wallet-address>",
+    {
+      receiver: "0x...",
+      quantity: 1,
+    },
+    "<smart-account-address>",
+  );
+}
+```
+
+## 4. Grant user access to the smart account
+
+You can also grant a user EOA access to their own smart account with the following call:
+
+```tsx
+await engine.account.grantAdmin(
+  "mumbai",
+  "<your-nft-drop-address>",
+  "<your-backend-wallet-address>",
+  {
+    // You can deploy the smart wallet for your user
+    adminAddress: "<your-backend-wallet-address>",
+  },
+  "<your-account-address>",
+);
+```
