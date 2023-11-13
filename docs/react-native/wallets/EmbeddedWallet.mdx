@@ -29,14 +29,13 @@ const embeddedWalletConfig = embeddedWallet();
   <div>
 
 Whether to show the Sign In with different providers.
-Right now, only Google is supported.
 
 To use this feature you will need to enable the `Embedded Wallets` service for your `clientId`
 in your [Dashboard Settings](https://thirdweb.com/dashboard/settings) and you will need to allowlist
 your app's `redirectUrl` (more on this below).
 
 `redirectUrl`: The `redirectUrl` must be a deeplink your app supports. This
-is going to be used to redirect back from the browser after logging in with Google.
+is going to be used to redirect back from the browser when using socials sign in options (Google, Apple, etc).
 
 We wrote [a short guide](/react-native/faq/deeplinks) to help you enable deep links support in your mobile app.
 
@@ -44,12 +43,75 @@ We wrote [a short guide](/react-native/faq/deeplinks) to help you enable deep li
 embeddedWallet({
   // highlight-start
   auth: {
-    options: ["email", "google"],
+    options: ["email", "google", "apple"],
     redirectUrl: "deep-link-to-your-app://",
   },
   // highlight-end
 });
 ```
+
+</div>
+</details>
+
+<details>
+  <summary>walletConnectReceiver</summary>
+  <div>
+
+Enables the wallet to be available to listen for WalletConnect events.
+
+Note that to fully support this there needs to be a UI component to handle WalletConnect uris (`wc://`) and pass it to the wallet.
+
+Defaults to `undefined`.
+
+```
+export type WalletConnectReceiverConfig = {
+  walletConnectReceiver?:
+    | {
+        walletConnectWalletMetadata?: WCMetadata;
+        walletConnectV2ProjectId?: string;
+        walletConnectV2RelayUrl?: string;
+      }
+    | true;
+};
+```
+
+<details>
+  <summary>walletConnectV2ProjectId</summary>
+  <div>
+
+The WalletConnect V2 `projectId`. You can get one in the [WalletConnect portal](https://cloud.walletconnect.com/sign-in).
+
+Defaults to a common `projectId` set by thirdweb. This should be ok for testing but note that if you want to deploy your mobile app it may make sense to create your own as WalletConnect may throttle traffic coming from the same `projectId`.
+
+</div>
+</details>
+
+<details>
+  <summary>walletConnectV2RelayUrl</summary>
+  <div>
+
+Define a custom Relay Server URL. Defaults to "wss://relay.walletconnect.com"
+
+</div>
+</details>
+
+<details>
+  <summary>walletConnectWalletMetadata</summary>
+  <div>
+
+Metadata that will be displayed in the dApp once your SmartWallet is connected to it.
+
+```json
+{
+  name: string; // defaults to: "Thirdweb Smart Wallet",
+  description: string; // defaults to: "Thirdweb Smart Wallet",
+  url: string: // defaults to: "https://thirdweb.com",
+  icons: string[]; // defaults to: ["https://thirdweb.com/favicon.ico"],
+};
+```
+
+</div>
+</details>
 
 </div>
 </details>
@@ -169,9 +231,8 @@ type EmailVerificationAuthParams = {
   recoveryCode?: string;
 };
 
-// google sign-in
-type GoogleAuthParams = {
-  strategy: "google";
+type SocialAuthParams = {
+  strategy: "google" | "apple";
   redirectUrl: string;
 };
 
