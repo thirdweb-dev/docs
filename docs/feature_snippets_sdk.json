@@ -146,6 +146,17 @@
   ],
   "AccountFactory": [
     {
+      "name": "createAccount",
+      "summary": "Create a account\n\n",
+      "remarks": "\n\nCreate a account for an admin. The admin will have complete authority over the account.\n\n",
+      "examples": {
+        "javascript": "const tx = await contract.accountFactory.createAccount(admin, extraData);\nconst receipt = tx.receipt();\nconst accountAddress = tx.address;"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.utils.byteslike"
+      }
+    },
+    {
       "name": "getAllAccounts",
       "summary": "Get all accounts\n\n",
       "remarks": null,
@@ -2352,6 +2363,17 @@
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3directlistings.gettotalcount"
+      }
+    },
+    {
+      "name": "isBuyerApprovedForListing",
+      "summary": "Check if a buyer is approved for a specific direct listing\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const listingId = 0;\nconst isBuyerApproved = await contract.directListings.isBuyerApprovedForListing(listingId, \"{{wallet_address}}\");"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3directlistings.isbuyerapprovedforlisting"
       }
     },
     {
