@@ -1311,6 +1311,19 @@
     "homepage": null
   },
   {
+    "name": "openai-dalle-nft-minter-youtube",
+    "html_url": "https://github.com/thirdweb-example/openai-dalle-nft-minter-youtube",
+    "description": null,
+    "created_at": "2023-11-14T02:13:55Z",
+    "updated_at": "2023-11-14T02:18:05Z",
+    "clone_url": "https://github.com/thirdweb-example/openai-dalle-nft-minter-youtube.git",
+    "topics": [],
+    "language": "TypeScript",
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": null
+  },
+  {
     "name": "pack-creation-script",
     "html_url": "https://github.com/thirdweb-example/pack-creation-script",
     "description": null,
