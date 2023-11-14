@@ -194,8 +194,20 @@ By default, it is set to `false`.
 
 Hide option to request testnet funds for testnets in dropdown
 
+By default, it is set to `false`.
+
 ```jsx
 <ConnectWallet hideTestnetFaucet={true} />
+```
+
+### hideSwitchToPersonalWallet (optional)
+
+Hide the "Switch to Personal wallet" option in the wallet modal which is shown when wallet is connected to Smart Wallet
+
+By default, it is set to `false`.
+
+```tsx
+<ConnectWallet hideSwitchToPersonalWallet={true} >
 ```
 
 ### Show "Terms of Service" and/or "Privacy Policy" links
