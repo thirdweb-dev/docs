@@ -844,6 +844,10 @@
     {
       "source": "/web3-api/reference",
       "destination": "/engine/reference"
+    },
+    {
+        "source": "/pre-built-contracts/choosing-the-right-pre-built-contract",
+        "destination": "/pre-built-contracts"
     }
   ]
 }
