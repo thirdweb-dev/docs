@@ -20,24 +20,25 @@ This component also handles:
 
 ## React Integration
 
-1. Install the React SDK:
+1. Install the React SDK ([Install guide](/react/getting-started)):
    ```Text npm
-   npm install @paperxyz/react-client-sdk
+   npm install @thirdweb-dev/react
    ```
    ```Text yarn
-   yarn add @paperxyz/react-client-sdk
+   yarn add @thirdweb-dev/react
    ```
 2. On your frontend, render the `CheckoutWithCard` component with your configs.
 
 ### Example code
 
 ```typescript
-import { CheckoutWithCard } from "@paperxyz/react-client-sdk";
+import { CheckoutWithCard } from "@thirdweb-dev/react";
 
 <CheckoutWithCard
+  clientId="YOUR_CLIENT_ID"
   configs={{
     // Registered contract ID
-    contractId: "MY_CONTRACT_ID",
+    contractId: "YOUR_CONTRACT_ID",
     // Buyer wallet address
     walletAddress: "0x...",
     // Mint method (for custom contracts only)
@@ -64,6 +65,7 @@ import { CheckoutWithCard } from "@paperxyz/react-client-sdk";
 
 | Name                    | Type                                                                                                                            | Description                                                                                                                                                                                                                     |
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| clientId **\***         | string                                                                                                                          | thirdweb client ID (Obtained from an API key which you can generate on the [Dashboard](https://thirdweb.com/dashboard))                                                                                                         |
 | configs **\***          | object                                                                                                                          | A list of configs to create your card checkout element. Fields are the same as the ones found in the [Create Checkout Elements Client Secret](https://docs.withpaper.com/reference/create-checkout-elements-client-secret) API. |
 | onPaymentSuccess **\*** | ({ transactionId: string; }) => void                                                                                            | This method is called after the payment has been submitted for processing. This payment may still be rejected by the cardholder's bank.                                                                                         |
 | onError                 | (PaperSDKError) => void                                                                                                         | This method is called when an error is encountered.                                                                                                                                                                             |
@@ -74,23 +76,24 @@ import { CheckoutWithCard } from "@paperxyz/react-client-sdk";
 ## Javascript Integration
 
 1. Install the Javascript SDK with your preferred package manager.
-   - `npm install @paperxyz/js-client-sdk`
-   - `yarn add @paperxyz/js-client-sdk`
+   - `npm install @thirdweb-dev/payments`
+   - `yarn add @thirdweb-dev/payments`
 2. Call `createCheckoutWithCardElement` to insert the iframe on your page. Pass the `configs` to this component.
    1. If you don't provide `elementOrId`, this call returns an iframe element for you to insert into your page.
 
 ### Example code
 
 ```typescript
-import { createCheckoutWithCardElement } from "@paperxyz/js-client-sdk";
+import { createCheckoutWithCardElement } from "@thirdweb-dev/payments";
 
 // Assume a container exists:
 //
 //		<div id="paper-checkout-container" width="380px" />
 //
 createCheckoutWithCardElement({
+  clientId: "YOUR_CLIENT_ID"
 	configs: {
-    contractId: "MY_CONTRACT_ID",
+    contractId: "YOUR_CONTRACT_ID",
     walletAddress: "0x...",
   }
   elementOrId: "paper-checkout-container",
@@ -115,6 +118,7 @@ createCheckoutWithCardElement({
 
 | Name             | Type                                                                | Description                                                                                                                                                                                                                     |
 | ---------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| clientId **\***  | string                                                              | thirdweb client ID (Obtained from an API key which you can generate on the [Dashboard](https://thirdweb.com/dashboard))                                                                                                         |
 | configs **\***   | object                                                              | A list of configs to create your card checkout element. Fields are the same as the ones found in the [Create Checkout Elements Client Secret](https://docs.withpaper.com/reference/create-checkout-elements-client-secret) API. |
 | elementOrId      | string \| HTMLElement                                               | If provided, the iframe will be appended to this element. You can pass in the DOM element or the `id` associated with the element. A minimum width of 380px is recommended.                                                     |
 | appName          | string                                                              | If provided, the wallet card will display your `appName`.                                                                                                                                                                       |
