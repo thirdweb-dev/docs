@@ -429,3 +429,41 @@ default is `false`.
 
   </div>
 </details>
+
+## Hooks
+
+<details >
+  <summary> useSetIsWalletModalOpen </summary>
+  <div>
+
+Open or Close the `ConnectWallet` Modal
+
+```tsx
+function Example() {
+  const setIsWalletModalOpen = useSetIsWalletModalOpen();
+
+  const openModal = () => {
+    setIsWalletModalOpen(true);
+  };
+
+  return <button onClick={openModal}> open modal </button>;
+}
+```
+
+  </div>
+</details>
+
+<details >
+  <summary> useIsWalletModalOpen </summary>
+  <div>
+
+Check if the `ConnectWallet` Modal is open or not.
+
+If the Modal is open it returns `true`, othrewise `false`
+
+```tsx
+const isWalletModalOpen = useIsWalletModalOpen();
+```
+
+  </div>
+</details>
