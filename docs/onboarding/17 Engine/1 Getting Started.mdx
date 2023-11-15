@@ -37,15 +37,15 @@ docker run \
 
 #### Environment variables
 
-| Variable                  | Description                                                                                                                   |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| `ENCRYPTION_PASSWORD`<span style={{color:'red'}}>*</span>| Provide a string to encrypt sensitive data stored in DB. Do _not_ change this value or encrypted data will be inaccessible.   |
-| `THIRDWEB_SECRET_KEY`<span style={{color:'red'}}>*</span>     | A thirdweb secret key created on the [API Keys page](https://thirdweb.com/dashboard/settings/api-keys).                       |
-| `ADMIN_WALLET_ADDRESS`<span style={{color:'red'}}>*</span>    | The wallet address that will configure Engine from the thirdweb dashboard. You will be able to add other admins later.        |
-| `POSTGRES_CONNECTION_URL`<span style={{color:'red'}}>*</span> | Postgres connection string: `postgresql://[user[:password]@][host][:port][/dbname][?param1=value1&...]`                       |
-| `ENABLE_HTTPS`            | Self-sign a certificate to serve API requests on HTTPS. Set to `true` if running Engine locally only. (Default: `false`)      |
+| Variable                                                       | Description                                                                                                                 |
+| -------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `ENCRYPTION_PASSWORD`<span style={{color:'red'}}>\*</span>     | Provide a string to encrypt sensitive data stored in DB. Do _not_ change this value or encrypted data will be inaccessible. |
+| `THIRDWEB_SECRET_KEY`<span style={{color:'red'}}>\*</span>     | A thirdweb secret key created on the [API Keys page](https://thirdweb.com/dashboard/settings/api-keys).                     |
+| `ADMIN_WALLET_ADDRESS`<span style={{color:'red'}}>\*</span>    | The wallet address that will configure Engine from the thirdweb dashboard. You will be able to add other admins later.      |
+| `POSTGRES_CONNECTION_URL`<span style={{color:'red'}}>\*</span> | Postgres connection string: `postgresql://[user[:password]@][host][:port][/dbname][?param1=value1&...]`                     |
+| `ENABLE_HTTPS`                                                 | Self-sign a certificate to serve API requests on HTTPS. Set to `true` if running Engine locally only. (Default: `false`)    |
 
-<span style={{color:'red'}}>*</span> Required
+<span style={{ color: "red" }}>*</span> Required
 
 Your server is running when this log line appears:
 
