@@ -215,21 +215,6 @@
     "homepage": ""
   },
   {
-    "name": "covalent",
-    "html_url": "https://github.com/thirdweb-example/covalent",
-    "description": "Load the tokens a wallet owns using the covalent API",
-    "created_at": "2022-07-07T07:04:15Z",
-    "updated_at": "2023-07-03T21:51:48Z",
-    "clone_url": "https://github.com/thirdweb-example/covalent.git",
-    "topics": [
-      "wallets"
-    ],
-    "language": "CSS",
-    "stargazers_count": 4,
-    "is_template": false,
-    "homepage": "https://covalent.thirdweb-example.com"
-  },
-  {
     "name": "cra-javascript-starter",
     "html_url": "https://github.com/thirdweb-example/cra-javascript-starter",
     "description": "thirdweb starter project with Create React App & JavaScript",
@@ -247,19 +232,6 @@
     "stargazers_count": 30,
     "is_template": true,
     "homepage": "https://cra-javascript-starter.thirdweb-example.com"
-  },
-  {
-    "name": "cra-typescript-solana-starter",
-    "html_url": "https://github.com/thirdweb-example/cra-typescript-solana-starter",
-    "description": "Starter kit for Create React App, thirdweb, Solana, and TypeScript",
-    "created_at": "2022-11-17T03:22:45Z",
-    "updated_at": "2022-11-29T02:53:16Z",
-    "clone_url": "https://github.com/thirdweb-example/cra-typescript-solana-starter.git",
-    "topics": [],
-    "language": "TypeScript",
-    "stargazers_count": 1,
-    "is_template": false,
-    "homepage": "cra-typescript-solana-starter.vercel.app"
   },
   {
     "name": "cra-typescript-starter",
@@ -533,26 +505,13 @@
     "html_url": "https://github.com/thirdweb-example/engine-nft-checkout",
     "description": null,
     "created_at": "2023-11-01T02:10:57Z",
-    "updated_at": "2023-11-01T05:05:13Z",
+    "updated_at": "2023-11-15T18:36:45Z",
     "clone_url": "https://github.com/thirdweb-example/engine-nft-checkout.git",
     "topics": [],
     "language": "TypeScript",
     "stargazers_count": 0,
     "is_template": false,
-    "homepage": null
-  },
-  {
-    "name": "engine-phygital",
-    "html_url": "https://github.com/thirdweb-example/engine-phygital",
-    "description": null,
-    "created_at": "2023-10-31T18:05:34Z",
-    "updated_at": "2023-11-01T08:09:54Z",
-    "clone_url": "https://github.com/thirdweb-example/engine-phygital.git",
-    "topics": [],
-    "language": "TypeScript",
-    "stargazers_count": 0,
-    "is_template": false,
-    "homepage": "https://engine-phygital.vercel.app"
+    "homepage": "https://engine-nft-checkout.thirdweb-preview.com"
   },
   {
     "name": "erc-6551",
@@ -639,19 +598,6 @@
     "homepage": null
   },
   {
-    "name": "express-javascript-solana-starter",
-    "html_url": "https://github.com/thirdweb-example/express-javascript-solana-starter",
-    "description": "Starter template for Express.js and the thirdweb Solana SDK.",
-    "created_at": "2023-01-10T03:56:28Z",
-    "updated_at": "2023-05-18T19:19:22Z",
-    "clone_url": "https://github.com/thirdweb-example/express-javascript-solana-starter.git",
-    "topics": [],
-    "language": "JavaScript",
-    "stargazers_count": 2,
-    "is_template": false,
-    "homepage": null
-  },
-  {
     "name": "express-javascript-starter",
     "html_url": "https://github.com/thirdweb-example/express-javascript-starter",
     "description": "Starter template for Express.js and the thirdweb SDK",
@@ -663,19 +609,6 @@
     "stargazers_count": 0,
     "is_template": true,
     "homepage": null
-  },
-  {
-    "name": "express-typescript-solana-starter",
-    "html_url": "https://github.com/thirdweb-example/express-typescript-solana-starter",
-    "description": "Starter template for Express.js, TypeScript, and the thirdweb Solana SDK.",
-    "created_at": "2023-01-10T03:16:50Z",
-    "updated_at": "2023-02-03T18:34:13Z",
-    "clone_url": "https://github.com/thirdweb-example/express-typescript-solana-starter.git",
-    "topics": [],
-    "language": "TypeScript",
-    "stargazers_count": 1,
-    "is_template": false,
-    "homepage": ""
   },
   {
     "name": "express-typescript-starter",
@@ -803,21 +736,6 @@
     "stargazers_count": 13,
     "is_template": false,
     "homepage": "https://github-contributor-nft-rewards.thirdweb-example.com/"
-  },
-  {
-    "name": "gnosis-safe",
-    "html_url": "https://github.com/thirdweb-example/gnosis-safe",
-    "description": "Allow users to connect their Gnosis Safe wallets to your dApp!",
-    "created_at": "2023-02-17T01:25:04Z",
-    "updated_at": "2023-10-09T19:57:42Z",
-    "clone_url": "https://github.com/thirdweb-example/gnosis-safe.git",
-    "topics": [
-      "wallet-connection"
-    ],
-    "language": "TypeScript",
-    "stargazers_count": 2,
-    "is_template": false,
-    "homepage": "https://gnosis-safe.thirdweb-preview.com"
   },
   {
     "name": "go-signature-mint",
@@ -1246,19 +1164,6 @@
     "homepage": "https://nft-staking-contract.thirdweb-example.com/"
   },
   {
-    "name": "node-javascript-solana-starter",
-    "html_url": "https://github.com/thirdweb-example/node-javascript-solana-starter",
-    "description": "Starter template for Node.js and thirdweb's Solana SDK",
-    "created_at": "2023-01-09T02:36:32Z",
-    "updated_at": "2023-04-21T16:44:40Z",
-    "clone_url": "https://github.com/thirdweb-example/node-javascript-solana-starter.git",
-    "topics": [],
-    "language": "JavaScript",
-    "stargazers_count": 0,
-    "is_template": false,
-    "homepage": null
-  },
-  {
     "name": "node-javascript-starter",
     "html_url": "https://github.com/thirdweb-example/node-javascript-starter",
     "description": "Starter template repository for Node.js and the thirdweb SDK",
@@ -1269,19 +1174,6 @@
     "language": "JavaScript",
     "stargazers_count": 5,
     "is_template": true,
-    "homepage": null
-  },
-  {
-    "name": "node-typescript-solana-starter",
-    "html_url": "https://github.com/thirdweb-example/node-typescript-solana-starter",
-    "description": "Starter template for Node.js, TypeScript and the thirdweb Solana SDK",
-    "created_at": "2023-01-09T02:37:01Z",
-    "updated_at": "2023-01-27T02:36:36Z",
-    "clone_url": "https://github.com/thirdweb-example/node-typescript-solana-starter.git",
-    "topics": [],
-    "language": "TypeScript",
-    "stargazers_count": 2,
-    "is_template": false,
     "homepage": null
   },
   {
@@ -1315,11 +1207,11 @@
     "html_url": "https://github.com/thirdweb-example/openai-dalle-nft-minter-youtube",
     "description": null,
     "created_at": "2023-11-14T02:13:55Z",
-    "updated_at": "2023-11-14T02:18:05Z",
+    "updated_at": "2023-11-15T00:44:39Z",
     "clone_url": "https://github.com/thirdweb-example/openai-dalle-nft-minter-youtube.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 0,
+    "stargazers_count": 1,
     "is_template": false,
     "homepage": null
   },
@@ -1352,19 +1244,6 @@
     "homepage": "https://packs.thirdweb-example.com"
   },
   {
-    "name": "paper-thirdweb",
-    "html_url": "https://github.com/thirdweb-example/paper-thirdweb",
-    "description": null,
-    "created_at": "2023-04-27T16:48:34Z",
-    "updated_at": "2023-04-30T15:17:23Z",
-    "clone_url": "https://github.com/thirdweb-example/paper-thirdweb.git",
-    "topics": [],
-    "language": "CSS",
-    "stargazers_count": 1,
-    "is_template": false,
-    "homepage": null
-  },
-  {
     "name": "phaser-platformer",
     "html_url": "https://github.com/thirdweb-example/phaser-platformer",
     "description": null,
@@ -1376,6 +1255,19 @@
     "stargazers_count": 2,
     "is_template": false,
     "homepage": null
+  },
+  {
+    "name": "phygital-experience",
+    "html_url": "https://github.com/thirdweb-example/phygital-experience",
+    "description": null,
+    "created_at": "2023-10-31T18:05:34Z",
+    "updated_at": "2023-11-15T17:01:19Z",
+    "clone_url": "https://github.com/thirdweb-example/phygital-experience.git",
+    "topics": [],
+    "language": "TypeScript",
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": "https://engine-phygital.vercel.app"
   },
   {
     "name": "play-to-earn-game",
@@ -1796,19 +1688,6 @@
     "stargazers_count": 15,
     "is_template": false,
     "homepage": ""
-  },
-  {
-    "name": "thirdweb-bundlr",
-    "html_url": "https://github.com/thirdweb-example/thirdweb-bundlr",
-    "description": "Decentralized NFT metadata storage using Bundlr",
-    "created_at": "2022-12-16T19:27:19Z",
-    "updated_at": "2023-07-24T05:01:21Z",
-    "clone_url": "https://github.com/thirdweb-example/thirdweb-bundlr.git",
-    "topics": [],
-    "language": "TypeScript",
-    "stargazers_count": 6,
-    "is_template": false,
-    "homepage": null
   },
   {
     "name": "thirdweb-chainlink-functions",
