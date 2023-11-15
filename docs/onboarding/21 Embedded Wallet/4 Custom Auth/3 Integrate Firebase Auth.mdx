@@ -1,0 +1,153 @@
+---
+slug: /embedded-wallet/integrate-firebase
+title: Integrate Firebase Auth
+---
+
+# Integrate Firebase Auth
+
+Learn how to obtain a JSON Web Token (JWT) from Firebase using Firebase’s email provider and integrate it with Embedded Wallet.
+
+:::info
+This article covers the steps of integrating Firebase Auth for a React Native app. Firebase steps and the Embedded Wallet code may be replicated for React.
+:::
+
+## Prerequisites
+
+- Firebase project
+- React Native CLI installed
+
+### Create a React Native app
+
+To skip over initialization steps, we will use the React Native TypeScript starter template. You may also integrate this functionality into an existing application by installing the React Native SDK.
+
+1. Create the template from the CLI:
+
+   ```jsx
+   npx thirdweb create --template react-native-typescript-starter
+   ```
+
+   This command will create a React Native app with the `@thirdweb-dev/react-native` SDK already installed.
+
+2. Note that we assume this is a simple app with a single screen `App.tsx`.
+
+### Set up your Firebase project
+
+1. Set up a React Native Firebase project by following the [prerequisites in the React Native Firebase documentation](https://rnfirebase.io/#1-install-via-npm).
+2. Navigate to the [Firebase Console](https://console.firebase.google.com/) and create a new project.
+3. Navigate to Authentication > Sign-in method, to enable the [Email/Password provider](https://rnfirebase.io/auth/usage#emailpassword-sign-in)
+
+### Set up the custom JSON Web Keys link through dashboard
+
+1. Navigate to Wallets > [Embedded Wallets](https://thirdweb.com/dashboard/wallets/embedded)
+2. To use embedded wallets, choose an existing API key or create a new one. Learn more about API keys.
+
+   ![Create an API key through the embedded wallet page](../assets/ew-create-key.png)
+
+3. In the configuration view, enable **Custom JSON Web Token.**
+
+   ![Enable Custom JSON Web Token](../assets/configuration-view.png)
+
+4. Set the **JWKS URI** as the following URL:
+
+   ```jsx
+   [https://www.googleapis.com/service_accounts/v1/jwk/securetoken@system.gserviceaccount.com](https://www.googleapis.com/service_accounts/v1/jwk/securetoken@system.gserviceaccount.com)
+   ```
+
+5. Set the AUD Value as the Firebase projectId. (Example, `custom-auth-53169`)
+
+   ![Custom JSON web token fields set up](../assets/custom-json-firebase.png)
+
+6. Select **Save changes**.
+
+### Add the Firebase auth dependencies
+
+Firebase auth depends on the `firebase/app` and `firebase/auth` packages.
+
+1. To add the packages, run the following command in the project:
+
+   ```jsx
+   yarn add @react-native-firebase/app @react-native-firebase/auth
+   ```
+
+### Implement Email Authentication
+
+Add the code snippet below to handle email authentication with Firebase. Note that you need to add UI to allow users to input the email and password fields in your `App.tsx` file:
+
+1. To handle email authentication with Firebase
+
+   ```jsx
+   import auth from '@react-native-firebase/auth';
+
+   ...
+   async function signInWithEmail(email, password) {
+     try {
+       await auth().createUserWithEmailAndPassword(email, password);
+     } catch (error) {
+       console.error(error);
+     }
+   }
+
+   return <Button
+   					title="Sign In"
+   					onPress={() => signInWithEmail(email, password)}/>
+   ...
+   ```
+
+   Note: You may add a UI to allow users to input email and password fields.
+
+### Obtain the JWT
+
+Once the user is authenticated, you can listen to `AuthStateChanged` [events to get the signed in user](https://rnfirebase.io/auth/usage#listening-to-authentication-state). You can then get the JWT from the User object:
+
+1. To receive the signed in user, listen to the `AuthStateChanged` event. You can add this code in your App.tsx file as well:
+
+   ```jsx
+   const [user, setUser] = useState();
+
+   function onAuthStateChanged(user) {
+     setUser(user);
+   }
+
+   useEffect(() => {
+     // Listens to AuthStateChanged events
+     const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+     return subscriber;
+   }, [onAuthStateChanged]);
+
+   async function getFirebaseJWT() {
+     if (user) {
+       return await user.getIdToken();
+     } else {
+       throw new Error("User is not authenticated");
+     }
+   }
+   ```
+
+### Pass the JWT to EmbeddedWallet
+
+1. Pass the JWT to the Embedded Wallet config in your `App.tsx` file:
+
+   ```jsx
+   import { useEmbeddedWallet } from '@thirdweb-dev/react-native';
+
+   const connectEmbedded = useEmbeddedWallet();
+
+   ...
+   await connectEmbedded({
+     strategy: 'jwt',
+     jwt: await getFirebaseJWT()
+   });
+   ...
+   ```
+
+   After the connectEmbedded function returns, the ThirdwebProvider will have connected a wallet thereby granting access to all hooks and functionalities.
+
+### Access the connected wallet
+
+1. To access the connected wallet, use the `useWallet()` hook:
+
+   ```jsx
+   import { useWallet } from "@thirdweb-dev/react-native";
+
+   const activeWallet = useWallet();
+   ```
