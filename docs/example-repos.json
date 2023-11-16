@@ -1261,10 +1261,10 @@
     "html_url": "https://github.com/thirdweb-example/phygital-experience",
     "description": null,
     "created_at": "2023-10-31T18:05:34Z",
-    "updated_at": "2023-11-15T17:01:19Z",
+    "updated_at": "2023-11-16T17:46:36Z",
     "clone_url": "https://github.com/thirdweb-example/phygital-experience.git",
     "topics": [],
-    "language": "TypeScript",
+    "language": "JavaScript",
     "stargazers_count": 0,
     "is_template": false,
     "homepage": "https://engine-phygital.vercel.app"
