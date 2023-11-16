@@ -31,13 +31,13 @@ const embeddedWalletConfig = embeddedWallet();
 
 Customize what authentication options to show to your users in the [ConnectWallet Modal](/react/react.connectwallet).
 
-By default, email and Google sign in options are shown.
+By default, email, Google, Apple and Facebook sign in options are shown.
 
 ```ts
 embeddedWallet({
   // highlight-start
   auth: {
-    options: ["email", "google"],
+    options: ["email", "google", "apple", "facebook"],
   },
   // highlight-end
 });
@@ -85,6 +85,8 @@ The wallet also needs to be added in [ThirdwebProvider's supportedWallets](/reac
 The hook will return all the necessary functions you'll need to authenticate and connect to the embedded wallet.
 
 **Connecting with Google sign in:**
+
+Note that if you want to sign in with Apple or Facebook, you can pass in `strategy: "apple"` or `strategy: "facebook"` instead.
 
 ```tsx
 function App() {
@@ -151,9 +153,10 @@ type EmailVerificationAuthParams = {
   recoveryCode?: string;
 };
 
-// google sign-in
-type GoogleAuthParams = {
-  strategy: "google";
+export type EmbeddedWalletOauthStrategy = "google" | "apple" | "facebook";
+
+type OauthAuthParams = {
+  strategy: EmbeddedWalletOauthStrategy;
   openedWindow?: Window;
   closeOpenedWindow?: (window: Window) => void;
 };

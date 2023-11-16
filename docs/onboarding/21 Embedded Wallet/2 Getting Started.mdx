@@ -131,7 +131,7 @@ const wallet = new EmbeddedWallet({
 });
 
 const authResult = await wallet.authenticate({
-  strategy: "google", // The authentication strategy to use
+  strategy: "google", // The authentication strategy to use, can be any of the supported strategies (google, facebook, apple, email, jwt)
 });
 const walletAddress = await wallet.connect({ authResult });
 ```
