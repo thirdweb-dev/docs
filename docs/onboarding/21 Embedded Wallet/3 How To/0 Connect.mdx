@@ -81,7 +81,7 @@ export default function App() {
 
 ### Choose authentication methods
 
-By default, the connect UI supports Google and email/password authentication. You can customize which authentication methods to support which will be reflected in the UI.
+By default, the connect UI supports Google, Apple, Facebook and email/password authentication. You can customize which authentication methods to support which will be reflected in the UI.
 
 <Tabs>
   <TabItem value="react" label="React">
@@ -91,7 +91,7 @@ By default, the connect UI supports Google and email/password authentication. Yo
   supportedWallets={[
     embeddedWallet({
       auth: {
-        options: ["google", "email"],
+        options: ["email", "facebook", "apple", "google"],
       }
     })
   ]}
@@ -107,8 +107,8 @@ By default, the connect UI supports Google and email/password authentication. Yo
   supportedWallets={[
     embeddedWallet({
       auth: {
-        options: ["google", "email"],
-        redirectUrl: "your_app://deeplink" // required for google auth
+        options: ["email", "facebook", "apple", "google"],
+        redirectUrl: "your_app://deeplink" // required for social logins only
       }
     })
   ]}
