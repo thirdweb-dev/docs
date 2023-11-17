@@ -3,180 +3,165 @@ title: NFT Drop
 slug: /pre-built-contracts/nft-drop
 ---
 
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
 import DeployThisContractButton from "@components/DeployThisContractButton";
-import QuickstartCard from "@components/QuickstartCard";
-import YoutubeEmbed from "@components/YoutubeEmbed";
-
-# NFT Drop
 
 <div className="deployContractBtnContainer" style={{ marginTop: -70 }}>
   <DeployThisContractButton
-    link={"https://thirdweb.com/thirdweb.eth/DropERC721?via=portal"}
+    link={
+      "https://thirdweb.com/thirdweb.eth/DropERC721?via=portalhttps://thirdweb.com/thirdweb.eth/DropERC721?via=/explore"
+    }
     contractType="nft-drop"
   />
 </div>
 
-<div className="heroGrid">
-  <div>
-    <p>
-      The NFT Drop contract is ideal when you want to release a collection of
-      unique NFTs using the <a href="https://www.erc721a.org/">ERC721A</a>{" "}
-      standard.
-    </p>
-    It allows you to define a set of conditions called <b>claim phases</b> in a sequence
-    that defines when and how your users can claim an NFT from your drop; including
-    allowlists, release dates, claim limits, and delayed reveals.
-  </div>
-  <div className="heroGridImageContainer">
-    <YoutubeEmbed link={"https://www.youtube.com/embed/11waisJqLik"} />
-  </div>
-</div>
+## Overview
 
-When you add NFTs to your drop contract, they are **not** minted at this point.
-You prepare everything for your users by **lazy minting** them, so that other wallets can mint them.
+NFT Drop enables users to release a collection of unique NFTs using the ERC721A standard. NFT Drop uses a “drop” mechanism intended for large collections to distribute NFTs. The NFT Drop can be deployed via the [dashboard](/pre-built-contracts/nft-drop#deploy-nft-drop-dashboard), [CLI](/pre-built-contracts/nft-drop#deploy-nft-drop-cli), or [SDKs](/pre-built-contracts/nft-drop#deploy-nft-drop-sdk).
 
-## Use Cases & Examples
+:::info
+**NFT Drop vs NFT Collection**
 
-You could use the NFT Drop contract to:
+NFT Drop differs from [NFT Collection](https://portal.thirdweb.com/pre-built-contracts/nft-collection) in that it allows users to lazy-mint the NFT directly to their wallet. This eliminates the need to mint the NFT to the creator's wallet and then transfer the asset to another user’s wallet.
 
-- Release a PFP Collection where each NFT has a different combination of traits
-- Release NFTs of your artwork, and have your community mint them for a price
-- Create a restricted-access NFT drop, where only a specified list of wallets can claim NFTs
+:::
 
-<div className="row" style={{ marginBottom: 24 }}>
-  <div className="col col--6" style={{ padding: 8 }}>
-    <QuickstartCard
-      name="Video: Create an NFT Drop with an Allowlist & Multiple Claim Phases"
-      link="https://www.youtube.com/watch?v=Q63o_6RTVzY"
-      image="/assets/icons/education.png"
-    />
-  </div>
-  <div className="col col--6" style={{ padding: 8 }}>
-    <QuickstartCard
-      name="Video: Create an NFT Drop with Delayed Reveal"
-      link="https://www.youtube.com/watch?v=NwnkHJ2PgIY"
-      image="/assets/icons/education.png"
-    />
-  </div>
-  <div className="col col--6" style={{ padding: 8 }}>
-    <QuickstartCard
-      name="Guide: Deploy An NFT Drop on the Optimism Network"
-      link="https://blog.thirdweb.com/guides/how-to-create-and-setup-a-claimable-nft-drop-on-optimism/"
-      image="/assets/icons/education.png"
-    />
-  </div>
-  <div className="col col--6" style={{ padding: 8 }}>
-    <QuickstartCard
-      name="Guide: Sell NFTs in a Custom ERC20 Token"
-      link="https://blog.thirdweb.com/guides/how-to-sell-nfts-in-a-custom-erc20-token/"
-      image="/assets/icons/education.png"
-    />
-  </div>
-</div>
+### Use Cases
 
-## Smart Contract Design
+- Create restricted-access NFTs which can only be claimed by a specified allowlist of wallets
+- Create large collections of unique NFT profile pics with each NFT corresponding to unique metadata or traits
+- Create NFTs of artwork intended for distribution
 
-For a detailed exploration of how our drop smart contracts work, why they were built,
-and their limitations, visit our [Drop Design Doc](/contracts/design/Drop)!
+### Extensions
 
-<div className="row" style={{ marginBottom: 24 }}>
-  <div className="col col--12" style={{ marginTop: 8 }}>
-    <QuickstartCard
-      name="Drop Smart Contract Design Document"
-      link="/contracts/design/Drop"
-      image="/assets/icons/drop.png"
-    />
-  </div>
-</div>
+- ERC721
+- ERC721Burnable
+- ERC721Supply
+- ERC721LazyMintable
+- ERC721Revealable
+- ERC721ClaimPhasesV2
+- Royalty
+- PlatformFee
+- PrimarySale
+- Permissions
+- PermissionsEnumerable
+- ContractMetadata
+- Ownable
+- Gasless
 
-## Creating & Configuring the NFT Drop
+## Deploy NFT Drop (Dashboard)
 
-Learn how to create and configure your smart contract using the [dashboard](https://thirdweb.com/dashboard).
+### Deploy and configure contract
 
-### Creating a NFT Drop Contract
+1. Navigate to Contracts > Explore > [NFT Drop](https://thirdweb.com/thirdweb.eth/DropERC721)
+2. Select `Deploy now`
 
-Deploy the NFT drop contract to any EVM network using the button below.
+   ![Deploy a contract view from Explore](./assets/nft-drop/deploy-now.png)
 
-<div style={{ width: "fit-content" }}>
-  <DeployThisContractButton
-    link={"https://thirdweb.com/thirdweb.eth/DropERC721?via=portal"}
-    contractType="nft-drop"
-  />
-</div>
+3. A modal will appear to set Contract Metadata or settings to organize and distinguish between contracts. Set the following metadata:
 
-### Lazy Minting NFTs
+   1. **Name** - name of the contract
+   2. **Symbol (optional)** - shortened name or symbol to denote a specific group of tokens. Similar to a stock ticker.
+   3. **Description (optional)** - description of contract to
+   4. **Image (optional)** - image or icon of contract
 
-Lazy minting is the process of uploading your metadata for your NFT(s) without minting them _yet_.
+   ![Contract metadata settings](./assets/nft-drop/contract-metadata.png)
 
-This is useful for when you want _other_ wallets to mint NFTs from your drop into their own wallets.
+4. Set fund distribution recipients for Primary Sales and Secondary Sales by passing in the corresponding wallet addresses you want to receive the funds.
 
-To lazy mint NFT(s), click **Create** to lazy-mint a single NFT, or **Batch Upload** to lazy-mint multiple NFTs at once.
+   1. **Primary Sales** - The initial recipient will receive any funds from sales made upon initially minting the NFT.
+   2. **Royalties / Secondary Sales** - The recipient that will receive funds from any secondary sales or re-sales of the NFT.
 
-![Create or Batch Upload Buttons](./assets/nft-drop-create.png)
+      ![Fund distribution settings](./assets/nft-drop/funds.png)
 
-To get started, you can use one of our example files for [CSV](https://thirdweb.com/example.csv) or [JSON](https://nightly.thirdweb.com/example.json) metadata.
+   3. **(Optional) Platform fees** - Recipient that will receive additional fees for all primary sales that happen on this contract. (This is useful if you are deploying this contract for a 3rd party and want to take fees for your service).
 
-<div className="row" style={{ marginBottom: 24 }}>
-  <div className="col col--12" style={{ marginTop: 8 }}>
-    <QuickstartCard
-      name="Guide: Batch Upload NFT Metadata"
-      link="https://blog.thirdweb.com/guides/how-to-batch-upload/"
-      image="/assets/icons/education.png"
-    />
-  </div>
-</div>
+      ![Untitled](./assets/nft-drop/advanced-configuration.png)
 
-### Delayed Reveals
+5. Choose a Network / Chain to Deploy to. [View list of available Networks.](https://thirdweb.com/chainlist)
 
-Delayed reveals allow you to reveal the contents of the NFT to the user later at a specific date and show a placeholder asset in the meantime.
+   ![Untitled](./assets/nft-drop/choose-network.png)
 
-- **Reveal upon mint**: Collectors will immediately see the final NFT when they complete the minting.
-- **Delayed Reveal**: Collectors will mint your placeholder image, then you reveal it at a later time.
+6. Select `Deploy` and sign the transaction prompted in the connected wallet to finish deploying the contract.
 
-<div className="row" style={{ marginBottom: 24 }}>
-  <div className="col col--12" style={{ marginTop: 8 }}>
-    <QuickstartCard
-      name="Guide: Release an NFT drop with Delayed Reveal"
-      link="https://blog.thirdweb.com/guides/nft-drop-with-delayed-reveal/"
-      image="/assets/icons/education.png"
-    />
-  </div>
-</div>
+### Upload NFTs
 
-You have the option to add a delayed reveal to a batch of NFTs after you batch upload them.
+**Single Upload**
 
-![Select Delayed Reveal](./assets/select-delayed-reveal.png)
+- Single upload is a preferred option for users uploading few NFTs at a time. Learn [how to single upload](https://portal.thirdweb.com/dashboard/NFTs#single-upload) through dashboard.
 
-### Setting Claim Phases
+**Batch Upload**
 
-A claim phase is a set of conditions that define when and how your users can claim an NFT from your drop.
+- Batch upload is a method that allows you to upload large amounts of NFTs in one click. Learn [how to batch upload](https://portal.thirdweb.com/dashboard/NFTs#batch-upload) through dashboard.
 
-**The NFT Drop contract supports multiple sequential claim phases**.
+![Untitled](./assets/nft-drop/upload-types.png)
 
-Within a claim phase, you can define:
+### Enable Delayed Reveal
 
-- When the claim phase will start
-- How many NFTs do you want to drop
-- How much do you want to charge per NFT
-- What currency do you want to use
-- Which wallet addresses are allowed to mint (allowlist)
-- How many NFTs can be claimed per transaction
-- How many seconds do wallets have to wait between claims
+Optionally, users may choose to hide their NFT image and metadata from users before minting. [Learn more about delayed reveal.](https://portal.thirdweb.com/dashboard/NFTs#reveal-nfts)
 
-To configure the claim phase, click the **Claim Phases** tab and **Add Claim Phase**.
+![Untitled](./assets/nft-drop/delayed-reveal.png)
 
-![Add Claim Phase Button](./assets/nft-drop-add-claim-phase.png)
+## Deploy NFT Drop (CLI)
 
-### Contract Metadata
+1. In the CLI run the following Deploy command:
 
-To configure the image, name, and description of the contract, click the **Settings** tab:
+   ```jsx
+   npx thirdweb deploy -n --name nft-drop
+   ```
 
-![Contract Metadata](./assets/nft-drop-settings-metadata.png)
+2. Follow the prompts to fill out your contract by following the Deploy NFT Drop (Dashboard) section.
 
-### Royalty & Platform Fees
+## Deploy NFT Drop (SDK)
 
-From the **Settings** tab, you also configure the [royalty fee](/dashboard/contract-settings),
-[primary sales recipient](/dashboard/contract-settings#primary-sales-recipient)
-and [platform fee](/dashboard/contract-settings).
+**TypeScript**
 
-![Royalty and Platform Fee](./assets/more-settings.png)
+```jsx
+const txResult = await sdk.deployer.deployBuiltInContract("nft-drop", {
+  name: "<your_contract_name>",
+  primary_sale_recipient: "<wallet_address>",
+});
+```
+
+**Python**
+
+```jsx
+from thirdweb.types.settings.metadata import NFTDropContractMetadata
+
+metadata = NFTDropContractMetadata(
+    name="<your_contract_name>",
+    primary_sale_recipient="<wallet_address>",
+    seller_fee_basis_points=500, # 5% royalty fee
+    fee_recipient="<wallet_address>",
+    platform_fee_basis_points=10, # 0.1% platform fee
+    platform_fee_recipient="<wallet_address>",
+)
+
+sdk.deployer.deploy_nft_drop(metadata)
+```
+
+**Go**
+
+```jsx
+address, err := sdk.Deployer.DeployNFTDrop(
+     context.Background(),
+        &thirdweb.DeployNFTDropMetadata{
+            Name: "<your_contract_name>",
+        }
+    })
+```
+
+**React Native**
+
+```jsx
+const sdk = useSDK(sdk.deployer.deployBuiltInContract("nft-drop", {
+  name: "<your_contract_name>",
+  primary_sale_recipient: "<wallet_address>",
+});)
+```
+
+### Interact with your contract
+
+For easy-to-use code snippets for your contract, view the [Code Snippets](https://portal.thirdweb.com/dashboard/build) view on your contract’s dashboard or visit the [SDK documentation](/sdk).

@@ -9,7 +9,7 @@ import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 import { CustomizeWalletConfiguratorRN } from "@components/build-wallet/CustomizeWalletConfiguratorRN";
 
-A wallet configurator for [Embedded Wallet](/wallet/embedded-wallet) (email + Google Sign In) which allows integrating the wallet with React Native.
+A wallet configurator for [Embedded Wallet](/wallet/embedded-wallet) (email or Socials Sign In) which allows integrating the wallet with React Native.
 
 ```tsx
 import { embeddedWallet } from "@thirdweb-dev/react-native";
@@ -43,7 +43,7 @@ We wrote [a short guide](/react-native/faq/deeplinks) to help you enable deep li
 embeddedWallet({
   // highlight-start
   auth: {
-    options: ["email", "google", "apple"],
+    options: ["email", "google", "apple", "facebook"],
     redirectUrl: "deep-link-to-your-app://",
   },
   // highlight-end
@@ -141,7 +141,7 @@ Here are the dependencies added:
 - react-native-aes-gcm-crypto
   - This package requires minSdkVersion = 26 on Android
 - @react-native-community/netinfo
-- react-native-inappbrowser-reborn: "^3.7.0" (for Google Sign In)
+- react-native-inappbrowser-reborn: "^3.7.0" (for Socials Sign In)
 
   - There's an open issue on RN > 0.72: https://github.com/margelo/react-native-quick-crypto/issues/186 which you can [fix by](https://github.com/margelo/react-native-quick-crypto/issues/186#issuecomment-1663666739) adding the following to your `android/app/build.gradle` file:
 
@@ -180,6 +180,8 @@ The wallet also needs to be added in [ThirdwebProvider's supportedWallets](/reac
 The hook will return all the necessary functions you'll need to authenticate and connect to the embedded wallet.
 
 **Connecting with Google sign in:**
+
+Note that if you want to sign in with Facebook or Apple you'll need pass "apple" or "facebook" to the `strategy` parameter.
 
 ```tsx
 function App() {
@@ -232,7 +234,7 @@ type EmailVerificationAuthParams = {
 };
 
 type SocialAuthParams = {
-  strategy: "google" | "apple";
+  strategy: "google" | "apple" | "facebook";
   redirectUrl: string;
 };
 
