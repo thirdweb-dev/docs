@@ -5,7 +5,7 @@ title: FAQ
 
 ## About Engine
 
-#### What are the differences between Engine and thirdweb SDKs?
+### How are Engine and the thirdweb Contract SDK different?
 
 Engine is a server that manages your backend wallets and how they interact with contracts. This difference unlocks capabilities that thirdweb and other web3 SDKs, including:
 
@@ -17,35 +17,36 @@ Engine is a server that manages your backend wallets and how they interact with 
 
 Additionally, Engine is built on top of the thirdweb SDK and has the same capabilities.
 
-#### Does Engine work with all thirdweb smart contracts?
+### Does Engine work with all thirdweb smart contracts?
 
 Yes. Engine has intuitive interfaces to deploy prebuilt contracts, manage smart wallets, run a marketplace, and more.
 
-#### Does Engine work with my non-thirdweb smart contracts?
+### Does Engine work with my non-thirdweb smart contract?
 
 Yes. Engine can read and write to any EVM contract with low-level API calls, including providing raw calldata. ERC-721 and ERC-1155 APIs can also be used for [contracts imported to thirdweb](https://support.thirdweb.com/smart-contracts/rtHYyzspnPaHmmANmJQz1k/importing-non-thirdweb-contracts-into-the-dashboard/hELLjgTc8TWrMdMEQkm2Es).
 
 ## Using Engine
 
-#### How do I wait until a transaction completes?
+### How do I wait for a transaction to be mined?
 
-APIs that call contract write methods (i.e. transactions sent from your backend wallets) enqueue an async job and return a corresponding `queueId`.
+Write calls to contracts do not block until they are mined. Instead they enqueue an async job and immediately return a reference to the job called `queueId`.
 
-On the backend, use [webhooks](/engine/webhooks) to be notified when a transaction event occurs.
+Here are three ways to determine when the job is mined:
+- Use [webhooks](/engine/webhooks) to notify your backend when a transaction event occurs.
+- Poll the `/transaction/status/<queue_id>` endpoint.
+- Use websockets:
 
-On frontend clients, use websockets:
+    ```js
+    const socket = new WebSocket(
+      "wss://<engine_url>/transaction/status/<queue_id>?token=<session_token>",
+    );
+    socket.onmessage = (event) => {
+      const res = JSON.parse(event.data);
+      console.log("Received data:", JSON.parse(res.result));
+    };
+    ```
 
-```js
-const socket = new WebSocket(
-  "wss://<engine_url>/transaction/status/<queue_id>?token=<session_token>",
-);
-socket.onmessage = (event) => {
-  const res = JSON.parse(event.data);
-  console.log("Received data:", JSON.parse(res.result));
-};
-```
-
-#### How do I cancel a transaction?
+### How do I cancel a transaction?
 
 If a transaction is has not yet been mined or failed, cancel the transaction with `POST /transaction/cancel`.
 
@@ -53,13 +54,21 @@ Or to cancel a transaction in the Engine dashboard, select the **Cancel transact
 
 ![Cancel transaction button](./assets/cancel-transaction-button.png)
 
-#### How do I customize RPC URLs?
+### How do I customize RPC URLs?
 
 Set the `CHAIN_OVERRIDES` environment variable to the path to a JSON file or internet-accessible URL. The default value is `./chain-overrides.json` if found. See <a href="https://github.com/thirdweb-dev/engine/blob/main/chain-overrides.example.json" target="_blank">the example format</a>.
 
 ## Troubleshooting
 
-#### Why is Engine unable to connect to my Postgres DB?
+### How do I resolve an "invalid password" error?
+
+As of v0.0.7, an `ENCRYPTION_PASSWORD` is used to encrypt sensitive data stored in DB. Prior versions used the `THIRDWEB_API_SECRET_KEY` by default.
+
+To resolve this error, set `ENCRYPTION_PASSWORD` to the `THIRDWEB_API_SECRET_KEY` used during setup.
+
+Afterward you may change `THIRDWEB_API_SECRET_KEY` if needed. Do *not* change `ENCRYPTION_PASSWORD` since all sensitive data is encrypted with this password.
+
+### How do I resolve issues connecting to Postgres DB?
 
 Here are some common troubleshooting tips:
 
