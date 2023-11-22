@@ -52,6 +52,32 @@ They also work with any wallet provider as the EOA, but it is recommended to use
 
 You would then be able to login to the exact same persistent EOA and smart wallet address across your apps, and even across different platforms.
 
+You can also create session keys, allowing new signers to interact with the smart wallet without being the admin.
+You may also add/remove admins.
+
+```csharp
+using Thirdweb;
+
+// Reference to your Thirdweb SDK
+var sdk = ThirdwebManager.Instance.SDK;
+
+// Create a session key to add a temporary signer
+var createSessionResult = await sdk.wallet.CreateSessionKey("0xSignerAddress", ...options);
+
+// Alternatively, you can add an admin
+var addAdminResult = await sdk.wallet.AddAdmin("0xSignerAddress");
+
+// Or remove an admin
+var removeAdminResult = await sdk.wallet.RemoveAdmin("0xSignerAddress");
+
+// This pairs well with the `smartWalletAccountOverride` option to connect to a specific smart wallet
+var connection = new WalletConnection(
+  ...options,
+  smartWalletAccountOverride: "0xSmartWalletAddress"
+);
+var address = await sdk.wallet.Connect(connection);
+```
+
 ## Additional Options
 
 Smart wallets, through paymasters, can be seen as a "plugin" to your user wallets, whereby all gas fees can be sponsored onchain.
