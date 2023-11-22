@@ -153,47 +153,6 @@ function App() {
 }
 ```
 
-### overrides (optional)
-
-The [overrides](/react/react.usecontractwrite#overrides-optional) to use when sending the transaction.
-
-Includes options for overriding all transaction parameters including:
-
-- `value`: The amount of wei to send with the transaction.
-- `gasLimit`: The maximum amount of gas to use for the transaction.
-
-```jsx
-import { Web3Button } from "@thirdweb-dev/react";
-import { ethers } from "ethers";
-
-function App() {
-  return (
-    <Web3Button
-      contractAddress="0x..."
-      action={(contract) => contract.erc721.claim(1)}
-      // highlight-start
-      overrides={{
-        accessList: [], // The AccessList to include; only available for EIP-2930 and EIP-1559 transactions.
-        blockTag: "latest", // A BlockTag specifies a specific block location in the Blockchain.
-        ccipReadEnabled: false, // https://eips.ethereum.org/EIPS/eip-3668#use-of-ccip-read-for-transactions
-        customData: {}, // The transaction data.
-        from: "0x...", // The address this transaction is from.
-        gasLimit: 100000, // The maximum amount of gas this transaction is permitted to use.
-        gasPrice: 100000, // The price (in wei) per unit of gas this transaction will pay.
-        maxFeePerGas: 100000, // The maximum price (in wei) per unit of gas this transaction will pay
-        maxPriorityFeePerGas: 0, // The price (in wei) per unit of gas this transaction will allow in addition to the block's base fee
-        nonce: 0, // The nonce used as part of the proof-of-work to mine this block.
-        type: 0, // The EIP-2718 type of this transaction envelope, or undefined for to use the network default
-        value: ethers.utils.parseEther("0.1"), // send 0.1 ether with the contract call
-      }}
-      // highlight-end
-    >
-      Execute Action
-    </Web3Button>
-  );
-}
-```
-
 ### onSuccess (optional)
 
 Callback function to be run when the contract method call is successful.
