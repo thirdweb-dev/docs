@@ -1,0 +1,45 @@
+---
+slug: /wallet/rabby-wallet
+title: Rabby Wallet
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Prompt users to connect to their [Rabby wallet](https://rabby.io/).
+
+## Usage
+
+```javascript
+import { RabbyWallet } from "@thirdweb-dev/wallets";
+
+const wallet = new RabbyWallet();
+
+wallet.connect();
+```
+
+## Configuration
+
+Optionally, provide a configuration object when instantiating the `RabbyWallet` class.
+
+<details>
+  <summary>recommended (optional) </summary>
+  <div>
+
+Show this wallet as "recommended" in the [ConnectWallet Modal](/react/react.connectwallet).
+
+```ts
+RabbyWallet({
+  // highlight-start
+  recommended: true,
+  // highlight-end
+});
+```
+
+</div>
+</details>
+
+## Methods
+
+Inherits all the public methods from the [`AbstractClientWallet`](interfaces/abstract-client-wallet) class.
