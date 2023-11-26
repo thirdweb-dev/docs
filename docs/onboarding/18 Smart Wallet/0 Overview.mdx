@@ -12,33 +12,24 @@ import QuickstartCard from "@components/QuickstartCard";
 
 # Smart Wallet
 
-Everything you need to build [ERC-4337](https://eips.ethereum.org/EIPS/eip-4337) Smart Wallets for your users.
+Smart wallets are programmable wallets that provide a secure and convenient digital solution for managing and storing assets. In contrast to an [EOA](https://ethereum.org/en/developers/docs/accounts/), or externally owned account, smart wallets are instead a smart contract secured by code rather than private keys. 
 
-Ethereum has 2 types of accounts to transfer and receive tokens: EOAs (Externally Owned Accounts) and smart contract accounts.
-A smart wallet is a wallet type requiring **no private keys or seed phrases**.
-Smart contract wallets rely on code instead of private keys to secure and recover wallet information.
-
-**A smart contract wallet is a Web3 wallet controlled by a smart contract following the [ERC-4337 specification](https://eips.ethereum.org/EIPS/eip-4337).**
+:::info
+Smart wallet factory contracts are fully compliant ERC-4337 spec. Learn more about ERC-4337 through the EIP proposal. 
+:::
 
 ## Features
 
-thirdweb's smart wallets have the following features by default:
+- **Operate with multiple parties** - Allow multiple owners on the same wallet to sign and transact. Assign specific roles and permissions such as signers and admins.
+- **Limit access** - Limit access to specific functionalities or data within a smart contract via scoped session keys.
+- **Execute transactions** - Execute batched and single transactions, send and receive tokens or NFTs (ERC721 and ERC1155), and more with your smart wallet.
+- **Ready-to-deploy contracts** - Easily deploy smart wallet account factories through pre-built contracts.
+- **Composable Smart Wallet API** - Usable with already deployed ERC-4337 compatible factory contracts or bundler / paymaster services.
 
-- The ability to have multiple owners on the same wallet.
-- Give access to scoped session keys with restrictions.
-- Execute transactions (single and batched).
-- Send and receive native tokens to and from the smart wallet.
-- Send and receive [ERC-721](/solidity/extensions/erc721) and [ERC-1155](/solidity/extensions/erc1155) NFTs from the smart wallet.
-- Store contract metadata.
-- Pay for its own gas via a [paymaster](/smart-wallet/how-it-works#paymaster).
-- Assign roles and permissions such as signers and admins.
-- Upgrade functionality over time when using the dynamic and managed factories.
+### Use Cases & Examples
 
-And more!
-
-Smart Wallets can be deployed via the [explore page](https://thirdweb.com/explore) or customized to each application's needs using the [Solidity SDK](/solidity).
-
-The `SmartWallet` API is **composable** - you can use with your own [ERC 4337](https://eips.ethereum.org/EIPS/eip-4337) compatible factory contract and you can also use your own bundler or paymaster services.
+- Create and manage wallets for users for applications such as games to provide a seamless and secure experience
+- Configure games or applications with restrictions and gameplay tied to specific assets
 
 ## Templates
 
