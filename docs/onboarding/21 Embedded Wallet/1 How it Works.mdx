@@ -3,38 +3,65 @@ slug: /embedded-wallet/how-it-works
 title: How it works
 ---
 
-![App Scopes](./assets/app-scoped.svg)
+# How it works
 
-## One Embedded Wallet Per App
+### Wallet creation
 
-Embedded wallets are scoped to your app (per API key). If a user uses the same email to sign in to a different app, that app will manage a different wallet entirely. However, users can get a global view of all their application-scoped Embedded Wallets by logging into the [My Wallets](https://ews.thirdweb.com/wallet) page.
+When a user signs into an application using their email or social logins for the first time, a wallet is generated on the user's device. The corresponding wallet key for this wallet is securely split into three shards using [Shamir's Secret Sharing](https://en.wikipedia.org/wiki/Shamir%27s_secret_sharing) algorithm.
 
-**Benefits:**
+1. **Shard A** is stored securely on the user's device. For web applications, this is stored on the browser, or for mobile apps, it is in a secure enclave.
+2. **Shard B** is encrypted and stored in [Amazon KMS](https://aws.amazon.com/kms/) using a key known to thirdweb. This process uses [hardware security modules](https://en.wikipedia.org/wiki/Hardware_security_module) (HSMs) to protect the confidentiality and integrity of keys. The encrypted string is stored in thirdweb's database.
+3. **Shard C** is encrypted by user authentication and stored in Amazon's KMS using hardware security modules (HSMs) to protect the confidentiality and integrity of keys. Despite the key stored on thirdweb's servers, thirdweb has no way of decrypting and accessing the key.
+    
+    ![embedded-wallet-architecture.svg](./assets/embed-creation.svg)
+    
 
-- Each app has access to wallets created on their app only and cannot manage wallets from other apps.
-- Users only see tokens sent/purchased from your app.
-- Some behind-the-scenes information can be shared to improve the user experience, such as saved payment methods and KYC verification provided to thirdweb. Apps can never view this information.
+### Recoverability
 
-## Scalability
+Embedded Wallets are non-custodial, and users can export their private key anytime. Users may recover their wallet from any device by authenticating or signing into an application to receive access to their wallet.
+Threshold secret-sharing cryptography is used to recreate the private key; two of three shards are required.
+If a user loses access to their authentication method (email, social login, or custom authentication), they cannot recover their wallet.
 
-You can create up to 100 wallets/second by default and can support higher limits (up to 3,000 wallets/second) upon request.
+:::info
+thirdweb does not have the ability to access user accounts or reconstruct private keys.
+:::
 
-## Security
+### Embedded Wallet Scope
 
-**A private key is constructed on the user's device after they sign in.**
+Embedded Wallets are scoped to applications per API key. If users use the same email to sign in to a different application using Embedded Wallets, the application will manage an entirely different wallet.
 
-We use **threshold secret sharing cryptography** to shard each private key to multiple, independent shards: (1) on the user's device, (2) stored in Amazon's KMS and encrypted by a key on a secure hardware security module (HSM) that can only be retrieved by the customer's auth, and (3) encrypted with a key, known by thirdweb, and stored on thirdweb's KMS server. The wallet only works when **two of these three** shards are present.
+**Benefits of single application scoped wallets**
 
-Key advantages over standard wallets:
+- Each application has limited access only to wallets created through their application. It cannot manage wallets from other applications.
+- Users may only view tokens sent or purchased from your application.
+- To improve user experience, saved payment methods and KYC verification are only provided to thirdweb; applications cannot view this information.
 
-- The wallet is not compromised if an attacker gets an individual shard.
-- There is no seed phrase. Seed phrases can leaked or forgotten leading to compromised wallets. Not having one increases the security of the wallet
-- Users can recover their wallets from any of their devices.
+Users may view all their application-scoped Embedded Wallets in a single view using the [My Wallets](https://ews.thirdweb.com/wallet) dashboard. Learn more about My Wallets.
 
-Shards are always encrypted stored and transferred between the customer's device and thirdweb's server. The developer (you) and thirdweb are **non-custodial** and can never reconstruct private keys when the user is not authenticated. thirdweb only has access to the third shard and cannot access the other two shards without the user logging into your application.
+![Untitled](./assets/app-scoped.svg)
 
-With threshold secret sharing, your customers’ assets are safe even if thirdweb or you are compromised. This is because the attacker will only be able to access one of the three shards, and that is not enough to reconstruct the private key.
+### Scalability
 
-### Audits
+We support up to 100 wallets generated/second by default and can support higher limits (up to 3,000 wallets generated/second) upon request. [Contact Sales](https://thirdweb.com/contact-us) for more information. 
 
-The Embedded Wallet private key security architecture has been audited by [HackerOne](https://www.hackerone.com/), and there is an ongoing bounty program to ensure vulnerabilities are being covered. [View the Letter of Attestation](./assets/_Thirdweb__Code_Security_Audit_-_Letter_of_Attestation.pdf).
+### Security & privacy
+
+**TLS Encryption**
+
+To increase security and privacy, private keys or wallet "seed phrases" are never stored or sent over a network. TLS encryption is used in transit for internal and external communications with thirdweb's back-end and databases. TLS encryption is also required for third-party vendors.
+
+**AES-256**
+
+Data backups and storage are encrypted with AES-256.
+
+**Threshold secret sharing**
+
+Using threshold secret sharing, thirdweb cannot reconstruct a user's private key, thereby providing a non-custodial wallet. Additionally, a customer's assets are safe even if thirdweb or the application developer (you) is compromised. In a compromised situation, an attacker may only be able to access one of three shards, which is inadequate to reconstruct the wallet's private key.
+
+**GDPR & CCPA**
+
+Embedded wallets are compliant with GDPR and CCPA within 90 days.
+
+**Audit and Bounty Program**
+
+HackerOne has audited embedded Wallet private key security architecture, and there is an ongoing bounty program to ensure vulnerabilities are caught. [View the Letter of Attestation.](./assets/_Thirdweb__Code_Security_Audit_-_Letter_of_Attestation.pdf)
