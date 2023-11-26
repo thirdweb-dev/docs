@@ -848,6 +848,22 @@
     {
         "source": "/pre-built-contracts/choosing-the-right-pre-built-contract",
         "destination": "/pre-built-contracts"
+    },
+    {
+      "source": "/signature-minting",
+      "destination": "/"
+    },
+    {
+      "source": "/signature-minting/how-it-works",
+      "destination": "/"
+    },
+    {
+        "source": "/signature-minting/getting-started",
+        "destination": "/"
+    },
+    {
+      "source": "/pre-built-contracts/signature-drop",
+      "destination": "/"
     }
   ]
 }
