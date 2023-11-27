@@ -146,3 +146,27 @@ TransactionResult;
 
 </div>
 </details>
+
+## Static Methods
+
+Useful static methods for working with transactions.
+
+```csharp
+string txHash = "your_tx_hash";
+TransactionResult result = await Transaction.WaitForTransactionResult(txHash);
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+Returns the transaction result as a <see cref="TransactionResult"/> object.
+
+```csharp
+TransactionResult;
+```
+
+</div>
+</details>
