@@ -9,7 +9,7 @@ import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 import { CustomizeWalletConfiguratorRN } from "@components/build-wallet/CustomizeWalletConfiguratorRN";
 
-A wallet configurator for [Embedded Wallet](/wallet/embedded-wallet) (email + Google Sign In) which allows integrating the wallet with React Native.
+A wallet configurator for [Embedded Wallet](/wallet/embedded-wallet) (email or Socials Sign In) which allows integrating the wallet with React Native.
 
 ```tsx
 import { embeddedWallet } from "@thirdweb-dev/react-native";
@@ -29,14 +29,13 @@ const embeddedWalletConfig = embeddedWallet();
   <div>
 
 Whether to show the Sign In with different providers.
-Right now, only Google is supported.
 
 To use this feature you will need to enable the `Embedded Wallets` service for your `clientId`
 in your [Dashboard Settings](https://thirdweb.com/dashboard/settings) and you will need to allowlist
 your app's `redirectUrl` (more on this below).
 
 `redirectUrl`: The `redirectUrl` must be a deeplink your app supports. This
-is going to be used to redirect back from the browser after logging in with Google.
+is going to be used to redirect back from the browser when using socials sign in options (Google, Apple, etc).
 
 We wrote [a short guide](/react-native/faq/deeplinks) to help you enable deep links support in your mobile app.
 
@@ -44,12 +43,75 @@ We wrote [a short guide](/react-native/faq/deeplinks) to help you enable deep li
 embeddedWallet({
   // highlight-start
   auth: {
-    options: ["email", "google"],
+    options: ["email", "google", "apple", "facebook"],
     redirectUrl: "deep-link-to-your-app://",
   },
   // highlight-end
 });
 ```
+
+</div>
+</details>
+
+<details>
+  <summary>walletConnectReceiver</summary>
+  <div>
+
+Enables the wallet to be available to listen for WalletConnect events.
+
+Note that to fully support this there needs to be a UI component to handle WalletConnect uris (`wc://`) and pass it to the wallet.
+
+Defaults to `undefined`.
+
+```
+export type WalletConnectReceiverConfig = {
+  walletConnectReceiver?:
+    | {
+        walletConnectWalletMetadata?: WCMetadata;
+        walletConnectV2ProjectId?: string;
+        walletConnectV2RelayUrl?: string;
+      }
+    | true;
+};
+```
+
+<details>
+  <summary>walletConnectV2ProjectId</summary>
+  <div>
+
+The WalletConnect V2 `projectId`. You can get one in the [WalletConnect portal](https://cloud.walletconnect.com/sign-in).
+
+Defaults to a common `projectId` set by thirdweb. This should be ok for testing but note that if you want to deploy your mobile app it may make sense to create your own as WalletConnect may throttle traffic coming from the same `projectId`.
+
+</div>
+</details>
+
+<details>
+  <summary>walletConnectV2RelayUrl</summary>
+  <div>
+
+Define a custom Relay Server URL. Defaults to "wss://relay.walletconnect.com"
+
+</div>
+</details>
+
+<details>
+  <summary>walletConnectWalletMetadata</summary>
+  <div>
+
+Metadata that will be displayed in the dApp once your SmartWallet is connected to it.
+
+```json
+{
+  name: string; // defaults to: "Thirdweb Smart Wallet",
+  description: string; // defaults to: "Thirdweb Smart Wallet",
+  url: string: // defaults to: "https://thirdweb.com",
+  icons: string[]; // defaults to: ["https://thirdweb.com/favicon.ico"],
+};
+```
+
+</div>
+</details>
 
 </div>
 </details>
@@ -79,7 +141,7 @@ Here are the dependencies added:
 - react-native-aes-gcm-crypto
   - This package requires minSdkVersion = 26 on Android
 - @react-native-community/netinfo
-- react-native-inappbrowser-reborn: "^3.7.0" (for Google Sign In)
+- react-native-inappbrowser-reborn: "^3.7.0" (for Socials Sign In)
 
   - There's an open issue on RN > 0.72: https://github.com/margelo/react-native-quick-crypto/issues/186 which you can [fix by](https://github.com/margelo/react-native-quick-crypto/issues/186#issuecomment-1663666739) adding the following to your `android/app/build.gradle` file:
 
@@ -118,6 +180,8 @@ The wallet also needs to be added in [ThirdwebProvider's supportedWallets](/reac
 The hook will return all the necessary functions you'll need to authenticate and connect to the embedded wallet.
 
 **Connecting with Google sign in:**
+
+Note that if you want to sign in with Facebook or Apple you'll need pass "apple" or "facebook" to the `strategy` parameter.
 
 ```tsx
 function App() {
@@ -169,9 +233,8 @@ type EmailVerificationAuthParams = {
   recoveryCode?: string;
 };
 
-// google sign-in
-type GoogleAuthParams = {
-  strategy: "google";
+type SocialAuthParams = {
+  strategy: "google" | "apple" | "facebook";
   redirectUrl: string;
 };
 

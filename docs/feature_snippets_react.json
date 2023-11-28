@@ -1,6 +1,17 @@
 {
   "": [
     {
+      "name": "shortenAddress",
+      "summary": "This function shortens an address if it is a valid EVM address.\n\n",
+      "remarks": "\n\nNote that this function will not check if the address is an ENS.\n\n",
+      "examples": {
+        "tyepscript": "const address = shortenIfAddress(\"0x1234567890123456789012345678901234567890\", true); // result will be \"0x1234...890\""
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.shortenaddress"
+      }
+    },
+    {
       "name": "useAcceptDirectListingOffer",
       "summary": "Accept a specific offer on a direct listing\n\n",
       "remarks": "\n\nwill accept the latest offer by the given offeror.\n\n",

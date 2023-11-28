@@ -1,6 +1,6 @@
 ---
 slug: /embedded-wallet/getting-started
-title: Getting Started
+title: QuickStart
 ---
 
 import Tabs from "@theme/Tabs";
@@ -131,7 +131,7 @@ const wallet = new EmbeddedWallet({
 });
 
 const authResult = await wallet.authenticate({
-  strategy: "google", // The authentication strategy to use
+  strategy: "google", // The authentication strategy to use, can be any of the supported strategies (google, facebook, apple, email, jwt)
 });
 const walletAddress = await wallet.connect({ authResult });
 ```
@@ -168,3 +168,7 @@ public async void ConnectWallet()
 </Tabs>
 
 For more details and advanced usage, see the reference documentation for each platform.
+
+:::note
+If you're using the Typescript SDK, the code has to be running in the a browser environment due to security reasons.
+:::

@@ -1,0 +1,298 @@
+---
+slug: /guides/engine/smart-wallets
+title: Smart Wallets & Session Keys
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+import QuickstartCard from "@components/QuickstartCard";
+
+While building web3 apps and games, you often want to:
+
+- **Deploy smart wallets to onboard your users**, and give your users full custody over their own wallets
+- But, **you still want your backend to occasionally perform onchain actions for your users** - like minting NFTs, spending currency, or listing assets on their behalf.
+
+In this guide, we're going to use [smart wallets](https://portal.thirdweb.com/smart-wallet) & [session keys](https://portal.thirdweb.com/smart-wallet/permissions) with Engine to build a flow where:
+
+1. Your backend deploys smart wallets for your users
+2. Your users can "login" to your backend with these smart wallets
+3. Your backend gains temporary access to perform onchain actions on behalf of your users accounts
+
+## Step 1: Deploy an account factory
+
+In order to deploy smart wallets for your users, you need to deploy an `AccountFactory` contract first.
+
+You can deploy one from the thirdweb dashboard - thirdweb offers the following 3 types of account factory contracts:
+
+<div className="row" style={{ marginBottom: 12, padding: 8, paddingTop: 0 }}>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Account Factory"
+      link="https://thirdweb.com/thirdweb.eth/AccountFactory"
+      image="/assets/wallets/smart-wallet.svg"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Managed Account Factory"
+      link="https://thirdweb.com/thirdweb.eth/ManagedAccountFactory"
+      image="/assets/wallets/smart-wallet.svg"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Dynamic Account Factory"
+      link="https://thirdweb.com/thirdweb.eth/DynamicAccountFactory"
+      image="/assets/wallets/smart-wallet.svg"
+    />
+  </div>
+</div>
+
+You can read about the differences [here](https://portal.thirdweb.com/smart-wallet/how-it-works#smart-wallet-factories) - for most simple use cases, the `AccountFactory` is a good start.
+
+## Step 2: Connect smart wallets in your application
+
+Now, we can follow the steps to [allow our users to connect to our application with smart wallets](https://portal.thirdweb.com/smart-wallet/getting%20started#3-connect-smart-wallets-in-your-application).
+
+Make sure to replace the configuration for `factoryAddress` with the account factory address that you just deployed
+
+This setup does the following:
+
+- Automatically deploys smart accounts for your users when the first transaction on their account is performed.
+- Your users can connect to their smart wallet with any personal wallet (in this case, we've used `embeddedWallet` which let's users control their smart wallets with their email).
+- Handle all transaction gas cost via the thirdweb paymaster
+- Select your deployed account factory and client ID to use thirdweb infrastructure
+
+<Tabs>
+  <TabItem value="react" label="React" default>
+    <CodeBlock language="tsx">
+    {`import { ThirdwebProvider, ConnectWallet, smartWallet, embeddedWallet } from "@thirdweb-dev/react";
+export default function App() {
+return (
+    <ThirdwebProvider
+      clientId="<your-thirdweb-client-id>"
+      activeChain="goerli"
+      supportedWallets={[
+        smartWallet(
+          embeddedWallet(),
+          { 
+            factoryAddress: "<your-account-factory-address>", // your deployed factory address
+            gasless: true // enable or disable gasless transactions
+        })
+      ]}
+    >
+      <ConnectWallet />
+    </ThirdwebProvider>
+  );
+}
+`}
+</CodeBlock>
+  </TabItem>
+  <TabItem value="react-native" label="React Native">
+    <CodeBlock language="tsx">
+    {`import { ThirdwebProvider, ConnectWallet, smartWallet, embeddedWallet } from "@thirdweb-dev/react-native";
+export default function App() {
+return (
+    <ThirdwebProvider
+      clientId="<your-thirdweb-client-id>"
+      activeChain="goerli"
+      supportedWallets={[
+        smartWallet(
+          embeddedWallet(),
+          { 
+            factoryAddress: "<your-account-factory-address>", // your deployed factory address
+            gasless: true // enable or disable gasless transactions
+        })
+      ]}
+    >
+      <ConnectWallet />
+    </ThirdwebProvider>
+  );
+}`}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="TypeScript" label="TypeScript">
+    <CodeBlock language="typescript">
+    {`import { LocalWallet, SmartWallet } from "@thirdweb-dev/wallets";
+// First, connect the personal wallet, which can be any wallet (metamask, walletconnect, etc.)
+// Here we're just generating a new local wallet which can be saved later
+const personalWallet = new LocalWallet();
+await personalWallet.generate();
+// Setup the Smart Wallet configuration
+const config = {
+  chain: "goerli", // the chain where your smart wallet will be or is deployed
+  factoryAddress: "<your-account-factory-address>", // your own deployed account factory address
+  clientId: "<your-thirdweb-client-id>", // or use secretKey for backend/node scripts
+  gasless: true, // enable or disable gasless transactions
+};
+// Then, connect the Smart wallet
+const wallet = new SmartWallet(config);
+  await wallet.connect({
+  personalWallet,
+});`}
+
+</CodeBlock>
+  </TabItem>
+  <TabItem value="unity" label="Unity">
+    <CodeBlock language="csharp">
+    {`using Thirdweb;
+public async void ConnectWallet()
+{
+    // Reference to your Thirdweb SDK
+    var sdk = ThirdwebManager.Instance.SDK;
+    // Configure the connection
+    var connection = new WalletConnection(
+      provider: WalletProvider.SmartWallet,        // The wallet provider you want to connect to (Required)
+      chainId: 1,                                  // The chain you want to connect to (Required)
+      password: "myEpicPassword",                  // If using a local wallet as personal wallet (Optional)
+      email: "email@email.com",                    // If using an email wallet as personal wallet (Optional)
+      personalWallet: WalletProvider.LocalWallet   // The personal wallet you want to use with your Smart Wallet (Optional)
+    );
+    // Connect the wallet
+    string address = await sdk.wallet.Connect(connection);
+}
+    `}
+    </CodeBlock>
+  </TabItem>
+</Tabs>
+
+## Step 3: Let users grant your backend a session key
+
+So far, your users will be able to connect to your client-side application with their smart wallet and perform onchain actions from there.
+
+Now, we want to create a flow to enable your backend to perform actions on their smart wallets using Engine.
+
+In order to accomplish this, we ned to prompt users to grant our engine backend wallet a session key.
+
+This will allow engine to perform onchain actions for the user smart wallet by signing user operations with the engine backend wallet.
+
+In this snippet, we have a button that prompts the users to grant the engine backend wallet a session key giving Engine access to send transactions to any contract from the user's smart wallet for 3 hours.
+
+<Tabs>
+  <TabItem value="react" label="React" default>
+<div>
+
+```tsx
+const Component = () => {
+  const { mutate: createSessionKey, isLoading, error } = useCreateSessionKey();
+
+  return (
+    <button
+      disabled={isLoading}
+      onClick={() =>
+        createSessionKey({
+          keyAddress: "<your-backend-wallet-address>",
+          permissions: {
+            approvedCallTargets: "*", // send a transaction to any contract
+            nativeTokenLimitPerTransaction: 0, // backend cant spend any funds
+            startDate: new Date(), // start now
+            expirationDate: new Date(Date.now() + 3 * 60 * 60 * 1000), // expire in 3 hours
+          },
+        })
+      }
+    >
+      Create Session Key
+    </button>
+  );
+};
+```
+
+</div>
+  </TabItem>
+<TabItem value="react-native" label="React Native" default>
+<div>
+
+```tsx
+const Component = () => {
+  const { mutate: createSessionKey, isLoading, error } = useCreateSessionKey();
+
+  return (
+    <button
+      disabled={isLoading}
+      onClick={() =>
+        createSessionKey({
+          keyAddress: "<your-backend-wallet-address>",
+          permissions: {
+            approvedCallTargets: "*", // send a transaction to any contract
+            nativeTokenLimitPerTransaction: 0, // backend cant spend any funds
+            startDate: new Date(), // start now
+            expirationDate: new Date(Date.now() + 3 * 60 * 60 * 1000), // expire in 3 hours
+          },
+        })
+      }
+    >
+      Create Session Key
+    </button>
+  );
+};
+```
+
+</div>
+  </TabItem>
+<TabItem value="TypeScript" label="TypeScript" default>
+  <div>
+
+```typescript
+const smartWallet = new SmartWallet(config);
+
+// create and add a session key with permissions
+await smartWallet.createSessionKey({
+  keyAddress: "<your-backend-wallet-address>",
+  permissions: {
+    approvedCallTargets: "*", // send a transaction to any contract
+    nativeTokenLimitPerTransaction: 0, // backend cant spend any funds
+    startDate: new Date(), // start now
+    expirationDate: new Date(Date.now() + 3 * 60 * 60 * 1000), // expire in 3 hours
+  },
+});
+```
+
+  </div>
+</TabItem>
+<TabItem value="unity" label="Unity">
+  <div>
+
+```csharp
+// Example Coming Soon
+```
+
+  </div>
+</TabItem>
+</Tabs>
+
+## Step 4: Perform onchain actions for users from your backend with Engine
+
+Once users grant your backend wallet a session key, you can use Engine to perform onchain actions on behalf of your user wallets from your backend.
+
+You can accomplish this by making requests to Engine from your backend and specifying the Engine backend wallet and user smart account address to use.
+
+We need to set the `x-backend-wallet-address` header to the backend wallet that the user assigned the session key to, and the `x-account-address` header to the user's account that we want to act on behalf of.
+
+For example, the following snippet will transfer an NFT from the user's wallet using Engine:
+
+```typescript
+import { Engine } from "@thirdweb-dev/engine";
+
+export default async function handler(req, res) {
+  const { accountAddress } = req.body;
+
+  const engine = new Engine({
+    url: "http://localhost:3005/",
+    accessToken: "<your-engine-access-token>"
+  })
+
+  await engine.erc721.transfer(
+    "mumbai",
+    "<contract-address>",
+    "<x-backend-wallet-address>",
+    {
+      to: "0x...",
+      tokenId: 0,
+    }
+    "<x-account-address>"
+  )
+}
+```
+
+Using this flow, you can perform any onchain action from your backend with the users wallet!
