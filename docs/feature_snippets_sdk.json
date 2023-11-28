@@ -2120,7 +2120,7 @@
       "summary": "Update the metadata of an NFT\n\n",
       "remarks": "\n\nUpdate the metadata of an NFT\n\n",
       "examples": {
-        "javascript": "// The token ID of the NFT whose metadata you want to update\nconst tokenId = 0;\n// The new metadata\nconst metadata = { name: \"My NFT\", description: \"My NFT description\"\"}\n\nawait contract.erc721.update(tokenId, metadata);"
+        "javascript": "// The token ID of the NFT whose metadata you want to update\nconst tokenId = 0;\n// The new metadata\nconst metadata = { name: \"My NFT\", description: \"My NFT description\" }\n\nawait contract.erc721.update(tokenId, metadata);"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/typescript/sdk.bignumberish"
