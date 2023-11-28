@@ -1,0 +1,41 @@
+---
+title: useBalanceForAddress
+slug: /react.usebalanceforaddress
+displayed_sidebar: react
+---
+
+This hook is similar to the [useBalance](/react/react.usebalance) hook, however it takes in a mandatory `walletAddress` parameter.
+This hook only fetches the native token balance of the given address and does not work with ERC20 tokens. If you want to get the ERC20 balance from a given wallet, use [useTokenBalance](/react/react.usetokenbalance)
+
+```jsx
+import { useBalanceForAddress } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide the wallet address as the argument.
+
+```jsx
+import { useBalanceForAddress } from "@thirdweb-dev/react";
+
+// The EVM wallet address that you want to fetch info from
+const walletAddress = "{{wallet_address}}";
+
+function App() {
+  const { data, isLoading } = useBalanceForAddress(walletAddress);
+}
+```
+
+## Return Value
+
+The hook's `data` property, once loaded, contains the following properties:
+
+```ts
+{
+  symbol: string;
+  value: BigNumber;
+  name: string;
+  decimals: number;
+  displayValue: string;
+} | undefined>;
+```

@@ -18,6 +18,12 @@ The buyer receives the NFT without requiring wallet signatures or gas funds.
 
 > This guide references Polygon Mumbai testnet and NextJS but is applicable for any EVM chain and full-stack framework.
 
+<img
+  src="/assets/engine/nft-checkout-overview.png"
+  width="600px"
+  alt="NFT checkout overview"
+/>
+
 ## Prerequisites
 
 - A thirdweb client ID and secret key from the [API Keys page](https://thirdweb.com/dashboard/settings/api-keys)
@@ -191,16 +197,30 @@ Navigate to the [Stripe webhooks dashboard (test mode)](https://dashboard.stripe
 Here’s what the user flow looks like.
 
 The buyer is prompted to provide their credit card.
-![Initial page load](../assets/nft-checkout-1.png)
+
+<img
+  src="/assets/engine/nft-checkout-1.png"
+  alt="Initial page load"
+  width="400px"
+/>
 
 They provide their card details.
 
 > _Tip: Stripe testmode accepts `4242 4242 4242 4242` as a valid credit card._
 
-![Prompted for card details](../assets/nft-checkout-2.png)
+<img
+  src="/assets/engine/nft-checkout-2.png"
+  alt="Prompted for card details"
+  width="400px"
+/>
 
 They are informed when their payment is submitted.
-![Successful payment](../assets/nft-checkout-3.png)
+
+<img
+  src="/assets/engine/nft-checkout-3.png"
+  alt="Successful payment"
+  width="400px"
+/>
 
 ## Full code example
 

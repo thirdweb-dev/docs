@@ -1,6 +1,6 @@
 ---
 slug: /wallet/build-a-wallet
-title: Building a Wallet
+title: Building a Wallet Connector
 ---
 
 import Tabs from "@theme/Tabs";
@@ -11,7 +11,7 @@ import ViewRepoButton from "@components/ViewRepoButton";
 
 The `@thirdweb-dev/wallets` package provides a set of pre-built components and functionality for creating and managing cryptocurrency wallets.
 
-The following will guide you through how you can create your own wallet in a few simple steps:
+The following will guide you through how you can create your own wallet connector in a few simple steps:
 
 1. Implement your own `Connector` class
 2. Implement your own `AbstractClientWallet` class
@@ -488,7 +488,7 @@ A function that returns a React component that renders the UI for selecting your
 
 Instead of the default icon + name in wallet selector screen, you can render a custom UI for your wallet.
 
-Take [Embedded wallet](https://github.com/thirdweb-dev/js/blob/main/packages/react/src/wallet/wallets/embeddedWallet/embeddedWallet.tsx) for example, It renders an Sign in with Google + Email Input.
+Take [Embedded wallet](https://github.com/thirdweb-dev/js/blob/main/packages/react/src/wallet/wallets/embeddedWallet/embeddedWallet.tsx) for example, It renders an Social Icons + Email Input.
 
 :::info
 
@@ -717,7 +717,7 @@ function MyWalletConnectionUI(props: ConnectUIProps<MyWallet>) {
 
 Instead of the default icon + name in the wallet selector screen, you can render a custom UI for your wallet.
 
-Take [Embedded wallet](https://github.com/thirdweb-dev/js/blob/main/packages/react/src/wallet/wallets/embeddedWallet/embeddedWallet.tsx) for example, It renders an Sign in with Google + Email Input.
+Take [Embedded wallet](https://github.com/thirdweb-dev/js/blob/main/packages/react/src/wallet/wallets/embeddedWallet/embeddedWallet.tsx) for example, It renders Social Icons + Email Input.
 
 <img src="/assets/connect-wallet/connect-wallet-embedded-compact.png" />
 
