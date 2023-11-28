@@ -109,13 +109,13 @@ Example: `"payment": { value: "0 * $QUANTITY", currency: "MATIC" }`
 
 ### NFTs priced in USDC
 
-Ensure your mint method **explicitly requests USDC tokens from <<glossary:msg.sender>>**. See [USDC Pricing](/checkouts/usdc-pricing) for more details.
+Ensure your mint method **explicitly requests USDC tokens from msg.sender**. See [USDC Pricing](/checkouts/usdc-pricing) for more details.
 
 ### Delegate a different ERC-20 payment address
 
-> 📘
 >
-> This is required when interacting with the [Seaport contract](https://docs.opensea.io/reference/seaport-overview).
+> 📘 This is required when interacting with the [Seaport contract](https://docs.opensea.io/reference/seaport-overview).
+>
 
 By default thirdweb's float wallet approves your NFT contract to request ERC-20 tokens.
 
