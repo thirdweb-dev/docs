@@ -1,0 +1,94 @@
+---
+title: cryptoDefiWallet
+slug: /react.defiwallet
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+import { CustomizeWalletConfigurator } from "@components/build-wallet/CustomizeWalletConfigurator";
+
+A wallet configurator for [Defi Wallet](/wallet/defi-wallet) which allows integrating the wallet with React.
+
+```tsx
+import { cryptoDefiWallet } from "@thirdweb-dev/react";
+
+const cryptoDefiWalletConfig = cryptoDefiWallet(options);
+```
+
+## options
+
+<details>
+  <summary>projectId (recommended) </summary>
+  <div>
+
+Your project's unique identifier that can be obtained at [cloud.walletconnect.com](https://cloud.walletconnect.com).
+
+Defaults to a common thirdweb projectId. We recommend getting your own projectId at
+[cloud.walletconnect.com](https://cloud.walletconnect.com) when launching your project.
+
+```javascript
+import { cryptoDefiWallet } from "@thirdweb-dev/react";
+
+cryptoDefiWallet(
+  // highlight-start
+  {
+    projectId: "<PROJECT_ID>",
+  },
+  // highlight-end
+);
+```
+
+</div>
+</details>
+
+<details>
+  <summary>recommended (optional) </summary>
+  <div>
+
+Show this wallet as "recommended" in the [ConnectWallet Modal](/react/react.connectwallet).
+
+```ts
+cryptoDefiWallet({
+  // highlight-start
+  recommended: true,
+  // highlight-end
+});
+```
+
+</div>
+</details>
+
+## Usage with `ConnectWallet`
+
+To allow users to connect to this wallet using the [ConnectWallet](/react/react.connectwallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop.
+
+```tsx
+<ThirdwebProvider
+  supportedWallets={[cryptoDefiWallet()]}
+  clientId="your-client-id"
+>
+  <YourApp />
+</ThirdwebProvider>
+```
+
+## Usage with `useConnect`
+
+you can use the `useConnect` hook to programmatically connect to the wallet without using the [ConnectWallet](/react/react.connectwallet) component.
+
+The wallet also needs to be added in [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) if you want the wallet to auto-connect on next page load.
+
+```tsx
+const cryptoDefiWalletConfig = cryptoDefiWallet();
+
+function App() {
+  const connect = useConnect();
+
+  const handleConnect = async () => {
+    await connect(cryptoDefiWalletConfig, connectOptions);
+  };
+
+  return <div> ... </div>;
+}
+```

@@ -26,7 +26,7 @@ var connection = new WalletConnection(
 string address = await sdk.wallet.Connect(connection);
 ```
 
-### Login with OAuth2 (Google, etc.)
+### Login with OAuth2 (Google, Apple, Facebook, etc.)
 
 This method initiates an OAuth2 login process and redirects back to the app upon successful authentication.
 
@@ -81,7 +81,7 @@ string address = await sdk.wallet.Connect(connection);
 
 If using Email OTP flow, displays a modal where you can input your OTP code.
 
-If using Google OAuth2 flow, opens a popup where you can login with your Google account. If successful, the popup will close and the wallet will connect.
+If using OAuth2 flow, opens a popup where you can login with your provider account. If successful, the popup will close and the wallet will connect.
 
 If using Custom JWT flow, attempts to connect directly after verifying the JWT token.
 
@@ -89,7 +89,7 @@ If using Custom JWT flow, attempts to connect directly after verifying the JWT t
 
 If using Email OTP flow, displays a modal where you can input your OTP code.
 
-If using Google OAuth2 flow, opens the default browser where you can login with your Google account. Connects after the login flow is complete.
+If using the OAuth2 flow, opens the default browser where you can login with your provider account. Connects after the login flow is complete.
 
 If using Custom JWT flow, attempts to connect directly after verifying the JWT token.
 
@@ -97,7 +97,7 @@ If using Custom JWT flow, attempts to connect directly after verifying the JWT t
 
 If using Email OTP flow, displays a modal where you can input your OTP code.
 
-If using Google OAuth2 flow, interacts with native in-app browser/authentication implementations to login with your Google account. Redirects back to the app through a deep link after the login flow is complete. Only available in builds.
+If using the OAuth2 flow, interacts with native in-app browser/authentication implementations to login with your provider account. Redirects back to the app through a deep link after the login flow is complete. Only available in builds.
 
 If using Custom JWT flow, attempts to connect directly after verifying the JWT token.
 

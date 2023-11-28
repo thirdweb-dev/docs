@@ -96,9 +96,10 @@ type EmailVerificationAuthParams = {
   recoveryCode?: string;
 };
 
-// google sign-in
-type GoogleAuthParams = {
-  strategy: "google";
+export type EmbeddedWalletOauthStrategy = "google" | "apple" | "facebook";
+
+type OauthAuthParams = {
+  strategy: EmbeddedWalletOauthStrategy;
   openedWindow?: Window;
   closeOpenedWindow?: (window: Window) => void;
 };
