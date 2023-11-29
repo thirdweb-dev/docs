@@ -71,6 +71,16 @@ export default function App() {
 }
 ```
 
+And we'll need to add a `ConnectWallet` button into our app to allow our user's to connect their wallets - this button is highly customizable, for more you can read into the [details of using the ConnectWallet button](https://portal.thirdweb.com/connect).
+
+```tsx
+import { ConnectWallet } from "@thirdweb-dev/react";
+
+export function Connect() {
+  return <ConnectWallet />;
+}
+```
+
 Now, when we send a transaction to a contract from the user's connected wallet, it will be forwarded through our meta-transaction relayer and sponsored by the Engine backend wallet instead of forcing the user to spend funds.
 
 ```tsx
