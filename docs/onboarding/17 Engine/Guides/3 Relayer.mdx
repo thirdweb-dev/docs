@@ -42,35 +42,50 @@ With this ID, you're meta-transaction relayer endpoint will be at `POST - /relay
 
 ## Step 2: Use your relayer endpoint to sponsor transactions
 
-Now that we've setup our endpoint, we can use it to sponsor transactions using the `@thirdweb-dev/sdk` package.
+Now that we've setup our endpoint, we can use it to sponsor transactions for our users using the `@thirdweb-dev/react` package on the client-side.
 
-All we need to do is instantiate the SDK to be aware of our meta-transaction relayer endpoint, and it will attempt to send all transactions through the endpoint.
+All we need to do is setup the SDK to be aware of our meta-transaction relayer endpoint using the `ThirdwebProvider`, and it will attempt to send all transactions through the endpoint.
 
-In the following snippet, we instantiate the SDK with the standard configuration, and additionally specify the `gasless.engine.relayerUrl` parameter to enable meta-transaction relaying.
-
-```ts
-// Only instantiating the SDK with private key for demo purposes
-const sdk = ThirdwebSDK.fromPrivateKey("<private-key>", "arbitrum-goerli", {
-  gasless: {
-    // Here we specify our engine relayer URL that we created earlier
-    engine: {
-      relayerUrl:
-        "http://0.0.0.0:3005/relayer/4cc2b996-27dd-4263-a9ab-0997905c5e29",
-    },
-  },
-  secretKey: "<thirdweb-api-secret-key>",
-});
-```
-
-Now, when we send a transaction to a contract with this instance of the SDK, it will be forwarded through our meta-transaction relayer and sponsored by the Engine backend wallet instead of forcing the user to spend funds.
+In the following snippet, we setup the `ThirdwebProvider`, and additionally specify the `sdkOptions.gasless.engine.relayerUrl` parameter to enable meta-transaction relaying.
 
 ```tsx
-const contract = await sdk.getContract(
-  "0x7A0CE8524bea337f0beE853B68fAbDE145dAC0A0",
-);
+import { ThirdwebProvider } from "@thirdweb-dev/react";
 
-// This transaction will automatically go through the meta-transaction relayer!
-const tx = await contract.erc20.mint(1);
+export default function App() {
+  return (
+    <ThirdwebProvider
+      chain="polygon"
+      sdkOptions={{
+        gasless: {
+          engine: {
+            // Here we specify our engine relayer URL that we created earlier
+            relayerUrl:
+              "http://0.0.0.0:3005/relayer/4cc2b996-27dd-4263-a9ab-0997905c5e29",
+          },
+        },
+      }}
+    >
+      <Component />
+    </ThirdwebProvider>
+  );
+}
+```
+
+Now, when we send a transaction to a contract from the user's connected wallet, it will be forwarded through our meta-transaction relayer and sponsored by the Engine backend wallet instead of forcing the user to spend funds.
+
+```tsx
+import { useContract } from "@thirdweb-dev/react";
+
+export default function Component() {
+  const contract = useContract("0x7A0CE8524bea337f0beE853B68fAbDE145dAC0A0");
+
+  const mint = async () => {
+    // This mint transaction will automatically use the engine relayer
+    await contract.erc20.mint(1);
+  };
+
+  return <Button onClick={mint}>Approve</Button>;
+}
 ```
 
 Using this simple flow, you can use Engine as a meta-transaction relayer to sponsor funds for your users!
