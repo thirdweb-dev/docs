@@ -12,9 +12,8 @@ When a user signs into an application using their email or social logins for the
 1. **Shard A** is stored securely on the user's device. For web applications, this is stored on the browser, or for mobile apps, it is in a secure enclave.
 2. **Shard B** is encrypted and stored in [Amazon KMS](https://aws.amazon.com/kms/) using a key known to thirdweb. This process uses [hardware security modules](https://en.wikipedia.org/wiki/Hardware_security_module) (HSMs) to protect the confidentiality and integrity of keys. The encrypted string is stored in thirdweb's database.
 3. **Shard C** is encrypted by user authentication and stored in Amazon's KMS using hardware security modules (HSMs) to protect the confidentiality and integrity of keys. Despite the key stored on thirdweb's servers, thirdweb has no way of decrypting and accessing the key.
-    
-    ![embedded-wallet-architecture.svg](./assets/embed-creation.svg)
-    
+
+   ![embedded-wallet-architecture.svg](./assets/embed-creation.svg)
 
 ### Recoverability
 
@@ -42,7 +41,7 @@ Users may view all their application-scoped Embedded Wallets in a single view us
 
 ### Scalability
 
-We support up to 100 wallets generated/second by default and can support higher limits (up to 3,000 wallets generated/second) upon request. [Contact Sales](https://thirdweb.com/contact-us) for more information. 
+We support up to 100 wallets generated/second by default and can support higher limits (up to 3,000 wallets generated/second) upon request. [Contact Sales](https://thirdweb.com/contact-us) for more information.
 
 ### Security & privacy
 

@@ -32,19 +32,20 @@ Yes. Engine can read and write to any EVM contract with low-level API calls, inc
 Write calls to contracts do not block until they are mined. Instead they enqueue an async job and immediately return a reference to the job called `queueId`.
 
 Here are three ways to determine when the job is mined:
+
 - Use [webhooks](/engine/webhooks) to notify your backend when a transaction event occurs.
 - Poll the `/transaction/status/<queue_id>` endpoint.
 - Use websockets:
 
-    ```js
-    const socket = new WebSocket(
-      "wss://<engine_url>/transaction/status/<queue_id>?token=<session_token>",
-    );
-    socket.onmessage = (event) => {
-      const res = JSON.parse(event.data);
-      console.log("Received data:", JSON.parse(res.result));
-    };
-    ```
+  ```js
+  const socket = new WebSocket(
+    "wss://<engine_url>/transaction/status/<queue_id>?token=<session_token>",
+  );
+  socket.onmessage = (event) => {
+    const res = JSON.parse(event.data);
+    console.log("Received data:", JSON.parse(res.result));
+  };
+  ```
 
 ### How do I cancel a transaction?
 
@@ -66,7 +67,7 @@ As of v0.0.7, an `ENCRYPTION_PASSWORD` is used to encrypt sensitive data stored 
 
 To resolve this error, set `ENCRYPTION_PASSWORD` to the `THIRDWEB_API_SECRET_KEY` used during setup.
 
-Afterward you may change `THIRDWEB_API_SECRET_KEY` if needed. Do *not* change `ENCRYPTION_PASSWORD` since all sensitive data is encrypted with this password.
+Afterward you may change `THIRDWEB_API_SECRET_KEY` if needed. Do _not_ change `ENCRYPTION_PASSWORD` since all sensitive data is encrypted with this password.
 
 ### How do I resolve issues connecting to Postgres DB?
 

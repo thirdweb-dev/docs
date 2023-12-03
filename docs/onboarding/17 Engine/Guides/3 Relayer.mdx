@@ -1,0 +1,103 @@
+---
+slug: /guides/engine/relayer
+title: Meta-transaction Relayer
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+import QuickstartCard from "@components/QuickstartCard";
+
+You may want to sponsor the gas for your user's transactions using a meta-transaction relayer.
+
+Engine allows you to create meta-transaction relayer endpoints that you can use from your client-side application.
+
+It supports the following standard meta-transaction formats:
+
+- [EIP-2771 Native Meta-transactions](https://eips.ethereum.org/EIPS/eip-2771)
+- [EIP-2612 Permit Approval](https://eips.ethereum.org/EIPS/eip-2612)
+- [Polygon Native Meta-transactions](https://wiki.polygon.technology/docs/pos/design/transactions/meta-transactions/meta-transactions/)
+
+In this guide, we're going to setup a meta-transaction relayer with Engine and use it to sponsor gas fees for users' client-side transactions.
+
+## Step 1: Create a meta-transaction relayer endpoint
+
+First, we need to create a new meta-transaction relayer endpoint with Engine.
+
+You can do this from the `Explorer` tab on your Engine dashboard by navigating to the `POST - /relayer/create` endpoint.
+
+Here, you'll need to specify:
+
+1. The `chain` your relayer will function on.
+2. The `backendWalletAddress` of the Engine backend wallet you want to use to sponsor funds for your user.
+3. The `allowedContracts` that the endpoint can forward transactions to.
+4. Optionally, the `name` of your relayer
+5. Optionally, the `allowedForwarders` the relayer is allowed to forward transactions with
+
+<img src="/assets/engine/relayer-1.png" alt="Relayer setup" />
+
+Once you create the endpoint, you'll get back a `uuid` which is the unique ID of your relayer endpoint.
+
+With this ID, you're meta-transaction relayer endpoint will be at `POST - /relayer/{relayerId}`.
+
+## Step 2: Use your relayer endpoint to sponsor transactions
+
+Now that we've setup our endpoint, we can use it to sponsor transactions for our users using the `@thirdweb-dev/react` package on the client-side.
+
+All we need to do is setup the SDK to be aware of our meta-transaction relayer endpoint using the `ThirdwebProvider`, and it will attempt to send all transactions through the endpoint.
+
+In the following snippet, we setup the `ThirdwebProvider`, and additionally specify the `sdkOptions.gasless.engine.relayerUrl` parameter to enable meta-transaction relaying.
+
+```tsx
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+
+export default function App() {
+  return (
+    <ThirdwebProvider
+      activeChain="polygon"
+      sdkOptions={{
+        gasless: {
+          engine: {
+            // Here we specify our engine relayer URL that we created earlier
+            relayerUrl:
+              "http://0.0.0.0:3005/relayer/4cc2b996-27dd-4263-a9ab-0997905c5e29",
+          },
+        },
+      }}
+    >
+      <Component />
+    </ThirdwebProvider>
+  );
+}
+```
+
+And we'll need to add a `ConnectWallet` button into our app to allow our user's to connect their wallets - this button is highly customizable, for more you can read into the [details of using the ConnectWallet button](https://portal.thirdweb.com/connect).
+
+```tsx
+import { ConnectWallet } from "@thirdweb-dev/react";
+
+export function Connect() {
+  return <ConnectWallet />;
+}
+```
+
+Now, when we send a transaction to a contract from the user's connected wallet, it will be forwarded through our meta-transaction relayer and sponsored by the Engine backend wallet instead of forcing the user to spend funds.
+
+```tsx
+import { useContract } from "@thirdweb-dev/react";
+
+export default function Component() {
+  const contract = useContract("0x7A0CE8524bea337f0beE853B68fAbDE145dAC0A0");
+
+  const mint = async () => {
+    // This mint transaction will automatically use the engine relayer
+    await contract.erc20.mint(1);
+  };
+
+  return <Button onClick={mint}>Approve</Button>;
+}
+```
+
+Using this simple flow, you can use Engine as a meta-transaction relayer to sponsor funds for your users!
+
+The last point to note - the SDK and Engine will automatically detect what type of meta-transaction method (EIP-2771, EIP-2612, etc.) is appropriate to use based on your contract, and will handle the details under the hood.
