@@ -119,6 +119,9 @@ function App() {
 
 If you provide an additional argument to the hook, it will be used as the `CallOverrides` object send with your request.
 
+
+To retrieve the sender's address using msg.sender in view functions within your smart contract, it is essential to include the property {from: 0X123} in order to access the relevant address information.
+
 ```jsx
 import { useContractRead, useContract, Web3Button } from "@thirdweb-dev/react";
 
