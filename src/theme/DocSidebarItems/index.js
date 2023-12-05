@@ -72,7 +72,7 @@ function DocSidebarItems({ items, ...props }) {
     },
     {
       title: "Solutions",
-      items: ["Signature Minting"],
+      items: ["Signature Minting", "Gaming"],
     },
     {
       title: "Resources",
