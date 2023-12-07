@@ -76,13 +76,9 @@ Soon, developers will be able to toggle on the option for users to add a backup 
 
 ### How is the private key managed?
 
-The private key is sharded into three pieces. The first piece is stored on the customer’s device, the second piece is stored in Amazon’s KMS and encrypted by the customer’s email/social auth, and the third piece is stored on Paper. At anytime, there needs to be 2/3 pieces for the private key to be reconstructed.
-
-thirdweb is non-custodial because we only have access to the third piece stored on thirdweb’s servers, and we cannot access the other two shards without the user logging into your application.
-
-Our security architecture has been audited by HackerOne and we have an ongoing bounty program to ensure vulnerabilities are being covered.
+You can learn more about the architecture of how embedded wallets are created and stored [here](https://portal.thirdweb.com/embedded-wallet/how-it-works)
 
 ### What happens if thirdweb or my database gets breached?
 
-Using Shamir Secret Sharing technology, your customers’ assets are safe even in the event that thirdweb or you are compromised. This is because the attacker will only be able to access 1 of the 3 shards, and that is not enough to reconstruct the private key.
+Using Shamir Secret Sharing technology, your customers’ assets are safe even if thirdweb or you are compromised. This is because the attacker will only be able to access 1 of the 3 shards, and that is not enough to reconstruct the private key.
 
