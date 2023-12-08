@@ -32,7 +32,7 @@ thirdweb will call your backend with an HTTPS `POST` request:
 
 ```text
 Content-Type: application/json
-X-Paper-Signature: <SIGNATURE_FROM_THIRDWEB>
+x-thirdweb-signature: <SIGNATURE_FROM_THIRDWEB>
 ```
 
 ### Request body
@@ -136,7 +136,7 @@ Do not provide a `localhost` URL to test your local server. We recommend testing
 
 ### Verify the signature header
 
-To ensure the request came from thirdweb, each webhook request signs the payload and provides this signature in the `X-Paper-Signature` header.
+To ensure the request came from thirdweb, each webhook request signs the payload and provides this signature in the `x-thirdweb-signature` header.
 
 To verify this signature, create a **SHA-256 HMAC hash** with your **thirdweb payments secret key** ([here](https://thirdweb.com/dashboard/payments/settings))and the **body payload as the message** (as a JSON-encoded string).
 
@@ -151,7 +151,7 @@ const thirdwebCheckoutsWebhookHandler = (req, res) => {
   const apiKey = "<YOUR_API_KEY>"; // Your thirdweb payments secret key
 
   // Get the provided signature.
-  const signature = req.headers["x-paper-signature"];
+  const signature = req.headers["x-thirdweb-signature"];
   // Compute the expected signature.
   const hash = createHmac("sha256", apiKey)
     .update(JSON.stringify(req.body)) // {"event":"transfer:succeeded","result":{"id":...
