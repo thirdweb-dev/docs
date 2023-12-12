@@ -52,7 +52,7 @@ They also work with any wallet provider as the EOA, but it is recommended to use
 
 You would then be able to login to the exact same persistent EOA and smart wallet address across your apps, and even across different platforms.
 
-You can also create session keys, allowing new signers to interact with the smart wallet without being the admin.
+You can also create session keys (revokable), allowing new signers to interact with the smart wallet without being the admin.
 You may also add/remove admins.
 
 ```csharp
@@ -61,16 +61,38 @@ using Thirdweb;
 // Reference to your Thirdweb SDK
 var sdk = ThirdwebManager.Instance.SDK;
 
-// Create a session key to add a temporary signer
-var createSessionResult = await sdk.wallet.CreateSessionKey("0xSignerAddress", ...options);
+// Create a session key
+string signerAddress = "0xSignerAddress";
+List<string> approvedTargets = new List<string> { "0xTargetAddress" };
+string nativeTokenLimitPerTransactionInWei = "0";
+string permissionStartTimestamp = "0";
+string permissionEndTimestamp = Utils.GetUnixTimestampIn10Years().ToString();
+string reqValidityStartTimestamp = "0";
+string reqValidityEndTimestamp = Utils.GetUnixTimestampIn10Years().ToString();
 
-// Alternatively, you can add an admin
+var createSessionResult = await sdk.wallet.CreateSessionKey(
+  "0xSignerAddress",
+  approvedTargets,
+  nativeTokenLimitPerTransactionInWei,
+  permissionStartTimestamp,
+  permissionEndTimestamp,
+  reqValidityStartTimestamp,
+  reqValidityEndTimestamp
+);
+
+// Get a list of current signers with permission details
+List<SignerWithPermissions> signers = await sdk.wallet.GetAllActiveSigners();
+
+// Revoke a session key
+var revokeSessionResult = await sdk.wallet.RevokeSessionKey("0xSignerAddress");
+
+// Add admin
 var addAdminResult = await sdk.wallet.AddAdmin("0xSignerAddress");
 
-// Or remove an admin
+// Remove admin
 var removeAdminResult = await sdk.wallet.RemoveAdmin("0xSignerAddress");
 
-// This pairs well with the `smartWalletAccountOverride` option to connect to a specific smart wallet
+// These features pair well with the `smartWalletAccountOverride` option to connect to a specific smart wallet
 var connection = new WalletConnection(
   ...options,
   smartWalletAccountOverride: "0xSmartWalletAddress"
