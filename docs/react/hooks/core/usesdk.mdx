@@ -32,6 +32,9 @@ function App() {
     sdk?.deployer.deployNFTDrop({
       name: "My NFT Drop",
       primary_sale_recipient: "{{wallet_address}}",
+      platform_fee_basis_points: 100, // 1% platform fees
+      platform_fee_recipient: "{{wallet_address}}",
+
     });
   }
 }
