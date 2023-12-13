@@ -5,6 +5,7 @@ title: Custom Auth Server
 
 import TabItem from "@theme/TabItem";
 import Tabs from "@theme/Tabs";
+import Tabs from "@theme/Tabs";
 
 # Create a custom auth server
 
@@ -45,10 +46,12 @@ import { useEmbeddedWallet } from "@thirdweb-dev/react"; // or /react-native
 
 const embeddedWallet = useEmbeddedWallet();
 
-const handlePostLogin = async (jwt: string) => {
+const handlePostLogin = async () => {
   await embeddedWallet.connect({
     strategy: "auth_endpoint",
-    payload: JSON.stringify({ userId:"ANY_RANDOM_ID_HERE" }),
+    // in production this would be your public identifier for the user
+    payload: JSON.stringify({ userId:"ANY_RANDOM_ID_HERE" }), 
+    encryptionKey: "ANY_RANDOM_STRING_HERE"
   });
 };
 ```
@@ -84,6 +87,21 @@ Of course, you would use your own auth server instead of the one we provided. Th
 
 ### Setup
 
+The following steps will show you how to create a simple auth server that can be used with the embedded wallet.
+
+At a high level, the auth server will:
+
+1. Handle login for the user into your application.
+2. Have a way to get a public identifier for the user.
+3. Have an endpoint to verify the public identifier and return some basic information about the user
+
+The endpoint in step 3 is what your register as your auth endpoint on the thirdweb dashboard.
+
+Steps 1 and 2 are up to you to implement. You can use any auth strategy you want.
+
+Here's a high level diagram:
+![custom auth flow diagram](../assets/custom-auth-flow.png)
+
 1. Create a new directory for your project and navigate to it in your CLI
 
    ```bash
@@ -97,12 +115,6 @@ Of course, you would use your own auth server instead of the one we provided. Th
    npm init -y
 
    yarn init -y
-   ```
-
-3. Install the necessary packages
-
-   ```bash
-   npm install express jsonwebtoken
    ```
 
 ### **Create the Server:**
@@ -122,6 +134,7 @@ Of course, you would use your own auth server instead of the one we provided. Th
 
    app.use(express.json());
 
+   // This is what your app calls to login a user and get a public identifier for the user (otherwise known as the payload)
    app.post("/login", (req, res) => {
      const { email, password } = req.body;
      const user = users.find(
@@ -131,14 +144,19 @@ Of course, you would use your own auth server instead of the one we provided. Th
 
      res.send({ payload: user.id });
    });
-
+   // This is a sample endpoint that yuou would register on the thirdweb dashboard for us to verify the payload
    app.get("/thirdweb-will-call-this", (req, res) => {
      const { payload } = req.body;
      if (!payload) return res.status(401).send({ message: "Invalid credentials" });
+
+     // you would write your own logic here to verify the payload here
      const user = users.find((u) => u.id === payload);
      if (!user) return res.status(401).send({ message: "Invalid credentials" });
+
+     // once the user is successfully verified, you can return the following field
      return res.send({
          userId: user.id,
+         // the last two fields here are optional
          email: user.email,
          exp: Math.floor(Date.now() / 1000) + 60 * 60 * 24 * 30,
       });
@@ -169,20 +187,4 @@ To deploy the server, you can use use services such as [Zeet](https://zeet.co/) 
 
 ### **Integrate Embedded Wallets**
 
-1. Navigate to Wallets > [Embedded Wallets](https://thirdweb.com/dashboard/wallets/embedded) in the thirdweb dashboard.
-2. Create a thirdweb API key if you don't have one or select an existing key to use for this project. [Learn more about API keys.](https://portal.thirdweb.com/api-keys)
-
-   ![Embedded wallet dashboard with create key displayed](../assets/ew-create-key.png)
-
-3. Allowlist domain or bundle ids in Access Restrictions.
-4. Navigate to the Configuration view and enable **Custom Auth Endpoint**
-
-   ![Configuration view for embedded wallet](../assets/ew-custom-auth-config.png)
-
-5. Set the Auth Endpoint URL to `https://your-domain/thirdweb-will-call-this`
-6. Set any additional headers that you would like to send to your server. For example, you can set the `Authorization` header to with a bearer token to authenticate the request coming to the auth endpoint.
-7. Save the configuration.
-8. Copy the client ID.
-9. In your preferred thirdweb client SDK, pass the payload you retrieved from logging in to the server.
-
-A persistent, cross-platform wallet is now created for your user.
+Refer top the [quickstart above](#5-min-quickstart) to integrate the embedded wallet into your application.
