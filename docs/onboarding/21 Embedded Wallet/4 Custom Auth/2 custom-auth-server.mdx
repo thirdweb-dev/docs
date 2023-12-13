@@ -6,7 +6,7 @@ title: Custom Auth Server
 import TabItem from "@theme/TabItem";
 import Tabs from "@theme/Tabs";
 
-# Create a custom JWT auth server
+# Create a custom auth server
 
 Learn how to integrate your auth backend with our embedded wallets solution so you can onboard your users into web3 seamlessly. 
 
@@ -26,9 +26,9 @@ This guide is simplified for demonstration purposes and is not ready for product
 3. Allowlist domain or bundle ids in Access Restrictions.
 4. Navigate to the Configuration view and enable **Custom Auth Endpoint**
 
-   ![Configuration view for embedded wallet](../assets/ew-configuration.png)
+   ![Configuration view for embedded wallet](../assets/ew-custom-auth-config.png)
 
-5. Set the Auth Endpoint URL to `https://embedded-wallet.thridweb.com/api/2023-11-30/embedded-wallet/auth/test-custom-auth-endpoint`
+5. Set the Auth Endpoint URL to `https://embedded-wallet.thirdweb.com/api/2023-11-30/embedded-wallet/auth/test-custom-auth-endpoint`
 6. Save the configuration.
 7. Copy the client ID.
 8. In your preferred thirdweb client SDK, pass the payload you retrieved from logging in to the server.
@@ -177,7 +177,7 @@ To deploy the server, you can use use services such as [Zeet](https://zeet.co/) 
 3. Allowlist domain or bundle ids in Access Restrictions.
 4. Navigate to the Configuration view and enable **Custom Auth Endpoint**
 
-   ![Configuration view for embedded wallet](../assets/ew-configuration.png)
+   ![Configuration view for embedded wallet](../assets/ew-custom-auth-config.png)
 
 5. Set the Auth Endpoint URL to `https://your-domain/thirdweb-will-call-this`
 6. Set any additional headers that you would like to send to your server. For example, you can set the `Authorization` header to with a bearer token to authenticate the request coming to the auth endpoint.
