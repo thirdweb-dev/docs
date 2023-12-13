@@ -72,6 +72,7 @@ const embeddedWallet = new EmbeddedWallet({
 const authResult = await embeddedWallet.authenticate({
   strategy: "auth_endpoint",
   payload: JSON.stringify({ userId:"ANY_RANDOM_ID_HERE" }),
+  encryptionKey: "ANY_RANDOM_STRING_HERE"=
 });
 
 const walletAddress = await embeddedWallet.connect({ authResult });
@@ -99,7 +100,7 @@ The endpoint in step 3 is what your register as your auth endpoint on the thirdw
 Steps 1 and 2 are up to you to implement. You can use any auth strategy you want.
 
 Here's a high level diagram:
-![custom auth flow diagram](../assets/custom-auth-flow.png)
+![custom auth flow diagram](../assets/ew-custom-auth-flow.png)
 
 1. Create a new directory for your project and navigate to it in your CLI
 
@@ -186,4 +187,4 @@ To deploy the server, you can use use services such as [Zeet](https://zeet.co/) 
 
 ### **Integrate Embedded Wallets**
 
-Refer top the [quickstart above](#5-min-quickstart) to integrate the embedded wallet into your application.
+Refer top the [quickstart above](#5-minute-quickstart) to integrate the embedded wallet into your application.
