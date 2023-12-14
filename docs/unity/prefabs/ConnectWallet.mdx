@@ -28,21 +28,16 @@ From the `Inspector` window, you can configure the options for the `ConnectWalle
 The list of wallets you want to support.
 Each wallet you provide appears as a button in the dropdown.
 
-Supports `EmbeddedWallet`, `MetaMask`, `Coinbase`, `WalletConnect`, `MagicLink`, `LocalWallet`, `Paper`, `SmartWallet`, `HyperPlay`, `Injected` (window.ethereum).
+Supports `EmbeddedWallet`, `MetaMask`, `Coinbase`, `WalletConnect`, `LocalWallet`, `HyperPlay`, `Injected` (window.ethereum).
 
 Some wallet providers may not be supported on some native platforms.
 
-### Personal Wallet
+You can turn any of these wallets into a `SmartWallet` by checking the `Use Smart Wallets` checkbox.
 
-When using Smart Wallets, you can set the EOA Wallet Provider that you'd like to initiate them with. Defaults to `LocalWallet`.
+### Use Smart Wallets
 
-### Custom Callbacks
+When checked, the wallet provider will be wrapped in a `SmartWallet` which will allow you to use [SmartWallet features](/unity/wallet/SmartWallet).
 
-Custom logic to run whenever an event occurs on the button, including:
+### Events
 
-- `OnConnected`: Triggered when the user connects their wallet successfully.
-- `OnDisconnected`: Triggered when the user disconnects their wallet successfully.
-- `OnSwitchNetwork`: Triggered when the user switches networks successfully.
-- `OnFailedConnect`: Triggered when the user fails to connect their wallet.
-- `OnFailedDisconnect`: Triggered when an error occurs after attempting to disconnect a wallet.
-- `OnFailedSwitchNetwork`: Triggered when an error occurs after attempting to switch networks.
+You can set up events to be triggered when the user connects, switches network or disconnects their wallet, from the inspector.
