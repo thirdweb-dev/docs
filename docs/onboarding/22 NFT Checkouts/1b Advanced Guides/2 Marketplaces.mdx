@@ -10,7 +10,7 @@ Integration is identical to a checkout using a `CUSTOM_CONTRACT` contract type. 
 Your contract method should do the following:
 
 - Accepts the wallet address where the NFT should be delivered.
-- Accepts payment in the chain's native coin or [USDC / ERC-20 tokens](usdc-pricing) from the caller (`msg.sender`) of the method.
+- Accepts payment in the chain's native coin or [USDC / ERC-20 tokens](erc20-pricing) from the caller (`msg.sender`) of the method.
 - Transfers the NFT from the seller to the recipient's wallet address. Remember: `msg.sender` is thirdweb's minter wallet and not the buyer's wallet address. Your function needs to ensure the recipient is specified in the argument list.
 
 ## Third-party marketplaces

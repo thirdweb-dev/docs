@@ -60,7 +60,7 @@ Your smart contract method that mints the NFT must satisfy these requirements:
 
 1. The method must accept the buyer's wallet address as an argument.
 2. The method must allow thirdweb's minter wallets to mint an unlimited amount as the `msg.sender`. Any restrictions on the minting wallet address or quantity is not allowed.
-3. (If priced in USDC) The method must explicitly [request USDC token](/checkouts/usdc-pricing) from the `msg.sender`.
+3. (If priced in USDC) The method must explicitly [request USDC token](/checkouts/erc20-pricing) from the `msg.sender`.
 
 ## MintMethod
 
@@ -86,7 +86,7 @@ The generic format of the mintMethod is:
 
 > 🚧 Don't know the values?
 >
-> thirdweb supports two template variables -`$WALLET` and `$QUANTITY` that you may use if you don't know the buyer's wallet address and quantity.  Note that for **all other** fields such as `value` and `currency`, you would need to hardcode the actual values.
+> thirdweb supports two template variables -`$WALLET` and `$QUANTITY` that you may use if you don't know the buyer's wallet address and quantity. Note that for **all other** fields such as `value` and `currency`, you would need to hardcode the actual values.
 
 Template variables will be replaced when calling your contract:
 
@@ -109,13 +109,11 @@ Example: `"payment": { value: "0 * $QUANTITY", currency: "MATIC" }`
 
 ### NFTs priced in USDC
 
-Ensure your mint method **explicitly requests USDC tokens from msg.sender**. See [USDC Pricing](/checkouts/usdc-pricing) for more details.
+Ensure your mint method **explicitly requests USDC tokens from msg.sender**. See [USDC Pricing](/checkouts/erc20-pricing) for more details.
 
 ### Delegate a different ERC-20 payment address
 
->
 > 📘 This is required when interacting with the [Seaport contract](https://docs.opensea.io/reference/seaport-overview).
->
 
 By default thirdweb's float wallet approves your NFT contract to request ERC-20 tokens.
 
@@ -142,4 +140,3 @@ Please provide the full signature as your mintMethod. thirdweb will not try to "
 > Provide your mintMethod as `mint(address)`.
 
 You **do not** need to modify your contract.
-

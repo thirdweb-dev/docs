@@ -1,6 +1,6 @@
 ---
-slug: /checkouts/usdc-pricing
-title: USDC (ERC-20) Pricing
+slug: /checkouts/erc20-pricing
+title: ERC-20 Pricing
 ---
 
 > thirdweb supports selling NFTs that accept the USDC token **for enterprise customers only**.
@@ -33,7 +33,6 @@ title: USDC (ERC-20) Pricing
 2. Configure your checkout to accept USDC payment:
    1. **Shareable Checkout Links:** When creating the checkout set the **Price per NFT** currency to **USDC**.
    2. **One-Time Checkout Links:** When [creating a One-Time Checkout Link](/checkouts/one-time-checkout-link) set `mintMethod` with `"payment": { "value": "50 * $QUANTITY", currency: "USDC" }`.
-   3. **Checkout Elements:** When [creating a Client Secret](/checkouts/elements) set `mintMethod` with `"payment": { "value": "50 * $QUANTITY", currency: "USDC" }`.
 
 ## Accepting the correct USDC token
 
