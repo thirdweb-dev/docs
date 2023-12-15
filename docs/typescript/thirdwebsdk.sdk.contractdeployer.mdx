@@ -110,6 +110,7 @@ const txResult = await sdk.deployer.deployPublishedContract(
   "{{publisher_address_or_ens}}",
   "{{contract_name}}",
   [param1, param2],
+  version,
 );
 ```
 
@@ -127,9 +128,10 @@ the name of the published contract to deploy. ex: TokenERC721
 
 array of constructor arguments for the contract.
 
-### version
+### version (optional)
 
-version of the published contract. defaults to 'latest'.
+A `string` that needs to match the version displayed in the contract's publish page - or "latest" for the latest version.
+Defaults to "latest" if not specified.
 
 </details>
 

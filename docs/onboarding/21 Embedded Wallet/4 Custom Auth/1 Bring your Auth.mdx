@@ -3,24 +3,51 @@ slug: /embedded-wallet/custom-auth
 title: Use your own auth
 ---
 
-import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
+import Tabs from "@theme/Tabs";
 import QuickstartCard from "@components/QuickstartCard";
 
 By default, the embedded wallet service handles two things: auth, and spinning up crypto wallets tied to the auth. We require
 valid authentication to ensure a wallet is created for the right person.
-If you already have your own auth and only want to spin up wallets, we offer a simple way to hook up any **OpenID Connect ("OIDC") compatible** auth to create embedded wallets.
+If you already have your own auth and only want to spin up wallets, we offer a simple way to hook up any auth to create embedded wallets.
 
 ## How it works
+
+We offer two kinds of custom auth. One that is based on the OIDC standard, and one that is is based on you having you bring your own auth server.
+
+### Bring your own auth server
+
+- You have your own auth server that you use to authenticate users
+- When a user logs in, you are able to generate a public identifier that allows you to identify the user.
+- You can pass this identifier to the embedded wallet to generate a wallet for the user.
+- When verifying the user, we will hit an endopint that you provide to verify the user's identity.
+- We will then generate a wallet for the user if the provided payload is valid.
+
+### OIDC
 
 - An OIDC auth system has a public-private keypair, where the private key is used to sign auth tokens
 - The public key is uploaded to a public URL in JWKS format. The standard location is `https://{domain}.com/.well-known/jwks.json`
 - When a user logs in, a JWT token called the idToken is generated and signed by the private key. The OIDC spec provides an interface for fields that are used in this token.
-- We use the public key to verify that the JWT was signed correctly, and proceed to generate a wallet based on the `sub` (user identifier) value of the idToken.
+- This JWT is then passed to the embedded wallet to generate a wallet for the user.
+- We will verify the JWT against the public key to verify that the JWT was signed correctly. Upon successful verification, we will proceed to generate a wallet based on the `sub` (user identifier) value of the idToken.
 
 ## Configuration Setup
 
 In your API key settings, click edit, look for "Custom Auth" and provide the following values:
+
+### Bring your own auth server
+
+- An endpoint that we can hit to verify the user's identity
+  - This endpoint should accept a POST request with a JSON body containing the following fields:
+    - `payload`: This will correspont to the public identifier that was generated for your user.
+  - The endpoint should return a JSON body containing the following fields:
+    - `userId`: A uid for the user. Note that you can only create one wallet per `userId` at this point
+    - `email` (optional): If provided, the user will be able to access the same account outside of the platform for things like private key export // using with wallet connect etc.
+    - `exp` (optional): An expiration date for the user's wallet session. By default a session is 7 days long.
+- A list of custom headers (optional)
+  - These headers will be sent with every request to your verification endpoint. You can use these to authenticate the request.
+
+### OIDC
 
 - The URL of the JWKS file (public key)
   - This is used to verify the token was signed by you.
@@ -29,7 +56,57 @@ In your API key settings, click edit, look for "Custom Auth" and provide the fol
 
 ## Authenticating a user
 
-Once you've logged in with your own auth, you can pass the user's JWT to the embedded wallet to authenticate and connect.
+Once you've logged in with your own auth, you can pass the user's detail to the embedded wallet to authenticate and connect.
+
+### Bring your own auth server
+
+
+<Tabs>
+<TabItem value="react" label="React & React Native">
+
+In React and React Native, the `useEmbeddedWallet()` hook handles authentication and connection states.
+
+```typescript
+import { useEmbeddedWallet } from "@thirdweb-dev/react"; // or /react-native
+
+const embeddedWallet = useEmbeddedWallet();
+
+const handlePostLogin = async (jwt: string) => {
+  await embeddedWallet.connect({
+    strategy: "auth_endpoint",
+    payload,
+  });
+};
+```
+
+</TabItem>
+
+<TabItem value="typescript" label="Other Typescript Frameworks">
+
+In other frameworks, use your own instance of the wallet to authenticate and connect.
+
+```typescript
+import { EmbeddedWallet } from "@thirdweb-dev/wallets";
+import { Goerli } from "@thirdweb-dev/chains";
+
+const embeddedWallet = new EmbeddedWallet({
+  chain: Goerli, //  chain to connect to
+  clientId: "YOUR_CLIENT_ID", // Your thirdweb client ID
+});
+
+const authResult = await embeddedWallet.authenticate({
+  strategy: "auth_endpoint",
+  payload,
+});
+
+const walletAddress = await embeddedWallet.connect({ authResult });
+```
+
+</TabItem>
+</Tabs>
+
+
+### OIDC
 
 <Tabs>
 <TabItem value="react" label="React & React Native">
@@ -51,7 +128,7 @@ const handlePostLogin = async (jwt: string) => {
 
 </TabItem>
 
-<TabItem value="typescript" label="Other Frameworks">
+<TabItem value="typescript" label="Other Typescript Frameworks">
 
 In other frameworks, use your own instance of the wallet to authenticate and connect.
 
