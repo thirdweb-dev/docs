@@ -1,0 +1,68 @@
+---
+slug: /wallet/onekey-wallet
+title: OneKey Wallet
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Prompt users to connect to their [OneKey wallet](https://onekey.so).
+
+## Usage
+
+```javascript
+import { OneKeyWallet } from "@thirdweb-dev/wallets";
+
+const wallet = new OneKeyWallet();
+
+wallet.connect();
+```
+
+## Configuration
+
+Optionally, provide a configuration object when instantiating the `OneKeyWallet` class.
+
+<details>
+  <summary>projectId (recommended) </summary>
+  <div>
+
+This is only relevant if you want to use [WalletConnect](https://walletconnect.com/) for connecting to OneKey wallet mobile app when MetaMask is not injected.
+
+This `projectId` can be obtained at [cloud.walletconnect.com](https://cloud.walletconnect.com/). It is highly recommended to use your own project id and only use the default one for testing purposes.
+
+```javascript
+import { OneKeyWallet } from "@thirdweb-dev/wallets";
+
+const wallet = new OneKeyWallet(
+  // highlight-start
+  {
+    projectId: "YOUR_WALLET_CONNECT_PROJECT_ID",
+  },
+  // highlight-end
+);
+```
+
+</div>
+</details>
+
+<details>
+  <summary>recommended (optional) </summary>
+  <div>
+
+Show this wallet as "recommended" in the [ConnectWallet Modal](/react/react.connectwallet).
+
+```ts
+OneKeyWallet({
+  // highlight-start
+  recommended: true,
+  // highlight-end
+});
+```
+
+</div>
+</details>
+
+## Methods
+
+Inherits all the public methods from the [`AbstractClientWallet`](interfaces/abstract-client-wallet) class.

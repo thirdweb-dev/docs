@@ -42,8 +42,8 @@ export const iconMapping = {
   Engine: "/assets/product/sdk.png",
   "Bundler & Paymaster": "/assets/wallets/smart-wallet.svg",
   "RPC Edge": "/assets/product/sdk.png",
-  Guides: "/assets/resources/guides.svg",
   "NFT Checkouts": "/assets/product/checkout.png",
+  Gaming: "/assets/product/sdk.png",
 };
 
 export default function DocSidebarItemLink({
