@@ -138,7 +138,7 @@ Do not provide a `localhost` URL to test your local server. We recommend testing
 
 To ensure the request came from thirdweb, each webhook request signs the payload and provides this signature in the `x-thirdweb-signature` header.
 
-To verify this signature, create a **SHA-256 HMAC hash** with your **thirdweb payments secret key** that can be found in the thirdweb dashboard [payments settings](https://thirdweb.com/dashboard/payments/settings) and the **body payload as the message** (as a JSON-encoded string).
+To verify this signature, create a **SHA-256 HMAC hash** with your **thirdweb payments secret key** that can be found on [your Payments Settings page](https://thirdweb.com/dashboard/payments/settings) and the **body payload as the message** (as a JSON-encoded string).
 
 ### Example implementation
 
@@ -148,7 +148,7 @@ Here's a simplified HTTP handler in Next.js:
 import { createHmac, timingSafeEqual } from "crypto";
 
 const thirdwebCheckoutsWebhookHandler = (req, res) => {
-  const apiKey = "<YOUR_API_KEY>"; // Your thirdweb payments secret key
+  const webhookSecret = "<YOUR_API_SECRET_KEY>"; // Your webhook secret key
 
   // Get the provided signature.
   const signature = req.headers["x-thirdweb-signature"];
