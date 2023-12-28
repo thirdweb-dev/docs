@@ -672,7 +672,7 @@ An object containing role names as keys and an array of wallet addresses as the 
 Get an array of reasons why a specific wallet address is not eligible to claim tokens, if any.
 
 ```javascript
-const reasons = await contract.erc20.getClaimIneligibilityReasons(
+const reasons = await contract.erc20.claimConditions.getClaimIneligibilityReasons(
   "{{quantity}}", // Quantity of tokens to claim
   "{{wallet_address}}", // Wallet address to check
 );
