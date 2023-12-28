@@ -55,6 +55,10 @@ function DocSidebarItems({ items, ...props }) {
       items: ["Engine", "Storage", "RPC Edge"],
     },
     {
+      title: "Payments",
+      items: ["NFT Checkouts"],
+    },
+    {
       title: "Tools",
       items: ["CLI", "Dashboard"],
     },
@@ -72,7 +76,7 @@ function DocSidebarItems({ items, ...props }) {
     },
     {
       title: "Solutions",
-      items: ["Signature Minting"],
+      items: ["Signature Minting", "Gaming"],
     },
     {
       title: "Resources",

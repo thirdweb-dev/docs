@@ -55,6 +55,10 @@ string address = await sdk.wallet.Connect(connection);
 
 Allows the integration of a custom authentication flow, such as JWT, requiring the configuration of JWKS URI and AUD in the [API key settings](https://thirdweb.com/create-api-key).
 
+Alternatively, allows passing a generic payload that will be authenticated against your backend Auth Endpoint set in the [API key settings](https://thirdweb.com/create-api-key).
+
+You must also pass in an `encryptionKey` that will be used to encrypt the recovery share.
+
 ![Custom Auth Settings](../assets/jwt_auth_settings.png)
 
 ```csharp
@@ -66,8 +70,9 @@ var connection = new WalletConnection(
     provider: WalletProvider.EmbeddedWallet,
     chainId: 1,
     authOptions: new AuthOptions(
-        authProvider: AuthProvider.CustomAuth,
-        authToken: "your-auth-token-here",
+        authProvider: AuthProvider.JWT,
+        jwtOrPayload: "my-jwt-token-or-payload",
+        encryptionKey: "my-encryption-key",
     )
 );
 
@@ -83,7 +88,7 @@ If using Email OTP flow, displays a modal where you can input your OTP code.
 
 If using OAuth2 flow, opens a popup where you can login with your provider account. If successful, the popup will close and the wallet will connect.
 
-If using Custom JWT flow, attempts to connect directly after verifying the JWT token.
+If using Custom Auth flow, attempts to connect directly after verifying the auth token.
 
 ### Standalone
 
@@ -91,7 +96,7 @@ If using Email OTP flow, displays a modal where you can input your OTP code.
 
 If using the OAuth2 flow, opens the default browser where you can login with your provider account. Connects after the login flow is complete.
 
-If using Custom JWT flow, attempts to connect directly after verifying the JWT token.
+If using Custom Auth flow, attempts to connect directly after verifying the auth token.
 
 ### Mobile
 
@@ -99,7 +104,7 @@ If using Email OTP flow, displays a modal where you can input your OTP code.
 
 If using the OAuth2 flow, interacts with native in-app browser/authentication implementations to login with your provider account. Redirects back to the app through a deep link after the login flow is complete. Only available in builds.
 
-If using Custom JWT flow, attempts to connect directly after verifying the JWT token.
+If using Custom Auth flow, attempts to connect directly after verifying the auth token.
 
 ## Miscellaneous
 
