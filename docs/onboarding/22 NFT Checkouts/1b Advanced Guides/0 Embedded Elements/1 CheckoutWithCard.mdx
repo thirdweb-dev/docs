@@ -54,11 +54,15 @@ import { CheckoutWithCard } from "@thirdweb-dev/react";
         currency: "ETH",
       },
     },
+    // contractArgs (for thirdweb contracts)
+    contractArgs: {
+      tokenId: 0,
+    },
   }}
   onPaymentSuccess={(result) => {
     console.log("Payment successful:", result);
   }}
-/>;
+/>
 ```
 
 ### `CheckoutWithCard` props
