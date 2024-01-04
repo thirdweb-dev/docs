@@ -1,0 +1,24 @@
+---
+slug: /connect/connect-wallet/display-token-balance
+title: Display Token Balance
+---
+
+Display the balance of a token instead of the native token in ConnectWallet details button.
+
+```jsx
+import { Base } from "@thirdweb-dev/chains";
+
+// show Wrapped BTC balance when connected to Ethereum mainnet
+// Show Dai Stablecoin balance when connected to the Base mainnet
+
+<ConnectWallet
+  //  pass an object with chain id as key and token address as value
+  displayBalanceToken={{
+    // 1 is chain id of Ethereum mainnet
+    1: "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599", // contract address of Wrapped BTC token
+
+    // you can also import the chain object from @thirdweb-dev/chains to get the chain id
+    [Base.chainId]: "0x50c5725949A6F0c72E6C4a641F24049A917DB0Cb", // contract address of Dai Stablecoin token
+  }}
+/>
+```
