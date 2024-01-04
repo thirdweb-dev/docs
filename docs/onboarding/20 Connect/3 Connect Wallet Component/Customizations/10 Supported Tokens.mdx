@@ -1,0 +1,29 @@
+---
+slug: /connect/connect-wallet/supported-tokens
+title: Customize Supported Tokens
+---
+
+Customize the tokens shown in the "Send Funds" screen for various networks.
+
+By default, The "Send Funds" screen shows a few popular tokens for default chains and the native token. For other chains it only shows the native token.
+
+
+```jsx
+import { Base } from "@thirdweb-dev/chains";
+
+// Show "Dai Stablecoin" when connected to the "Base" mainnet
+<ConnectWallet
+  supportedTokens={{
+    // use chain id of the network as key and pass an array of tokens to show
+    // you can directly pass the number or import the chain object from @thirdweb-dev/chains to get the chain id
+    [Base.chainId]: [
+      {
+        address: "0x50c5725949A6F0c72E6C4a641F24049A917DB0Cb", // token contract address
+        name: "Dai Stablecoin",
+        symbol: "DAI",
+        icon: "https://assets.coingecko.com/coins/images/9956/small/Badge_Dai.png?1687143508",
+      },
+    ],
+  }}
+/>
+```
