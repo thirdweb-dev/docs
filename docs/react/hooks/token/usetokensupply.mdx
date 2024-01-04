@@ -25,7 +25,8 @@ import { useTokenSupply } from "@thirdweb-dev/react";
 const contractAddress = "{{contract_address}}";
 
 function App() {
-  const { data, isLoading, error } = useTokenSupply(contractAddress);
+    const myContract = useContract(contractAddress);
+    const { data, isLoading, error } = useTokenSupply(myContract.contract);
 }
 ```
 
